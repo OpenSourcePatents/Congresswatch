@@ -16,14 +16,25 @@ def fetch_members(chamber):
         'limit': 250,
         'currentMember': 'true',
         'chamber': chamber,
+        'offset': 0,
     }
-    try:
-        r = requests.get(f'{BASE}/member', params=params, headers=HEADERS, timeout=30)
-        r.raise_for_status()
-        return r.json().get('members', [])
-    except Exception as e:
-        print(f'Error fetching {chamber}: {e}')
-        return []
+    all_members = []
+    while True:
+        try:
+            r = requests.get(f'{BASE}/member', params=params, headers=HEADERS, timeout=30)
+            r.raise_for_status()
+            batch = r.json().get('members', [])
+            if not batch:
+                break
+            all_members.extend(batch)
+            print(f'  {chamber}: {len(all_members)} fetched')
+            if len(batch) < 250:
+                break
+            params['offset'] += 250
+        except Exception as e:
+            print(f'Error: {e}')
+            break
+    return all_members
 
 def get_photo_url(bioguide_id):
     if not bioguide_id:
@@ -34,7 +45,6 @@ def get_photo_url(bioguide_id):
 def normalize(m, chamber):
     bid = m.get('bioguideId', '')
     name = m.get('name', '')
-    # Congress.gov returns "Last, First" format
     if ',' in name:
         parts = name.split(',', 1)
         name = f'{parts[1].strip()} {parts[0].strip()}'
@@ -53,21 +63,27 @@ def normalize(m, chamber):
 
 print('Fetching House members...')
 house = fetch_members('House')
-print(f'  Got {len(house)} House members')
+print(f'Got {len(house)} House members')
 
 print('Fetching Senate members...')
 senate = fetch_members('Senate')
-print(f'  Got {len(senate)} Senate members')
+print(f'Got {len(senate)} Senate members')
 
-all_members = []
+# Deduplicate by bioguide ID — House record takes priority
+seen = {}
 for m in house:
-    all_members.append(normalize(m, 'House'))
+    bid = m.get('bioguideId', '')
+    if bid:
+        seen[bid] = normalize(m, 'House')
+
 for m in senate:
-    all_members.append(normalize(m, 'Senate'))
+    bid = m.get('bioguideId', '')
+    if bid and bid not in seen:
+        seen[bid] = normalize(m, 'Senate')
 
-print(f'Total: {len(all_members)} members')
+all_members = list(seen.values())
+print(f'Total unique members: {len(all_members)}')
 
-import os
 os.makedirs('data', exist_ok=True)
 with open('data/members.json', 'w') as f:
     json.dump(all_members, f, indent=2)
