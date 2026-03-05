@@ -20,7 +20,8 @@ jobs:
           FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
           LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
         run: python fetch.py
-            - run: |
+      - name: Save data
+        run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
           git add -A
