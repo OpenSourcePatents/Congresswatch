@@ -1,0 +1,38 @@
+name: Fetch Congress Data
+
+on:
+  schedule:
+    - cron: '0 3 * * *'  # Runs every day at 3am
+  workflow_dispatch:       # Lets you run it manually too
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 pandas tqdm python-dotenv
+
+      - name: Fetch member data
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
+        run: python fetch.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "CongressWatch Bot"
+          git config user.email "bot@congresswatch.io"
+          git add data/members.json
+          git diff --staged --quiet || git commit -m "Auto update member data"
+          git push
