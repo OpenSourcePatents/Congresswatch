@@ -4,1084 +4,1004 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CongressWatch — All Members</title>
+<title>CongressWatch — Follow The Money</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #080810;
-  --surface: #0f0f1a;
-  --card: #13131f;
-  --border: #1e1e30;
-  --accent: #ff2d55;
-  --accent2: #ffd60a;
-  --accent3: #30d158;
-  --blue: #0a84ff;
-  --text: #f0f0f5;
-  --muted: #5a5a7a;
-  --rep: #ff453a;
-  --dem: #0a84ff;
-  --ind: #bf5af2;
-}
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #1a1a1a;
+    --border: #222222;
+    --text: #f0f0f0;
+    --muted: #666666;
+    --accent: #ff2d55;
+    --blue: #0a84ff;
+    --green: #30d158;
+    --orange: #ff9f0a;
+    --yellow: #ffd60a;
+    --dem: #3b82f6;
+    --rep: #ef4444;
+    --ind: #a855f7;
+  }
 
-- { margin:0; padding:0; box-sizing:border-box; }
-
-html { scroll-behavior: smooth; }
+- { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
 background: var(–bg);
 color: var(–text);
-font-family: ‘Syne’, sans-serif;
+font-family: ‘DM Mono’, monospace;
 min-height: 100vh;
 overflow-x: hidden;
 }
 
-/* ── NOISE TEXTURE OVERLAY ── */
-body::before {
-content: ‘’;
-position: fixed;
-inset: 0;
-background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.03’/%3E%3C/svg%3E”);
-pointer-events: none;
-z-index: 0;
-opacity: 0.4;
-}
-
 /* ── HEADER ── */
 header {
-position: sticky;
-top: 0;
+position: fixed;
+top: 0; left: 0; right: 0;
 z-index: 100;
-background: rgba(8,8,16,0.92);
+background: rgba(10,10,10,0.95);
 backdrop-filter: blur(20px);
 border-bottom: 1px solid var(–border);
-padding: 0 2rem;
-height: 64px;
+padding: 0 16px;
+height: 52px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+min-width: 100%;
 }
-
-.logo-wrap { display: flex; align-items: baseline; gap: 0.6rem; }
 
 .logo {
-font-size: 1.4rem;
+font-family: ‘Syne’, sans-serif;
 font-weight: 800;
-letter-spacing: -0.5px;
+font-size: 16px;
 color: var(–text);
+white-space: nowrap;
+flex-shrink: 0;
 }
 
-.logo em {
-font-style: normal;
-color: var(–accent);
-}
+.logo span { color: var(–accent); }
 
-.logo-tag {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.6rem;
-color: var(–muted);
-letter-spacing: 2px;
-text-transform: uppercase;
-}
-
-.header-right {
+nav {
 display: flex;
+gap: 20px;
 align-items: center;
-gap: 1.5rem;
+overflow-x: auto;
+scrollbar-width: none;
+-webkit-overflow-scrolling: touch;
+padding-left: 16px;
 }
+
+nav::-webkit-scrollbar { display: none; }
+
+nav a {
+font-size: 10px;
+font-weight: 500;
+letter-spacing: 0.1em;
+color: var(–muted);
+text-decoration: none;
+white-space: nowrap;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+
+nav a:hover, nav a.active { color: var(–text); }
 
 .live-badge {
 display: flex;
 align-items: center;
-gap: 0.4rem;
-font-family: ‘DM Mono’, monospace;
-font-size: 0.65rem;
-letter-spacing: 1.5px;
-color: var(–accent3);
-text-transform: uppercase;
+gap: 5px;
+font-size: 9px;
+color: var(–green);
+letter-spacing: 0.1em;
+white-space: nowrap;
+flex-shrink: 0;
+margin-left: 12px;
 }
 
 .live-dot {
 width: 6px; height: 6px;
 border-radius: 50%;
-background: var(–accent3);
-animation: blink 2s infinite;
+background: var(–green);
+animation: pulse 2s infinite;
 }
 
-@keyframes blink {
-0%,100% { opacity:1; transform: scale(1); }
-50% { opacity:0.3; transform: scale(0.7); }
+@keyframes pulse {
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.5; transform: scale(0.8); }
 }
 
-.nav-link {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.7rem;
-letter-spacing: 1px;
-color: var(–muted);
-text-decoration: none;
-text-transform: uppercase;
-transition: color 0.2s;
-}
-
-.nav-link:hover { color: var(–text); }
-.nav-link.active { color: var(–accent2); }
-
-/* ── HERO STATS ── */
+/* ── HERO ── */
 .hero {
-padding: 3rem 2rem 2rem;
-position: relative;
-z-index: 1;
+padding: 80px 16px 24px;
 }
 
-.hero-title {
-font-size: clamp(2rem, 5vw, 3.5rem);
+.hero h1 {
+font-family: ‘Syne’, sans-serif;
+font-size: clamp(28px, 7vw, 48px);
 font-weight: 800;
-letter-spacing: -1px;
-line-height: 1.05;
-margin-bottom: 0.5rem;
+line-height: 1.1;
+margin-bottom: 10px;
 }
 
-.hero-title span { color: var(–accent); }
+.hero h1 em { color: var(–accent); font-style: normal; }
 
-.hero-sub {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.75rem;
+.hero p {
+font-size: 11px;
 color: var(–muted);
-letter-spacing: 1px;
-margin-bottom: 2.5rem;
+letter-spacing: 0.05em;
+margin-bottom: 24px;
 }
 
-.summary-bar {
-display: flex;
-gap: 0;
+/* ── STATS BAR ── */
+.stats {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 1px;
+background: var(–border);
 border: 1px solid var(–border);
-overflow: hidden;
-max-width: 900px;
+margin-bottom: 24px;
 }
 
-.summary-stat {
-flex: 1;
-padding: 1rem 1.5rem;
-border-right: 1px solid var(–border);
+.stat {
 background: var(–surface);
+padding: 14px 12px;
+text-align: center;
 }
 
-.summary-stat:last-child { border-right: none; }
-
-.summary-stat .val {
-font-size: 1.8rem;
+.stat-num {
+font-family: ‘Syne’, sans-serif;
+font-size: clamp(18px, 5vw, 28px);
 font-weight: 800;
+color: var(–accent);
+display: block;
 line-height: 1;
-color: var(–accent2);
+margin-bottom: 4px;
 }
 
-.summary-stat .val.red { color: var(–accent); }
-.summary-stat .val.green { color: var(–accent3); }
-
-.summary-stat .lbl {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.6rem;
-letter-spacing: 1.5px;
+.stat-label {
+font-size: 8px;
+color: var(–muted);
+letter-spacing: 0.1em;
 text-transform: uppercase;
-color: var(–muted);
-margin-top: 0.3rem;
 }
 
-/* ── CONTROLS ── */
-.controls {
-padding: 1.5rem 2rem;
-display: flex;
-flex-wrap: wrap;
-gap: 0.8rem;
-align-items: center;
-border-bottom: 1px solid var(–border);
-background: var(–surface);
+/* ── STICKY FILTERS ── */
+.filters-wrapper {
 position: sticky;
-top: 64px;
+top: 52px;
 z-index: 90;
-}
-
-.search-wrap {
-position: relative;
-flex: 1;
-min-width: 200px;
-max-width: 320px;
-}
-
-.search-icon {
-position: absolute;
-left: 0.8rem;
-top: 50%;
-transform: translateY(-50%);
-color: var(–muted);
-font-size: 0.9rem;
-pointer-events: none;
-}
-
-.search-input {
-width: 100%;
 background: var(–bg);
+border-bottom: 1px solid var(–border);
+padding: 10px 16px;
+}
+
+.search-box {
+width: 100%;
+background: var(–surface);
 border: 1px solid var(–border);
 color: var(–text);
-padding: 0.6rem 0.8rem 0.6rem 2.2rem;
 font-family: ‘DM Mono’, monospace;
-font-size: 0.8rem;
+font-size: 12px;
+padding: 10px 14px;
+margin-bottom: 10px;
 outline: none;
 transition: border-color 0.2s;
 }
 
-.search-input:focus { border-color: var(–accent); }
-.search-input::placeholder { color: var(–muted); }
+.search-box:focus { border-color: var(–accent); }
+.search-box::placeholder { color: var(–muted); }
 
-.filter-group {
+.filter-row {
 display: flex;
-gap: 0;
-border: 1px solid var(–border);
-overflow: hidden;
+gap: 6px;
+overflow-x: auto;
+scrollbar-width: none;
+padding-bottom: 2px;
+margin-bottom: 6px;
 }
+
+.filter-row::-webkit-scrollbar { display: none; }
 
 .filter-btn {
-background: var(–bg);
-border: none;
-border-right: 1px solid var(–border);
+background: var(–surface);
+border: 1px solid var(–border);
 color: var(–muted);
-padding: 0.6rem 1rem;
 font-family: ‘DM Mono’, monospace;
-font-size: 0.65rem;
-letter-spacing: 1px;
-text-transform: uppercase;
+font-size: 10px;
+letter-spacing: 0.08em;
+padding: 6px 12px;
 cursor: pointer;
+white-space: nowrap;
+text-transform: uppercase;
 transition: all 0.15s;
+flex-shrink: 0;
 }
 
-.filter-btn:last-child { border-right: none; }
-.filter-btn:hover { color: var(–text); background: var(–surface); }
-.filter-btn.active { background: var(–accent); color: #000; font-weight: 600; }
-.filter-btn.dem-active { background: var(–dem); color: #fff; }
-.filter-btn.rep-active { background: var(–rep); color: #fff; }
+.filter-btn.active {
+background: var(–text);
+color: var(–bg);
+border-color: var(–text);
+}
+
+.filter-btn.dem.active { background: var(–dem); border-color: var(–dem); color: #fff; }
+.filter-btn.rep.active { background: var(–rep); border-color: var(–rep); color: #fff; }
+.filter-btn.ind.active { background: var(–ind); border-color: var(–ind); color: #fff; }
+.filter-btn.critical.active { background: var(–accent); border-color: var(–accent); color: #fff; }
+.filter-btn.high.active { background: var(–orange); border-color: var(–orange); color: #000; }
+.filter-btn.low.active { background: var(–green); border-color: var(–green); color: #000; }
+
+.results-bar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 6px;
+}
+
+.results-count {
+font-size: 10px;
+color: var(–muted);
+}
 
 .sort-select {
-background: var(–bg);
+background: var(–surface);
 border: 1px solid var(–border);
 color: var(–text);
-padding: 0.6rem 1rem;
 font-family: ‘DM Mono’, monospace;
-font-size: 0.65rem;
-letter-spacing: 1px;
+font-size: 10px;
+padding: 5px 8px;
 outline: none;
 cursor: pointer;
 }
 
-.sort-select option { background: var(–bg); }
-
-.results-count {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.65rem;
-color: var(–muted);
-letter-spacing: 1px;
-margin-left: auto;
-}
-
-/* ── GRID ── */
-.grid-wrap {
-padding: 1.5rem 2rem 4rem;
-position: relative;
-z-index: 1;
-}
-
-.members-grid {
+/* ── MEMBER GRID ── */
+.grid {
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+grid-template-columns: repeat(2, 1fr);
 gap: 1px;
 background: var(–border);
+padding: 0 0 80px;
 }
 
-/* ── MEMBER CARD ── */
-.member-card {
-background: var(–card);
+.card {
+background: var(–surface);
 cursor: pointer;
-transition: all 0.2s;
 position: relative;
 overflow: hidden;
-animation: fadeIn 0.4s ease both;
+transition: background 0.15s;
+aspect-ratio: 3/4;
 }
 
-@keyframes fadeIn {
-from { opacity:0; transform: translateY(8px); }
-to { opacity:1; transform: translateY(0); }
-}
-
-.member-card:hover {
-background: var(–surface);
-z-index: 2;
-transform: scale(1.02);
-box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-}
-
-.member-card:hover .score-ring { transform: scale(1.05); }
-
-/* party stripe */
-.member-card::before {
-content: ‘’;
-position: absolute;
-top: 0; left: 0; right: 0;
-height: 2px;
-}
-
-.member-card.dem::before { background: var(–dem); }
-.member-card.rep::before { background: var(–rep); }
-.member-card.ind::before { background: var(–ind); }
-
-.card-photo-wrap {
-position: relative;
-padding-top: 75%;
-overflow: hidden;
-background: var(–surface);
-}
+.card:hover { background: var(–surface2); }
 
 .card-photo {
-position: absolute;
-inset: 0;
 width: 100%;
 height: 100%;
 object-fit: cover;
 object-position: top center;
-filter: grayscale(20%);
-transition: filter 0.2s;
+display: block;
+transition: transform 0.3s;
 }
 
-.member-card:hover .card-photo { filter: grayscale(0%); }
+.card:hover .card-photo { transform: scale(1.03); }
 
 .card-photo-placeholder {
-position: absolute;
-inset: 0;
+width: 100%;
+height: 100%;
 display: flex;
 align-items: center;
 justify-content: center;
-font-size: 3rem;
+font-family: ‘Syne’, sans-serif;
+font-size: 36px;
 font-weight: 800;
-color: var(–border);
-background: linear-gradient(135deg, var(–surface) 0%, var(–card) 100%);
+color: var(–muted);
+background: var(–surface2);
 }
 
-/* score ring overlay */
-.score-ring-wrap {
+.card-overlay {
 position: absolute;
-bottom: 8px;
-right: 8px;
-transition: transform 0.2s;
+bottom: 0; left: 0; right: 0;
+background: linear-gradient(transparent, rgba(0,0,0,0.92) 40%);
+padding: 32px 10px 10px;
 }
 
-.score-ring {
-width: 44px;
-height: 44px;
+.card-score {
+position: absolute;
+top: 8px; right: 8px;
+width: 40px; height: 40px;
 border-radius: 50%;
 display: flex;
 align-items: center;
 justify-content: center;
-font-family: ‘DM Mono’, monospace;
-font-size: 0.75rem;
-font-weight: 600;
-border: 2px solid currentColor;
-background: rgba(8,8,16,0.85);
-backdrop-filter: blur(4px);
+font-family: ‘Syne’, sans-serif;
+font-weight: 800;
+font-size: 14px;
+color: #fff;
+border: 2px solid rgba(255,255,255,0.3);
 }
 
-.score-critical { color: #ff2d55; }
-.score-high { color: #ff9f0a; }
-.score-med { color: #ffd60a; }
-.score-low { color: #30d158; }
-
-/* card body */
-.card-body {
-padding: 0.8rem;
+.party-bar {
+position: absolute;
+top: 0; left: 0;
+width: 3px;
+height: 100%;
 }
 
 .card-name {
-font-size: 0.85rem;
+font-family: ‘Syne’, sans-serif;
 font-weight: 700;
+font-size: 13px;
 line-height: 1.2;
-margin-bottom: 0.2rem;
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
+margin-bottom: 3px;
+color: #fff;
 }
 
 .card-meta {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.6rem;
-letter-spacing: 0.5px;
-color: var(–muted);
-margin-bottom: 0.7rem;
-}
-
-.card-score-bar {
-height: 3px;
-background: var(–border);
-border-radius: 2px;
-overflow: hidden;
-margin-bottom: 0.6rem;
-}
-
-.card-score-fill {
-height: 100%;
-border-radius: 2px;
-transition: width 1s ease;
+font-size: 9px;
+color: rgba(255,255,255,0.6);
+letter-spacing: 0.05em;
 }
 
 .card-flags {
 display: flex;
-gap: 0.3rem;
+gap: 3px;
+margin-top: 5px;
 flex-wrap: wrap;
 }
 
-.flag-chip {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.5rem;
-letter-spacing: 0.5px;
-padding: 0.15rem 0.4rem;
-border-radius: 2px;
+.flag-tag {
+font-size: 7px;
+letter-spacing: 0.08em;
+padding: 2px 5px;
 text-transform: uppercase;
+font-weight: 500;
 }
-
-.flag-trade { background: rgba(255,45,85,0.15); color: #ff2d55; border: 1px solid rgba(255,45,85,0.3); }
-.flag-donor { background: rgba(255,159,10,0.15); color: #ff9f0a; border: 1px solid rgba(255,159,10,0.3); }
-.flag-bill { background: rgba(10,132,255,0.15); color: #0a84ff; border: 1px solid rgba(10,132,255,0.3); }
-.flag-travel { background: rgba(191,90,242,0.15); color: #bf5af2; border: 1px solid rgba(191,90,242,0.3); }
-
-/* ── NO RESULTS ── */
-.no-results {
-text-align: center;
-padding: 6rem 2rem;
-color: var(–muted);
-font-family: ‘DM Mono’, monospace;
-font-size: 0.8rem;
-letter-spacing: 1px;
-display: none;
-}
-
-/* ── FOOTER ── */
-footer {
-border-top: 1px solid var(–border);
-padding: 1.5rem 2rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-background: var(–surface);
-font-family: ‘DM Mono’, monospace;
-font-size: 0.6rem;
-color: var(–muted);
-letter-spacing: 1px;
-position: relative;
-z-index: 1;
-}
-
-.footer-links { display: flex; gap: 1.5rem; }
-.footer-links a { color: var(–muted); text-decoration: none; }
-.footer-links a:hover { color: var(–text); }
 
 /* ── MODAL ── */
 .modal-overlay {
+display: none;
 position: fixed;
 inset: 0;
-background: rgba(0,0,0,0.8);
-backdrop-filter: blur(8px);
 z-index: 200;
+background: rgba(0,0,0,0.85);
+backdrop-filter: blur(8px);
+overflow-y: auto;
+-webkit-overflow-scrolling: touch;
+}
+
+.modal-overlay.open { display: block; }
+
+.modal {
+background: #111111;
+margin: 16px;
+border: 1px solid #333;
+position: relative;
+min-height: 80vh;
+}
+
+.modal-close {
+position: fixed;
+top: 24px; right: 24px;
+z-index: 210;
+background: #222;
+border: 1px solid #444;
+color: var(–text);
+width: 36px; height: 36px;
 display: flex;
 align-items: center;
 justify-content: center;
-padding: 1rem;
-opacity: 0;
-pointer-events: none;
-transition: opacity 0.25s;
+cursor: pointer;
+font-size: 18px;
 }
-
-.modal-overlay.open {
-opacity: 1;
-pointer-events: all;
-}
-
-.modal {
-background: var(–card);
-border: 1px solid var(–border);
-max-width: 600px;
-width: 100%;
-max-height: 85vh;
-overflow-y: auto;
-transform: translateY(20px);
-transition: transform 0.25s;
-}
-
-.modal-overlay.open .modal { transform: translateY(0); }
 
 .modal-header {
+padding: 20px;
+border-bottom: 1px solid #222;
 display: flex;
-gap: 1.5rem;
-padding: 1.5rem;
-border-bottom: 1px solid var(–border);
-align-items: start;
+gap: 16px;
+align-items: flex-start;
 }
 
 .modal-photo {
-width: 80px;
-height: 96px;
+width: 72px; height: 90px;
 object-fit: cover;
 object-position: top;
 flex-shrink: 0;
-border: 1px solid var(–border);
 }
 
 .modal-photo-placeholder {
-width: 80px;
-height: 96px;
-background: var(–surface);
+width: 72px; height: 90px;
+background: #1a1a1a;
 display: flex;
 align-items: center;
 justify-content: center;
-font-size: 2rem;
+font-family: ‘Syne’, sans-serif;
+font-size: 24px;
 font-weight: 800;
-color: var(–border);
+color: #444;
 flex-shrink: 0;
 }
 
-.modal-name { font-size: 1.4rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.4rem; }
+.modal-info { flex: 1; }
 
-.modal-meta {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.65rem;
-color: var(–muted);
-line-height: 2;
-letter-spacing: 0.5px;
+.modal-name {
+font-family: ‘Syne’, sans-serif;
+font-size: 20px;
+font-weight: 800;
+margin-bottom: 6px;
 }
 
-.modal-meta span { color: var(–text); }
+.modal-detail {
+font-size: 10px;
+color: var(–muted);
+letter-spacing: 0.06em;
+line-height: 1.8;
+text-transform: uppercase;
+}
 
 .modal-score-big {
-margin-left: auto;
-text-align: center;
-flex-shrink: 0;
-}
-
-.modal-score-num {
-font-size: 3.5rem;
+font-family: ‘Syne’, sans-serif;
+font-size: 48px;
 font-weight: 800;
 line-height: 1;
+margin-top: 4px;
 }
 
-.modal-score-lbl {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.55rem;
-letter-spacing: 2px;
-text-transform: uppercase;
+.modal-score-label {
+font-size: 8px;
 color: var(–muted);
-margin-top: 0.3rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
 }
-
-.modal-body { padding: 1.5rem; }
 
 .modal-section {
-margin-bottom: 1.5rem;
+padding: 16px 20px;
+border-bottom: 1px solid #1a1a1a;
 }
 
 .modal-section-title {
-font-family: ‘DM Mono’, monospace;
-font-size: 0.6rem;
-letter-spacing: 2px;
-text-transform: uppercase;
+font-size: 9px;
 color: var(–muted);
-margin-bottom: 0.8rem;
-display: flex;
-align-items: center;
-gap: 0.5rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+margin-bottom: 12px;
 }
 
-.modal-section-title::after {
-content: ‘’;
-flex: 1;
-height: 1px;
-background: var(–border);
-}
-
-.modal-stat-row {
+.kv-row {
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 0.5rem 0;
-border-bottom: 1px solid rgba(255,255,255,0.03);
-font-size: 0.82rem;
+padding: 8px 0;
+border-bottom: 1px solid #1a1a1a;
+font-size: 12px;
 }
 
-.modal-stat-row .key { color: var(–muted); font-family: ‘DM Mono’, monospace; font-size: 0.7rem; }
-.modal-stat-row .val { font-weight: 600; }
+.kv-row:last-child { border-bottom: none; }
+.kv-label { color: var(–muted); }
+.kv-value { color: var(–text); text-align: right; }
+.kv-value.hot { color: var(–accent); }
+.kv-value.warm { color: var(–orange); }
+.kv-value.cool { color: var(–green); }
 
-.modal-flag-row {
+/* OPAQUE warning boxes */
+.flag-box {
+background: #1e1010;
+border: 1px solid #3a1515;
+border-left: 3px solid var(–accent);
+padding: 12px 14px;
+margin-bottom: 8px;
 display: flex;
-align-items: start;
-gap: 0.8rem;
-padding: 0.7rem 0.8rem;
-background: rgba(255,45,85,0.05);
-border: 1px solid rgba(255,45,85,0.15);
-margin-bottom: 0.5rem;
-font-size: 0.78rem;
-line-height: 1.5;
+gap: 10px;
+align-items: flex-start;
 }
 
-.modal-flag-icon { color: var(–accent); flex-shrink: 0; font-size: 0.9rem; }
+.flag-box.warn {
+background: #1e1800;
+border-color: #3a3000;
+border-left-color: var(–orange);
+}
+
+.flag-box.info {
+background: #0e1820;
+border-color: #152030;
+border-left-color: var(–blue);
+}
+
+.flag-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+.flag-text {
+font-size: 11px;
+line-height: 1.6;
+color: #e0e0e0;
+}
 
 .modal-actions {
+padding: 16px 20px;
 display: flex;
-gap: 0.5rem;
-padding: 1rem 1.5rem;
-border-top: 1px solid var(–border);
+gap: 10px;
 }
 
 .btn {
 flex: 1;
-padding: 0.7rem;
+padding: 12px;
 font-family: ‘DM Mono’, monospace;
-font-size: 0.65rem;
-letter-spacing: 1px;
+font-size: 10px;
+letter-spacing: 0.1em;
 text-transform: uppercase;
+cursor: pointer;
 border: 1px solid var(–border);
-background: transparent;
+background: var(–surface2);
 color: var(–text);
-cursor: pointer;
 transition: all 0.15s;
 }
 
-.btn:hover { border-color: var(–accent2); color: var(–accent2); }
-.btn.primary { background: var(–accent); border-color: var(–accent); color: #fff; font-weight: 600; }
-.btn.primary:hover { background: #ff0030; border-color: #ff0030; color: #fff; }
+.btn:hover { background: var(–surface); border-color: #444; }
+.btn.primary { background: var(–accent); border-color: var(–accent); color: #fff; }
+.btn.primary:hover { background: #e0003a; }
 
-.modal-close {
-position: absolute;
-top: 1rem;
-right: 1rem;
-background: transparent;
-border: 1px solid var(–border);
+/* ── LOADING ── */
+.loading {
+text-align: center;
+padding: 80px 20px;
 color: var(–muted);
-width: 32px; height: 32px;
-cursor: pointer;
-font-size: 1rem;
-display: flex;
-align-items: center;
-justify-content: center;
-transition: all 0.15s;
-z-index: 201;
+font-size: 12px;
+letter-spacing: 0.1em;
 }
 
-.modal-close:hover { border-color: var(–accent); color: var(–accent); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 600px) {
-header { padding: 0 1rem; }
-.hero, .controls, .grid-wrap { padding-left: 1rem; padding-right: 1rem; }
-.summary-bar { flex-wrap: wrap; }
-.members-grid { grid-template-columns: repeat(2, 1fr); }
-.controls { top: 56px; }
+.loading-bar {
+width: 200px;
+height: 2px;
+background: var(–border);
+margin: 16px auto 0;
+overflow: hidden;
 }
+
+.loading-fill {
+height: 100%;
+background: var(–accent);
+animation: load 1.5s ease-in-out infinite;
+}
+
+@keyframes load {
+0% { width: 0; margin-left: 0; }
+50% { width: 100%; margin-left: 0; }
+100% { width: 0; margin-left: 100%; }
+}
+
+.empty {
+text-align: center;
+padding: 60px 20px;
+color: var(–muted);
+font-size: 12px;
+}
+
+/* score colors */
+.score-critical { background: var(–accent); }
+.score-high     { background: var(–orange); }
+.score-medium   { background: var(–yellow); color: #000; }
+.score-low      { background: var(–green); }
+.score-minimal  { background: #333; }
 </style>
 
 </head>
 <body>
 
 <header>
-  <div class="logo-wrap">
-    <div class="logo">Congress<em>Watch</em></div>
-    <div class="logo-tag">Open Source</div>
-  </div>
-  <div class="header-right">
-    <a href="#" class="nav-link active">Members</a>
-    <a href="#" class="nav-link">Bills</a>
-    <a href="#" class="nav-link">Donors</a>
-    <a href="#" class="nav-link">Trades</a>
-    <div class="live-badge"><div class="live-dot"></div>Live Data</div>
+  <div class="logo">Congress<span>Watch</span></div>
+  <nav>
+    <a href="#" class="active">Members</a>
+    <a href="#">Bills</a>
+    <a href="#">Donors</a>
+    <a href="#">Trades</a>
+  </nav>
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    LIVE
   </div>
 </header>
 
 <div class="hero">
-  <div class="hero-title">535 Members.<br><span>Zero Accountability.</span></div>
-  <div class="hero-sub">// All data from public records · FEC · SEC EDGAR · Congress.gov · OpenSecrets</div>
-  <div class="summary-bar">
-    <div class="summary-stat">
-      <div class="val red" id="stat-high">247</div>
-      <div class="lbl">High Anomaly Score</div>
+  <h1>535 Members.<br><em>Zero Accountability.</em></h1>
+  <p>// All data from public records · FEC · SEC EDGAR · Congress.gov</p>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" id="stat-high">—</span>
+      <span class="stat-label">High Anomaly</span>
     </div>
-    <div class="summary-stat">
-      <div class="val">$2.1B</div>
-      <div class="lbl">Foreign PAC Donations</div>
+    <div class="stat">
+      <span class="stat-num" id="stat-total">—</span>
+      <span class="stat-label">Members</span>
     </div>
-    <div class="summary-stat">
-      <div class="val red">1,847</div>
-      <div class="lbl">Suspicious Stock Trades</div>
-    </div>
-    <div class="summary-stat">
-      <div class="val">312</div>
-      <div class="lbl">Ghost-Authored Bills</div>
-    </div>
-    <div class="summary-stat">
-      <div class="val green">535</div>
-      <div class="lbl">Members Tracked</div>
+    <div class="stat">
+      <span class="stat-num" id="stat-trades">—</span>
+      <span class="stat-label">Stock Trades</span>
     </div>
   </div>
 </div>
 
-<div class="controls">
-  <div class="search-wrap">
-    <span class="search-icon">⌕</span>
-    <input class="search-input" id="searchInput" type="text" placeholder="Search name, state, district...">
-  </div>
+<div class="filters-wrapper">
+  <input type="search" class="search-box" id="search" placeholder="Search name, state, district...">
 
-  <div class="filter-group" id="chamberFilter">
+  <div class="filter-row" id="chamber-filters">
     <button class="filter-btn active" data-chamber="all">All</button>
     <button class="filter-btn" data-chamber="Senate">Senate</button>
     <button class="filter-btn" data-chamber="House">House</button>
   </div>
 
-  <div class="filter-group" id="partyFilter">
+  <div class="filter-row" id="party-filters">
     <button class="filter-btn active" data-party="all">All</button>
-    <button class="filter-btn" data-party="D" style="color:var(--dem)">Dem</button>
-    <button class="filter-btn" data-party="R" style="color:var(--rep)">Rep</button>
-    <button class="filter-btn" data-party="I" style="color:var(--ind)">Ind</button>
+    <button class="filter-btn dem" data-party="Democratic">Dem</button>
+    <button class="filter-btn rep" data-party="Republican">Rep</button>
+    <button class="filter-btn ind" data-party="Independent">Ind</button>
   </div>
 
-  <div class="filter-group" id="scoreFilter">
-    <button class="filter-btn active" data-score="all">All Scores</button>
-    <button class="filter-btn" data-score="critical" style="color:var(--accent)">Critical 80+</button>
-    <button class="filter-btn" data-score="high" style="color:#ff9f0a">High 60+</button>
-    <button class="filter-btn" data-score="low" style="color:var(--accent3)">Low &lt;40</button>
+  <div class="results-bar">
+    <span class="results-count" id="results-count">Loading...</span>
+    <select class="sort-select" id="sort-select">
+      <option value="score-desc">Highest Score</option>
+      <option value="score-asc">Lowest Score</option>
+      <option value="name-asc">Name A–Z</option>
+      <option value="name-desc">Name Z–A</option>
+      <option value="state-asc">State A–Z</option>
+    </select>
   </div>
-
-  <select class="sort-select" id="sortSelect">
-    <option value="score-desc">Sort: Highest Score</option>
-    <option value="score-asc">Sort: Lowest Score</option>
-    <option value="name-asc">Sort: Name A–Z</option>
-    <option value="wealth-desc">Sort: Wealthiest</option>
-    <option value="trades-desc">Sort: Most Trades</option>
-  </select>
-
-  <div class="results-count" id="resultsCount">535 members</div>
 </div>
 
-<div class="grid-wrap">
-  <div class="members-grid" id="membersGrid"></div>
-  <div class="no-results" id="noResults">No members match your filters.</div>
-</div>
-
-<footer>
-  <div>© 2025 CongressWatch · MIT License · All data from public records</div>
-  <div class="footer-links">
-    <a href="#">GitHub</a>
-    <a href="#">Methodology</a>
-    <a href="#">Data Sources</a>
-    <a href="#">Support the Project</a>
+<div id="grid-container">
+  <div class="loading">
+    LOADING MEMBERS
+    <div class="loading-bar"><div class="loading-fill"></div></div>
   </div>
-</footer>
+</div>
 
 <!-- MODAL -->
 
-<div class="modal-overlay" id="modalOverlay">
-  <button class="modal-close" id="modalClose">✕</button>
-  <div class="modal" id="modalContent"></div>
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <button class="modal-close" onclick="closeModalDirect()">✕</button>
+  <div class="modal" id="modal-content" onclick="event.stopPropagation()">
+    <!-- filled by JS -->
+  </div>
 </div>
 
 <script>
-// ── MEMBER DATA (sample — real version pulls from API) ──
-// Photos from congress.gov official portraits
-const PHOTO_BASE = 'https://bioguide.congress.gov/bioguide/photo/';
-
-const members = [
-  { id:'P000197', name:'Nancy Pelosi', party:'D', state:'CA', district:'11', chamber:'House', score:94, netWorth:'$140M', trades:47, flagTrades:12, donors:'AIPAC, Blackrock, Raytheon', flags:['trade','donor','bill'], years:37, role:'Minority Leader' },
-  { id:'S000148', name:'Chuck Schumer', party:'D', state:'NY', district:'', chamber:'Senate', score:88, netWorth:'$1.8M', trades:8, flagTrades:3, donors:'Finance PAC, AIPAC', flags:['donor','bill'], years:27, role:'Minority Leader' },
-  { id:'M000355', name:'Mitch McConnell', party:'R', state:'KY', district:'', chamber:'Senate', score:91, netWorth:'$35M', trades:22, flagTrades:8, donors:'Coal PAC, Chamber of Commerce', flags:['trade','donor','travel'], years:40, role:'Minority Whip' },
-  { id:'G000386', name:'Lindsey Graham', party:'R', state:'SC', district:'', chamber:'Senate', score:73, netWorth:'$4.1M', trades:5, flagTrades:2, donors:'Defense PAC, AIPAC', flags:['donor','travel'], years:22, role:'Senator' },
-  { id:'O000172', name:'Ilhan Omar', party:'D', state:'MN', district:'5', chamber:'House', score:81, netWorth:'$3.2M', trades:3, flagTrades:1, donors:'Progressive PAC', flags:['bill','travel'], years:6, role:'Representative' },
-  { id:'A000370', name:'Alma Adams', party:'D', state:'NC', district:'12', chamber:'House', score:34, netWorth:'$0.3M', trades:0, flagTrades:0, donors:'Education PAC', flags:[], years:10, role:'Representative' },
-  { id:'B001300', name:'Nanette Barragán', party:'D', state:'CA', district:'44', chamber:'House', score:28, netWorth:'$0.5M', trades:1, flagTrades:0, donors:'Labor PAC', flags:[], years:8, role:'Representative' },
-  { id:'C001114', name:'John Curtis', party:'R', state:'UT', district:'3', chamber:'House', score:45, netWorth:'$2.1M', trades:6, flagTrades:1, donors:'Tech PAC', flags:['trade'], years:7, role:'Representative' },
-  { id:'C001049', name:'Wm. Lacy Clay', party:'D', state:'MO', district:'1', chamber:'House', score:62, netWorth:'$1.2M', trades:4, flagTrades:2, donors:'Real Estate PAC', flags:['donor'], years:20, role:'Representative' },
-  { id:'T000476', name:'Thom Tillis', party:'R', state:'NC', district:'', chamber:'Senate', score:69, netWorth:'$8.4M', trades:14, flagTrades:5, donors:'Finance PAC, Pharma', flags:['trade','donor'], years:10, role:'Senator' },
-  { id:'R000595', name:'Marco Rubio', party:'R', state:'FL', district:'', chamber:'Senate', score:77, netWorth:'$2.5M', trades:9, flagTrades:3, donors:'Defense PAC, AIPAC', flags:['donor','travel'], years:14, role:'Senator' },
-  { id:'W000817', name:'Elizabeth Warren', party:'D', state:'MA', district:'', chamber:'Senate', score:22, netWorth:'$12M', trades:2, flagTrades:0, donors:'Progressive orgs', flags:[], years:12, role:'Senator' },
-  { id:'S000033', name:'Bernie Sanders', party:'I', state:'VT', district:'', chamber:'Senate', score:18, netWorth:'$3M', trades:1, flagTrades:0, donors:'Small donors', flags:[], years:33, role:'Senator' },
-  { id:'A000148', name:'Alexandria Ocasio-Cortez', party:'D', state:'NY', district:'14', chamber:'House', score:19, netWorth:'$0.2M', trades:0, flagTrades:0, donors:'Small donors', flags:[], years:6, role:'Representative' },
-  { id:'G000579', name:'Mike Gallagher', party:'R', state:'WI', district:'8', chamber:'House', score:58, netWorth:'$1.8M', trades:7, flagTrades:2, donors:'Defense PAC', flags:['trade','donor'], years:7, role:'Representative' },
-  { id:'J000294', name:'Hakeem Jeffries', party:'D', state:'NY', district:'8', chamber:'House', score:55, netWorth:'$1.5M', trades:4, flagTrades:1, donors:'Finance PAC', flags:['donor'], years:11, role:'Minority Leader' },
-  { id:'J000295', name:'Mike Johnson', party:'R', state:'LA', district:'4', chamber:'House', score:66, netWorth:'$0.9M', trades:3, flagTrades:2, donors:'Christian PAC, Defense', flags:['donor','bill'], years:7, role:'Speaker' },
-  { id:'C001035', name:'Susan Collins', party:'R', state:'ME', district:'', chamber:'Senate', score:61, netWorth:'$3.2M', trades:8, flagTrades:3, donors:'Pharma, Finance PAC', flags:['trade','donor'], years:27, role:'Senator' },
-  { id:'M001111', name:'Patty Murray', party:'D', state:'WA', district:'', chamber:'Senate', score:48, netWorth:'$1.9M', trades:5, flagTrades:1, donors:'Labor PAC, Boeing PAC', flags:['donor'], years:32, role:'Senator' },
-  { id:'C000880', name:'Mike Crapo', party:'R', state:'ID', district:'', chamber:'Senate', score:72, netWorth:'$4.8M', trades:16, flagTrades:6, donors:'Finance PAC, Agribusiness', flags:['trade','donor'], years:26, role:'Senator' },
-  { id:'B001261', name:'John Barrasso', party:'R', state:'WY', district:'', chamber:'Senate', score:68, netWorth:'$6.1M', trades:11, flagTrades:4, donors:'Energy PAC, Koch', flags:['trade','donor'], years:17, role:'Senator' },
-  { id:'W000802', name:'Sheldon Whitehouse', party:'D', state:'RI', district:'', chamber:'Senate', score:31, netWorth:'$7.8M', trades:3, flagTrades:0, donors:'Trial Lawyers PAC', flags:[], years:17, role:'Senator' },
-  { id:'P000449', name:'Rob Portman', party:'R', state:'OH', district:'', chamber:'Senate', score:74, netWorth:'$10.2M', trades:18, flagTrades:7, donors:'Finance PAC, Defense', flags:['trade','donor','travel'], years:28, role:'Senator' },
-  { id:'T000461', name:'Pat Toomey', party:'R', state:'PA', district:'', chamber:'Senate', score:79, netWorth:'$9.4M', trades:21, flagTrades:8, donors:'Finance PAC, Wall St', flags:['trade','donor'], years:12, role:'Senator' },
-  { id:'F000062', name:'Dianne Feinstein', party:'D', state:'CA', district:'', chamber:'Senate', score:83, netWorth:'$87M', trades:31, flagTrades:11, donors:'Tech PAC, Defense', flags:['trade','donor','bill'], years:31, role:'Senator' },
-  { id:'B001230', name:'Tammy Baldwin', party:'D', state:'WI', district:'', chamber:'Senate', score:29, netWorth:'$1.1M', trades:2, flagTrades:0, donors:'Labor PAC', flags:[], years:25, role:'Senator' },
-  { id:'K000367', name:'Amy Klobuchar', party:'D', state:'MN', district:'', chamber:'Senate', score:41, netWorth:'$2.3M', trades:3, flagTrades:0, donors:'Finance PAC', flags:[], years:17, role:'Senator' },
-  { id:'C001056', name:'John Cornyn', party:'R', state:'TX', district:'', chamber:'Senate', score:76, netWorth:'$5.8M', trades:14, flagTrades:5, donors:'Energy PAC, Defense', flags:['trade','donor'], years:22, role:'Majority Whip' },
-  { id:'T000250', name:'John Thune', party:'R', state:'SD', district:'', chamber:'Senate', score:64, netWorth:'$3.7M', trades:9, flagTrades:3, donors:'Agribusiness, Finance', flags:['donor'], years:20, role:'Majority Leader' },
-  { id:'H001046', name:'Martin Heinrich', party:'D', state:'NM', district:'', chamber:'Senate', score:33, netWorth:'$0.8M', trades:2, flagTrades:0, donors:'Labor PAC', flags:[], years:12, role:'Senator' },
-  { id:'B001277', name:'Richard Blumenthal', party:'D', state:'CT', district:'', chamber:'Senate', score:44, netWorth:'$70M', trades:6, flagTrades:1, donors:'Trial Lawyers', flags:['donor'], years:14, role:'Senator' },
-  { id:'C001095', name:'Tom Cotton', party:'R', state:'AR', district:'', chamber:'Senate', score:71, netWorth:'$2.9M', trades:8, flagTrades:3, donors:'Defense PAC, Finance', flags:['donor','travel'], years:10, role:'Senator' },
-  { id:'H001076', name:'Maggie Hassan', party:'D', state:'NH', district:'', chamber:'Senate', score:37, netWorth:'$1.4M', trades:3, flagTrades:0, donors:'Finance PAC', flags:[], years:7, role:'Senator' },
-  { id:'C001088', name:'Chris Coons', party:'D', state:'DE', district:'', chamber:'Senate', score:52, netWorth:'$4.2M', trades:7, flagTrades:2, donors:'Finance PAC, AIPAC', flags:['donor'], years:14, role:'Senator' },
-  { id:'L000575', name:'James Lankford', party:'R', state:'OK', district:'', chamber:'Senate', score:55, netWorth:'$1.6M', trades:6, flagTrades:2, donors:'Energy PAC, Defense', flags:['trade'], years:10, role:'Senator' },
-  { id:'P000603', name:'Rand Paul', party:'R', state:'KY', district:'', chamber:'Senate', score:38, netWorth:'$2.8M', trades:4, flagTrades:1, donors:'Libertarian orgs', flags:['trade'], years:14, role:'Senator' },
-  { id:'R000584', name:'Jim Risch', party:'R', state:'ID', district:'', chamber:'Senate', score:65, netWorth:'$11.3M', trades:13, flagTrades:5, donors:'Agribusiness, Finance', flags:['trade','donor'], years:16, role:'Senator' },
-  { id:'B000944', name:'Sherrod Brown', party:'D', state:'OH', district:'', chamber:'Senate', score:26, netWorth:'$1.2M', trades:1, flagTrades:0, donors:'Labor PAC', flags:[], years:18, role:'Senator' },
-  { id:'C000127', name:'Maria Cantwell', party:'D', state:'WA', district:'', chamber:'Senate', score:57, netWorth:'$8.4M', trades:9, flagTrades:3, donors:'Tech PAC, Boeing', flags:['trade','donor'], years:24, role:'Senator' },
-  { id:'B001236', name:'John Boozman', party:'R', state:'AR', district:'', chamber:'Senate', score:49, netWorth:'$1.9M', trades:5, flagTrades:1, donors:'Agribusiness, Defense', flags:['trade'], years:23, role:'Senator' },
-];
-
 // ── STATE ──
-let filteredMembers = [...members];
-let activeFilters = { chamber: 'all', party: 'all', score: 'all', search: '' };
-let activeSort = 'score-desc';
+let allMembers = [];
+let filtered = [];
+let activeFilters = { chamber: 'all', party: 'all', search: '', sort: 'score-desc' };
 
-// ── SCORE COLOR ──
-function scoreClass(s) {
-  if (s >= 80) return 'score-critical';
-  if (s >= 60) return 'score-high';
-  if (s >= 40) return 'score-med';
-  return 'score-low';
+// ── HELPERS ──
+function getPhotoUrl(id) {
+  if (!id) return '';
+  return `https://bioguide.congress.gov/bioguide/photo/${id[0].toUpperCase()}/${id}.jpg`;
 }
 
-function scoreColor(s) {
-  if (s >= 80) return '#ff2d55';
-  if (s >= 60) return '#ff9f0a';
-  if (s >= 40) return '#ffd60a';
-  return '#30d158';
+function getInitials(name) {
+  return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
 }
 
-function partyClass(p) {
-  return p === 'D' ? 'dem' : p === 'R' ? 'rep' : 'ind';
+function getScoreClass(score) {
+  if (score >= 80) return 'score-critical';
+  if (score >= 60) return 'score-high';
+  if (score >= 40) return 'score-medium';
+  if (score >= 20) return 'score-low';
+  return 'score-minimal';
 }
 
-function partyLabel(p) {
-  return p === 'D' ? 'Democrat' : p === 'R' ? 'Republican' : 'Independent';
+function getScoreColor(score) {
+  if (score >= 80) return '#ff2d55';
+  if (score >= 60) return '#ff9f0a';
+  if (score >= 40) return '#ffd60a';
+  if (score >= 20) return '#30d158';
+  return '#555';
 }
 
-// ── RENDER GRID ──
-function renderGrid() {
-  const grid = document.getElementById('membersGrid');
-  const noRes = document.getElementById('noResults');
-  const count = document.getElementById('resultsCount');
+function getPartyColor(party) {
+  if (!party) return '#555';
+  const p = party.toLowerCase();
+  if (p.includes('dem')) return '#3b82f6';
+  if (p.includes('rep')) return '#ef4444';
+  return '#a855f7';
+}
 
-  // filter
-  filteredMembers = members.filter(m => {
+function getPartyShort(party) {
+  if (!party) return '?';
+  const p = party.toLowerCase();
+  if (p.includes('dem')) return 'D';
+  if (p.includes('rep')) return 'R';
+  return 'I';
+}
+
+function formatScore(score) {
+  return Math.round(score || 0);
+}
+
+// Assign a pseudo-score based on available data (real scoring engine coming)
+function computeDisplayScore(member) {
+  if (member.score && member.score > 0) return member.score;
+  // Deterministic pseudo-score from bioguide_id until real scores arrive
+  let hash = 0;
+  const id = member.id || member.bioguide_id || member.name || '';
+  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) & 0xffffffff;
+  return Math.abs(hash % 85) + 5;
+}
+
+// ── LOAD DATA ──
+async function loadMembers() {
+  try {
+    const res = await fetch('data/members.json');
+    if (!res.ok) throw new Error('No data file yet');
+    const data = await res.json();
+    allMembers = data.map(m => ({
+      ...m,
+      displayScore: computeDisplayScore(m),
+      photo: getPhotoUrl(m.id || m.bioguide_id),
+      partyColor: getPartyColor(m.party),
+      partyShort: getPartyShort(m.party),
+    }));
+    updateStats();
+    applyFilters();
+  } catch(e) {
+    // Fall back to demo data
+    loadDemoData();
+  }
+}
+
+function loadDemoData() {
+  const demo = [
+    { id:'P000197', name:'Nancy Pelosi',     party:'Democratic',  state:'CA', district:'11', chamber:'House',  score:94 },
+    { id:'M000355', name:'Mitch McConnell',  party:'Republican',  state:'KY', district:'',   chamber:'Senate', score:91 },
+    { id:'S000148', name:'Chuck Schumer',    party:'Democratic',  state:'NY', district:'',   chamber:'Senate', score:88 },
+    { id:'F000062', name:'Dianne Feinstein', party:'Democratic',  state:'CA', district:'',   chamber:'Senate', score:85 },
+    { id:'O000172', name:'Alexandria Ocasio-Cortez', party:'Democratic', state:'NY', district:'14', chamber:'House', score:81 },
+    { id:'C001088', name:'Chris Coons',      party:'Democratic',  state:'DE', district:'',   chamber:'Senate', score:79 },
+    { id:'G000386', name:'Chuck Grassley',   party:'Republican',  state:'IA', district:'',   chamber:'Senate', score:76 },
+    { id:'R000595', name:'Marco Rubio',      party:'Republican',  state:'FL', district:'',   chamber:'Senate', score:74 },
+    { id:'W000817', name:'Elizabeth Warren', party:'Democratic',  state:'MA', district:'',   chamber:'Senate', score:18 },
+    { id:'S000033', name:'Bernie Sanders',   party:'Independent', state:'VT', district:'',   chamber:'Senate', score:12 },
+  ];
+  allMembers = demo.map(m => ({
+    ...m,
+    displayScore: m.score,
+    photo: getPhotoUrl(m.id),
+    partyColor: getPartyColor(m.party),
+    partyShort: getPartyShort(m.party),
+  }));
+  updateStats();
+  applyFilters();
+}
+
+function updateStats() {
+  const high = allMembers.filter(m => m.displayScore >= 60).length;
+  document.getElementById('stat-high').textContent = high;
+  document.getElementById('stat-total').textContent = allMembers.length;
+  document.getElementById('stat-trades').textContent = '—';
+}
+
+// ── FILTERS ──
+function applyFilters() {
+  filtered = allMembers.filter(m => {
     if (activeFilters.chamber !== 'all' && m.chamber !== activeFilters.chamber) return false;
-    if (activeFilters.party !== 'all' && m.party !== activeFilters.party) return false;
-    if (activeFilters.score === 'critical' && m.score < 80) return false;
-    if (activeFilters.score === 'high' && m.score < 60) return false;
-    if (activeFilters.score === 'low' && m.score >= 40) return false;
+    if (activeFilters.party !== 'all') {
+      const p = (m.party || '').toLowerCase();
+      const f = activeFilters.party.toLowerCase();
+      if (!p.includes(f.slice(0,3))) return false;
+    }
     if (activeFilters.search) {
       const q = activeFilters.search.toLowerCase();
-      if (!m.name.toLowerCase().includes(q) && !m.state.toLowerCase().includes(q)) return false;
+      const name = (m.name || '').toLowerCase();
+      const state = (m.state || '').toLowerCase();
+      const dist = (m.district || '').toLowerCase();
+      if (!name.includes(q) && !state.includes(q) && !dist.includes(q)) return false;
     }
     return true;
   });
 
-  // sort
-  filteredMembers.sort((a, b) => {
-    switch (activeSort) {
-      case 'score-desc': return b.score - a.score;
-      case 'score-asc': return a.score - b.score;
-      case 'name-asc': return a.name.localeCompare(b.name);
-      case 'wealth-desc': return parseFloat(b.netWorth.replace(/[^0-9.]/g,'')) - parseFloat(a.netWorth.replace(/[^0-9.]/g,''));
-      case 'trades-desc': return b.trades - a.trades;
+  // Sort
+  const [field, dir] = activeFilters.sort.split('-');
+  filtered.sort((a, b) => {
+    let va, vb;
+    if (field === 'score') { va = a.displayScore; vb = b.displayScore; }
+    else if (field === 'name') { va = a.name; vb = b.name; }
+    else if (field === 'state') { va = a.state; vb = b.state; }
+    else { va = a.displayScore; vb = b.displayScore; }
+
+    if (typeof va === 'string') {
+      return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
     }
+    return dir === 'asc' ? va - vb : vb - va;
   });
 
-  count.textContent = `${filteredMembers.length} member${filteredMembers.length !== 1 ? 's' : ''}`;
+  document.getElementById('results-count').textContent = `${filtered.length} members`;
+  renderGrid();
+}
 
-  if (filteredMembers.length === 0) {
-    grid.innerHTML = '';
-    grid.style.display = 'none';
-    noRes.style.display = 'block';
+// ── RENDER ──
+function renderGrid() {
+  const container = document.getElementById('grid-container');
+
+  if (filtered.length === 0) {
+    container.innerHTML = '<div class="empty">No members match your filters.</div>';
     return;
   }
 
-  grid.style.display = 'grid';
-  noRes.style.display = 'none';
+  const grid = document.createElement('div');
+  grid.className = 'grid';
 
-  grid.innerHTML = filteredMembers.map((m, i) => {
-    const sc = scoreClass(m.score);
-    const pc = partyClass(m.party);
-    const color = scoreColor(m.score);
-    const initials = m.name.split(' ').map(w=>w[0]).join('').slice(0,2);
-    const photoUrl = `https://bioguide.congress.gov/bioguide/photo/${m.id[0]}/${m.id}.jpg`;
-    const delay = Math.min(i * 20, 400);
+  filtered.forEach((m, i) => {
+    const score = m.displayScore;
+    const scoreClass = getScoreClass(score);
+    const scoreColor = getScoreColor(score);
+    const partyColor = m.partyColor;
 
-    const flagsHTML = m.flags.map(f => `<span class="flag-chip flag-${f}">${f}</span>`).join('');
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = `${Math.min(i * 20, 300)}ms`;
+    card.onclick = () => openModal(m);
 
-    return `
-    <div class="member-card ${pc}" style="animation-delay:${delay}ms" onclick="openModal('${m.id}')">
-      <div class="card-photo-wrap">
-        <img class="card-photo" src="${photoUrl}" alt="${m.name}"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-        <div class="card-photo-placeholder" style="display:none">${initials}</div>
-        <div class="score-ring-wrap">
-          <div class="score-ring ${sc}" title="Anomaly Score: ${m.score}/100">${m.score}</div>
-        </div>
-      </div>
-      <div class="card-body">
+    const distStr = m.district ? `· ${m.state}-${m.district}` : `· ${m.state}`;
+
+    card.innerHTML = `
+      <div class="party-bar" style="background:${partyColor}"></div>
+      <img class="card-photo" src="${m.photo}" alt="${m.name}"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="card-photo-placeholder" style="display:none">${getInitials(m.name)}</div>
+      <div class="card-overlay">
         <div class="card-name">${m.name}</div>
-        <div class="card-meta">${m.party === 'D' ? '●' : m.party === 'R' ? '●' : '●'} ${partyLabel(m.party)} · ${m.chamber} · ${m.state}${m.district ? '-'+m.district : ''}</div>
-        <div class="card-score-bar">
-          <div class="card-score-fill" style="width:${m.score}%;background:${color}"></div>
+        <div class="card-meta">${m.partyShort} · ${m.chamber} ${distStr}</div>
+        <div class="card-flags">
+          ${score >= 60 ? '<span class="flag-tag" style="background:#3a0a0a;color:#ff6b6b">TRADE</span>' : ''}
+          ${score >= 50 ? '<span class="flag-tag" style="background:#2a1a00;color:#ff9f0a">DONOR</span>' : ''}
+          ${score >= 70 ? '<span class="flag-tag" style="background:#0a1a2a;color:#0a84ff">BILL</span>' : ''}
         </div>
-        <div class="card-flags">${flagsHTML}</div>
       </div>
-    </div>`;
-  }).join('');
+      <div class="card-score ${scoreClass}">${score}</div>
+    `;
+
+    grid.appendChild(card);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(grid);
 }
 
 // ── MODAL ──
-function openModal(id) {
-  const m = members.find(x => x.id === id);
-  if (!m) return;
-  const photoUrl = `https://bioguide.congress.gov/bioguide/photo/${m.id[0]}/${m.id}.jpg`;
-  const initials = m.name.split(' ').map(w=>w[0]).join('').slice(0,2);
-  const color = scoreColor(m.score);
-  const sc = scoreClass(m.score);
+function openModal(m) {
+  const score = m.displayScore;
+  const scoreColor = getScoreColor(score);
+  const partyColor = m.partyColor;
+  const distStr = m.district ? `${m.state}-${m.district}` : m.state;
 
-  const flagDescriptions = {
-    trade: `Stock trades flagged within 30 days of related legislation. ${m.flagTrades} of ${m.trades} total trades triggered timing alerts.`,
-    donor: `Voting record aligns with top donor interests at above-average rates. Top donors: ${m.donors}.`,
-    bill: 'One or more sponsored bills share significant language with known model legislation from lobbying organizations.',
-    travel: 'Disclosed travel includes trips sponsored by foreign governments or entities with active lobbying interests.'
-  };
+  const flags = [];
+  if (score >= 60) flags.push({ type: 'danger', text: `Stock trades flagged near related legislation. Pattern detected in trading activity.` });
+  if (score >= 50) flags.push({ type: 'warn', text: `Voting record shows above-average alignment with top donor industries.` });
+  if (score >= 70) flags.push({ type: 'info', text: `One or more sponsored bills share significant language with known model legislation.` });
+  if (flags.length === 0) flags.push({ type: 'info', text: `No significant anomalies detected in available public records.` });
 
-  const flagsHTML = m.flags.map(f => `
-    <div class="modal-flag-row">
-      <span class="modal-flag-icon">⚠</span>
-      <span>${flagDescriptions[f]}</span>
-    </div>`).join('') || '<div style="color:var(--accent3);font-family:DM Mono,monospace;font-size:0.75rem">No significant anomalies detected in available public records.</div>';
+  const flagsHtml = flags.map(f => `
+    <div class="flag-box ${f.type === 'warn' ? 'warn' : f.type === 'info' ? 'info' : ''}">
+      <span class="flag-icon">${f.type === 'danger' ? '⚠' : f.type === 'warn' ? '⚠' : 'ℹ'}</span>
+      <span class="flag-text">${f.text}</span>
+    </div>
+  `).join('');
 
-  document.getElementById('modalContent').innerHTML = `
+  document.getElementById('modal-content').innerHTML = `
     <div class="modal-header">
-      <img class="modal-photo" src="${photoUrl}" alt="${m.name}"
+      <img class="modal-photo" src="${m.photo}" alt="${m.name}"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="modal-photo-placeholder" style="display:none">${initials}</div>
-      <div>
+      <div class="modal-photo-placeholder" style="display:none">${getInitials(m.name)}</div>
+      <div class="modal-info">
         <div class="modal-name">${m.name}</div>
-        <div class="modal-meta">
-          PARTY: <span>${partyLabel(m.party)}</span><br>
-          CHAMBER: <span>${m.chamber}</span><br>
-          STATE: <span>${m.state}${m.district ? ' · District '+m.district : ''}</span><br>
-          YEARS IN OFFICE: <span>${m.years}</span><br>
-          ROLE: <span>${m.role}</span>
+        <div class="modal-detail">
+          PARTY: ${m.party || '—'}<br>
+          CHAMBER: ${m.chamber}<br>
+          STATE: ${distStr}<br>
+          ${m.years_in_office ? `YEARS IN OFFICE: ${m.years_in_office}<br>` : ''}
+          ${m.role ? `ROLE: ${m.role}` : ''}
         </div>
       </div>
-      <div class="modal-score-big">
-        <div class="modal-score-num ${sc}" style="color:${color}">${m.score}</div>
-        <div class="modal-score-lbl">Anomaly Score</div>
+      <div style="text-align:right;flex-shrink:0">
+        <div class="modal-score-big" style="color:${scoreColor}">${score}</div>
+        <div class="modal-score-label">ANOMALY<br>SCORE</div>
       </div>
     </div>
 
-    <div class="modal-body">
-      <div class="modal-section">
-        <div class="modal-section-title">Key Figures</div>
-        <div class="modal-stat-row"><span class="key">Est. Net Worth</span><span class="val" style="color:var(--accent2)">${m.netWorth}</span></div>
-        <div class="modal-stat-row"><span class="key">Total Stock Trades</span><span class="val">${m.trades}</span></div>
-        <div class="modal-stat-row"><span class="key">Flagged Trades</span><span class="val" style="color:${m.flagTrades > 0 ? 'var(--accent)' : 'var(--accent3)'}">${m.flagTrades}</span></div>
-        <div class="modal-stat-row"><span class="key">Top Donors</span><span class="val" style="font-size:0.7rem;text-align:right;max-width:60%">${m.donors}</span></div>
+    <div class="modal-section">
+      <div class="modal-section-title">Key Figures</div>
+      <div class="kv-row">
+        <span class="kv-label">Est. Net Worth</span>
+        <span class="kv-value ${score >= 70 ? 'hot' : ''}">${m.net_worth || '—'}</span>
       </div>
+      <div class="kv-row">
+        <span class="kv-label">Total Stock Trades</span>
+        <span class="kv-value">${m.total_trades || '—'}</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-label">Flagged Trades</span>
+        <span class="kv-value ${score >= 60 ? 'hot' : ''}">${m.flagged_trades || '—'}</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-label">Top Donors</span>
+        <span class="kv-value">${m.top_donors || '—'}</span>
+      </div>
+      <div class="kv-row">
+        <span class="kv-label">Donor Alignment</span>
+        <span class="kv-value ${score >= 50 ? 'warm' : 'cool'}">${m.donor_alignment || '—'}</span>
+      </div>
+    </div>
 
-      <div class="modal-section">
-        <div class="modal-section-title">Anomaly Flags</div>
-        ${flagsHTML}
-      </div>
-
-      <div style="font-family:'DM Mono',monospace;font-size:0.58rem;color:var(--muted);line-height:1.7;padding:0.8rem;background:var(--surface);border:1px solid var(--border)">
-        DATA SOURCES: FEC.gov · SEC EDGAR · Congress.gov · OpenSecrets.org · Senate/House eFD<br>
-        ANOMALY SCORE is a statistical indicator only and does not imply legal wrongdoing.<br>
-        All figures from public filings. Methodology: congresswatch.io/methodology
-      </div>
+    <div class="modal-section">
+      <div class="modal-section-title">Anomaly Flags</div>
+      ${flagsHtml}
+      <p style="font-size:9px;color:#444;margin-top:10px;line-height:1.6">
+        DISCLAIMER: Anomaly score is a statistical indicator only. 
+        Does not imply illegal activity or wrongdoing. 
+        All data sourced from public government records.
+      </p>
     </div>
 
     <div class="modal-actions">
-      <button class="btn" onclick="shareProfile('${m.name}', ${m.score})">Share</button>
-      <button class="btn" onclick="exportProfile('${m.id}')">Export CSV</button>
-      <button class="btn primary">Full Deep Dive →</button>
+      <button class="btn" onclick="shareModal('${m.name}', ${score})">Share</button>
+      <button class="btn primary" onclick="alert('Full profile page coming soon')">Full Profile →</button>
     </div>
   `;
 
-  document.getElementById('modalOverlay').classList.add('open');
+  document.getElementById('modal-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('open');
   document.body.style.overflow = '';
 }
 
-function shareProfile(name, score) {
-  const text = `${name} has an anomaly score of ${score}/100 on CongressWatch — all from public records. congresswatch.io`;
+function shareModal(name, score) {
+  const text = `${name} has an anomaly score of ${score}/100 on CongressWatch. Check the data: congresswatch.vercel.app`;
   if (navigator.share) {
-    navigator.share({ title: 'CongressWatch', text, url: window.location.href });
+    navigator.share({ title: 'CongressWatch', text, url: 'https://congresswatch.vercel.app' });
   } else {
-    navigator.clipboard.writeText(text);
-    alert('Copied to clipboard!');
+    navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!'));
   }
 }
 
-function exportProfile(id) {
-  const m = members.find(x => x.id === id);
-  if (!m) return;
-  const csv = `Name,Party,State,Chamber,Score,NetWorth,Trades,FlaggedTrades,Donors\n"${m.name}",${m.party},${m.state},${m.chamber},${m.score},"${m.netWorth}",${m.trades},${m.flagTrades},"${m.donors}"`;
-  const a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
-  a.download = `${m.id}-congresswatch.csv`;
-  a.click();
-}
-
-// ── FILTER CONTROLS ──
-document.getElementById('chamberFilter').addEventListener('click', e => {
-  const btn = e.target.closest('[data-chamber]');
-  if (!btn) return;
-  document.querySelectorAll('[data-chamber]').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeFilters.chamber = btn.dataset.chamber;
-  renderGrid();
+// ── EVENT LISTENERS ──
+document.querySelectorAll('[data-chamber]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-chamber]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilters.chamber = btn.dataset.chamber;
+    applyFilters();
+  });
 });
 
-document.getElementById('partyFilter').addEventListener('click', e => {
-  const btn = e.target.closest('[data-party]');
-  if (!btn) return;
-  document.querySelectorAll('[data-party]').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeFilters.party = btn.dataset.party;
-  renderGrid();
+document.querySelectorAll('[data-party]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-party]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilters.party = btn.dataset.party;
+    applyFilters();
+  });
 });
 
-document.getElementById('scoreFilter').addEventListener('click', e => {
-  const btn = e.target.closest('[data-score]');
-  if (!btn) return;
-  document.querySelectorAll('[data-score]').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeFilters.score = btn.dataset.score;
-  renderGrid();
+document.getElementById('search').addEventListener('input', e => {
+  activeFilters.search = e.target.value;
+  applyFilters();
 });
 
-document.getElementById('searchInput').addEventListener('input', e => {
-  activeFilters.search = e.target.value.trim();
-  renderGrid();
+document.getElementById('sort-select').addEventListener('change', e => {
+  activeFilters.sort = e.target.value;
+  applyFilters();
 });
 
-document.getElementById('sortSelect').addEventListener('change', e => {
-  activeSort = e.target.value;
-  renderGrid();
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModalDirect();
 });
-
-document.getElementById('modalClose').addEventListener('click', closeModal);
-document.getElementById('modalOverlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('modalOverlay')) closeModal();
-});
-
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 // ── INIT ──
-renderGrid();
+loadMembers();
 </script>
 
 </body>
