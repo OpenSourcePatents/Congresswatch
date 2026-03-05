@@ -362,8 +362,8 @@ display: none;
 position: fixed;
 inset: 0;
 z-index: 200;
-background: rgba(0,0,0,0.85);
-backdrop-filter: blur(8px);
+background: rgba(0,0,0,0.88);
+backdrop-filter: blur(6px);
 overflow-y: auto;
 -webkit-overflow-scrolling: touch;
 }
@@ -371,11 +371,12 @@ overflow-y: auto;
 .modal-overlay.open { display: block; }
 
 .modal {
-background: #111111;
+background: #0d0d0d;
 margin: 16px;
 border: 1px solid #333;
 position: relative;
 min-height: 80vh;
+color: #f0f0f0;
 }
 
 .modal-close {
@@ -432,7 +433,7 @@ margin-bottom: 6px;
 
 .modal-detail {
 font-size: 10px;
-color: var(–muted);
+color: #bbbbbb;
 letter-spacing: 0.06em;
 line-height: 1.8;
 text-transform: uppercase;
@@ -460,7 +461,7 @@ border-bottom: 1px solid #1a1a1a;
 
 .modal-section-title {
 font-size: 9px;
-color: var(–muted);
+color: #888888;
 letter-spacing: 0.15em;
 text-transform: uppercase;
 margin-bottom: 12px;
@@ -476,8 +477,8 @@ font-size: 12px;
 }
 
 .kv-row:last-child { border-bottom: none; }
-.kv-label { color: var(–muted); }
-.kv-value { color: var(–text); text-align: right; }
+.kv-label { color: #aaaaaa; }
+.kv-value { color: #f0f0f0; text-align: right; }
 .kv-value.hot { color: var(–accent); }
 .kv-value.warm { color: var(–orange); }
 .kv-value.cool { color: var(–green); }
