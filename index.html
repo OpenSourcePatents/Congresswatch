@@ -1605,10 +1605,10 @@ function openProfile(m) {
   document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
   document.getElementById('ppanel-overview').classList.add('active');
 
-  // Draw chart
+  // Draw chart - use longer timeout so layout is complete
   setTimeout(() => {
     drawNetWorthChart('nw-canvas', m, nw, startYear);
-  }, 80);
+  }, 200);
 
   // Scroll to top
   document.getElementById('content').scrollTop = 0;
@@ -1841,10 +1841,11 @@ function drawFinanceChart(canvasId, m, nwCurrent, startYear) {
 
 function _drawChart(ctx, canvas, years, datasets) {
   const dpr = window.devicePixelRatio || 1;
-  canvas.width = canvas.offsetWidth * dpr;
-  canvas.height = 160 * dpr;
+  const W = canvas.offsetWidth || canvas.parentElement.offsetWidth || 340;
+  const H = 160;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
   ctx.scale(dpr, dpr);
-  const W = canvas.offsetWidth, H = 160;
   const PAD = { top:8, right:8, bottom:24, left:52 };
   const cW = W - PAD.left - PAD.right;
   const cH = H - PAD.top - PAD.bottom;
