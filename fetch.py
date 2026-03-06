@@ -1,8 +1,3 @@
-“””
-CongressWatch — Member Data Fetcher
-Pulls all 535 members from Congress.gov with correct chamber assignment
-“””
-
 import os
 import json
 import time
