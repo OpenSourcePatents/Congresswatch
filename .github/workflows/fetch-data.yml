@@ -11,6 +11,7 @@ runs-on: ubuntu-latest
 permissions:
 contents: write
 
+```
 steps:
   - uses: actions/checkout@v4
 
@@ -88,6 +89,7 @@ steps:
     run: |
       git config --global user.name "bot"
       git config --global user.email "bot@bot.com"
-      git add -A
-      git diff --staged --quiet || git commit -m "Update members"
-      git push --force
+      git add data/members.json
+      git diff --staged --quiet || git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
+      git pull --rebase
+      git push
