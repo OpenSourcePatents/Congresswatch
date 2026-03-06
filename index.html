@@ -1056,16 +1056,12 @@ border: 1px solid #1a1a1a;
 <!-- PROFILE VIEW -->
 <div class="profile-view" id="profile-view">
 
-  <div class="profile-header-bar">
-    <button class="back-btn" onclick="showMembersList()">← BACK</button>
-    <div class="profile-name-small" id="profile-name-small">—</div>
-  </div>
-
   <div class="profile-hero">
     <div>
       <img class="profile-photo" id="pf-photo" src="" alt=""
         onerror="this.style.display='none';document.getElementById('pf-placeholder').style.display='flex'">
-      <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none" id="pf-init">—</div>
+      <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none">—</div>
+      <button class="back-btn" style="margin-top:8px;width:100%" onclick="showMembersList()">← BACK</button>
     </div>
     <div class="profile-info">
       <div class="profile-full-name" id="pf-name">—</div>
@@ -1329,14 +1325,17 @@ async function loadData() {
     allMembers = raw.map(m => {
       const score = computeScore(m);
 
-      // Normalize chamber — API returns inconsistent casing
-      let chamber = (m.chamber || '').trim();
+      // Normalize chamber — Congress.gov API returns many variations
+      let chamber = (m.chamber || m.terms?.[0]?.chamber || '').trim();
       const cl = chamber.toLowerCase();
-      if (cl.includes('senate') || cl === 's') chamber = 'Senate';
-      else if (cl.includes('house') || cl === 'h') chamber = 'House';
-      else {
-        // Fallback: senators have no district
-        chamber = (m.district && String(m.district).trim() !== '') ? 'House' : 'Senate';
+      if (cl === 'senate' || cl === 'senator' || cl === 's' || cl === 'upper') {
+        chamber = 'Senate';
+      } else if (cl === 'house' || cl === 'representative' || cl === 'h' || cl === 'lower' || cl === 'house of representatives') {
+        chamber = 'House';
+      } else {
+        // Last resort: senators have blank/no district, house members have one
+        const dist = String(m.district || '').trim();
+        chamber = (dist && dist !== '0' && dist !== '') ? 'House' : 'Senate';
       }
 
       // Normalize party
@@ -1571,11 +1570,11 @@ function openProfile(m) {
     <div class="stat-cell">
       <div class="stat-cell-label">Total Raised (FEC)</div>
       <div class="stat-cell-value">${m.total_raised_display || fmtMoney(m.total_raised) || '—'}</div>
-      <div class="stat-cell-change neutral">${m.individual_contributions ? `${fmtMoney(m.pac_contributions)} PAC` : 'loading...'}</div>
+      <div class="stat-cell-change neutral">${m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending'}</div>
     </div>
     <div class="stat-cell">
       <div class="stat-cell-label">Stock Trades</div>
-      <div class="stat-cell-value" style="color:${(m.edgar_trade_count||0)>10?'#ff3c00':'var(--text)'}">${m.edgar_trade_count || m.total_trades || '—'}</div>
+      <div class="stat-cell-value" style="color:${(m.edgar_trade_count||0)>10?'#ff3c00':'var(--text)'}">${(m.edgar_trade_count != null && m.edgar_trade_count !== undefined) ? m.edgar_trade_count : (m.total_trades != null ? m.total_trades : '—')}</div>
       <div class="stat-cell-change neutral">SEC EDGAR</div>
     </div>
   `;
@@ -1812,7 +1811,7 @@ function drawNetWorthChart(canvasId, m, nwCurrent, startYear) {
 
   _drawChart(ctx, canvas, years, [
     { values: nwLine, color: nwCurrent > salLine[salLine.length-1] ? '#ff3c00' : '#00ff88', width: 2.5, fill: true, fillAlpha: 0.15 },
-    { values: salLine, color: 'rgba(255,255,255,0.4)', width: 1.5, dash: [4,3] },
+    { values: salLine, color: '#ffffff', width: 1.5, dash: [5,3] },
   ]);
 }
 
@@ -1889,20 +1888,20 @@ function _drawChart(ctx, canvas, years, datasets) {
     ctx.save();
     if (ds.dash) ctx.setLineDash(ds.dash);
 
+    // Fill under line
     if (ds.fill) {
       ctx.beginPath();
       ds.values.forEach((v,i) => i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
       ctx.lineTo(xp(n-1), yp(0));
       ctx.lineTo(xp(0), yp(0));
       ctx.closePath();
-      ctx.fillStyle = ds.color.replace(')',`,${ds.fillAlpha||0.15})`).replace('rgb(','rgba(').replace('#','').replace(/^([a-f\d]{6})$/i, (_,c)=>`rgba(${parseInt(c.slice(0,2),16)},${parseInt(c.slice(2,4),16)},${parseInt(c.slice(4,6),16)},${ds.fillAlpha||0.15})`);
-      // simpler fill
-      ctx.globalAlpha = ds.fillAlpha || 0.15;
+      ctx.globalAlpha = 0.15;
       ctx.fillStyle = ds.color;
       ctx.fill();
       ctx.globalAlpha = 1;
     }
 
+    // Draw line
     ctx.beginPath();
     ds.values.forEach((v,i) => i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
     ctx.strokeStyle = ds.color;
@@ -1910,12 +1909,13 @@ function _drawChart(ctx, canvas, years, datasets) {
     ctx.stroke();
     ctx.restore();
 
-    // End dot
-    const lastX = xp(n-1), lastY = yp(ds.values[n-1]);
-    ctx.beginPath();
-    ctx.arc(lastX, lastY, 3.5, 0, Math.PI*2);
-    ctx.fillStyle = ds.color;
-    ctx.fill();
+    // End dot (skip for dashed/salary line)
+    if (!ds.dash) {
+      ctx.beginPath();
+      ctx.arc(xp(n-1), yp(ds.values[n-1]), 3.5, 0, Math.PI*2);
+      ctx.fillStyle = ds.color;
+      ctx.fill();
+    }
   });
 }
 
