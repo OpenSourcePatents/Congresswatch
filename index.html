@@ -4,6 +4,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- PWA / iOS home screen meta tags -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CongressWatch">
 <title>CongressWatch — Follow The Money</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
@@ -65,7 +69,6 @@ letter-spacing: 1.5px;
 text-transform: uppercase;
 display: none;
 }
-
 @media (min-width: 600px) { .tagline { display: block; } }
 
 .header-right {
@@ -100,7 +103,6 @@ display: flex;
 justify-content: space-around;
 padding: 8px 0 max(8px, env(safe-area-inset-bottom));
 }
-
 @media (min-width: 900px) { .mobile-nav { display: none; } }
 
 .mobile-nav-btn {
@@ -118,6 +120,8 @@ cursor: pointer;
 padding: 4px 8px;
 transition: color 0.2s;
 text-transform: uppercase;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .mobile-nav-btn.active { color: var(–accent); }
 .mobile-nav-btn svg { width: 20px; height: 20px; }
@@ -129,7 +133,6 @@ display: grid;
 grid-template-columns: 1fr;
 min-height: calc(100vh - 56px);
 }
-
 @media (min-width: 900px) {
 .app { grid-template-columns: 280px 1fr; }
 }
@@ -145,7 +148,6 @@ top: 56px;
 overflow-y: auto;
 flex-direction: column;
 }
-
 @media (min-width: 900px) { .sidebar { display: flex; } }
 
 .sidebar-inner { padding: 1rem; }
@@ -161,6 +163,8 @@ padding: 0.6rem 0.8rem;
 outline: none;
 margin-bottom: 1rem;
 transition: border-color 0.2s;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .sidebar-search:focus { border-color: var(–accent); }
 .sidebar-search::placeholder { color: var(–muted); }
@@ -196,6 +200,8 @@ color: var(–muted);
 padding: 3px 8px;
 cursor: pointer;
 transition: all 0.15s;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .sf-btn.active { background: var(–accent); color: #000; border-color: var(–accent); }
 .sf-btn.dem.active { background: var(–dem); border-color: var(–dem); color: #fff; }
@@ -261,16 +267,14 @@ overflow-y: auto;
 height: calc(100vh - 56px);
 padding-bottom: 70px;
 }
-
 @media (min-width: 900px) { .content { padding-bottom: 0; } }
 
-/* ── HERO (members list view) ── */
+/* ── HERO ── */
 .hero-bar {
 padding: 1.2rem 1.5rem 0;
 border-bottom: 1px solid var(–border);
 background: var(–surface);
 }
-
 .hero-title {
 font-family: ‘Bebas Neue’, sans-serif;
 font-size: clamp(1.8rem, 6vw, 3rem);
@@ -279,7 +283,6 @@ line-height: 1;
 margin-bottom: 4px;
 }
 .hero-title span { color: var(–accent); }
-
 .hero-sub {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 0.62rem;
@@ -327,7 +330,6 @@ top: 56px;
 z-index: 100;
 display: block;
 }
-
 @media (min-width: 900px) { .mobile-filters { display: none; } }
 
 .mf-search {
@@ -341,6 +343,8 @@ padding: 0.6rem 0.8rem;
 outline: none;
 margin-bottom: 0.6rem;
 transition: border-color 0.2s;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .mf-search:focus { border-color: var(–accent); }
 .mf-search::placeholder { color: var(–muted); }
@@ -367,6 +371,8 @@ cursor: pointer;
 white-space: nowrap;
 flex-shrink: 0;
 transition: all 0.15s;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .mf-btn.active { background: var(–text); color: var(–bg); border-color: var(–text); }
 .mf-btn.dem.active { background: var(–dem); border-color: var(–dem); color: #fff; }
@@ -388,6 +394,8 @@ font-family: ‘IBM Plex Mono’, monospace;
 font-size: 0.6rem;
 padding: 4px 8px;
 outline: none;
+-webkit-appearance: none;
+border-radius: 0;
 }
 
 /* ── MEMBER GRID ── */
@@ -397,7 +405,6 @@ grid-template-columns: repeat(2, 1fr);
 gap: 1px;
 background: var(–border);
 }
-
 @media (min-width: 600px) { .member-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 900px) { .member-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1200px) { .member-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -506,6 +513,8 @@ padding: 4px 10px;
 cursor: pointer;
 text-transform: uppercase;
 flex-shrink: 0;
+-webkit-appearance: none;
+border-radius: 0;
 }
 
 .profile-name-small {
@@ -526,7 +535,6 @@ padding: 1.2rem;
 border-bottom: 1px solid var(–border);
 background: var(–surface);
 }
-
 @media (min-width: 600px) {
 .profile-hero { grid-template-columns: auto 1fr auto; }
 }
@@ -548,7 +556,6 @@ border: 2px solid var(–border);
 flex-shrink: 0;
 }
 
-.profile-info {}
 .profile-full-name {
 font-family: ‘Bebas Neue’, sans-serif;
 font-size: clamp(1.4rem, 4vw, 2rem);
@@ -616,6 +623,8 @@ white-space: nowrap;
 border-bottom: 2px solid transparent;
 transition: all 0.2s;
 flex-shrink: 0;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .ptab:hover { color: var(–text); }
 .ptab.active { color: var(–accent); border-bottom-color: var(–accent); }
@@ -635,10 +644,7 @@ margin-bottom: 1.2rem;
 }
 @media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
 
-.stat-cell {
-background: var(–surface);
-padding: 1rem;
-}
+.stat-cell { background: var(–surface); padding: 1rem; }
 .stat-cell-label {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 0.55rem;
@@ -733,24 +739,9 @@ display: flex;
 gap: 0.8rem;
 align-items: flex-start;
 }
-.alert-box.warn {
-border-color: #ffaa00;
-background: rgba(255,170,0,0.06);
-border-left-color: #ffaa00;
-}
-.alert-box.info {
-border-color: var(–accent3);
-background: rgba(0,212,255,0.05);
-border-left-color: var(–accent3);
-}
-.alert-icon {
-font-family: ‘Bebas Neue’, sans-serif;
-font-size: 1.1rem;
-color: var(–accent2);
-flex-shrink: 0;
-line-height: 1;
-margin-top: 2px;
-}
+.alert-box.warn { border-color: #ffaa00; background: rgba(255,170,0,0.06); border-left-color: #ffaa00; }
+.alert-box.info { border-color: var(–accent3); background: rgba(0,212,255,0.05); border-left-color: var(–accent3); }
+.alert-icon { font-family:‘Bebas Neue’,sans-serif; font-size:1.1rem; color:var(–accent2); flex-shrink:0; line-height:1; margin-top:2px; }
 .alert-box.warn .alert-icon { color: #ffaa00; }
 .alert-box.info .alert-icon { color: var(–accent3); }
 .alert-title {
@@ -764,11 +755,7 @@ text-transform: uppercase;
 }
 .alert-box.warn .alert-title { color: #ffaa00; }
 .alert-box.info .alert-title { color: var(–accent3); }
-.alert-body {
-font-size: 0.78rem;
-color: var(–text);
-line-height: 1.6;
-}
+.alert-body { font-size: 0.78rem; color: var(–text); line-height: 1.6; }
 .alert-body code {
 font-family: ‘IBM Plex Mono’, monospace;
 font-size: 0.7rem;
@@ -847,21 +834,6 @@ margin-bottom: 1.2rem;
 }
 canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
 
-/* Travel */
-.travel-entry {
-display: flex;
-gap: 0.8rem;
-padding: 0.7rem;
-border: 1px solid var(–border);
-margin-bottom: 0.5rem;
-background: var(–surface);
-font-size: 0.78rem;
-}
-.travel-date { font-family:‘IBM Plex Mono’,monospace; font-size:0.6rem; color:var(–muted); min-width:60px; line-height:1.6; }
-.travel-dest { font-weight:600; }
-.travel-sub { font-size:0.7rem; color:var(–muted); margin-top:2px; }
-.travel-sponsor { margin-left:auto; font-family:‘IBM Plex Mono’,monospace; font-size:0.6rem; color:var(–accent2); flex-shrink:0; }
-
 /* Compare */
 .compare-grid {
 display: grid;
@@ -893,6 +865,8 @@ color: var(–text);
 padding: 5px 10px;
 cursor: pointer;
 transition: all 0.15s;
+-webkit-appearance: none;
+border-radius: 0;
 }
 .tool-btn:hover { border-color: var(–accent); color: var(–accent); }
 .tool-btn.danger:hover { border-color: var(–accent2); color: var(–accent2); }
@@ -975,7 +949,6 @@ border: 1px solid #1a1a1a;
     </div>
   </div>
 
-  <!-- Data sources -->
   <div class="sidebar-label" style="margin-top:1rem">Data Sources</div>
   <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--muted);line-height:2.2">
     ✓ Congress.gov API<br>
@@ -1039,6 +1012,7 @@ border: 1px solid #1a1a1a;
         <option value="score-desc">Highest Score</option>
         <option value="score-asc">Lowest Score</option>
         <option value="name-asc">Name A–Z</option>
+        <option value="name-desc">Name Z–A</option>
         <option value="state-asc">State A–Z</option>
       </select>
     </div>
@@ -1056,12 +1030,16 @@ border: 1px solid #1a1a1a;
 <!-- PROFILE VIEW -->
 <div class="profile-view" id="profile-view">
 
+  <div class="profile-header-bar">
+    <button class="back-btn" onclick="showMembersList()">← BACK</button>
+    <div class="profile-name-small" id="profile-name-small">—</div>
+  </div>
+
   <div class="profile-hero">
     <div>
       <img class="profile-photo" id="pf-photo" src="" alt=""
         onerror="this.style.display='none';document.getElementById('pf-placeholder').style.display='flex'">
       <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none">—</div>
-      <button class="back-btn" style="margin-top:8px;width:100%" onclick="showMembersList()">← BACK</button>
     </div>
     <div class="profile-info">
       <div class="profile-full-name" id="pf-name">—</div>
@@ -1087,13 +1065,10 @@ border: 1px solid #1a1a1a;
 
   <!-- OVERVIEW -->
   <div class="ppanel active" id="ppanel-overview">
-    <div class="stats-grid" id="pf-stats-grid"><!-- filled by JS --></div>
-
+    <div class="stats-grid" id="pf-stats-grid"></div>
     <div class="chart-box">
       <div class="sec-title">NET WORTH VS SALARY</div>
-      <div class="chart-area">
-        <canvas class="chart-canvas" id="nw-canvas"></canvas>
-      </div>
+      <div class="chart-area"><canvas class="chart-canvas" id="nw-canvas"></canvas></div>
       <div class="chart-legend">
         <div class="legend-item"><div class="legend-line" style="background:#ff3c00"></div>Est. Net Worth (above salary)</div>
         <div class="legend-item"><div class="legend-line" style="background:#00ff88"></div>Est. Net Worth (below salary)</div>
@@ -1101,12 +1076,11 @@ border: 1px solid #1a1a1a;
       </div>
       <div class="chart-note">* Estimated trajectory from public disclosures. Real annual data coming.</div>
     </div>
-
     <div class="sec-header">
       <div class="sec-title">ANOMALY FLAGS</div>
       <div class="sec-badge" id="pf-flag-count">—</div>
     </div>
-    <div id="pf-flags"><!-- filled by JS --></div>
+    <div id="pf-flags"></div>
     <div class="disclaimer">DISCLAIMER: Anomaly score is a statistical indicator only. Does not imply illegal activity. All data from public government records. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.</div>
   </div>
 
@@ -1119,40 +1093,32 @@ border: 1px solid #1a1a1a;
         <div class="alert-body">Bills are cross-referenced using NLP cosine similarity. Matches above 80% threshold flagged as potentially coordinated authorship. Source: LegiScan API.</div>
       </div>
     </div>
-    <div id="pf-votes-content"><!-- filled by JS --></div>
+    <div id="pf-votes-content"></div>
   </div>
 
   <!-- FINANCE -->
   <div class="ppanel" id="ppanel-finance">
-    <div class="stats-grid" id="pf-finance-stats"><!-- filled by JS --></div>
+    <div class="stats-grid" id="pf-finance-stats"></div>
     <div class="chart-box">
       <div class="sec-title">WEALTH ACCUMULATION VS SALARY</div>
-      <div class="chart-area">
-        <canvas class="chart-canvas" id="fin-canvas"></canvas>
-      </div>
+      <div class="chart-area"><canvas class="chart-canvas" id="fin-canvas"></canvas></div>
       <div class="chart-legend">
         <div class="legend-item"><div class="legend-line" style="background:var(--accent)"></div>Net Worth</div>
         <div class="legend-item"><div class="legend-line" style="background:#555"></div>Cumulative Salary</div>
         <div class="legend-item"><div class="legend-line" style="background:var(--accent2)"></div>Unexplained Gap</div>
       </div>
     </div>
-    <div id="pf-finance-donors"><!-- filled by JS --></div>
+    <div id="pf-finance-donors"></div>
   </div>
 
   <!-- STOCKS -->
-  <div class="ppanel" id="ppanel-stocks">
-    <div id="pf-stocks-content"><!-- filled by JS --></div>
-  </div>
+  <div class="ppanel" id="ppanel-stocks"><div id="pf-stocks-content"></div></div>
 
   <!-- TRAVEL -->
-  <div class="ppanel" id="ppanel-travel">
-    <div id="pf-travel-content"><!-- filled by JS --></div>
-  </div>
+  <div class="ppanel" id="ppanel-travel"><div id="pf-travel-content"></div></div>
 
   <!-- PATTERNS -->
-  <div class="ppanel" id="ppanel-patterns">
-    <div id="pf-patterns-content"><!-- filled by JS --></div>
-  </div>
+  <div class="ppanel" id="ppanel-patterns"><div id="pf-patterns-content"></div></div>
 
   <!-- NETWORK -->
   <div class="ppanel" id="ppanel-network">
@@ -1160,10 +1126,8 @@ border: 1px solid #1a1a1a;
       <div class="sec-title">DONOR NETWORK</div>
       <div class="sec-badge">FEC + OPENSECRETS</div>
     </div>
-    <div class="network-box">
-      <canvas id="netCanvas"></canvas>
-    </div>
-    <div id="pf-network-table"><!-- filled by JS --></div>
+    <div class="network-box"><canvas id="netCanvas"></canvas></div>
+    <div id="pf-network-table"></div>
   </div>
 
   <!-- COMPARE -->
@@ -1172,12 +1136,10 @@ border: 1px solid #1a1a1a;
       <div class="sec-title">ALL MEMBERS COMPARISON</div>
       <div class="sec-badge">535 TRACKED</div>
     </div>
-    <div class="compare-grid" id="compare-stats"><!-- filled by JS --></div>
+    <div class="compare-grid" id="compare-stats"></div>
     <div class="chart-box">
       <div class="sec-title">NET WORTH GROWTH — TOP 10</div>
-      <div class="chart-area">
-        <canvas class="chart-canvas" id="compare-canvas"></canvas>
-      </div>
+      <div class="chart-area"><canvas class="chart-canvas" id="compare-canvas"></canvas></div>
     </div>
   </div>
 
@@ -1222,6 +1184,32 @@ border: 1px solid #1a1a1a;
 
 <script>
 // ════════════════════════════════════════
+// PWA BACK-BUTTON FIX
+// When saved to iOS home screen, the app has no browser chrome — pressing the
+// hardware/gesture back would normally close the app. We prevent that by always
+// keeping at least one entry in the history stack, and wiring popstate to our
+// own navigation logic instead.
+// ════════════════════════════════════════
+(function initHistory() {
+  if (window.history && window.history.pushState) {
+    window.history.pushState({ view: 'members' }, '', window.location.href);
+  }
+})();
+
+window.addEventListener('popstate', function(e) {
+  var state = e.state;
+  if (document.getElementById('profile-view').classList.contains('active')) {
+    // User pressed back while on a profile — go to members list
+    _showMembersListInternal();
+    // Re-push so there's still a state to pop to next time
+    window.history.pushState({ view: 'members' }, '', window.location.href);
+  } else {
+    // Already at root — re-push so the app doesn't close
+    window.history.pushState({ view: 'members' }, '', window.location.href);
+  }
+});
+
+// ════════════════════════════════════════
 // STATE
 // ════════════════════════════════════════
 let allMembers = [];
@@ -1235,6 +1223,7 @@ const SALARY_BY_YEAR = {
   2010:174000,2011:174000,2012:174000,2013:174000,2014:174000,
   2015:174000,2016:174000,2017:174000,2018:174000,2019:174000,
   2020:174000,2021:174000,2022:174000,2023:174000,2024:174000,
+  2025:174000,
 };
 
 // ════════════════════════════════════════
@@ -1244,11 +1233,9 @@ function photoUrl(id) {
   if (!id) return '';
   return `https://bioguide.congress.gov/bioguide/photo/${id[0].toUpperCase()}/${id}.jpg`;
 }
-
 function initials(name) {
   return (name||'').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
 }
-
 function partyColor(party) {
   if (!party) return '#555';
   const p = party.toLowerCase();
@@ -1256,7 +1243,6 @@ function partyColor(party) {
   if (p.includes('rep')) return '#ef4444';
   return '#a855f7';
 }
-
 function partyShort(party) {
   if (!party) return '?';
   const p = party.toLowerCase();
@@ -1264,7 +1250,6 @@ function partyShort(party) {
   if (p.includes('rep')) return 'R';
   return 'I';
 }
-
 function scoreColor(s) {
   if (s >= 80) return '#ff3c00';
   if (s >= 60) return '#ffaa00';
@@ -1272,26 +1257,18 @@ function scoreColor(s) {
   if (s >= 20) return '#00ff88';
   return '#555';
 }
-
 function scoreClass(s) {
   if (s >= 80) return 'score-crit';
   if (s >= 60) return 'score-high';
   if (s >= 40) return 'score-med';
   return 'score-low';
 }
-
 function scoreBg(s) {
   if (s >= 80) return '#ff3c00';
   if (s >= 60) return '#ffaa00';
   if (s >= 40) return '#e8ff00';
   return '#00ff88';
 }
-
-function scoreFg(s) {
-  if (s >= 40) return '#000';
-  return '#000';
-}
-
 function fmtMoney(v) {
   if (!v && v !== 0) return '—';
   if (v >= 1e9) return `$${(v/1e9).toFixed(1)}B`;
@@ -1299,7 +1276,6 @@ function fmtMoney(v) {
   if (v >= 1e3) return `$${(v/1e3).toFixed(0)}K`;
   return `$${v}`;
 }
-
 function computeScore(m) {
   if (m.score && m.score > 0) return m.score;
   let h = 0;
@@ -1307,7 +1283,6 @@ function computeScore(m) {
   for (let i=0;i<id.length;i++) h = (h*31 + id.charCodeAt(i)) & 0xffffffff;
   return Math.abs(h % 85) + 5;
 }
-
 function computeNetWorth(m, score) {
   if (m.net_worth_raw) return m.net_worth_raw;
   if (m.total_raised) return m.total_raised * 0.45;
@@ -1324,44 +1299,22 @@ async function loadData() {
     const raw = await res.json();
     allMembers = raw.map(m => {
       const score = computeScore(m);
-
-      // Normalize chamber — Congress.gov API returns many variations
       let chamber = (m.chamber || m.terms?.[0]?.chamber || '').trim();
       const cl = chamber.toLowerCase();
-      if (cl === 'senate' || cl === 'senator' || cl === 's' || cl === 'upper') {
-        chamber = 'Senate';
-      } else if (cl === 'house' || cl === 'representative' || cl === 'h' || cl === 'lower' || cl === 'house of representatives') {
-        chamber = 'House';
-      } else {
-        // Last resort: senators have blank/no district, house members have one
-        const dist = String(m.district || '').trim();
-        chamber = (dist && dist !== '0' && dist !== '') ? 'House' : 'Senate';
-      }
-
-      // Normalize party
+      if (cl === 'senate' || cl === 'senator' || cl === 's' || cl === 'upper') chamber = 'Senate';
+      else if (cl === 'house' || cl === 'representative' || cl === 'h' || cl === 'lower' || cl === 'house of representatives') chamber = 'House';
+      else { const dist = String(m.district || '').trim(); chamber = (dist && dist !== '0') ? 'House' : 'Senate'; }
       let party = (m.party || '').trim();
       const pl = party.toLowerCase();
       if (pl.includes('democrat') || pl === 'd') party = 'Democratic';
       else if (pl.includes('republican') || pl === 'r') party = 'Republican';
       else if (pl.includes('independent') || pl === 'i') party = 'Independent';
-
-      return {
-        ...m,
-        chamber,
-        party,
-        displayScore: score,
+      return { ...m, chamber, party, displayScore: score,
         photo: m.photo_url || photoUrl(m.id || m.bioguide_id),
-        partyC: partyColor(party),
-        partyS: partyShort(party),
-        netWorthEst: computeNetWorth(m, score),
-      };
+        partyC: partyColor(party), partyS: partyShort(party), netWorthEst: computeNetWorth(m, score) };
     });
-    updateStats();
-    applyFilters();
-    renderSidebar();
-  } catch(e) {
-    loadDemo();
-  }
+    updateStats(); applyFilters(); renderSidebar();
+  } catch(e) { loadDemo(); }
 }
 
 function loadDemo() {
@@ -1381,9 +1334,7 @@ function loadDemo() {
     const score = m.score || computeScore(m);
     return {...m, displayScore:score, photo:photoUrl(m.id), partyC:partyColor(m.party), partyS:partyShort(m.party), netWorthEst:computeNetWorth(m,score)};
   });
-  updateStats();
-  applyFilters();
-  renderSidebar();
+  updateStats(); applyFilters(); renderSidebar();
 }
 
 function updateStats() {
@@ -1401,8 +1352,7 @@ function applyFilters() {
   filtered = allMembers.filter(m => {
     if (filters.chamber !== 'all' && m.chamber !== filters.chamber) return false;
     if (filters.party !== 'all') {
-      const p = (m.party||'').toLowerCase();
-      const f = filters.party.toLowerCase();
+      const p = (m.party||'').toLowerCase(), f = filters.party.toLowerCase();
       if (!p.includes(f.slice(0,3))) return false;
     }
     if (filters.score !== 'all') {
@@ -1413,10 +1363,9 @@ function applyFilters() {
     }
     if (filters.search) {
       const q = filters.search.toLowerCase();
-      const n = (m.name||'').toLowerCase();
-      const st = (m.state||'').toLowerCase();
-      const d = (m.district||'').toLowerCase();
-      if (!n.includes(q) && !st.includes(q) && !d.includes(q)) return false;
+      if (!(m.name||'').toLowerCase().includes(q) &&
+          !(m.state||'').toLowerCase().includes(q) &&
+          !(m.district||'').toLowerCase().includes(q)) return false;
     }
     return true;
   });
@@ -1433,8 +1382,7 @@ function applyFilters() {
   });
 
   document.getElementById('results-count').textContent = `${filtered.length} members`;
-  renderGrid();
-  renderSidebar();
+  renderGrid(); renderSidebar();
 }
 
 // ════════════════════════════════════════
@@ -1442,21 +1390,15 @@ function applyFilters() {
 // ════════════════════════════════════════
 function renderGrid() {
   const wrap = document.getElementById('grid-wrap');
-  if (filtered.length === 0) {
-    wrap.innerHTML = '<div class="empty-msg">No members match filters.</div>';
-    return;
-  }
+  if (filtered.length === 0) { wrap.innerHTML = '<div class="empty-msg">No members match filters.</div>'; return; }
   const grid = document.createElement('div');
   grid.className = 'member-grid';
-
   filtered.forEach(m => {
     const s = m.displayScore;
     const card = document.createElement('div');
     card.className = 'grid-card';
     card.onclick = () => openProfile(m);
-
     const dist = m.district ? `· ${m.state}-${m.district}` : `· ${m.state}`;
-
     card.innerHTML = `
       <div class="party-stripe" style="background:${m.partyC}"></div>
       <img class="grid-photo" src="${m.photo}" alt="${m.name}"
@@ -1471,13 +1413,11 @@ function renderGrid() {
           ${s>=70?'<span class="grid-tag" style="background:#0a1520;color:#00d4ff">BILL</span>':''}
         </div>
       </div>
-      <div class="grid-score" style="background:${scoreBg(s)};color:${scoreFg(s)}">${s}</div>
+      <div class="grid-score" style="background:${scoreBg(s)};color:#000">${s}</div>
     `;
     grid.appendChild(card);
   });
-
-  wrap.innerHTML = '';
-  wrap.appendChild(grid);
+  wrap.innerHTML = ''; wrap.appendChild(grid);
 }
 
 // ════════════════════════════════════════
@@ -1487,15 +1427,12 @@ function renderSidebar() {
   const list = document.getElementById('sidebar-list');
   const count = document.getElementById('sidebar-count');
   if (!list) return;
-
-  const show = filtered.slice(0, 100);
   count.textContent = `(${filtered.length})`;
-
+  const show = filtered.slice(0, 100);
   if (show.length === 0) {
     list.innerHTML = '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;color:var(--muted);padding:0.5rem">No results.</div>';
     return;
   }
-
   list.innerHTML = show.map(m => {
     const s = m.displayScore;
     const dist = m.district ? `${m.partyS}·${m.state}-${m.district}·${m.chamber}` : `${m.partyS}·${m.state}·${m.chamber}`;
@@ -1516,7 +1453,7 @@ function renderSidebar() {
 }
 
 // ════════════════════════════════════════
-// OPEN PROFILE
+// OPEN / CLOSE PROFILE
 // ════════════════════════════════════════
 function openProfile(m) {
   currentMember = m;
@@ -1526,11 +1463,15 @@ function openProfile(m) {
   document.getElementById('members-view').classList.add('hidden');
   document.getElementById('profile-view').classList.add('active');
 
+  // Push history so back button/gesture navigates within the app, not out of it
+  if (window.history && window.history.pushState) {
+    window.history.pushState({ view: 'profile', id: m.id || m.name }, '', window.location.href);
+  }
+
   document.getElementById('profile-name-small').textContent = m.name;
   document.getElementById('pf-name').textContent = m.name.toUpperCase();
   document.getElementById('pf-photo').src = m.photo;
   document.getElementById('pf-placeholder').textContent = initials(m.name);
-
   document.getElementById('pf-details').innerHTML = `
     PARTY: <b>${m.party||'—'}</b> &nbsp;|&nbsp;
     CHAMBER: <b>${m.chamber}</b> &nbsp;|&nbsp;
@@ -1540,20 +1481,14 @@ function openProfile(m) {
   `;
 
   const scoreBig = document.getElementById('pf-score-big');
-  scoreBig.textContent = s;
-  scoreBig.style.color = scoreColor(s);
-
+  scoreBig.textContent = s; scoreBig.style.color = scoreColor(s);
   const bar = document.getElementById('pf-score-bar');
-  bar.style.width = s + '%';
-  bar.style.background = scoreColor(s);
+  bar.style.width = s + '%'; bar.style.background = scoreColor(s);
 
-  // Stats grid
   const nw = m.netWorthEst;
   const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
-  const yearsServed = new Date().getFullYear() - startYear;
   const cumSalary = Object.entries(SALARY_BY_YEAR)
-    .filter(([y])=>parseInt(y)>=startYear)
-    .reduce((a,[,v])=>a+v, 0);
+    .filter(([y])=>parseInt(y)>=startYear).reduce((a,[,v])=>a+v, 0);
   const gap = nw - cumSalary;
 
   document.getElementById('pf-stats-grid').innerHTML = `
@@ -1574,50 +1509,45 @@ function openProfile(m) {
     </div>
     <div class="stat-cell">
       <div class="stat-cell-label">Stock Trades</div>
-      <div class="stat-cell-value" style="color:${(m.edgar_trade_count||0)>10?'#ff3c00':'var(--text)'}">${(m.edgar_trade_count != null && m.edgar_trade_count !== undefined) ? m.edgar_trade_count : (m.total_trades != null ? m.total_trades : '—')}</div>
+      <div class="stat-cell-value" style="color:${(m.edgar_trade_count||0)>10?'#ff3c00':'var(--text)'}">${m.edgar_trade_count != null ? m.edgar_trade_count : (m.total_trades != null ? m.total_trades : '—')}</div>
       <div class="stat-cell-change neutral">SEC EDGAR</div>
     </div>
   `;
 
-  // Flags
   const flags = buildFlags(m, s);
   document.getElementById('pf-flag-count').textContent = `${flags.length} ACTIVE`;
   document.getElementById('pf-flags').innerHTML = flags.map(f => `
     <div class="alert-box ${f.type}">
       <div class="alert-icon">${f.type==='info'?'ℹ':'⚠'}</div>
-      <div>
-        <div class="alert-title">${f.title}</div>
-        <div class="alert-body">${f.body}</div>
-      </div>
+      <div><div class="alert-title">${f.title}</div><div class="alert-body">${f.body}</div></div>
     </div>
-  `).join('') || '<div class="empty-msg">No significant anomalies detected.</div>';
+  `).join('');
 
-  // Fill other panels
-  fillVotes(m, s);
-  fillFinance(m, s, nw, cumSalary);
-  fillStocks(m, s);
-  fillTravel(m);
-  fillPatterns(m, s);
+  fillVotes(m, s); fillFinance(m, s, nw, cumSalary);
+  fillStocks(m, s); fillTravel(m); fillPatterns(m, s);
 
-  // Reset to overview tab
   document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
   document.getElementById('ppanel-overview').classList.add('active');
-
-  // Draw chart - use longer timeout so layout is complete
-  setTimeout(() => {
-    drawNetWorthChart('nw-canvas', m, nw, startYear);
-  }, 200);
-
-  // Scroll to top
+  setTimeout(() => drawNetWorthChart('nw-canvas', m, nw, startYear), 200);
   document.getElementById('content').scrollTop = 0;
 }
 
-function showMembersList() {
+// Internal — used by popstate (doesn't push history)
+function _showMembersListInternal() {
   document.getElementById('profile-view').classList.remove('active');
   document.getElementById('members-view').classList.remove('hidden');
   currentMember = null;
+  document.getElementById('content').scrollTop = 0;
+}
+
+// Public — used by back button and mobile nav
+function showMembersList() {
+  _showMembersListInternal();
+  if (window.history && window.history.replaceState) {
+    window.history.replaceState({ view: 'members' }, '', window.location.href);
+  }
 }
 
 // ════════════════════════════════════════
@@ -1625,36 +1555,18 @@ function showMembersList() {
 // ════════════════════════════════════════
 function buildFlags(m, s) {
   const flags = [];
-  if (s >= 60) flags.push({
-    type:'danger',
-    title:'STOCK TRADE TIMING — POTENTIAL LEGISLATION CORRELATION',
-    body:`Trading activity detected near related committee hearings or bill votes. ${m.edgar_trade_count ? `${m.edgar_trade_count} trades found in SEC EDGAR.` : 'Pattern requires full EDGAR analysis.'} Source: SEC EDGAR Form 4.`
-  });
-  if ((m.pac_contributions||0) > (m.total_raised||1) * 0.35) flags.push({
-    type:'warn',
-    title:'HIGH PAC CONTRIBUTION RATIO',
-    body:`PAC contributions represent a significant portion of total fundraising. This indicates heavy reliance on organized special interest money. Source: FEC.gov.`
-  });
-  if ((m.missed_votes_pct||0) > 0.15) flags.push({
-    type:'warn',
-    title:`HIGH MISSED VOTE RATE — ${((m.missed_votes_pct||0)*100).toFixed(1)}%`,
-    body:`Missed vote rate exceeds 15% threshold. Member is collecting full $174,000 salary. Source: GovTrack.us.`
-  });
-  if ((m.votes_with_party_pct||0) > 95) flags.push({
-    type:'info',
-    title:'NEAR-PERFECT PARTY LINE VOTING',
-    body:`Votes with party ${(m.votes_with_party_pct||0).toFixed(1)}% of the time — suggesting low independent judgment. Source: GovTrack.us.`
-  });
-  if (s >= 70) flags.push({
-    type:'info',
-    title:'BILL TEXT SIMILARITY DETECTED',
-    body:`One or more sponsored bills share significant language with known model legislation from lobbying organizations. NLP analysis via LegiScan bill text.`
-  });
-  if (flags.length === 0) flags.push({
-    type:'info',
-    title:'NO SIGNIFICANT ANOMALIES DETECTED',
-    body:'Available public records do not show unusual patterns for this member. Data updates daily.'
-  });
+  if (s >= 60) flags.push({type:'danger',title:'STOCK TRADE TIMING — POTENTIAL LEGISLATION CORRELATION',
+    body:`Trading activity detected near related committee hearings or bill votes. ${m.edgar_trade_count ? `${m.edgar_trade_count} trades found in SEC EDGAR.` : 'Pattern requires full EDGAR analysis.'} Source: SEC EDGAR Form 4.`});
+  if ((m.pac_contributions||0) > (m.total_raised||1) * 0.35) flags.push({type:'warn',title:'HIGH PAC CONTRIBUTION RATIO',
+    body:`PAC contributions represent a significant portion of total fundraising. This indicates heavy reliance on organized special interest money. Source: FEC.gov.`});
+  if ((m.missed_votes_pct||0) > 0.15) flags.push({type:'warn',title:`HIGH MISSED VOTE RATE — ${((m.missed_votes_pct||0)*100).toFixed(1)}%`,
+    body:`Missed vote rate exceeds 15% threshold. Member is collecting full $174,000 salary. Source: GovTrack.us.`});
+  if ((m.votes_with_party_pct||0) > 95) flags.push({type:'info',title:'NEAR-PERFECT PARTY LINE VOTING',
+    body:`Votes with party ${(m.votes_with_party_pct||0).toFixed(1)}% of the time — suggesting low independent judgment. Source: GovTrack.us.`});
+  if (s >= 70) flags.push({type:'info',title:'BILL TEXT SIMILARITY DETECTED',
+    body:`One or more sponsored bills share significant language with known model legislation from lobbying organizations. NLP analysis via LegiScan bill text.`});
+  if (flags.length === 0) flags.push({type:'info',title:'NO SIGNIFICANT ANOMALIES DETECTED',
+    body:'Available public records do not show unusual patterns for this member. Data updates daily.'});
   return flags;
 }
 
@@ -1662,131 +1574,52 @@ function buildFlags(m, s) {
 // FILL PANELS
 // ════════════════════════════════════════
 function fillVotes(m, s) {
-  const el = document.getElementById('pf-votes-content');
-  el.innerHTML = `
+  document.getElementById('pf-votes-content').innerHTML = `
     <table class="data-table">
-      <thead><tr>
-        <th>Bill</th><th>Title</th><th>Date</th><th>Vote</th><th>Donor Interest</th><th>Text Match</th>
-      </tr></thead>
+      <thead><tr><th>Bill</th><th>Title</th><th>Date</th><th>Vote</th><th>Donor Interest</th><th>Text Match</th></tr></thead>
       <tbody>
-        <tr>
-          <td><div class="bill-id">—</div></td>
-          <td colspan="5" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:0.7rem">
-            Full voting record available when LegiScan integration completes. Coming soon.
-          </td>
-        </tr>
-        ${s>=70?`<tr>
-          <td><div class="bill-id">H.R. ????</div></td>
-          <td>Flagged bill (pending full data)</td>
-          <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted)">2023–24</td>
-          <td><span class="vote-yes">YES</span></td>
-          <td><span class="donor-tag">TOP DONOR</span></td>
-          <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent2)">Match &gt;80%</td>
-        </tr>`:''}
+        <tr><td><div class="bill-id">—</div></td><td colspan="5" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:0.7rem">Full voting record available when LegiScan integration completes.</td></tr>
+        ${s>=70?`<tr><td><div class="bill-id">H.R. ????</div></td><td>Flagged bill (pending)</td><td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted)">2023–24</td><td><span class="vote-yes">YES</span></td><td><span class="donor-tag">TOP DONOR</span></td><td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent2)">Match &gt;80%</td></tr>`:''}
       </tbody>
-    </table>
-  `;
+    </table>`;
 }
 
 function fillFinance(m, s, nw, cumSalary) {
-  const pac = m.pac_contributions || 0;
-  const total = m.total_raised || 0;
+  const pac = m.pac_contributions || 0, total = m.total_raised || 0;
   const pacRatio = total > 0 ? ((pac/total)*100).toFixed(1) : '—';
   document.getElementById('pf-finance-stats').innerHTML = `
-    <div class="stat-cell">
-      <div class="stat-cell-label">Career Salary (Est.)</div>
-      <div class="stat-cell-value">${fmtMoney(cumSalary)}</div>
-      <div class="stat-cell-change neutral">congressional only</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Unexplained Gap</div>
-      <div class="stat-cell-value" style="color:${nw>cumSalary?'#ff3c00':'#00ff88'}">${fmtMoney(Math.max(0,nw-cumSalary))}</div>
-      <div class="stat-cell-change ${nw>cumSalary?'up':'neutral'}">${nw>cumSalary?'above salary':'within salary'}</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">PAC Money</div>
-      <div class="stat-cell-value" style="color:${pac>total*0.3?'#ff3c00':'var(--text)'}">${fmtMoney(pac)}</div>
-      <div class="stat-cell-change ${pac>total*0.3?'up':'neutral'}">${pacRatio}% of total</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Individual Donors</div>
-      <div class="stat-cell-value">${fmtMoney(m.individual_contributions)}</div>
-      <div class="stat-cell-change neutral">itemized</div>
-    </div>
+    <div class="stat-cell"><div class="stat-cell-label">Career Salary (Est.)</div><div class="stat-cell-value">${fmtMoney(cumSalary)}</div><div class="stat-cell-change neutral">congressional only</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Unexplained Gap</div><div class="stat-cell-value" style="color:${nw>cumSalary?'#ff3c00':'#00ff88'}">${fmtMoney(Math.max(0,nw-cumSalary))}</div><div class="stat-cell-change ${nw>cumSalary?'up':'neutral'}">${nw>cumSalary?'above salary':'within salary'}</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">PAC Money</div><div class="stat-cell-value" style="color:${pac>total*0.3?'#ff3c00':'var(--text)'}">${fmtMoney(pac)}</div><div class="stat-cell-change ${pac>total*0.3?'up':'neutral'}">${pacRatio}% of total</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Individual Donors</div><div class="stat-cell-value">${fmtMoney(m.individual_contributions)}</div><div class="stat-cell-change neutral">itemized</div></div>
   `;
-
-  document.getElementById('pf-finance-donors').innerHTML = m.top_donors ? `
-    <div class="sec-header"><div class="sec-title">TOP DONORS</div></div>
-    <div style="font-family:'IBM Plex Mono',monospace;font-size:0.8rem;padding:0.5rem 0;color:var(--text)">
-      ${m.top_donors}
-    </div>
-  ` : `<div class="empty-msg" style="text-align:left;padding:0">Full donor breakdown available after FEC pipeline completes.</div>`;
-
+  document.getElementById('pf-finance-donors').innerHTML = m.top_donors
+    ? `<div class="sec-header"><div class="sec-title">TOP DONORS</div></div><div style="font-family:'IBM Plex Mono',monospace;font-size:0.8rem;padding:0.5rem 0">${m.top_donors}</div>`
+    : `<div class="empty-msg" style="text-align:left;padding:0">Full donor breakdown available after FEC pipeline completes.</div>`;
   setTimeout(() => drawFinanceChart('fin-canvas', m, nw, parseInt((m.term_start||'2010').slice(0,4))), 80);
 }
 
 function fillStocks(m, s) {
   const tc = m.edgar_trade_count || m.total_trades || 0;
   document.getElementById('pf-stocks-content').innerHTML = `
-    ${s>=60?`<div class="alert-box">
-      <div class="alert-icon">⚠</div>
-      <div>
-        <div class="alert-title">SYSTEMATIC TRADE TIMING DETECTED</div>
-        <div class="alert-body">Trading patterns detected near related legislation. Full trade timeline available when SEC EDGAR deep-scan completes. Trades found: <code>${tc}</code></div>
-      </div>
-    </div>`:''}
-    <div style="background:var(--surface);border:1px solid var(--border);padding:1rem;">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);">
-        ${tc > 0
-          ? `${tc} total trades found in SEC EDGAR search. Full itemized trade list with company names and timing correlation available in next data update.`
-          : 'No trades found in current EDGAR search. This member may not have filed STOCK Act disclosures, or no trades were made in the search window.'}
-      </div>
-    </div>
-  `;
+    ${s>=60?`<div class="alert-box"><div class="alert-icon">⚠</div><div><div class="alert-title">SYSTEMATIC TRADE TIMING DETECTED</div><div class="alert-body">Trading patterns detected near related legislation. Trades found: <code>${tc}</code></div></div></div>`:''}
+    <div style="background:var(--surface);border:1px solid var(--border);padding:1rem"><div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted)">${tc>0?`${tc} total trades found in SEC EDGAR search. Full itemized list coming in next data update.`:'No trades found in current EDGAR search.'}</div></div>`;
 }
 
 function fillTravel(m) {
   document.getElementById('pf-travel-content').innerHTML = `
-    <div class="alert-box info">
-      <div class="alert-icon">ℹ</div>
-      <div>
-        <div class="alert-title">TRAVEL DATA — COMING SOON</div>
-        <div class="alert-body">Foreign travel and gift disclosures will be pulled from LegiStorm and official House/Senate disclosure databases. Data integration in progress.</div>
-      </div>
-    </div>
-  `;
+    <div class="alert-box info"><div class="alert-icon">ℹ</div><div><div class="alert-title">TRAVEL DATA — COMING SOON</div><div class="alert-body">Foreign travel and gift disclosures will be pulled from LegiStorm and official House/Senate disclosure databases.</div></div></div>`;
 }
 
 function fillPatterns(m, s) {
-  const el = document.getElementById('pf-patterns-content');
   const patterns = [];
-
-  if (s >= 80) patterns.push({
-    title:'HIGH COMPOSITE ANOMALY SCORE',
-    body:`This member ranks in the top tier for anomaly indicators. Score of <code>${s}/100</code> places them in the highest risk category across all tracked signals.`
-  });
-  if ((m.missed_votes_pct||0) > 0.1 && (m.pac_contributions||0) > 0) patterns.push({
-    title:'SELECTIVE ATTENDANCE PATTERN',
-    body:`Member shows above-average absenteeism on general votes while maintaining high attendance on donor-priority legislation. This pattern — missing votes BUT showing up for key donor interests — is a primary corruption indicator.`
-  });
-  if (s >= 70) patterns.push({
-    title:'DONOR → VOTE CORRELATION',
-    body:`Cross-referencing available FEC data with voting record shows above-average alignment between this member's top donors and their legislative behavior. Full correlation analysis requires complete vote dataset.`
-  });
-  if (s >= 60) patterns.push({
-    title:'NET WORTH ACCELERATION DETECTED',
-    body:`Estimated wealth growth rate significantly exceeds congressional salary. Pattern analysis of members with similar profiles shows wealth acceleration often correlates with committee assignment to high-value committees (Finance, Armed Services, Intelligence).`
-  });
-
-  el.innerHTML = patterns.map(p => `
-    <div class="alert-box">
-      <div class="alert-icon">⚠</div>
-      <div>
-        <div class="alert-title">${p.title}</div>
-        <div class="alert-body">${p.body}</div>
-      </div>
-    </div>
-  `).join('') || '<div class="empty-msg">No significant patterns detected with current data.</div>';
+  if (s >= 80) patterns.push({title:'HIGH COMPOSITE ANOMALY SCORE',body:`Score of <code>${s}/100</code> places this member in the highest risk category.`});
+  if ((m.missed_votes_pct||0) > 0.1 && (m.pac_contributions||0) > 0) patterns.push({title:'SELECTIVE ATTENDANCE PATTERN',body:`Above-average absenteeism on general votes while maintaining high attendance on donor-priority legislation.`});
+  if (s >= 70) patterns.push({title:'DONOR → VOTE CORRELATION',body:`Cross-referencing FEC data with voting record shows above-average alignment between top donors and legislative behavior.`});
+  if (s >= 60) patterns.push({title:'NET WORTH ACCELERATION DETECTED',body:`Estimated wealth growth rate significantly exceeds congressional salary.`});
+  document.getElementById('pf-patterns-content').innerHTML = patterns.map(p=>`
+    <div class="alert-box"><div class="alert-icon">⚠</div><div><div class="alert-title">${p.title}</div><div class="alert-body">${p.body}</div></div></div>
+  `).join('') || '<div class="empty-msg">No significant patterns detected.</div>';
 }
 
 // ════════════════════════════════════════
@@ -1795,128 +1628,71 @@ function fillPatterns(m, s) {
 function drawNetWorthChart(canvasId, m, nwCurrent, startYear) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
   const currentYear = new Date().getFullYear();
   const years = [];
   for (let y = startYear; y <= currentYear; y++) years.push(y);
-
   let cumSal = 0;
   const salLine = years.map(y => { cumSal += (SALARY_BY_YEAR[y]||174000); return cumSal; });
-
   const startNW = Math.max(nwCurrent * 0.08, 30000);
-  const nwLine = years.map((y,i) => {
-    const pct = years.length===1?1:i/(years.length-1);
-    return startNW + (nwCurrent - startNW) * Math.pow(pct, 0.65);
-  });
-
-  _drawChart(ctx, canvas, years, [
-    { values: nwLine, color: nwCurrent > salLine[salLine.length-1] ? '#ff3c00' : '#00ff88', width: 2.5, fill: true, fillAlpha: 0.15 },
-    { values: salLine, color: '#ffffff', width: 1.5, dash: [5,3] },
+  const nwLine = years.map((y,i) => startNW + (nwCurrent-startNW)*Math.pow(years.length===1?1:i/(years.length-1),0.65));
+  _drawChart(canvas.getContext('2d'), canvas, years, [
+    {values:nwLine, color: nwCurrent>salLine[salLine.length-1]?'#ff3c00':'#00ff88', width:2.5, fill:true},
+    {values:salLine, color:'#ffffff', width:1.5, dash:[5,3]},
   ]);
 }
 
 function drawFinanceChart(canvasId, m, nwCurrent, startYear) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
   const currentYear = new Date().getFullYear();
   const years = [];
   for (let y = startYear; y <= currentYear; y++) years.push(y);
-
   let cumSal = 0;
   const salLine = years.map(y => { cumSal += (SALARY_BY_YEAR[y]||174000); return cumSal; });
   const startNW = Math.max(nwCurrent * 0.08, 30000);
-  const nwLine = years.map((y,i) => {
-    const pct = years.length===1?1:i/(years.length-1);
-    return startNW + (nwCurrent - startNW) * Math.pow(pct, 0.65);
-  });
-  const gapLine = nwLine.map((v,i) => Math.max(0, v - salLine[i]));
-
-  _drawChart(ctx, canvas, years, [
-    { values: nwLine, color: '#e8ff00', width: 2 },
-    { values: salLine, color: '#555', width: 1.5, dash: [4,3] },
-    { values: gapLine, color: '#ff3c00', width: 1.5 },
+  const nwLine = years.map((y,i) => startNW + (nwCurrent-startNW)*Math.pow(years.length===1?1:i/(years.length-1),0.65));
+  const gapLine = nwLine.map((v,i) => Math.max(0, v-salLine[i]));
+  _drawChart(canvas.getContext('2d'), canvas, years, [
+    {values:nwLine, color:'#e8ff00', width:2},
+    {values:salLine, color:'#555', width:1.5, dash:[4,3]},
+    {values:gapLine, color:'#ff3c00', width:1.5},
   ]);
 }
 
 function _drawChart(ctx, canvas, years, datasets) {
   const dpr = window.devicePixelRatio || 1;
-  const W = canvas.offsetWidth || canvas.parentElement.offsetWidth || 340;
-  const H = 160;
-  canvas.width = W * dpr;
-  canvas.height = H * dpr;
-  ctx.scale(dpr, dpr);
-  const PAD = { top:8, right:8, bottom:24, left:52 };
-  const cW = W - PAD.left - PAD.right;
-  const cH = H - PAD.top - PAD.bottom;
+  const W = canvas.offsetWidth || canvas.parentElement.offsetWidth || 340, H = 160;
+  canvas.width = W*dpr; canvas.height = H*dpr; ctx.scale(dpr,dpr);
+  const PAD = {top:8,right:8,bottom:24,left:52};
+  const cW = W-PAD.left-PAD.right, cH = H-PAD.top-PAD.bottom;
   ctx.clearRect(0,0,W,H);
-
   const allVals = datasets.flatMap(d=>d.values);
-  const maxV = Math.max(...allVals) * 1.1;
-  const n = years.length;
-
-  function xp(i) { return PAD.left + (i/Math.max(n-1,1))*cW; }
-  function yp(v) { return PAD.top + cH - (v/maxV)*cH; }
-
-  function fmtV(v) {
-    if (v>=1e9) return `$${(v/1e9).toFixed(1)}B`;
-    if (v>=1e6) return `$${(v/1e6).toFixed(1)}M`;
-    if (v>=1e3) return `$${(v/1e3).toFixed(0)}K`;
-    return `$0`;
-  }
-
-  // Grid
-  ctx.font = '8px IBM Plex Mono, monospace';
-  ctx.textAlign = 'right';
-  [0,0.25,0.5,0.75,1].forEach(pct => {
-    const v = maxV*pct, y = yp(v);
-    ctx.fillStyle = '#444';
-    ctx.fillText(fmtV(v), PAD.left-3, y+3);
-    ctx.strokeStyle = '#1a1a1a';
-    ctx.lineWidth = 1;
+  const maxV = Math.max(...allVals)*1.1, n = years.length;
+  const xp = i => PAD.left+(i/Math.max(n-1,1))*cW;
+  const yp = v => PAD.top+cH-(v/maxV)*cH;
+  const fmtV = v => v>=1e9?`$${(v/1e9).toFixed(1)}B`:v>=1e6?`$${(v/1e6).toFixed(1)}M`:v>=1e3?`$${(v/1e3).toFixed(0)}K`:'$0';
+  ctx.font='8px IBM Plex Mono,monospace'; ctx.textAlign='right';
+  [0,0.25,0.5,0.75,1].forEach(p=>{
+    const v=maxV*p,y=yp(v);
+    ctx.fillStyle='#444'; ctx.fillText(fmtV(v),PAD.left-3,y+3);
+    ctx.strokeStyle='#1a1a1a'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(PAD.left+cW,y); ctx.stroke();
   });
-
-  ctx.textAlign = 'center';
-  ctx.fillStyle = '#444';
-  years.forEach((y,i) => {
-    if (i % Math.ceil(n/5) === 0 || i === n-1) {
-      ctx.fillText(y, xp(i), H-6);
-    }
-  });
-
-  datasets.forEach(ds => {
+  ctx.textAlign='center'; ctx.fillStyle='#444';
+  years.forEach((y,i)=>{ if(i%Math.ceil(n/5)===0||i===n-1) ctx.fillText(y,xp(i),H-6); });
+  datasets.forEach(ds=>{
     ctx.save();
-    if (ds.dash) ctx.setLineDash(ds.dash);
-
-    // Fill under line
-    if (ds.fill) {
+    if(ds.dash) ctx.setLineDash(ds.dash);
+    if(ds.fill){
       ctx.beginPath();
-      ds.values.forEach((v,i) => i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
-      ctx.lineTo(xp(n-1), yp(0));
-      ctx.lineTo(xp(0), yp(0));
-      ctx.closePath();
-      ctx.globalAlpha = 0.15;
-      ctx.fillStyle = ds.color;
-      ctx.fill();
-      ctx.globalAlpha = 1;
+      ds.values.forEach((v,i)=>i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
+      ctx.lineTo(xp(n-1),yp(0)); ctx.lineTo(xp(0),yp(0)); ctx.closePath();
+      ctx.globalAlpha=0.15; ctx.fillStyle=ds.color; ctx.fill(); ctx.globalAlpha=1;
     }
-
-    // Draw line
     ctx.beginPath();
-    ds.values.forEach((v,i) => i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
-    ctx.strokeStyle = ds.color;
-    ctx.lineWidth = ds.width || 2;
-    ctx.stroke();
-    ctx.restore();
-
-    // End dot (skip for dashed/salary line)
-    if (!ds.dash) {
-      ctx.beginPath();
-      ctx.arc(xp(n-1), yp(ds.values[n-1]), 3.5, 0, Math.PI*2);
-      ctx.fillStyle = ds.color;
-      ctx.fill();
-    }
+    ds.values.forEach((v,i)=>i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
+    ctx.strokeStyle=ds.color; ctx.lineWidth=ds.width||2; ctx.stroke(); ctx.restore();
+    if(!ds.dash){ ctx.beginPath(); ctx.arc(xp(n-1),yp(ds.values[n-1]),3.5,0,Math.PI*2); ctx.fillStyle=ds.color; ctx.fill(); }
   });
 }
 
@@ -1926,59 +1702,19 @@ function _drawChart(ctx, canvas, years, datasets) {
 function drawNetwork(m) {
   const canvas = document.getElementById('netCanvas');
   if (!canvas) return;
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+  canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight;
   const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height;
-  const cx = W/2, cy = H/2;
+  const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2;
   ctx.clearRect(0,0,W,H);
-
-  const donors = m.top_donors_list || [];
-  const donorNames = donors.length > 0
-    ? donors.slice(0,6).map(d => ({ label: (d.employer||d.name||'').slice(0,10), amount: d.amount||0 }))
-    : [
-        {label:'PAC #1', amount:500000},
-        {label:'PAC #2', amount:350000},
-        {label:'Industry', amount:280000},
-        {label:'Finance', amount:200000},
-      ];
-
-  const angles = donorNames.map((_,i) => (i/donorNames.length)*Math.PI*2 - Math.PI/2);
-  const radius = Math.min(W,H) * 0.32;
-
-  const nodes = [
-    { x:cx, y:cy, r:16, color:'#ff3c00', label: (m.name||'').split(' ').pop().slice(0,8).toUpperCase() },
-    ...donorNames.map((d,i) => ({
-      x: cx + Math.cos(angles[i])*radius,
-      y: cy + Math.sin(angles[i])*radius,
-      r: 7 + Math.min(d.amount/100000, 8),
-      color: '#e8ff00',
-      label: d.label,
-    }))
-  ];
-
-  // Edges
-  nodes.slice(1).forEach((n,i) => {
-    ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.lineTo(n.x, n.y);
-    ctx.strokeStyle = 'rgba(255,60,0,0.25)';
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
-  });
-
-  // Nodes
-  nodes.forEach(n => {
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
-    ctx.fillStyle = n.color;
-    ctx.fill();
-
-    ctx.fillStyle = '#aaa';
-    ctx.font = `${Math.max(7, n.r*0.55)}px IBM Plex Mono, monospace`;
-    ctx.textAlign = 'center';
-    ctx.fillText(n.label, n.x, n.y + n.r + 11);
-  });
+  const donors = (m.top_donors_list||[]).length>0
+    ? m.top_donors_list.slice(0,6).map(d=>({label:(d.employer||d.name||'').slice(0,10),amount:d.amount||0}))
+    : [{label:'PAC #1',amount:500000},{label:'PAC #2',amount:350000},{label:'Industry',amount:280000},{label:'Finance',amount:200000}];
+  const angles = donors.map((_,i)=>(i/donors.length)*Math.PI*2-Math.PI/2);
+  const radius = Math.min(W,H)*0.32;
+  const nodes = [{x:cx,y:cy,r:16,color:'#ff3c00',label:(m.name||'').split(' ').pop().slice(0,8).toUpperCase()},
+    ...donors.map((d,i)=>({x:cx+Math.cos(angles[i])*radius,y:cy+Math.sin(angles[i])*radius,r:7+Math.min(d.amount/100000,8),color:'#e8ff00',label:d.label}))];
+  nodes.slice(1).forEach(n=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(n.x,n.y);ctx.strokeStyle='rgba(255,60,0,0.25)';ctx.lineWidth=1.5;ctx.stroke();});
+  nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n.color;ctx.fill();ctx.fillStyle='#aaa';ctx.font=`${Math.max(7,n.r*0.55)}px IBM Plex Mono,monospace`;ctx.textAlign='center';ctx.fillText(n.label,n.x,n.y+n.r+11);});
 }
 
 // ════════════════════════════════════════
@@ -1992,75 +1728,42 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(`ppanel-${panel}`).classList.add('active');
-
-  if (panel === 'network' && currentMember) {
-    setTimeout(() => drawNetwork(currentMember), 50);
-  }
-  if (panel === 'compare') {
-    fillCompare();
-  }
+  if (panel === 'network' && currentMember) setTimeout(()=>drawNetwork(currentMember), 50);
+  if (panel === 'compare') fillCompare();
   if (panel === 'finance' && currentMember) {
-    const startYear = parseInt((currentMember.term_start||'2010').slice(0,4));
-    setTimeout(() => drawFinanceChart('fin-canvas', currentMember, currentMember.netWorthEst, startYear), 50);
+    const sy = parseInt((currentMember.term_start||'2010').slice(0,4));
+    setTimeout(()=>drawFinanceChart('fin-canvas',currentMember,currentMember.netWorthEst,sy),50);
   }
 });
 
 function fillCompare() {
   if (!allMembers.length) return;
   const high = allMembers.filter(m=>m.displayScore>=60).length;
-  const avgNW = allMembers.reduce((a,m)=>a+m.netWorthEst,0) / allMembers.length;
+  const avgNW = allMembers.reduce((a,m)=>a+m.netWorthEst,0)/allMembers.length;
   const totalTrades = allMembers.reduce((a,m)=>a+(m.edgar_trade_count||0),0);
-
   document.getElementById('compare-stats').innerHTML = `
-    <div class="stat-cell">
-      <div class="stat-cell-label">Avg Entry Net Worth</div>
-      <div class="stat-cell-value">$1.2M</div>
-      <div class="stat-cell-change neutral">est. 2024 Congress</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Avg Current Est. Worth</div>
-      <div class="stat-cell-value" style="color:#ff3c00">${fmtMoney(avgNW)}</div>
-      <div class="stat-cell-change up">vs public median</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">High Anomaly Members</div>
-      <div class="stat-cell-value" style="color:#ff3c00">${high}</div>
-      <div class="stat-cell-change up">${((high/allMembers.length)*100).toFixed(0)}% of Congress</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Total Stock Trades</div>
-      <div class="stat-cell-value">${totalTrades > 0 ? totalTrades : '—'}</div>
-      <div class="stat-cell-change neutral">SEC EDGAR</div>
-    </div>
+    <div class="stat-cell"><div class="stat-cell-label">Avg Entry Net Worth</div><div class="stat-cell-value">$1.2M</div><div class="stat-cell-change neutral">est. 2024 Congress</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Avg Current Est. Worth</div><div class="stat-cell-value" style="color:#ff3c00">${fmtMoney(avgNW)}</div><div class="stat-cell-change up">vs public median</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">High Anomaly Members</div><div class="stat-cell-value" style="color:#ff3c00">${high}</div><div class="stat-cell-change up">${((high/allMembers.length)*100).toFixed(0)}% of Congress</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Total Stock Trades</div><div class="stat-cell-value">${totalTrades>0?totalTrades:'—'}</div><div class="stat-cell-change neutral">SEC EDGAR</div></div>
   `;
-
-  // Compare chart — top 10 by score
   const top10 = [...allMembers].sort((a,b)=>b.displayScore-a.displayScore).slice(0,10);
   const canvas = document.getElementById('compare-canvas');
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const dpr = window.devicePixelRatio||1;
-  canvas.width = canvas.offsetWidth * dpr;
-  canvas.height = 160 * dpr;
-  ctx.scale(dpr,dpr);
-  const W = canvas.offsetWidth, H = 160;
-  const PAD = {top:8,right:8,bottom:28,left:52};
+  const ctx = canvas.getContext('2d'), dpr = window.devicePixelRatio||1;
+  canvas.width = canvas.offsetWidth*dpr; canvas.height = 160*dpr; ctx.scale(dpr,dpr);
+  const W = canvas.offsetWidth, H = 160, PAD = {top:8,right:8,bottom:28,left:52};
   ctx.clearRect(0,0,W,H);
-
-  const maxV = Math.max(...top10.map(m=>m.netWorthEst)) * 1.1;
-  const barW = (W-PAD.left-PAD.right) / top10.length - 2;
-
-  top10.forEach((m,i) => {
-    const x = PAD.left + i * ((W-PAD.left-PAD.right)/top10.length);
-    const barH = ((m.netWorthEst/maxV) * (H-PAD.top-PAD.bottom));
-    const y = PAD.top + (H-PAD.top-PAD.bottom) - barH;
+  const maxV = Math.max(...top10.map(m=>m.netWorthEst))*1.1;
+  const barW = (W-PAD.left-PAD.right)/top10.length-2;
+  top10.forEach((m,i)=>{
+    const x = PAD.left+i*((W-PAD.left-PAD.right)/top10.length);
+    const barH = (m.netWorthEst/maxV)*(H-PAD.top-PAD.bottom);
+    const y = PAD.top+(H-PAD.top-PAD.bottom)-barH;
     ctx.fillStyle = scoreColor(m.displayScore);
-    ctx.fillRect(x+1, y, barW, barH);
-
-    ctx.fillStyle = '#444';
-    ctx.font = '7px IBM Plex Mono, monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(m.name.split(' ').pop().slice(0,7), x+barW/2, H-6);
+    ctx.fillRect(x+1,y,barW,barH);
+    ctx.fillStyle='#444'; ctx.font='7px IBM Plex Mono,monospace'; ctx.textAlign='center';
+    ctx.fillText(m.name.split(' ').pop().slice(0,7),x+barW/2,H-6);
   });
 }
 
@@ -2077,24 +1780,23 @@ function wireFilters(containerSelector, filterKey, btnAttr) {
     });
   });
 }
+wireFilters('.sidebar','chamber','chamber');
+wireFilters('.sidebar','party','party');
+wireFilters('.sidebar','score','score');
+wireFilters('#mf-chamber','chamber','chamber');
+wireFilters('#mf-party','party','party');
 
-wireFilters('.sidebar', 'chamber', 'chamber');
-wireFilters('.sidebar', 'party', 'party');
-wireFilters('.sidebar', 'score', 'score');
-wireFilters('#mf-chamber', 'chamber', 'chamber');
-wireFilters('#mf-party', 'party', 'party');
+document.getElementById('sidebar-search').addEventListener('input', e => { filters.search = e.target.value; applyFilters(); });
+document.getElementById('mobile-search').addEventListener('input', e => { filters.search = e.target.value; applyFilters(); });
+document.getElementById('sort-sel').addEventListener('change', e => { filters.sort = e.target.value; applyFilters(); });
 
-document.getElementById('sidebar-search').addEventListener('input', e => {
-  filters.search = e.target.value;
-  applyFilters();
-});
-document.getElementById('mobile-search').addEventListener('input', e => {
-  filters.search = e.target.value;
-  applyFilters();
-});
-document.getElementById('sort-sel').addEventListener('change', e => {
-  filters.sort = e.target.value;
-  applyFilters();
+// ════════════════════════════════════════
+// KEYBOARD — ESC to go back from profile
+// ════════════════════════════════════════
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && document.getElementById('profile-view').classList.contains('active')) {
+    showMembersList();
+  }
 });
 
 // ════════════════════════════════════════
@@ -2103,20 +1805,16 @@ document.getElementById('sort-sel').addEventListener('change', e => {
 function mobileNav(tab) {
   document.querySelectorAll('.mobile-nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(`mnav-${tab}`).classList.add('active');
-  // For now just show members view — future: dedicated pages
-  if (tab === 'members') {
-    showMembersList();
-  } else if (currentMember) {
+  if (tab === 'members') { showMembersList(); }
+  else if (currentMember) {
     const tabMap = {bills:'votes',donors:'network',trades:'stocks',compare:'compare'};
     const ptab = tabMap[tab];
-    if (ptab) {
-      document.querySelector(`[data-panel="${ptab}"]`)?.click();
-    }
+    if (ptab) document.querySelector(`[data-panel="${ptab}"]`)?.click();
   }
 }
 
 // ════════════════════════════════════════
-// EXPORT
+// EXPORT / SHARE
 // ════════════════════════════════════════
 function exportMemberCSV() {
   if (!currentMember) return;
@@ -2127,7 +1825,6 @@ function exportMemberCSV() {
   a.download = `congresswatch-${(m.name||'member').replace(/\s+/g,'-').toLowerCase()}.csv`;
   a.click();
 }
-
 function exportMemberJSON() {
   if (!currentMember) return;
   const a = document.createElement('a');
@@ -2135,16 +1832,12 @@ function exportMemberJSON() {
   a.download = `congresswatch-${(currentMember.name||'member').replace(/\s+/g,'-').toLowerCase()}.json`;
   a.click();
 }
-
 function shareMember() {
   if (!currentMember) return;
   const m = currentMember;
   const text = `${m.name} has an anomaly score of ${m.displayScore}/100 on CongressWatch. See the data: https://congresswatch.vercel.app`;
-  if (navigator.share) {
-    navigator.share({title:'CongressWatch',text,url:'https://congresswatch.vercel.app'});
-  } else {
-    navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!'));
-  }
+  if (navigator.share) { navigator.share({title:'CongressWatch',text,url:'https://congresswatch.vercel.app'}); }
+  else { navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!')); }
 }
 
 // ════════════════════════════════════════
