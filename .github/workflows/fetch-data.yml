@@ -1,95 +1,94 @@
 name: Fetch Congress Data
 
 on:
-workflow_dispatch:
-schedule:
-- cron: ‘0 3 * * *’
+  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'
 
 jobs:
-fetch:
-runs-on: ubuntu-latest
-permissions:
-contents: write
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-```
-steps:
-  - uses: actions/checkout@v4
+    steps:
+      - uses: actions/checkout@v4
 
-  - uses: actions/setup-python@v5
-    with:
-      python-version: '3.11'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-  - run: pip install requests
+      - run: pip install requests
 
-  - name: Run fetcher
-    env:
-      CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
-    run: |
-      python3 - << 'PYEOF'
-      import os,json,time,requests
-      from datetime import datetime
-      KEY=os.environ.get("CONGRESS_API_KEY","")
-      BASE="https://api.congress.gov/v3"
-      H={"User-Agent":"CongressWatch"}
-      os.makedirs("data",exist_ok=True)
-      def photo(b):
-        if not b: return ""
-        return "https://bioguide.congress.gov/bioguide/photo/"+b[0].upper()+"/"+b+".jpg"
-      def party(p):
-        p=(p or "").lower()
-        if "democrat" in p: return "Democratic"
-        if "republican" in p: return "Republican"
-        if "independent" in p: return "Independent"
-        return "Unknown"
-      def fixname(r):
-        if "," in r:
-          p=r.split(",",1)
-          return p[1].strip()+" "+p[0].strip()
-        return r
-      def termstart(m):
-        t=m.get("terms",{})
-        if isinstance(t,dict):
-          i=t.get("item",[])
-          if i and len(i)>0:
-            y=i[0].get("startYear","") or i[0].get("start","")
-            if y: return str(y)+"-01-01" if len(str(y))==4 else str(y)
-        return "2010-01-01"
-      def norm(m,ch):
-        b=m.get("bioguideId","")
-        return {"id":b,"name":fixname(m.get("name","")),"party":party(m.get("partyName","")),"state":m.get("state",""),"district":str(m.get("district","")),"chamber":ch,"photo_url":photo(b),"term_start":termstart(m),"score":0,"flags":[],"updated":datetime.now().isoformat()}
-      def fetch(ch):
-        p={"api_key":KEY,"limit":250,"currentMember":"true","chamber":ch,"offset":0}
-        r=[]
-        while True:
-          time.sleep(0.5)
-          res=requests.get(BASE+"/member",params=p,headers=H,timeout=30)
-          b=res.json().get("members",[])
-          if not b: break
-          r.extend(b)
-          print(ch+":"+str(len(r)))
-          if len(b)<250: break
-          p["offset"]+=250
-        return r
-      sen=fetch("Senate")
-      hou=fetch("House")
-      seen={}
-      for m in hou:
-        b=m.get("bioguideId","")
-        if b: seen[b]=norm(m,"House")
-      for m in sen:
-        b=m.get("bioguideId","")
-        if b: seen[b]=norm(m,"Senate")
-      all_members=list(seen.values())
-      print("Total:"+str(len(all_members)))
-      json.dump(all_members,open("data/members.json","w"),indent=2)
-      print("Done")
-      PYEOF
+      - name: Run fetcher
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: |
+          python3 - << 'PYEOF'
+          import os,json,time,requests
+          from datetime import datetime
+          KEY=os.environ.get("CONGRESS_API_KEY","")
+          BASE="https://api.congress.gov/v3"
+          H={"User-Agent":"CongressWatch"}
+          os.makedirs("data",exist_ok=True)
+          def photo(b):
+            if not b: return ""
+            return "https://bioguide.congress.gov/bioguide/photo/"+b[0].upper()+"/"+b+".jpg"
+          def party(p):
+            p=(p or "").lower()
+            if "democrat" in p: return "Democratic"
+            if "republican" in p: return "Republican"
+            if "independent" in p: return "Independent"
+            return "Unknown"
+          def fixname(r):
+            if "," in r:
+             p=r.split(",",1)
+             return p[1].strip()+" "+p[0].strip()
+            return r
+          def termstart(m):
+            t=m.get("terms",{})
+            if isinstance(t,dict):
+              i=t.get("item",[])
+              if i and len(i)>0:
+                y=i[0].get("startYear","") or i[0].get("start","")
+                if y: return str(y)+"-01-01" if len(str(y))==4 else str(y)
+            return "2010-01-01"
+          def norm(m,ch):
+            b=m.get("bioguideId","")
+            return {"id":b,"name":fixname(m.get("name","")),"party":party(m.get("partyName","")),"state":m.get("state",""),"district":str(m.get("district","")),"chamber":ch,"photo_url":photo(b),"term_start":termstart(m),"score":0,"flags":[],"updated":datetime.now().isoformat()}
+          def fetch(ch):
+            p={"api_key":KEY,"limit":250,"currentMember":"true","chamber":ch,"offset":0}
+            r=[]
+            while True:
+              time.sleep(0.5)
+              res=requests.get(BASE+"/member",params=p,headers=H,timeout=30)
+              b=res.json().get("members",[])
+              if not b: break
+              r.extend(b)
+              print(ch+":"+str(len(r)))
+              if len(b)<250: break
+              p["offset"]+=250
+            return r
+          sen=fetch("Senate")
+          hou=fetch("House")
+          seen={}
+          for m in hou:
+            b=m.get("bioguideId","")
+            if b: seen[b]=norm(m,"House")
+          for m in sen:
+            b=m.get("bioguideId","")
+            if b: seen[b]=norm(m,"Senate")
+          all_members=list(seen.values())
+          print("Total:"+str(len(all_members)))
+          json.dump(all_members,open("data/members.json","w"),indent=2)
+          print("Done")
+          PYEOF
 
-  - name: Save data
-    run: |
-      git config --global user.name "bot"
-      git config --global user.email "bot@bot.com"
-      git add data/members.json
-      git diff --staged --quiet || git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
-      git pull --rebase
-      git push
+      - name: Save data
+        run: |
+          git config --global user.name "bot"
+          git config --global user.email "bot@bot.com"
+          git add data/members.json
+          git diff --staged --quiet || git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
+          git pull --rebase
+          git push
