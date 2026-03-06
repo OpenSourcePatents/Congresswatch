@@ -1,0 +1,17 @@
+name: Bootstrap
+on:
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 bootstrap.py
+      - run: |
+          git config --global user.name "bot"
+          git config --global user.email "bot@bot.com"
+          git add .github/workflows/
+          git diff --staged --quiet || git commit -m "bootstrap workflows"
+          git push
