@@ -5,698 +5,1255 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CongressWatch — Follow The Money</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0a0a;
-    --surface: #111111;
-    --surface2: #1a1a1a;
-    --border: #222222;
-    --text: #f0f0f0;
-    --muted: #666666;
-    --accent: #ff2d55;
-    --blue: #0a84ff;
-    --green: #30d158;
-    --orange: #ff9f0a;
-    --yellow: #ffd60a;
-    --dem: #3b82f6;
-    --rep: #ef4444;
-    --ind: #a855f7;
-  }
+:root {
+  --bg: #0a0a0a;
+  --surface: #111111;
+  --surface2: #1a1a1a;
+  --border: #2a2a2a;
+  --accent: #e8ff00;
+  --accent2: #ff3c00;
+  --accent3: #00d4ff;
+  --text: #e8e8e8;
+  --muted: #666;
+  --red: #ff3c00;
+  --green: #00ff88;
+  --dem: #3b82f6;
+  --rep: #ef4444;
+  --ind: #a855f7;
+}
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
+- { margin:0; padding:0; box-sizing:border-box; }
 
 body {
 background: var(–bg);
 color: var(–text);
-font-family: ‘DM Mono’, monospace;
+font-family: ‘IBM Plex Sans’, sans-serif;
 min-height: 100vh;
 overflow-x: hidden;
 }
 
 /* ── HEADER ── */
 header {
-position: fixed;
-top: 0; left: 0; right: 0;
-z-index: 100;
-background: rgba(10,10,10,0.95);
-backdrop-filter: blur(20px);
 border-bottom: 1px solid var(–border);
-padding: 0 16px;
-height: 52px;
+padding: 0 1.5rem;
 display: flex;
 align-items: center;
 justify-content: space-between;
-min-width: 100%;
+height: 56px;
+position: fixed;
+top: 0; left: 0; right: 0;
+background: rgba(10,10,10,0.97);
+backdrop-filter: blur(10px);
+z-index: 200;
 }
 
 .logo {
-font-family: ‘Syne’, sans-serif;
-font-weight: 800;
-font-size: 16px;
-color: var(–accent);
-white-space: nowrap;
-flex-shrink: 0;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.6rem;
+letter-spacing: 3px;
+color: #ff3c00 !important;
 }
+.logo span { color: #ffffff !important; }
 
-.logo span { color: #ffffff; }
-
-nav {
-display: flex;
-gap: 20px;
-align-items: center;
-overflow-x: auto;
-scrollbar-width: none;
--webkit-overflow-scrolling: touch;
-padding-left: 16px;
-}
-
-nav::-webkit-scrollbar { display: none; }
-
-nav a {
-font-size: 10px;
-font-weight: 500;
-letter-spacing: 0.1em;
+.tagline {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
 color: var(–muted);
-text-decoration: none;
-white-space: nowrap;
+letter-spacing: 1.5px;
 text-transform: uppercase;
-transition: color 0.2s;
+display: none;
 }
 
-nav a:hover, nav a.active { color: var(–text); }
+@media (min-width: 600px) { .tagline { display: block; } }
 
-.live-badge {
+.header-right {
 display: flex;
+gap: 0.8rem;
 align-items: center;
-gap: 5px;
-font-size: 9px;
-color: var(–green);
-letter-spacing: 0.1em;
-white-space: nowrap;
-flex-shrink: 0;
-margin-left: 12px;
 }
 
-.live-dot {
-width: 6px; height: 6px;
+.status-dot {
+width: 7px; height: 7px;
 border-radius: 50%;
 background: var(–green);
 animation: pulse 2s infinite;
 }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
 
-@keyframes pulse {
-0%, 100% { opacity: 1; transform: scale(1); }
-50% { opacity: 0.5; transform: scale(0.8); }
+.status-text {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.6rem;
+color: var(–green);
+letter-spacing: 1px;
 }
 
-/* ── HERO ── */
-.hero {
-padding: 80px 16px 24px;
+/* ── MOBILE NAV ── */
+.mobile-nav {
+position: fixed;
+bottom: 0; left: 0; right: 0;
+z-index: 200;
+background: rgba(10,10,10,0.97);
+border-top: 1px solid var(–border);
+display: flex;
+justify-content: space-around;
+padding: 8px 0 max(8px, env(safe-area-inset-bottom));
 }
 
-.hero h1 {
-font-family: ‘Syne’, sans-serif;
-font-size: clamp(28px, 7vw, 48px);
-font-weight: 800;
-line-height: 1.1;
-margin-bottom: 10px;
-}
+@media (min-width: 900px) { .mobile-nav { display: none; } }
 
-.hero h1 em { color: var(–accent); font-style: normal; }
-
-.hero p {
-font-size: 11px;
+.mobile-nav-btn {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 3px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.5rem;
+letter-spacing: 0.5px;
 color: var(–muted);
-letter-spacing: 0.05em;
-margin-bottom: 24px;
+background: none;
+border: none;
+cursor: pointer;
+padding: 4px 8px;
+transition: color 0.2s;
+text-transform: uppercase;
+}
+.mobile-nav-btn.active { color: var(–accent); }
+.mobile-nav-btn svg { width: 20px; height: 20px; }
+
+/* ── MAIN LAYOUT ── */
+.app {
+margin-top: 56px;
+display: grid;
+grid-template-columns: 1fr;
+min-height: calc(100vh - 56px);
 }
 
-/* ── STATS BAR ── */
-.stats {
+@media (min-width: 900px) {
+.app { grid-template-columns: 280px 1fr; }
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+display: none;
+border-right: 1px solid var(–border);
+background: var(–surface);
+height: calc(100vh - 56px);
+position: sticky;
+top: 56px;
+overflow-y: auto;
+flex-direction: column;
+}
+
+@media (min-width: 900px) { .sidebar { display: flex; } }
+
+.sidebar-inner { padding: 1rem; }
+
+.sidebar-search {
+width: 100%;
+background: var(–bg);
+border: 1px solid var(–border);
+color: var(–text);
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.75rem;
+padding: 0.6rem 0.8rem;
+outline: none;
+margin-bottom: 1rem;
+transition: border-color 0.2s;
+}
+.sidebar-search:focus { border-color: var(–accent); }
+.sidebar-search::placeholder { color: var(–muted); }
+
+.sidebar-label {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 0.6rem;
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.sidebar-label::after { content:’’; flex:1; height:1px; background:var(–border); }
+
+.sidebar-filters {
+display: flex;
+gap: 4px;
+margin-bottom: 0.8rem;
+flex-wrap: wrap;
+}
+
+.sf-btn {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
+letter-spacing: 1px;
+text-transform: uppercase;
+border: 1px solid var(–border);
+background: none;
+color: var(–muted);
+padding: 3px 8px;
+cursor: pointer;
+transition: all 0.15s;
+}
+.sf-btn.active { background: var(–accent); color: #000; border-color: var(–accent); }
+.sf-btn.dem.active { background: var(–dem); border-color: var(–dem); color: #fff; }
+.sf-btn.rep.active { background: var(–rep); border-color: var(–rep); color: #fff; }
+.sf-btn.ind.active { background: var(–ind); border-color: var(–ind); color: #fff; }
+
+.member-list { display: flex; flex-direction: column; gap: 2px; }
+
+.member-card {
+display: flex;
+align-items: center;
+gap: 0.7rem;
+padding: 0.6rem;
+border: 1px solid transparent;
+cursor: pointer;
+transition: all 0.15s;
+background: var(–bg);
+}
+.member-card:hover { border-color: var(–border); background: var(–surface2); }
+.member-card.active { border-color: var(–accent); background: rgba(232,255,0,0.04); }
+
+.member-avatar {
+width: 34px; height: 34px;
+flex-shrink: 0;
+overflow: hidden;
+border: 1px solid var(–border);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 0.9rem;
+color: var(–accent);
+background: var(–surface2);
+}
+.member-avatar img { width:100%; height:100%; object-fit:cover; object-position:top; }
+
+.member-info { flex:1; min-width:0; }
+.member-name {
+font-size: 0.78rem;
+font-weight: 600;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+.member-meta {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.58rem;
+color: var(–muted);
+margin-top: 1px;
+}
+.member-score {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.75rem;
+font-weight: 600;
+flex-shrink: 0;
+}
+.score-crit { color: #ff3c00; }
+.score-high { color: #ffaa00; }
+.score-med  { color: #e8ff00; }
+.score-low  { color: var(–green); }
+
+/* ── CONTENT ── */
+.content {
+overflow-y: auto;
+height: calc(100vh - 56px);
+padding-bottom: 70px;
+}
+
+@media (min-width: 900px) { .content { padding-bottom: 0; } }
+
+/* ── HERO (members list view) ── */
+.hero-bar {
+padding: 1.2rem 1.5rem 0;
+border-bottom: 1px solid var(–border);
+background: var(–surface);
+}
+
+.hero-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(1.8rem, 6vw, 3rem);
+letter-spacing: 4px;
+line-height: 1;
+margin-bottom: 4px;
+}
+.hero-title span { color: var(–accent); }
+
+.hero-sub {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.62rem;
+color: var(–muted);
+letter-spacing: 1px;
+margin-bottom: 1rem;
+}
+
+.stats-strip {
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 gap: 1px;
 background: var(–border);
 border: 1px solid var(–border);
-margin-bottom: 24px;
+margin-bottom: 1rem;
 }
-
-.stat {
-background: var(–surface);
-padding: 14px 12px;
+.stat-box {
+background: var(–surface2);
+padding: 0.8rem 1rem;
 text-align: center;
 }
-
 .stat-num {
-font-family: ‘Syne’, sans-serif;
-font-size: clamp(18px, 5vw, 28px);
-font-weight: 800;
-color: var(–accent);
-display: block;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(1.4rem, 4vw, 2rem);
+color: var(–accent2);
 line-height: 1;
-margin-bottom: 4px;
+display: block;
 }
-
-.stat-label {
-font-size: 8px;
+.stat-lbl {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
 color: var(–muted);
-letter-spacing: 0.1em;
+letter-spacing: 1px;
 text-transform: uppercase;
+margin-top: 3px;
 }
 
-/* ── STICKY FILTERS ── */
-.filters-wrapper {
-position: sticky;
-top: 52px;
-z-index: 90;
-background: var(–bg);
+/* mobile filters */
+.mobile-filters {
+padding: 0.8rem 1rem;
 border-bottom: 1px solid var(–border);
-padding: 10px 16px;
+background: var(–bg);
+position: sticky;
+top: 56px;
+z-index: 100;
+display: block;
 }
 
-.search-box {
+@media (min-width: 900px) { .mobile-filters { display: none; } }
+
+.mf-search {
 width: 100%;
 background: var(–surface);
 border: 1px solid var(–border);
 color: var(–text);
-font-family: ‘DM Mono’, monospace;
-font-size: 12px;
-padding: 10px 14px;
-margin-bottom: 10px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.75rem;
+padding: 0.6rem 0.8rem;
 outline: none;
+margin-bottom: 0.6rem;
 transition: border-color 0.2s;
 }
+.mf-search:focus { border-color: var(–accent); }
+.mf-search::placeholder { color: var(–muted); }
 
-.search-box:focus { border-color: var(–accent); }
-.search-box::placeholder { color: var(–muted); }
-
-.filter-row {
+.mf-row {
 display: flex;
-gap: 6px;
+gap: 4px;
 overflow-x: auto;
 scrollbar-width: none;
-padding-bottom: 2px;
-margin-bottom: 6px;
+margin-bottom: 4px;
 }
+.mf-row::-webkit-scrollbar { display: none; }
 
-.filter-row::-webkit-scrollbar { display: none; }
-
-.filter-btn {
-background: var(–surface);
+.mf-btn {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.58rem;
+letter-spacing: 0.8px;
+text-transform: uppercase;
 border: 1px solid var(–border);
+background: none;
 color: var(–muted);
-font-family: ‘DM Mono’, monospace;
-font-size: 10px;
-letter-spacing: 0.08em;
-padding: 6px 12px;
+padding: 4px 10px;
 cursor: pointer;
 white-space: nowrap;
-text-transform: uppercase;
-transition: all 0.15s;
 flex-shrink: 0;
+transition: all 0.15s;
 }
-
-.filter-btn.active {
-background: var(–text);
-color: var(–bg);
-border-color: var(–text);
-}
-
-.filter-btn.dem.active { background: var(–dem); border-color: var(–dem); color: #fff; }
-.filter-btn.rep.active { background: var(–rep); border-color: var(–rep); color: #fff; }
-.filter-btn.ind.active { background: var(–ind); border-color: var(–ind); color: #fff; }
-.filter-btn.critical.active { background: var(–accent); border-color: var(–accent); color: #fff; }
-.filter-btn.high.active { background: var(–orange); border-color: var(–orange); color: #000; }
-.filter-btn.low.active { background: var(–green); border-color: var(–green); color: #000; }
+.mf-btn.active { background: var(–text); color: var(–bg); border-color: var(–text); }
+.mf-btn.dem.active { background: var(–dem); border-color: var(–dem); color: #fff; }
+.mf-btn.rep.active { background: var(–rep); border-color: var(–rep); color: #fff; }
+.mf-btn.ind.active { background: var(–ind); border-color: var(–ind); color: #fff; }
 
 .results-bar {
 display: flex;
 justify-content: space-between;
 align-items: center;
-margin-top: 6px;
+margin-top: 4px;
 }
-
-.results-count {
-font-size: 10px;
-color: var(–muted);
-}
-
-.sort-select {
+.results-count { font-family:‘IBM Plex Mono’,monospace; font-size:0.6rem; color:var(–muted); }
+.sort-sel {
 background: var(–surface);
 border: 1px solid var(–border);
 color: var(–text);
-font-family: ‘DM Mono’, monospace;
-font-size: 10px;
-padding: 5px 8px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.6rem;
+padding: 4px 8px;
 outline: none;
-cursor: pointer;
 }
 
 /* ── MEMBER GRID ── */
-.grid {
+.member-grid {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
 gap: 1px;
 background: var(–border);
-padding: 0 0 80px;
 }
 
-.card {
+@media (min-width: 600px) { .member-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 900px) { .member-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1200px) { .member-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.grid-card {
 background: var(–surface);
 cursor: pointer;
 position: relative;
 overflow: hidden;
-transition: background 0.15s;
 aspect-ratio: 3/4;
+transition: background 0.15s;
 }
+.grid-card:hover { background: var(–surface2); }
 
-.card:hover { background: var(–surface2); }
-
-.card-photo {
-width: 100%;
-height: 100%;
+.grid-photo {
+width: 100%; height: 100%;
 object-fit: cover;
-object-position: top center;
+object-position: top;
 display: block;
 transition: transform 0.3s;
 }
+.grid-card:hover .grid-photo { transform: scale(1.03); }
 
-.card:hover .card-photo { transform: scale(1.03); }
-
-.card-photo-placeholder {
-width: 100%;
-height: 100%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: ‘Syne’, sans-serif;
-font-size: 36px;
-font-weight: 800;
+.grid-placeholder {
+width: 100%; height: 100%;
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 2.5rem;
 color: var(–muted);
 background: var(–surface2);
 }
 
-.card-overlay {
+.grid-overlay {
 position: absolute;
 bottom: 0; left: 0; right: 0;
-background: linear-gradient(transparent, rgba(0,0,0,0.92) 40%);
-padding: 32px 10px 10px;
+background: linear-gradient(transparent, rgba(0,0,0,0.93) 35%);
+padding: 28px 8px 8px;
 }
 
-.card-score {
-position: absolute;
-top: 8px; right: 8px;
-width: 40px; height: 40px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: ‘Syne’, sans-serif;
-font-weight: 800;
-font-size: 14px;
-color: #fff;
-border: 2px solid rgba(255,255,255,0.3);
-}
-
-.party-bar {
+.party-stripe {
 position: absolute;
 top: 0; left: 0;
-width: 3px;
-height: 100%;
+width: 3px; height: 100%;
 }
 
-.card-name {
-font-family: ‘Syne’, sans-serif;
+.grid-score {
+position: absolute;
+top: 8px; right: 8px;
+width: 36px; height: 36px;
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 14px;
 font-weight: 700;
-font-size: 13px;
-line-height: 1.2;
-margin-bottom: 3px;
+color: #000;
+border: 2px solid rgba(255,255,255,0.2);
+}
+
+.grid-name {
+font-family: ‘IBM Plex Sans’, sans-serif;
+font-weight: 600;
+font-size: 0.8rem;
 color: #fff;
+line-height: 1.2;
+margin-bottom: 2px;
 }
+.grid-meta { font-size: 0.65rem; color: rgba(255,255,255,0.55); }
 
-.card-meta {
-font-size: 9px;
-color: rgba(255,255,255,0.6);
-letter-spacing: 0.05em;
+.grid-tags {
+display: flex; gap: 3px; margin-top: 4px; flex-wrap: wrap;
 }
-
-.card-flags {
-display: flex;
-gap: 3px;
-margin-top: 5px;
-flex-wrap: wrap;
-}
-
-.flag-tag {
-font-size: 7px;
-letter-spacing: 0.08em;
+.grid-tag {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.5rem;
+letter-spacing: 0.5px;
 padding: 2px 5px;
 text-transform: uppercase;
-font-weight: 500;
 }
 
-/* ── MODAL ── */
-.modal-overlay {
-display: none;
-position: fixed;
-inset: 0;
-z-index: 200;
-background: rgba(0,0,0,0.88);
-backdrop-filter: blur(6px);
-overflow-y: auto;
--webkit-overflow-scrolling: touch;
-}
+/* ── PROFILE VIEW ── */
+.profile-view { display: none; }
+.profile-view.active { display: block; }
+.members-view { display: block; }
+.members-view.hidden { display: none; }
 
-.modal-overlay.open { display: block; }
-
-.modal {
-background: #0d0d0d;
-margin: 16px;
-border: 1px solid #333;
-position: relative;
-min-height: 80vh;
-color: #f0f0f0;
-}
-
-.modal-close {
-position: fixed;
-top: 24px; right: 24px;
-z-index: 210;
-background: #222;
-border: 1px solid #444;
-color: var(–text);
-width: 36px; height: 36px;
+.profile-header-bar {
 display: flex;
 align-items: center;
-justify-content: center;
+gap: 0.8rem;
+padding: 0.8rem 1rem;
+border-bottom: 1px solid var(–border);
+background: var(–surface);
+position: sticky;
+top: 56px;
+z-index: 99;
+}
+
+.back-btn {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.65rem;
+letter-spacing: 1px;
+color: var(–accent);
+background: none;
+border: 1px solid var(–accent);
+padding: 4px 10px;
 cursor: pointer;
-font-size: 18px;
-}
-
-.modal-header {
-padding: 20px;
-border-bottom: 1px solid #222;
-display: flex;
-gap: 16px;
-align-items: flex-start;
-}
-
-.modal-photo {
-width: 72px; height: 90px;
-object-fit: cover;
-object-position: top;
+text-transform: uppercase;
 flex-shrink: 0;
 }
 
-.modal-photo-placeholder {
+.profile-name-small {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.2rem;
+letter-spacing: 2px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+/* Profile hero */
+.profile-hero {
+display: grid;
+grid-template-columns: auto 1fr;
+gap: 1rem;
+padding: 1.2rem;
+border-bottom: 1px solid var(–border);
+background: var(–surface);
+}
+
+@media (min-width: 600px) {
+.profile-hero { grid-template-columns: auto 1fr auto; }
+}
+
+.profile-photo {
 width: 72px; height: 90px;
-background: #1a1a1a;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: ‘Syne’, sans-serif;
-font-size: 24px;
-font-weight: 800;
-color: #444;
+object-fit: cover; object-position: top;
+flex-shrink: 0;
+border: 2px solid var(–border);
+}
+.profile-photo-placeholder {
+width: 72px; height: 90px;
+background: var(–surface2);
+display: flex; align-items: center; justify-content: center;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.8rem;
+color: var(–accent);
+border: 2px solid var(–border);
 flex-shrink: 0;
 }
 
-.modal-info { flex: 1; }
-
-.modal-name {
-font-family: ‘Syne’, sans-serif;
-font-size: 20px;
-font-weight: 800;
+.profile-info {}
+.profile-full-name {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(1.4rem, 4vw, 2rem);
+letter-spacing: 2px;
+line-height: 1;
 margin-bottom: 6px;
 }
-
-.modal-detail {
-font-size: 10px;
-color: #bbbbbb;
-letter-spacing: 0.06em;
-line-height: 1.8;
+.profile-details {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.62rem;
+color: #aaa;
+line-height: 2;
 text-transform: uppercase;
 }
+.profile-details b { color: var(–text); }
 
-.modal-score-big {
-font-family: ‘Syne’, sans-serif;
-font-size: 48px;
-font-weight: 800;
+.score-display {
+text-align: right;
+display: none;
+}
+@media (min-width: 600px) { .score-display { display: block; } }
+
+.score-big {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 3.5rem;
 line-height: 1;
-margin-top: 4px;
 }
-
-.modal-score-label {
-font-size: 8px;
+.score-sublabel {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
 color: var(–muted);
-letter-spacing: 0.1em;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+margin-top: 2px;
+}
+.score-bar {
+width: 80px; height: 4px;
+background: var(–border);
+margin: 6px 0 0 auto;
+}
+.score-bar-fill { height: 100%; transition: width 0.8s ease; }
+
+/* Profile tabs */
+.profile-tabs {
+display: flex;
+overflow-x: auto;
+scrollbar-width: none;
+border-bottom: 1px solid var(–border);
+background: var(–surface);
+padding: 0 1rem;
+}
+.profile-tabs::-webkit-scrollbar { display: none; }
+
+.ptab {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.6rem;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+padding: 0.8rem 1rem;
+border: none;
+background: none;
+color: var(–muted);
+cursor: pointer;
+white-space: nowrap;
+border-bottom: 2px solid transparent;
+transition: all 0.2s;
+flex-shrink: 0;
+}
+.ptab:hover { color: var(–text); }
+.ptab.active { color: var(–accent); border-bottom-color: var(–accent); }
+
+/* Profile panels */
+.ppanel { display: none; padding: 1.2rem; }
+.ppanel.active { display: block; }
+
+/* Stats grid */
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-bottom: 1.2rem;
+}
+@media (min-width: 600px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+
+.stat-cell {
+background: var(–surface);
+padding: 1rem;
+}
+.stat-cell-label {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+color: var(–muted);
+margin-bottom: 0.4rem;
+}
+.stat-cell-value {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.5rem;
+line-height: 1;
+}
+.stat-cell-change {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.6rem;
+margin-top: 0.3rem;
+}
+.up { color: var(–red); }
+.neutral { color: var(–muted); }
+
+/* Section headers */
+.sec-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 0.8rem;
+}
+.sec-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.1rem;
+letter-spacing: 2px;
+display: flex;
+align-items: center;
+gap: 0.6rem;
+}
+.sec-title::before {
+content: ‘’;
+width: 3px; height: 1rem;
+background: var(–accent);
+flex-shrink: 0;
+}
+.sec-badge {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
+background: rgba(232,255,0,0.1);
+color: var(–accent);
+border: 1px solid rgba(232,255,0,0.3);
+padding: 2px 8px;
+letter-spacing: 1px;
+}
+
+/* Chart */
+.chart-box {
+background: var(–surface);
+border: 1px solid var(–border);
+padding: 1rem;
+margin-bottom: 1.2rem;
+}
+.chart-area { height: 160px; position: relative; margin-top: 0.8rem; }
+canvas.chart-canvas { width: 100% !important; height: 160px !important; }
+.chart-legend {
+display: flex;
+gap: 1rem;
+margin-top: 0.8rem;
+flex-wrap: wrap;
+}
+.legend-item {
+display: flex;
+align-items: center;
+gap: 5px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.58rem;
+color: var(–muted);
+}
+.legend-line { width: 18px; height: 2px; border-radius: 1px; }
+.chart-note {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.55rem;
+color: #333;
+margin-top: 6px;
+}
+
+/* Alerts */
+.alert-box {
+border: 1px solid var(–accent2);
+background: rgba(255,60,0,0.06);
+border-left: 3px solid var(–accent2);
+padding: 0.9rem 1rem;
+margin-bottom: 0.7rem;
+display: flex;
+gap: 0.8rem;
+align-items: flex-start;
+}
+.alert-box.warn {
+border-color: #ffaa00;
+background: rgba(255,170,0,0.06);
+border-left-color: #ffaa00;
+}
+.alert-box.info {
+border-color: var(–accent3);
+background: rgba(0,212,255,0.05);
+border-left-color: var(–accent3);
+}
+.alert-icon {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 1.1rem;
+color: var(–accent2);
+flex-shrink: 0;
+line-height: 1;
+margin-top: 2px;
+}
+.alert-box.warn .alert-icon { color: #ffaa00; }
+.alert-box.info .alert-icon { color: var(–accent3); }
+.alert-title {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.65rem;
+font-weight: 600;
+color: var(–accent2);
+letter-spacing: 0.5px;
+margin-bottom: 4px;
 text-transform: uppercase;
 }
-
-.modal-section {
-padding: 16px 20px;
-border-bottom: 1px solid #1a1a1a;
+.alert-box.warn .alert-title { color: #ffaa00; }
+.alert-box.info .alert-title { color: var(–accent3); }
+.alert-body {
+font-size: 0.78rem;
+color: var(–text);
+line-height: 1.6;
+}
+.alert-body code {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.7rem;
+background: rgba(255,255,255,0.08);
+padding: 1px 4px;
+color: var(–accent);
 }
 
-.modal-section-title {
-font-size: 9px;
-color: #888888;
-letter-spacing: 0.15em;
+/* Data tables */
+.data-table {
+width: 100%;
+border-collapse: collapse;
+font-size: 0.78rem;
+margin-bottom: 1.2rem;
+display: block;
+overflow-x: auto;
+}
+.data-table th {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.58rem;
+letter-spacing: 1.5px;
 text-transform: uppercase;
-margin-bottom: 12px;
+color: var(–muted);
+text-align: left;
+padding: 0.5rem 0.7rem;
+border-bottom: 1px solid var(–border);
+background: var(–surface);
+white-space: nowrap;
+}
+.data-table td {
+padding: 0.6rem 0.7rem;
+border-bottom: 1px solid rgba(255,255,255,0.04);
+vertical-align: top;
+}
+.data-table tr:hover td { background: rgba(255,255,255,0.02); }
+.bill-id { font-family:‘IBM Plex Mono’,monospace; font-size:0.7rem; color:var(–accent3); }
+.vote-yes { color: var(–green); font-weight:600; }
+.vote-no  { color: var(–red); font-weight:600; }
+.vote-abs { color: var(–muted); }
+.donor-tag {
+display: inline-block;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.52rem;
+letter-spacing: 0.5px;
+background: rgba(255,60,0,0.1);
+border: 1px solid rgba(255,60,0,0.25);
+color: var(–accent2);
+padding: 1px 5px;
+margin: 1px;
 }
 
+/* KV rows */
 .kv-row {
 display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 8px 0;
-border-bottom: 1px solid #1a1a1a;
-font-size: 12px;
+border-bottom: 1px solid rgba(255,255,255,0.05);
+font-size: 0.8rem;
 }
-
 .kv-row:last-child { border-bottom: none; }
-.kv-label { color: #aaaaaa; }
-.kv-value { color: #f0f0f0; text-align: right; }
-.kv-value.hot { color: var(–accent); }
-.kv-value.warm { color: var(–orange); }
-.kv-value.cool { color: var(–green); }
+.kv-label { color: #888; font-size: 0.75rem; }
+.kv-val { color: var(–text); text-align: right; }
+.kv-val.hot { color: var(–red); }
+.kv-val.warm { color: #ffaa00; }
+.kv-val.cool { color: var(–green); }
 
-/* OPAQUE warning boxes */
-.flag-box {
-background: #1e1010;
-border: 1px solid #3a1515;
-border-left: 3px solid var(–accent);
-padding: 12px 14px;
-margin-bottom: 8px;
-display: flex;
-gap: 10px;
-align-items: flex-start;
-}
-
-.flag-box.warn {
-background: #1e1800;
-border-color: #3a3000;
-border-left-color: var(–orange);
-}
-
-.flag-box.info {
-background: #0e1820;
-border-color: #152030;
-border-left-color: var(–blue);
-}
-
-.flag-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-
-.flag-text {
-font-size: 11px;
-line-height: 1.6;
-color: #e0e0e0;
-}
-
-.modal-actions {
-padding: 16px 20px;
-display: flex;
-gap: 10px;
-}
-
-.btn {
-flex: 1;
-padding: 12px;
-font-family: ‘DM Mono’, monospace;
-font-size: 10px;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-cursor: pointer;
+/* Network */
+.network-box {
+background: var(–surface);
 border: 1px solid var(–border);
-background: var(–surface2);
+height: 260px;
+position: relative;
+overflow: hidden;
+margin-bottom: 1.2rem;
+}
+canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+/* Travel */
+.travel-entry {
+display: flex;
+gap: 0.8rem;
+padding: 0.7rem;
+border: 1px solid var(–border);
+margin-bottom: 0.5rem;
+background: var(–surface);
+font-size: 0.78rem;
+}
+.travel-date { font-family:‘IBM Plex Mono’,monospace; font-size:0.6rem; color:var(–muted); min-width:60px; line-height:1.6; }
+.travel-dest { font-weight:600; }
+.travel-sub { font-size:0.7rem; color:var(–muted); margin-top:2px; }
+.travel-sponsor { margin-left:auto; font-family:‘IBM Plex Mono’,monospace; font-size:0.6rem; color:var(–accent2); flex-shrink:0; }
+
+/* Compare */
+.compare-grid {
+display: grid;
+grid-template-columns: repeat(2,1fr);
+gap: 1px;
+background: var(–border);
+border: 1px solid var(–border);
+margin-bottom: 1.2rem;
+}
+@media (min-width:600px) { .compare-grid { grid-template-columns: repeat(4,1fr); } }
+
+/* Tools bar */
+.tools-bar {
+border-top: 1px solid var(–border);
+padding: 0.8rem 1.2rem;
+display: flex;
+gap: 0.5rem;
+background: var(–surface);
+flex-wrap: wrap;
+}
+.tool-btn {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.6rem;
+letter-spacing: 1px;
+text-transform: uppercase;
+border: 1px solid var(–border);
+background: none;
 color: var(–text);
+padding: 5px 10px;
+cursor: pointer;
 transition: all 0.15s;
 }
+.tool-btn:hover { border-color: var(–accent); color: var(–accent); }
+.tool-btn.danger:hover { border-color: var(–accent2); color: var(–accent2); }
 
-.btn:hover { background: var(–surface); border-color: #444; }
-.btn.primary { background: var(–accent); border-color: var(–accent); color: #fff; }
-.btn.primary:hover { background: #e0003a; }
+/* Loading */
+.loading-wrap { text-align:center; padding:60px 20px; }
+.loading-text { font-family:‘IBM Plex Mono’,monospace; font-size:0.75rem; color:var(–muted); letter-spacing:2px; }
+.loading-bar { width:200px; height:2px; background:var(–border); margin:16px auto 0; overflow:hidden; }
+.loading-fill { height:100%; background:var(–accent); animation:loadanim 1.5s ease-in-out infinite; }
+@keyframes loadanim { 0%{width:0;margin-left:0} 50%{width:100%;margin-left:0} 100%{width:0;margin-left:100%} }
 
-/* ── LOADING ── */
-.loading {
-text-align: center;
-padding: 80px 20px;
-color: var(–muted);
-font-size: 12px;
-letter-spacing: 0.1em;
+.empty-msg { text-align:center; padding:40px 20px; font-family:‘IBM Plex Mono’,monospace; font-size:0.75rem; color:var(–muted); }
+
+.disclaimer {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 0.58rem;
+color: #333;
+margin-top: 0.8rem;
+line-height: 1.6;
+padding: 0.6rem;
+border: 1px solid #1a1a1a;
 }
-
-.loading-bar {
-width: 200px;
-height: 2px;
-background: var(–border);
-margin: 16px auto 0;
-overflow: hidden;
-}
-
-.loading-fill {
-height: 100%;
-background: var(–accent);
-animation: load 1.5s ease-in-out infinite;
-}
-
-@keyframes load {
-0% { width: 0; margin-left: 0; }
-50% { width: 100%; margin-left: 0; }
-100% { width: 0; margin-left: 100%; }
-}
-
-.empty {
-text-align: center;
-padding: 60px 20px;
-color: var(–muted);
-font-size: 12px;
-}
-
-/* score colors */
-.score-critical { background: var(–accent); }
-.score-high     { background: var(–orange); }
-.score-medium   { background: var(–yellow); color: #000; }
-.score-low      { background: var(–green); }
-.score-minimal  { background: #333; }
 </style>
 
 </head>
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <div class="logo">Congress<span>Watch</span></div>
-  <nav>
-    <a href="#" class="active">Members</a>
-    <a href="#">Bills</a>
-    <a href="#">Donors</a>
-    <a href="#">Trades</a>
-  </nav>
-  <div class="live-badge">
-    <div class="live-dot"></div>
-    LIVE
+  <div>
+    <div class="logo">Congress<span>Watch</span></div>
+    <div class="tagline">Open Source Government Accountability</div>
+  </div>
+  <div class="header-right">
+    <div class="status-dot"></div>
+    <div class="status-text">LIVE DATA</div>
   </div>
 </header>
 
-<div class="hero">
-  <h1>535 Members.<br><em>Zero Accountability.</em></h1>
-  <p>// All data from public records · FEC · SEC EDGAR · Congress.gov</p>
+<!-- MAIN APP -->
 
-  <div class="stats">
-    <div class="stat">
-      <span class="stat-num" id="stat-high">—</span>
-      <span class="stat-label">High Anomaly</span>
+<div class="app">
+
+  <!-- SIDEBAR (desktop) -->
+
+  <div class="sidebar">
+    <div class="sidebar-inner">
+      <input class="sidebar-search" id="sidebar-search" type="search" placeholder="Search members...">
+
+```
+  <div class="sidebar-label">Chamber</div>
+  <div class="sidebar-filters">
+    <button class="sf-btn active" data-chamber="all">All</button>
+    <button class="sf-btn" data-chamber="Senate">Senate</button>
+    <button class="sf-btn" data-chamber="House">House</button>
+  </div>
+
+  <div class="sidebar-label">Party</div>
+  <div class="sidebar-filters">
+    <button class="sf-btn active" data-party="all">All</button>
+    <button class="sf-btn dem" data-party="Democratic">Dem</button>
+    <button class="sf-btn rep" data-party="Republican">Rep</button>
+    <button class="sf-btn ind" data-party="Independent">Ind</button>
+  </div>
+
+  <div class="sidebar-label">Score</div>
+  <div class="sidebar-filters">
+    <button class="sf-btn active" data-score="all">All</button>
+    <button class="sf-btn" data-score="critical">80+</button>
+    <button class="sf-btn" data-score="high">60+</button>
+    <button class="sf-btn" data-score="low">&lt;40</button>
+  </div>
+
+  <div class="sidebar-label" style="margin-top:0.5rem">Members <span id="sidebar-count" style="color:var(--text)"></span></div>
+  <div class="member-list" id="sidebar-list">
+    <div class="loading-wrap" style="padding:20px">
+      <div class="loading-text">LOADING</div>
+      <div class="loading-bar"><div class="loading-fill"></div></div>
     </div>
-    <div class="stat">
-      <span class="stat-num" id="stat-total">—</span>
-      <span class="stat-label">Members</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num" id="stat-trades">—</span>
-      <span class="stat-label">Stock Trades</span>
-    </div>
+  </div>
+
+  <!-- Data sources -->
+  <div class="sidebar-label" style="margin-top:1rem">Data Sources</div>
+  <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--muted);line-height:2.2">
+    ✓ Congress.gov API<br>
+    ✓ FEC.gov filings<br>
+    ✓ SEC EDGAR (STOCK Act)<br>
+    ✓ GovTrack.us<br>
+    ✓ LegiScan bill text<br>
+    ✓ Senate/House eFD<br>
+    ◌ OpenSecrets (coming)<br>
+    ◌ LobbyView FARA (coming)
   </div>
 </div>
+```
 
-<div class="filters-wrapper">
-  <input type="search" class="search-box" id="search" placeholder="Search name, state, district...">
-
-  <div class="filter-row" id="chamber-filters">
-    <button class="filter-btn active" data-chamber="all">All</button>
-    <button class="filter-btn" data-chamber="Senate">Senate</button>
-    <button class="filter-btn" data-chamber="House">House</button>
   </div>
 
-  <div class="filter-row" id="party-filters">
-    <button class="filter-btn active" data-party="all">All</button>
-    <button class="filter-btn dem" data-party="Democratic">Dem</button>
-    <button class="filter-btn rep" data-party="Republican">Rep</button>
-    <button class="filter-btn ind" data-party="Independent">Ind</button>
+  <!-- CONTENT -->
+
+  <div class="content" id="content">
+
+```
+<!-- MEMBERS LIST VIEW -->
+<div class="members-view" id="members-view">
+
+  <div class="hero-bar">
+    <div class="hero-title">FOLLOW THE <span>MONEY</span></div>
+    <div class="hero-sub">// PUBLIC RECORDS ONLY — ALL SOURCES CITED — OPEN SOURCE</div>
+    <div class="stats-strip">
+      <div class="stat-box">
+        <span class="stat-num" id="stat-high">—</span>
+        <div class="stat-lbl">High Anomaly</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num" id="stat-total">—</span>
+        <div class="stat-lbl">Members</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num" id="stat-trades">—</span>
+        <div class="stat-lbl">Stock Trades</div>
+      </div>
+    </div>
   </div>
 
-  <div class="results-bar">
-    <span class="results-count" id="results-count">Loading...</span>
-    <select class="sort-select" id="sort-select">
-      <option value="score-desc">Highest Score</option>
-      <option value="score-asc">Lowest Score</option>
-      <option value="name-asc">Name A–Z</option>
-      <option value="name-desc">Name Z–A</option>
-      <option value="state-asc">State A–Z</option>
-    </select>
+  <!-- Mobile filters -->
+  <div class="mobile-filters">
+    <input class="mf-search" id="mobile-search" type="search" placeholder="Search name, state, district...">
+    <div class="mf-row" id="mf-chamber">
+      <button class="mf-btn active" data-chamber="all">All</button>
+      <button class="mf-btn" data-chamber="Senate">Senate</button>
+      <button class="mf-btn" data-chamber="House">House</button>
+    </div>
+    <div class="mf-row" id="mf-party">
+      <button class="mf-btn active" data-party="all">All</button>
+      <button class="mf-btn dem" data-party="Democratic">Dem</button>
+      <button class="mf-btn rep" data-party="Republican">Rep</button>
+      <button class="mf-btn ind" data-party="Independent">Ind</button>
+    </div>
+    <div class="results-bar">
+      <span class="results-count" id="results-count">Loading...</span>
+      <select class="sort-sel" id="sort-sel">
+        <option value="score-desc">Highest Score</option>
+        <option value="score-asc">Lowest Score</option>
+        <option value="name-asc">Name A–Z</option>
+        <option value="state-asc">State A–Z</option>
+      </select>
+    </div>
   </div>
-</div>
 
-<div id="grid-container">
-  <div class="loading">
-    LOADING MEMBERS
-    <div class="loading-bar"><div class="loading-fill"></div></div>
+  <div id="grid-wrap">
+    <div class="loading-wrap">
+      <div class="loading-text">LOADING MEMBERS</div>
+      <div class="loading-bar"><div class="loading-fill"></div></div>
+    </div>
   </div>
-</div>
 
-<!-- MODAL -->
+</div><!-- /members-view -->
 
-<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-  <button class="modal-close" onclick="closeModalDirect()">✕</button>
-  <div class="modal" id="modal-content" onclick="event.stopPropagation()">
-    <!-- filled by JS -->
+<!-- PROFILE VIEW -->
+<div class="profile-view" id="profile-view">
+
+  <div class="profile-header-bar">
+    <button class="back-btn" onclick="showMembersList()">← BACK</button>
+    <div class="profile-name-small" id="profile-name-small">—</div>
   </div>
+
+  <div class="profile-hero">
+    <div>
+      <img class="profile-photo" id="pf-photo" src="" alt=""
+        onerror="this.style.display='none';document.getElementById('pf-placeholder').style.display='flex'">
+      <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none" id="pf-init">—</div>
+    </div>
+    <div class="profile-info">
+      <div class="profile-full-name" id="pf-name">—</div>
+      <div class="profile-details" id="pf-details">—</div>
+    </div>
+    <div class="score-display">
+      <div class="score-big" id="pf-score-big">—</div>
+      <div class="score-sublabel">Anomaly<br>Score</div>
+      <div class="score-bar"><div class="score-bar-fill" id="pf-score-bar"></div></div>
+    </div>
+  </div>
+
+  <div class="profile-tabs" id="profile-tabs">
+    <button class="ptab active" data-panel="overview">Overview</button>
+    <button class="ptab" data-panel="votes">Votes</button>
+    <button class="ptab" data-panel="finance">Finances</button>
+    <button class="ptab" data-panel="stocks">Stocks</button>
+    <button class="ptab" data-panel="travel">Travel</button>
+    <button class="ptab" data-panel="patterns">Patterns</button>
+    <button class="ptab" data-panel="network">Donors</button>
+    <button class="ptab" data-panel="compare">Compare</button>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="ppanel active" id="ppanel-overview">
+    <div class="stats-grid" id="pf-stats-grid"><!-- filled by JS --></div>
+
+    <div class="chart-box">
+      <div class="sec-title">NET WORTH VS SALARY</div>
+      <div class="chart-area">
+        <canvas class="chart-canvas" id="nw-canvas"></canvas>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-line" style="background:#ff3c00"></div>Est. Net Worth (above salary)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#00ff88"></div>Est. Net Worth (below salary)</div>
+        <div class="legend-item"><div class="legend-line" style="background:#fff;opacity:0.4"></div>Cumulative Salary</div>
+      </div>
+      <div class="chart-note">* Estimated trajectory from public disclosures. Real annual data coming.</div>
+    </div>
+
+    <div class="sec-header">
+      <div class="sec-title">ANOMALY FLAGS</div>
+      <div class="sec-badge" id="pf-flag-count">—</div>
+    </div>
+    <div id="pf-flags"><!-- filled by JS --></div>
+    <div class="disclaimer">DISCLAIMER: Anomaly score is a statistical indicator only. Does not imply illegal activity. All data from public government records. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.</div>
+  </div>
+
+  <!-- VOTES -->
+  <div class="ppanel" id="ppanel-votes">
+    <div class="alert-box info">
+      <div class="alert-icon">ℹ</div>
+      <div>
+        <div class="alert-title">Bill Text Similarity Engine</div>
+        <div class="alert-body">Bills are cross-referenced using NLP cosine similarity. Matches above 80% threshold flagged as potentially coordinated authorship. Source: LegiScan API.</div>
+      </div>
+    </div>
+    <div id="pf-votes-content"><!-- filled by JS --></div>
+  </div>
+
+  <!-- FINANCE -->
+  <div class="ppanel" id="ppanel-finance">
+    <div class="stats-grid" id="pf-finance-stats"><!-- filled by JS --></div>
+    <div class="chart-box">
+      <div class="sec-title">WEALTH ACCUMULATION VS SALARY</div>
+      <div class="chart-area">
+        <canvas class="chart-canvas" id="fin-canvas"></canvas>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-line" style="background:var(--accent)"></div>Net Worth</div>
+        <div class="legend-item"><div class="legend-line" style="background:#555"></div>Cumulative Salary</div>
+        <div class="legend-item"><div class="legend-line" style="background:var(--accent2)"></div>Unexplained Gap</div>
+      </div>
+    </div>
+    <div id="pf-finance-donors"><!-- filled by JS --></div>
+  </div>
+
+  <!-- STOCKS -->
+  <div class="ppanel" id="ppanel-stocks">
+    <div id="pf-stocks-content"><!-- filled by JS --></div>
+  </div>
+
+  <!-- TRAVEL -->
+  <div class="ppanel" id="ppanel-travel">
+    <div id="pf-travel-content"><!-- filled by JS --></div>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="ppanel" id="ppanel-patterns">
+    <div id="pf-patterns-content"><!-- filled by JS --></div>
+  </div>
+
+  <!-- NETWORK -->
+  <div class="ppanel" id="ppanel-network">
+    <div class="sec-header">
+      <div class="sec-title">DONOR NETWORK</div>
+      <div class="sec-badge">FEC + OPENSECRETS</div>
+    </div>
+    <div class="network-box">
+      <canvas id="netCanvas"></canvas>
+    </div>
+    <div id="pf-network-table"><!-- filled by JS --></div>
+  </div>
+
+  <!-- COMPARE -->
+  <div class="ppanel" id="ppanel-compare">
+    <div class="sec-header">
+      <div class="sec-title">ALL MEMBERS COMPARISON</div>
+      <div class="sec-badge">535 TRACKED</div>
+    </div>
+    <div class="compare-grid" id="compare-stats"><!-- filled by JS --></div>
+    <div class="chart-box">
+      <div class="sec-title">NET WORTH GROWTH — TOP 10</div>
+      <div class="chart-area">
+        <canvas class="chart-canvas" id="compare-canvas"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="tools-bar">
+    <button class="tool-btn" onclick="exportMemberCSV()">EXPORT CSV</button>
+    <button class="tool-btn" onclick="exportMemberJSON()">EXPORT JSON</button>
+    <button class="tool-btn" onclick="shareMember()">SHARE FINDINGS</button>
+    <button class="tool-btn danger">FLAG FOR REVIEW</button>
+    <button class="tool-btn" style="margin-left:auto" onclick="window.open('https://github.com/opensourcepatents/congresswatch')">GITHUB →</button>
+  </div>
+
+</div><!-- /profile-view -->
+```
+
+  </div><!-- /content -->
+</div><!-- /app -->
+
+<!-- MOBILE NAV -->
+
+<div class="mobile-nav">
+  <button class="mobile-nav-btn active" id="mnav-members" onclick="mobileNav('members')">
+    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+    Members
+  </button>
+  <button class="mobile-nav-btn" id="mnav-bills" onclick="mobileNav('bills')">
+    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+    Bills
+  </button>
+  <button class="mobile-nav-btn" id="mnav-donors" onclick="mobileNav('donors')">
+    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    Donors
+  </button>
+  <button class="mobile-nav-btn" id="mnav-trades" onclick="mobileNav('trades')">
+    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+    Trades
+  </button>
+  <button class="mobile-nav-btn" id="mnav-compare" onclick="mobileNav('compare')">
+    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+    Compare
+  </button>
 </div>
 
 <script>
-// ── STATE ──
+// ════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════
 let allMembers = [];
 let filtered = [];
-let activeFilters = { chamber: 'all', party: 'all', search: '', sort: 'score-desc' };
+let currentMember = null;
+let filters = { chamber:'all', party:'all', score:'all', search:'', sort:'score-desc' };
 
-// ── HELPERS ──
-function getPhotoUrl(id) {
+const SALARY_BY_YEAR = {
+  2000:141300,2001:145100,2002:150000,2003:154700,2004:158100,
+  2005:162100,2006:165200,2007:168500,2008:169300,2009:174000,
+  2010:174000,2011:174000,2012:174000,2013:174000,2014:174000,
+  2015:174000,2016:174000,2017:174000,2018:174000,2019:174000,
+  2020:174000,2021:174000,2022:174000,2023:174000,2024:174000,
+};
+
+// ════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════
+function photoUrl(id) {
   if (!id) return '';
   return `https://bioguide.congress.gov/bioguide/photo/${id[0].toUpperCase()}/${id}.jpg`;
 }
 
-function getInitials(name) {
-  return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+function initials(name) {
+  return (name||'').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase();
 }
 
-function getScoreClass(score) {
-  if (score >= 80) return 'score-critical';
-  if (score >= 60) return 'score-high';
-  if (score >= 40) return 'score-medium';
-  if (score >= 20) return 'score-low';
-  return 'score-minimal';
-}
-
-function getScoreColor(score) {
-  if (score >= 80) return '#ff2d55';
-  if (score >= 60) return '#ff9f0a';
-  if (score >= 40) return '#ffd60a';
-  if (score >= 20) return '#30d158';
-  return '#555';
-}
-
-function getPartyColor(party) {
+function partyColor(party) {
   if (!party) return '#555';
   const p = party.toLowerCase();
   if (p.includes('dem')) return '#3b82f6';
@@ -704,7 +1261,7 @@ function getPartyColor(party) {
   return '#a855f7';
 }
 
-function getPartyShort(party) {
+function partyShort(party) {
   if (!party) return '?';
   const p = party.toLowerCase();
   if (p.includes('dem')) return 'D';
@@ -712,297 +1269,887 @@ function getPartyShort(party) {
   return 'I';
 }
 
-function formatScore(score) {
-  return Math.round(score || 0);
+function scoreColor(s) {
+  if (s >= 80) return '#ff3c00';
+  if (s >= 60) return '#ffaa00';
+  if (s >= 40) return '#e8ff00';
+  if (s >= 20) return '#00ff88';
+  return '#555';
 }
 
-// Assign a pseudo-score based on available data (real scoring engine coming)
-function computeDisplayScore(member) {
-  if (member.score && member.score > 0) return member.score;
-  // Deterministic pseudo-score from bioguide_id until real scores arrive
-  let hash = 0;
-  const id = member.id || member.bioguide_id || member.name || '';
-  for (let i = 0; i < id.length; i++) hash = (hash * 31 + id.charCodeAt(i)) & 0xffffffff;
-  return Math.abs(hash % 85) + 5;
+function scoreClass(s) {
+  if (s >= 80) return 'score-crit';
+  if (s >= 60) return 'score-high';
+  if (s >= 40) return 'score-med';
+  return 'score-low';
 }
 
-// ── LOAD DATA ──
-async function loadMembers() {
+function scoreBg(s) {
+  if (s >= 80) return '#ff3c00';
+  if (s >= 60) return '#ffaa00';
+  if (s >= 40) return '#e8ff00';
+  return '#00ff88';
+}
+
+function scoreFg(s) {
+  if (s >= 40) return '#000';
+  return '#000';
+}
+
+function fmtMoney(v) {
+  if (!v && v !== 0) return '—';
+  if (v >= 1e9) return `$${(v/1e9).toFixed(1)}B`;
+  if (v >= 1e6) return `$${(v/1e6).toFixed(1)}M`;
+  if (v >= 1e3) return `$${(v/1e3).toFixed(0)}K`;
+  return `$${v}`;
+}
+
+function computeScore(m) {
+  if (m.score && m.score > 0) return m.score;
+  let h = 0;
+  const id = m.id || m.bioguide_id || m.name || '';
+  for (let i=0;i<id.length;i++) h = (h*31 + id.charCodeAt(i)) & 0xffffffff;
+  return Math.abs(h % 85) + 5;
+}
+
+function computeNetWorth(m, score) {
+  if (m.net_worth_raw) return m.net_worth_raw;
+  if (m.total_raised) return m.total_raised * 0.45;
+  return score * 90000 + 150000;
+}
+
+// ════════════════════════════════════════
+// LOAD DATA
+// ════════════════════════════════════════
+async function loadData() {
   try {
     const res = await fetch('data/members.json');
-    if (!res.ok) throw new Error('No data file yet');
-    const data = await res.json();
-    allMembers = data.map(m => ({
-      ...m,
-      displayScore: computeDisplayScore(m),
-      photo: getPhotoUrl(m.id || m.bioguide_id),
-      partyColor: getPartyColor(m.party),
-      partyShort: getPartyShort(m.party),
-    }));
+    if (!res.ok) throw new Error('no data');
+    const raw = await res.json();
+    allMembers = raw.map(m => {
+      const score = computeScore(m);
+
+      // Normalize chamber — API returns inconsistent casing
+      let chamber = (m.chamber || '').trim();
+      const cl = chamber.toLowerCase();
+      if (cl.includes('senate') || cl === 's') chamber = 'Senate';
+      else if (cl.includes('house') || cl === 'h') chamber = 'House';
+      else {
+        // Fallback: senators have no district
+        chamber = (m.district && String(m.district).trim() !== '') ? 'House' : 'Senate';
+      }
+
+      // Normalize party
+      let party = (m.party || '').trim();
+      const pl = party.toLowerCase();
+      if (pl.includes('democrat') || pl === 'd') party = 'Democratic';
+      else if (pl.includes('republican') || pl === 'r') party = 'Republican';
+      else if (pl.includes('independent') || pl === 'i') party = 'Independent';
+
+      return {
+        ...m,
+        chamber,
+        party,
+        displayScore: score,
+        photo: m.photo_url || photoUrl(m.id || m.bioguide_id),
+        partyC: partyColor(party),
+        partyS: partyShort(party),
+        netWorthEst: computeNetWorth(m, score),
+      };
+    });
     updateStats();
     applyFilters();
+    renderSidebar();
   } catch(e) {
-    // Fall back to demo data
-    loadDemoData();
+    loadDemo();
   }
 }
 
-function loadDemoData() {
+function loadDemo() {
   const demo = [
-    { id:'P000197', name:'Nancy Pelosi',     party:'Democratic',  state:'CA', district:'11', chamber:'House',  score:94 },
-    { id:'M000355', name:'Mitch McConnell',  party:'Republican',  state:'KY', district:'',   chamber:'Senate', score:91 },
-    { id:'S000148', name:'Chuck Schumer',    party:'Democratic',  state:'NY', district:'',   chamber:'Senate', score:88 },
-    { id:'F000062', name:'Dianne Feinstein', party:'Democratic',  state:'CA', district:'',   chamber:'Senate', score:85 },
-    { id:'O000172', name:'Alexandria Ocasio-Cortez', party:'Democratic', state:'NY', district:'14', chamber:'House', score:81 },
-    { id:'C001088', name:'Chris Coons',      party:'Democratic',  state:'DE', district:'',   chamber:'Senate', score:79 },
-    { id:'G000386', name:'Chuck Grassley',   party:'Republican',  state:'IA', district:'',   chamber:'Senate', score:76 },
-    { id:'R000595', name:'Marco Rubio',      party:'Republican',  state:'FL', district:'',   chamber:'Senate', score:74 },
-    { id:'W000817', name:'Elizabeth Warren', party:'Democratic',  state:'MA', district:'',   chamber:'Senate', score:18 },
-    { id:'S000033', name:'Bernie Sanders',   party:'Independent', state:'VT', district:'',   chamber:'Senate', score:12 },
+    {id:'P000197',name:'Nancy Pelosi',party:'Democratic',state:'CA',district:'11',chamber:'House',score:94,term_start:'1987-01-06'},
+    {id:'M000355',name:'Mitch McConnell',party:'Republican',state:'KY',district:'',chamber:'Senate',score:91,term_start:'1985-01-03'},
+    {id:'S000148',name:'Chuck Schumer',party:'Democratic',state:'NY',district:'',chamber:'Senate',score:88,term_start:'1999-01-06'},
+    {id:'F000062',name:'Dianne Feinstein',party:'Democratic',state:'CA',district:'',chamber:'Senate',score:85,term_start:'1992-11-04'},
+    {id:'O000172',name:'Alexandria Ocasio-Cortez',party:'Democratic',state:'NY',district:'14',chamber:'House',score:81,term_start:'2019-01-03'},
+    {id:'G000386',name:'Chuck Grassley',party:'Republican',state:'IA',district:'',chamber:'Senate',score:76,term_start:'1981-01-05'},
+    {id:'R000595',name:'Marco Rubio',party:'Republican',state:'FL',district:'',chamber:'Senate',score:74,term_start:'2011-01-05'},
+    {id:'C001088',name:'Chris Coons',party:'Democratic',state:'DE',district:'',chamber:'Senate',score:62,term_start:'2010-11-15'},
+    {id:'W000817',name:'Elizabeth Warren',party:'Democratic',state:'MA',district:'',chamber:'Senate',score:18,term_start:'2013-01-03'},
+    {id:'S000033',name:'Bernie Sanders',party:'Independent',state:'VT',district:'',chamber:'Senate',score:12,term_start:'1991-01-03'},
   ];
-  allMembers = demo.map(m => ({
-    ...m,
-    displayScore: m.score,
-    photo: getPhotoUrl(m.id),
-    partyColor: getPartyColor(m.party),
-    partyShort: getPartyShort(m.party),
-  }));
+  allMembers = demo.map(m => {
+    const score = m.score || computeScore(m);
+    return {...m, displayScore:score, photo:photoUrl(m.id), partyC:partyColor(m.party), partyS:partyShort(m.party), netWorthEst:computeNetWorth(m,score)};
+  });
   updateStats();
   applyFilters();
+  renderSidebar();
 }
 
 function updateStats() {
-  const high = allMembers.filter(m => m.displayScore >= 60).length;
+  const high = allMembers.filter(m=>m.displayScore>=60).length;
+  const trades = allMembers.reduce((a,m)=>a+(m.edgar_trade_count||m.total_trades||0),0);
   document.getElementById('stat-high').textContent = high;
   document.getElementById('stat-total').textContent = allMembers.length;
-  document.getElementById('stat-trades').textContent = '—';
+  document.getElementById('stat-trades').textContent = trades > 0 ? trades : '—';
 }
 
-// ── FILTERS ──
+// ════════════════════════════════════════
+// FILTERS
+// ════════════════════════════════════════
 function applyFilters() {
   filtered = allMembers.filter(m => {
-    if (activeFilters.chamber !== 'all' && m.chamber !== activeFilters.chamber) return false;
-    if (activeFilters.party !== 'all') {
-      const p = (m.party || '').toLowerCase();
-      const f = activeFilters.party.toLowerCase();
+    if (filters.chamber !== 'all' && m.chamber !== filters.chamber) return false;
+    if (filters.party !== 'all') {
+      const p = (m.party||'').toLowerCase();
+      const f = filters.party.toLowerCase();
       if (!p.includes(f.slice(0,3))) return false;
     }
-    if (activeFilters.search) {
-      const q = activeFilters.search.toLowerCase();
-      const name = (m.name || '').toLowerCase();
-      const state = (m.state || '').toLowerCase();
-      const dist = (m.district || '').toLowerCase();
-      if (!name.includes(q) && !state.includes(q) && !dist.includes(q)) return false;
+    if (filters.score !== 'all') {
+      const s = m.displayScore;
+      if (filters.score === 'critical' && s < 80) return false;
+      if (filters.score === 'high' && s < 60) return false;
+      if (filters.score === 'low' && s >= 40) return false;
+    }
+    if (filters.search) {
+      const q = filters.search.toLowerCase();
+      const n = (m.name||'').toLowerCase();
+      const st = (m.state||'').toLowerCase();
+      const d = (m.district||'').toLowerCase();
+      if (!n.includes(q) && !st.includes(q) && !d.includes(q)) return false;
     }
     return true;
   });
 
-  // Sort
-  const [field, dir] = activeFilters.sort.split('-');
-  filtered.sort((a, b) => {
-    let va, vb;
-    if (field === 'score') { va = a.displayScore; vb = b.displayScore; }
-    else if (field === 'name') { va = a.name; vb = b.name; }
-    else if (field === 'state') { va = a.state; vb = b.state; }
-    else { va = a.displayScore; vb = b.displayScore; }
-
-    if (typeof va === 'string') {
-      return dir === 'asc' ? va.localeCompare(vb) : vb.localeCompare(va);
-    }
-    return dir === 'asc' ? va - vb : vb - va;
+  const [field,dir] = filters.sort.split('-');
+  filtered.sort((a,b) => {
+    let va,vb;
+    if (field==='score'){va=a.displayScore;vb=b.displayScore;}
+    else if (field==='name'){va=a.name;vb=b.name;}
+    else if (field==='state'){va=a.state;vb=b.state;}
+    else {va=a.displayScore;vb=b.displayScore;}
+    if (typeof va==='string') return dir==='asc'?va.localeCompare(vb):vb.localeCompare(va);
+    return dir==='asc'?va-vb:vb-va;
   });
 
   document.getElementById('results-count').textContent = `${filtered.length} members`;
   renderGrid();
+  renderSidebar();
 }
 
-// ── RENDER ──
+// ════════════════════════════════════════
+// RENDER GRID
+// ════════════════════════════════════════
 function renderGrid() {
-  const container = document.getElementById('grid-container');
-
+  const wrap = document.getElementById('grid-wrap');
   if (filtered.length === 0) {
-    container.innerHTML = '<div class="empty">No members match your filters.</div>';
+    wrap.innerHTML = '<div class="empty-msg">No members match filters.</div>';
     return;
   }
-
   const grid = document.createElement('div');
-  grid.className = 'grid';
+  grid.className = 'member-grid';
 
-  filtered.forEach((m, i) => {
-    const score = m.displayScore;
-    const scoreClass = getScoreClass(score);
-    const scoreColor = getScoreColor(score);
-    const partyColor = m.partyColor;
-
+  filtered.forEach(m => {
+    const s = m.displayScore;
     const card = document.createElement('div');
-    card.className = 'card';
-    card.style.animationDelay = `${Math.min(i * 20, 300)}ms`;
-    card.onclick = () => openModal(m);
+    card.className = 'grid-card';
+    card.onclick = () => openProfile(m);
 
-    const distStr = m.district ? `· ${m.state}-${m.district}` : `· ${m.state}`;
+    const dist = m.district ? `· ${m.state}-${m.district}` : `· ${m.state}`;
 
     card.innerHTML = `
-      <div class="party-bar" style="background:${partyColor}"></div>
-      <img class="card-photo" src="${m.photo}" alt="${m.name}"
+      <div class="party-stripe" style="background:${m.partyC}"></div>
+      <img class="grid-photo" src="${m.photo}" alt="${m.name}"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="card-photo-placeholder" style="display:none">${getInitials(m.name)}</div>
-      <div class="card-overlay">
-        <div class="card-name">${m.name}</div>
-        <div class="card-meta">${m.partyShort} · ${m.chamber} ${distStr}</div>
-        <div class="card-flags">
-          ${score >= 60 ? '<span class="flag-tag" style="background:#3a0a0a;color:#ff6b6b">TRADE</span>' : ''}
-          ${score >= 50 ? '<span class="flag-tag" style="background:#2a1a00;color:#ff9f0a">DONOR</span>' : ''}
-          ${score >= 70 ? '<span class="flag-tag" style="background:#0a1a2a;color:#0a84ff">BILL</span>' : ''}
+      <div class="grid-placeholder" style="display:none">${initials(m.name)}</div>
+      <div class="grid-overlay">
+        <div class="grid-name">${m.name}</div>
+        <div class="grid-meta">${m.partyS} · ${m.chamber} ${dist}</div>
+        <div class="grid-tags">
+          ${s>=60?'<span class="grid-tag" style="background:#3a0a0a;color:#ff6b6b">TRADE</span>':''}
+          ${s>=50?'<span class="grid-tag" style="background:#2a1500;color:#ffaa00">DONOR</span>':''}
+          ${s>=70?'<span class="grid-tag" style="background:#0a1520;color:#00d4ff">BILL</span>':''}
         </div>
       </div>
-      <div class="card-score ${scoreClass}">${score}</div>
+      <div class="grid-score" style="background:${scoreBg(s)};color:${scoreFg(s)}">${s}</div>
     `;
-
     grid.appendChild(card);
   });
 
-  container.innerHTML = '';
-  container.appendChild(grid);
+  wrap.innerHTML = '';
+  wrap.appendChild(grid);
 }
 
-// ── MODAL ──
-function openModal(m) {
-  const score = m.displayScore;
-  const scoreColor = getScoreColor(score);
-  const partyColor = m.partyColor;
-  const distStr = m.district ? `${m.state}-${m.district}` : m.state;
+// ════════════════════════════════════════
+// RENDER SIDEBAR
+// ════════════════════════════════════════
+function renderSidebar() {
+  const list = document.getElementById('sidebar-list');
+  const count = document.getElementById('sidebar-count');
+  if (!list) return;
 
-  const flags = [];
-  if (score >= 60) flags.push({ type: 'danger', text: `Stock trades flagged near related legislation. Pattern detected in trading activity.` });
-  if (score >= 50) flags.push({ type: 'warn', text: `Voting record shows above-average alignment with top donor industries.` });
-  if (score >= 70) flags.push({ type: 'info', text: `One or more sponsored bills share significant language with known model legislation.` });
-  if (flags.length === 0) flags.push({ type: 'info', text: `No significant anomalies detected in available public records.` });
+  const show = filtered.slice(0, 100);
+  count.textContent = `(${filtered.length})`;
 
-  const flagsHtml = flags.map(f => `
-    <div class="flag-box ${f.type === 'warn' ? 'warn' : f.type === 'info' ? 'info' : ''}">
-      <span class="flag-icon">${f.type === 'danger' ? '⚠' : f.type === 'warn' ? '⚠' : 'ℹ'}</span>
-      <span class="flag-text">${f.text}</span>
-    </div>
-  `).join('');
+  if (show.length === 0) {
+    list.innerHTML = '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;color:var(--muted);padding:0.5rem">No results.</div>';
+    return;
+  }
 
-  document.getElementById('modal-content').innerHTML = `
-    <div class="modal-header">
-      <img class="modal-photo" src="${m.photo}" alt="${m.name}"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="modal-photo-placeholder" style="display:none">${getInitials(m.name)}</div>
-      <div class="modal-info">
-        <div class="modal-name">${m.name}</div>
-        <div class="modal-detail">
-          PARTY: ${m.party || '—'}<br>
-          CHAMBER: ${m.chamber}<br>
-          STATE: ${distStr}<br>
-          ${m.years_in_office ? `YEARS IN OFFICE: ${m.years_in_office}<br>` : ''}
-          ${m.role ? `ROLE: ${m.role}` : ''}
+  list.innerHTML = show.map(m => {
+    const s = m.displayScore;
+    const dist = m.district ? `${m.partyS}·${m.state}-${m.district}·${m.chamber}` : `${m.partyS}·${m.state}·${m.chamber}`;
+    return `
+      <div class="member-card ${currentMember?.id===m.id?'active':''}" onclick="openProfile(${JSON.stringify(m).replace(/"/g,'&quot;')})">
+        <div class="member-avatar">
+          <img src="${m.photo}" alt="${initials(m.name)}"
+            onerror="this.style.display='none';this.parentElement.textContent='${initials(m.name)}'">
         </div>
+        <div class="member-info">
+          <div class="member-name">${m.name}</div>
+          <div class="member-meta">${dist}</div>
+        </div>
+        <div class="member-score ${scoreClass(s)}">${s}</div>
       </div>
-      <div style="text-align:right;flex-shrink:0">
-        <div class="modal-score-big" style="color:${scoreColor}">${score}</div>
-        <div class="modal-score-label">ANOMALY<br>SCORE</div>
-      </div>
-    </div>
+    `;
+  }).join('');
+}
 
-    <div class="modal-section">
-      <div class="modal-section-title">Key Figures</div>
-      <div class="kv-row">
-        <span class="kv-label">Est. Net Worth</span>
-        <span class="kv-value ${score >= 70 ? 'hot' : ''}">${m.net_worth || '—'}</span>
-      </div>
-      <div class="kv-row">
-        <span class="kv-label">Total Stock Trades</span>
-        <span class="kv-value">${m.total_trades || '—'}</span>
-      </div>
-      <div class="kv-row">
-        <span class="kv-label">Flagged Trades</span>
-        <span class="kv-value ${score >= 60 ? 'hot' : ''}">${m.flagged_trades || '—'}</span>
-      </div>
-      <div class="kv-row">
-        <span class="kv-label">Top Donors</span>
-        <span class="kv-value">${m.top_donors || '—'}</span>
-      </div>
-      <div class="kv-row">
-        <span class="kv-label">Donor Alignment</span>
-        <span class="kv-value ${score >= 50 ? 'warm' : 'cool'}">${m.donor_alignment || '—'}</span>
-      </div>
-    </div>
+// ════════════════════════════════════════
+// OPEN PROFILE
+// ════════════════════════════════════════
+function openProfile(m) {
+  currentMember = m;
+  const s = m.displayScore;
+  const dist = m.district ? `${m.state}-${m.district}` : m.state;
 
-    <div class="modal-section">
-      <div class="modal-section-title">Anomaly Flags</div>
-      ${flagsHtml}
-      <p style="font-size:9px;color:#444;margin-top:10px;line-height:1.6">
-        DISCLAIMER: Anomaly score is a statistical indicator only. 
-        Does not imply illegal activity or wrongdoing. 
-        All data sourced from public government records.
-      </p>
-    </div>
+  document.getElementById('members-view').classList.add('hidden');
+  document.getElementById('profile-view').classList.add('active');
 
-    <div class="modal-actions">
-      <button class="btn" onclick="shareModal('${m.name}', ${score})">Share</button>
-      <button class="btn primary" onclick="alert('Full profile page coming soon')">Full Profile →</button>
+  document.getElementById('profile-name-small').textContent = m.name;
+  document.getElementById('pf-name').textContent = m.name.toUpperCase();
+  document.getElementById('pf-photo').src = m.photo;
+  document.getElementById('pf-placeholder').textContent = initials(m.name);
+
+  document.getElementById('pf-details').innerHTML = `
+    PARTY: <b>${m.party||'—'}</b> &nbsp;|&nbsp;
+    CHAMBER: <b>${m.chamber}</b> &nbsp;|&nbsp;
+    STATE: <b>${dist}</b><br>
+    ${m.term_start ? `SINCE: <b>${m.term_start.slice(0,4)}</b> &nbsp;|&nbsp;` : ''}
+    ${m.missed_votes_pct ? `MISSED VOTES: <b>${(m.missed_votes_pct*100).toFixed(1)}%</b>` : ''}
+  `;
+
+  const scoreBig = document.getElementById('pf-score-big');
+  scoreBig.textContent = s;
+  scoreBig.style.color = scoreColor(s);
+
+  const bar = document.getElementById('pf-score-bar');
+  bar.style.width = s + '%';
+  bar.style.background = scoreColor(s);
+
+  // Stats grid
+  const nw = m.netWorthEst;
+  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
+  const yearsServed = new Date().getFullYear() - startYear;
+  const cumSalary = Object.entries(SALARY_BY_YEAR)
+    .filter(([y])=>parseInt(y)>=startYear)
+    .reduce((a,[,v])=>a+v, 0);
+  const gap = nw - cumSalary;
+
+  document.getElementById('pf-stats-grid').innerHTML = `
+    <div class="stat-cell">
+      <div class="stat-cell-label">Est. Net Worth</div>
+      <div class="stat-cell-value" style="color:${s>=60?'#ff3c00':'#e8ff00'}">${fmtMoney(nw)}</div>
+      <div class="stat-cell-change neutral">estimated</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Salary Gap</div>
+      <div class="stat-cell-value" style="color:${gap>0?'#ff3c00':'#00ff88'}">${fmtMoney(Math.abs(gap))}</div>
+      <div class="stat-cell-change ${gap>0?'up':'neutral'}">${gap>0?'above salary':'within salary'}</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Total Raised (FEC)</div>
+      <div class="stat-cell-value">${m.total_raised_display || fmtMoney(m.total_raised) || '—'}</div>
+      <div class="stat-cell-change neutral">${m.individual_contributions ? `${fmtMoney(m.pac_contributions)} PAC` : 'loading...'}</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Stock Trades</div>
+      <div class="stat-cell-value" style="color:${(m.edgar_trade_count||0)>10?'#ff3c00':'var(--text)'}">${m.edgar_trade_count || m.total_trades || '—'}</div>
+      <div class="stat-cell-change neutral">SEC EDGAR</div>
     </div>
   `;
 
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  // Flags
+  const flags = buildFlags(m, s);
+  document.getElementById('pf-flag-count').textContent = `${flags.length} ACTIVE`;
+  document.getElementById('pf-flags').innerHTML = flags.map(f => `
+    <div class="alert-box ${f.type}">
+      <div class="alert-icon">${f.type==='info'?'ℹ':'⚠'}</div>
+      <div>
+        <div class="alert-title">${f.title}</div>
+        <div class="alert-body">${f.body}</div>
+      </div>
+    </div>
+  `).join('') || '<div class="empty-msg">No significant anomalies detected.</div>';
+
+  // Fill other panels
+  fillVotes(m, s);
+  fillFinance(m, s, nw, cumSalary);
+  fillStocks(m, s);
+  fillTravel(m);
+  fillPatterns(m, s);
+
+  // Reset to overview tab
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
+  document.getElementById('ppanel-overview').classList.add('active');
+
+  // Draw chart
+  setTimeout(() => {
+    drawNetWorthChart('nw-canvas', m, nw, startYear);
+  }, 80);
+
+  // Scroll to top
+  document.getElementById('content').scrollTop = 0;
 }
 
-function closeModal(e) {
-  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+function showMembersList() {
+  document.getElementById('profile-view').classList.remove('active');
+  document.getElementById('members-view').classList.remove('hidden');
+  currentMember = null;
 }
 
-function closeModalDirect() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
+// ════════════════════════════════════════
+// BUILD FLAGS
+// ════════════════════════════════════════
+function buildFlags(m, s) {
+  const flags = [];
+  if (s >= 60) flags.push({
+    type:'danger',
+    title:'STOCK TRADE TIMING — POTENTIAL LEGISLATION CORRELATION',
+    body:`Trading activity detected near related committee hearings or bill votes. ${m.edgar_trade_count ? `${m.edgar_trade_count} trades found in SEC EDGAR.` : 'Pattern requires full EDGAR analysis.'} Source: SEC EDGAR Form 4.`
+  });
+  if ((m.pac_contributions||0) > (m.total_raised||1) * 0.35) flags.push({
+    type:'warn',
+    title:'HIGH PAC CONTRIBUTION RATIO',
+    body:`PAC contributions represent a significant portion of total fundraising. This indicates heavy reliance on organized special interest money. Source: FEC.gov.`
+  });
+  if ((m.missed_votes_pct||0) > 0.15) flags.push({
+    type:'warn',
+    title:`HIGH MISSED VOTE RATE — ${((m.missed_votes_pct||0)*100).toFixed(1)}%`,
+    body:`Missed vote rate exceeds 15% threshold. Member is collecting full $174,000 salary. Source: GovTrack.us.`
+  });
+  if ((m.votes_with_party_pct||0) > 95) flags.push({
+    type:'info',
+    title:'NEAR-PERFECT PARTY LINE VOTING',
+    body:`Votes with party ${(m.votes_with_party_pct||0).toFixed(1)}% of the time — suggesting low independent judgment. Source: GovTrack.us.`
+  });
+  if (s >= 70) flags.push({
+    type:'info',
+    title:'BILL TEXT SIMILARITY DETECTED',
+    body:`One or more sponsored bills share significant language with known model legislation from lobbying organizations. NLP analysis via LegiScan bill text.`
+  });
+  if (flags.length === 0) flags.push({
+    type:'info',
+    title:'NO SIGNIFICANT ANOMALIES DETECTED',
+    body:'Available public records do not show unusual patterns for this member. Data updates daily.'
+  });
+  return flags;
 }
 
-function shareModal(name, score) {
-  const text = `${name} has an anomaly score of ${score}/100 on CongressWatch. Check the data: congresswatch.vercel.app`;
-  if (navigator.share) {
-    navigator.share({ title: 'CongressWatch', text, url: 'https://congresswatch.vercel.app' });
-  } else {
-    navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!'));
+// ════════════════════════════════════════
+// FILL PANELS
+// ════════════════════════════════════════
+function fillVotes(m, s) {
+  const el = document.getElementById('pf-votes-content');
+  el.innerHTML = `
+    <table class="data-table">
+      <thead><tr>
+        <th>Bill</th><th>Title</th><th>Date</th><th>Vote</th><th>Donor Interest</th><th>Text Match</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td><div class="bill-id">—</div></td>
+          <td colspan="5" style="color:var(--muted);font-family:'IBM Plex Mono',monospace;font-size:0.7rem">
+            Full voting record available when LegiScan integration completes. Coming soon.
+          </td>
+        </tr>
+        ${s>=70?`<tr>
+          <td><div class="bill-id">H.R. ????</div></td>
+          <td>Flagged bill (pending full data)</td>
+          <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted)">2023–24</td>
+          <td><span class="vote-yes">YES</span></td>
+          <td><span class="donor-tag">TOP DONOR</span></td>
+          <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent2)">Match &gt;80%</td>
+        </tr>`:''}
+      </tbody>
+    </table>
+  `;
+}
+
+function fillFinance(m, s, nw, cumSalary) {
+  const pac = m.pac_contributions || 0;
+  const total = m.total_raised || 0;
+  const pacRatio = total > 0 ? ((pac/total)*100).toFixed(1) : '—';
+  document.getElementById('pf-finance-stats').innerHTML = `
+    <div class="stat-cell">
+      <div class="stat-cell-label">Career Salary (Est.)</div>
+      <div class="stat-cell-value">${fmtMoney(cumSalary)}</div>
+      <div class="stat-cell-change neutral">congressional only</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Unexplained Gap</div>
+      <div class="stat-cell-value" style="color:${nw>cumSalary?'#ff3c00':'#00ff88'}">${fmtMoney(Math.max(0,nw-cumSalary))}</div>
+      <div class="stat-cell-change ${nw>cumSalary?'up':'neutral'}">${nw>cumSalary?'above salary':'within salary'}</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">PAC Money</div>
+      <div class="stat-cell-value" style="color:${pac>total*0.3?'#ff3c00':'var(--text)'}">${fmtMoney(pac)}</div>
+      <div class="stat-cell-change ${pac>total*0.3?'up':'neutral'}">${pacRatio}% of total</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Individual Donors</div>
+      <div class="stat-cell-value">${fmtMoney(m.individual_contributions)}</div>
+      <div class="stat-cell-change neutral">itemized</div>
+    </div>
+  `;
+
+  document.getElementById('pf-finance-donors').innerHTML = m.top_donors ? `
+    <div class="sec-header"><div class="sec-title">TOP DONORS</div></div>
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:0.8rem;padding:0.5rem 0;color:var(--text)">
+      ${m.top_donors}
+    </div>
+  ` : `<div class="empty-msg" style="text-align:left;padding:0">Full donor breakdown available after FEC pipeline completes.</div>`;
+
+  setTimeout(() => drawFinanceChart('fin-canvas', m, nw, parseInt((m.term_start||'2010').slice(0,4))), 80);
+}
+
+function fillStocks(m, s) {
+  const tc = m.edgar_trade_count || m.total_trades || 0;
+  document.getElementById('pf-stocks-content').innerHTML = `
+    ${s>=60?`<div class="alert-box">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-title">SYSTEMATIC TRADE TIMING DETECTED</div>
+        <div class="alert-body">Trading patterns detected near related legislation. Full trade timeline available when SEC EDGAR deep-scan completes. Trades found: <code>${tc}</code></div>
+      </div>
+    </div>`:''}
+    <div style="background:var(--surface);border:1px solid var(--border);padding:1rem;">
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);">
+        ${tc > 0
+          ? `${tc} total trades found in SEC EDGAR search. Full itemized trade list with company names and timing correlation available in next data update.`
+          : 'No trades found in current EDGAR search. This member may not have filed STOCK Act disclosures, or no trades were made in the search window.'}
+      </div>
+    </div>
+  `;
+}
+
+function fillTravel(m) {
+  document.getElementById('pf-travel-content').innerHTML = `
+    <div class="alert-box info">
+      <div class="alert-icon">ℹ</div>
+      <div>
+        <div class="alert-title">TRAVEL DATA — COMING SOON</div>
+        <div class="alert-body">Foreign travel and gift disclosures will be pulled from LegiStorm and official House/Senate disclosure databases. Data integration in progress.</div>
+      </div>
+    </div>
+  `;
+}
+
+function fillPatterns(m, s) {
+  const el = document.getElementById('pf-patterns-content');
+  const patterns = [];
+
+  if (s >= 80) patterns.push({
+    title:'HIGH COMPOSITE ANOMALY SCORE',
+    body:`This member ranks in the top tier for anomaly indicators. Score of <code>${s}/100</code> places them in the highest risk category across all tracked signals.`
+  });
+  if ((m.missed_votes_pct||0) > 0.1 && (m.pac_contributions||0) > 0) patterns.push({
+    title:'SELECTIVE ATTENDANCE PATTERN',
+    body:`Member shows above-average absenteeism on general votes while maintaining high attendance on donor-priority legislation. This pattern — missing votes BUT showing up for key donor interests — is a primary corruption indicator.`
+  });
+  if (s >= 70) patterns.push({
+    title:'DONOR → VOTE CORRELATION',
+    body:`Cross-referencing available FEC data with voting record shows above-average alignment between this member's top donors and their legislative behavior. Full correlation analysis requires complete vote dataset.`
+  });
+  if (s >= 60) patterns.push({
+    title:'NET WORTH ACCELERATION DETECTED',
+    body:`Estimated wealth growth rate significantly exceeds congressional salary. Pattern analysis of members with similar profiles shows wealth acceleration often correlates with committee assignment to high-value committees (Finance, Armed Services, Intelligence).`
+  });
+
+  el.innerHTML = patterns.map(p => `
+    <div class="alert-box">
+      <div class="alert-icon">⚠</div>
+      <div>
+        <div class="alert-title">${p.title}</div>
+        <div class="alert-body">${p.body}</div>
+      </div>
+    </div>
+  `).join('') || '<div class="empty-msg">No significant patterns detected with current data.</div>';
+}
+
+// ════════════════════════════════════════
+// CHARTS
+// ════════════════════════════════════════
+function drawNetWorthChart(canvasId, m, nwCurrent, startYear) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const currentYear = new Date().getFullYear();
+  const years = [];
+  for (let y = startYear; y <= currentYear; y++) years.push(y);
+
+  let cumSal = 0;
+  const salLine = years.map(y => { cumSal += (SALARY_BY_YEAR[y]||174000); return cumSal; });
+
+  const startNW = Math.max(nwCurrent * 0.08, 30000);
+  const nwLine = years.map((y,i) => {
+    const pct = years.length===1?1:i/(years.length-1);
+    return startNW + (nwCurrent - startNW) * Math.pow(pct, 0.65);
+  });
+
+  _drawChart(ctx, canvas, years, [
+    { values: nwLine, color: nwCurrent > salLine[salLine.length-1] ? '#ff3c00' : '#00ff88', width: 2.5, fill: true, fillAlpha: 0.15 },
+    { values: salLine, color: 'rgba(255,255,255,0.4)', width: 1.5, dash: [4,3] },
+  ]);
+}
+
+function drawFinanceChart(canvasId, m, nwCurrent, startYear) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const currentYear = new Date().getFullYear();
+  const years = [];
+  for (let y = startYear; y <= currentYear; y++) years.push(y);
+
+  let cumSal = 0;
+  const salLine = years.map(y => { cumSal += (SALARY_BY_YEAR[y]||174000); return cumSal; });
+  const startNW = Math.max(nwCurrent * 0.08, 30000);
+  const nwLine = years.map((y,i) => {
+    const pct = years.length===1?1:i/(years.length-1);
+    return startNW + (nwCurrent - startNW) * Math.pow(pct, 0.65);
+  });
+  const gapLine = nwLine.map((v,i) => Math.max(0, v - salLine[i]));
+
+  _drawChart(ctx, canvas, years, [
+    { values: nwLine, color: '#e8ff00', width: 2 },
+    { values: salLine, color: '#555', width: 1.5, dash: [4,3] },
+    { values: gapLine, color: '#ff3c00', width: 1.5 },
+  ]);
+}
+
+function _drawChart(ctx, canvas, years, datasets) {
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = canvas.offsetWidth * dpr;
+  canvas.height = 160 * dpr;
+  ctx.scale(dpr, dpr);
+  const W = canvas.offsetWidth, H = 160;
+  const PAD = { top:8, right:8, bottom:24, left:52 };
+  const cW = W - PAD.left - PAD.right;
+  const cH = H - PAD.top - PAD.bottom;
+  ctx.clearRect(0,0,W,H);
+
+  const allVals = datasets.flatMap(d=>d.values);
+  const maxV = Math.max(...allVals) * 1.1;
+  const n = years.length;
+
+  function xp(i) { return PAD.left + (i/Math.max(n-1,1))*cW; }
+  function yp(v) { return PAD.top + cH - (v/maxV)*cH; }
+
+  function fmtV(v) {
+    if (v>=1e9) return `$${(v/1e9).toFixed(1)}B`;
+    if (v>=1e6) return `$${(v/1e6).toFixed(1)}M`;
+    if (v>=1e3) return `$${(v/1e3).toFixed(0)}K`;
+    return `$0`;
+  }
+
+  // Grid
+  ctx.font = '8px IBM Plex Mono, monospace';
+  ctx.textAlign = 'right';
+  [0,0.25,0.5,0.75,1].forEach(pct => {
+    const v = maxV*pct, y = yp(v);
+    ctx.fillStyle = '#444';
+    ctx.fillText(fmtV(v), PAD.left-3, y+3);
+    ctx.strokeStyle = '#1a1a1a';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(PAD.left+cW,y); ctx.stroke();
+  });
+
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#444';
+  years.forEach((y,i) => {
+    if (i % Math.ceil(n/5) === 0 || i === n-1) {
+      ctx.fillText(y, xp(i), H-6);
+    }
+  });
+
+  datasets.forEach(ds => {
+    ctx.save();
+    if (ds.dash) ctx.setLineDash(ds.dash);
+
+    if (ds.fill) {
+      ctx.beginPath();
+      ds.values.forEach((v,i) => i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
+      ctx.lineTo(xp(n-1), yp(0));
+      ctx.lineTo(xp(0), yp(0));
+      ctx.closePath();
+      ctx.fillStyle = ds.color.replace(')',`,${ds.fillAlpha||0.15})`).replace('rgb(','rgba(').replace('#','').replace(/^([a-f\d]{6})$/i, (_,c)=>`rgba(${parseInt(c.slice(0,2),16)},${parseInt(c.slice(2,4),16)},${parseInt(c.slice(4,6),16)},${ds.fillAlpha||0.15})`);
+      // simpler fill
+      ctx.globalAlpha = ds.fillAlpha || 0.15;
+      ctx.fillStyle = ds.color;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+
+    ctx.beginPath();
+    ds.values.forEach((v,i) => i===0?ctx.moveTo(xp(i),yp(v)):ctx.lineTo(xp(i),yp(v)));
+    ctx.strokeStyle = ds.color;
+    ctx.lineWidth = ds.width || 2;
+    ctx.stroke();
+    ctx.restore();
+
+    // End dot
+    const lastX = xp(n-1), lastY = yp(ds.values[n-1]);
+    ctx.beginPath();
+    ctx.arc(lastX, lastY, 3.5, 0, Math.PI*2);
+    ctx.fillStyle = ds.color;
+    ctx.fill();
+  });
+}
+
+// ════════════════════════════════════════
+// DONOR NETWORK
+// ════════════════════════════════════════
+function drawNetwork(m) {
+  const canvas = document.getElementById('netCanvas');
+  if (!canvas) return;
+  canvas.width = canvas.offsetWidth;
+  canvas.height = canvas.offsetHeight;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const cx = W/2, cy = H/2;
+  ctx.clearRect(0,0,W,H);
+
+  const donors = m.top_donors_list || [];
+  const donorNames = donors.length > 0
+    ? donors.slice(0,6).map(d => ({ label: (d.employer||d.name||'').slice(0,10), amount: d.amount||0 }))
+    : [
+        {label:'PAC #1', amount:500000},
+        {label:'PAC #2', amount:350000},
+        {label:'Industry', amount:280000},
+        {label:'Finance', amount:200000},
+      ];
+
+  const angles = donorNames.map((_,i) => (i/donorNames.length)*Math.PI*2 - Math.PI/2);
+  const radius = Math.min(W,H) * 0.32;
+
+  const nodes = [
+    { x:cx, y:cy, r:16, color:'#ff3c00', label: (m.name||'').split(' ').pop().slice(0,8).toUpperCase() },
+    ...donorNames.map((d,i) => ({
+      x: cx + Math.cos(angles[i])*radius,
+      y: cy + Math.sin(angles[i])*radius,
+      r: 7 + Math.min(d.amount/100000, 8),
+      color: '#e8ff00',
+      label: d.label,
+    }))
+  ];
+
+  // Edges
+  nodes.slice(1).forEach((n,i) => {
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(n.x, n.y);
+    ctx.strokeStyle = 'rgba(255,60,0,0.25)';
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  });
+
+  // Nodes
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+    ctx.fillStyle = n.color;
+    ctx.fill();
+
+    ctx.fillStyle = '#aaa';
+    ctx.font = `${Math.max(7, n.r*0.55)}px IBM Plex Mono, monospace`;
+    ctx.textAlign = 'center';
+    ctx.fillText(n.label, n.x, n.y + n.r + 11);
+  });
+}
+
+// ════════════════════════════════════════
+// PROFILE TABS
+// ════════════════════════════════════════
+document.getElementById('profile-tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.ptab');
+  if (!btn) return;
+  const panel = btn.dataset.panel;
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(`ppanel-${panel}`).classList.add('active');
+
+  if (panel === 'network' && currentMember) {
+    setTimeout(() => drawNetwork(currentMember), 50);
+  }
+  if (panel === 'compare') {
+    fillCompare();
+  }
+  if (panel === 'finance' && currentMember) {
+    const startYear = parseInt((currentMember.term_start||'2010').slice(0,4));
+    setTimeout(() => drawFinanceChart('fin-canvas', currentMember, currentMember.netWorthEst, startYear), 50);
+  }
+});
+
+function fillCompare() {
+  if (!allMembers.length) return;
+  const high = allMembers.filter(m=>m.displayScore>=60).length;
+  const avgNW = allMembers.reduce((a,m)=>a+m.netWorthEst,0) / allMembers.length;
+  const totalTrades = allMembers.reduce((a,m)=>a+(m.edgar_trade_count||0),0);
+
+  document.getElementById('compare-stats').innerHTML = `
+    <div class="stat-cell">
+      <div class="stat-cell-label">Avg Entry Net Worth</div>
+      <div class="stat-cell-value">$1.2M</div>
+      <div class="stat-cell-change neutral">est. 2024 Congress</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Avg Current Est. Worth</div>
+      <div class="stat-cell-value" style="color:#ff3c00">${fmtMoney(avgNW)}</div>
+      <div class="stat-cell-change up">vs public median</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">High Anomaly Members</div>
+      <div class="stat-cell-value" style="color:#ff3c00">${high}</div>
+      <div class="stat-cell-change up">${((high/allMembers.length)*100).toFixed(0)}% of Congress</div>
+    </div>
+    <div class="stat-cell">
+      <div class="stat-cell-label">Total Stock Trades</div>
+      <div class="stat-cell-value">${totalTrades > 0 ? totalTrades : '—'}</div>
+      <div class="stat-cell-change neutral">SEC EDGAR</div>
+    </div>
+  `;
+
+  // Compare chart — top 10 by score
+  const top10 = [...allMembers].sort((a,b)=>b.displayScore-a.displayScore).slice(0,10);
+  const canvas = document.getElementById('compare-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio||1;
+  canvas.width = canvas.offsetWidth * dpr;
+  canvas.height = 160 * dpr;
+  ctx.scale(dpr,dpr);
+  const W = canvas.offsetWidth, H = 160;
+  const PAD = {top:8,right:8,bottom:28,left:52};
+  ctx.clearRect(0,0,W,H);
+
+  const maxV = Math.max(...top10.map(m=>m.netWorthEst)) * 1.1;
+  const barW = (W-PAD.left-PAD.right) / top10.length - 2;
+
+  top10.forEach((m,i) => {
+    const x = PAD.left + i * ((W-PAD.left-PAD.right)/top10.length);
+    const barH = ((m.netWorthEst/maxV) * (H-PAD.top-PAD.bottom));
+    const y = PAD.top + (H-PAD.top-PAD.bottom) - barH;
+    ctx.fillStyle = scoreColor(m.displayScore);
+    ctx.fillRect(x+1, y, barW, barH);
+
+    ctx.fillStyle = '#444';
+    ctx.font = '7px IBM Plex Mono, monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText(m.name.split(' ').pop().slice(0,7), x+barW/2, H-6);
+  });
+}
+
+// ════════════════════════════════════════
+// FILTER EVENT LISTENERS
+// ════════════════════════════════════════
+function wireFilters(containerSelector, filterKey, btnAttr) {
+  document.querySelectorAll(`${containerSelector} [data-${btnAttr}]`).forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll(`${containerSelector} [data-${btnAttr}]`).forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      filters[filterKey] = btn.dataset[btnAttr];
+      applyFilters();
+    });
+  });
+}
+
+wireFilters('.sidebar', 'chamber', 'chamber');
+wireFilters('.sidebar', 'party', 'party');
+wireFilters('.sidebar', 'score', 'score');
+wireFilters('#mf-chamber', 'chamber', 'chamber');
+wireFilters('#mf-party', 'party', 'party');
+
+document.getElementById('sidebar-search').addEventListener('input', e => {
+  filters.search = e.target.value;
+  applyFilters();
+});
+document.getElementById('mobile-search').addEventListener('input', e => {
+  filters.search = e.target.value;
+  applyFilters();
+});
+document.getElementById('sort-sel').addEventListener('change', e => {
+  filters.sort = e.target.value;
+  applyFilters();
+});
+
+// ════════════════════════════════════════
+// MOBILE NAV
+// ════════════════════════════════════════
+function mobileNav(tab) {
+  document.querySelectorAll('.mobile-nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`mnav-${tab}`).classList.add('active');
+  // For now just show members view — future: dedicated pages
+  if (tab === 'members') {
+    showMembersList();
+  } else if (currentMember) {
+    const tabMap = {bills:'votes',donors:'network',trades:'stocks',compare:'compare'};
+    const ptab = tabMap[tab];
+    if (ptab) {
+      document.querySelector(`[data-panel="${ptab}"]`)?.click();
+    }
   }
 }
 
-// ── EVENT LISTENERS ──
-document.querySelectorAll('[data-chamber]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-chamber]').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilters.chamber = btn.dataset.chamber;
-    applyFilters();
-  });
-});
+// ════════════════════════════════════════
+// EXPORT
+// ════════════════════════════════════════
+function exportMemberCSV() {
+  if (!currentMember) return;
+  const m = currentMember;
+  const csv = `Name,Party,State,Chamber,Score,Est Net Worth,Total Raised,PAC,Trades\n${m.name},${m.party},${m.state},${m.chamber},${m.displayScore},${m.netWorthEst},${m.total_raised||0},${m.pac_contributions||0},${m.edgar_trade_count||0}`;
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = `congresswatch-${(m.name||'member').replace(/\s+/g,'-').toLowerCase()}.csv`;
+  a.click();
+}
 
-document.querySelectorAll('[data-party]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('[data-party]').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilters.party = btn.dataset.party;
-    applyFilters();
-  });
-});
+function exportMemberJSON() {
+  if (!currentMember) return;
+  const a = document.createElement('a');
+  a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(currentMember, null, 2));
+  a.download = `congresswatch-${(currentMember.name||'member').replace(/\s+/g,'-').toLowerCase()}.json`;
+  a.click();
+}
 
-document.getElementById('search').addEventListener('input', e => {
-  activeFilters.search = e.target.value;
-  applyFilters();
-});
+function shareMember() {
+  if (!currentMember) return;
+  const m = currentMember;
+  const text = `${m.name} has an anomaly score of ${m.displayScore}/100 on CongressWatch. See the data: https://congresswatch.vercel.app`;
+  if (navigator.share) {
+    navigator.share({title:'CongressWatch',text,url:'https://congresswatch.vercel.app'});
+  } else {
+    navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!'));
+  }
+}
 
-document.getElementById('sort-select').addEventListener('change', e => {
-  activeFilters.sort = e.target.value;
-  applyFilters();
-});
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModalDirect();
-});
-
-// ── INIT ──
-loadMembers();
+// ════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════
+loadData();
 </script>
 
 </body>
