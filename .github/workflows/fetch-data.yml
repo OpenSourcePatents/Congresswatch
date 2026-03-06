@@ -91,6 +91,6 @@ steps:
       git config --global user.email "bot@bot.com"
       git add -A
       git diff --staged --quiet || git commit -m "Update members"
-      git pull --rebase -X theirs
-      git push
+git push --force
+
 ```
