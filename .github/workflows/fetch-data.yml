@@ -104,8 +104,7 @@ jobs:
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
-          git fetch origin
-          git reset --hard origin/main
           git add data/members.json
           git diff --staged --quiet || git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
+          git pull --rebase --autostash
           git push
