@@ -31,6 +31,9 @@ jobs:
           BASE="https://api.congress.gov/v3"
           H={"User-Agent":"CongressWatch"}
           os.makedirs("data",exist_ok=True)
+          # Territorial delegations: these states send House delegates, not Senators.
+          # They have no district number but are NOT Senate members.
+          TERRITORIES={"District of Columbia","Puerto Rico","Virgin Islands","Guam","American Samoa","Northern Mariana Islands"}
           def photo(b):
             if not b: return ""
             return "https://bioguide.congress.gov/bioguide/photo/"+b[0].upper()+"/"+b+".jpg"
@@ -55,7 +58,17 @@ jobs:
             return "2010-01-01"
           def norm(m,ch):
             b=m.get("bioguideId","")
-            return {"id":b,"name":fixname(m.get("name","")),"party":party(m.get("partyName","")),"state":m.get("state",""),"district":str(m.get("district","")),"chamber":ch,"photo_url":photo(b),"term_start":termstart(m),"score":0,"flags":[],"updated":datetime.now().isoformat()}
+            district=str(m.get("district",""))
+            state=m.get("state","")
+            # Use district presence as the authoritative chamber signal.
+            # Fall back to territory check, then the API-supplied chamber label.
+            if district:
+              chamber="House"
+            elif state in TERRITORIES:
+              chamber="House"  # territorial delegates sit in the House, not Senate
+            else:
+              chamber=ch
+            return {"id":b,"name":fixname(m.get("name","")),"party":party(m.get("partyName","")),"state":state,"district":district,"chamber":chamber,"photo_url":photo(b),"term_start":termstart(m),"score":0,"flags":[],"updated":datetime.now().isoformat()}
           def fetch(ch):
             p={"api_key":KEY,"limit":250,"currentMember":"true","chamber":ch,"offset":0}
             r=[]
@@ -72,12 +85,14 @@ jobs:
           sen=fetch("Senate")
           hou=fetch("House")
           seen={}
-          for m in hou:
-            b=m.get("bioguideId","")
-            if b: seen[b]=norm(m,"House")
+          # Process Senate first, then House — House wins on any collision,
+          # ensuring members who appear in both API responses get the correct chamber.
           for m in sen:
             b=m.get("bioguideId","")
             if b: seen[b]=norm(m,"Senate")
+          for m in hou:
+            b=m.get("bioguideId","")
+            if b: seen[b]=norm(m,"House")
           all_members=list(seen.values())
           print("Total:"+str(len(all_members)))
           json.dump(all_members,open("data/members.json","w"),indent=2)
