@@ -1,0 +1,27 @@
+name: Test Finance Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run test pipeline
+        env:
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+        run: python fetch_finance_test.py
+
+      - name: Show test results
+        run: cat data/members_test.json
