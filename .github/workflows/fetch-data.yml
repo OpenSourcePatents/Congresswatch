@@ -42,8 +42,8 @@ jobs:
             return "Unknown"
           def fixname(r):
             if "," in r:
-             p=r.split(",",1)
-             return p[1].strip()+" "+p[0].strip()
+              p=r.split(",",1)
+              return p[1].strip()+" "+p[0].strip()
             return r
           def termstart(m):
             t=m.get("terms",{})
