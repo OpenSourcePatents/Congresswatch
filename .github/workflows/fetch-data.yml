@@ -105,6 +105,7 @@ jobs:
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
           git add data/members.json
-          git diff --staged --quiet || git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
-          git pull --rebase --autostash
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
+          git pull --rebase
           git push
