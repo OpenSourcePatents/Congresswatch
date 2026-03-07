@@ -31,8 +31,6 @@ jobs:
           BASE="https://api.congress.gov/v3"
           H={"User-Agent":"CongressWatch"}
           os.makedirs("data",exist_ok=True)
-          # Territorial delegations: these states send House delegates, not Senators.
-          # They have no district number but are NOT Senate members.
           TERRITORIES={"District of Columbia","Puerto Rico","Virgin Islands","Guam","American Samoa","Northern Mariana Islands"}
           def photo(b):
             if not b: return ""
@@ -61,12 +59,10 @@ jobs:
             raw=m.get("district",None)
             district=str(raw) if raw not in (None,"","None") else ""
             state=m.get("state","")
-            # Use district presence as the authoritative chamber signal.
-            # Fall back to territory check, then the API-supplied chamber label.
             if district:
               chamber="House"
             elif state in TERRITORIES:
-              chamber="House"  # territorial delegates sit in the House, not Senate
+              chamber="House"
             else:
               chamber=ch
             return {"id":b,"name":fixname(m.get("name","")),"party":party(m.get("partyName","")),"state":state,"district":district,"chamber":chamber,"photo_url":photo(b),"term_start":termstart(m),"score":0,"flags":[],"updated":datetime.now().isoformat()}
@@ -86,16 +82,19 @@ jobs:
           sen=fetch("Senate")
           hou=fetch("House")
           seen={}
-          # Process Senate first, then House — House wins on any collision,
-          # ensuring members who appear in both API responses get the correct chamber.
+          # Process Senate first — Senate wins on any collision so members
+          # who appear in both API responses keep their correct chamber.
           for m in sen:
             b=m.get("bioguideId","")
             if b: seen[b]=norm(m,"Senate")
           for m in hou:
             b=m.get("bioguideId","")
-            if b: seen[b]=norm(m,"House")
+            if b and b not in seen:
+              seen[b]=norm(m,"House")
           all_members=list(seen.values())
-          print("Total:"+str(len(all_members)))
+          s=sum(1 for m in all_members if m["chamber"]=="Senate")
+          h=sum(1 for m in all_members if m["chamber"]=="House")
+          print("Total:"+str(len(all_members))+" Senate:"+str(s)+" House:"+str(h))
           json.dump(all_members,open("data/members.json","w"),indent=2)
           print("Done")
           PYEOF
