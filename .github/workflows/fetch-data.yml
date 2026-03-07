@@ -76,19 +76,7 @@ jobs:
             if state in TERRITORIES:
               return "House", ""
 
-            # Check terms for explicit chamber label
-            terms = m.get("terms", {})
-            items = []
-            if isinstance(terms, dict):
-              items = terms.get("item", []) or []
-            elif isinstance(terms, list):
-              items = terms
-            for item in items:
-              ct = (item.get("chamber","") or "").lower()
-              if "senate" in ct: return "Senate", ""
-              if "house" in ct: return "House", str(raw_district or "")
-
-            # No district, not a territory, no term info = Senate
+            # No district, not a territory = Senate
             return "Senate", ""
 
           def norm(m):
@@ -109,7 +97,7 @@ jobs:
             }
 
           def fetch_all():
-            p={"api_key":KEY,"limit":250,"currentMember":"true","offset":0}
+            p={"api_key":KEY,"limit":200,"currentMember":"true","offset":0}
             r=[]
             while True:
               time.sleep(0.5)
@@ -118,8 +106,8 @@ jobs:
               if not batch: break
               r.extend(batch)
               print("Fetched:"+str(len(r)))
-              if len(batch)<250: break
-              p["offset"]+=250
+              if len(batch)<200: break
+              p["offset"]+=200
             return r
 
           raw=fetch_all()
