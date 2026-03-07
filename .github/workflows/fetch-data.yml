@@ -58,7 +58,8 @@ jobs:
             return "2010-01-01"
           def norm(m,ch):
             b=m.get("bioguideId","")
-            district=str(m.get("district",""))
+            raw=m.get("district",None)
+            district=str(raw) if raw not in (None,"","None") else ""
             state=m.get("state","")
             # Use district presence as the authoritative chamber signal.
             # Fall back to territory check, then the API-supplied chamber label.
@@ -103,7 +104,8 @@ jobs:
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
+          git fetch origin
+          git reset --hard origin/main
           git add data/members.json
           git diff --staged --quiet || git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
-          git pull --rebase
           git push
