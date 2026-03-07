@@ -31,21 +31,26 @@ jobs:
           BASE="https://api.congress.gov/v3"
           H={"User-Agent":"CongressWatch"}
           os.makedirs("data",exist_ok=True)
+
           TERRITORIES={"District of Columbia","Puerto Rico","Virgin Islands","Guam","American Samoa","Northern Mariana Islands"}
+
           def photo(b):
             if not b: return ""
             return "https://bioguide.congress.gov/bioguide/photo/"+b[0].upper()+"/"+b+".jpg"
+
           def party(p):
             p=(p or "").lower()
             if "democrat" in p: return "Democratic"
             if "republican" in p: return "Republican"
             if "independent" in p: return "Independent"
             return "Unknown"
+
           def fixname(r):
             if "," in r:
               p=r.split(",",1)
               return p[1].strip()+" "+p[0].strip()
             return r
+
           def termstart(m):
             t=m.get("terms",{})
             if isinstance(t,dict):
@@ -54,47 +59,80 @@ jobs:
                 y=i[0].get("startYear","") or i[0].get("start","")
                 if y: return str(y)+"-01-01" if len(str(y))==4 else str(y)
             return "2010-01-01"
-          def norm(m,ch):
+
+          def infer_chamber(m):
+            state = m.get("state","")
+            raw_district = m.get("district", None)
+
+            # Has a numeric district = House
+            if raw_district not in (None, "", "None", 0):
+              try:
+                int(str(raw_district))
+                return "House", str(raw_district)
+              except ValueError:
+                pass
+
+            # Territory delegate = House
+            if state in TERRITORIES:
+              return "House", ""
+
+            # Check terms for explicit chamber label
+            terms = m.get("terms", {})
+            items = []
+            if isinstance(terms, dict):
+              items = terms.get("item", []) or []
+            elif isinstance(terms, list):
+              items = terms
+            for item in items:
+              ct = (item.get("chamber","") or "").lower()
+              if "senate" in ct: return "Senate", ""
+              if "house" in ct: return "House", str(raw_district or "")
+
+            # No district, not a territory, no term info = Senate
+            return "Senate", ""
+
+          def norm(m):
             b=m.get("bioguideId","")
-            raw=m.get("district",None)
-            district=str(raw) if raw not in (None,"","None") else ""
-            state=m.get("state","")
-            if district:
-              chamber="House"
-            elif state in TERRITORIES:
-              chamber="House"
-            else:
-              chamber=ch
-            return {"id":b,"name":fixname(m.get("name","")),"party":party(m.get("partyName","")),"state":state,"district":district,"chamber":chamber,"photo_url":photo(b),"term_start":termstart(m),"score":0,"flags":[],"updated":datetime.now().isoformat()}
-          def fetch(ch):
-            p={"api_key":KEY,"limit":250,"currentMember":"true","chamber":ch,"offset":0}
+            chamber, district = infer_chamber(m)
+            return {
+              "id": b,
+              "name": fixname(m.get("name","")),
+              "party": party(m.get("partyName","")),
+              "state": m.get("state",""),
+              "district": district,
+              "chamber": chamber,
+              "photo_url": photo(b),
+              "term_start": termstart(m),
+              "score": 0,
+              "flags": [],
+              "updated": datetime.now().isoformat()
+            }
+
+          def fetch_all():
+            p={"api_key":KEY,"limit":250,"currentMember":"true","offset":0}
             r=[]
             while True:
               time.sleep(0.5)
               res=requests.get(BASE+"/member",params=p,headers=H,timeout=30)
-              b=res.json().get("members",[])
-              if not b: break
-              r.extend(b)
-              print(ch+":"+str(len(r)))
-              if len(b)<250: break
+              batch=res.json().get("members",[])
+              if not batch: break
+              r.extend(batch)
+              print("Fetched:"+str(len(r)))
+              if len(batch)<250: break
               p["offset"]+=250
             return r
-          sen=fetch("Senate")
-          hou=fetch("House")
+
+          raw=fetch_all()
           seen={}
-          # Process Senate first — Senate wins on any collision so members
-          # who appear in both API responses keep their correct chamber.
-          for m in sen:
-            b=m.get("bioguideId","")
-            if b: seen[b]=norm(m,"Senate")
-          for m in hou:
+          for m in raw:
             b=m.get("bioguideId","")
             if b and b not in seen:
-              seen[b]=norm(m,"House")
+              seen[b]=norm(m)
+
           all_members=list(seen.values())
           s=sum(1 for m in all_members if m["chamber"]=="Senate")
           h=sum(1 for m in all_members if m["chamber"]=="House")
-          print("Total:"+str(len(all_members))+" Senate:"+str(s)+" House:"+str(h))
+          print("Total:"+str(len(all_members))+" | Senate:"+str(s)+" | House:"+str(h))
           json.dump(all_members,open("data/members.json","w"),indent=2)
           print("Done")
           PYEOF
