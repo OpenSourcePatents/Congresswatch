@@ -1,9 +1,9 @@
-name: Fetch Member Votes.V1
+name: Fetch Member Votes.v2 (GovTrack)
 
 on:
   schedule:
-    - cron: '0 1 * * *' # Daily at 1:00 AM UTC
-  workflow_dispatch: # Manual trigger
+    - cron: '0 2 * * *' # Daily at 2:00 AM UTC (after finance run)
+  workflow_dispatch:
 
 jobs:
   fetch:
@@ -17,18 +17,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Dependencies
+      - name: Install Requests
         run: pip install requests
 
       - name: Run Vote Fetcher
-        env:
-          PROPUBLICA_API_KEY: ${{ secrets.PROPUBLICA_API_KEY }}
         run: python fetch_votes.py
 
-      - name: Commit and Push Results
+      - name: Commit and Push Detailed Data
         run: |
           git config --global user.name "CongressWatch-Bot"
           git config --global user.email "bot@congresswatch.org"
           git add data/details/
-          git commit -m "Update member vote details [Automated]" || echo "No changes to commit"
+          git commit -m "Update member vote details via GovTrack [Automated]" || echo "No changes to commit"
           git push
