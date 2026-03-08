@@ -3,7 +3,7 @@ CongressWatch — Vote History Fetcher (GovTrack v3)
 Pulls: Recent 20 votes per member from GovTrack.us API
 REPLACES: Retired ProPublica APIj
 OPTIMIZATION: Reuses existing govtrack_id from members.json to save 500+ API calls.
-NO API KEY REQUIRED
+NO API KEY REQUIREDu
 """
 
 import os
