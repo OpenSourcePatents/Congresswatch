@@ -1,4 +1,26 @@
-           - name: Save data
+name: Fetch Finance & Trade Data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * *'
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests beautifulsoup4
+      - name: Run finance fetcher
+        env:
+          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
+        run: python fetch_finance.py
+      - name: Save data
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
@@ -6,4 +28,3 @@
           git diff --staged --quiet || git commit -m "Update finance data"
           git pull --rebase origin main
           git push
-
