@@ -11,6 +11,7 @@ import json
 import time
 import requests
 from datetime import datetime
+from urllib.parse import urlencode
 
 MEMBERS_FILE = 'data/members.json'
 DETAILS_DIR = 'data/details'
@@ -34,15 +35,25 @@ def save_detail(bid, data):
     with open(detail_path, 'w') as f:
         json.dump(data, f, indent=2)
 
-# ─── GOVTRACK ────────────────────────────────────────────────────────────────
-
 # ─── ID CROSSWALK ────────────────────────────────────────────────────────────
+
+CROSSWALK_CACHE = 'data/crosswalk.json'
+CROSSWALK_TTL_DAYS = 7
 
 def build_crosswalk():
     """Download bioguide->govtrack mapping from unitedstates/congress-legislators.
+    Caches to data/crosswalk.json with 7-day TTL.
     Returns dict: {bioguide_id: govtrack_id}
-    One HTTP call instead of 538.
     """
+    # Use cache if fresh
+    if os.path.exists(CROSSWALK_CACHE):
+        age_days = (datetime.now().timestamp() - os.path.getmtime(CROSSWALK_CACHE)) / 86400
+        if age_days < CROSSWALK_TTL_DAYS:
+            with open(CROSSWALK_CACHE, 'r') as f:
+                cached = json.load(f)
+            print(f'  Crosswalk loaded from cache ({len(cached)} entries, {age_days:.1f}d old)')
+            return cached
+
     ua = 'CongressWatch/1.0 (public-interest-research; mailto:project.congress.watch@gmail.com)'
     urls = [
         'https://unitedstates.github.io/congress-legislators/legislators-current.json',
@@ -64,27 +75,47 @@ def build_crosswalk():
                 print(f'  [!] Crosswalk HTTP {r.status_code} for {url}')
         except Exception as e:
             print(f'  [!] Crosswalk error: {e}')
+
+    if crosswalk:
+        with open(CROSSWALK_CACHE, 'w') as f:
+            json.dump(crosswalk, f)
+        print(f'  Crosswalk cached to {CROSSWALK_CACHE}')
+
     return crosswalk
 
 def fetch_member_votes(gt_id):
-    """Fetches 20 most recent votes for a GovTrack person ID."""
-    url = (
-        f'https://www.govtrack.us/api/v2/vote_voter'
-        f'?person={gt_id}&limit=20&sort=-created'
-    )
-    try:
-        time.sleep(1.0)  # Throttle for GovTrack public API
-        r = requests.get(url, timeout=15)
-        if r.status_code == 200:
-            return r.json().get('objects', [])
-    except Exception as e:
-        print(f'    Fail for GovTrack ID {gt_id}: {e}')
+    """Fetches 20 most recent votes for a GovTrack person ID.
+    Includes exponential backoff on 429.
+    """
+    params = {'person': gt_id, 'limit': 20, 'sort': '-created'}
+    url = 'https://www.govtrack.us/api/v2/vote_voter?' + urlencode(params)
+    for attempt in range(3):
+        try:
+            time.sleep(1.0)
+            r = requests.get(url, timeout=15)
+            if r.status_code == 200:
+                objects = r.json().get('objects', [])
+                if not objects:
+                    print(f'    [!] 200 OK but 0 objects for GT ID {gt_id} - response: {r.text[:300]}')
+                return objects
+            elif r.status_code == 429:
+                wait = 2 ** attempt * 5
+                print(f'    [!] 429 rate limited. Sleeping {wait}s (attempt {attempt+1}/3)...')
+                time.sleep(wait)
+            else:
+                print(f'    [!] HTTP {r.status_code} for GT ID {gt_id} - {r.text[:200]}')
+                return []
+        except Exception as e:
+            print(f'    Fail for GovTrack ID {gt_id}: {e}')
+            return []
+    print(f'    [!] All retries exhausted for GT ID {gt_id}')
     return []
 
 def format_vote(v):
     """Normalize a raw GovTrack vote_voter object to frontend-ready dict."""
     return {
         'bill': v['vote']['question'],
+        'question_text': v['vote'].get('question_text', ''),
         'date': v['vote']['created'].split('T')[0],
         'position': v['option']['value'],
         'result': v['vote']['result'],
@@ -135,6 +166,11 @@ if __name__ == '__main__':
 
         if not raw_votes:
             print(f'    No votes returned for GovTrack ID {gt_id}')
+            detail_data = load_detail(bid)
+            detail_data['votes_status'] = 'no_recent_votes'
+            detail_data['govtrack_id'] = gt_id
+            detail_data['votes_updated'] = datetime.now().isoformat()
+            save_detail(bid, detail_data)
             failed += 1
             continue
 
@@ -149,6 +185,7 @@ if __name__ == '__main__':
         # Merge into existing detail file — preserves finance data from fetch_finance.py
         detail_data = load_detail(bid)
         detail_data['votes'] = votes
+        detail_data['votes_status'] = 'ok'
         detail_data['govtrack_id'] = gt_id
         detail_data['votes_updated'] = datetime.now().isoformat()
         save_detail(bid, detail_data)
@@ -156,6 +193,9 @@ if __name__ == '__main__':
         print(f'    {len(votes)} votes saved')
         success += 1
 
+    total = success + failed + skipped
+    rate = success / total * 100 if total else 0
     print(f'\n✓ Vote Pipeline v3 Complete.')
     print(f'  Success: {success}  |  Skipped: {skipped}  |  Failed: {failed}')
+    print(f'  Success rate: {rate:.1f}%')
     print(f'  Data stored in {DETAILS_DIR}/')
