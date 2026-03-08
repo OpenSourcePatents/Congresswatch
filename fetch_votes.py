@@ -1,7 +1,8 @@
 """
-CongressWatch — Vote History Fetcher (v1.0)
-Pulls: Recent 20 votes per member from ProPublica Congress API
-This is to populate the 'Votes' tab with real-time legislative activity.
+CongressWatch — Vote History Fetcher (GovTrack v1.0)
+Pulls: Recent 20 votes per member from GovTrack.us API
+REPLACES: Retired ProPublica API
+NO API KEY REQUIRED
 """
 
 import os
@@ -10,45 +11,46 @@ import time
 import requests
 from datetime import datetime
 
-PROPUBLICA_KEY = os.environ.get('PROPUBLICA_API_KEY', '')
 MEMBERS_FILE = 'data/members.json'
 DETAILS_DIR = 'data/details'
 
-# Ensure the details directory exists
+# Ensure the details directory exists for the infrastructure split
 os.makedirs(DETAILS_DIR, exist_ok=True)
 
-def fetch_member_votes(bioguide_id):
-    url = f"https://api.propublica.org/congress/v1/members/{bioguide_id}/votes.json"
-    headers = {'X-API-Key': PROPUBLICA_KEY}
-    
+def get_govtrack_id(bioguide_id):
+    """Maps Bioguide ID to GovTrack Person ID using GovTrack's person API"""
+    url = f"https://www.govtrack.us/api/v2/person?bioguide_id={bioguide_id}"
     try:
-        # Throttling for ProPublica (5000 requests per day limit)
-        time.sleep(0.5) 
-        r = requests.get(url, headers=headers, timeout=15)
+        r = requests.get(url, timeout=10)
         if r.status_code == 200:
             data = r.json()
-            # Return the first 20 votes
-            return data.get('results', [{}])[0].get('votes', [])
-        else:
-            print(f"    Error {r.status_code} for {bioguide_id}")
-            return []
+            if data.get('objects'):
+                return data['objects'][0]['id']
+    except Exception:
+        pass
+    return None
+
+def fetch_member_votes(gt_id):
+    """Fetches 20 most recent votes for a specific GovTrack ID"""
+    url = f"https://www.govtrack.us/api/v2/vote_voter?person={gt_id}&limit=20&sort=-created"
+    try:
+        time.sleep(1.0) # Throttling for GovTrack public API
+        r = requests.get(url, timeout=15)
+        if r.status_code == 200:
+            return r.json().get('objects', [])
     except Exception as e:
-        print(f"    Fail for {bioguide_id}: {str(e)}")
-        return []
+        print(f"    Fail for GovTrack ID {gt_id}: {str(e)}")
+    return []
 
 if __name__ == "__main__":
-    if not PROPUBLICA_KEY:
-        print("Error: PROPUBLICA_API_KEY environment variable not set.")
-        exit(1)
-
     try:
         with open(MEMBERS_FILE, 'r') as f:
             members = json.load(f)
     except Exception as e:
-        print(f"Could not load members: {e}")
+        print(f"Critical Error: Could not load members.json: {e}")
         exit(1)
 
-    print(f"Starting Vote Fetch for {len(members)} members...")
+    print(f"Starting Vote Pipeline (GovTrack Edition): {len(members)} members...")
 
     for i, m in enumerate(members):
         bid = m.get('id') or m.get('bioguide_id')
@@ -56,23 +58,36 @@ if __name__ == "__main__":
 
         print(f"  [{i+1}/{len(members)}] {m.get('name')} ({bid})")
         
-        votes = fetch_member_votes(bid)
+        # 1. Get GovTrack ID
+        gt_id = get_govtrack_id(bid)
+        if not gt_id:
+            print(f"    Skip: No GovTrack mapping for {bid}")
+            continue
+
+        # 2. Fetch Votes
+        votes = fetch_member_votes(gt_id)
         
-        # Save to individual member detail file
+        # 3. Store in detail file
         detail_path = f"{DETAILS_DIR}/{bid}.json"
-        
-        # Load existing deep data if it exists, otherwise start fresh
         detail_data = {}
         if os.path.exists(detail_path):
             with open(detail_path, 'r') as f:
                 try: detail_data = json.load(f)
                 except: detail_data = {}
 
-        # Update only the votes section
-        detail_data['votes'] = votes
+        # Format votes to be frontend-ready
+        detail_data['votes'] = [{
+            'bill': v['vote']['question'],
+            'date': v['vote']['created'].split('T')[0],
+            'position': v['option']['value'],
+            'result': v['vote']['result'],
+            'chamber': v['vote']['chamber_label'],
+            'url': f"https://www.govtrack.us/congress/votes/{v['vote']['id']}"
+        } for v in votes]
+        
         detail_data['last_updated'] = datetime.now().isoformat()
 
         with open(detail_path, 'w') as f:
             json.dump(detail_data, f, indent=2)
 
-    print("\n✓ Vote Fetch Complete. Deep data stored in data/details/")
+    print("\n✓ Vote Pipeline Complete. Data stored in data/details/")
