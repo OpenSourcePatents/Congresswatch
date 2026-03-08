@@ -1,33 +1,33 @@
 name: Fetch Member Votes.v3 (GovTrack)
 
 on:
-schedule:
-- cron: ‘0 2 * * *’ # Daily at 2:00 AM UTC (after finance run)
-workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *' # Daily at 2:00 AM UTC (after finance run)
+  workflow_dispatch:
 
 jobs:
-fetch:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout Repository
-uses: actions/checkout@v4
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-  - name: Set up Python
-    uses: actions/setup-python@v4
-    with:
-      python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-  - name: Install Requests
-    run: pip install requests
+      - name: Install Requests
+        run: pip install requests
 
-  - name: Run Vote Fetcher
-    run: python fetch_votes.py
+      - name: Run Vote Fetcher
+        run: python fetch_votes.py
 
-  - name: Commit and Push Detailed Data
-    run: |
-      git config --global user.name "CongressWatch-Bot"
-      git config --global user.email "bot@congresswatch.org"
-      git add data/details/
-      git diff --staged --quiet || git commit -m "Update member vote details via GovTrack [Automated]"
-      git pull --rebase origin main
-      git push
+      - name: Commit and Push Detailed Data
+        run: |
+          git config --global user.name "CongressWatch-Bot"
+          git config --global user.email "bot@congresswatch.org"
+          git add data/details/
+          git diff --staged --quiet || git commit -m "Update member vote details via GovTrack [Automated]"
+          git pull --rebase origin main
+          git push
