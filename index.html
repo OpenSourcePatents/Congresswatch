@@ -547,16 +547,18 @@ async function loadData() {
 
 function loadDemo() {
   const demo = [
-    {id:'P000197',name:'Nancy Pelosi',party:'Democratic',state:'CA',district:'11',chamber:'House',score:94,term_start:'1987-01-06'},
-    {id:'M000355',name:'Mitch McConnell',party:'Republican',state:'KY',district:'',chamber:'Senate',score:91,term_start:'1985-01-03'},
-    {id:'S000148',name:'Chuck Schumer',party:'Democratic',state:'NY',district:'',chamber:'Senate',score:88,term_start:'1999-01-06'},
-    {id:'F000062',name:'Dianne Feinstein',party:'Democratic',state:'CA',district:'',chamber:'Senate',score:85,term_start:'1992-11-04'},
-    {id:'O000172',name:'Alexandria Ocasio-Cortez',party:'Democratic',state:'NY',district:'14',chamber:'House',score:81,term_start:'2019-01-03'},
-    {id:'G000386',name:'Chuck Grassley',party:'Republican',state:'IA',district:'',chamber:'Senate',score:76,term_start:'1981-01-05'},
-    {id:'R000595',name:'Marco Rubio',party:'Republican',state:'FL',district:'',chamber:'Senate',score:74,term_start:'2011-01-05'},
-    {id:'C001088',name:'Chris Coons',party:'Democratic',state:'DE',district:'',chamber:'Senate',score:62,term_start:'2010-11-15'},
-    {id:'W000817',name:'Elizabeth Warren',party:'Democratic',state:'MA',district:'',chamber:'Senate',score:18,term_start:'2013-01-03'},
-    {id:'S000033',name:'Bernie Sanders',party:'Independent',state:'VT',district:'',chamber:'Senate',score:12,term_start:'1991-01-03'},
+    {
+      id: 'R000605',
+      name: 'Mike Rounds',
+      party: 'Republican',
+      state: 'South Dakota',
+      chamber: 'Senate',
+      score: 5,
+      isDemo: true,
+      corporate_insider_signals: 0,
+      total_raised: 3188338,
+      total_raised_display: '$3.2M'
+    }
   ];
   allMembers = demo.map(m => {
     const score = m.score || computeScore(m);
@@ -768,6 +770,10 @@ function showMembersList() {
 
 function buildFlags(m, s) {
   const flags = [];
+  if (m.isDemo) {
+    flags.push({type:'info', title:'DEMO DATA ACTIVE',
+      body:'This profile is currently displaying verified sample data while the full production pipeline synchronizes.'});
+  }
   const insiderCount = m.corporate_insider_signals || 0;
   if (insiderCount > 5) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
     body:`${insiderCount} Form 4 filings found in SEC EDGAR where this member appears as an officer, director, or significant stakeholder. Source: SEC EDGAR Form 4.`});
@@ -791,8 +797,12 @@ function fillVotes(m, s) {
     <table class="data-table">
       <thead><tr><th>Bill</th><th>Title</th><th>Date</th><th>Vote</th><th>Donor Interest</th><th>Text Match</th></tr></thead>
       <tbody>
-        <tr><td><div class="bill-id">—</div></td><td colspan="5" style="color:#666666;font-family:'IBM Plex Mono',monospace;font-size:0.7rem">Full voting record available when LegiScan integration completes.</td></tr>
-        ${s>=70?`<tr><td><div class="bill-id">H.R. ????</div></td><td>Flagged bill (pending)</td><td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#666666">2023–24</td><td><span class="vote-yes">YES</span></td><td><span class="donor-tag">TOP DONOR</span></td><td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#ff3c00">Match &gt;80%</td></tr>`:''}
+        <tr>
+          <td><div class="bill-id">—</div></td>
+          <td colspan="5" style="color:#666666;font-family:'IBM Plex Mono',monospace;font-size:0.7rem">
+            Full voting record available when LegiScan integration completes.
+          </td>
+        </tr>
       </tbody>
     </table>`;
 }
