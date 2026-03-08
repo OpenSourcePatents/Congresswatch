@@ -1,4 +1,5 @@
 CongressWatch 🔍
+"V1 is now V3, R.I.P v2"
 535 Members. Zero Accountability.
 A free, open-source public accountability tool that tracks U.S. Congress members using 100% public government records. No ads. No sponsors. No political agenda. Just data.
 🌐 Live site: congresswatch.vercel.app
