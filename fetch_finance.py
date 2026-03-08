@@ -1,5 +1,5 @@
 “””
-CongressWatch — Finance & Trade Data Fetcher (Production v2.5.0)
+CongressWatch — Finance & Trade Data Fetcher (Production v3)
 Pulls: FEC donors, SEC EDGAR signals, GovTrack stats, anomaly scores
 SPLIT ARCHITECTURE: Grid data stays in members.json; Deep data moves to details/
 “””
