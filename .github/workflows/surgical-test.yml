@@ -1,0 +1,26 @@
+name: Surgical Finance Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run Surgical Test
+        env:
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
+        run: python fetch_surgical_test.py
+
+      - name: Show Results
+        run: cat data/surgical_test_results.json
