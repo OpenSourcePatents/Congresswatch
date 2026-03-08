@@ -1,9 +1,9 @@
 """
 CongressWatch — Vote History Fetcher (GovTrack v3)
 Pulls: Recent 20 votes per member from GovTrack.us API
-REPLACES: Retired ProPublica APIj
+REPLACES: Retired ProPublica API
 OPTIMIZATION: Reuses existing govtrack_id from members.json to save 500+ API calls.
-NO API KEY REQUIREDu
+NO API KEY REQUIRED
 """
 
 import os
@@ -36,31 +36,35 @@ def save_detail(bid, data):
 
 # ─── GOVTRACK ────────────────────────────────────────────────────────────────
 
-def get_govtrack_id(bioguide_id):
-    """Maps Bioguide ID to GovTrack Person ID via GovTrack API.
-    Only called if govtrack_id is missing from members.json.
+# ─── ID CROSSWALK ────────────────────────────────────────────────────────────
+
+def build_crosswalk():
+    """Download bioguide->govtrack mapping from unitedstates/congress-legislators.
+    Returns dict: {bioguide_id: govtrack_id}
+    One HTTP call instead of 538.
     """
-    bid = bioguide_id.strip()
     ua = 'CongressWatch/1.0 (public-interest-research; mailto:project.congress.watch@gmail.com)'
-    url = f'https://www.govtrack.us/api/v2/person?bioguide_id={bid}'
-    try:
-        r = requests.get(url, headers={'User-Agent': ua}, timeout=10)
-        if r.status_code == 429:
-            print(f'    [!] Rate limited on crosswalk. Sleeping 10s...')
-            time.sleep(10)
-            r = requests.get(url, headers={'User-Agent': ua}, timeout=10)
-        if r.status_code == 200:
-            data = r.json()
-            objects = data.get('objects', [])
-            if objects:
-                return objects[0]['id']
+    urls = [
+        'https://unitedstates.github.io/congress-legislators/legislators-current.json',
+        'https://unitedstates.github.io/congress-legislators/legislators-historical.json',
+    ]
+    crosswalk = {}
+    for url in urls:
+        try:
+            r = requests.get(url, headers={'User-Agent': ua}, timeout=30)
+            if r.status_code == 200:
+                for legislator in r.json():
+                    ids = legislator.get('id', {})
+                    bio = ids.get('bioguide')
+                    gt = ids.get('govtrack')
+                    if bio and gt:
+                        crosswalk[bio] = gt
+                print(f'  Crosswalk loaded {len(crosswalk)} entries from {url}')
             else:
-                print(f'    [!] 200 OK but empty objects for {bid} - response: {data}')
-        else:
-            print(f'    [!] HTTP {r.status_code} for bioguide {bid} - {r.text[:200]}')
-    except Exception as e:
-        print(f'    [!] Exception for {bid}: {type(e).__name__}: {e}')
-    return None
+                print(f'  [!] Crosswalk HTTP {r.status_code} for {url}')
+        except Exception as e:
+            print(f'  [!] Crosswalk error: {e}')
+    return crosswalk
 
 def fetch_member_votes(gt_id):
     """Fetches 20 most recent votes for a GovTrack person ID."""
@@ -100,6 +104,10 @@ if __name__ == '__main__':
 
     print(f'Starting Vote Pipeline v3 (GovTrack): {len(members)} members...')
 
+    # Build bioguide->govtrack crosswalk from congress-legislators (2 HTTP calls total)
+    crosswalk = build_crosswalk()
+    print(f'  Crosswalk ready: {len(crosswalk)} total legislators mapped.')
+
     success = 0
     skipped = 0
     failed = 0
@@ -114,9 +122,8 @@ if __name__ == '__main__':
 
         print(f'  [{i+1}/{len(members)}] {name}')
 
-        # OPTIMIZATION: reuse govtrack_id already in members.json if present.
-        # This avoids ~535 crosswalk API calls on subsequent runs.
-        gt_id = m.get('govtrack_id') or get_govtrack_id(bid)
+        # Use govtrack_id from members.json if present, else look up crosswalk
+        gt_id = m.get('govtrack_id') or crosswalk.get(bid.strip())
 
         if not gt_id:
             print(f'    Skip: No GovTrack mapping for {bid}')
