@@ -9,6 +9,7 @@ NO API KEY REQUIRED
 import os
 import json
 import time
+import random
 import requests
 from datetime import datetime
 from urllib.parse import urlencode
@@ -45,7 +46,6 @@ def build_crosswalk():
     Caches to data/crosswalk.json with 7-day TTL.
     Returns dict: {bioguide_id: govtrack_id}
     """
-    # Use cache if fresh
     if os.path.exists(CROSSWALK_CACHE):
         age_days = (datetime.now().timestamp() - os.path.getmtime(CROSSWALK_CACHE)) / 86400
         if age_days < CROSSWALK_TTL_DAYS:
@@ -91,7 +91,7 @@ def fetch_member_votes(gt_id):
     url = 'https://www.govtrack.us/api/v2/vote_voter?' + urlencode(params)
     for attempt in range(3):
         try:
-            time.sleep(1.0)
+            time.sleep(1.0 + random.uniform(0, 0.5))
             r = requests.get(url, timeout=15)
             if r.status_code == 200:
                 objects = r.json().get('objects', [])
@@ -113,14 +113,19 @@ def fetch_member_votes(gt_id):
 
 def format_vote(v):
     """Normalize a raw GovTrack vote_voter object to frontend-ready dict."""
+    vote_obj = v['vote']
+    url = vote_obj.get('link')
+    if not url:
+        chamber_prefix = vote_obj['chamber'][0].lower() if vote_obj.get('chamber') else 'h'
+        url = f"https://www.govtrack.us/congress/votes/{vote_obj['congress']}-{vote_obj['session']}/{chamber_prefix}{vote_obj['number']}"
     return {
-        'bill': v['vote']['question'],
-        'question_text': v['vote'].get('question_text', ''),
-        'date': v['vote']['created'].split('T')[0],
+        'bill': vote_obj['question'],
+        'question_text': vote_obj.get('question_text', ''),
+        'date': vote_obj['created'].split('T')[0],
         'position': v['option']['value'],
-        'result': v['vote']['result'],
-        'chamber': v['vote']['chamber_label'],
-        'url': f"https://www.govtrack.us/congress/votes/{v['vote']['id']}"
+        'result': vote_obj['result'],
+        'chamber': vote_obj['chamber_label'],
+        'url': url
     }
 
 # ─── MAIN ────────────────────────────────────────────────────────────────────
@@ -135,7 +140,6 @@ if __name__ == '__main__':
 
     print(f'Starting Vote Pipeline v3 (GovTrack): {len(members)} members...')
 
-    # Build bioguide->govtrack crosswalk from congress-legislators (2 HTTP calls total)
     crosswalk = build_crosswalk()
     print(f'  Crosswalk ready: {len(crosswalk)} total legislators mapped.')
 
@@ -153,7 +157,6 @@ if __name__ == '__main__':
 
         print(f'  [{i+1}/{len(members)}] {name}')
 
-        # Use govtrack_id from members.json if present, else look up crosswalk
         gt_id = m.get('govtrack_id') or crosswalk.get(bid.strip())
 
         if not gt_id:
@@ -161,7 +164,6 @@ if __name__ == '__main__':
             skipped += 1
             continue
 
-        # Fetch votes
         raw_votes = fetch_member_votes(gt_id)
 
         if not raw_votes:
@@ -170,19 +172,19 @@ if __name__ == '__main__':
             detail_data['votes_status'] = 'no_recent_votes'
             detail_data['govtrack_id'] = gt_id
             detail_data['votes_updated'] = datetime.now().isoformat()
+            detail_data['votes_fail_count'] = detail_data.get('votes_fail_count', 0) + 1
             save_detail(bid, detail_data)
             failed += 1
             continue
 
-        # Format votes
         votes = []
         for v in raw_votes:
             try:
                 votes.append(format_vote(v))
-            except (KeyError, TypeError):
-                continue  # Skip malformed entries silently
+            except (KeyError, TypeError) as e:
+                print(f'    [!] Malformed vote entry skipped: {e}')
+                continue
 
-        # Merge into existing detail file — preserves finance data from fetch_finance.py
         detail_data = load_detail(bid)
         detail_data['votes'] = votes
         detail_data['votes_status'] = 'ok'
