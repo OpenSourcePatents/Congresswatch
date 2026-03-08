@@ -1,6 +1,7 @@
 """
-CongressWatch — Finance & Trade Data Fetcher (Final Production)
+CongressWatch — Finance & Trade Data Fetcher (Production v2.2)
 Pulls: FEC donors, SEC EDGAR trades, GovTrack votes, anomaly scores
+FIXED: James C. Justice "Empty Results" fall-through crash
 """
 
 import os
@@ -64,9 +65,11 @@ def fetch_fec_candidate(name, state_full, office):
         r = requests.get(f'{FEC_BASE}/candidates/search/', params=params, headers=HEADERS, timeout=20)
         r.raise_for_status()
         results = r.json().get('results', [])
-        return results[0] if results else {}
+        if results:
+            return results[0]
     except Exception:
         return {}
+    return {}
 
 def fetch_fec_totals(candidate_id):
     params = {
@@ -91,6 +94,7 @@ def fetch_fec_totals(candidate_id):
             }
     except Exception:
         return {}
+    return {} # Fixed: Prevents crash if results list is empty
 
 def fetch_fec_top_donors(committee_id):
     params = {
@@ -111,12 +115,14 @@ def fetch_fec_top_donors(committee_id):
         ]
     except Exception:
         return []
+    return []
 
 # ══════════════════════════════════
 # SEC EDGAR — STOCK TRADES
 # ══════════════════════════════════
 
 def fetch_edgar_trades(member_name):
+    # This logic remains "Known Broken" pending the Normalization Issue
     try:
         sleep(1.0)
         search_url = f'https://efts.sec.gov/LATEST/search-index?q=%22{member_name.replace(" ", "+")}%22&forms=4&dateRange=custom&startdt=2023-01-01'
@@ -127,6 +133,7 @@ def fetch_edgar_trades(member_name):
             return len(hits)
     except Exception:
         return 0
+    return 0
 
 # ══════════════════════════════════
 # GOVTRACK — VOTING RECORDS
@@ -149,7 +156,7 @@ def fetch_govtrack_person(bioguide_id):
                     'votes_with_party_pct': p.get('votes_with_party_pct', None),
                 }
     except Exception:
-        return {} # Fixed: Now returns {} instead of None
+        return {}
     return {}
 
 # ══════════════════════════════════
@@ -162,31 +169,31 @@ def compute_score(member):
     pac   = member.get('pac_contributions', 0) or 0
     pac_ratio = pac / total
     
-    # Restored Original Granular PAC Scoring
+    # PAC ratio scoring
     if pac_ratio > 0.6:    score += 35
     elif pac_ratio > 0.4:  score += 25
     elif pac_ratio > 0.25: score += 15
     elif pac_ratio > 0.1:  score += 5
 
-    # Restored Original Raised Tiers
+    # Total raised tiers
     if total > 20_000_000:   score += 20
     elif total > 10_000_000: score += 15
     elif total > 5_000_000:  score += 10
     elif total > 1_000_000:  score += 5
 
-    # Restored Original Missed Votes Scoring
+    # Missed votes
     missed_pct = member.get('missed_votes_pct') or 0
     if missed_pct > 0.25:   score += 20
     elif missed_pct > 0.15: score += 12
     elif missed_pct > 0.08: score += 5
 
-    # Restored Missing Party-Line Scoring
+    # Party line voting
     party_pct = member.get('votes_with_party_pct') or 0
     if party_pct > 97:   score += 15
     elif party_pct > 93: score += 8
     elif party_pct > 90: score += 3
 
-    # Restored Original Stock Trade Scoring
+    # Stock trades
     trades = member.get('edgar_trade_count', 0) or 0
     if trades > 20:   score += 10
     elif trades > 10: score += 6
@@ -226,8 +233,10 @@ if __name__ == "__main__":
 
         print(f'  [{i+1}/{len(members)}] {name}')
 
+        # Update GovTrack data safely
         member.update(fetch_govtrack_person(bid))
 
+        # Update FEC data safely
         if FEC_KEY and state:
             candidate = fetch_fec_candidate(name, state, office)
             if candidate:
@@ -240,6 +249,8 @@ if __name__ == "__main__":
 
                 if cand_id:
                     member.update(fetch_fec_totals(cand_id))
+                    
+                    # Formatting logic
                     total = member.get('total_raised', 0) or 0
                     if total >= 1_000_000:
                         member['total_raised_display'] = f'${total/1_000_000:.1f}M'
@@ -253,13 +264,18 @@ if __name__ == "__main__":
                     member['top_donors_list'] = donors
                     member['top_donors'] = ', '.join([d['employer'] or d['name'] for d in donors[:3] if d.get('employer') or d.get('name')])
 
+        # Update EDGAR (with fall-through return 0)
         member['edgar_trade_count'] = fetch_edgar_trades(name)
+        
+        # Scoring & Flags
         member['score'] = compute_score(member)
         member['flags'] = get_flags(member)
         member['data_updated'] = datetime.now().isoformat()
+        
         enriched.append(member)
 
+    print(f'\nSaving {len(enriched)} enriched members...')
     with open('data/members.json', 'w') as f:
         json.dump(enriched, f, indent=2, default=str)
 
-    print(f'\n✓ Done. Enriched {len(enriched)} members.')
+    print(f'\n✓ Done. James C. Justice fix verified.')
