@@ -82,7 +82,7 @@ def get_member_sponsored_bills(bioguide_id, congress=119, limit=20):
 
     bills = []
     for item in data.get("sponsoredLegislation", []):
-        bill_type = item.get("type", "").upper()
+        bill_type = (item.get("type") or "").upper()
         number = item.get("number", "")
         cong = item.get("congress", congress)
         bill_id = f"{bill_type}{number}-{cong}"
