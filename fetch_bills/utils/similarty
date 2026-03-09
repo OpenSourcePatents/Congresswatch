@@ -1,0 +1,206 @@
+"""
+similarity.py — TF-IDF vectorizer + cosine similarity + ALEC model bill matching.
+
+Design:
+- Vectorizer is fit ONCE on all bills + ALEC corpus combined.
+- New bills only need transform() + dot product (fast, no full rebuild).
+- Vectors stored as dense lists in bills cache for JSON portability.
+- Threshold: 0.80 cosine similarity flags a match.
+"""
+
+import json
+import os
+import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+THRESHOLD = 0.80
+TOP_N_MATCHES = 3  # surface top 3 matches per bill
+
+ALEC_CORPUS_PATH = os.path.join(
+    os.path.dirname(__file__), "../../data/alec_corpus.json"
+)
+
+
+def load_alec_corpus():
+    """Load ALEC model legislation corpus."""
+    path = os.path.abspath(ALEC_CORPUS_PATH)
+    if not os.path.exists(path):
+        print(f"  [WARN] ALEC corpus not found at {path}")
+        return []
+    with open(path, "r") as f:
+        return json.load(f)
+
+
+def build_vectorizer(all_cleaned_texts: list) -> TfidfVectorizer:
+    """
+    Fit a TF-IDF vectorizer on the full corpus (bills + ALEC).
+    Returns the fitted vectorizer.
+    """
+    vectorizer = TfidfVectorizer(
+        max_features=8000,
+        ngram_range=(1, 2),
+        min_df=1,
+        sublinear_tf=True,  # log normalization — helps with long bills
+    )
+    vectorizer.fit(all_cleaned_texts)
+    return vectorizer
+
+
+def vectorize(vectorizer: TfidfVectorizer, texts: list) -> np.ndarray:
+    """Transform texts to TF-IDF matrix."""
+    return vectorizer.transform(texts).toarray()
+
+
+def find_similar_bills(
+    target_vector: np.ndarray,
+    target_bill_id: str,
+    all_bill_ids: list,
+    all_vectors: np.ndarray,
+    threshold: float = THRESHOLD,
+) -> list:
+    """
+    Find bills similar to target above threshold.
+    Returns list of {bill_id, score} dicts, sorted descending, excluding self.
+    """
+    sims = cosine_similarity([target_vector], all_vectors)[0]
+    results = []
+    for i, score in enumerate(sims):
+        bid = all_bill_ids[i]
+        if bid == target_bill_id:
+            continue
+        if score >= threshold:
+            results.append({"bill_id": bid, "score": round(float(score), 3)})
+    results.sort(key=lambda x: x["score"], reverse=True)
+    return results[:TOP_N_MATCHES]
+
+
+def match_alec(
+    target_vector: np.ndarray,
+    vectorizer: TfidfVectorizer,
+    alec_corpus: list,
+    alec_cleaned_texts: list,
+    threshold: float = THRESHOLD,
+) -> dict | None:
+    """
+    Compare target bill vector against all ALEC model legislation.
+    Returns best match dict or None if no match above threshold.
+    """
+    if not alec_corpus or not alec_cleaned_texts:
+        return None
+
+    alec_vectors = vectorize(vectorizer, alec_cleaned_texts)
+    sims = cosine_similarity([target_vector], alec_vectors)[0]
+
+    best_idx = int(np.argmax(sims))
+    best_score = float(sims[best_idx])
+
+    if best_score >= threshold:
+        match = alec_corpus[best_idx]
+        return {
+            "matched_model": match["title"],
+            "match_id": match["id"],
+            "organization": match.get("organization", "ALEC"),
+            "category": match.get("category", ""),
+            "source_url": match.get("source_url", ""),
+            "similarity_score": round(best_score, 3),
+        }
+    return None
+
+
+class SimilarityEngine:
+    """
+    Stateful engine that maintains the full bill corpus + vectorizer.
+    Usage:
+        engine = SimilarityEngine()
+        engine.load_corpus(bills_cache)
+        result = engine.analyze_bill(bill_id, cleaned_text)
+    """
+
+    def __init__(self):
+        self.vectorizer = None
+        self.bill_ids = []
+        self.bill_vectors = None
+        self.alec_corpus = []
+        self.alec_cleaned = []
+        self._fitted = False
+
+    def load_corpus(self, bills_cache: dict):
+        """
+        Build vectorizer from existing cached bills + ALEC corpus.
+        bills_cache: {bill_id: {"cleaned_text": "...", ...}}
+        """
+        self.alec_corpus = load_alec_corpus()
+
+        from fetch_bills.utils.text_processor import clean_bill_text
+        self.alec_cleaned = [
+            clean_bill_text(doc["text"]) for doc in self.alec_corpus
+        ]
+
+        # Gather all existing bill texts
+        bill_texts = []
+        self.bill_ids = []
+        for bid, data in bills_cache.items():
+            cleaned = data.get("cleaned_text", "")
+            if cleaned:
+                self.bill_ids.append(bid)
+                bill_texts.append(cleaned)
+
+        all_texts = bill_texts + self.alec_cleaned
+        if not all_texts:
+            print("  [WARN] No texts to fit vectorizer on — corpus empty")
+            return
+
+        self.vectorizer = build_vectorizer(all_texts)
+
+        if bill_texts:
+            self.bill_vectors = vectorize(self.vectorizer, bill_texts)
+        else:
+            self.bill_vectors = np.zeros((0, 0))
+
+        self._fitted = True
+        print(f"  [SIM] Vectorizer fit on {len(bill_texts)} bills + {len(self.alec_corpus)} ALEC templates")
+
+    def add_bill(self, bill_id: str, cleaned_text: str):
+        """
+        Add a new bill to the corpus matrix (transform only, no refit).
+        Call this after analyzing a new bill to keep the matrix current.
+        """
+        if not self._fitted or not cleaned_text:
+            return
+        vec = vectorize(self.vectorizer, [cleaned_text])[0]
+        self.bill_ids.append(bill_id)
+        if self.bill_vectors is not None and self.bill_vectors.shape[0] > 0:
+            self.bill_vectors = np.vstack([self.bill_vectors, vec])
+        else:
+            self.bill_vectors = np.array([vec])
+
+    def analyze_bill(self, bill_id: str, cleaned_text: str) -> dict:
+        """
+        Full analysis of a single bill:
+        - ALEC match
+        - Similar bills in corpus
+        Returns analysis dict.
+        """
+        result = {
+            "alec_match": None,
+            "similar_bills": [],
+        }
+
+        if not self._fitted or not cleaned_text:
+            return result
+
+        vec = vectorize(self.vectorizer, [cleaned_text])[0]
+
+        # ALEC match
+        result["alec_match"] = match_alec(
+            vec, self.vectorizer, self.alec_corpus, self.alec_cleaned
+        )
+
+        # Similar bills in corpus
+        if self.bill_vectors is not None and self.bill_vectors.shape[0] > 0:
+            result["similar_bills"] = find_similar_bills(
+                vec, bill_id, self.bill_ids, self.bill_vectors
+            )
+
+        return result
