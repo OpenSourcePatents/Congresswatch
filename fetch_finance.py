@@ -8,6 +8,7 @@ import os
 import json
 import time
 import re
+from collections import defaultdict
 import requests
 from datetime import datetime
 
@@ -21,8 +22,12 @@ HEADERS = {
 FEC_BASE = 'https://api.open.fec.gov/v1'
 OUTPUT_FILE = 'data/members.json'
 DETAILS_DIR = 'data/details'
+CACHE_DIR = 'data/cache'
+CIK_MAP_FILE = 'data/manual_cik_map.json'
+CIK_REVIEW_FILE = 'data/unresolved_cik_candidates.json'
 
 os.makedirs(DETAILS_DIR, exist_ok=True)
+os.makedirs(CACHE_DIR, exist_ok=True)
 
 # ─── INFRASTRUCTURE CONFIG ───────────────────────────────────────────────────
 # ONLY these fields stay in members.json (leaderboard grid).
@@ -32,7 +37,8 @@ LIGHT_FIELDS = {
     'id', 'bioguide_id', 'name', 'party', 'state', 'district', 'chamber',
     'photo_url', 'term_start', 'score', 'flags', 'corporate_insider_signals',
     'total_raised_display', 'missed_votes_pct', 'votes_with_party_pct',
-    'govtrack_id', 'data_updated'
+    'govtrack_id', 'data_updated',
+    'edgar_status', 'edgar_cik'
 }
 
 STATE_MAP = {
@@ -53,6 +59,19 @@ STATE_MAP = {
 
 def sleep(s=1.2):
     time.sleep(s)
+
+def load_json(path, default):
+    if not os.path.exists(path):
+        return default
+    try:
+        with open(path, 'r') as f:
+            return json.load(f)
+    except Exception:
+        return default
+
+def save_json(path, payload):
+    with open(path, 'w') as f:
+        json.dump(payload, f, indent=2)
 
 def load_members():
     try:
@@ -78,47 +97,216 @@ def save_detail(bid, data):
     with open(detail_path, 'w') as f:
         json.dump(data, f, indent=2)
 
-# ─── EDGAR ───────────────────────────────────────────────────────────────────
+def normalize_person_name(name):
+    name = (name or '').lower().strip()
+    name = re.sub(r'\b(jr|sr|ii|iii|iv|v)\b\.?', '', name)
+    name = re.sub(r'[^a-z\s,-]', ' ', name)
+    name = re.sub(r'\s+', ' ', name).strip(' ,')
+    return name
 
-def normalize_name_for_edgar(name):
-    variations = []
-    parts = name.strip().split()
+def member_name_aliases(name):
+    clean = re.sub(r'\s+[A-Z]\.?(?=\s|$)', ' ', name or '').strip()
+    parts = clean.split()
     if len(parts) < 2:
-        return [name]
+        return [clean] if clean else []
     first, last = parts[0], parts[-1]
-    middle = parts[1] if len(parts) > 2 else ''
-    variations.append(f'{first} {last}')
-    variations.append(f'{last}, {first}')
-    variations.append(f'{first[0]}. {last}')
-    variations.append(f'{last}, {first[0]}.')
-    if middle:
-        variations.append(f'{first} {middle[0]}. {last}')
-    return list(dict.fromkeys(variations))
+    aliases = [
+        clean,
+        f'{first} {last}',
+        f'{last}, {first}',
+    ]
+    return list(dict.fromkeys([a.strip() for a in aliases if a.strip()]))
 
-def fetch_edgar_signals(member_name):
-    variations = normalize_name_for_edgar(member_name)
-    max_hits = 0
-    best_var = ''
-    for name_var in variations:
+def deep_find_values(obj, wanted_keys):
+    found = []
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if str(k).lower() in wanted_keys:
+                found.append(v)
+            found.extend(deep_find_values(v, wanted_keys))
+    elif isinstance(obj, list):
+        for item in obj:
+            found.extend(deep_find_values(item, wanted_keys))
+    return found
+
+# ─── EDGAR / CIK RESOLUTION ──────────────────────────────────────────────────
+
+def sec_search(query, startdt='2023-01-01', forms='4'):
+    url = (
+        'https://efts.sec.gov/LATEST/search-index'
+        f'?q={requests.utils.quote(query)}'
+        f'&forms={forms}&dateRange=custom&startdt={startdt}'
+    )
+    sleep(1.2)
+    r = requests.get(url, headers=HEADERS, timeout=20)
+    r.raise_for_status()
+    return r.json()
+
+def load_manual_cik_map():
+    return load_json(CIK_MAP_FILE, {})
+
+def save_manual_cik_map(data):
+    save_json(CIK_MAP_FILE, data)
+
+def append_unresolved_review(member, candidates):
+    review = load_json(CIK_REVIEW_FILE, {})
+    bid = member.get('id') or member.get('bioguide_id') or member.get('name')
+    review[bid] = {
+        'name': member.get('name'),
+        'state': member.get('state'),
+        'chamber': member.get('chamber'),
+        'candidates': candidates,
+        'updated': datetime.now().isoformat(),
+    }
+    save_json(CIK_REVIEW_FILE, review)
+
+def candidate_score(member, candidate_name, hit_count):
+    target_aliases = {normalize_person_name(a) for a in member_name_aliases(member.get('name', ''))}
+    candidate_norm = normalize_person_name(candidate_name)
+    if not candidate_norm:
+        return 0
+
+    score = 0
+
+    if candidate_norm in target_aliases:
+        score += 100
+
+    target_parts = normalize_person_name(member.get('name', '')).replace(',', ' ').split()
+    candidate_parts = candidate_norm.replace(',', ' ').split()
+
+    if target_parts and candidate_parts:
+        if target_parts[-1] == candidate_parts[-1]:
+            score += 15
+        if target_parts[0] == candidate_parts[0]:
+            score += 10
+
+    score += min(hit_count, 20)
+    return score
+
+def extract_cik_candidates(member, search_payload):
+    buckets = defaultdict(lambda: {'hit_count': 0, 'names': set()})
+    hits = search_payload.get('hits', {}).get('hits', [])
+
+    for hit in hits:
+        source = hit.get('_source', {}) if isinstance(hit, dict) else {}
+        cik_values = deep_find_values(source, {'cik', 'entitycik', 'ownercik', 'reportingownercik'})
+        name_values = deep_find_values(source, {'display_names', 'entityname', 'ownername', 'reportingownername', 'name'})
+
+        cik_values = [str(v).strip() for v in cik_values if str(v).strip().isdigit()]
+
+        flat_names = []
+        for n in name_values:
+            if isinstance(n, list):
+                flat_names.extend([str(x).strip() for x in n if str(x).strip()])
+            elif str(n).strip():
+                flat_names.append(str(n).strip())
+
+        for cik in cik_values:
+            buckets[cik]['hit_count'] += 1
+            buckets[cik]['names'].update(flat_names)
+
+    ranked = []
+    for cik, info in buckets.items():
+        best_name = ''
+        best_score = -1
+        for candidate_name in (info['names'] or {''}):
+            s = candidate_score(member, candidate_name, info['hit_count'])
+            if s > best_score:
+                best_score = s
+                best_name = candidate_name
+
+        ranked.append({
+            'cik': str(cik).zfill(10),
+            'name': best_name,
+            'hit_count': info['hit_count'],
+            'score': best_score,
+            'all_names': sorted(info['names'])[:10],
+        })
+
+    ranked.sort(key=lambda x: (-x['score'], -x['hit_count'], x['cik']))
+    return ranked
+
+def resolve_member_cik(member):
+    manual = load_manual_cik_map()
+    bid = member.get('id') or member.get('bioguide_id') or member.get('name')
+
+    if bid in manual and manual[bid].get('cik'):
+        return {
+            'status': 'verified_manual',
+            'cik': str(manual[bid]['cik']).zfill(10),
+            'name': manual[bid].get('name', member.get('name', '')),
+        }
+
+    all_candidates = []
+    seen = set()
+
+    for alias in member_name_aliases(member.get('name', '')):
         try:
-            query = name_var.replace(' ', '+')
-            url = (
-                f'https://efts.sec.gov/LATEST/search-index'
-                f'?q=%22{query}%22&forms=4&dateRange=custom&startdt=2023-01-01'
-            )
-            sleep(1.2)
-            r = requests.get(url, headers=HEADERS, timeout=15)
-            if r.status_code == 200:
-                data = r.json()
-                hits = len(data.get('hits', {}).get('hits', []))
-                if hits > max_hits:
-                    max_hits = hits
-                    best_var = name_var
+            payload = sec_search(f'"{alias}"')
         except Exception:
             continue
-    if max_hits > 0:
-        print(f'    EDGAR Hit: {max_hits} signals via \'{best_var}\'')
-    return max_hits
+
+        for c in extract_cik_candidates(member, payload):
+            key = (c['cik'], c['name'])
+            if key not in seen:
+                seen.add(key)
+                all_candidates.append(c)
+
+    all_candidates.sort(key=lambda x: (-x['score'], -x['hit_count'], x['cik']))
+
+    if not all_candidates:
+        return {'status': 'unresolved', 'cik': None, 'candidates': []}
+
+    top = all_candidates[0]
+    runner_up = all_candidates[1] if len(all_candidates) > 1 else None
+
+    exact_name = normalize_person_name(top['name']) in {
+        normalize_person_name(a) for a in member_name_aliases(member.get('name', ''))
+    }
+    clear_margin = runner_up is None or (top['score'] - runner_up['score'] >= 25)
+
+    if exact_name and clear_margin:
+        manual[bid] = {
+            'cik': top['cik'],
+            'name': top['name'] or member.get('name', ''),
+            'source': 'auto_exact_unique',
+            'updated': datetime.now().isoformat(),
+        }
+        save_manual_cik_map(manual)
+        return {'status': 'verified_auto', 'cik': top['cik'], 'name': top['name']}
+
+    append_unresolved_review(member, all_candidates[:10])
+    return {'status': 'needs_review', 'cik': None, 'candidates': all_candidates[:10]}
+
+def fetch_edgar_signals(member):
+    resolution = resolve_member_cik(member)
+    member['edgar_status'] = resolution['status']
+    member['edgar_cik'] = resolution.get('cik')
+    member['edgar_matched_name'] = resolution.get('name')
+
+    if not resolution.get('cik'):
+        if resolution['status'] == 'needs_review':
+            print('    EDGAR: needs review')
+        elif resolution['status'] == 'unresolved':
+            print('    EDGAR: unresolved')
+        return 0
+
+    try:
+        payload = sec_search(resolution['cik'])
+        hits = payload.get('hits', {}).get('hits', [])
+        hit_count = len(hits)
+        if hit_count > 0:
+            print(
+                f"    EDGAR Hit: {hit_count} filings via verified CIK {resolution['cik']} "
+                f"({resolution['status']})"
+            )
+        else:
+            print(f"    EDGAR: verified CIK {resolution['cik']} but no hits")
+        return hit_count
+    except Exception:
+        member['edgar_status'] = 'query_failed'
+        print('    EDGAR: query failed')
+        return 0
 
 # ─── FEC ─────────────────────────────────────────────────────────────────────
 
@@ -173,15 +361,22 @@ def fetch_fec_totals(candidate_id):
 def compute_score(m):
     score = 0
     total = m.get('total_raised', 0) or 1
-    if total > 20_000_000: score += 20
-    elif total > 10_000_000: score += 15
-    elif total > 5_000_000: score += 10
-    elif total > 1_000_000: score += 5
+    if total > 20_000_000:
+        score += 20
+    elif total > 10_000_000:
+        score += 15
+    elif total > 5_000_000:
+        score += 10
+    elif total > 1_000_000:
+        score += 5
 
     signals = m.get('corporate_insider_signals', 0) or 0
-    if signals > 20: score += 10
-    elif signals > 10: score += 6
-    elif signals > 5: score += 3
+    if signals > 20:
+        score += 10
+    elif signals > 10:
+        score += 6
+    elif signals > 5:
+        score += 3
 
     return min(score, 100)
 
@@ -202,6 +397,11 @@ if __name__ == '__main__':
     if not members:
         exit(1)
 
+    if not os.path.exists(CIK_MAP_FILE):
+        save_json(CIK_MAP_FILE, {})
+    if not os.path.exists(CIK_REVIEW_FILE):
+        save_json(CIK_REVIEW_FILE, {})
+
     print(f'Starting Production v3 Split Run: {len(members)} members...')
     leaderboard = []
     missing_report = []
@@ -216,7 +416,7 @@ if __name__ == '__main__':
         print(f'  [{i+1}/{len(members)}] {name} ({bid})')
 
         # 1. Corporate Insider Signals (EDGAR Form 4)
-        m['corporate_insider_signals'] = fetch_edgar_signals(name)
+        m['corporate_insider_signals'] = fetch_edgar_signals(m)
         m['edgar_signal_type'] = 'corporate_insider'
 
         # 2. FEC Campaign Finance
@@ -241,11 +441,7 @@ if __name__ == '__main__':
         m['data_updated'] = datetime.now().isoformat()
 
         # 4. SPLIT LOGIC
-        # Load existing detail file (may already have votes from fetch_votes.py)
         detail_data = load_detail(bid)
-
-        # Write ALL current member data into detail file.
-        # This preserves any votes/other data already written by other pipelines.
         detail_data.update(m)
         detail_data['last_updated'] = m['data_updated']
         save_detail(bid, detail_data)
@@ -254,7 +450,6 @@ if __name__ == '__main__':
         light_entry = {k: v for k, v in m.items() if k in LIGHT_FIELDS}
         leaderboard.append(light_entry)
 
-    # Save lightweight main list
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(leaderboard, f, indent=2, default=str)
 
