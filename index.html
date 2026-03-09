@@ -299,118 +299,114 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
       </div>
     </div>
 
-```
-<div class="profile-view" id="profile-view">
-  <div class="profile-header-bar">
-    <button class="back-btn" onclick="showMembersList()">← BACK</button>
-    <div class="profile-name-small" id="profile-name-small">—</div>
-  </div>
-  <div class="profile-hero">
-    <div>
-      <img class="profile-photo" id="pf-photo" src="" alt=""
-        onerror="this.style.display='none';document.getElementById('pf-placeholder').style.display='flex'">
-      <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none">—</div>
-    </div>
-    <div class="profile-info">
-      <div class="profile-full-name" id="pf-name">—</div>
-      <div class="profile-details" id="pf-details">—</div>
-    </div>
-    <div class="score-display">
-      <div class="score-big" id="pf-score-big">—</div>
-      <div class="score-sublabel">Anomaly<br>Score</div>
-      <div class="score-bar"><div class="score-bar-fill" id="pf-score-bar"></div></div>
-    </div>
-  </div>
-  <div class="profile-tabs" id="profile-tabs">
-    <button class="ptab active" data-panel="overview">Overview</button>
-    <button class="ptab" data-panel="votes">Votes</button>
-    <button class="ptab" data-panel="finance">Finances</button>
-    <button class="ptab" data-panel="stocks">Stocks</button>
-    <button class="ptab" data-panel="travel">Travel</button>
-    <button class="ptab" data-panel="patterns">Patterns</button>
-    <button class="ptab" data-panel="network">Donors</button>
-    <button class="ptab" data-panel="compare">Compare</button>
-  </div>
-
-  <div class="ppanel active" id="ppanel-overview">
-    <div class="stats-grid" id="pf-stats-grid"></div>
-    <div class="chart-box">
-      <div class="sec-title">NET WORTH VS SALARY</div>
-      <div class="chart-area"><canvas class="chart-canvas" id="nw-canvas"></canvas></div>
-      <div class="chart-legend">
-        <div class="legend-item"><div class="legend-line" style="background:#ff3c00"></div>Est. Net Worth (above salary)</div>
-        <div class="legend-item"><div class="legend-line" style="background:#00ff88"></div>Est. Net Worth (below salary)</div>
-        <div class="legend-item"><div class="legend-line" style="background:#fff;opacity:0.4"></div>Cumulative Salary</div>
+    <div class="profile-view" id="profile-view">
+      <div class="profile-header-bar">
+        <button class="back-btn" onclick="showMembersList()">← BACK</button>
+        <div class="profile-name-small" id="profile-name-small">—</div>
       </div>
-      <div class="chart-note">* Estimated trajectory from public disclosures. Real annual data coming.</div>
-    </div>
-    <div class="sec-header">
-      <div class="sec-title">ANOMALY FLAGS</div>
-      <div class="sec-badge" id="pf-flag-count">—</div>
-    </div>
-    <div id="pf-flags"></div>
-    <div class="disclaimer">DISCLAIMER: Anomaly score is a statistical indicator only. Does not imply illegal activity. All data from public government records. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.</div>
-  </div>
+      <div class="profile-hero">
+        <div>
+          <img class="profile-photo" id="pf-photo" src="" alt=""
+            onerror="this.style.display='none';document.getElementById('pf-placeholder').style.display='flex'">
+          <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none">—</div>
+        </div>
+        <div class="profile-info">
+          <div class="profile-full-name" id="pf-name">—</div>
+          <div class="profile-details" id="pf-details">—</div>
+        </div>
+        <div class="score-display">
+          <div class="score-big" id="pf-score-big">—</div>
+          <div class="score-sublabel">Anomaly<br>Score</div>
+          <div class="score-bar"><div class="score-bar-fill" id="pf-score-bar"></div></div>
+        </div>
+      </div>
+      <div class="profile-tabs" id="profile-tabs">
+        <button class="ptab active" data-panel="overview">Overview</button>
+        <button class="ptab" data-panel="votes">Votes</button>
+        <button class="ptab" data-panel="finance">Finances</button>
+        <button class="ptab" data-panel="stocks">Stocks</button>
+        <button class="ptab" data-panel="travel">Travel</button>
+        <button class="ptab" data-panel="patterns">Patterns</button>
+        <button class="ptab" data-panel="network">Donors</button>
+        <button class="ptab" data-panel="compare">Compare</button>
+      </div>
 
-  <div class="ppanel" id="ppanel-votes">
-    <div class="alert-box info">
-      <div class="alert-icon">ℹ</div>
-      <div>
-        <div class="alert-title">Bill Text Similarity Engine</div>
-        <div class="alert-body">Bills are cross-referenced using NLP cosine similarity. Matches above 80% threshold flagged as potentially coordinated authorship. Source: LegiScan API.</div>
+      <div class="ppanel active" id="ppanel-overview">
+        <div class="stats-grid" id="pf-stats-grid"></div>
+        <div class="chart-box">
+          <div class="sec-title">NET WORTH VS SALARY</div>
+          <div class="chart-area"><canvas class="chart-canvas" id="nw-canvas"></canvas></div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-line" style="background:#ff3c00"></div>Est. Net Worth (above salary)</div>
+            <div class="legend-item"><div class="legend-line" style="background:#00ff88"></div>Est. Net Worth (below salary)</div>
+            <div class="legend-item"><div class="legend-line" style="background:#fff;opacity:0.4"></div>Cumulative Salary</div>
+          </div>
+          <div class="chart-note">* Estimated trajectory from public disclosures. Real annual data coming.</div>
+        </div>
+        <div class="sec-header">
+          <div class="sec-title">ANOMALY FLAGS</div>
+          <div class="sec-badge" id="pf-flag-count">—</div>
+        </div>
+        <div id="pf-flags"></div>
+        <div class="disclaimer">DISCLAIMER: Anomaly score is a statistical indicator only. Does not imply illegal activity. All data from public government records. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.</div>
+      </div>
+
+      <div class="ppanel" id="ppanel-votes">
+        <div id="pf-votes-content">
+          <div class="loading-wrap" style="padding:30px 20px">
+            <div class="loading-text">LOADING VAULT DATA</div>
+            <div class="loading-bar"><div class="loading-fill"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ppanel" id="ppanel-finance">
+        <div class="stats-grid" id="pf-finance-stats"></div>
+        <div class="chart-box">
+          <div class="sec-title">WEALTH ACCUMULATION VS SALARY</div>
+          <div class="chart-area"><canvas class="chart-canvas" id="fin-canvas"></canvas></div>
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-line" style="background:#e8ff00"></div>Net Worth</div>
+            <div class="legend-item"><div class="legend-line" style="background:#555"></div>Cumulative Salary</div>
+            <div class="legend-item"><div class="legend-line" style="background:#ff3c00"></div>Unexplained Gap</div>
+          </div>
+        </div>
+        <div id="pf-finance-donors"></div>
+      </div>
+
+      <div class="ppanel" id="ppanel-stocks"><div id="pf-stocks-content"></div></div>
+      <div class="ppanel" id="ppanel-travel"><div id="pf-travel-content"></div></div>
+      <div class="ppanel" id="ppanel-patterns"><div id="pf-patterns-content"></div></div>
+
+      <div class="ppanel" id="ppanel-network">
+        <div class="sec-header">
+          <div class="sec-title">DONOR NETWORK</div>
+          <div class="sec-badge">FEC + OPENSECRETS</div>
+        </div>
+        <div class="network-box"><canvas id="netCanvas"></canvas></div>
+        <div id="pf-network-table"></div>
+      </div>
+
+      <div class="ppanel" id="ppanel-compare">
+        <div class="sec-header">
+          <div class="sec-title">ALL MEMBERS COMPARISON</div>
+          <div class="sec-badge">535 TRACKED</div>
+        </div>
+        <div class="compare-grid" id="compare-stats"></div>
+        <div class="chart-box">
+          <div class="sec-title">NET WORTH GROWTH — TOP 10</div>
+          <div class="chart-area"><canvas class="chart-canvas" id="compare-canvas"></canvas></div>
+        </div>
+      </div>
+
+      <div class="tools-bar">
+        <button class="tool-btn" onclick="exportMemberCSV()">EXPORT CSV</button>
+        <button class="tool-btn" onclick="exportMemberJSON()">EXPORT JSON</button>
+        <button class="tool-btn" onclick="shareMember()">SHARE FINDINGS</button>
+        <button class="tool-btn danger">FLAG FOR REVIEW</button>
+        <button class="tool-btn" style="margin-left:auto" onclick="window.open('https://github.com/opensourcepatents/congresswatch')">GITHUB →</button>
       </div>
     </div>
-    <div id="pf-votes-content"></div>
-  </div>
-
-  <div class="ppanel" id="ppanel-finance">
-    <div class="stats-grid" id="pf-finance-stats"></div>
-    <div class="chart-box">
-      <div class="sec-title">WEALTH ACCUMULATION VS SALARY</div>
-      <div class="chart-area"><canvas class="chart-canvas" id="fin-canvas"></canvas></div>
-      <div class="chart-legend">
-        <div class="legend-item"><div class="legend-line" style="background:#e8ff00"></div>Net Worth</div>
-        <div class="legend-item"><div class="legend-line" style="background:#555"></div>Cumulative Salary</div>
-        <div class="legend-item"><div class="legend-line" style="background:#ff3c00"></div>Unexplained Gap</div>
-      </div>
-    </div>
-    <div id="pf-finance-donors"></div>
-  </div>
-
-  <div class="ppanel" id="ppanel-stocks"><div id="pf-stocks-content"></div></div>
-  <div class="ppanel" id="ppanel-travel"><div id="pf-travel-content"></div></div>
-  <div class="ppanel" id="ppanel-patterns"><div id="pf-patterns-content"></div></div>
-
-  <div class="ppanel" id="ppanel-network">
-    <div class="sec-header">
-      <div class="sec-title">DONOR NETWORK</div>
-      <div class="sec-badge">FEC + OPENSECRETS</div>
-    </div>
-    <div class="network-box"><canvas id="netCanvas"></canvas></div>
-    <div id="pf-network-table"></div>
-  </div>
-
-  <div class="ppanel" id="ppanel-compare">
-    <div class="sec-header">
-      <div class="sec-title">ALL MEMBERS COMPARISON</div>
-      <div class="sec-badge">535 TRACKED</div>
-    </div>
-    <div class="compare-grid" id="compare-stats"></div>
-    <div class="chart-box">
-      <div class="sec-title">NET WORTH GROWTH — TOP 10</div>
-      <div class="chart-area"><canvas class="chart-canvas" id="compare-canvas"></canvas></div>
-    </div>
-  </div>
-
-  <div class="tools-bar">
-    <button class="tool-btn" onclick="exportMemberCSV()">EXPORT CSV</button>
-    <button class="tool-btn" onclick="exportMemberJSON()">EXPORT JSON</button>
-    <button class="tool-btn" onclick="shareMember()">SHARE FINDINGS</button>
-    <button class="tool-btn danger">FLAG FOR REVIEW</button>
-    <button class="tool-btn" style="margin-left:auto" onclick="window.open('https://github.com/opensourcepatents/congresswatch')">GITHUB →</button>
-  </div>
-</div>
-```
 
   </div>
 </div>
@@ -546,20 +542,11 @@ async function loadData() {
 }
 
 function loadDemo() {
-  const demo = [
-    {
-      id: 'R000605',
-      name: 'Mike Rounds',
-      party: 'Republican',
-      state: 'South Dakota',
-      chamber: 'Senate',
-      score: 5,
-      isDemo: true,
-      corporate_insider_signals: 0,
-      total_raised: 3188338,
-      total_raised_display: '$3.2M'
-    }
-  ];
+  const demo = [{
+    id: 'R000605', name: 'Mike Rounds', party: 'Republican',
+    state: 'South Dakota', chamber: 'Senate', score: 5, isDemo: true,
+    corporate_insider_signals: 0, total_raised: 3188338, total_raised_display: '$3.2M'
+  }];
   allMembers = demo.map(m => {
     const score = m.score || computeScore(m);
     return {...m, displayScore:score, photo:photoUrl(m.id), partyC:partyColor(m.party), partyS:partyShort(m.party), netWorthEst:computeNetWorth(m,score)};
@@ -569,7 +556,6 @@ function loadDemo() {
 
 function updateStats() {
   const high = allMembers.filter(m=>m.displayScore>=60).length;
-  // UPDATED: corporate_insider_signals
   const signals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||m.total_trades||0),0);
   document.getElementById('stat-high').textContent = high;
   document.getElementById('stat-total').textContent = allMembers.length;
@@ -672,18 +658,35 @@ function renderSidebar() {
   }).join('');
 }
 
-function openProfile(m) {
-  currentMember = m;
+// ── ASYNC openProfile — renders light data immediately, fetches vault in background ──
+async function openProfile(m) {
+  const bid = m.id || m.bioguide_id;
   const s = m.displayScore;
   const dist = m.district ? `${m.state}-${m.district}` : m.state;
+
+  currentMember = { ...m };
 
   document.getElementById('members-view').classList.add('hidden');
   document.getElementById('profile-view').classList.add('active');
 
   if (window.history && window.history.pushState) {
-    window.history.pushState({ view: 'profile', id: m.id || m.name }, '', window.location.href);
+    window.history.pushState({ view: 'profile', id: bid || m.name }, '', window.location.href);
   }
 
+  // Reset tabs to overview
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
+  document.getElementById('ppanel-overview').classList.add('active');
+
+  // Show loading in votes panel
+  document.getElementById('pf-votes-content').innerHTML = `
+    <div class="loading-wrap" style="padding:30px 20px">
+      <div class="loading-text">LOADING VAULT DATA</div>
+      <div class="loading-bar"><div class="loading-fill"></div></div>
+    </div>`;
+
+  // Render header immediately from light data
   document.getElementById('profile-name-small').textContent = m.name;
   document.getElementById('pf-name').textContent = m.name.toUpperCase();
   document.getElementById('pf-photo').src = m.photo;
@@ -701,13 +704,60 @@ function openProfile(m) {
   const bar = document.getElementById('pf-score-bar');
   bar.style.width = s + '%'; bar.style.background = scoreColor(s);
 
-  const nw = m.netWorthEst;
   const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
   const cumSalary = Object.entries(SALARY_BY_YEAR)
     .filter(([y])=>parseInt(y)>=startYear).reduce((a,[,v])=>a+v, 0);
-  const gap = nw - cumSalary;
 
-  // UPDATED: corporate_insider_signals
+  // Render overview with light data while vault loads
+  renderOverview(currentMember, s, cumSalary);
+  fillFinance(currentMember, s, currentMember.netWorthEst, cumSalary);
+  fillStocks(currentMember, s);
+  fillTravel(currentMember);
+  fillPatterns(currentMember, s);
+
+  setTimeout(() => drawNetWorthChart('nw-canvas', currentMember, currentMember.netWorthEst, startYear), 200);
+  document.getElementById('content').scrollTop = 0;
+
+  // ── Fetch vault file in background ──
+  if (bid) {
+    try {
+      const res = await fetch(`data/details/${bid}.json`);
+      if (res.ok) {
+        const deep = await res.json();
+        // Merge vault data into currentMember
+        currentMember = {
+          ...currentMember,
+          ...deep,
+          // preserve display fields from light entry
+          displayScore: s,
+          photo: m.photo,
+          partyC: m.partyC,
+          partyS: m.partyS,
+          netWorthEst: m.netWorthEst,
+        };
+        // Re-render panels that benefit from deep data
+        renderOverview(currentMember, s, cumSalary);
+        fillVotes(currentMember, s);
+        fillFinance(currentMember, s, currentMember.netWorthEst, cumSalary);
+        fillStocks(currentMember, s);
+        fillPatterns(currentMember, s);
+        setTimeout(() => drawNetWorthChart('nw-canvas', currentMember, currentMember.netWorthEst, startYear), 100);
+      } else {
+        // Vault file missing — render votes with light data only
+        fillVotes(currentMember, s);
+      }
+    } catch(e) {
+      console.warn('Vault fetch failed:', e);
+      fillVotes(currentMember, s);
+    }
+  } else {
+    fillVotes(currentMember, s);
+  }
+}
+
+function renderOverview(m, s, cumSalary) {
+  const nw = m.netWorthEst;
+  const gap = nw - cumSalary;
   const insiderSignals = m.corporate_insider_signals != null ? m.corporate_insider_signals : (m.total_trades != null ? m.total_trades : '—');
   const signalSource = m.edgar_signal_type || 'SEC EDGAR Form 4';
 
@@ -742,16 +792,6 @@ function openProfile(m) {
       <div><div class="alert-title">${f.title}</div><div class="alert-body">${f.body}</div></div>
     </div>
   `).join('');
-
-  fillVotes(m, s); fillFinance(m, s, nw, cumSalary);
-  fillStocks(m, s); fillTravel(m); fillPatterns(m, s);
-
-  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
-  document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
-  document.getElementById('ppanel-overview').classList.add('active');
-  setTimeout(() => drawNetWorthChart('nw-canvas', m, nw, startYear), 200);
-  document.getElementById('content').scrollTop = 0;
 }
 
 function _showMembersListInternal() {
@@ -785,26 +825,159 @@ function buildFlags(m, s) {
     body:`Missed vote rate exceeds 15% threshold. Member is collecting full $174,000 salary. Source: GovTrack.us.`});
   if ((m.votes_with_party_pct||0) > 95) flags.push({type:'info',title:'NEAR-PERFECT PARTY LINE VOTING',
     body:`Votes with party ${(m.votes_with_party_pct||0).toFixed(1)}% of the time — suggesting low independent judgment. Source: GovTrack.us.`});
-  if (s >= 70) flags.push({type:'info',title:'BILL TEXT SIMILARITY DETECTED',
+  if ((m.alec_match_count||0) > 0) flags.push({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
+    body:`${m.alec_match_count} sponsored bill${m.alec_match_count>1?'s':''} match known ALEC model legislation above 80% similarity threshold. NLP analysis via LegiScan + Congress.gov.`});
+  if (s >= 70 && !(m.alec_match_count > 0)) flags.push({type:'info',title:'BILL TEXT SIMILARITY DETECTED',
     body:`One or more sponsored bills share significant language with known model legislation from lobbying organizations. NLP analysis via LegiScan bill text.`});
   if (flags.length === 0) flags.push({type:'info',title:'NO SIGNIFICANT ANOMALIES DETECTED',
     body:'Available public records do not show unusual patterns for this member. Data updates daily.'});
   return flags;
 }
 
+// ── FULL fillVotes — shows both bills (similarity) and voting record ──
 function fillVotes(m, s) {
-  document.getElementById('pf-votes-content').innerHTML = `
-    <table class="data-table">
-      <thead><tr><th>Bill</th><th>Title</th><th>Date</th><th>Vote</th><th>Donor Interest</th><th>Text Match</th></tr></thead>
-      <tbody>
-        <tr>
-          <td><div class="bill-id">—</div></td>
-          <td colspan="5" style="color:#666666;font-family:'IBM Plex Mono',monospace;font-size:0.7rem">
-            Full voting record available when LegiScan integration completes.
-          </td>
-        </tr>
-      </tbody>
-    </table>`;
+  const container = document.getElementById('pf-votes-content');
+  const votes = m.votes || [];
+  const bills = m.bills || [];
+  let html = '';
+
+  // ── Sponsored Bills section ──
+  if (bills.length > 0) {
+    const alecCount = bills.filter(b => b.alec_match).length;
+    const donorCount = bills.filter(b => b.donor_interest && b.donor_interest.match).length;
+
+    html += `
+      <div class="sec-header" style="margin-bottom:0.8rem">
+        <div class="sec-title">SPONSORED BILLS — SIMILARITY ANALYSIS</div>
+        <div class="sec-badge">${bills.length} BILLS</div>
+      </div>`;
+
+    if (alecCount > 0) {
+      html += `
+        <div class="alert-box warn" style="margin-bottom:0.8rem">
+          <div class="alert-icon">⚠</div>
+          <div>
+            <div class="alert-title">ALEC MODEL LEGISLATION MATCH</div>
+            <div class="alert-body">${alecCount} sponsored bill${alecCount>1?'s':''} share significant language (80%+ cosine similarity) with known ALEC model legislation templates.</div>
+          </div>
+        </div>`;
+    }
+
+    if (donorCount > 0) {
+      html += `
+        <div class="alert-box warn" style="margin-bottom:0.8rem">
+          <div class="alert-icon">⚠</div>
+          <div>
+            <div class="alert-title">DONOR INTEREST ALIGNMENT</div>
+            <div class="alert-body">${donorCount} sponsored bill${donorCount>1?'s':''} contain language aligned with this member's top donor industries.</div>
+          </div>
+        </div>`;
+    }
+
+    html += `
+      <table class="data-table" style="margin-bottom:1.5rem">
+        <thead><tr>
+          <th>Bill</th><th>Title</th><th>Introduced</th><th>ALEC Match</th><th>Donor Interest</th><th>Co-Author Links</th>
+        </tr></thead>
+        <tbody>`;
+
+    bills.forEach(bill => {
+      const alec = bill.alec_match;
+      const donor = bill.donor_interest || {};
+      const coAuthors = bill.similar_member_bills || [];
+      const billLabel = (bill.bill_id || '').replace(/-\d+$/, '');
+      const intro = bill.introduced_date ? bill.introduced_date.slice(0,10) : '—';
+      const titleShort = (bill.title||'').slice(0,80) + ((bill.title||'').length>80?'…':'');
+
+      let alecCell = '<span style="color:#666">—</span>';
+      if (alec) {
+        const pct = Math.round((alec.similarity_score||0)*100);
+        alecCell = `<span style="color:#ffaa00;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600">${pct}%</span>
+          <div style="font-size:0.6rem;color:#888;margin-top:2px">${alec.matched_model||''}</div>
+          <div style="font-size:0.55rem;margin-top:1px"><a href="${alec.source_url||'#'}" target="_blank" style="color:#666;text-decoration:none">ALEC ${alec.category||''}</a></div>`;
+      }
+
+      let donorCell = '<span style="color:#666">—</span>';
+      if (donor.match && donor.matched_industries && donor.matched_industries.length > 0) {
+        donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${ind}</span>`).join('');
+      }
+
+      let coCell = '<span style="color:#666">—</span>';
+      if (coAuthors.length > 0) {
+        const pct = Math.round((coAuthors[0].similarity_score||0)*100);
+        coCell = `<span style="color:#00d4ff;font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${pct}% match</span>
+          <div style="font-size:0.58rem;color:#666;margin-top:1px">${coAuthors.length} member bill${coAuthors.length>1?'s':''}</div>`;
+      }
+
+      html += `<tr>
+        <td><div class="bill-id">${bill.url?`<a href="${bill.url}" target="_blank" style="color:#00d4ff;text-decoration:none">${billLabel}</a>`:billLabel}</div></td>
+        <td style="max-width:200px;font-size:0.72rem;line-height:1.4">${titleShort}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${intro}</td>
+        <td>${alecCell}</td>
+        <td>${donorCell}</td>
+        <td>${coCell}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table>`;
+
+    if (m.donor_alignment_score > 0) {
+      html += `<div class="kv-row">
+        <span class="kv-label">Donor Alignment Score</span>
+        <span class="kv-val ${m.donor_alignment_score>50?'hot':m.donor_alignment_score>25?'warm':''}">${m.donor_alignment_score}/100</span>
+      </div>`;
+    }
+  }
+
+  // ── Voting Record section ──
+  html += `
+    <div class="sec-header" style="margin:${bills.length>0?'1.5rem':'0'} 0 0.8rem">
+      <div class="sec-title">VOTING RECORD</div>
+      <div class="sec-badge">${votes.length>0?votes.length+' VOTES':'PENDING'}</div>
+    </div>`;
+
+  if (votes.length > 0) {
+    html += `
+      <table class="data-table">
+        <thead><tr>
+          <th>Date</th><th>Bill / Motion</th><th>Vote</th><th>Result</th><th>Chamber</th>
+        </tr></thead>
+        <tbody>`;
+
+    votes.forEach(vote => {
+      const pos = (vote.position||'').toLowerCase();
+      const posClass = (pos==='yea'||pos==='yes') ? 'vote-yes' : (pos==='nay'||pos==='no') ? 'vote-no' : 'vote-abs';
+      const posLabel = (pos==='yea'||pos==='yes') ? 'YEA' : (pos==='nay'||pos==='no') ? 'NAY' : (vote.position||'—').toUpperCase();
+      const resultColor = (vote.result||'').toLowerCase()==='passed' ? '#00ff88' : '#ff3c00';
+      const titleShort = (vote.bill||'').slice(0,90)+((vote.bill||'').length>90?'…':'');
+
+      html += `<tr>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${vote.date||'—'}</td>
+        <td style="max-width:220px;font-size:0.72rem;line-height:1.4">
+          ${vote.url?`<a href="${vote.url}" target="_blank" style="color:#e8e8e8;text-decoration:none">${titleShort}</a>`:titleShort}
+        </td>
+        <td><span class="${posClass}">${posLabel}</span></td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${resultColor}">${vote.result||'—'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#666">${vote.chamber||'—'}</td>
+      </tr>`;
+    });
+
+    html += `</tbody></table>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:#444;margin-top:0.5rem">
+        Source: GovTrack.us · ${votes.length} most recent votes
+      </div>`;
+  } else {
+    html += `
+      <div class="alert-box info">
+        <div class="alert-icon">ℹ</div>
+        <div>
+          <div class="alert-title">VOTING RECORD PENDING</div>
+          <div class="alert-body">Voting data loads from the member vault. Run the fetch_votes workflow if this persists.</div>
+        </div>
+      </div>`;
+  }
+
+  container.innerHTML = html;
 }
 
 function fillFinance(m, s, nw, cumSalary) {
@@ -823,14 +996,13 @@ function fillFinance(m, s, nw, cumSalary) {
 }
 
 function fillStocks(m, s) {
-  // UPDATED: corporate_insider_signals
   const tc = m.corporate_insider_signals || m.total_trades || 0;
   document.getElementById('pf-stocks-content').innerHTML = `
     <div class="alert-box info">
       <div class="alert-icon">ℹ</div>
       <div>
         <div class="alert-title">ABOUT THIS DATA — SEC EDGAR FORM 4</div>
-        <div class="alert-body">These signals represent SEC Form 4 filings where this member appears as a corporate officer, director, or significant stakeholder. This is distinct from congressional stock trades (PTRs filed with the House Clerk / Senate Ethics Committee). PTR pipeline coming in a future update.</div>
+        <div class="alert-body">These signals represent SEC Form 4 filings where this member appears as a corporate officer, director, or significant stakeholder. This is distinct from congressional stock trades (PTRs). PTR pipeline coming in a future update.</div>
       </div>
     </div>
     ${tc>5?`<div class="alert-box"><div class="alert-icon">⚠</div><div><div class="alert-title">CORPORATE INSIDER SIGNALS DETECTED</div><div class="alert-body">Filings found: <code>${tc}</code>. Verify at SEC EDGAR for company details and context.</div></div></div>`:''}
@@ -846,8 +1018,9 @@ function fillPatterns(m, s) {
   const patterns = [];
   if (s >= 80) patterns.push({title:'HIGH COMPOSITE ANOMALY SCORE',body:`Score of <code>${s}/100</code> places this member in the highest risk category.`});
   if ((m.missed_votes_pct||0) > 0.1 && (m.pac_contributions||0) > 0) patterns.push({title:'SELECTIVE ATTENDANCE PATTERN',body:`Above-average absenteeism on general votes while maintaining high attendance on donor-priority legislation.`});
-  if (s >= 70) patterns.push({title:'DONOR → VOTE CORRELATION',body:`Cross-referencing FEC data with voting record shows above-average alignment between top donors and legislative behavior.`});
+  if (s >= 70) patterns.push({title:'DONOR — VOTE CORRELATION',body:`Cross-referencing FEC data with voting record shows above-average alignment between top donors and legislative behavior.`});
   if (s >= 60) patterns.push({title:'NET WORTH ACCELERATION DETECTED',body:`Estimated wealth growth rate significantly exceeds congressional salary.`});
+  if ((m.alec_match_count||0) > 0) patterns.push({title:'MODEL LEGISLATION ADOPTION PATTERN',body:`${m.alec_match_count} sponsored bill${m.alec_match_count>1?'s':''} match ALEC model legislation. This suggests coordination with organized lobbying groups rather than independent legislating.`});
   document.getElementById('pf-patterns-content').innerHTML = patterns.map(p=>`
     <div class="alert-box"><div class="alert-icon">⚠</div><div><div class="alert-title">${p.title}</div><div class="alert-body">${p.body}</div></div></div>
   `).join('') || '<div class="empty-msg">No significant patterns detected.</div>';
@@ -962,7 +1135,6 @@ function fillCompare() {
   if (!allMembers.length) return;
   const high = allMembers.filter(m=>m.displayScore>=60).length;
   const avgNW = allMembers.reduce((a,m)=>a+m.netWorthEst,0)/allMembers.length;
-  // UPDATED: corporate_insider_signals
   const totalSignals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
   document.getElementById('compare-stats').innerHTML = `
     <div class="stat-cell"><div class="stat-cell-label">Avg Entry Net Worth</div><div class="stat-cell-value">$1.2M</div><div class="stat-cell-change neutral">est. 2024 Congress</div></div>
@@ -1030,7 +1202,6 @@ function mobileNav(tab) {
 function exportMemberCSV() {
   if (!currentMember) return;
   const m = currentMember;
-  // UPDATED: corporate_insider_signals
   const csv = `Name,Party,State,Chamber,Score,Est Net Worth,Total Raised,PAC,Corporate Insider Signals\n${m.name},${m.party},${m.state},${m.chamber},${m.displayScore},${m.netWorthEst},${m.total_raised||0},${m.pac_contributions||0},${m.corporate_insider_signals||0}`;
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
