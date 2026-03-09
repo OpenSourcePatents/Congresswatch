@@ -94,7 +94,7 @@ def get_member_sponsored_bills(bioguide_id, congress=119, limit=20):
             "congress": cong,
             "url":      item.get("url", ""),
             "introduced_date": item.get("introducedDate", ""),
-            "latest_action": item.get("latestAction", {}).get("text", ""),
+            "latest_action": (item.get("latestAction") or {}).get("text", ""),
         })
     _sleep()
     return bills
