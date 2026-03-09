@@ -24,7 +24,7 @@ jobs:
         env:
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
           LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
-        run: python fetch_bills.py
+        run: python run_fetch_bills.py
 
       - name: Save data
         run: |
