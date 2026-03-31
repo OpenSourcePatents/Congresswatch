@@ -233,7 +233,9 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
           <div class="loading-bar"><div class="loading-fill"></div></div>
         </div>
       </div>
-      <div class="sidebar-label" style="margin-top:1rem">Data Sources</div>
+      <div class="sidebar-label" style="margin-top:1rem">Data Coverage</div>
+      <div id="sidebar-coverage" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:#666666;line-height:2.2;margin-bottom:0.8rem">Loading...</div>
+      <div class="sidebar-label" style="margin-top:0.5rem">Data Sources</div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:#666666;line-height:2.2">
         ✓ Congress.gov API<br>
         ✓ FEC.gov filings<br>
@@ -252,7 +254,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
       <div class="hero-bar">
         <div class="hero-title">FOLLOW THE <span>MONEY</span></div>
         <div class="hero-sub">// PUBLIC RECORDS ONLY — ALL SOURCES CITED — OPEN SOURCE</div>
-        <div class="stats-strip">
+        <div class="stats-strip" style="grid-template-columns:repeat(4,1fr)">
           <div class="stat-box">
             <span class="stat-num" id="stat-high">—</span>
             <div class="stat-lbl">High Anomaly</div>
@@ -264,6 +266,10 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
           <div class="stat-box">
             <span class="stat-num" id="stat-trades">—</span>
             <div class="stat-lbl">Corporate Insider Signals</div>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" id="stat-fresh" style="font-size:clamp(0.9rem,2.5vw,1.3rem)">—</span>
+            <div class="stat-lbl">Last Updated</div>
           </div>
         </div>
       </div>
@@ -348,7 +354,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
           <div class="sec-badge" id="pf-flag-count">—</div>
         </div>
         <div id="pf-flags"></div>
-        <div class="disclaimer">DISCLAIMER: Anomaly score is a statistical indicator only. Does not imply illegal activity. All data from public government records. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.</div>
+        <div class="disclaimer">DISCLAIMER: Anomaly scores are statistical indicators only and do not imply illegal activity. All data sourced from public government records. Methodology is open source and auditable. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.us, LegiScan.</div>
       </div>
 
       <div class="ppanel" id="ppanel-votes">
@@ -403,7 +409,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
         <button class="tool-btn" onclick="exportMemberCSV()">EXPORT CSV</button>
         <button class="tool-btn" onclick="exportMemberJSON()">EXPORT JSON</button>
         <button class="tool-btn" onclick="shareMember()">SHARE FINDINGS</button>
-        <button class="tool-btn danger">FLAG FOR REVIEW</button>
+        <button class="tool-btn danger" onclick="if(currentMember)window.open('https://github.com/OpenSourcePatents/Congresswatch/issues/new?title=Data+Review+Request:+'+encodeURIComponent(currentMember.name),'_blank')">FLAG FOR REVIEW</button>
         <button class="tool-btn" style="margin-left:auto" onclick="window.open('https://github.com/opensourcepatents/congresswatch')">GITHUB →</button>
       </div>
     </div>
@@ -478,6 +484,7 @@ function partyShort(party) {
   return 'I';
 }
 function scoreColor(s) {
+  if (s === null || s === undefined) return '#555';
   if (s >= 80) return '#ff3c00';
   if (s >= 60) return '#ffaa00';
   if (s >= 40) return '#e8ff00';
@@ -485,12 +492,14 @@ function scoreColor(s) {
   return '#555';
 }
 function scoreClass(s) {
+  if (s === null || s === undefined) return 'score-low';
   if (s >= 80) return 'score-crit';
   if (s >= 60) return 'score-high';
   if (s >= 40) return 'score-med';
   return 'score-low';
 }
 function scoreBg(s) {
+  if (s === null || s === undefined) return '#333';
   if (s >= 80) return '#ff3c00';
   if (s >= 60) return '#ffaa00';
   if (s >= 40) return '#e8ff00';
@@ -505,15 +514,11 @@ function fmtMoney(v) {
 }
 function computeScore(m) {
   if (m.score && m.score > 0) return m.score;
-  let h = 0;
-  const id = m.id || m.bioguide_id || m.name || '';
-  for (let i=0;i<id.length;i++) h = (h*31 + id.charCodeAt(i)) & 0xffffffff;
-  return Math.abs(h % 85) + 5;
+  return null; // No fake scores — null means "no data"
 }
-function computeNetWorth(m, score) {
+function computeNetWorth(m) {
   if (m.net_worth_raw) return m.net_worth_raw;
-  if (m.total_raised) return m.total_raised * 0.45;
-  return score * 90000 + 150000;
+  return null; // No fabricated net worth
 }
 
 async function loadData() {
@@ -535,31 +540,46 @@ async function loadData() {
       else if (pl.includes('independent') || pl === 'i') party = 'Independent';
       return { ...m, chamber, party, displayScore: score,
         photo: m.photo_url || photoUrl(m.id || m.bioguide_id),
-        partyC: partyColor(party), partyS: partyShort(party), netWorthEst: computeNetWorth(m, score) };
+        partyC: partyColor(party), partyS: partyShort(party), netWorthEst: computeNetWorth(m) };
     });
-    updateStats(); applyFilters(); renderSidebar();
+    updateStats(); updateCoverage(); applyFilters(); renderSidebar();
   } catch(e) { loadDemo(); }
 }
 
+function updateCoverage() {
+  const el = document.getElementById('sidebar-coverage');
+  if (!el) return;
+  const total = allMembers.length;
+  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0).length;
+  const withFinance = allMembers.filter(m=>(m.total_raised||0)>0).length;
+  el.innerHTML = `
+    Members with scores: <b style="color:#e8e8e8">${scored} / ${total}</b><br>
+    Members with finance: <b style="color:#e8e8e8">${withFinance} / ${total}</b><br>
+    Vote + Bill data: <b style="color:#e8e8e8">in vault files</b>
+  `;
+}
+
 function loadDemo() {
-  const demo = [{
-    id: 'R000605', name: 'Mike Rounds', party: 'Republican',
-    state: 'South Dakota', chamber: 'Senate', score: 5, isDemo: true,
-    corporate_insider_signals: 0, total_raised: 3188338, total_raised_display: '$3.2M'
-  }];
-  allMembers = demo.map(m => {
-    const score = m.score || computeScore(m);
-    return {...m, displayScore:score, photo:photoUrl(m.id), partyC:partyColor(m.party), partyS:partyShort(m.party), netWorthEst:computeNetWorth(m,score)};
-  });
-  updateStats(); applyFilters(); renderSidebar();
+  // Fallback when members.json cannot be fetched
+  allMembers = [];
+  updateStats();
+  document.getElementById('grid-wrap').innerHTML = '<div class="empty-msg">Could not load member data. The data pipeline may not have run yet.</div>';
 }
 
 function updateStats() {
-  const high = allMembers.filter(m=>m.displayScore>=60).length;
-  const signals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||m.total_trades||0),0);
-  document.getElementById('stat-high').textContent = high;
+  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
+  const high = scored.filter(m=>m.displayScore>=60).length;
+  const signals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
+  document.getElementById('stat-high').textContent = scored.length > 0 ? high : '—';
   document.getElementById('stat-total').textContent = allMembers.length;
-  document.getElementById('stat-trades').textContent = signals > 0 ? signals : '—';
+  document.getElementById('stat-trades').textContent = signals > 0 ? signals.toLocaleString() : '—';
+  // Data freshness
+  const dates = allMembers.map(m=>m.data_updated).filter(Boolean).sort();
+  const freshEl = document.getElementById('stat-fresh');
+  if (freshEl && dates.length > 0) {
+    const latest = dates[dates.length-1].slice(0,10);
+    freshEl.textContent = latest;
+  }
 }
 
 function applyFilters() {
@@ -571,6 +591,7 @@ function applyFilters() {
     }
     if (filters.score !== 'all') {
       const s = m.displayScore;
+      if (s === null) return false;
       if (filters.score === 'critical' && s < 80) return false;
       if (filters.score === 'high' && s < 60) return false;
       if (filters.score === 'low' && s >= 40) return false;
@@ -590,6 +611,9 @@ function applyFilters() {
     else if (field==='name'){va=a.name;vb=b.name;}
     else if (field==='state'){va=a.state;vb=b.state;}
     else {va=a.displayScore;vb=b.displayScore;}
+    if (va===null&&vb===null) return 0;
+    if (va===null) return 1;
+    if (vb===null) return -1;
     if (typeof va==='string') return dir==='asc'?va.localeCompare(vb):vb.localeCompare(va);
     return dir==='asc'?va-vb:vb-va;
   });
@@ -608,6 +632,8 @@ function renderGrid() {
     card.className = 'grid-card';
     card.onclick = () => openProfile(m);
     const dist = m.district ? `· ${m.state}-${m.district}` : `· ${m.state}`;
+    const scoreLabel = s !== null ? s : '--';
+    const hasTags = s !== null && s > 0;
     card.innerHTML = `
       <div class="party-stripe" style="background:${m.partyC}"></div>
       <img class="grid-photo" src="${m.photo}" alt="${m.name}"
@@ -617,12 +643,12 @@ function renderGrid() {
         <div class="grid-name">${m.name}</div>
         <div class="grid-meta">${m.partyS} · ${m.chamber} ${dist}</div>
         <div class="grid-tags">
-          ${s>=60?'<span class="grid-tag" style="background:#3a0a0a;color:#ff6b6b">INSIDER</span>':''}
-          ${s>=50?'<span class="grid-tag" style="background:#2a1500;color:#ffaa00">DONOR</span>':''}
-          ${s>=70?'<span class="grid-tag" style="background:#0a1520;color:#00d4ff">BILL</span>':''}
+          ${hasTags&&s>=60?'<span class="grid-tag" style="background:#3a0a0a;color:#ff6b6b">INSIDER</span>':''}
+          ${hasTags&&s>=50?'<span class="grid-tag" style="background:#2a1500;color:#ffaa00">DONOR</span>':''}
+          ${hasTags&&s>=70?'<span class="grid-tag" style="background:#0a1520;color:#00d4ff">BILL</span>':''}
         </div>
       </div>
-      <div class="grid-score" style="background:${scoreBg(s)};color:#000">${s}</div>
+      <div class="grid-score" style="background:${scoreBg(s)};color:#000" title="${s===null?'Score pending — data pipeline processing':'Anomaly score'}">${scoreLabel}</div>
     `;
     grid.appendChild(card);
   });
@@ -652,7 +678,7 @@ function renderSidebar() {
           <div class="member-name">${m.name}</div>
           <div class="member-meta">${dist}</div>
         </div>
-        <div class="member-score ${scoreClass(s)}">${s}</div>
+        <div class="member-score ${scoreClass(s)}">${s !== null ? s : '--'}</div>
       </div>
     `;
   }).join('');
@@ -700,9 +726,9 @@ async function openProfile(m) {
   `;
 
   const scoreBig = document.getElementById('pf-score-big');
-  scoreBig.textContent = s; scoreBig.style.color = scoreColor(s);
+  scoreBig.textContent = s !== null ? s : '--'; scoreBig.style.color = scoreColor(s);
   const bar = document.getElementById('pf-score-bar');
-  bar.style.width = s + '%'; bar.style.background = scoreColor(s);
+  bar.style.width = (s !== null ? s : 0) + '%'; bar.style.background = scoreColor(s);
 
   const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
   const cumSalary = Object.entries(SALARY_BY_YEAR)
@@ -715,7 +741,7 @@ async function openProfile(m) {
   fillTravel(currentMember);
   fillPatterns(currentMember, s);
 
-  setTimeout(() => drawNetWorthChart('nw-canvas', currentMember, currentMember.netWorthEst, startYear), 200);
+  if (currentMember.netWorthEst) setTimeout(() => drawNetWorthChart('nw-canvas', currentMember, currentMember.netWorthEst, startYear), 200);
   document.getElementById('content').scrollTop = 0;
 
   // ── Fetch vault file in background ──
@@ -741,7 +767,7 @@ async function openProfile(m) {
         fillFinance(currentMember, s, currentMember.netWorthEst, cumSalary);
         fillStocks(currentMember, s);
         fillPatterns(currentMember, s);
-        setTimeout(() => drawNetWorthChart('nw-canvas', currentMember, currentMember.netWorthEst, startYear), 100);
+        if (currentMember.netWorthEst) setTimeout(() => drawNetWorthChart('nw-canvas', currentMember, currentMember.netWorthEst, startYear), 100);
       } else {
         // Vault file missing — render votes with light data only
         fillVotes(currentMember, s);
@@ -757,20 +783,21 @@ async function openProfile(m) {
 
 function renderOverview(m, s, cumSalary) {
   const nw = m.netWorthEst;
-  const gap = nw - cumSalary;
-  const insiderSignals = m.corporate_insider_signals != null ? m.corporate_insider_signals : (m.total_trades != null ? m.total_trades : '—');
+  const hasNW = nw !== null && nw !== undefined;
+  const gap = hasNW ? nw - cumSalary : null;
+  const insiderSignals = m.corporate_insider_signals != null ? m.corporate_insider_signals : '—';
   const signalSource = m.edgar_signal_type || 'SEC EDGAR Form 4';
 
   document.getElementById('pf-stats-grid').innerHTML = `
     <div class="stat-cell">
       <div class="stat-cell-label">Est. Net Worth</div>
-      <div class="stat-cell-value" style="color:${s>=60?'#ff3c00':'#e8ff00'}">${fmtMoney(nw)}</div>
-      <div class="stat-cell-change neutral">estimated</div>
+      <div class="stat-cell-value" style="color:${hasNW?(s!==null&&s>=60?'#ff3c00':'#e8ff00'):'#666'}">${hasNW ? fmtMoney(nw) : '—'}</div>
+      <div class="stat-cell-change neutral">${hasNW ? 'estimated' : 'Financial disclosure pending'}</div>
     </div>
     <div class="stat-cell">
       <div class="stat-cell-label">Salary Gap</div>
-      <div class="stat-cell-value" style="color:${gap>0?'#ff3c00':'#00ff88'}">${fmtMoney(Math.abs(gap))}</div>
-      <div class="stat-cell-change ${gap>0?'up':'neutral'}">${gap>0?'above salary':'within salary'}</div>
+      <div class="stat-cell-value" style="color:${gap!==null&&gap>0?'#ff3c00':'#666'}">${gap!==null ? fmtMoney(Math.abs(gap)) : '—'}</div>
+      <div class="stat-cell-change ${gap!==null&&gap>0?'up':'neutral'}">${gap!==null ? (gap>0?'above salary':'within salary') : 'pending'}</div>
     </div>
     <div class="stat-cell">
       <div class="stat-cell-label">Total Raised (FEC)</div>
@@ -810,25 +837,19 @@ function showMembersList() {
 
 function buildFlags(m, s) {
   const flags = [];
-  if (m.isDemo) {
-    flags.push({type:'info', title:'DEMO DATA ACTIVE',
-      body:'This profile is currently displaying verified sample data while the full production pipeline synchronizes.'});
-  }
+  // Only flag real data signals — no fabricated alerts
   const insiderCount = m.corporate_insider_signals || 0;
   if (insiderCount > 5) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
-    body:`${insiderCount} Form 4 filings found in SEC EDGAR where this member appears as an officer, director, or significant stakeholder. Source: SEC EDGAR Form 4.`});
-  if (s >= 60) flags.push({type:'danger',title:'HIGH ANOMALY COMPOSITE SCORE',
-    body:`Score of ${s}/100 based on fundraising, voting patterns, and corporate insider signals. All data from public government sources.`});
-  if ((m.pac_contributions||0) > (m.total_raised||1) * 0.35) flags.push({type:'warn',title:'HIGH PAC CONTRIBUTION RATIO',
-    body:`PAC contributions represent a significant portion of total fundraising. This indicates heavy reliance on organized special interest money. Source: FEC.gov.`});
+    body:`${insiderCount} Form 4 filings found in SEC EDGAR. Source: SEC EDGAR Form 4.`});
+  if (s !== null && s >= 60) flags.push({type:'danger',title:'HIGH ANOMALY COMPOSITE SCORE',
+    body:`Score of ${s}/100 based on public data signals. All data from government sources.`});
+  if ((m.pac_contributions||0) > 0 && (m.total_raised||0) > 0 && m.pac_contributions/m.total_raised > 0.35)
+    flags.push({type:'warn',title:'HIGH PAC CONTRIBUTION RATIO',
+    body:`PAC contributions represent ${((m.pac_contributions/m.total_raised)*100).toFixed(0)}% of total fundraising. Source: FEC.gov.`});
   if ((m.missed_votes_pct||0) > 0.15) flags.push({type:'warn',title:`HIGH MISSED VOTE RATE — ${((m.missed_votes_pct||0)*100).toFixed(1)}%`,
-    body:`Missed vote rate exceeds 15% threshold. Member is collecting full $174,000 salary. Source: GovTrack.us.`});
-  if ((m.votes_with_party_pct||0) > 95) flags.push({type:'info',title:'NEAR-PERFECT PARTY LINE VOTING',
-    body:`Votes with party ${(m.votes_with_party_pct||0).toFixed(1)}% of the time — suggesting low independent judgment. Source: GovTrack.us.`});
+    body:`Missed vote rate exceeds 15% threshold. Source: GovTrack.us.`});
   if ((m.alec_match_count||0) > 0) flags.push({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
-    body:`${m.alec_match_count} sponsored bill${m.alec_match_count>1?'s':''} match known ALEC model legislation above 80% similarity threshold. NLP analysis via LegiScan + Congress.gov.`});
-  if (s >= 70 && !(m.alec_match_count > 0)) flags.push({type:'info',title:'BILL TEXT SIMILARITY DETECTED',
-    body:`One or more sponsored bills share significant language with known model legislation from lobbying organizations. NLP analysis via LegiScan bill text.`});
+    body:`${m.alec_match_count} sponsored bill${m.alec_match_count>1?'s':''} match known ALEC model legislation above 80% similarity. Source: LegiScan + Congress.gov.`});
   if (flags.length === 0) flags.push({type:'info',title:'NO SIGNIFICANT ANOMALIES DETECTED',
     body:'Available public records do not show unusual patterns for this member. Data updates daily.'});
   return flags;
@@ -983,9 +1004,11 @@ function fillVotes(m, s) {
 function fillFinance(m, s, nw, cumSalary) {
   const pac = m.pac_contributions || 0, total = m.total_raised || 0;
   const pacRatio = total > 0 ? ((pac/total)*100).toFixed(1) : '—';
+  const hasNW = nw !== null && nw !== undefined;
+  const gap = hasNW ? nw - cumSalary : null;
   document.getElementById('pf-finance-stats').innerHTML = `
     <div class="stat-cell"><div class="stat-cell-label">Career Salary (Est.)</div><div class="stat-cell-value">${fmtMoney(cumSalary)}</div><div class="stat-cell-change neutral">congressional only</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Unexplained Gap</div><div class="stat-cell-value" style="color:${nw>cumSalary?'#ff3c00':'#00ff88'}">${fmtMoney(Math.max(0,nw-cumSalary))}</div><div class="stat-cell-change ${nw>cumSalary?'up':'neutral'}">${nw>cumSalary?'above salary':'within salary'}</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Unexplained Gap</div><div class="stat-cell-value" style="color:${gap!==null&&gap>0?'#ff3c00':'#666'}">${gap!==null?fmtMoney(Math.max(0,gap)):'—'}</div><div class="stat-cell-change ${gap!==null&&gap>0?'up':'neutral'}">${gap!==null?(gap>0?'above salary':'within salary'):'pending'}</div></div>
     <div class="stat-cell"><div class="stat-cell-label">PAC Money</div><div class="stat-cell-value" style="color:${pac>total*0.3?'#ff3c00':'#e8e8e8'}">${fmtMoney(pac)}</div><div class="stat-cell-change ${pac>total*0.3?'up':'neutral'}">${pacRatio}% of total</div></div>
     <div class="stat-cell"><div class="stat-cell-label">Individual Donors</div><div class="stat-cell-value">${fmtMoney(m.individual_contributions)}</div><div class="stat-cell-change neutral">itemized</div></div>
   `;
@@ -1016,14 +1039,16 @@ function fillTravel(m) {
 
 function fillPatterns(m, s) {
   const patterns = [];
-  if (s >= 80) patterns.push({title:'HIGH COMPOSITE ANOMALY SCORE',body:`Score of <code>${s}/100</code> places this member in the highest risk category.`});
-  if ((m.missed_votes_pct||0) > 0.1 && (m.pac_contributions||0) > 0) patterns.push({title:'SELECTIVE ATTENDANCE PATTERN',body:`Above-average absenteeism on general votes while maintaining high attendance on donor-priority legislation.`});
-  if (s >= 70) patterns.push({title:'DONOR — VOTE CORRELATION',body:`Cross-referencing FEC data with voting record shows above-average alignment between top donors and legislative behavior.`});
-  if (s >= 60) patterns.push({title:'NET WORTH ACCELERATION DETECTED',body:`Estimated wealth growth rate significantly exceeds congressional salary.`});
-  if ((m.alec_match_count||0) > 0) patterns.push({title:'MODEL LEGISLATION ADOPTION PATTERN',body:`${m.alec_match_count} sponsored bill${m.alec_match_count>1?'s':''} match ALEC model legislation. This suggests coordination with organized lobbying groups rather than independent legislating.`});
-  document.getElementById('pf-patterns-content').innerHTML = patterns.map(p=>`
+  // Only show alerts when real data signals exist
+  if (s !== null && s >= 80) patterns.push({title:'HIGH COMPOSITE ANOMALY SCORE',body:`Score of <code>${s}/100</code> places this member in the highest risk category based on public data signals.`});
+  if ((m.corporate_insider_signals||0) > 5) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filings detected. Verify at SEC EDGAR for full context.`});
+  if ((m.alec_match_count||0) > 0) patterns.push({title:'MODEL LEGISLATION ADOPTION PATTERN',body:`${m.alec_match_count} sponsored bill${m.alec_match_count>1?'s':''} match ALEC model legislation above 80% similarity threshold.`});
+  if ((m.donor_alignment_score||0) > 25) patterns.push({title:'DONOR — BILL ALIGNMENT',body:`Donor alignment score of ${m.donor_alignment_score}/100 — sponsored bills contain language aligned with top donor industries.`});
+  if ((m.missed_votes_pct||0) > 0.15) patterns.push({title:'HIGH MISSED VOTE RATE',body:`Missed vote rate exceeds 15% while collecting full $174,000 salary. Source: GovTrack.us.`});
+  if ((m.pac_contributions||0) > 0 && (m.total_raised||0) > 0 && m.pac_contributions/m.total_raised > 0.4) patterns.push({title:'HIGH PAC CONTRIBUTION RATIO',body:`PAC contributions represent ${((m.pac_contributions/m.total_raised)*100).toFixed(0)}% of total fundraising.`});
+  document.getElementById('pf-patterns-content').innerHTML = patterns.length > 0 ? patterns.map(p=>`
     <div class="alert-box"><div class="alert-icon">⚠</div><div><div class="alert-title">${p.title}</div><div class="alert-body">${p.body}</div></div></div>
-  `).join('') || '<div class="empty-msg">No significant patterns detected.</div>';
+  `).join('') : '<div class="empty-msg">No anomalous patterns detected in available data.</div>';
 }
 
 function drawNetWorthChart(canvasId, m, nwCurrent, startYear) {
@@ -1106,7 +1131,14 @@ function drawNetwork(m) {
   ctx.clearRect(0,0,W,H);
   const donors = (m.top_donors_list||[]).length>0
     ? m.top_donors_list.slice(0,6).map(d=>({label:(d.employer||d.name||'').slice(0,10),amount:d.amount||0}))
-    : [{label:'PAC #1',amount:500000},{label:'PAC #2',amount:350000},{label:'Industry',amount:280000},{label:'Finance',amount:200000}];
+    : [];
+  if (donors.length === 0) {
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#666'; ctx.font='12px IBM Plex Mono,monospace'; ctx.textAlign='center';
+    ctx.fillText('Donor data pending — FEC pipeline processing',W/2,H/2);
+    return;
+  }
   const angles = donors.map((_,i)=>(i/donors.length)*Math.PI*2-Math.PI/2);
   const radius = Math.min(W,H)*0.32;
   const nodes = [{x:cx,y:cy,r:16,color:'#ff3c00',label:(m.name||'').split(' ').pop().slice(0,8).toUpperCase()},
@@ -1133,27 +1165,31 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
 
 function fillCompare() {
   if (!allMembers.length) return;
-  const high = allMembers.filter(m=>m.displayScore>=60).length;
-  const avgNW = allMembers.reduce((a,m)=>a+m.netWorthEst,0)/allMembers.length;
+  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
+  const high = scored.filter(m=>m.displayScore>=60).length;
   const totalSignals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
+  const withNW = allMembers.filter(m=>m.netWorthEst!==null);
+  const avgNW = withNW.length>0 ? withNW.reduce((a,m)=>a+m.netWorthEst,0)/withNW.length : null;
   document.getElementById('compare-stats').innerHTML = `
-    <div class="stat-cell"><div class="stat-cell-label">Avg Entry Net Worth</div><div class="stat-cell-value">$1.2M</div><div class="stat-cell-change neutral">est. 2024 Congress</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Avg Current Est. Worth</div><div class="stat-cell-value" style="color:#ff3c00">${fmtMoney(avgNW)}</div><div class="stat-cell-change up">vs public median</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">High Anomaly Members</div><div class="stat-cell-value" style="color:#ff3c00">${high}</div><div class="stat-cell-change up">${((high/allMembers.length)*100).toFixed(0)}% of Congress</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Corporate Insider Signals</div><div class="stat-cell-value">${totalSignals>0?totalSignals:'—'}</div><div class="stat-cell-change neutral">SEC EDGAR Form 4</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Members Scored</div><div class="stat-cell-value">${scored.length}</div><div class="stat-cell-change neutral">of ${allMembers.length} total</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Avg Est. Worth</div><div class="stat-cell-value" style="color:${avgNW?'#e8ff00':'#666'}">${avgNW?fmtMoney(avgNW):'—'}</div><div class="stat-cell-change neutral">${avgNW?'from public disclosures':'pending'}</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">High Anomaly Members</div><div class="stat-cell-value" style="color:#ff3c00">${high>0?high:'—'}</div><div class="stat-cell-change ${high>0?'up':'neutral'}">${scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending'}</div></div>
+    <div class="stat-cell"><div class="stat-cell-label">Corporate Insider Signals</div><div class="stat-cell-value">${totalSignals>0?totalSignals.toLocaleString():'—'}</div><div class="stat-cell-change neutral">SEC EDGAR Form 4</div></div>
   `;
-  const top10 = [...allMembers].sort((a,b)=>b.displayScore-a.displayScore).slice(0,10);
+  const top10 = [...scored].sort((a,b)=>(b.displayScore||0)-(a.displayScore||0)).slice(0,10);
   const canvas = document.getElementById('compare-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d'), dpr = window.devicePixelRatio||1;
   canvas.width = canvas.offsetWidth*dpr; canvas.height = 160*dpr; ctx.scale(dpr,dpr);
   const W = canvas.offsetWidth, H = 160, PAD = {top:8,right:8,bottom:28,left:52};
   ctx.clearRect(0,0,W,H);
-  const maxV = Math.max(...top10.map(m=>m.netWorthEst))*1.1;
+  if (top10.length === 0) return;
+  const nwValues = top10.map(m=>m.netWorthEst||0);
+  const maxV = Math.max(...nwValues)*1.1 || 1;
   const barW = (W-PAD.left-PAD.right)/top10.length-2;
   top10.forEach((m,i)=>{
     const x = PAD.left+i*((W-PAD.left-PAD.right)/top10.length);
-    const barH = (m.netWorthEst/maxV)*(H-PAD.top-PAD.bottom);
+    const barH = ((m.netWorthEst||0)/maxV)*(H-PAD.top-PAD.bottom);
     const y = PAD.top+(H-PAD.top-PAD.bottom)-barH;
     ctx.fillStyle = scoreColor(m.displayScore);
     ctx.fillRect(x+1,y,barW,barH);

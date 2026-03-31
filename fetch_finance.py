@@ -255,23 +255,81 @@ def fetch_fec_totals(cid):
 # SCORING
 # ─────────────────────────────────────────────────────────────
 
-def compute_score(m):
+ANNUAL_SALARY = 174000  # Congressional salary baseline
 
-    score=0
-    total=m.get("total_raised",0)
+def compute_score(m, detail=None):
+    """
+    Full 6-signal weighted anomaly score (0-100).
+    Weights: trade timing 25, wealth gap 25, donor-vote 20,
+             bill authorship 15, foreign travel 10, attendance 5.
+    """
+    detail = detail or {}
+    score = 0
 
-    if total>20000000: score+=20
-    elif total>10000000: score+=15
-    elif total>5000000: score+=10
-    elif total>1000000: score+=5
+    # 1. Stock trade timing (25 pts max) — SEC EDGAR insider signals
+    signals = m.get("corporate_insider_signals", 0) or 0
+    if signals >= 3:
+        score += 25
+    elif signals == 2:
+        score += 18
+    elif signals == 1:
+        score += 10
 
-    signals=m.get("corporate_insider_signals",0)
+    # 2. Wealth gap (25 pts max) — estimated gap vs salary
+    total = m.get("total_raised", 0) or 0
+    if total > 0:
+        est_wealth = total * 0.45
+        start_year = m.get("term_start", "2010")[:4]
+        try:
+            years_in_office = max(1, 2026 - int(start_year))
+        except (ValueError, TypeError):
+            years_in_office = 10
+        cumulative_salary = years_in_office * ANNUAL_SALARY
+        gap = est_wealth - cumulative_salary
+        if gap > 5000000:
+            score += 25
+        elif gap > 2000000:
+            score += 20
+        elif gap > 500000:
+            score += 15
+        elif gap > 100000:
+            score += 10
+        elif gap > 0:
+            score += 5
 
-    if signals>20: score+=10
-    elif signals>10: score+=6
-    elif signals>5: score+=3
+    # 3. Donor-vote alignment (20 pts max) — from bills pipeline
+    donor_score = detail.get("donor_alignment_score", 0) or 0
+    score += min(20, round(donor_score * 0.2))
 
-    return min(score,100)
+    # 4. Bill authorship / ALEC similarity (15 pts max) — from bills pipeline
+    bills = detail.get("bills", []) or []
+    max_alec_sim = 0
+    for bill in bills:
+        alec = bill.get("alec_match")
+        if alec and alec.get("similarity_score", 0) > max_alec_sim:
+            max_alec_sim = alec["similarity_score"]
+    if max_alec_sim >= 0.8:
+        score += 15
+    elif max_alec_sim >= 0.65:
+        score += 11
+    elif max_alec_sim >= 0.5:
+        score += 8
+    elif max_alec_sim >= 0.35:
+        score += 4
+
+    # 5. Foreign travel (10 pts max) — placeholder until PTR pipeline
+    # score += 0
+
+    # 6. Attendance (5 pts max) — missed votes ratio
+    votes = detail.get("votes", []) or []
+    if votes:
+        missed = sum(1 for v in votes if (v.get("position", "").lower() in
+                     ("not voting", "absent", "")))
+        if len(votes) > 0:
+            miss_ratio = missed / len(votes)
+            score += min(5, round(miss_ratio * 50))
+
+    return min(score, 100)
 
 def update_flags(m):
 
@@ -323,19 +381,22 @@ if __name__=="__main__":
             m["fec_candidate_id"]=cand["candidate_id"]
             m.update(fetch_fec_totals(cand["candidate_id"]))
 
-        # score
-        m["score"]=compute_score(m)
-        update_flags(m)
-
         m["data_updated"]=datetime.now().isoformat()
 
-        # load existing detail file
+        # load existing detail file (has votes, bills from other pipelines)
         detail_data=load_detail(bid)
 
         # SAFE MERGE (prevents wiping existing pipeline data)
         for k,v in m.items():
             if v is not None:
                 detail_data[k]=v
+
+        # score — pass detail_data so we can use votes + bills data
+        m["score"]=compute_score(m, detail_data)
+        detail_data["score"]=m["score"]
+
+        update_flags(m)
+        detail_data["flags"]=m["flags"]
 
         detail_data["last_updated"]=m["data_updated"]
 
@@ -344,7 +405,21 @@ if __name__=="__main__":
         light={k:v for k,v in m.items() if k in LIGHT_FIELDS}
         leaderboard.append(light)
 
-    with open(OUTPUT_FILE,"w") as f:
-        json.dump(leaderboard,f,indent=2)
+    # Safe merge into existing members.json — preserve fields from other pipelines
+    existing_members=load_members()
+    existing_by_id={em.get("id") or em.get("bioguide_id"):em for em in existing_members}
 
-    print("✓ Production v3.5 Complete")
+    for entry in leaderboard:
+        eid=entry.get("id") or entry.get("bioguide_id")
+        if eid and eid in existing_by_id:
+            existing_by_id[eid].update(entry)
+        elif eid:
+            existing_by_id[eid]=entry
+
+    final_members=list(existing_by_id.values())
+
+    with open(OUTPUT_FILE,"w") as f:
+        json.dump(final_members,f,indent=2)
+
+    scored=sum(1 for m in final_members if (m.get("score") or 0)>0)
+    print(f"✓ Production v3.5 Complete — {scored}/{len(final_members)} members scored")

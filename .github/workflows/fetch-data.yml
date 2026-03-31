@@ -3,7 +3,7 @@ name: Fetch Congress Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '0 1 * * *'
 
 jobs:
   fetch:
@@ -23,107 +23,7 @@ jobs:
       - name: Run fetcher
         env:
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
-        run: |
-          python3 - << 'PYEOF'
-          import os,json,time,requests
-          from datetime import datetime
-          KEY=os.environ.get("CONGRESS_API_KEY","")
-          BASE="https://api.congress.gov/v3"
-          H={"User-Agent":"CongressWatch"}
-          os.makedirs("data",exist_ok=True)
-
-          TERRITORIES={"District of Columbia","Puerto Rico","Virgin Islands","Guam","American Samoa","Northern Mariana Islands"}
-
-          def photo(b):
-            if not b: return ""
-            return "https://bioguide.congress.gov/bioguide/photo/"+b[0].upper()+"/"+b+".jpg"
-
-          def party(p):
-            p=(p or "").lower()
-            if "democrat" in p: return "Democratic"
-            if "republican" in p: return "Republican"
-            if "independent" in p: return "Independent"
-            return "Unknown"
-
-          def fixname(r):
-            if "," in r:
-              p=r.split(",",1)
-              return p[1].strip()+" "+p[0].strip()
-            return r
-
-          def termstart(m):
-            t=m.get("terms",{})
-            if isinstance(t,dict):
-              i=t.get("item",[])
-              if i and len(i)>0:
-                y=i[0].get("startYear","") or i[0].get("start","")
-                if y: return str(y)+"-01-01" if len(str(y))==4 else str(y)
-            return "2010-01-01"
-
-          def infer_chamber(m):
-            state = m.get("state","")
-            raw_district = m.get("district", None)
-
-            # Has a numeric district = House
-            if raw_district not in (None, "", "None", 0):
-              try:
-                int(str(raw_district))
-                return "House", str(raw_district)
-              except ValueError:
-                pass
-
-            # Territory delegate = House
-            if state in TERRITORIES:
-              return "House", ""
-
-            # No district, not a territory = Senate
-            return "Senate", ""
-
-          def norm(m):
-            b=m.get("bioguideId","")
-            chamber, district = infer_chamber(m)
-            return {
-              "id": b,
-              "name": fixname(m.get("name","")),
-              "party": party(m.get("partyName","")),
-              "state": m.get("state",""),
-              "district": district,
-              "chamber": chamber,
-              "photo_url": photo(b),
-              "term_start": termstart(m),
-              "score": 0,
-              "flags": [],
-              "updated": datetime.now().isoformat()
-            }
-
-          def fetch_all():
-            p={"api_key":KEY,"limit":200,"currentMember":"true","offset":0}
-            r=[]
-            while True:
-              time.sleep(0.5)
-              res=requests.get(BASE+"/member",params=p,headers=H,timeout=30)
-              batch=res.json().get("members",[])
-              if not batch: break
-              r.extend(batch)
-              print("Fetched:"+str(len(r)))
-              if len(batch)<200: break
-              p["offset"]+=200
-            return r
-
-          raw=fetch_all()
-          seen={}
-          for m in raw:
-            b=m.get("bioguideId","")
-            if b and b not in seen:
-              seen[b]=norm(m)
-
-          all_members=list(seen.values())
-          s=sum(1 for m in all_members if m["chamber"]=="Senate")
-          h=sum(1 for m in all_members if m["chamber"]=="House")
-          print("Total:"+str(len(all_members))+" | Senate:"+str(s)+" | House:"+str(h))
-          json.dump(all_members,open("data/members.json","w"),indent=2)
-          print("Done")
-          PYEOF
+        run: python fetch.py
 
       - name: Save data
         run: |
