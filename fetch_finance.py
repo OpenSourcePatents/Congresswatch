@@ -44,7 +44,7 @@ LIGHT_FIELDS = {
     "id","bioguide_id","name","party","state","district","chamber",
     "photo_url","term_start","score","flags",
     "corporate_insider_signals",
-    "total_raised_display",
+    "total_raised","total_raised_display",
     "missed_votes_pct","votes_with_party_pct",
     "govtrack_id","data_updated",
     "edgar_status","edgar_cik"
@@ -422,4 +422,16 @@ if __name__=="__main__":
         json.dump(final_members,f,indent=2)
 
     scored=sum(1 for m in final_members if (m.get("score") or 0)>0)
+    high_anomaly=sum(1 for m in final_members if (m.get("score") or 0)>=60)
+    total_insider=sum(m.get("corporate_insider_signals",0) or 0 for m in final_members)
+
+    stats = {
+        "total_members": 538,
+        "members_with_scores": scored,
+        "high_anomaly": high_anomaly,
+        "total_insider_signals": total_insider,
+        "last_updated": datetime.now().isoformat()
+    }
+    save_json("data/stats.json", stats)
+
     print(f"✓ Production v3.5 Complete — {scored}/{len(final_members)} members scored")

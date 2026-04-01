@@ -2,7 +2,7 @@ name: Fetch Finance & Trade Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 4 * * *'
+    - cron: '0 5 * * *'
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -24,7 +24,7 @@ jobs:
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
-          git add -A
-          git diff --staged --quiet || git commit -m "Update finance data"
+          git add data/members.json data/details/ data/stats.json
+          git diff --staged --quiet || git commit -m "Update finance data and anomaly scores [$(date +%Y-%m-%d)]"
           git pull --rebase origin main
           git push
