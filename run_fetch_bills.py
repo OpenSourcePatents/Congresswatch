@@ -27,6 +27,7 @@ import os
 import sys
 import time
 import hashlib
+import requests as _requests
 from datetime import datetime, timezone
 
 # ---------------------------------------------------------------------------
@@ -66,6 +67,9 @@ CURRENT_CONGRESS = 119
 MAX_BILLS_PER_MEMBER = 10   # sponsored bills to analyze per member
 LEGISCAN_QUERY_BUDGET = 200  # max LegiScan text fetches per run (protect quota)
 SIMILARITY_THRESHOLD = 0.80
+
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 # ---------------------------------------------------------------------------
 # Cache helpers
@@ -145,6 +149,53 @@ def fetch_bill_text(bill_stub: dict, legiscan_budget: list) -> str:
     text = legiscan_get_text_for_bill(best["legiscan_id"])
     return text or ""
 
+
+# ---------------------------------------------------------------------------
+# Supabase
+# ---------------------------------------------------------------------------
+
+def supabase_upsert_bills(bid, analyzed_bills):
+    if not SUPABASE_URL or not SUPABASE_KEY or not analyzed_bills:
+        return
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates"
+    }
+    rows = []
+    for b in analyzed_bills:
+        alec = b.get("alec_match") or {}
+        donor = b.get("donor_interest") or {}
+        rows.append({
+            "bioguide_id": bid,
+            "bill_id": b.get("bill_id", ""),
+            "bill_type": b.get("type", ""),
+            "bill_number": b.get("number", ""),
+            "title": b.get("title", ""),
+            "introduced_date": b.get("introduced_date") or None,
+            "latest_action": b.get("latest_action", ""),
+            "url": b.get("url", ""),
+            "alec_similarity_score": alec.get("similarity_score", 0) or 0,
+            "alec_matched_model": alec.get("matched_model", ""),
+            "alec_category": alec.get("category", ""),
+            "alec_source_url": alec.get("source_url", ""),
+            "donor_interest_match": donor.get("match", False),
+            "donor_interest_reason": ", ".join(donor.get("matched_industries", [])),
+        })
+    for i in range(0, len(rows), 50):
+        chunk = rows[i:i+50]
+        try:
+            r = _requests.post(
+                f"{SUPABASE_URL}/rest/v1/bills",
+                headers=headers,
+                json=chunk,
+                timeout=30
+            )
+            if r.status_code not in (200, 201):
+                print(f"    Supabase bills batch {i}: {r.status_code} {r.text[:200]}")
+        except Exception as e:
+            print(f"    Supabase bills error: {e}")
 
 # ---------------------------------------------------------------------------
 # Main pipeline
@@ -363,6 +414,11 @@ def main():
         detail["donor_match_count"] = sum(1 for b in analyzed_bills if b.get("donor_interest", {}).get("match"))
 
         save_detail(bid, detail)
+
+        try:
+            supabase_upsert_bills(bid, analyzed_bills)
+        except Exception as e:
+            print(f"    Supabase bills error for {bid}: {e}")
 
     # ---------------------------------------------------------------------------
     # Summary

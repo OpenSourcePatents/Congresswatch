@@ -24,6 +24,8 @@ from datetime import datetime
 
 CONGRESS_KEY = os.environ.get('CONGRESS_API_KEY', '')
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 HEADERS = {
     "User-Agent": "CongressWatch/1.0 (public-interest-research; mailto:project.congress.watch@gmail.com)",
@@ -266,14 +268,29 @@ def compute_score(m, detail=None):
     detail = detail or {}
     score = 0
 
-    # 1. Stock trade timing (25 pts max) — SEC EDGAR insider signals
+    # 1. Stock trade timing (25 pts max) — SEC EDGAR + PTR trades
+    trade_score = 0
     signals = m.get("corporate_insider_signals", 0) or 0
     if signals >= 3:
-        score += 25
+        trade_score += 25
     elif signals == 2:
-        score += 18
+        trade_score += 18
     elif signals == 1:
-        score += 10
+        trade_score += 10
+
+    # PTR trade frequency bonus
+    trades = detail.get("trades", []) or []
+    if trades:
+        from datetime import timedelta
+        cutoff = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
+        recent = sum(1 for t in trades if (t.get("transaction_date") or "") >= cutoff)
+        if recent >= 20:
+            trade_score += 15
+        elif recent >= 10:
+            trade_score += 10
+        elif recent >= 5:
+            trade_score += 5
+    score += min(trade_score, 25)
 
     # 2. Wealth gap (25 pts max) — estimated gap vs salary
     total = m.get("total_raised", 0) or 0
@@ -317,8 +334,18 @@ def compute_score(m, detail=None):
     elif max_alec_sim >= 0.35:
         score += 4
 
-    # 5. Foreign travel (10 pts max) — placeholder until PTR pipeline
-    # score += 0
+    # 5. Foreign travel (10 pts max) — from travel pipeline
+    travel = detail.get("travel", []) or []
+    if travel:
+        from datetime import timedelta
+        cutoff_2y = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
+        recent_trips = sum(1 for t in travel if (t.get("departure_date") or "") >= cutoff_2y)
+        if recent_trips >= 5:
+            score += 10
+        elif recent_trips >= 3:
+            score += 7
+        elif recent_trips >= 1:
+            score += 3
 
     # 6. Attendance (5 pts max) — missed votes ratio
     votes = detail.get("votes", []) or []
@@ -345,6 +372,66 @@ def update_flags(m):
         flags.append("donor")
 
     m["flags"]=flags
+
+# ─────────────────────────────────────────────────────────────
+# SUPABASE
+# ─────────────────────────────────────────────────────────────
+
+def supabase_update_finance(bid, m):
+    if not SUPABASE_URL or not SUPABASE_KEY:
+        return
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+    }
+    data = {
+        "score": m.get("score", 0),
+        "flags": m.get("flags", []),
+        "total_raised": float(m.get("total_raised", 0) or 0),
+        "pac_contributions": float(m.get("pac_contributions", 0) or 0),
+        "individual_contributions": float(m.get("individual_contributions", 0) or 0),
+        "corporate_insider_signals": m.get("corporate_insider_signals", 0) or 0,
+        "edgar_status": m.get("edgar_status", "unresolved"),
+        "edgar_cik": m.get("edgar_cik"),
+        "fec_candidate_id": m.get("fec_candidate_id"),
+        "data_updated": datetime.now().isoformat()
+    }
+    try:
+        r = requests.patch(
+            f"{SUPABASE_URL}/rest/v1/members?bioguide_id=eq.{bid}",
+            headers=headers,
+            json=data,
+            timeout=15
+        )
+        if r.status_code not in (200, 204):
+            print(f"  Supabase finance update failed: {r.status_code}")
+    except Exception as e:
+        print(f"  Supabase error: {e}")
+
+def supabase_update_stats():
+    if not SUPABASE_URL or not SUPABASE_KEY:
+        return
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "return=minimal"
+    }
+    try:
+        r = requests.post(
+            f"{SUPABASE_URL}/rest/v1/rpc/update_stats",
+            headers=headers,
+            json={},
+            timeout=15
+        )
+        if r.status_code in (200, 204):
+            print("Supabase stats updated")
+        else:
+            print(f"Supabase stats update failed: {r.status_code}")
+    except Exception as e:
+        print(f"Supabase stats error: {e}")
 
 # ─────────────────────────────────────────────────────────────
 # MAIN
@@ -402,6 +489,11 @@ if __name__=="__main__":
 
         save_detail(bid,detail_data)
 
+        try:
+            supabase_update_finance(bid, m)
+        except Exception as e:
+            print(f"  Supabase finance error for {bid}: {e}")
+
         light={k:v for k,v in m.items() if k in LIGHT_FIELDS}
         leaderboard.append(light)
 
@@ -433,5 +525,10 @@ if __name__=="__main__":
         "last_updated": datetime.now().isoformat()
     }
     save_json("data/stats.json", stats)
+
+    try:
+        supabase_update_stats()
+    except Exception as e:
+        print(f"Supabase stats error: {e}")
 
     print(f"✓ Production v3.5 Complete — {scored}/{len(final_members)} members scored")

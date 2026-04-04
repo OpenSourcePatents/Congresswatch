@@ -1,38 +1,29 @@
-name: Fetch Congress Data
-
+name: Fetch House Foreign Travel
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 1 * * *'
-
+    - cron: '0 9 * * *'
 jobs:
   fetch:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - run: pip install requests
-
-      - name: Run fetcher
+      - name: Run travel fetcher
         env:
-          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: python fetch.py
-
+        run: python fetch_travel.py
       - name: Save data
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
-          git add data/members.json
-          git diff --staged --quiet && echo "No changes" && exit 0
-          git commit -m "Update members.json $(date -u '+%Y-%m-%d')"
-          git pull --rebase
+          git add data/members.json data/details/
+          git diff --staged --quiet || git commit -m "Update House travel data [$(date +%Y-%m-%d)]"
+          git pull --rebase origin main
           git push

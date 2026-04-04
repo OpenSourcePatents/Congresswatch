@@ -457,6 +457,10 @@ window.addEventListener('popstate', function(e) {
   }
 });
 
+const SUPABASE_URL = 'https://ufrsumaylshtikwociwp.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcnN1bWF5bHNodGlrd29jaXdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODcyMzksImV4cCI6MjA5MDg2MzIzOX0.TgFsjsvM-nbSKh0yBJOILosdNHZbx98Cng5VKIK1-N8';
+const SB_HEADERS = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` };
+
 let allMembers = [], filtered = [], currentMember = null;
 let filters = { chamber:'all', party:'all', score:'all', search:'', sort:'score-desc' };
 
@@ -537,28 +541,53 @@ function hasRealData(m) {
   return (m.score && m.score > 0) || (m.total_raised && m.total_raised > 0) || (m.corporate_insider_signals && m.corporate_insider_signals > 0);
 }
 
+function mapMember(m) {
+  const score = computeScore(m);
+  let chamber = (m.chamber || m.terms?.[0]?.chamber || '').trim();
+  const cl = chamber.toLowerCase();
+  if (cl === 'senate' || cl === 'senator' || cl === 's' || cl === 'upper') chamber = 'Senate';
+  else if (cl === 'house' || cl === 'representative' || cl === 'h' || cl === 'lower' || cl === 'house of representatives') chamber = 'House';
+  else { const dist = String(m.district || '').trim(); chamber = (dist && dist !== '0') ? 'House' : 'Senate'; }
+  let party = (m.party || '').trim();
+  const pl = party.toLowerCase();
+  if (pl.includes('democrat') || pl === 'd') party = 'Democratic';
+  else if (pl.includes('republican') || pl === 'r') party = 'Republican';
+  else if (pl.includes('independent') || pl === 'i') party = 'Independent';
+  return { ...m, id: m.id || m.bioguide_id, chamber, party, displayScore: score,
+    photo: m.photo_url || photoUrl(m.id || m.bioguide_id),
+    partyC: partyColor(party), partyS: partyShort(party),
+    careerEarnings: computeCareerEarnings(m), netWorth: getNetWorth(m) };
+}
+
 async function loadData() {
   try {
-    const res = await fetch('data/members.json');
-    if (!res.ok) throw new Error('no data');
-    const raw = await res.json();
-    allMembers = raw.map(m => {
-      const score = computeScore(m);
-      let chamber = (m.chamber || m.terms?.[0]?.chamber || '').trim();
-      const cl = chamber.toLowerCase();
-      if (cl === 'senate' || cl === 'senator' || cl === 's' || cl === 'upper') chamber = 'Senate';
-      else if (cl === 'house' || cl === 'representative' || cl === 'h' || cl === 'lower' || cl === 'house of representatives') chamber = 'House';
-      else { const dist = String(m.district || '').trim(); chamber = (dist && dist !== '0') ? 'House' : 'Senate'; }
-      let party = (m.party || '').trim();
-      const pl = party.toLowerCase();
-      if (pl.includes('democrat') || pl === 'd') party = 'Democratic';
-      else if (pl.includes('republican') || pl === 'r') party = 'Republican';
-      else if (pl.includes('independent') || pl === 'i') party = 'Independent';
-      return { ...m, chamber, party, displayScore: score,
-        photo: m.photo_url || photoUrl(m.id || m.bioguide_id),
-        partyC: partyColor(party), partyS: partyShort(party),
-        careerEarnings: computeCareerEarnings(m), netWorth: getNetWorth(m) };
-    });
+    let raw = [];
+
+    // Try Supabase first
+    try {
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/members?select=*&order=score.desc.nullslast`, {
+        headers: SB_HEADERS
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.length > 0) {
+          raw = data.map(m => ({ ...m, id: m.bioguide_id }));
+          console.log('Loaded from Supabase:', raw.length);
+        }
+      }
+    } catch(e) {
+      console.warn('Supabase fetch failed, falling back to JSON:', e);
+    }
+
+    // Fallback to JSON if Supabase returned nothing
+    if (raw.length === 0) {
+      const res = await fetch('data/members.json');
+      if (!res.ok) throw new Error('no data');
+      raw = await res.json();
+      console.log('Loaded from JSON fallback:', raw.length);
+    }
+
+    allMembers = raw.map(mapMember);
     updateStats(); updateCoverage(); applyFilters(); renderSidebar();
   } catch(e) { loadDemo(); }
 }
@@ -655,7 +684,8 @@ function renderGrid() {
     const showInsider = (m.corporate_insider_signals||0) > 0;
     const showDonor = (m.total_raised||0) > 0;
     const showBill = (m.alec_match_count||0) > 0;
-    const pending = !hasRealData(m);
+    const showTrades = (m.trade_count||0) > 0;
+    const pending = !hasRealData(m) && !showTrades;
     card.innerHTML = `
       <div class="party-stripe" style="background:${m.partyC}"></div>
       <img class="grid-photo" src="${m.photo}" alt="${m.name}"
@@ -665,6 +695,7 @@ function renderGrid() {
         <div class="grid-name">${m.name}</div>
         <div class="grid-meta">${m.partyS} · ${m.chamber} ${dist}</div>
         <div class="grid-tags">
+          ${showTrades?'<span class="grid-tag" style="background:#0a2010;color:#00ff88">TRADES</span>':''}
           ${showInsider?'<span class="grid-tag" style="background:#3a0a0a;color:#ff6b6b">INSIDER</span>':''}
           ${showDonor?'<span class="grid-tag" style="background:#2a1500;color:#ffaa00">DONOR</span>':''}
           ${showBill?'<span class="grid-tag" style="background:#0a1520;color:#00d4ff">BILL</span>':''}
@@ -766,35 +797,94 @@ async function openProfile(m) {
   setTimeout(() => drawSalaryChart('nw-canvas', startYear), 200);
   document.getElementById('content').scrollTop = 0;
 
-  // ── Fetch vault file in background ──
+  // ── Fetch vault data: Supabase first, JSON fallback ──
   if (bid) {
+    let gotDeepData = false;
+
+    // Try Supabase for votes and bills
     try {
-      const res = await fetch(`data/details/${bid}.json`);
-      if (res.ok) {
-        const deep = await res.json();
+      const [votesRes, billsRes] = await Promise.all([
+        fetch(`${SUPABASE_URL}/rest/v1/votes?bioguide_id=eq.${bid}&order=date.desc&limit=100`, { headers: SB_HEADERS }),
+        fetch(`${SUPABASE_URL}/rest/v1/bills?bioguide_id=eq.${bid}&order=introduced_date.desc`, { headers: SB_HEADERS })
+      ]);
+      const sbVotes = votesRes.ok ? await votesRes.json() : [];
+      const sbBills = billsRes.ok ? await billsRes.json() : [];
+
+      if (sbVotes.length > 0 || sbBills.length > 0) {
+        // Map Supabase votes to frontend format
+        const mappedVotes = sbVotes.map(v => ({
+          bill: v.question || '',
+          question_text: v.description || '',
+          date: v.date || '',
+          position: v.position || '',
+          result: v.result || '',
+          chamber: v.chamber || '',
+          url: v.url || ''
+        }));
+        // Map Supabase bills to frontend format
+        const mappedBills = sbBills.map(b => ({
+          bill_id: b.bill_id || '',
+          title: b.title || '',
+          type: b.bill_type || '',
+          number: b.bill_number || '',
+          introduced_date: b.introduced_date || '',
+          latest_action: b.latest_action || '',
+          url: b.url || '',
+          alec_match: (b.alec_similarity_score || 0) > 0 ? {
+            similarity_score: b.alec_similarity_score,
+            matched_model: b.alec_matched_model || '',
+            category: b.alec_category || '',
+            source_url: b.alec_source_url || ''
+          } : null,
+          donor_interest: {
+            match: b.donor_interest_match || false,
+            matched_industries: (b.donor_interest_reason || '').split(', ').filter(Boolean),
+            keyword_hits: {}
+          },
+          similar_member_bills: [],
+          cosponsors: []
+        }));
         currentMember = {
           ...currentMember,
-          ...deep,
-          displayScore: s,
-          photo: m.photo,
-          partyC: m.partyC,
-          partyS: m.partyS,
-          careerEarnings: m.careerEarnings,
-          netWorth: getNetWorth(deep) || m.netWorth,
+          votes: mappedVotes,
+          bills: mappedBills,
+          displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
+          careerEarnings: m.careerEarnings, netWorth: m.netWorth,
         };
-        renderOverview(currentMember, s, cumSalary);
-        fillVotes(currentMember, s);
-        fillFinance(currentMember, s, cumSalary);
-        fillStocks(currentMember, s);
-        fillPatterns(currentMember, s);
-        fillDonors(currentMember);
-        setTimeout(() => drawSalaryChart('nw-canvas', startYear), 100);
-      } else {
-        // Vault file missing — render votes with light data only
-        fillVotes(currentMember, s);
+        gotDeepData = true;
+        console.log(`Supabase vault: ${sbVotes.length} votes, ${sbBills.length} bills`);
       }
     } catch(e) {
-      console.warn('Vault fetch failed:', e);
+      console.warn('Supabase detail fetch failed, trying JSON vault:', e);
+    }
+
+    // Fallback to JSON vault file
+    if (!gotDeepData) {
+      try {
+        const res = await fetch(`data/details/${bid}.json`);
+        if (res.ok) {
+          const deep = await res.json();
+          currentMember = {
+            ...currentMember, ...deep,
+            displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
+            careerEarnings: m.careerEarnings, netWorth: getNetWorth(deep) || m.netWorth,
+          };
+          gotDeepData = true;
+        }
+      } catch(e) {
+        console.warn('JSON vault fetch also failed:', e);
+      }
+    }
+
+    if (gotDeepData) {
+      renderOverview(currentMember, s, cumSalary);
+      fillVotes(currentMember, s);
+      fillFinance(currentMember, s, cumSalary);
+      fillStocks(currentMember, s);
+      fillPatterns(currentMember, s);
+      fillDonors(currentMember);
+      setTimeout(() => drawSalaryChart('nw-canvas', startYear), 100);
+    } else {
       fillVotes(currentMember, s);
     }
   } else {
@@ -1073,15 +1163,51 @@ function fillStocks(m, s) {
   const edgarStatus = m.edgar_status || 'unresolved';
   const cik = m.edgar_cik;
   const chamber = (m.chamber||'').toLowerCase();
+  const trades = m.trades || [];
   let html = '';
 
+  // ── Trade table (from PTR pipeline) ──
+  if (trades.length > 0) {
+    html += `
+    <div class="sec-header" style="margin-bottom:0.8rem">
+      <div class="sec-title">STOCK TRADES (PTR DISCLOSURES)</div>
+      <div class="sec-badge">${trades.length} TRADES</div>
+    </div>
+    <table class="data-table">
+      <thead><tr>
+        <th>Date</th><th>Ticker</th><th>Type</th><th>Amount</th><th>Asset</th><th>Owner</th>
+      </tr></thead>
+      <tbody>`;
+    trades.slice(0, 50).forEach(t => {
+      const tp = (t.type||'').toLowerCase();
+      const typeColor = tp.includes('purchase') ? '#00ff88' : tp.includes('sale') ? '#ff3c00' : '#e8ff00';
+      const typeLabel = tp.includes('purchase') ? 'BUY' : tp.includes('sale') ? 'SELL' : (t.type||'\u2014').toUpperCase();
+      const ticker = t.ticker || '\u2014';
+      const tickerStyle = ticker !== '\u2014' ? 'color:#e8ff00;font-weight:600' : 'color:#666';
+      html += `<tr>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${t.transaction_date||'\u2014'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;${tickerStyle}">${ticker}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${typeColor};font-weight:600">${typeLabel}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${t.amount||'\u2014'}</td>
+        <td style="font-size:0.7rem;max-width:180px;line-height:1.3">${(t.asset_description||'').slice(0,60)}${(t.asset_description||'').length>60?'\u2026':''}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:#888">${t.owner||'\u2014'}</td>
+      </tr>`;
+    });
+    html += `</tbody></table>`;
+    if (trades.length > 50) {
+      html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:#666;margin-bottom:1rem">Showing 50 of ${trades.length} trades</div>`;
+    }
+    html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:#444;margin-bottom:1.2rem">Source: Senate eFD / PTR Disclosures</div>`;
+  }
+
+  // ── EDGAR signals ──
   if (tc > 0) {
     html += `
     <div class="alert-box warn">
       <div class="alert-icon">\u26A0</div>
       <div>
         <div class="alert-title">CORPORATE INSIDER SIGNALS DETECTED</div>
-        <div class="alert-body"><code>${tc}</code> Form 4 filing${tc>1?'s':''} detected \u2014 periodic transaction reports pending full pipeline.</div>
+        <div class="alert-body"><code>${tc}</code> Form 4 filing${tc>1?'s':''} detected via SEC EDGAR.</div>
       </div>
     </div>`;
   }
@@ -1093,14 +1219,9 @@ function fillStocks(m, s) {
       <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#e8e8e8;margin-bottom:8px">SEC EDGAR CIK: <code>${cik}</code> &mdash; Status: ${edgarStatus}</div>
       <a href="${edgarUrl}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View on SEC EDGAR \u2192</a>
     </div>`;
-  } else {
-    html += `
-    <div style="background:#111111;border:1px solid #2a2a2a;padding:1rem;margin-bottom:1rem">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#666666">SEC EDGAR profile not yet matched for this member.</div>
-    </div>`;
   }
 
-  // PTR pipeline note
+  // PTR source links
   const ptrUrl = chamber.includes('house')
     ? 'https://disclosures.house.gov/public_disc/ptr-pdfs/'
     : 'https://efts.sec.gov/LATEST/search-index?q=%22periodic+transaction%22&dateRange=custom';
@@ -1110,14 +1231,14 @@ function fillStocks(m, s) {
       <div class="alert-icon">\u2139</div>
       <div>
         <div class="alert-title">PERIODIC TRANSACTION REPORTS (PTR)</div>
-        <div class="alert-body">Detailed trade history via House/Senate PTR disclosures \u2014 pipeline in development.<br>
+        <div class="alert-body">${trades.length > 0 ? 'Trade data sourced from Senate PTR disclosures.' : 'Detailed trade history via House/Senate PTR disclosures.'}<br>
           <a href="${ptrUrl}" target="_blank" style="color:#00d4ff;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:0.65rem">View raw ${ptrSource} disclosures \u2192</a>
         </div>
       </div>
     </div>`;
 
-  if (tc === 0) {
-    html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#666666;padding:0.5rem 0">No corporate insider signals found in current EDGAR search.</div>`;
+  if (trades.length === 0 && tc === 0) {
+    html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#666666;padding:0.5rem 0">No stock trades or corporate insider signals found in current data.</div>`;
   }
 
   document.getElementById('pf-stocks-content').innerHTML = html;
@@ -1130,24 +1251,53 @@ function fillTravel(m) {
     ? 'https://clerk.house.gov/public_disc/travel/'
     : 'https://www.senate.gov/legislative/travel_disclosures.htm';
   const chamberLabel = isHouse ? 'House' : 'Senate';
-  document.getElementById('pf-travel-content').innerHTML = `
+  const trips = m.travel || [];
+  let html = '';
+
+  html += `
     <div class="sec-header" style="margin-bottom:0.8rem">
       <div class="sec-title">FOREIGN TRAVEL DISCLOSURES</div>
-      <div class="sec-badge">${chamberLabel.toUpperCase()}</div>
-    </div>
+      <div class="sec-badge">${trips.length > 0 ? trips.length + ' TRIPS' : chamberLabel.toUpperCase()}</div>
+    </div>`;
+
+  if (trips.length > 0) {
+    html += `
+    <table class="data-table">
+      <thead><tr>
+        <th>Destination</th><th>Departure</th><th>Return</th><th>Sponsor</th><th>Cost</th>
+      </tr></thead>
+      <tbody>`;
+    trips.forEach(t => {
+      html += `<tr>
+        <td style="font-weight:600">${t.destination_country||'\u2014'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${t.departure_date||'\u2014'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${t.return_date||'\u2014'}</td>
+        <td style="font-size:0.72rem;color:#aaa">${t.sponsor||'\u2014'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${t.total_cost ? '$'+t.total_cost : '\u2014'}</td>
+      </tr>`;
+    });
+    html += `</tbody></table>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:#444;margin-bottom:1.2rem">Source: ${chamberLabel} Clerk Foreign Travel Disclosures</div>`;
+  } else {
+    html += `
     <div class="alert-box info">
       <div class="alert-icon">\u2139</div>
       <div>
         <div class="alert-title">CONGRESSIONAL FOREIGN TRAVEL (CODEL) DISCLOSURES</div>
-        <div class="alert-body">This tab will show funded trips by foreign-connected entities, privately funded travel, and gifts reported under House/Senate ethics rules.<br><br>
+        <div class="alert-body">Funded trips by foreign-connected entities, privately funded travel, and gifts reported under ${chamberLabel} ethics rules.<br><br>
           Automated parsing of travel disclosures coming in a future update.
         </div>
       </div>
-    </div>
+    </div>`;
+  }
+
+  html += `
     <div style="background:#111111;border:1px solid #2a2a2a;padding:1rem;margin-top:1rem">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#e8e8e8;margin-bottom:8px">${chamberLabel} Travel Disclosure Database</div>
       <a href="${travelUrl}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View ${chamberLabel} travel disclosures \u2192</a>
     </div>`;
+
+  document.getElementById('pf-travel-content').innerHTML = html;
 }
 
 function fillPatterns(m, s) {

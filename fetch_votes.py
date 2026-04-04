@@ -16,6 +16,8 @@ from urllib.parse import urlencode
 
 MEMBERS_FILE = 'data/members.json'
 DETAILS_DIR = 'data/details'
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 os.makedirs(DETAILS_DIR, exist_ok=True)
 
@@ -128,6 +130,47 @@ def format_vote(v):
         'url': url
     }
 
+# ─── SUPABASE ────────────────────────────────────────────────────────────────
+
+def supabase_upsert_votes(bid, votes):
+    if not SUPABASE_URL or not SUPABASE_KEY or not votes:
+        return
+    headers = {
+        "apikey": SUPABASE_KEY,
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates"
+    }
+    rows = []
+    for v in votes:
+        # Build a unique vote_id from url or date+bill
+        vote_url = v.get('url', '')
+        vote_id = vote_url.split('/')[-1] if vote_url else f"{bid}_{v.get('date','')}_{hash(v.get('bill',''))}"
+        rows.append({
+            "bioguide_id": bid,
+            "vote_id": vote_id,
+            "chamber": v.get('chamber', ''),
+            "question": v.get('bill', ''),
+            "description": v.get('question_text', ''),
+            "date": v.get('date', ''),
+            "position": v.get('position', ''),
+            "result": v.get('result', ''),
+            "url": vote_url
+        })
+    for i in range(0, len(rows), 100):
+        chunk = rows[i:i+100]
+        try:
+            r = requests.post(
+                f"{SUPABASE_URL}/rest/v1/votes",
+                headers=headers,
+                json=chunk,
+                timeout=30
+            )
+            if r.status_code not in (200, 201):
+                print(f"    Supabase votes batch {i}: {r.status_code} {r.text[:200]}")
+        except Exception as e:
+            print(f"    Supabase votes error: {e}")
+
 # ─── MAIN ────────────────────────────────────────────────────────────────────
 
 if __name__ == '__main__':
@@ -191,6 +234,11 @@ if __name__ == '__main__':
         detail_data['govtrack_id'] = gt_id
         detail_data['votes_updated'] = datetime.now().isoformat()
         save_detail(bid, detail_data)
+
+        try:
+            supabase_upsert_votes(bid, votes)
+        except Exception as e:
+            print(f'    Supabase votes error: {e}')
 
         print(f'    {len(votes)} votes saved')
         success += 1
