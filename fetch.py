@@ -110,9 +110,7 @@ def normalize(m):
         "chamber": chamber,
         "photo_url": photo_url(bid),
         "term_start": get_term_start(m),
-        "score": 0,
-        "flags": [],
-        "updated": datetime.now().isoformat(),
+        "data_updated": datetime.now().isoformat(),
     }
 
 
@@ -144,6 +142,9 @@ def fetch_all():
     return results
 
 
+BASE_FIELDS = {"name", "party", "state", "district", "chamber", "photo_url", "term_start", "data_updated"}
+
+
 if __name__ == "__main__":
     print("Fetching members...")
     raw = fetch_all()
@@ -155,7 +156,31 @@ if __name__ == "__main__":
         if bid and bid not in seen:
             seen[bid] = normalize(m)
 
-    all_members = list(seen.values())
+    # Load existing members.json to preserve finance/pipeline fields
+    existing_by_id = {}
+    try:
+        with open("data/members.json") as f:
+            for em in json.load(f):
+                eid = em.get("id", "")
+                if eid:
+                    existing_by_id[eid] = em
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+
+    # Merge: update only base Congress.gov fields, preserve everything else
+    all_members = []
+    for bid, new_entry in seen.items():
+        if bid in existing_by_id:
+            merged = existing_by_id[bid]
+            for field in BASE_FIELDS:
+                if field in new_entry:
+                    merged[field] = new_entry[field]
+            # Ensure id is set
+            merged["id"] = bid
+            all_members.append(merged)
+        else:
+            all_members.append(new_entry)
+
     s = sum(1 for m in all_members if m["chamber"] == "Senate")
     h = sum(1 for m in all_members if m["chamber"] == "House")
 
