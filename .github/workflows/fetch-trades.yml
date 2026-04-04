@@ -13,12 +13,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install requests
-      - name: Run trade fetcher
+      - run: pip install requests beautifulsoup4
+      - name: Run Senate eFD scraper
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: python fetch_trades.py
+        run: python fetch_senate_efd.py
       - name: Save data
         run: |
           git config --global user.name "bot"

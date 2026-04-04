@@ -3,7 +3,10 @@
     "allow": [
       "Bash(python -c \":*)",
       "Bash(where python:*)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Bash(grep -l '\"trades\"' /c/Users/cjdow/Congresswatch/data/details/*.json)",
+      "Bash(python3:*)",
+      "Bash(grep -l \"transaction_date\" /c/Users/cjdow/Congresswatch/data/details/*.json)"
     ]
   },
   "outputStyle": "Explanatory"
