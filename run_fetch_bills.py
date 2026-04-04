@@ -216,6 +216,18 @@ def main():
 
     # Load bills cache (incremental — only fetch changed bills)
     bills_cache = load_json(BILLS_CACHE, {})
+
+    # Strip raw_text from cache to keep file size under GitHub limits.
+    # raw_text (often raw PDF bytes) is only needed to generate cleaned_text.
+    # Once cleaned_text exists, raw_text is dead weight.
+    stripped = 0
+    for _bid in bills_cache:
+        if "raw_text" in bills_cache[_bid]:
+            del bills_cache[_bid]["raw_text"]
+            stripped += 1
+    if stripped:
+        print(f"  [CACHE] Stripped raw_text from {stripped} bills (size reduction)")
+
     print(f"Bills cache: {len(bills_cache)} existing bills")
 
     # Build similarity engine from existing cache
@@ -262,12 +274,11 @@ def main():
         for stub in stubs:
             bill_id = stub["bill_id"]
 
-            # Check cache — skip if text unchanged
+            # Check cache — skip if already processed (has cleaned_text)
             cached = bills_cache.get(bill_id, {})
-            raw_text = cached.get("raw_text", "")
-            cached_hash = cached.get("text_hash", "")
+            cached_clean = cached.get("cleaned_text", "")
 
-            if not raw_text:
+            if not cached_clean:
                 # Fetch fresh text
                 raw_text = fetch_bill_text(stub, legiscan_budget)
                 stats["bills_fetched"] += 1
@@ -284,7 +295,6 @@ def main():
                         "url":          stub["url"],
                         "introduced_date": stub.get("introduced_date", ""),
                         "latest_action": stub.get("latest_action", ""),
-                        "raw_text":     raw_text,
                         "cleaned_text": cleaned,
                         "text_hash":    new_hash,
                         "keywords":     extract_keywords(cleaned),

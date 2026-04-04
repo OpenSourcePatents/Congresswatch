@@ -20,6 +20,14 @@ jobs:
       - name: Install dependencies
         run: pip install requests scikit-learn numpy
 
+      - name: Restore bills cache
+        uses: actions/cache@v4
+        with:
+          path: data/bills/all_bills.json
+          key: bills-cache-${{ github.run_number }}
+          restore-keys: |
+            bills-cache-
+
       - name: Run bill similarity engine
         env:
           CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
@@ -32,7 +40,7 @@ jobs:
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
-          git add data/details/ data/bills/
+          git add data/details/
           git diff --staged --quiet || git commit -m "Update bill similarity data"
           git pull --rebase origin main
           git push
