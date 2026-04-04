@@ -43,7 +43,12 @@ from datetime import datetime
 
 SENATE_TRADES_URL = (
     "https://raw.githubusercontent.com/timothycarambat/"
-    "senate-stock-watcher-data/master/data/aggregate/"
+    "senate-stock-watcher-data/master/aggregate/"
+    "all_transactions_for_senators.json"
+)
+SENATE_TRADES_API_URL = (
+    "https://api.github.com/repos/timothycarambat/"
+    "senate-stock-watcher-data/contents/aggregate/"
     "all_transactions_for_senators.json"
 )
 
@@ -146,15 +151,47 @@ if __name__ == "__main__":
     senators = [m for m in members if (m.get("chamber", "") or "").lower() == "senate"]
     print(f"Loaded {len(members)} members, {len(senators)} senators")
 
-    # Download Senate trade data
-    print(f"\nFetching Senate trade data from GitHub...")
+    # Download Senate trade data (raw URL first, GitHub API fallback)
+    senate_data = None
+
+    print(f"\nFetching Senate trade data from GitHub raw...")
     try:
         r = requests.get(SENATE_TRADES_URL, headers=HEADERS, timeout=60)
-        r.raise_for_status()
-        senate_data = r.json()
-        print(f"Downloaded {len(senate_data)} senator trade records")
+        if r.status_code == 200:
+            senate_data = r.json()
+            print(f"Downloaded {len(senate_data)} senator trade records (raw)")
+        else:
+            print(f"  Raw URL returned {r.status_code}, trying API fallback...")
     except Exception as e:
-        print(f"ERROR: Could not fetch Senate trade data: {e}")
+        print(f"  Raw URL failed ({e}), trying API fallback...")
+
+    if senate_data is None:
+        import base64
+        print(f"Fetching via GitHub API...")
+        try:
+            r = requests.get(SENATE_TRADES_API_URL, headers=HEADERS, timeout=60)
+            r.raise_for_status()
+            api_resp = r.json()
+
+            if "content" in api_resp and api_resp.get("encoding") == "base64":
+                # File small enough to be inline base64
+                raw = base64.b64decode(api_resp["content"])
+                senate_data = json.loads(raw)
+                print(f"Downloaded {len(senate_data)} senator trade records (API base64)")
+            elif "download_url" in api_resp and api_resp["download_url"]:
+                # File too large for inline — use the download_url
+                print(f"  File too large for API inline, using download_url...")
+                dr = requests.get(api_resp["download_url"], headers=HEADERS, timeout=120)
+                dr.raise_for_status()
+                senate_data = dr.json()
+                print(f"Downloaded {len(senate_data)} senator trade records (download_url)")
+            else:
+                print(f"ERROR: Unexpected API response: {str(api_resp)[:300]}")
+        except Exception as e:
+            print(f"ERROR: GitHub API fallback also failed: {e}")
+
+    if not senate_data:
+        print("ERROR: Could not fetch Senate trade data from any source")
         exit(1)
 
     # Build lookup by normalized last name
