@@ -43,7 +43,7 @@ from datetime import datetime
 
 SENATE_TRADES_URL = (
     "https://raw.githubusercontent.com/timothycarambat/"
-    "senate-stock-watcher-data/main/data/aggregate/"
+    "senate-stock-watcher-data/master/data/aggregate/"
     "all_transactions_for_senators.json"
 )
 
