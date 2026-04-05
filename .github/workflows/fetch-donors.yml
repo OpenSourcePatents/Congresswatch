@@ -1,8 +1,8 @@
-name: Fetch House Foreign Travel
+name: Fetch FEC Donor Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 9 * * *'
+    - cron: '0 11 * * *'
 jobs:
   fetch:
     runs-on: ubuntu-latest
@@ -13,17 +13,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: pip install requests beautifulsoup4 pdfplumber
-      - name: Run travel PDF scraper
+      - run: pip install requests
+      - name: Run FEC donor fetcher
         env:
+          FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
-        run: python fetch_travel_pdf.py
+        run: python fetch_donors.py
       - name: Save data
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
-          git add data/members.json data/details/
-          git diff --staged --quiet || git commit -m "Update House travel data [$(date +%Y-%m-%d)]"
+          git add data/details/
+          git diff --staged --quiet || git commit -m "Update FEC donor data [$(date +%Y-%m-%d)]"
           git pull --rebase origin main
           git push

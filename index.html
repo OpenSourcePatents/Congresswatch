@@ -803,14 +803,20 @@ async function openProfile(m) {
 
     // Try Supabase for votes and bills
     try {
-      const [votesRes, billsRes] = await Promise.all([
+      const [votesRes, billsRes, tradesRes, travelRes, donorsRes] = await Promise.all([
         fetch(`${SUPABASE_URL}/rest/v1/votes?bioguide_id=eq.${bid}&order=date.desc&limit=100`, { headers: SB_HEADERS }),
-        fetch(`${SUPABASE_URL}/rest/v1/bills?bioguide_id=eq.${bid}&order=introduced_date.desc`, { headers: SB_HEADERS })
+        fetch(`${SUPABASE_URL}/rest/v1/bills?bioguide_id=eq.${bid}&order=introduced_date.desc`, { headers: SB_HEADERS }),
+        fetch(`${SUPABASE_URL}/rest/v1/trades?bioguide_id=eq.${bid}&order=transaction_date.desc&limit=50`, { headers: SB_HEADERS }),
+        fetch(`${SUPABASE_URL}/rest/v1/travel?bioguide_id=eq.${bid}&order=departure_date.desc`, { headers: SB_HEADERS }),
+        fetch(`${SUPABASE_URL}/rest/v1/donors?bioguide_id=eq.${bid}&order=amount.desc&limit=20`, { headers: SB_HEADERS })
       ]);
       const sbVotes = votesRes.ok ? await votesRes.json() : [];
       const sbBills = billsRes.ok ? await billsRes.json() : [];
+      const sbTrades = tradesRes.ok ? await tradesRes.json() : [];
+      const sbTravel = travelRes.ok ? await travelRes.json() : [];
+      const sbDonors = donorsRes.ok ? await donorsRes.json() : [];
 
-      if (sbVotes.length > 0 || sbBills.length > 0) {
+      if (sbVotes.length > 0 || sbBills.length > 0 || sbTrades.length > 0 || sbTravel.length > 0 || sbDonors.length > 0) {
         // Map Supabase votes to frontend format
         const mappedVotes = sbVotes.map(v => ({
           bill: v.question || '',
@@ -844,15 +850,46 @@ async function openProfile(m) {
           similar_member_bills: [],
           cosponsors: []
         }));
+        // Map Supabase trades to frontend format
+        const mappedTrades = sbTrades.map(t => ({
+          transaction_date: t.transaction_date || '',
+          ticker: t.ticker || '',
+          asset_description: t.asset_description || '',
+          asset_type: t.asset_type || '',
+          type: t.trade_type || '',
+          amount: t.amount_range || '',
+          owner: t.owner || '',
+          ptr_link: t.ptr_link || ''
+        }));
+        // Map Supabase travel to frontend format
+        const mappedTravel = sbTravel.map(t => ({
+          destination_country: t.destination_country || '',
+          departure_date: t.departure_date || '',
+          return_date: t.return_date || '',
+          sponsor: t.sponsor || '',
+          total_cost: t.total_cost || '',
+          currency: t.currency || 'USD'
+        }));
+        // Map Supabase donors to frontend format
+        const mappedDonors = sbDonors.map(d => ({
+          name: d.contributor_name || '',
+          employer: d.contributor_employer || '',
+          occupation: d.contributor_occupation || '',
+          amount: d.amount || 0,
+          date: d.date || ''
+        }));
         currentMember = {
           ...currentMember,
           votes: mappedVotes,
           bills: mappedBills,
+          trades: mappedTrades.length > 0 ? mappedTrades : currentMember.trades,
+          travel: mappedTravel.length > 0 ? mappedTravel : currentMember.travel,
+          top_donors_list: mappedDonors.length > 0 ? mappedDonors : currentMember.top_donors_list,
           displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
           careerEarnings: m.careerEarnings, netWorth: m.netWorth,
         };
         gotDeepData = true;
-        console.log(`Supabase vault: ${sbVotes.length} votes, ${sbBills.length} bills`);
+        console.log(`Supabase vault: ${sbVotes.length} votes, ${sbBills.length} bills, ${sbTrades.length} trades, ${sbTravel.length} travel, ${sbDonors.length} donors`);
       }
     } catch(e) {
       console.warn('Supabase detail fetch failed, trying JSON vault:', e);
@@ -881,6 +918,7 @@ async function openProfile(m) {
       fillVotes(currentMember, s);
       fillFinance(currentMember, s, cumSalary);
       fillStocks(currentMember, s);
+      fillTravel(currentMember);
       fillPatterns(currentMember, s);
       fillDonors(currentMember);
       setTimeout(() => drawSalaryChart('nw-canvas', startYear), 100);
