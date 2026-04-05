@@ -234,6 +234,14 @@ if __name__ == "__main__":
 
     print("Total: " + str(len(all_members)) + " | Senate: " + str(s) + " | House: " + str(h))
 
+    # Safety check: never write an empty or suspiciously small member list.
+    # Congress has 535+ voting members; anything below 400 means the API
+    # fetch failed or returned partial data. Preserve the existing file.
+    if len(all_members) < 400:
+        print(f"ABORT: Only {len(all_members)} members — refusing to overwrite "
+              f"members.json (expected 535+). API may be down or key missing.")
+        exit(1)
+
     with open("data/members.json", "w") as f:
         json.dump(all_members, f, indent=2)
 

@@ -7,7 +7,8 @@
       "Bash(grep -l '\"trades\"' /c/Users/cjdow/Congresswatch/data/details/*.json)",
       "Bash(python3:*)",
       "Bash(grep -l \"transaction_date\" /c/Users/cjdow/Congresswatch/data/details/*.json)",
-      "Bash(grep -l '\"travel\":' \"C:\\\\Users\\\\cjdow\\\\Congresswatch\\\\data\\\\details\"/*.json)"
+      "Bash(grep -l '\"travel\":' \"C:\\\\Users\\\\cjdow\\\\Congresswatch\\\\data\\\\details\"/*.json)",
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('data/members.json'\\)\\);console.log\\('Restored:',d.length,'members'\\)\")"
     ]
   },
   "outputStyle": "Explanatory"
