@@ -209,20 +209,46 @@
   "bills": [
     {
       "bill_id": "HR7846-119",
-      "title": "To amend title 18, United States Code, to establish a criminal penalty for obstructing immigration enforcement activities.",
+      "title": "Halo Act",
       "type": "HR",
       "number": "7846",
       "congress": 119,
       "introduced_date": "2026-03-05",
       "latest_action": "Referred to the House Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/hr/7846?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "immigration",
+        "enforcement",
+        "federal",
+        "officer",
+        "obstructing",
+        "activities",
+        "code",
+        "penalty",
+        "criminal",
+        "harass",
+        "person",
+        "html",
+        "body",
+        "pre",
+        "government",
+        "introduced",
+        "establish",
+        "bill",
+        "adding",
+        "end"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "M001212",
+        "S001148",
+        "F000484",
+        "G000603"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -356,7 +382,8 @@
       "similar_member_bills": [],
       "cosponsors": [
         "D000530",
-        "M001231"
+        "M001231",
+        "C001126"
       ],
       "donor_interest": {
         "match": false,
@@ -445,9 +472,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR7611-119",
+          "sponsor_id": "F000484",
+          "similarity_score": 0.843
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -635,7 +668,7 @@
       }
     }
   ],
-  "bills_updated": "2026-03-11T08:23:46.963963+00:00",
+  "bills_updated": "2026-04-06T10:16:53.624234+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

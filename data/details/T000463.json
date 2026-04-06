@@ -208,6 +208,28 @@
   "last_updated": "2026-04-06T07:42:15.351675",
   "bills": [
     {
+      "bill_id": "HR8193-119",
+      "title": "To designate the facility of the United States Postal Service located at 189 East Main Street in Xenia, Ohio, as the \"Gilman 'Gil' Whitney Post Office Building\".",
+      "type": "HR",
+      "number": "8193",
+      "congress": 119,
+      "introduced_date": "2026-04-02",
+      "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8193?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HRES921-119",
       "title": "Recognizing the 30th anniversary of the Dayton Peace Accords.",
       "type": "HRES",
@@ -333,9 +355,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR7864-119",
+          "sponsor_id": "B001315",
+          "similarity_score": 0.89
+        }
+      ],
       "cosponsors": [
         "L000601"
       ],
@@ -449,7 +477,7 @@
       "number": "2164",
       "congress": 119,
       "introduced_date": "2025-03-14",
-      "latest_action": "Subcommittee Hearings Held",
+      "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
       "url": "https://api.congress.gov/v3/bill/119/hr/2164?format=json",
       "keywords": [
         "land",
@@ -624,31 +652,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "-118",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2024-04-12",
-      "latest_action": "On agreeing to the Turner amendment (A006) Agreed to by recorded vote: 236 - 186 (Roll no. 118).",
-      "url": "https://api.congress.gov/v3/amendment/118/hamdt/881?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-03-11T09:15:31.414616+00:00",
+  "bills_updated": "2026-04-06T11:18:16.143580+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

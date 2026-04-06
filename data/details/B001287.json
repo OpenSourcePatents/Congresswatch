@@ -201,6 +201,49 @@
   "last_updated": "2026-04-06T07:28:20.265231",
   "bills": [
     {
+      "bill_id": "HR7999-119",
+      "title": "Breakfast After the Bell Act of 2026",
+      "type": "HR",
+      "number": "7999",
+      "congress": 119,
+      "introduced_date": "2026-03-19",
+      "latest_action": "Referred to the House Committee on Education and Workforce.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/7999?format=json",
+      "keywords": [
+        "breakfast",
+        "school",
+        "bell",
+        "reimbursement",
+        "program",
+        "additional",
+        "educational",
+        "agency",
+        "richard",
+        "russell",
+        "national",
+        "lunch",
+        "state",
+        "served",
+        "year",
+        "students",
+        "html",
+        "body",
+        "pre",
+        "introduced"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HRES1036-119",
       "title": "Expressing support for the annual designation of the first Saturday after the Spring Equinox as ''National Day of Play''.",
       "type": "HRES",
@@ -233,9 +276,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES655-119",
+          "sponsor_id": "R000618",
+          "similarity_score": 0.955
+        }
+      ],
       "cosponsors": [
         "F000474"
       ],
@@ -284,7 +333,10 @@
       "cosponsors": [
         "B001298",
         "P000608",
-        "J000302"
+        "J000302",
+        "N000147",
+        "B000490",
+        "D000629"
       ],
       "donor_interest": {
         "match": false,
@@ -299,7 +351,7 @@
       "number": "6428",
       "congress": 119,
       "introduced_date": "2025-12-04",
-      "latest_action": "Referred to the House Committee on Foreign Affairs.",
+      "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 42 - 3.",
       "url": "https://api.congress.gov/v3/bill/119/hr/6428?format=json",
       "keywords": [
         "program",
@@ -639,63 +691,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HRES470-119",
-      "title": "Remembering the victims of the 1989 Tiananmen Square massacre and condemning the continued and intensifying crackdown on human rights and basic freedoms within the People's Republic of China, including the Hong Kong Special Administrative Region, by the Chinese Communist Party, and for other purposes.",
-      "type": "HRES",
-      "number": "470",
-      "congress": 119,
-      "introduced_date": "2025-06-04",
-      "latest_action": "Referred to the House Committee on Foreign Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/470?format=json",
-      "keywords": [
-        "hong",
-        "kong",
-        "government",
-        "tiananmen",
-        "china",
-        "people",
-        "square",
-        "prc",
-        "rights",
-        "national",
-        "human",
-        "june",
-        "massacre",
-        "peaceful",
-        "special",
-        "administrative",
-        "region",
-        "joint",
-        "declaration",
-        "hksar"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "K000397",
-        "M001219",
-        "S000168",
-        "N000147",
-        "R000600",
-        "M001196",
-        "K000391",
-        "W000795",
-        "S001224",
-        "M001218"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-03-11T08:53:13.753235+00:00",
+  "bills_updated": "2026-04-06T10:51:53.826376+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

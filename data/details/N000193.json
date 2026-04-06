@@ -201,6 +201,28 @@
   "last_updated": "2026-04-06T07:19:33.521033",
   "bills": [
     {
+      "bill_id": "HR8119-119",
+      "title": "To ensure coverage for the treatment of infertility for certain conditions.",
+      "type": "HR",
+      "number": "8119",
+      "congress": 119,
+      "introduced_date": "2026-03-26",
+      "latest_action": "Referred to the House Committee on Education and Workforce.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8119?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR7771-119",
       "title": "Agency Wide Resource Synchronization and Enterprise Network for Authoritative Logistics Act of 2026",
       "type": "HR",
@@ -368,9 +390,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES648-119",
+          "sponsor_id": "K000367",
+          "similarity_score": 0.829
+        }
+      ],
       "cosponsors": [
         "H001091",
         "F000446",
@@ -589,58 +617,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HR5482-119",
-      "title": "Prevent Youth Suicide Act",
-      "type": "HR",
-      "number": "5482",
-      "congress": 119,
-      "introduced_date": "2025-09-18",
-      "latest_action": "Referred to the House Committee on Education and Workforce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/5482?format=json",
-      "keywords": [
-        "suicide",
-        "trauma",
-        "secretary",
-        "education",
-        "rule",
-        "educational",
-        "students",
-        "prevention",
-        "postvention",
-        "agency",
-        "institution",
-        "informed",
-        "care",
-        "protocols",
-        "grade",
-        "school",
-        "based",
-        "include",
-        "staff",
-        "support"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "P000614",
-        "G000583",
-        "V000138",
-        "T000491",
-        "W000795"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-03-11T08:39:17.672729+00:00",
+  "bills_updated": "2026-04-06T10:35:08.636457+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

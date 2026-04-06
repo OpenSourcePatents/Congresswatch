@@ -208,6 +208,51 @@
   "last_updated": "2026-04-06T07:33:15.747116",
   "bills": [
     {
+      "bill_id": "HR7987-119",
+      "title": "CLIMB Act",
+      "type": "HR",
+      "number": "7987",
+      "congress": 119,
+      "introduced_date": "2026-03-18",
+      "latest_action": "Referred to the House Committee on Financial Services.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/7987?format=json",
+      "keywords": [
+        "cannabis",
+        "securities",
+        "business",
+        "services",
+        "related",
+        "legitimate",
+        "service",
+        "exchange",
+        "state",
+        "person",
+        "providing",
+        "product",
+        "assistance",
+        "national",
+        "provider",
+        "federal",
+        "provides",
+        "safe",
+        "harbor",
+        "businesses"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "C001125"
+      ],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR5282-119",
       "title": "Reauthorizing Support and Treatment for Officers in Crisis Act of 2025",
       "type": "HR",
@@ -240,9 +285,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4043-119",
+          "sponsor_id": "B001299",
+          "similarity_score": 0.842
+        }
+      ],
       "cosponsors": [
         "D000631",
         "F000466",
@@ -349,7 +400,8 @@
         "I000056",
         "B001322",
         "L000599",
-        "H001101"
+        "H001101",
+        "F000471"
       ],
       "donor_interest": {
         "match": false,
@@ -412,9 +464,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR4589-119",
+          "sponsor_id": "E000235",
+          "similarity_score": 0.802
+        }
+      ],
       "cosponsors": [
         "S001193",
         "H001067",
@@ -564,9 +622,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES1095-119",
+          "sponsor_id": "J000311",
+          "similarity_score": 0.896
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -611,19 +675,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "HRES580-119",
-          "sponsor_id": "J000311",
-          "similarity_score": 0.926
-        },
-        {
           "bill_id": "HRES992-119",
           "sponsor_id": "F000450",
-          "similarity_score": 0.907
+          "similarity_score": 0.924
+        },
+        {
+          "bill_id": "HRES458-119",
+          "sponsor_id": "F000470",
+          "similarity_score": 0.824
         },
         {
           "bill_id": "HRES1014-119",
           "sponsor_id": "F000450",
-          "similarity_score": 0.9
+          "similarity_score": 0.817
         }
       ],
       "cosponsors": [],
@@ -632,54 +696,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HR8445-118",
-      "title": "To amend title 38, United States Code, and the Servicemembers Civil Relief Act to provide for the eligibility of United States citizens who serve in the Israeli Defense Forces for certain protections relating to such service.",
-      "type": "HR",
-      "number": "8445",
-      "congress": 118,
-      "introduced_date": "2024-05-17",
-      "latest_action": "Referred to the Subcommittee on Economic Opportunity.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/8445?format=json",
-      "keywords": [
-        "service",
-        "israeli",
-        "defense",
-        "forces",
-        "relief",
-        "protections",
-        "citizen",
-        "code",
-        "servicemembers",
-        "civil",
-        "eligibility",
-        "citizens",
-        "relating",
-        "general",
-        "new",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "provide"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "M001222"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-03-11T09:00:31.558221+00:00",
+  "bills_updated": "2026-04-06T11:00:51.656636+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

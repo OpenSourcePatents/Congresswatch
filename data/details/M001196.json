@@ -208,6 +208,28 @@
   "last_updated": "2026-04-06T07:39:58.736081",
   "bills": [
     {
+      "bill_id": "HR8148-119",
+      "title": "To reaffirm the Commodity Futures Trading Commission's authority to enforce prohibited activity on prediction markets.",
+      "type": "HR",
+      "number": "8148",
+      "congress": 119,
+      "introduced_date": "2026-03-27",
+      "latest_action": "Referred to the House Committee on Agriculture.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8148?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR7626-119",
       "title": "Defend Elections from Trump Act",
       "type": "HR",
@@ -240,9 +262,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR7059-119",
+          "sponsor_id": "C001091",
+          "similarity_score": 0.801
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -385,7 +413,7 @@
         {
           "bill_id": "HR7059-119",
           "sponsor_id": "C001091",
-          "similarity_score": 0.851
+          "similarity_score": 1.0
         }
       ],
       "cosponsors": [
@@ -439,9 +467,20 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR6091-119",
+          "sponsor_id": "J000288",
+          "similarity_score": 0.88
+        },
+        {
+          "bill_id": "HR7483-119",
+          "sponsor_id": "A000381",
+          "similarity_score": 0.807
+        }
+      ],
       "cosponsors": [
         "P000613"
       ],
@@ -531,14 +570,14 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "HR5991-119",
-          "sponsor_id": "N000191",
-          "similarity_score": 0.987
+          "bill_id": "HR1548-116",
+          "sponsor_id": "P000197",
+          "similarity_score": 1.0
         },
         {
           "bill_id": "HR3896-119",
           "sponsor_id": "C001110",
-          "similarity_score": 0.971
+          "similarity_score": 1.0
         }
       ],
       "cosponsors": [],
@@ -628,14 +667,14 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "HR5991-119",
-          "sponsor_id": "N000191",
-          "similarity_score": 0.985
+          "bill_id": "HR1548-116",
+          "sponsor_id": "P000197",
+          "similarity_score": 1.0
         },
         {
           "bill_id": "HR3896-119",
           "sponsor_id": "C001110",
-          "similarity_score": 0.971
+          "similarity_score": 1.0
         }
       ],
       "cosponsors": [],
@@ -644,54 +683,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HR4257-119",
-      "title": "End Domestic Terrorism Act",
-      "type": "HR",
-      "number": "4257",
-      "congress": 119,
-      "introduced_date": "2025-06-30",
-      "latest_action": "Referred to the House Committee on the Judiciary.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/4257?format=json",
-      "keywords": [
-        "semiautomatic",
-        "code",
-        "offense",
-        "weapon",
-        "magazine",
-        "mass",
-        "weapons",
-        "covered",
-        "location",
-        "killings",
-        "machineguns",
-        "inserting",
-        "described",
-        "one",
-        "facility",
-        "grip",
-        "support",
-        "charges",
-        "end",
-        "using"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "E000299"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-03-11T09:12:25.081690+00:00",
+  "bills_updated": "2026-04-06T11:14:28.040090+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

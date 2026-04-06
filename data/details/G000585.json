@@ -208,6 +208,49 @@
   "last_updated": "2026-04-06T07:36:42.073901",
   "bills": [
     {
+      "bill_id": "HR8174-119",
+      "title": "To amend title 31, United States Code, to prohibit the issuance of United States currency and securities containing the signature of the sitting President.",
+      "type": "HR",
+      "number": "8174",
+      "congress": 119,
+      "introduced_date": "2026-04-02",
+      "latest_action": "Referred to the House Committee on Financial Services.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8174?format=json",
+      "keywords": [
+        "currency",
+        "securities",
+        "signature",
+        "president",
+        "code",
+        "containing",
+        "html",
+        "body",
+        "pre",
+        "introduced",
+        "prohibit",
+        "issuance",
+        "sitting",
+        "bill",
+        "individual",
+        "statutory",
+        "prohibition",
+        "enactment",
+        "congressional",
+        "bills"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HRES1097-119",
       "title": "Of inquiry requesting the President of the United States, and directing the Secretaries of the Treasury and Homeland Security, to furnish certain information to the House of Representatives relating to the implementation and enforcement of the \"Memorandum of Understanding for the Exchange of Information for Nontax Criminal Enforcement\" between the Department of the Treasury and the Department of Homeland Security.",
       "type": "HRES",
@@ -445,9 +488,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR5409-119",
+          "sponsor_id": "P000610",
+          "similarity_score": 0.893
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -591,17 +640,12 @@
         {
           "bill_id": "HR4654-119",
           "sponsor_id": "F000481",
-          "similarity_score": 0.995
+          "similarity_score": 0.965
         },
         {
           "bill_id": "HR4746-119",
           "sponsor_id": "T000491",
-          "similarity_score": 0.979
-        },
-        {
-          "bill_id": "HR4726-119",
-          "sponsor_id": "S001190",
-          "similarity_score": 0.976
+          "similarity_score": 0.965
         }
       ],
       "cosponsors": [
@@ -663,63 +707,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HRES512-119",
-      "title": "Expressing support for the designation of Sunday, June 15, 2025, as \"Father's Day\".",
-      "type": "HRES",
-      "number": "512",
-      "congress": 119,
-      "introduced_date": "2025-06-12",
-      "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/512?format=json",
-      "keywords": [
-        "fathers",
-        "father",
-        "day",
-        "child",
-        "children",
-        "support",
-        "june",
-        "care",
-        "sunday",
-        "involved",
-        "school",
-        "higher",
-        "leave",
-        "designation",
-        "committee",
-        "celebrated",
-        "permanent",
-        "families",
-        "family",
-        "html"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "B001296",
-        "C001072",
-        "C001091",
-        "D000530",
-        "F000481",
-        "G000599",
-        "K000402",
-        "M001223",
-        "M001220",
-        "M001196"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-03-11T09:06:39.979038+00:00",
+  "bills_updated": "2026-04-06T11:07:42.824484+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

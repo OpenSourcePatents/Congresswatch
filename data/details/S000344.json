@@ -209,20 +209,52 @@
   "bills": [
     {
       "bill_id": "HR7806-119",
-      "title": "To amend the Internal Revenue Code of 1986 to codify the Direct File program.",
+      "title": "Direct File Act of 2026",
       "type": "HR",
       "number": "7806",
       "congress": 119,
       "introduced_date": "2026-03-04",
       "latest_action": "Referred to the House Committee on Ways and Means.",
       "url": "https://api.congress.gov/v3/bill/119/hr/7806?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "program",
+        "tax",
+        "secretary",
+        "state",
+        "described",
+        "returns",
+        "mrs",
+        "filing",
+        "return",
+        "file",
+        "use",
+        "taxpayer",
+        "participating",
+        "new",
+        "taxpayers",
+        "income",
+        "internal",
+        "revenue",
+        "preparation",
+        "services"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "B001292",
+        "H000874",
+        "C001080",
+        "P000607",
+        "A000371",
+        "A000380",
+        "A000370",
+        "B001318",
+        "B001300",
+        "B001281"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -469,9 +501,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4051-119",
+          "sponsor_id": "C001035",
+          "similarity_score": 0.832
+        }
+      ],
       "cosponsors": [
         "L000491",
         "C000059",
@@ -707,7 +745,7 @@
       }
     }
   ],
-  "bills_updated": "2026-03-11T08:54:28.281410+00:00",
+  "bills_updated": "2026-04-06T10:53:25.294066+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
