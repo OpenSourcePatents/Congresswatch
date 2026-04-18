@@ -208,6 +208,52 @@
   "last_updated": "2026-04-18T06:44:25.912860",
   "bills": [
     {
+      "bill_id": "HR8286-119",
+      "title": "Protecting Americans\u2019 Retirement Savings From Politics Act",
+      "type": "HR",
+      "number": "8286",
+      "congress": 119,
+      "introduced_date": "2026-04-15",
+      "latest_action": "Referred to the House Committee on Financial Services.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8286?format=json",
+      "keywords": [
+        "proxy",
+        "advisory",
+        "commission",
+        "firm",
+        "committee",
+        "information",
+        "recommendations",
+        "registered",
+        "registration",
+        "voting",
+        "interest",
+        "securities",
+        "shareholders",
+        "respect",
+        "issuer",
+        "economic",
+        "services",
+        "study",
+        "disclosure",
+        "best"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "W000812",
+        "M001204"
+      ],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR7300-119",
       "title": "Make Elections Great Again Act",
       "type": "HR",
@@ -341,9 +387,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4134-119",
+          "sponsor_id": "R000618",
+          "similarity_score": 0.806
+        }
+      ],
       "cosponsors": [
         "H001067",
         "G000568",
@@ -449,7 +501,7 @@
         {
           "bill_id": "HR8140-119",
           "sponsor_id": "J000307",
-          "similarity_score": 0.818
+          "similarity_score": 0.815
         }
       ],
       "cosponsors": [
@@ -608,7 +660,7 @@
         {
           "bill_id": "S3749-119",
           "sponsor_id": "M001243",
-          "similarity_score": 0.888
+          "similarity_score": 0.884
         }
       ],
       "cosponsors": [
@@ -675,54 +727,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HRES480-119",
-      "title": "Requiring each Member, officer, and employee of the House of Representatives to complete a program of training in workplace rights and responsibilities each session of each Congress, and for other purposes.",
-      "type": "HRES",
-      "number": "480",
-      "congress": 119,
-      "introduced_date": "2025-06-05",
-      "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/480?format=json",
-      "keywords": [
-        "program",
-        "training",
-        "individual",
-        "session",
-        "committee",
-        "first",
-        "later",
-        "administration",
-        "member",
-        "days",
-        "employee",
-        "complete",
-        "required",
-        "office",
-        "employees",
-        "resolution",
-        "regulations",
-        "officer",
-        "serving",
-        "deadline"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "M001206"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-04-14T10:10:38.239388+00:00",
+  "bills_updated": "2026-04-18T09:21:42.636048+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
