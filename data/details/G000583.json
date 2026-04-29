@@ -208,6 +208,28 @@
   "cash_on_hand": "10295485.93",
   "bills": [
     {
+      "bill_id": "HR8480-119",
+      "title": "To amend title 18, United States Code, to increase the penalties for animal crushing, and for other purposes.",
+      "type": "HR",
+      "number": "8480",
+      "congress": 119,
+      "introduced_date": "2026-04-23",
+      "latest_action": "Referred to the House Committee on the Judiciary.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8480?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR8262-119",
       "title": "Build More Power Act",
       "type": "HR",
@@ -422,7 +444,8 @@
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [
-        "S001196"
+        "S001196",
+        "F000466"
       ],
       "donor_interest": {
         "match": false,
@@ -549,9 +572,25 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HCONRES91-119",
+          "sponsor_id": "D000635",
+          "similarity_score": 0.885
+        },
+        {
+          "bill_id": "HCONRES92-119",
+          "sponsor_id": "G000559",
+          "similarity_score": 0.883
+        },
+        {
+          "bill_id": "HCONRES89-119",
+          "sponsor_id": "J000298",
+          "similarity_score": 0.883
+        }
+      ],
       "cosponsors": [
         "L000601",
         "C001063",
@@ -561,7 +600,8 @@
         "G000581",
         "S001201",
         "G000605",
-        "W000797"
+        "W000797",
+        "G000604"
       ],
       "donor_interest": {
         "match": false,
@@ -615,54 +655,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HR7693-119",
-      "title": "Leo\u2019s Law",
-      "type": "HR",
-      "number": "7693",
-      "congress": 119,
-      "introduced_date": "2026-02-25",
-      "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7693?format=json",
-      "keywords": [
-        "drug",
-        "federal",
-        "food",
-        "cosmetic",
-        "period",
-        "orphan",
-        "referred",
-        "year",
-        "application",
-        "covid",
-        "covered",
-        "iii",
-        "periods",
-        "patent",
-        "rare",
-        "disease",
-        "condition",
-        "effects",
-        "pandemic",
-        "incentives"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "B001298"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-04-18T09:32:24.209247+00:00",
+  "bills_updated": "2026-04-29T10:43:01.619885+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
