@@ -203,6 +203,28 @@
   "last_updated": "2026-05-02T07:05:08.261407",
   "bills": [
     {
+      "bill_id": "-119",
+      "title": "",
+      "type": "",
+      "number": "",
+      "congress": 119,
+      "introduced_date": "2026-04-30",
+      "latest_action": "Amendment SA 5442 as modified agreed to in Senate by Unanimous Consent.",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/5442?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "SRES699-119",
       "title": "A resolution expressing support for the recognition of April as \"National Language Access Month\".",
       "type": "SRES",
@@ -211,12 +233,39 @@
       "introduced_date": "2026-04-29",
       "latest_action": "Referred to the Committee on Homeland Security and Governmental Affairs. (text: CR S2133-2134)",
       "url": "https://api.congress.gov/v3/bill/119/sres/699?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "language",
+        "access",
+        "services",
+        "percent",
+        "lep",
+        "month",
+        "national",
+        "individuals",
+        "english",
+        "adults",
+        "residents",
+        "programs",
+        "assistance",
+        "april",
+        "report",
+        "federal",
+        "health",
+        "immigrants",
+        "requires",
+        "recognition"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES1148-119",
+          "sponsor_id": "C001080",
+          "similarity_score": 0.952
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -254,7 +303,7 @@
       "congress": 119,
       "introduced_date": "2026-04-22",
       "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/5364?format=json",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/5365?format=json",
       "keywords": [],
       "has_text": false,
       "similarity_score": null,
@@ -276,7 +325,7 @@
       "congress": 119,
       "introduced_date": "2026-04-22",
       "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/5365?format=json",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/5364?format=json",
       "keywords": [],
       "has_text": false,
       "similarity_score": null,
@@ -399,31 +448,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "-119",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2026-04-22",
-      "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/5147?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-05-01T09:31:35.977214+00:00",
+  "bills_updated": "2026-05-02T08:49:54.543071+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

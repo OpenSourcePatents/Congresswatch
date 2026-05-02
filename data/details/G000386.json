@@ -201,6 +201,28 @@
   "last_updated": "2026-05-02T07:08:34.070597",
   "bills": [
     {
+      "bill_id": "S4460-119",
+      "title": "A bill to provide for an extension of the rural community hospital demonstration program.",
+      "type": "S",
+      "number": "4460",
+      "congress": 119,
+      "introduced_date": "2026-04-30",
+      "latest_action": "Read twice and referred to the Committee on Finance.",
+      "url": "https://api.congress.gov/v3/bill/119/s/4460?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "SRES704-119",
       "title": "A resolution supporting the mission and goals of National Fentanyl Awareness Day in 2026, including increasing individual and public awareness of the impact of fake or counterfeit fentanyl pills on families and young people.",
       "type": "SRES",
@@ -209,13 +231,42 @@
       "introduced_date": "2026-04-29",
       "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S2109; text: CR S2135-2136)",
       "url": "https://api.congress.gov/v3/bill/119/sres/704?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "fentanyl",
+        "pills",
+        "counterfeit",
+        "fake",
+        "drug",
+        "illicit",
+        "deaths",
+        "awareness",
+        "national",
+        "age",
+        "percent",
+        "rate",
+        "day",
+        "young",
+        "people",
+        "individuals",
+        "higher",
+        "goals",
+        "increasing",
+        "individual"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES1234-119",
+          "sponsor_id": "P000620",
+          "similarity_score": 0.934
+        }
+      ],
+      "cosponsors": [
+        "S001181"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -431,7 +482,7 @@
         {
           "bill_id": "HRES1112-119",
           "sponsor_id": "M001210",
-          "similarity_score": 0.963
+          "similarity_score": 0.965
         }
       ],
       "cosponsors": [
@@ -586,64 +637,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "S3977-119",
-      "title": "Bankruptcy Threshold Adjustment Act of 2026",
-      "type": "S",
-      "number": "3977",
-      "congress": 119,
-      "introduced_date": "2026-03-03",
-      "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 347.",
-      "url": "https://api.congress.gov/v3/bill/119/s/3977?format=json",
-      "keywords": [
-        "debtor",
-        "code",
-        "bankruptcy",
-        "calendar",
-        "debts",
-        "requirements",
-        "read",
-        "debt",
-        "business",
-        "aggregate",
-        "noncontingent",
-        "liquidated",
-        "placed",
-        "modify",
-        "certain",
-        "eligibility",
-        "purposes",
-        "march",
-        "bill",
-        "time"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR7730-119",
-          "sponsor_id": "C001118",
-          "similarity_score": 0.881
-        }
-      ],
-      "cosponsors": [
-        "D000563",
-        "C001056",
-        "W000802",
-        "G000359",
-        "C001088"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-05-01T09:34:14.577189+00:00",
+  "bills_updated": "2026-05-02T08:52:08.966451+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
