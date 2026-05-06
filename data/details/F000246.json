@@ -209,20 +209,49 @@
   "bills": [
     {
       "bill_id": "HRES1237-119",
-      "title": "Requiring certain Members, officers, and employees of the House of Representatives to complete a program of training in counterintelligence and classified information protection each Congress, and for other purposes.",
+      "title": "STOP Resolution",
       "type": "HRES",
       "number": "1237",
       "congress": 119,
       "introduced_date": "2026-04-30",
       "latest_action": "Referred to the House Committee on House Administration.",
       "url": "https://api.congress.gov/v3/bill/119/hres/1237?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "training",
+        "member",
+        "program",
+        "employee",
+        "individual",
+        "classified",
+        "information",
+        "officer",
+        "resolution",
+        "committee",
+        "case",
+        "complete",
+        "administration",
+        "members",
+        "officers",
+        "employees",
+        "completion",
+        "later",
+        "days",
+        "access"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES480-119",
+          "sponsor_id": "S001213",
+          "similarity_score": 0.827
+        }
+      ],
+      "cosponsors": [
+        "C001087"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -620,7 +649,7 @@
       }
     }
   ],
-  "bills_updated": "2026-05-02T09:34:18.401381+00:00",
+  "bills_updated": "2026-05-06T10:49:55.644528+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
