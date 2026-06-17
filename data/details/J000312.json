@@ -203,6 +203,49 @@
   "last_updated": "2026-06-17T10:27:59.338042",
   "bills": [
     {
+      "bill_id": "S4548-119",
+      "title": "GROUSE Act of 2026",
+      "type": "S",
+      "number": "4548",
+      "congress": 119,
+      "introduced_date": "2026-05-14",
+      "latest_action": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry.",
+      "url": "https://api.congress.gov/v3/bill/119/s/4548?format=json",
+      "keywords": [
+        "secretary",
+        "landowner",
+        "habitat",
+        "eligible",
+        "forest",
+        "land",
+        "upland",
+        "species",
+        "restoration",
+        "contract",
+        "program",
+        "establish",
+        "payments",
+        "food",
+        "security",
+        "general",
+        "provide",
+        "commercially",
+        "logged",
+        "costs"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "S4367-119",
       "title": "Hot Rotisserie Chicken Act",
       "type": "S",
@@ -241,7 +284,13 @@
       "cosponsors": [
         "C001047",
         "B001267",
-        "F000479"
+        "F000479",
+        "C001088",
+        "B001303",
+        "M001243",
+        "W000437",
+        "W000805",
+        "H000273"
       ],
       "donor_interest": {
         "match": false,
@@ -334,7 +383,9 @@
           "similarity_score": 0.94
         }
       ],
-      "cosponsors": [],
+      "cosponsors": [
+        "C000127"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -402,7 +453,7 @@
         {
           "bill_id": "HR7070-119",
           "sponsor_id": "M001205",
-          "similarity_score": 0.887
+          "similarity_score": 0.888
         }
       ],
       "cosponsors": [],
@@ -548,9 +599,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR8900-119",
+          "sponsor_id": "M001205",
+          "similarity_score": 0.941
+        }
+      ],
       "cosponsors": [
         "C001047"
       ],
@@ -606,60 +663,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "S2280-119",
-      "title": "A bill to transfer administrative jurisdiction over certain parcels of Federal land in Harpers Ferry, West Virginia, and for other purposes.",
-      "type": "S",
-      "number": "2280",
-      "congress": 119,
-      "introduced_date": "2025-07-15",
-      "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/s/2280?format=json",
-      "keywords": [
-        "land",
-        "federal",
-        "harpers",
-        "ferry",
-        "customs",
-        "border",
-        "protection",
-        "secretary",
-        "administrative",
-        "jurisdiction",
-        "commissioner",
-        "transfer",
-        "west",
-        "virginia",
-        "national",
-        "historical",
-        "park",
-        "survey",
-        "parcels",
-        "map"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR6062-119",
-          "sponsor_id": "M001235",
-          "similarity_score": 0.805
-        }
-      ],
-      "cosponsors": [
-        "C001047"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-05-08T08:48:14.950216+00:00",
+  "bills_updated": "2026-06-17T15:44:32.512349+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

@@ -208,6 +208,55 @@
   "last_updated": "2026-06-17T10:19:14.436331",
   "bills": [
     {
+      "bill_id": "HR8870-119",
+      "title": "BUILD America 250 Act",
+      "type": "HR",
+      "number": "8870",
+      "congress": 119,
+      "introduced_date": "2026-05-19",
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 62 - 2.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/8870?format=json",
+      "keywords": [
+        "fiscal",
+        "program",
+        "year",
+        "transportation",
+        "safety",
+        "highway",
+        "federal",
+        "code",
+        "business",
+        "programs",
+        "national",
+        "study",
+        "state",
+        "covered",
+        "grant",
+        "general",
+        "rail",
+        "freight",
+        "secretary",
+        "highways"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "L000560",
+        "R000603",
+        "W000806",
+        "N000147",
+        "R000619"
+      ],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HRES1254-119",
       "title": "Recognizing the roles and contributions of elementary and secondary school teachers in building and enhancing the civic, cultural, and economic well-being of the United States.",
       "type": "HRES",
@@ -240,9 +289,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES724-119",
+          "sponsor_id": "C001035",
+          "similarity_score": 0.838
+        }
+      ],
       "cosponsors": [
         "B001324",
         "C001061",
@@ -396,7 +451,7 @@
         {
           "bill_id": "HR5451-119",
           "sponsor_id": "C001068",
-          "similarity_score": 0.872
+          "similarity_score": 0.871
         },
         {
           "bill_id": "HR5455-119",
@@ -670,31 +725,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "-118",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2023-07-20",
-      "latest_action": "On agreeing to the Graves (MO) amendments Agreed to by recorded vote: 348 - 57 (Roll no. 361).",
-      "url": "https://api.congress.gov/v3/amendment/118/hamdt/287?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-05-08T09:55:15.185029+00:00",
+  "bills_updated": "2026-06-17T15:37:02.112290+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
