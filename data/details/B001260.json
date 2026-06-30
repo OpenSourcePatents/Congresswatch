@@ -208,6 +208,53 @@
   "last_updated": "2026-06-30T09:10:44.189501",
   "bills": [
     {
+      "bill_id": "HR9501-119",
+      "title": "AI Tax Integrity Act of 2026",
+      "type": "HR",
+      "number": "9501",
+      "congress": 119,
+      "introduced_date": "2026-06-29",
+      "latest_action": "Referred to the House Committee on Ways and Means.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/9501?format=json",
+      "keywords": [
+        "tax",
+        "pilot",
+        "program",
+        "artificial",
+        "intelligence",
+        "general",
+        "report",
+        "fraud",
+        "returns",
+        "comptroller",
+        "submit",
+        "committee",
+        "required",
+        "html",
+        "body",
+        "pre",
+        "government",
+        "introduced",
+        "require",
+        "appropriate"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "B001314",
+        "S001183",
+        "H001066"
+      ],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR8959-119",
       "title": "Semiconductor Superiority Act",
       "type": "HR",
@@ -240,9 +287,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4750-119",
+          "sponsor_id": "B001305",
+          "similarity_score": 0.968
+        }
+      ],
       "cosponsors": [
         "S001185",
         "D000617"
@@ -437,7 +490,7 @@
         {
           "bill_id": "S3267-119",
           "sponsor_id": "C001035",
-          "similarity_score": 0.9
+          "similarity_score": 0.898
         }
       ],
       "cosponsors": [
@@ -653,61 +706,9 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HR4313-119",
-      "title": "Hospital Inpatient Services Modernization Act",
-      "type": "HR",
-      "number": "4313",
-      "congress": 119,
-      "introduced_date": "2025-07-10",
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/4313?format=json",
-      "keywords": [
-        "hospital",
-        "care",
-        "home",
-        "initiative",
-        "acute",
-        "study",
-        "services",
-        "inpatient",
-        "secretary",
-        "individuals",
-        "report",
-        "relative",
-        "transfers",
-        "settings",
-        "social",
-        "security",
-        "flexibilities",
-        "inserting",
-        "extent",
-        "discharges"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "S001199",
-        "E000296",
-        "T000478",
-        "C001126",
-        "S001148",
-        "S001172",
-        "F000470",
-        "M001213"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-06-17T15:20:45.652171+00:00",
+  "bills_updated": "2026-06-30T12:18:51.059282+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
