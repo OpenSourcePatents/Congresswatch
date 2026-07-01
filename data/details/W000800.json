@@ -233,13 +233,52 @@
       "introduced_date": "2026-06-24",
       "latest_action": "Read twice and referred to the Committee on Finance.",
       "url": "https://api.congress.gov/v3/bill/119/s/4881?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "type",
+        "font",
+        "parent",
+        "pdf",
+        "filter",
+        "flatedecode",
+        "length",
+        "stream",
+        "extgstate",
+        "endstream",
+        "contents",
+        "resources",
+        "page",
+        "procset",
+        "text",
+        "fontdescriptor",
+        "subtype",
+        "basefont"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9309-119",
+          "sponsor_id": "W000788",
+          "similarity_score": 0.998
+        },
+        {
+          "bill_id": "S4196-119",
+          "sponsor_id": "V000128",
+          "similarity_score": 0.997
+        },
+        {
+          "bill_id": "S4187-119",
+          "sponsor_id": "S001203",
+          "similarity_score": 0.997
+        }
+      ],
+      "cosponsors": [
+        "M001198"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -444,7 +483,7 @@
       }
     }
   ],
-  "bills_updated": "2026-06-30T12:36:36.071368+00:00",
+  "bills_updated": "2026-07-01T12:59:02.820160+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,

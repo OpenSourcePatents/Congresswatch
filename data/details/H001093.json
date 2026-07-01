@@ -315,7 +315,10 @@
         "J000301",
         "M001228",
         "L000600",
-        "M000871"
+        "M000871",
+        "G000576",
+        "S001205",
+        "O000177"
       ],
       "donor_interest": {
         "match": false,
@@ -356,9 +359,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES1377-119",
+          "sponsor_id": "J000311",
+          "similarity_score": 0.801
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -495,17 +504,17 @@
         {
           "bill_id": "HRES1345-119",
           "sponsor_id": "L000600",
-          "similarity_score": 0.915
+          "similarity_score": 0.918
         },
         {
           "bill_id": "HRES1095-119",
           "sponsor_id": "J000311",
-          "similarity_score": 0.903
+          "similarity_score": 0.905
         },
         {
           "bill_id": "HRES1275-119",
           "sponsor_id": "G000568",
-          "similarity_score": 0.886
+          "similarity_score": 0.891
         }
       ],
       "cosponsors": [],
@@ -661,7 +670,7 @@
       }
     }
   ],
-  "bills_updated": "2026-06-30T11:26:20.072684+00:00",
+  "bills_updated": "2026-07-01T11:41:49.214201+00:00",
   "bills_count": 10,
   "donor_alignment_score": 0.0,
   "alec_match_count": 0,
