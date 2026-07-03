@@ -244,22 +244,20 @@ class SenateEFDClient:
             print("[EFD] Agreement POST returned no response")
             return False
 
-        # Verify we can access the search page
+        # Verify we can actually access the search page — this is the only
+        # trustworthy signal. (A previous fallback accepted any 200/302 POST
+        # response, so a re-rendered consent page counted as success and the
+        # run silently "found" 0 filings instead of failing visibly.)
         time.sleep(REQUEST_DELAY)
         test = self._request("GET", f"{EFD_BASE}/search/")
         if test and test.status_code == 200 and "home" not in test.url:
             self.agreed = True
-            print("[EFD] Agreement accepted")
+            print("[EFD] Agreement accepted (search page reachable)")
             return True
 
-        # Some Django setups redirect back with a session cookie set
-        if resp.status_code in (200, 302):
-            self.agreed = True
-            print("[EFD] Agreement accepted (status %d)" % resp.status_code)
-            return True
-
-        print(f"[EFD] Agreement may have failed: "
-              f"status={resp.status_code}, url={resp.url}")
+        print(f"[EFD] Agreement FAILED verification: "
+              f"POST status={resp.status_code}, "
+              f"search-page={'%s -> %s' % (test.status_code, test.url) if test else 'no response'}")
         return False
 
     def search_filings(self, start=0, length=100):
