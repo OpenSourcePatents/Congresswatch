@@ -85,8 +85,6 @@ header { border-bottom:1px solid #2a2a2a; padding:0 1.5rem; display:flex; align-
 .sort-sel { background:#111111; border:1px solid #2a2a2a; color:#e8e8e8; font-family:'IBM Plex Mono',monospace; font-size:0.6rem; padding:4px 8px; outline:none; -webkit-appearance:none; border-radius:0; }
 .member-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:#2a2a2a; }
 @media (min-width:600px) { .member-grid { grid-template-columns:repeat(3,1fr); } }
-@media (min-width:900px) { .member-grid { grid-template-columns:repeat(2,1fr); } }
-@media (min-width:1200px) { .member-grid { grid-template-columns:repeat(3,1fr); } }
 .grid-card { background:#111111; cursor:pointer; position:relative; overflow:hidden; aspect-ratio:3/4; transition:background 0.15s; }
 .grid-card:hover { background:#1a1a1a; }
 .grid-photo { width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform 0.3s; }
@@ -106,16 +104,14 @@ header { border-bottom:1px solid #2a2a2a; padding:0 1.5rem; display:flex; align-
 .profile-header-bar { display:flex; align-items:center; gap:0.8rem; padding:0.8rem 1rem; border-bottom:1px solid #2a2a2a; background:#111111; }
 .back-btn { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:1px; color:#e8ff00; background:none; border:1px solid #e8ff00; padding:4px 10px; cursor:pointer; text-transform:uppercase; flex-shrink:0; -webkit-appearance:none; border-radius:0; }
 .profile-name-small { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.profile-hero { display:grid; grid-template-columns:auto 1fr; gap:1rem; padding:1.2rem; border-bottom:1px solid #2a2a2a; background:#111111; }
-@media (min-width:600px) { .profile-hero { grid-template-columns:auto 1fr auto; } }
+.profile-hero { display:grid; grid-template-columns:auto 1fr auto; gap:1rem; padding:1.2rem; border-bottom:1px solid #2a2a2a; background:#111111; }
 .profile-photo { width:72px; height:90px; object-fit:cover; object-position:top; flex-shrink:0; border:2px solid #2a2a2a; }
 .profile-photo-placeholder { width:72px; height:90px; background:#1a1a1a; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#e8ff00; border:2px solid #2a2a2a; flex-shrink:0; }
 .profile-full-name { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.4rem,4vw,2rem); letter-spacing:2px; line-height:1; margin-bottom:6px; }
 .profile-details { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#aaa; line-height:2; text-transform:uppercase; }
 .profile-details b { color:#e8e8e8; }
-.score-display { text-align:right; display:none; }
-@media (min-width:600px) { .score-display { display:block; } }
-.score-big { font-family:'Bebas Neue',sans-serif; font-size:3.5rem; line-height:1; }
+.score-display { text-align:right; }
+.score-big { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.6rem,7vw,3.5rem); line-height:1; }
 .score-sublabel { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:#666666; letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
 .score-bar { width:80px; height:4px; background:#2a2a2a; margin:6px 0 0 auto; }
 .score-bar-fill { height:100%; transition:width 0.8s ease; }
@@ -186,6 +182,8 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
 .loading-fill { height:100%; background:#e8ff00; animation:loadanim 1.5s ease-in-out infinite; }
 @keyframes loadanim { 0%{width:0;margin-left:0} 50%{width:100%;margin-left:0} 100%{width:0;margin-left:100%} }
 .empty-msg { text-align:center; padding:40px 20px; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#666666; }
+.toast { position:fixed; left:50%; bottom:calc(70px + env(safe-area-inset-bottom)); transform:translateX(-50%) translateY(8px); background:#1a1a1a; border:1px solid #e8ff00; color:#e8ff00; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:1px; text-transform:uppercase; padding:8px 14px; z-index:300; opacity:0; pointer-events:none; transition:opacity 0.2s,transform 0.2s; }
+.toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
 .disclaimer { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#333; margin-top:0.8rem; line-height:1.6; padding:0.6rem; border:1px solid #1a1a1a; }
 </style>
 </head>
@@ -264,7 +262,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
             <div class="stat-lbl">High Anomaly (60+)</div>
           </div>
           <div class="stat-box">
-            <span class="stat-num" id="stat-total">538</span>
+            <span class="stat-num" id="stat-total">—</span>
             <div class="stat-lbl">Total Members</div>
           </div>
           <div class="stat-box">
@@ -354,7 +352,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
             <div class="legend-item"><div class="legend-line" style="background:#e8ff00"></div>Congressional Base Salary (Public Record)</div>
             <div class="legend-item"><div class="legend-line" style="background:#555;opacity:0.6"></div>Cumulative Career Earnings</div>
           </div>
-          <div class="chart-note">Personal net worth data sourced from financial disclosures when available.</div>
+          <div class="chart-note">Chart shows annual congressional base salary and cumulative career salary earnings from public pay records.</div>
         </div>
         <div id="pf-career-earnings" style="font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:#e8e8e8;padding:0.6rem;border:1px solid #2a2a2a;background:#111111;margin-bottom:1.2rem"></div>
         <div class="sec-header">
@@ -383,7 +381,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
             <div class="legend-item"><div class="legend-line" style="background:#e8ff00"></div>Annual Congressional Salary</div>
             <div class="legend-item"><div class="legend-line" style="background:#555"></div>Cumulative Career Earnings</div>
           </div>
-          <div class="chart-note">Personal net worth data sourced from financial disclosures when available.</div>
+          <div class="chart-note">Chart shows annual congressional base salary and cumulative career salary earnings from public pay records.</div>
         </div>
         <div id="pf-finance-donors"></div>
       </div>
@@ -399,7 +397,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
       <div class="ppanel" id="ppanel-compare">
         <div class="sec-header">
           <div class="sec-title">ALL MEMBERS COMPARISON</div>
-          <div class="sec-badge" id="compare-badge">538 TRACKED</div>
+          <div class="sec-badge" id="compare-badge">— TRACKED</div>
         </div>
         <div class="compare-grid" id="compare-stats"></div>
         <div id="compare-charts-wrap"></div>
@@ -442,18 +440,10 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
 </div>
 
 <script>
-(function initHistory() {
-  if (window.history && window.history.pushState) {
-    window.history.pushState({ view: 'members' }, '', window.location.href);
-  }
-})();
-
-window.addEventListener('popstate', function(e) {
+window.addEventListener('popstate', function() {
+  // If a profile is open, close it. Otherwise do nothing — let the browser leave the site.
   if (document.getElementById('profile-view').classList.contains('active')) {
     _showMembersListInternal();
-    window.history.pushState({ view: 'members' }, '', window.location.href);
-  } else {
-    window.history.pushState({ view: 'members' }, '', window.location.href);
   }
 });
 
@@ -463,6 +453,37 @@ const SB_HEADERS = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUP
 
 let allMembers = [], filtered = [], currentMember = null;
 let filters = { chamber:'all', party:'all', score:'all', search:'', sort:'score-desc' };
+let profileToken = 0;           // monotonic token — discards stale async profile loads
+const detailCache = new Map();  // bioguideId -> vault detail object (avoids refetch on reopen)
+
+// Escape text for interpolation into HTML strings
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+// Only allow http(s) URLs in hrefs built from data
+function safeUrl(u) {
+  u = String(u == null ? '' : u).trim();
+  return /^https?:\/\//i.test(u) ? u : '#';
+}
+// Reduce HTML-bearing data values (e.g. ticker anchors) to plain text
+function stripTags(s) { return String(s == null ? '' : s).replace(/<[^>]*>/g, ''); }
+
+let toastTimer = null;
+function showToast(msg) {
+  let t = document.getElementById('cw-toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'cw-toast';
+    t.className = 'toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+}
 
 const CONGRESSIONAL_SALARY = {
   2000:141300,2001:145100,2002:150000,2003:154700,2004:158100,
@@ -520,8 +541,10 @@ function fmtMoney(v) {
   return `$${v}`;
 }
 function computeScore(m) {
-  if (m.score && m.score > 0) return m.score;
-  return null;
+  // Show a numeric score (including 0) when the member shows any evidence of measurement;
+  // otherwise null -> DATA PENDING.
+  const measured = (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
+  return measured ? (m.score || 0) : null;
 }
 function getNetWorth(m) {
   if (m.net_worth !== undefined && m.net_worth !== null) return m.net_worth;
@@ -538,7 +561,7 @@ function computeCareerEarnings(m) {
   return total;
 }
 function hasRealData(m) {
-  return (m.score && m.score > 0) || (m.total_raised && m.total_raised > 0) || (m.corporate_insider_signals && m.corporate_insider_signals > 0);
+  return (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
 }
 
 function mapMember(m) {
@@ -563,28 +586,30 @@ async function loadData() {
   try {
     let raw = [];
 
-    // Try Supabase first
+    // Try same-origin JSON first
     try {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/members?select=*&order=score.desc.nullslast`, {
-        headers: SB_HEADERS
-      });
+      const res = await fetch('data/members.json');
       if (res.ok) {
         const data = await res.json();
-        if (data.length > 0) {
-          raw = data.map(m => ({ ...m, id: m.bioguide_id }));
-          console.log('Loaded from Supabase:', raw.length);
+        if (Array.isArray(data) && data.length > 0) {
+          raw = data;
+          console.log('Loaded from JSON:', raw.length);
         }
       }
     } catch(e) {
-      console.warn('Supabase fetch failed, falling back to JSON:', e);
+      console.warn('JSON fetch failed, falling back to Supabase:', e);
     }
 
-    // Fallback to JSON if Supabase returned nothing
+    // Fallback to Supabase if JSON returned nothing
     if (raw.length === 0) {
-      const res = await fetch('data/members.json');
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/members?select=*&order=score.desc.nullslast`, {
+        headers: SB_HEADERS
+      });
       if (!res.ok) throw new Error('no data');
-      raw = await res.json();
-      console.log('Loaded from JSON fallback:', raw.length);
+      const data = await res.json();
+      if (!Array.isArray(data) || data.length === 0) throw new Error('no data');
+      raw = data.map(m => ({ ...m, id: m.bioguide_id }));
+      console.log('Loaded from Supabase fallback:', raw.length);
     }
 
     allMembers = raw.map(mapMember);
@@ -597,10 +622,10 @@ function updateCoverage() {
   if (!el) return;
   const total = allMembers.length;
   const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0).length;
-  const withFinance = allMembers.filter(m=>(m.total_raised||0)>0).length;
+  const withTrades = allMembers.filter(m=>(m.trade_count||0)>0).length;
   el.innerHTML = `
     Members with scores: <b style="color:#e8e8e8">${scored} / ${total}</b><br>
-    Members with finance: <b style="color:#e8e8e8">${withFinance} / ${total}</b><br>
+    Members with trades: <b style="color:#e8e8e8">${withTrades} / ${total}</b><br>
     Vote + Bill data: <b style="color:#e8e8e8">in vault files</b>
   `;
 }
@@ -619,7 +644,7 @@ function updateStats() {
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   const coveragePct = allMembers.length > 0 ? Math.round((withData/allMembers.length)*100) : 0;
   document.getElementById('stat-high').textContent = scored.length > 0 ? high : '—';
-  document.getElementById('stat-total').textContent = '538';
+  document.getElementById('stat-total').textContent = allMembers.length > 0 ? allMembers.length : '—';
   document.getElementById('stat-trades').textContent = signals > 0 ? signals.toLocaleString() : '—';
   document.getElementById('stat-coverage').textContent = coveragePct + '%';
   const dates = allMembers.map(m=>m.data_updated).filter(Boolean).sort();
@@ -685,15 +710,15 @@ function renderGrid() {
     const showDonor = (m.total_raised||0) > 0;
     const showBill = (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
-    const pending = !hasRealData(m) && !showTrades;
+    const pending = !hasRealData(m);
     card.innerHTML = `
       <div class="party-stripe" style="background:${m.partyC}"></div>
-      <img class="grid-photo" src="${m.photo}" alt="${m.name}"
+      <img class="grid-photo" src="${esc(m.photo)}" alt="${esc(m.name)}"
         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="grid-placeholder" style="display:none">${initials(m.name)}</div>
+      <div class="grid-placeholder" style="display:none">${esc(initials(m.name))}</div>
       <div class="grid-overlay">
-        <div class="grid-name">${m.name}</div>
-        <div class="grid-meta">${m.partyS} · ${m.chamber} ${dist}</div>
+        <div class="grid-name">${esc(m.name)}</div>
+        <div class="grid-meta">${esc(m.partyS)} · ${esc(m.chamber)} ${esc(dist)}</div>
         <div class="grid-tags">
           ${showTrades?'<span class="grid-tag" style="background:#0a2010;color:#00ff88">TRADES</span>':''}
           ${showInsider?'<span class="grid-tag" style="background:#3a0a0a;color:#ff6b6b">INSIDER</span>':''}
@@ -719,18 +744,19 @@ function renderSidebar() {
     list.innerHTML = '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;color:#666666;padding:0.5rem">No results.</div>';
     return;
   }
-  list.innerHTML = show.map(m => {
+  list.innerHTML = show.map((m, i) => {
     const s = m.displayScore;
     const dist = m.district ? `${m.partyS}·${m.state}-${m.district}·${m.chamber}` : `${m.partyS}·${m.state}·${m.chamber}`;
+    const ini = initials(m.name).replace(/[^A-Za-z0-9]/g,'');
     return `
-      <div class="member-card ${currentMember?.id===m.id?'active':''}" onclick="openProfile(${JSON.stringify(m).replace(/"/g,'&quot;')})">
+      <div class="member-card ${currentMember?.id===m.id?'active':''}" onclick="openProfileByIndex(${i})">
         <div class="member-avatar">
-          <img src="${m.photo}" alt="${initials(m.name)}"
-            onerror="this.style.display='none';this.parentElement.textContent='${initials(m.name)}'">
+          <img src="${esc(m.photo)}" alt="${ini}"
+            onerror="this.style.display='none';this.parentElement.textContent='${ini}'">
         </div>
         <div class="member-info">
-          <div class="member-name">${m.name}</div>
-          <div class="member-meta">${dist}</div>
+          <div class="member-name">${esc(m.name)}</div>
+          <div class="member-meta">${esc(dist)}</div>
         </div>
         <div class="member-score ${scoreClass(s)}">${s !== null ? s : '--'}</div>
       </div>
@@ -738,8 +764,14 @@ function renderSidebar() {
   }).join('');
 }
 
+function openProfileByIndex(i) {
+  const m = filtered[i];
+  if (m) openProfile(m);
+}
+
 // ── ASYNC openProfile — renders light data immediately, fetches vault in background ──
 async function openProfile(m) {
+  const token = ++profileToken;
   const bid = m.id || m.bioguide_id;
   const s = m.displayScore;
   const dist = m.district ? `${m.state}-${m.district}` : m.state;
@@ -750,7 +782,12 @@ async function openProfile(m) {
   document.getElementById('profile-view').classList.add('active');
 
   if (window.history && window.history.pushState) {
-    window.history.pushState({ view: 'profile', id: bid || m.name }, '', window.location.href);
+    // Only push one profile entry; switching profiles replaces it so Back exits cleanly.
+    if (window.history.state && window.history.state.view === 'profile') {
+      window.history.replaceState({ view: 'profile', id: bid || m.name }, '', window.location.href);
+    } else {
+      window.history.pushState({ view: 'profile', id: bid || m.name }, '', window.location.href);
+    }
   }
 
   // Reset tabs to overview
@@ -772,10 +809,10 @@ async function openProfile(m) {
   document.getElementById('pf-photo').src = m.photo;
   document.getElementById('pf-placeholder').textContent = initials(m.name);
   document.getElementById('pf-details').innerHTML = `
-    PARTY: <b>${m.party||'—'}</b> &nbsp;|&nbsp;
-    CHAMBER: <b>${m.chamber}</b> &nbsp;|&nbsp;
-    STATE: <b>${dist}</b><br>
-    ${m.term_start ? `SINCE: <b>${m.term_start.slice(0,4)}</b> &nbsp;|&nbsp;` : ''}
+    PARTY: <b>${esc(m.party||'—')}</b> &nbsp;|&nbsp;
+    CHAMBER: <b>${esc(m.chamber)}</b> &nbsp;|&nbsp;
+    STATE: <b>${esc(dist)}</b><br>
+    ${m.term_start ? `SINCE: <b>${esc(m.term_start.slice(0,4))}</b> &nbsp;|&nbsp;` : ''}
     ${m.missed_votes_pct ? `MISSED VOTES: <b>${(m.missed_votes_pct*100).toFixed(1)}%</b>` : ''}
   `;
 
@@ -797,123 +834,123 @@ async function openProfile(m) {
   setTimeout(() => drawSalaryChart('nw-canvas', startYear), 200);
   document.getElementById('content').scrollTop = 0;
 
-  // ── Fetch vault data: Supabase first, JSON fallback ──
+  // ── Fetch vault data: same-origin JSON first, Supabase fallback ──
   if (bid) {
-    let gotDeepData = false;
+    let deep = detailCache.get(bid) || null;
 
-    // Try Supabase for votes and bills
-    try {
-      const [votesRes, billsRes, tradesRes, travelRes, donorsRes] = await Promise.all([
-        fetch(`${SUPABASE_URL}/rest/v1/votes?bioguide_id=eq.${bid}&order=date.desc&limit=100`, { headers: SB_HEADERS }),
-        fetch(`${SUPABASE_URL}/rest/v1/bills?bioguide_id=eq.${bid}&order=introduced_date.desc`, { headers: SB_HEADERS }),
-        fetch(`${SUPABASE_URL}/rest/v1/trades?bioguide_id=eq.${bid}&order=transaction_date.desc&limit=50`, { headers: SB_HEADERS }),
-        fetch(`${SUPABASE_URL}/rest/v1/travel?bioguide_id=eq.${bid}&order=departure_date.desc`, { headers: SB_HEADERS }),
-        fetch(`${SUPABASE_URL}/rest/v1/donors?bioguide_id=eq.${bid}&order=amount.desc&limit=20`, { headers: SB_HEADERS })
-      ]);
-      const sbVotes = votesRes.ok ? await votesRes.json() : [];
-      const sbBills = billsRes.ok ? await billsRes.json() : [];
-      const sbTrades = tradesRes.ok ? await tradesRes.json() : [];
-      const sbTravel = travelRes.ok ? await travelRes.json() : [];
-      const sbDonors = donorsRes.ok ? await donorsRes.json() : [];
-
-      if (sbVotes.length > 0 || sbBills.length > 0 || sbTrades.length > 0 || sbTravel.length > 0 || sbDonors.length > 0) {
-        // Map Supabase votes to frontend format
-        const mappedVotes = sbVotes.map(v => ({
-          bill: v.question || '',
-          question_text: v.description || '',
-          date: v.date || '',
-          position: v.position || '',
-          result: v.result || '',
-          chamber: v.chamber || '',
-          url: v.url || ''
-        }));
-        // Map Supabase bills to frontend format
-        const mappedBills = sbBills.map(b => ({
-          bill_id: b.bill_id || '',
-          title: b.title || '',
-          type: b.bill_type || '',
-          number: b.bill_number || '',
-          introduced_date: b.introduced_date || '',
-          latest_action: b.latest_action || '',
-          url: b.url || '',
-          alec_match: (b.alec_similarity_score || 0) > 0 ? {
-            similarity_score: b.alec_similarity_score,
-            matched_model: b.alec_matched_model || '',
-            category: b.alec_category || '',
-            source_url: b.alec_source_url || ''
-          } : null,
-          donor_interest: {
-            match: b.donor_interest_match || false,
-            matched_industries: (b.donor_interest_reason || '').split(', ').filter(Boolean),
-            keyword_hits: {}
-          },
-          similar_member_bills: [],
-          cosponsors: []
-        }));
-        // Map Supabase trades to frontend format
-        const mappedTrades = sbTrades.map(t => ({
-          transaction_date: t.transaction_date || '',
-          ticker: t.ticker || '',
-          asset_description: t.asset_description || '',
-          asset_type: t.asset_type || '',
-          type: t.trade_type || '',
-          amount: t.amount_range || '',
-          owner: t.owner || '',
-          ptr_link: t.ptr_link || ''
-        }));
-        // Map Supabase travel to frontend format
-        const mappedTravel = sbTravel.map(t => ({
-          destination_country: t.destination_country || '',
-          departure_date: t.departure_date || '',
-          return_date: t.return_date || '',
-          sponsor: t.sponsor || '',
-          total_cost: t.total_cost || '',
-          currency: t.currency || 'USD'
-        }));
-        // Map Supabase donors to frontend format
-        const mappedDonors = sbDonors.map(d => ({
-          name: d.contributor_name || '',
-          employer: d.contributor_employer || '',
-          occupation: d.contributor_occupation || '',
-          amount: d.amount || 0,
-          date: d.date || ''
-        }));
-        currentMember = {
-          ...currentMember,
-          votes: mappedVotes,
-          bills: mappedBills,
-          trades: mappedTrades.length > 0 ? mappedTrades : currentMember.trades,
-          travel: mappedTravel.length > 0 ? mappedTravel : currentMember.travel,
-          top_donors_list: mappedDonors.length > 0 ? mappedDonors : currentMember.top_donors_list,
-          displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
-          careerEarnings: m.careerEarnings, netWorth: m.netWorth,
-        };
-        gotDeepData = true;
-        console.log(`Supabase vault: ${sbVotes.length} votes, ${sbBills.length} bills, ${sbTrades.length} trades, ${sbTravel.length} travel, ${sbDonors.length} donors`);
-      }
-    } catch(e) {
-      console.warn('Supabase detail fetch failed, trying JSON vault:', e);
-    }
-
-    // Fallback to JSON vault file
-    if (!gotDeepData) {
+    // Try same-origin JSON vault file first
+    if (!deep) {
       try {
         const res = await fetch(`data/details/${bid}.json`);
+        if (token !== profileToken) return;
         if (res.ok) {
-          const deep = await res.json();
-          currentMember = {
-            ...currentMember, ...deep,
-            displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
-            careerEarnings: m.careerEarnings, netWorth: getNetWorth(deep) || m.netWorth,
-          };
-          gotDeepData = true;
+          deep = await res.json();
+          if (token !== profileToken) return;
         }
       } catch(e) {
-        console.warn('JSON vault fetch also failed:', e);
+        console.warn('JSON vault fetch failed, trying Supabase:', e);
       }
     }
 
-    if (gotDeepData) {
+    // Fallback to Supabase when JSON vault is missing or empty
+    if (!deep) {
+      try {
+        const [votesRes, billsRes, tradesRes, travelRes, donorsRes] = await Promise.all([
+          fetch(`${SUPABASE_URL}/rest/v1/votes?bioguide_id=eq.${bid}&order=date.desc&limit=100`, { headers: SB_HEADERS }),
+          fetch(`${SUPABASE_URL}/rest/v1/bills?bioguide_id=eq.${bid}&order=introduced_date.desc`, { headers: SB_HEADERS }),
+          fetch(`${SUPABASE_URL}/rest/v1/trades?bioguide_id=eq.${bid}&order=transaction_date.desc&limit=50`, { headers: SB_HEADERS }),
+          fetch(`${SUPABASE_URL}/rest/v1/travel?bioguide_id=eq.${bid}&order=departure_date.desc`, { headers: SB_HEADERS }),
+          fetch(`${SUPABASE_URL}/rest/v1/donors?bioguide_id=eq.${bid}&order=amount.desc&limit=20`, { headers: SB_HEADERS })
+        ]);
+        if (token !== profileToken) return;
+        const sbVotes = votesRes.ok ? await votesRes.json() : [];
+        const sbBills = billsRes.ok ? await billsRes.json() : [];
+        const sbTrades = tradesRes.ok ? await tradesRes.json() : [];
+        const sbTravel = travelRes.ok ? await travelRes.json() : [];
+        const sbDonors = donorsRes.ok ? await donorsRes.json() : [];
+        if (token !== profileToken) return;
+
+        if (sbVotes.length > 0 || sbBills.length > 0 || sbTrades.length > 0 || sbTravel.length > 0 || sbDonors.length > 0) {
+          // Map Supabase votes to frontend format
+          const mappedVotes = sbVotes.map(v => ({
+            bill: v.question || '',
+            question_text: v.description || '',
+            date: v.date || '',
+            position: v.position || '',
+            result: v.result || '',
+            chamber: v.chamber || '',
+            url: v.url || ''
+          }));
+          // Map Supabase bills to frontend format
+          const mappedBills = sbBills.map(b => ({
+            bill_id: b.bill_id || '',
+            title: b.title || '',
+            type: b.bill_type || '',
+            number: b.bill_number || '',
+            introduced_date: b.introduced_date || '',
+            latest_action: b.latest_action || '',
+            url: b.url || '',
+            alec_match: (b.alec_similarity_score || 0) > 0 ? {
+              similarity_score: b.alec_similarity_score,
+              matched_model: b.alec_matched_model || '',
+              category: b.alec_category || '',
+              source_url: b.alec_source_url || ''
+            } : null,
+            donor_interest: {
+              match: b.donor_interest_match || false,
+              matched_industries: (b.donor_interest_reason || '').split(', ').filter(Boolean),
+              keyword_hits: {}
+            },
+            similar_member_bills: [],
+            cosponsors: []
+          }));
+          // Map Supabase trades to frontend format
+          const mappedTrades = sbTrades.map(t => ({
+            transaction_date: t.transaction_date || '',
+            ticker: t.ticker || '',
+            asset_description: t.asset_description || '',
+            asset_type: t.asset_type || '',
+            type: t.trade_type || '',
+            amount: t.amount_range || '',
+            owner: t.owner || '',
+            ptr_link: t.ptr_link || ''
+          }));
+          // Map Supabase travel to frontend format
+          const mappedTravel = sbTravel.map(t => ({
+            destination_country: t.destination_country || '',
+            departure_date: t.departure_date || '',
+            return_date: t.return_date || '',
+            sponsor: t.sponsor || '',
+            total_cost: t.total_cost || '',
+            currency: t.currency || 'USD'
+          }));
+          // Map Supabase donors to frontend format
+          const mappedDonors = sbDonors.map(d => ({
+            name: d.contributor_name || '',
+            employer: d.contributor_employer || '',
+            occupation: d.contributor_occupation || '',
+            amount: d.amount || 0,
+            date: d.date || ''
+          }));
+          deep = { votes: mappedVotes, bills: mappedBills };
+          if (mappedTrades.length > 0) deep.trades = mappedTrades;
+          if (mappedTravel.length > 0) deep.travel = mappedTravel;
+          if (mappedDonors.length > 0) deep.top_donors_list = mappedDonors;
+          console.log(`Supabase vault: ${sbVotes.length} votes, ${sbBills.length} bills, ${sbTrades.length} trades, ${sbTravel.length} travel, ${sbDonors.length} donors`);
+        }
+      } catch(e) {
+        console.warn('Supabase detail fetch also failed:', e);
+      }
+    }
+
+    if (deep) {
+      detailCache.set(bid, deep);
+      const deepNW = getNetWorth(deep);
+      currentMember = {
+        ...currentMember, ...deep,
+        displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
+        careerEarnings: m.careerEarnings, netWorth: deepNW !== null ? deepNW : m.netWorth,
+      };
       renderOverview(currentMember, s, cumSalary);
       fillVotes(currentMember, s);
       fillFinance(currentMember, s, cumSalary);
@@ -950,13 +987,13 @@ function renderOverview(m, s, cumSalary) {
     </div>
     <div class="stat-cell">
       <div class="stat-cell-label">Total Raised (FEC)</div>
-      <div class="stat-cell-value">${m.total_raised ? fmtMoney(m.total_raised) : (m.total_raised_display || '—')}</div>
+      <div class="stat-cell-value">${m.total_raised ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—')}</div>
       <div class="stat-cell-change neutral">${m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending'}</div>
     </div>
     <div class="stat-cell">
       <div class="stat-cell-label">Insider Signals</div>
-      <div class="stat-cell-value" style="color:${(m.corporate_insider_signals||0)>10?'#ff3c00':'#e8e8e8'}">${insiderSignals}</div>
-      <div class="stat-cell-change neutral">${signalSource}</div>
+      <div class="stat-cell-value" style="color:${(m.corporate_insider_signals||0)>10?'#ff3c00':'#e8e8e8'}">${esc(insiderSignals)}</div>
+      <div class="stat-cell-change neutral">${esc(signalSource)}</div>
     </div>
   `;
 
@@ -979,6 +1016,7 @@ function renderOverview(m, s, cumSalary) {
 }
 
 function _showMembersListInternal() {
+  profileToken++; // invalidate any in-flight profile fetch
   document.getElementById('profile-view').classList.remove('active');
   document.getElementById('members-view').classList.remove('hidden');
   currentMember = null;
@@ -986,10 +1024,13 @@ function _showMembersListInternal() {
 }
 
 function showMembersList() {
-  _showMembersListInternal();
-  if (window.history && window.history.replaceState) {
-    window.history.replaceState({ view: 'members' }, '', window.location.href);
+  // If a profile pushed a history entry, pop it so Back can still exit the site.
+  if (document.getElementById('profile-view').classList.contains('active') &&
+      window.history && window.history.state && window.history.state.view === 'profile') {
+    window.history.back(); // popstate handler closes the profile
+    return;
   }
+  _showMembersListInternal();
 }
 
 function buildFlags(m, s) {
@@ -1087,13 +1128,13 @@ function fillVotes(m, s) {
         const isHighMatch = pct >= 70;
         alecCell = `${isHighMatch?'<span style="display:inline-block;background:#ff3c00;color:#fff;font-family:\'IBM Plex Mono\',monospace;font-size:0.5rem;font-weight:600;padding:2px 6px;letter-spacing:0.5px;margin-bottom:3px">ALEC MATCH</span><br>':''}
           <span style="color:${isHighMatch?'#ff3c00':'#ffaa00'};font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600">${pct}% match to ALEC model legislation</span>
-          <div style="font-size:0.6rem;color:#888;margin-top:2px">${alec.matched_model||''}</div>
-          <div style="font-size:0.55rem;margin-top:1px"><a href="${alec.source_url||'#'}" target="_blank" style="color:#666;text-decoration:none">ALEC ${alec.category||''}</a></div>`;
+          <div style="font-size:0.6rem;color:#888;margin-top:2px">${esc(alec.matched_model||'')}</div>
+          <div style="font-size:0.55rem;margin-top:1px"><a href="${esc(safeUrl(alec.source_url))}" target="_blank" style="color:#666;text-decoration:none">ALEC ${esc(alec.category||'')}</a></div>`;
       }
 
       let donorCell = '<span style="color:#666">—</span>';
       if (donor.match && donor.matched_industries && donor.matched_industries.length > 0) {
-        donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${ind}</span>`).join('');
+        donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${esc(ind)}</span>`).join('');
       }
 
       let coCell = '<span style="color:#666">—</span>';
@@ -1104,9 +1145,9 @@ function fillVotes(m, s) {
       }
 
       html += `<tr>
-        <td><div class="bill-id">${bill.url?`<a href="${bill.url}" target="_blank" style="color:#00d4ff;text-decoration:none">${billLabel}</a>`:billLabel}</div></td>
-        <td style="max-width:200px;font-size:0.72rem;line-height:1.4">${titleShort}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${intro}</td>
+        <td><div class="bill-id">${bill.url?`<a href="${esc(safeUrl(bill.url))}" target="_blank" style="color:#00d4ff;text-decoration:none">${esc(billLabel)}</a>`:esc(billLabel)}</div></td>
+        <td style="max-width:200px;font-size:0.72rem;line-height:1.4">${esc(titleShort)}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(intro)}</td>
         <td>${alecCell}</td>
         <td>${donorCell}</td>
         <td>${coCell}</td>
@@ -1146,13 +1187,13 @@ function fillVotes(m, s) {
       const titleShort = (vote.bill||'').slice(0,90)+((vote.bill||'').length>90?'…':'');
 
       html += `<tr>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${vote.date||'—'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(vote.date||'—')}</td>
         <td style="max-width:220px;font-size:0.72rem;line-height:1.4">
-          ${vote.url?`<a href="${vote.url}" target="_blank" style="color:#e8e8e8;text-decoration:none">${titleShort}</a>`:titleShort}
+          ${vote.url?`<a href="${esc(safeUrl(vote.url))}" target="_blank" style="color:#e8e8e8;text-decoration:none">${esc(titleShort)}</a>`:esc(titleShort)}
         </td>
-        <td><span class="${posClass}">${posLabel}</span></td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${resultColor}">${vote.result||'—'}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#666">${vote.chamber||'—'}</td>
+        <td><span class="${posClass}">${esc(posLabel)}</span></td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${resultColor}">${esc(vote.result||'—')}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#666">${esc(vote.chamber||'—')}</td>
       </tr>`;
     });
 
@@ -1187,13 +1228,13 @@ function fillFinance(m, s, cumSalary) {
     <div class="stat-cell"><div class="stat-cell-label">Individual Donors</div><div class="stat-cell-value">${fmtMoney(m.individual_contributions)}</div><div class="stat-cell-change neutral">itemized</div></div>
   `;
   const fecId = m.fec_candidate_id || '';
-  const fecLink = fecId ? `https://www.fec.gov/data/candidate/${fecId}/` : 'https://www.fec.gov/data/search/';
+  const fecLink = fecId ? `https://www.fec.gov/data/candidate/${encodeURIComponent(fecId)}/` : 'https://www.fec.gov/data/search/';
   document.getElementById('pf-finance-donors').innerHTML = `
     <div style="margin-top:0.8rem">
-      <a href="${fecLink}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#00d4ff;text-decoration:none;letter-spacing:0.5px">View full FEC filing at FEC.gov \u2192</a>
+      <a href="${esc(fecLink)}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#00d4ff;text-decoration:none;letter-spacing:0.5px">View full FEC filing at FEC.gov \u2192</a>
     </div>`;
   const startYear = parseInt((m.term_start||'2010').slice(0,4));
-  setTimeout(() => drawCongressionalSalaryChart('fin-canvas', startYear), 80);
+  setTimeout(() => drawSalaryChart('fin-canvas', startYear), 80);
 }
 
 function fillStocks(m, s) {
@@ -1220,15 +1261,17 @@ function fillStocks(m, s) {
       const tp = (t.type||'').toLowerCase();
       const typeColor = tp.includes('purchase') ? '#00ff88' : tp.includes('sale') ? '#ff3c00' : '#e8ff00';
       const typeLabel = tp.includes('purchase') ? 'BUY' : tp.includes('sale') ? 'SELL' : (t.type||'\u2014').toUpperCase();
-      const ticker = t.ticker || '\u2014';
+      // Some ticker values arrive as HTML anchors (e.g. <a href="...">NKE</a>) \u2014 reduce to plain text
+      const ticker = stripTags(t.ticker).trim() || '\u2014';
       const tickerStyle = ticker !== '\u2014' ? 'color:#e8ff00;font-weight:600' : 'color:#666';
+      const assetDesc = stripTags(t.asset_description);
       html += `<tr>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${t.transaction_date||'\u2014'}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;${tickerStyle}">${ticker}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${typeColor};font-weight:600">${typeLabel}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${t.amount||'\u2014'}</td>
-        <td style="font-size:0.7rem;max-width:180px;line-height:1.3">${(t.asset_description||'').slice(0,60)}${(t.asset_description||'').length>60?'\u2026':''}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:#888">${t.owner||'\u2014'}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(t.transaction_date||'\u2014')}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;${tickerStyle}">${esc(ticker)}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${typeColor};font-weight:600">${esc(typeLabel)}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${esc(t.amount||'\u2014')}</td>
+        <td style="font-size:0.7rem;max-width:180px;line-height:1.3">${esc(assetDesc.slice(0,60))}${assetDesc.length>60?'\u2026':''}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:#888">${esc(t.owner||'\u2014')}</td>
       </tr>`;
     });
     html += `</tbody></table>`;
@@ -1251,11 +1294,11 @@ function fillStocks(m, s) {
   }
 
   if (edgarStatus === 'verified_manual' || edgarStatus === 'verified_auto' || (edgarStatus === 'resolved' && cik)) {
-    const edgarUrl = `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${cik}&type=4&dateb=&owner=include&count=40`;
+    const edgarUrl = `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(cik)}&type=4&dateb=&owner=include&count=40`;
     html += `
     <div style="background:#111111;border:1px solid #2a2a2a;padding:1rem;margin-bottom:1rem">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#e8e8e8;margin-bottom:8px">SEC EDGAR CIK: <code>${cik}</code> &mdash; Status: ${edgarStatus}</div>
-      <a href="${edgarUrl}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View on SEC EDGAR \u2192</a>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#e8e8e8;margin-bottom:8px">SEC EDGAR CIK: <code>${esc(cik)}</code> &mdash; Status: ${esc(edgarStatus)}</div>
+      <a href="${esc(edgarUrl)}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View on SEC EDGAR \u2192</a>
     </div>`;
   }
 
@@ -1307,11 +1350,11 @@ function fillTravel(m) {
       <tbody>`;
     trips.forEach(t => {
       html += `<tr>
-        <td style="font-weight:600">${t.destination_country||'\u2014'}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${t.departure_date||'\u2014'}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${t.return_date||'\u2014'}</td>
-        <td style="font-size:0.72rem;color:#aaa">${t.sponsor||'\u2014'}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${t.total_cost ? '$'+t.total_cost : '\u2014'}</td>
+        <td style="font-weight:600">${esc(t.destination_country||'\u2014')}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(t.departure_date||'\u2014')}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(t.return_date||'\u2014')}</td>
+        <td style="font-size:0.72rem;color:#aaa">${esc(t.sponsor||'\u2014')}</td>
+        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${t.total_cost ? '$'+esc(t.total_cost) : '\u2014'}</td>
       </tr>`;
     });
     html += `</tbody></table>
@@ -1385,22 +1428,6 @@ function drawSalaryChart(canvasId, startYear) {
   ]);
 }
 
-function drawCongressionalSalaryChart(canvasId, startYear) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const currentYear = new Date().getFullYear();
-  const years = [];
-  for (let y = Math.max(startYear, 2000); y <= currentYear; y++) years.push(y);
-  if (years.length === 0) return;
-  const salLine = years.map(y => CONGRESSIONAL_SALARY[y] || 174000);
-  let cumSal = 0;
-  const cumLine = years.map(y => { cumSal += (CONGRESSIONAL_SALARY[y]||174000); return cumSal; });
-  _drawChart(canvas.getContext('2d'), canvas, years, [
-    {values:salLine, color:'#e8ff00', width:2.5},
-    {values:cumLine, color:'#555', width:1.5, dash:[4,3]},
-  ]);
-}
-
 function _drawChart(ctx, canvas, years, datasets) {
   const dpr = window.devicePixelRatio || 1;
   const W = canvas.offsetWidth || canvas.parentElement.offsetWidth || 340, H = 160;
@@ -1442,7 +1469,7 @@ function fillDonors(m) {
   const container = document.getElementById('pf-donor-content');
   if (!container) return;
   const fecId = m.fec_candidate_id || '';
-  const fecLink = fecId ? `https://www.fec.gov/data/candidate/${fecId}/` : 'https://www.fec.gov/data/search/';
+  const fecLink = fecId ? `https://www.fec.gov/data/candidate/${encodeURIComponent(fecId)}/` : 'https://www.fec.gov/data/search/';
   const totalRaised = m.total_raised || 0;
   const topDonors = m.top_donors_list || [];
   let html = '';
@@ -1454,7 +1481,7 @@ function fillDonors(m) {
     html += `<div class="network-box"><canvas id="netCanvas"></canvas></div>`;
     html += `<table class="data-table"><thead><tr><th>Donor</th><th>Amount</th></tr></thead><tbody>`;
     topDonors.forEach(d => {
-      html += `<tr><td>${d.employer||d.name||'\u2014'}</td><td style="font-family:'IBM Plex Mono',monospace">${fmtMoney(d.amount||0)}</td></tr>`;
+      html += `<tr><td>${esc(d.employer||d.name||'\u2014')}</td><td style="font-family:'IBM Plex Mono',monospace">${fmtMoney(d.amount||0)}</td></tr>`;
     });
     html += `</tbody></table>`;
   } else if (totalRaised > 0) {
@@ -1472,7 +1499,7 @@ function fillDonors(m) {
 
   html += `
     <div style="margin-top:0.8rem">
-      <a href="${fecLink}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View full FEC filing at FEC.gov \u2192</a>
+      <a href="${esc(fecLink)}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View full FEC filing at FEC.gov \u2192</a>
     </div>`;
 
   container.innerHTML = html;
@@ -1486,9 +1513,13 @@ function fillDonors(m) {
 function drawNetwork(m) {
   const canvas = document.getElementById('netCanvas');
   if (!canvas) return;
-  canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight;
+  const dpr = window.devicePixelRatio || 1;
+  const W = canvas.offsetWidth, H = canvas.offsetHeight;
+  if (!W || !H) return;
+  canvas.width = W*dpr; canvas.height = H*dpr;
   const ctx = canvas.getContext('2d');
-  const W = canvas.width, H = canvas.height, cx = W/2, cy = H/2;
+  ctx.scale(dpr,dpr);
+  const cx = W/2, cy = H/2;
   ctx.clearRect(0,0,W,H);
   const donors = (m.top_donors_list||[]).slice(0,6).map(d=>({label:(d.employer||d.name||'').slice(0,10),amount:d.amount||0}));
   if (donors.length === 0) return;
@@ -1514,7 +1545,7 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
   if (panel === 'compare') fillCompare();
   if (panel === 'finance' && currentMember) {
     const sy = parseInt((currentMember.term_start||'2010').slice(0,4));
-    setTimeout(()=>drawCongressionalSalaryChart('fin-canvas',sy),50);
+    setTimeout(()=>drawSalaryChart('fin-canvas',sy),50);
   }
 });
 
@@ -1553,7 +1584,7 @@ function fillCompare() {
 
   chartsWrap.innerHTML = html;
 
-  document.getElementById('compare-note').textContent = `Showing ${withData} of 538 members with complete data`;
+  document.getElementById('compare-note').textContent = `Showing ${withData} of ${allMembers.length} members with complete data`;
   document.getElementById('compare-badge').textContent = `${withData} WITH DATA`;
 
   // Draw score chart
@@ -1606,12 +1637,17 @@ function drawBarChart(canvasId, items, valueFn, colorFn) {
   });
 }
 
+// Mirror active state across every button group sharing the same data attribute
+// (keeps sidebar .sf-btn and mobile .mf-btn groups in sync)
+function syncFilterButtons(btnAttr, val) {
+  document.querySelectorAll(`[data-${btnAttr}]`).forEach(b => b.classList.toggle('active', b.dataset[btnAttr] === val));
+}
 function wireFilters(containerSelector, filterKey, btnAttr) {
   document.querySelectorAll(`${containerSelector} [data-${btnAttr}]`).forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll(`${containerSelector} [data-${btnAttr}]`).forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      filters[filterKey] = btn.dataset[btnAttr];
+      const val = btn.dataset[btnAttr];
+      filters[filterKey] = val;
+      syncFilterButtons(btnAttr, val);
       applyFilters();
     });
   });
@@ -1622,8 +1658,16 @@ wireFilters('.sidebar','score','score');
 wireFilters('#mf-chamber','chamber','chamber');
 wireFilters('#mf-party','party','party');
 
-document.getElementById('sidebar-search').addEventListener('input', e => { filters.search = e.target.value; applyFilters(); });
-document.getElementById('mobile-search').addEventListener('input', e => { filters.search = e.target.value; applyFilters(); });
+function wireSearch(id, otherId) {
+  document.getElementById(id).addEventListener('input', e => {
+    filters.search = e.target.value;
+    const other = document.getElementById(otherId);
+    if (other) other.value = e.target.value;
+    applyFilters();
+  });
+}
+wireSearch('sidebar-search','mobile-search');
+wireSearch('mobile-search','sidebar-search');
 document.getElementById('sort-sel').addEventListener('change', e => { filters.sort = e.target.value; applyFilters(); });
 
 document.addEventListener('keydown', e => {
@@ -1640,13 +1684,29 @@ function mobileNav(tab) {
     const tabMap = {bills:'votes',donors:'network',trades:'stocks',compare:'compare'};
     const ptab = tabMap[tab];
     if (ptab) document.querySelector(`[data-panel="${ptab}"]`)?.click();
+  } else {
+    // No profile open — return to the members view and prompt a selection
+    document.getElementById(`mnav-${tab}`).classList.remove('active');
+    document.getElementById('mnav-members').classList.add('active');
+    showMembersList();
+    showToast('Select a member first');
   }
 }
 
+function csvField(v) {
+  let s = String(v === null || v === undefined ? '' : v);
+  // Guard against spreadsheet formula injection
+  if (/^[=+\-@]/.test(s)) s = "'" + s;
+  return '"' + s.replace(/"/g, '""') + '"';
+}
 function exportMemberCSV() {
   if (!currentMember) return;
   const m = currentMember;
-  const csv = `Name,Party,State,Chamber,Score,Career Earnings,Total Raised,PAC,Corporate Insider Signals\n${m.name},${m.party},${m.state},${m.chamber},${m.displayScore},${m.careerEarnings||''},${m.total_raised||0},${m.pac_contributions||0},${m.corporate_insider_signals||0}`;
+  const rows = [
+    ['Name','Party','State','Chamber','Score','Career Earnings','Total Raised','PAC','Corporate Insider Signals'],
+    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised||0, m.pac_contributions||0, m.corporate_insider_signals||0]
+  ];
+  const csv = rows.map(r => r.map(csvField).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
   a.download = `congresswatch-${(m.name||'member').replace(/\s+/g,'-').toLowerCase()}.csv`;

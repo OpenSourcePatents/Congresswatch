@@ -59,19 +59,40 @@ SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 # ---------------------------------------------------------------------------
 
 def load_json(path, default):
+    """Guarded load: a corrupt existing file aborts the run instead of
+    silently becoming `default` and then getting overwritten."""
     if os.path.exists(path):
+        if os.path.getsize(path) == 0:
+            return default
         with open(path, "r") as f:
             try:
                 return json.load(f)
-            except Exception:
-                return default
+            except Exception as e:
+                raise SystemExit(f"ABORT: {path} exists but failed to parse "
+                                 f"({e}). Refusing to continue.")
     return default
 
 
 def save_json(path, data):
+    """Atomic write: temp file + os.replace so a crash never truncates."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
         json.dump(data, f, indent=2)
+    os.replace(tmp, path)
+
+
+def to_iso_date(s):
+    """Normalize MM/DD/YYYY or ISO-ish strings to YYYY-MM-DD ('' if bad)."""
+    if not s:
+        return ""
+    s = str(s).strip()[:10]
+    for fmt in ("%m/%d/%Y", "%Y-%m-%d"):
+        try:
+            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return ""
 
 
 def normalize_name(name):
@@ -422,11 +443,14 @@ def parse_ptr_page(html, ptr_url=""):
             if i >= len(col_map) or col_map[i] is None:
                 continue
             field = col_map[i]
-            if field == "asset_description":
-                # Preserve inner HTML (matches existing trade format)
-                trade[field] = cell.decode_contents().strip()
-            else:
-                trade[field] = cell.get_text(strip=True) or "--"
+            # Store plain text only — HTML fragments in data are an XSS
+            # hazard and render inconsistently (legacy rows kept anchors)
+            trade[field] = cell.get_text(strip=True) or ("--" if field != "asset_description" else "")
+
+        # Normalize dates to ISO so date comparisons work everywhere
+        iso = to_iso_date(trade["transaction_date"])
+        if iso:
+            trade["transaction_date"] = iso
 
         # Only keep rows with at least a date or an asset
         if trade["transaction_date"] or trade["asset_description"]:
@@ -531,14 +555,18 @@ def main():
     while len(all_filings) < MAX_FILINGS:
         time.sleep(REQUEST_DELAY)
         data = client.search_filings(start=start, length=page_size)
+        raw_rows = len(data.get("data", []) or [])
         filings = parse_search_results(data)
         total = data.get("recordsTotal", 0)
 
         print(f"  Page {start // page_size + 1}: "
-              f"{len(filings)} electronic PTRs "
+              f"{len(filings)} electronic PTRs of {raw_rows} rows "
               f"(server total: {total})")
 
-        if not filings:
+        # Stop only when the server returns no rows at all. A page can be
+        # all paper filings (filtered out) while later pages still hold
+        # electronic PTRs — that must not end pagination early.
+        if raw_rows == 0:
             break
 
         all_filings.extend(filings)
@@ -567,14 +595,12 @@ def main():
         if len(candidates) == 1:
             match = candidates[0]
         elif len(candidates) > 1:
-            # Disambiguate by first name
+            # Disambiguate by first name; never blind-attribute — a former
+            # senator's filing must not land on a same-surname sitting one
             for c in candidates:
                 if first_name_match(first_parts, c["name"]):
                     match = c
                     break
-            # Fallback: take first candidate if none matched
-            if not match:
-                match = candidates[0]
 
         if match:
             bid = match["id"]
@@ -684,9 +710,11 @@ def main():
         detail["trades_updated"] = datetime.now(timezone.utc).isoformat()
         detail["trade_count"] = len(all_trades)
 
-        # Find latest trade date
-        dates = [t.get("transaction_date", "")
-                 for t in all_trades if t.get("transaction_date")]
+        # Find latest trade date — parse first: legacy rows store
+        # MM/DD/YYYY, where string max() sorts by month, not year
+        dates = [to_iso_date(t.get("transaction_date", ""))
+                 for t in all_trades]
+        dates = [d for d in dates if d]
         detail["latest_trade_date"] = max(dates) if dates else ""
 
         save_json(detail_path, detail)

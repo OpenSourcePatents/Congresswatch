@@ -47,10 +47,46 @@ LIGHT_FIELDS = {
     "photo_url","term_start","score","flags",
     "corporate_insider_signals",
     "total_raised","total_raised_display",
+    "pac_contributions","individual_contributions",
     "missed_votes_pct","votes_with_party_pct",
     "govtrack_id","data_updated",
     "edgar_status","edgar_cik"
 }
+
+# FEC expects 2-letter postal codes; members.json stores full state names
+STATE_ABBREV = {
+    "Alabama":"AL","Alaska":"AK","Arizona":"AZ","Arkansas":"AR","California":"CA",
+    "Colorado":"CO","Connecticut":"CT","Delaware":"DE","Florida":"FL","Georgia":"GA",
+    "Hawaii":"HI","Idaho":"ID","Illinois":"IL","Indiana":"IN","Iowa":"IA",
+    "Kansas":"KS","Kentucky":"KY","Louisiana":"LA","Maine":"ME","Maryland":"MD",
+    "Massachusetts":"MA","Michigan":"MI","Minnesota":"MN","Mississippi":"MS","Missouri":"MO",
+    "Montana":"MT","Nebraska":"NE","Nevada":"NV","New Hampshire":"NH","New Jersey":"NJ",
+    "New Mexico":"NM","New York":"NY","North Carolina":"NC","North Dakota":"ND","Ohio":"OH",
+    "Oklahoma":"OK","Oregon":"OR","Pennsylvania":"PA","Rhode Island":"RI","South Carolina":"SC",
+    "South Dakota":"SD","Tennessee":"TN","Texas":"TX","Utah":"UT","Vermont":"VT",
+    "Virginia":"VA","Washington":"WA","West Virginia":"WV","Wisconsin":"WI","Wyoming":"WY",
+    "District of Columbia":"DC","Puerto Rico":"PR","Guam":"GU","American Samoa":"AS",
+    "Virgin Islands":"VI","Northern Mariana Islands":"MP",
+}
+
+def state_code(state):
+    if not state:
+        return ""
+    if len(state) == 2:
+        return state.upper()
+    return STATE_ABBREV.get(state, "")
+
+def parse_date_any(s):
+    """Normalize a date string (ISO or MM/DD/YYYY) to YYYY-MM-DD; '' if unparseable."""
+    if not s:
+        return ""
+    s = str(s).strip()[:10]
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y"):
+        try:
+            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return ""
 
 # ─────────────────────────────────────────────────────────────
 # Helpers
@@ -60,40 +96,35 @@ def sleep(s=1.2):
     time.sleep(s)
 
 def load_json(path, default):
-    if not os.path.exists(path):
+    """Guarded load: a missing/empty file yields default; a corrupt existing
+    file ABORTS the run so we never overwrite good data with a partial view."""
+    if not os.path.exists(path) or os.path.getsize(path) == 0:
         return default
     try:
         with open(path) as f:
             return json.load(f)
-    except:
-        return default
+    except Exception as e:
+        raise SystemExit(f"ABORT: {path} exists but failed to parse ({e}). "
+                         "Refusing to continue — fix or remove the file.")
 
 def save_json(path, data):
-    with open(path,"w") as f:
-        json.dump(data,f,indent=2)
+    """Atomic write: temp file + os.replace so a crash never truncates data."""
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(data, f, indent=2)
+    os.replace(tmp, path)
 
 def load_members():
-    try:
-        with open(OUTPUT_FILE) as f:
-            return json.load(f)
-    except Exception as e:
-        print("Could not load members.json:", e)
-        return []
+    members = load_json(OUTPUT_FILE, [])
+    if not members:
+        print("Could not load members.json (missing or empty)")
+    return members
 
 def load_detail(bid):
-    path = os.path.join(DETAILS_DIR, f"{bid}.json")
-    if os.path.exists(path):
-        try:
-            with open(path) as f:
-                return json.load(f)
-        except:
-            return {}
-    return {}
+    return load_json(os.path.join(DETAILS_DIR, f"{bid}.json"), {})
 
 def save_detail(bid,data):
-    path = os.path.join(DETAILS_DIR,f"{bid}.json")
-    with open(path,"w") as f:
-        json.dump(data,f,indent=2)
+    save_json(os.path.join(DETAILS_DIR, f"{bid}.json"), data)
 
 # ─────────────────────────────────────────────────────────────
 # CIK RESOLUTION
@@ -117,10 +148,14 @@ def name_aliases(name):
     ]))
 
 def sec_search(query):
+    # Rolling 2-year window; EDGAR FTS custom ranges need both bounds
+    from datetime import timedelta
+    end = datetime.now().strftime("%Y-%m-%d")
+    start = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
     url = (
         "https://efts.sec.gov/LATEST/search-index"
         f"?q={requests.utils.quote(query)}"
-        "&forms=4&dateRange=custom&startdt=2023-01-01"
+        f"&forms=4&dateRange=custom&startdt={start}&enddt={end}"
     )
     sleep(1.2)
     r = requests.get(url,headers=HEADERS,timeout=20)
@@ -196,9 +231,11 @@ def fetch_edgar_signals(member):
         print(f"    EDGAR Hit: {count} filings via CIK {res['cik']}")
         return count
 
-    except:
+    except Exception as e:
+        # None = "query failed, keep previous value" — distinct from a real 0
+        print(f"    EDGAR query failed: {e}")
         member["edgar_status"]="query_failed"
-        return 0
+        return None
 
 # ─────────────────────────────────────────────────────────────
 # FEC
@@ -212,27 +249,36 @@ def fetch_fec_candidate(name,state,office):
     params={
         "api_key":FEC_KEY,
         "q":fec_name,
-        "state":state,
         "office":office,
         "per_page":3
     }
+    # FEC wants the 2-letter postal code; a full state name is silently ignored
+    code = state_code(state)
+    if code:
+        params["state"] = code
 
     try:
         sleep(0.5)
         r=requests.get(f"{FEC_BASE}/candidates/search/",params=params,headers=HEADERS)
         r.raise_for_status()
         res=r.json().get("results",[])
+        # Prefer an exact state match over blind results[0]
+        if code:
+            for c in res:
+                if (c.get("state") or "").upper() == code:
+                    return c
         return res[0] if res else {}
-    except:
+    except Exception as e:
+        print(f"    FEC candidate search failed: {e}")
         return {}
 
 def fetch_fec_totals(cid):
-
+    """Latest available cycle totals. Senators fundraise under their own
+    (2028/2030) cycles, so a hardcoded cycle misses most of the Senate."""
     params={
         "api_key":FEC_KEY,
         "candidate_id":cid,
-        "cycle":2026,
-        "per_page":1
+        "per_page":20
     }
 
     try:
@@ -243,13 +289,17 @@ def fetch_fec_totals(cid):
         res=r.json().get("results",[])
 
         if res:
-            r=res[0]
+            # Pick the most recent cycle that actually reports receipts
+            res = sorted(res, key=lambda x: x.get("cycle") or 0, reverse=True)
+            best = next((x for x in res if x.get("receipts")), res[0])
             return {
-                "total_raised":r.get("receipts",0),
-                "pac_contributions":r.get("contributions_from_other_committees",0)
+                "total_raised":best.get("receipts",0),
+                "pac_contributions":best.get("contributions_from_other_committees",0),
+                "individual_contributions":best.get("individual_contributions",0),
+                "fec_cycle":best.get("cycle")
             }
-    except:
-        pass
+    except Exception as e:
+        print(f"    FEC totals failed: {e}")
 
     return {}
 
@@ -283,7 +333,9 @@ def compute_score(m, detail=None):
     if trades:
         from datetime import timedelta
         cutoff = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
-        recent = sum(1 for t in trades if (t.get("transaction_date") or "") >= cutoff)
+        # transaction_date may be ISO or legacy MM/DD/YYYY — normalize first
+        recent = sum(1 for t in trades
+                     if parse_date_any(t.get("transaction_date")) >= cutoff)
         if recent >= 20:
             trade_score += 15
         elif recent >= 10:
@@ -298,7 +350,7 @@ def compute_score(m, detail=None):
         est_wealth = total * 0.45
         start_year = m.get("term_start", "2010")[:4]
         try:
-            years_in_office = max(1, 2026 - int(start_year))
+            years_in_office = max(1, datetime.now().year - int(start_year))
         except (ValueError, TypeError):
             years_in_office = 10
         cumulative_salary = years_in_office * ANNUAL_SALARY
@@ -325,6 +377,10 @@ def compute_score(m, detail=None):
         alec = bill.get("alec_match")
         if alec and alec.get("similarity_score", 0) > max_alec_sim:
             max_alec_sim = alec["similarity_score"]
+        # raw best similarity (also stored below the 0.80 match threshold)
+        raw_sim = bill.get("alec_best_similarity", 0) or 0
+        if raw_sim > max_alec_sim:
+            max_alec_sim = raw_sim
     if max_alec_sim >= 0.8:
         score += 15
     elif max_alec_sim >= 0.65:
@@ -339,7 +395,8 @@ def compute_score(m, detail=None):
     if travel:
         from datetime import timedelta
         cutoff_2y = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
-        recent_trips = sum(1 for t in travel if (t.get("departure_date") or "") >= cutoff_2y)
+        recent_trips = sum(1 for t in travel
+                           if parse_date_any(t.get("departure_date")) >= cutoff_2y)
         if recent_trips >= 5:
             score += 10
         elif recent_trips >= 3:
@@ -389,15 +446,17 @@ def supabase_update_finance(bid, m):
     data = {
         "score": m.get("score", 0),
         "flags": m.get("flags", []),
-        "total_raised": float(m.get("total_raised", 0) or 0),
-        "pac_contributions": float(m.get("pac_contributions", 0) or 0),
-        "individual_contributions": float(m.get("individual_contributions", 0) or 0),
         "corporate_insider_signals": m.get("corporate_insider_signals", 0) or 0,
         "edgar_status": m.get("edgar_status", "unresolved"),
         "edgar_cik": m.get("edgar_cik"),
         "fec_candidate_id": m.get("fec_candidate_id"),
         "data_updated": datetime.now().isoformat()
     }
+    # Only send finance figures we actually have — a missing value must not
+    # PATCH a real prior value down to 0
+    for field in ("total_raised", "pac_contributions", "individual_contributions"):
+        if m.get(field) is not None and field in m:
+            data[field] = float(m.get(field) or 0)
     try:
         r = requests.patch(
             f"{SUPABASE_URL}/rest/v1/members?bioguide_id=eq.{bid}",
@@ -458,20 +517,30 @@ if __name__=="__main__":
 
         print(f"[{i+1}/{len(members)}] {name} ({bid})")
 
-        # EDGAR
-        m["corporate_insider_signals"]=fetch_edgar_signals(m)
+        # load existing detail file first (has votes, bills from other
+        # pipelines, plus last-known finance values for failure fallback)
+        detail_data=load_detail(bid)
 
-        # FEC
+        # EDGAR — None means "query failed": keep the last-known value
+        signals=fetch_edgar_signals(m)
+        if signals is None:
+            signals=detail_data.get("corporate_insider_signals", 0) or 0
+        m["corporate_insider_signals"]=signals
+
+        # FEC — on any failure, fall back to last-known totals so the
+        # wealth-gap signal doesn't silently collapse to 0
         cand=fetch_fec_candidate(name,state,office)
 
         if cand.get("candidate_id"):
             m["fec_candidate_id"]=cand["candidate_id"]
             m.update(fetch_fec_totals(cand["candidate_id"]))
+        elif detail_data.get("fec_candidate_id"):
+            m["fec_candidate_id"]=detail_data["fec_candidate_id"]
+        for field in ("total_raised","pac_contributions","individual_contributions"):
+            if not m.get(field) and detail_data.get(field):
+                m[field]=detail_data[field]
 
         m["data_updated"]=datetime.now().isoformat()
-
-        # load existing detail file (has votes, bills from other pipelines)
-        detail_data=load_detail(bid)
 
         # SAFE MERGE (prevents wiping existing pipeline data)
         for k,v in m.items():
@@ -510,15 +579,14 @@ if __name__=="__main__":
 
     final_members=list(existing_by_id.values())
 
-    with open(OUTPUT_FILE,"w") as f:
-        json.dump(final_members,f,indent=2)
+    save_json(OUTPUT_FILE, final_members)
 
     scored=sum(1 for m in final_members if (m.get("score") or 0)>0)
     high_anomaly=sum(1 for m in final_members if (m.get("score") or 0)>=60)
     total_insider=sum(m.get("corporate_insider_signals",0) or 0 for m in final_members)
 
     stats = {
-        "total_members": 538,
+        "total_members": len(final_members),
         "members_with_scores": scored,
         "high_anomaly": high_anomaly,
         "total_insider_signals": total_insider,

@@ -10,6 +10,7 @@ import os
 import json
 import time
 import random
+import hashlib
 import requests
 from datetime import datetime
 from urllib.parse import urlencode
@@ -26,17 +27,24 @@ os.makedirs(DETAILS_DIR, exist_ok=True)
 def load_detail(bid):
     detail_path = os.path.join(DETAILS_DIR, f'{bid}.json')
     if os.path.exists(detail_path):
+        if os.path.getsize(detail_path) == 0:
+            return {}
         with open(detail_path, 'r') as f:
             try:
                 return json.load(f)
-            except Exception:
-                return {}
+            except Exception as e:
+                # Never treat a corrupt file as empty — writing back would
+                # wipe every other pipeline's fields for this member
+                raise SystemExit(f'ABORT: {detail_path} exists but failed to '
+                                 f'parse ({e}). Refusing to continue.')
     return {}
 
 def save_detail(bid, data):
     detail_path = os.path.join(DETAILS_DIR, f'{bid}.json')
-    with open(detail_path, 'w') as f:
+    tmp = detail_path + '.tmp'
+    with open(tmp, 'w') as f:
         json.dump(data, f, indent=2)
+    os.replace(tmp, detail_path)
 
 # ─── ID CROSSWALK ────────────────────────────────────────────────────────────
 
@@ -88,6 +96,8 @@ def build_crosswalk():
 def fetch_member_votes(gt_id):
     """Fetches 20 most recent votes for a GovTrack person ID.
     Includes exponential backoff on 429.
+    Returns a list on success ([] = genuinely no votes) or None on
+    HTTP/network failure so callers can tell an outage from an empty record.
     """
     params = {'person': gt_id, 'limit': 20, 'sort': '-created'}
     url = 'https://www.govtrack.us/api/v2/vote_voter?' + urlencode(params)
@@ -106,12 +116,12 @@ def fetch_member_votes(gt_id):
                 time.sleep(wait)
             else:
                 print(f'    [!] HTTP {r.status_code} for GT ID {gt_id} - {r.text[:200]}')
-                return []
+                return None
         except Exception as e:
             print(f'    Fail for GovTrack ID {gt_id}: {e}')
-            return []
+            return None
     print(f'    [!] All retries exhausted for GT ID {gt_id}')
-    return []
+    return None
 
 def format_vote(v):
     """Normalize a raw GovTrack vote_voter object to frontend-ready dict."""
@@ -143,9 +153,15 @@ def supabase_upsert_votes(bid, votes):
     }
     rows = []
     for v in votes:
-        # Build a unique vote_id from url or date+bill
+        # Build a unique vote_id from url or date+bill. Must be
+        # deterministic across runs (hash() is salted per process, which
+        # broke upsert dedup and inserted duplicates daily)
         vote_url = v.get('url', '')
-        vote_id = vote_url.split('/')[-1] if vote_url else f"{bid}_{v.get('date','')}_{hash(v.get('bill',''))}"
+        if vote_url:
+            vote_id = vote_url.split('/')[-1]
+        else:
+            digest = hashlib.md5((v.get('bill', '') or '').encode('utf-8')).hexdigest()[:12]
+            vote_id = f"{bid}_{v.get('date','')}_{digest}"
         rows.append({
             "bioguide_id": bid,
             "vote_id": vote_id,
@@ -210,12 +226,15 @@ if __name__ == '__main__':
         raw_votes = fetch_member_votes(gt_id)
 
         if not raw_votes:
-            print(f'    No votes returned for GovTrack ID {gt_id}')
+            # None = HTTP/network failure; [] = member genuinely has no votes
+            status = 'fetch_failed' if raw_votes is None else 'no_recent_votes'
+            print(f'    No votes for GovTrack ID {gt_id} ({status})')
             detail_data = load_detail(bid)
-            detail_data['votes_status'] = 'no_recent_votes'
+            detail_data['votes_status'] = status
             detail_data['govtrack_id'] = gt_id
             detail_data['votes_updated'] = datetime.now().isoformat()
-            detail_data['votes_fail_count'] = detail_data.get('votes_fail_count', 0) + 1
+            if raw_votes is None:
+                detail_data['votes_fail_count'] = detail_data.get('votes_fail_count', 0) + 1
             save_detail(bid, detail_data)
             failed += 1
             continue

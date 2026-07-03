@@ -76,19 +76,32 @@ SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 # ---------------------------------------------------------------------------
 
 def load_json(path, default):
+    """Guarded load. A corrupt DETAIL file aborts (would be overwritten,
+    wiping other pipelines' data). A corrupt bills CACHE just starts fresh —
+    it is regenerable and lives outside git."""
     if os.path.exists(path):
+        if os.path.getsize(path) == 0:
+            return default
         with open(path, "r") as f:
             try:
                 return json.load(f)
-            except Exception:
-                return default
+            except Exception as e:
+                if os.path.abspath(path) == os.path.abspath(BILLS_CACHE):
+                    print(f"  [WARN] Bills cache corrupt ({e}) — rebuilding from scratch")
+                    return default
+                raise SystemExit(f"ABORT: {path} exists but failed to parse "
+                                 f"({e}). Refusing to continue.")
     return default
 
 
 def save_json(path, data):
+    """Atomic write: temp + os.replace. A GitHub Actions timeout mid-dump of
+    the ~100MB cache used to leave truncated JSON that silently became {}."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
         json.dump(data, f, indent=2)
+    os.replace(tmp, path)
 
 
 def load_detail(bioguide_id):
@@ -98,9 +111,7 @@ def load_detail(bioguide_id):
 
 def save_detail(bioguide_id, data):
     path = os.path.join(DETAILS_DIR, f"{bioguide_id}.json")
-    os.makedirs(DETAILS_DIR, exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2)
+    save_json(path, data)
 
 
 # ---------------------------------------------------------------------------
@@ -127,10 +138,13 @@ def fetch_bill_text(bill_stub: dict, legiscan_budget: list) -> str:
                 return text
 
     # --- LegiScan fallback ---
-    if legiscan_budget[0] <= 0:
+    # A full fallback costs up to 3 real API calls (getSearch + getBill +
+    # getBillText); budget them honestly or the quota cap is fictional
+    if legiscan_budget[0] < 3:
         return ""
 
     query = title[:80] if title else f"{bill_type}{number}"
+    legiscan_budget[0] -= 1  # getSearch
     results = legiscan_search_bill(query, state="US", year=2)
     if not results:
         return ""
@@ -145,7 +159,7 @@ def fetch_bill_text(bill_stub: dict, legiscan_budget: list) -> str:
     if not best:
         return ""
 
-    legiscan_budget[0] -= 1
+    legiscan_budget[0] -= 2  # getBill + getBillText
     text = legiscan_get_text_for_bill(best["legiscan_id"])
     return text or ""
 
@@ -228,6 +242,22 @@ def main():
     if stripped:
         print(f"  [CACHE] Stripped raw_text from {stripped} bills (size reduction)")
 
+    # Invalidate cache entries whose cleaned_text still contains HTML-doc
+    # tokens (cleaned before HTML stripping existed). Bounded per run so a
+    # large polluted cache heals gradually without a multi-hour refetch.
+    MAX_RECLEAN_PER_RUN = 300
+    recleaned = 0
+    for _bid, _entry in bills_cache.items():
+        if recleaned >= MAX_RECLEAN_PER_RUN:
+            break
+        _ct = _entry.get("cleaned_text", "")
+        if _ct and ("doctype" in _ct[:200] or "xhtml" in _ct[:500]
+                    or "html public" in _ct[:500]):
+            _entry["cleaned_text"] = ""   # forces a refetch + proper clean
+            recleaned += 1
+    if recleaned:
+        print(f"  [CACHE] Invalidated {recleaned} HTML-polluted entries for re-clean")
+
     print(f"Bills cache: {len(bills_cache)} existing bills")
 
     # Build similarity engine from existing cache
@@ -281,6 +311,7 @@ def main():
             if not cached_clean:
                 # Fetch fresh text
                 raw_text = fetch_bill_text(stub, legiscan_budget)
+                has_text = bool(raw_text)
                 stats["bills_fetched"] += 1
 
                 if raw_text:
@@ -303,9 +334,11 @@ def main():
                     }
                     engine.add_bill(bill_id, cleaned)
             else:
+                # Cached bills have cleaned_text by definition
+                has_text = True
                 stats["bills_cached"] += 1
 
-            enriched.append({**stub, "has_text": bool(raw_text)})
+            enriched.append({**stub, "has_text": has_text})
 
         member_bills_map[bid] = enriched
         stats["members_processed"] += 1
@@ -400,6 +433,9 @@ def main():
                 "keywords":         cached.get("keywords", []),
                 "has_text":         bool(cleaned_text),
                 "similarity_score": alec_match["similarity_score"] if alec_match else None,
+                # Raw best ALEC cosine even below the 0.80 match threshold —
+                # feeds the graduated 0.35/0.5/0.65 scoring buckets
+                "alec_best_similarity": sim_result.get("alec_best_similarity", 0.0),
                 "match_type":       "alec_model" if alec_match else ("member_bill" if co_author_matches else None),
                 "alec_match":       alec_match,
                 "similar_member_bills": co_author_matches[:3],

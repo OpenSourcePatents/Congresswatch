@@ -12,13 +12,17 @@ Live site: congresswatch.vercel.app
 
 **Frontend:** Single `index.html` file (plain HTML/CSS/JS, no framework). Canvas-drawn charts (no Chart.js).
 
-**Data pipeline:** Four independent Python scripts run daily via GitHub Actions on staggered schedules (UTC):
+**Data pipeline:** Eight independent Python scripts run daily via GitHub Actions on staggered schedules (UTC):
 - `fetch.py` (1am) — Congress.gov member data (runs first, base data)
 - `fetch_votes.py` (2am) — GovTrack vote history
-- `fetch_finance.py` (4am) — FEC campaign finance + SEC EDGAR trade signals + scoring
-- `run_fetch_bills.py` (6am) — Bill similarity engine (TF-IDF + cosine similarity)
+- `fetch_finance.py` (5am) — FEC campaign finance + SEC EDGAR trade signals + anomaly scoring
+- `run_fetch_bills.py` (7am) — Bill similarity engine (TF-IDF + cosine similarity)
+- `fetch_senate_efd.py` (8am) — Senate stock trades from efdsearch.senate.gov PTR filings
+- `fetch_travel_pdf.py` (9am) — House gift-travel filings from the Clerk's consolidated search (HTML, not PDFs — the disclosure PDFs are scanned images)
+- `fetch_house_trades.py` (10am) — House stock trades: yearly FD.zip index from disclosures-clerk.house.gov + pdfplumber PTR PDF parsing
+- `fetch_donors.py` (11am) — FEC Schedule A itemized donors (candidate → committee → contributions) + `top_donor_industries` derivation
 
-Each workflow commits updated JSON files back to the repo automatically.
+Each workflow commits updated JSON files back to the repo automatically (commit → `git pull --rebase` → push).
 
 **Data storage:** JSON files in `data/`. Two-tier structure:
 - `data/members.json` — lightweight leaderboard (all 535+ members)
@@ -37,7 +41,7 @@ Orchestrated by `run_fetch_bills.py` with config: `CURRENT_CONGRESS=119`, `MAX_B
 
 ## Running Scripts Locally
 
-Python 3.11. Install dependencies: `pip install requests scikit-learn numpy beautifulsoup4 pypdf`
+Python 3.11. Install dependencies: `pip install -r requirements.txt`
 
 Required environment variables (from GitHub Secrets):
 - `CONGRESS_API_KEY` — Congress.gov API
@@ -71,12 +75,17 @@ All fetch scripts include built-in rate limiting (0.4-0.7s sleep between request
 ## Key Patterns
 
 - Each pipeline uses safe merge logic — preserving existing fields when updating detail files
+- All pipelines use atomic writes (temp file + `os.replace`) and guarded loads: a corrupt existing JSON file ABORTS the run rather than being treated as empty and overwritten
+- Dates in trade/travel records are normalized to ISO `YYYY-MM-DD`; legacy records may still hold `MM/DD/YYYY`, so always parse before comparing
 - SEC CIK resolution has a manual fallback mapping in `data/manual_cik_map.json`
-- PDF parsing (PTR reports in `fetch_ptr.py`) tries `pypdf` first, falls back to `PyPDF2`
-- The ALEC corpus (`data/alec_corpus.json`) is matched against all bills via the same TF-IDF pipeline
-- `vercel.json` disables all caching (no-cache headers on every response)
-- PTR pipeline (`fetch_ptr.py`) requires `data/ptr_source_manifest.json` with source URLs
+- The ALEC corpus (`data/alec_corpus.json`) is matched against all bills via the same TF-IDF pipeline; ALEC matching is skipped when the bill corpus is cold (<50 bills)
+- `vercel.json` serves `data/*` with CDN caching (5min browser / 1h CDN + stale-while-revalidate); everything else is `no-cache`
 - `bootstrap.py` checks repo health and creates required data directories
+
+## Legacy / unwired scripts (do not treat as live)
+
+- `fetch_ptr.py` — old PTR PDF pipeline; no workflow invokes it and `data/ptr_source_manifest.json` is empty. Superseded by `fetch_house_trades.py`
+- `fetch_trades_github_backup.py`, `fetch_travel_xml_backup.py` — dead predecessors kept for reference; both fully OVERWRITE `trades[]`/`travel[]` instead of safe-merging — do not resurrect as-is
 
 ## Changelog
 

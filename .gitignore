@@ -1,2 +1,9 @@
 # Large cache files (persisted via GitHub Actions cache, not git)
 data/bills/all_bills.json
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Atomic-write temp files
+data/**/*.tmp

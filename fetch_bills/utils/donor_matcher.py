@@ -2,8 +2,10 @@
 donor_matcher.py — Match bill topics against member's donor industries.
 
 Uses keyword sets per industry. Member's top donor industries come from
-FEC vault data already written by fetch_finance.py.
+FEC vault data written by fetch_donors.py (top_donor_industries).
 """
+
+import re
 
 # ---------------------------------------------------------------------------
 # Industry keyword map
@@ -151,11 +153,18 @@ def match_donor_interests(
     matched_industries = []
     keyword_hits = {}
 
+    def kw_in_text(kw):
+        # Whole-word/phrase match: bare substring tests produced false hits
+        # like "gun" in "begun" or "arms" in "farms". Underscore keywords
+        # (legacy bigram tokens) are treated as two-word phrases.
+        phrase = kw.replace("_", " ")
+        return re.search(r"\b" + re.escape(phrase) + r"\b", combined) is not None
+
     for industry in donor_industries:
         if industry not in INDUSTRY_KEYWORDS:
             continue
         keywords = INDUSTRY_KEYWORDS[industry]
-        hits = [kw for kw in keywords if kw in combined]
+        hits = [kw for kw in keywords if kw_in_text(kw)]
         if hits:
             matched_industries.append(industry)
             keyword_hits[industry] = hits[:5]  # cap at 5 hits for storage
@@ -184,9 +193,11 @@ def score_donor_alignment(bill_results: list) -> float:
             total += 3.0  # strongest signal: ALEC template + donor aligned
         elif donor.get("match"):
             total += 1.5
-        elif alec:
-            total += 1.0
+        # ALEC-only bills contribute nothing here — the anomaly score
+        # already has a dedicated 15-pt ALEC bucket; counting it here too
+        # double-scored the same signal.
 
-    # Normalize to 0–100 (cap at 100)
-    raw = (total / len(bill_results)) * 25
+    # Normalize to 0–100: max per-bill contribution is 3.0, so scale by
+    # 100/3 (the old *25 factor capped the "0-100" scale at 75)
+    raw = (total / len(bill_results)) * (100.0 / 3.0)
     return min(round(raw, 1), 100.0)

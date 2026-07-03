@@ -16,6 +16,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 THRESHOLD = 0.80
 TOP_N_MATCHES = 3  # surface top 3 matches per bill
+# Below this many real bills, the TF-IDF vocabulary would be dominated by
+# the 15 short ALEC templates, projecting every bill onto ALEC's terms and
+# wildly inflating similarity. Skip ALEC matching on such a cold corpus.
+MIN_CORPUS_FOR_ALEC = 50
 
 ALEC_CORPUS_PATH = os.path.join(
     os.path.dirname(__file__), "../../data/alec_corpus.json"
@@ -77,23 +81,23 @@ def find_similar_bills(
 
 def match_alec(
     target_vector: np.ndarray,
-    vectorizer: TfidfVectorizer,
     alec_corpus: list,
-    alec_cleaned_texts: list,
+    alec_vectors: np.ndarray,
     threshold: float = THRESHOLD,
-) -> dict | None:
+) -> tuple:
     """
     Compare target bill vector against all ALEC model legislation.
-    Returns best match dict or None if no match above threshold.
+    Returns (match_dict_or_None, best_raw_score). The raw score is always
+    returned so downstream graduated scoring (0.35/0.5/0.65 buckets) works
+    even when no match crosses the 0.80 threshold.
     """
-    if not alec_corpus or not alec_cleaned_texts:
-        return None
+    if not alec_corpus or alec_vectors is None or len(alec_vectors) == 0:
+        return None, 0.0
 
-    alec_vectors = vectorize(vectorizer, alec_cleaned_texts)
     sims = cosine_similarity([target_vector], alec_vectors)[0]
 
     best_idx = int(np.argmax(sims))
-    best_score = float(sims[best_idx])
+    best_score = round(float(sims[best_idx]), 3)
 
     if best_score >= threshold:
         match = alec_corpus[best_idx]
@@ -103,9 +107,9 @@ def match_alec(
             "organization": match.get("organization", "ALEC"),
             "category": match.get("category", ""),
             "source_url": match.get("source_url", ""),
-            "similarity_score": round(best_score, 3),
-        }
-    return None
+            "similarity_score": best_score,
+        }, best_score
+    return None, best_score
 
 
 class SimilarityEngine:
@@ -123,6 +127,8 @@ class SimilarityEngine:
         self.bill_vectors = None
         self.alec_corpus = []
         self.alec_cleaned = []
+        self.alec_vectors = None
+        self.alec_enabled = False
         self._fitted = False
 
     def load_corpus(self, bills_cache: dict):
@@ -158,6 +164,18 @@ class SimilarityEngine:
         else:
             self.bill_vectors = np.zeros((0, 0))
 
+        # Vectorize ALEC once (was recomputed on every analyze_bill call)
+        if self.alec_cleaned:
+            self.alec_vectors = vectorize(self.vectorizer, self.alec_cleaned)
+
+        # Guard against a cold/tiny corpus: with few real bills the
+        # vocabulary comes mostly from ALEC's own text, making every
+        # comparison against it meaninglessly high
+        self.alec_enabled = len(bill_texts) >= MIN_CORPUS_FOR_ALEC
+        if not self.alec_enabled:
+            print(f"  [SIM] ALEC matching DISABLED — corpus has only "
+                  f"{len(bill_texts)} bills (< {MIN_CORPUS_FOR_ALEC})")
+
         self._fitted = True
         print(f"  [SIM] Vectorizer fit on {len(bill_texts)} bills + {len(self.alec_corpus)} ALEC templates")
 
@@ -184,6 +202,7 @@ class SimilarityEngine:
         """
         result = {
             "alec_match": None,
+            "alec_best_similarity": 0.0,
             "similar_bills": [],
         }
 
@@ -192,10 +211,11 @@ class SimilarityEngine:
 
         vec = vectorize(self.vectorizer, [cleaned_text])[0]
 
-        # ALEC match
-        result["alec_match"] = match_alec(
-            vec, self.vectorizer, self.alec_corpus, self.alec_cleaned
-        )
+        # ALEC match (skipped when the corpus is too small to be meaningful)
+        if self.alec_enabled:
+            match, best_score = match_alec(vec, self.alec_corpus, self.alec_vectors)
+            result["alec_match"] = match
+            result["alec_best_similarity"] = best_score
 
         # Similar bills in corpus
         if self.bill_vectors is not None and self.bill_vectors.shape[0] > 0:

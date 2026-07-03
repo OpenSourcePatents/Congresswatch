@@ -3,7 +3,24 @@ text_processor.py — Clean and normalize bill text for TF-IDF vectorization.
 """
 
 import re
+import html as html_module
 import hashlib
+
+# HTML stripping — Congress.gov "Formatted Text" URLs serve full HTML
+# documents. Without this, tags/DOCTYPE/style tokens shared by EVERY bill
+# dominate the TF-IDF feature space and inflate all similarity scores.
+SCRIPT_STYLE_RE = re.compile(r"<(script|style)[^>]*>.*?</\1>",
+                             flags=re.IGNORECASE | re.DOTALL)
+TAG_RE = re.compile(r"<[^>]+>")
+
+
+def strip_html(text: str) -> str:
+    """Remove script/style blocks, tags, and entities from HTML-ish text."""
+    if "<" not in text:
+        return text
+    text = SCRIPT_STYLE_RE.sub(" ", text)
+    text = TAG_RE.sub(" ", text)
+    return html_module.unescape(text)
 
 # ---------------------------------------------------------------------------
 # Stop words (legislative + standard English)
@@ -73,7 +90,8 @@ def clean_bill_text(raw_text: str) -> str:
     if not raw_text:
         return ""
 
-    text = raw_text.lower()
+    # Strip HTML markup first (Congress.gov serves HTML documents)
+    text = strip_html(raw_text).lower()
 
     # Strip boilerplate
     text = BOILERPLATE_RE.sub(" ", text)
@@ -84,16 +102,13 @@ def clean_bill_text(raw_text: str) -> str:
     # Normalize whitespace
     text = re.sub(r"\s+", " ", text).strip()
 
-    # Remove stop words and short tokens
+    # Remove stop words and short tokens.
+    # NOTE: no manual bigram generation here — the TF-IDF vectorizer is
+    # already configured with ngram_range=(1, 2); doing both double-counted
+    # bigrams and wasted half the 8000-feature budget.
     tokens = [w for w in text.split() if w not in STOP_WORDS and len(w) > 2]
 
-    # Simple bigrams for common legislative pairs
-    bigrams = []
-    for i in range(len(tokens) - 1):
-        pair = f"{tokens[i]}_{tokens[i+1]}"
-        bigrams.append(pair)
-
-    return " ".join(tokens + bigrams)
+    return " ".join(tokens)
 
 
 def text_hash(raw_text: str) -> str:

@@ -117,6 +117,11 @@ def normalize(m):
 
 
 def fetch_all():
+    """Paginate /member with per-page retries.
+
+    Returns (results, complete). complete=False means a page failed after
+    all retries — callers must NOT treat the partial list as the roster.
+    """
     limit = 200
     params = {
         "api_key": CONGRESS_KEY,
@@ -125,23 +130,32 @@ def fetch_all():
         "offset": 0,
     }
     results = []
+    max_retries = 4
     while True:
-        try:
-            time.sleep(0.5)
-            r = requests.get(BASE + "/member", params=params, headers=HEADERS, timeout=30)
-            r.raise_for_status()
-            batch = r.json().get("members", [])
-            if not batch:
+        batch = None
+        for attempt in range(max_retries):
+            try:
+                time.sleep(0.5)
+                r = requests.get(BASE + "/member", params=params, headers=HEADERS, timeout=30)
+                r.raise_for_status()
+                batch = r.json().get("members", [])
                 break
-            results.extend(batch)
-            print("Fetched: " + str(len(results)))
-            if len(batch) < limit:
-                break
-            params["offset"] += limit
-        except Exception as e:
-            print("Error: " + str(e))
+            except Exception as e:
+                wait = 2 ** attempt
+                print(f"Error at offset {params['offset']} "
+                      f"(attempt {attempt + 1}/{max_retries}): {e} — retrying in {wait}s")
+                time.sleep(wait)
+        if batch is None:
+            print(f"FAILED: offset {params['offset']} unreachable after {max_retries} attempts")
+            return results, False
+        if not batch:
             break
-    return results
+        results.extend(batch)
+        print("Fetched: " + str(len(results)))
+        if len(batch) < limit:
+            break
+        params["offset"] += limit
+    return results, True
 
 
 BASE_FIELDS = {"name", "party", "state", "district", "chamber", "photo_url", "term_start", "data_updated"}
@@ -195,8 +209,16 @@ def supabase_upsert_members(members_list):
 
 if __name__ == "__main__":
     print("Fetching members...")
-    raw = fetch_all()
+    raw, complete = fetch_all()
     print("Raw total: " + str(len(raw)))
+
+    # A partial fetch must never become the roster: the merge below drops
+    # any member absent from `raw`, so members missing only because a page
+    # failed would silently vanish from members.json.
+    if not complete:
+        print("ABORT: pagination incomplete — refusing to rebuild members.json "
+              "from a partial member list.")
+        exit(1)
 
     seen = {}
     for m in raw:
@@ -212,8 +234,13 @@ if __name__ == "__main__":
                 eid = em.get("id", "")
                 if eid:
                     existing_by_id[eid] = em
-    except (FileNotFoundError, json.JSONDecodeError):
+    except FileNotFoundError:
         pass
+    except json.JSONDecodeError as e:
+        # A corrupt file must not silently become "no existing data" — that
+        # would strip every pipeline-added field (scores, trades, finance)
+        print(f"ABORT: data/members.json exists but failed to parse ({e}).")
+        exit(1)
 
     # Merge: update only base Congress.gov fields, preserve everything else
     all_members = []
@@ -242,8 +269,11 @@ if __name__ == "__main__":
               f"members.json (expected 535+). API may be down or key missing.")
         exit(1)
 
-    with open("data/members.json", "w") as f:
+    # Atomic write: temp file + os.replace so a crash never truncates the file
+    tmp_path = "data/members.json.tmp"
+    with open(tmp_path, "w") as f:
         json.dump(all_members, f, indent=2)
+    os.replace(tmp_path, "data/members.json")
 
     print("Done. Saved data/members.json")
 

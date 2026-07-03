@@ -70,33 +70,127 @@ SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 # ---------------------------------------------------------------------------
 
 def load_json(path, default):
+    """Guarded load: a corrupt existing file aborts the run instead of
+    silently becoming `default` and then getting overwritten."""
     if os.path.exists(path):
+        if os.path.getsize(path) == 0:
+            return default
         with open(path, "r") as f:
             try:
                 return json.load(f)
-            except Exception:
-                return default
+            except Exception as e:
+                raise SystemExit(f"ABORT: {path} exists but failed to parse "
+                                 f"({e}). Refusing to continue.")
     return default
 
 
 def save_json(path, data):
+    """Atomic write: temp file + os.replace so a crash never truncates."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
         json.dump(data, f, indent=2)
+    os.replace(tmp, path)
+
+
+# ---------------------------------------------------------------------------
+# Donor employer/occupation -> industry classification
+# Labels MUST match INDUSTRY_KEYWORDS keys in fetch_bills/utils/donor_matcher.py
+# so the bills pipeline's donor-alignment matching can consume them.
+# ---------------------------------------------------------------------------
+
+EMPLOYER_INDUSTRY_KEYWORDS = {
+    "Oil & Gas": ["exxon", "chevron", "shell", "conocophillips", "halliburton",
+                  "petroleum", "oil ", " oil", "energy", "pipeline", "drilling",
+                  "gas company", "marathon", "valero", "occidental"],
+    "Pharmaceuticals": ["pfizer", "merck", "johnson & johnson", "abbvie", "amgen",
+                        "eli lilly", "novartis", "astrazeneca", "pharma",
+                        "biotech", "genentech", "gilead", "bristol"],
+    "Finance & Banking": ["goldman", "morgan", "citigroup", "citibank", "wells fargo",
+                          "bank", "capital", "investment", "securities", "hedge",
+                          "private equity", "blackstone", "blackrock", "fidelity",
+                          "charles schwab", "venture", "financial"],
+    "Defense & Military": ["lockheed", "raytheon", "boeing", "northrop", "general dynamics",
+                           "defense", "bae systems", "l3harris", "military", "aerospace"],
+    "Technology": ["google", "alphabet", "microsoft", "apple", "amazon", "meta",
+                   "facebook", "netflix", "oracle", "salesforce", "software",
+                   "tech", "nvidia", "intel", "cisco", "ibm", "engineer"],
+    "Real Estate": ["real estate", "realty", "properties", "developer",
+                    "development", "construction", "homebuilder", "realtor"],
+    "Agriculture": ["farm", "agri", "cargill", "monsanto", "ranch", "dairy",
+                    "poultry", "cattle", "grower"],
+    "Healthcare": ["hospital", "health", "medical", "clinic", "physician",
+                   "doctor", "nurse", "dentist", "unitedhealth", "kaiser",
+                   "anthem", "cvs", "surgeon"],
+    "Tobacco & Alcohol": ["altria", "philip morris", "reynolds", "tobacco",
+                          "anheuser", "molson", "distill", "brewer", "wine ", "liquor"],
+    "Firearms": ["smith & wesson", "sturm ruger", "firearm", "nra",
+                 "gun ", "ammunition", "shooting sports"],
+    "Insurance": ["insurance", "insurer", "aflac", "allstate", "state farm",
+                  "geico", "progressive", "metlife", "prudential", "actuar"],
+    "Telecommunications": ["at&t", "verizon", "comcast", "t-mobile", "telecom",
+                           "charter communications", "broadband", "wireless"],
+    "Mining & Natural Resources": ["mining", "minerals", "coal", "copper",
+                                   "quarry", "timber", "lumber", "steel"],
+    "Education": ["university", "college", "school", "professor",
+                  "teacher", "educator", "academy"],
+    "Labor & Unions": ["union", "afl-cio", "teamsters", "seiu", "afscme",
+                       "uaw", "brotherhood of"],
+}
+
+
+def derive_top_donor_industries(donors, top_n=5):
+    """Rank donor industries by total contribution amount using
+    employer/occupation keyword matching. Returns list of industry labels."""
+    totals = {}
+    for d in donors:
+        text = f"{d.get('employer','')} {d.get('occupation','')}".lower()
+        if not text.strip():
+            continue
+        amount = float(d.get("amount") or 0)
+        for industry, keywords in EMPLOYER_INDUSTRY_KEYWORDS.items():
+            if any(kw in text for kw in keywords):
+                totals[industry] = totals.get(industry, 0) + max(amount, 1.0)
+    ranked = sorted(totals.items(), key=lambda x: -x[1])
+    return [industry for industry, _ in ranked[:top_n]]
 
 
 # ---------------------------------------------------------------------------
 # FEC API
 # ---------------------------------------------------------------------------
 
-def fetch_top_donors(candidate_id):
+def get_candidate_committees(candidate_id):
+    """Resolve a candidate's authorized committee IDs. Schedule A filters by
+    committee_id — passing candidate_id there returns HTTP 400 (verified),
+    which is why this pipeline previously never stored a single donor."""
+    url = f"{FEC_BASE}/candidate/{candidate_id}/committees/"
+    params = {
+        "api_key": FEC_API_KEY,
+        "designation": ["P", "A"],   # principal + authorized
+        "per_page": 10,
+    }
+    try:
+        time.sleep(DELAY)
+        resp = requests.get(url, params=params, timeout=30)
+        if resp.status_code != 200:
+            print(f"    Committee lookup {resp.status_code} for {candidate_id}")
+            return []
+        return [c.get("committee_id") for c in resp.json().get("results", [])
+                if c.get("committee_id")]
+    except requests.exceptions.RequestException as e:
+        print(f"    Committee lookup failed: {e}")
+        return []
+
+
+def fetch_top_donors(committee_ids):
     """
-    Fetch top individual contributions for a candidate from FEC Schedule A.
-    Returns list of donor dicts sorted by amount descending.
+    Fetch top itemized individual contributions to a candidate's committees
+    from FEC Schedule A. Returns list of donor dicts sorted by amount desc.
     """
     url = f"{FEC_BASE}/schedules/schedule_a/"
     params = {
-        "candidate_id": candidate_id,
+        "committee_id": committee_ids,
+        "is_individual": "true",
         "sort": "-contribution_receipt_amount",
         "per_page": PER_PAGE,
         "api_key": FEC_API_KEY,
@@ -240,7 +334,16 @@ def main():
         time.sleep(DELAY)
 
         try:
-            donors = fetch_top_donors(fec_id)
+            # Committee IDs are stable — cache them in the detail file
+            committee_ids = detail.get("fec_committee_ids") or []
+            if not committee_ids:
+                committee_ids = get_candidate_committees(fec_id)
+
+            if not committee_ids:
+                print("    No authorized committees found")
+                continue
+
+            donors = fetch_top_donors(committee_ids)
             stats["members_fetched"] += 1
 
             if not donors:
@@ -252,6 +355,9 @@ def main():
             detail_path = os.path.join(DETAILS_DIR, f"{bid}.json")
             detail = load_json(detail_path, {})
             detail["top_donors_list"] = donors
+            detail["fec_committee_ids"] = committee_ids
+            # Feeds the bills pipeline's donor-vote alignment signal
+            detail["top_donor_industries"] = derive_top_donor_industries(donors)
             detail["donors_updated"] = datetime.now(timezone.utc).isoformat()
             save_json(detail_path, detail)
 

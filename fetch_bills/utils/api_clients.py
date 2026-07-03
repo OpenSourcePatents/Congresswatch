@@ -53,7 +53,9 @@ def _sleep():
 # ---------------------------------------------------------------------------
 
 def congress_get(path, params=None):
-    """Make a Congress.gov API call."""
+    """Make a Congress.gov API call (throttled)."""
+    _sleep()  # throttle here, not in callers — several call sites had
+              # _sleep() after their return statement (never executed)
     p = {"api_key": CONGRESS_API_KEY, "format": "json", "limit": 250}
     if params:
         p.update(params)
@@ -96,7 +98,6 @@ def get_member_sponsored_bills(bioguide_id, congress=119, limit=20):
             "introduced_date": item.get("introducedDate", ""),
             "latest_action": (item.get("latestAction") or {}).get("text", ""),
         })
-    _sleep()
     return bills
 
 
@@ -112,7 +113,6 @@ def get_bill_cosponsors(congress, bill_type, number):
         bid = cs.get("bioguideId", "")
         if bid:
             ids.append(bid)
-    _sleep()
     return ids
 
 
@@ -128,7 +128,6 @@ def get_congress_bill_text_url(congress, bill_type, number):
         for fmt in version.get("formats", []):
             if fmt.get("type", "").lower() in ("formatted text", "plain text", "txt"):
                 return fmt.get("url")
-    _sleep()
     return None
 
 
@@ -136,10 +135,10 @@ def fetch_congress_text(url):
     """Fetch raw bill text from a Congress.gov text URL."""
     if not url:
         return ""
+    _sleep()
     r = _get(url, label="congress text")
     if r is None:
         return ""
-    _sleep()
     return r.text[:50000]  # cap at 50k chars
 
 
@@ -148,7 +147,8 @@ def fetch_congress_text(url):
 # ---------------------------------------------------------------------------
 
 def legiscan_get(op, params=None):
-    """Make a LegiScan API call."""
+    """Make a LegiScan API call (throttled)."""
+    _sleep()
     p = {"key": LEGISCAN_API_KEY, "op": op}
     if params:
         p.update(params)
@@ -188,7 +188,6 @@ def legiscan_search_bill(query, state="US", year=2):
                 "last_action": val.get("last_action", ""),
                 "change_hash": val.get("change_hash", ""),
             })
-    _sleep()
     return bills
 
 
@@ -197,7 +196,6 @@ def legiscan_get_bill(bill_id):
     data = legiscan_get("getBill", {"id": bill_id})
     if not data:
         return None
-    _sleep()
     return data.get("bill", {})
 
 
@@ -215,7 +213,6 @@ def legiscan_get_bill_text(doc_id):
         return ""
     try:
         decoded = base64.b64decode(encoded).decode("utf-8", errors="replace")
-        _sleep()
         return decoded[:50000]  # cap at 50k chars
     except Exception as e:
         print(f"    [B64 ERR] doc_id={doc_id}: {e}")

@@ -1,15 +1,41 @@
 #!/usr/bin/env python3
 """
-fetch_travel_pdf.py — House Foreign Travel PDF Scraper
-=======================================================
-Downloads and parses House Clerk foreign travel disclosure PDFs
-using pdfplumber for table extraction.
+fetch_travel_pdf.py — House Gift Travel Disclosure Fetcher
+===========================================================
+Fetches privately-sponsored (gift) travel filings for House members from
+the House Clerk's Gift Travel Filings database.
 
-Source: https://clerk.house.gov/public_disc/travel/
+Source of truth (verified live 2026-07):
+  POST https://disclosures-clerk.house.gov/GiftTravelFilings/ViewSearchResult
+  with an empty search returns a consolidated HTML table of ALL filings:
+  Member Name ("Last, First"), Filer Name, Destination(s), Travel Dates
+  (with a machine-sortable data-sort attribute), Sponsor, and a link to the
+  underlying disclosure document (gtimages/{MT|ST}/{year}/{doc_id}.pdf).
+  MT = the member is the traveler; ST = a staffer in the member's office.
+  Server-side filtering via TravelDateFrom (MM/DD/YYYY) is supported.
 
-Output:
-  - data/details/{bioguide_id}.json — travel[] array (safe merge)
-  - data/members.json — travel_count
+Why PDFs are no longer parsed:
+  The old approach scraped https://clerk.house.gov/public_disc/travel/ for
+  PDFs, but that URL now redirects to a generic HTML page with no travel
+  PDFs. The disclosure documents themselves are SCANNED images (verified:
+  pdfplumber extracts zero field text from live MT/ST filings), so per-trip
+  costs are not machine-readable without OCR. All structured fields we need
+  come from the HTML index; total_cost is therefore reported as 0.0
+  (unknown), never a garbage value. Because no PDFs are downloaded, no PDF
+  cache is required.
+
+Attribution rules:
+  - Only MT (member-travel) filings are attributed to members. ST (staff)
+    filings are counted in stats and skipped.
+  - Member matching uses the index's "Last, First" column against House
+    members in members.json. Ambiguous or unmatched names are SKIPPED and
+    counted — never guessed.
+
+Output contract (unchanged):
+  - data/details/{bioguide_id}.json — travel[] appended with dedup
+    (safe merge: existing keys in the detail file are never dropped)
+  - data/members.json — travel_count per matched member
+  - Supabase public.travel upsert via existing helper
 
 Supabase table schema — run in SQL Editor before first use:
 
@@ -31,14 +57,20 @@ Supabase table schema — run in SQL Editor before first use:
 -- ALTER TABLE public.travel ENABLE ROW LEVEL SECURITY;
 -- CREATE POLICY "travel_read" ON public.travel FOR SELECT TO anon USING (true);
 -- CREATE POLICY "travel_service_all" ON public.travel FOR ALL TO service_role USING (true) WITH CHECK (true);
+--
+-- NOTE: the UNIQUE(bioguide_id, departure_date, destination_country) key can
+-- collapse two distinct same-day trips to the same destination. A future
+-- migration should add a doc_id column and switch the unique key to
+-- (bioguide_id, doc_id); doc_id is already stored in the JSON vault.
 
 Env vars (optional):
   SUPABASE_URL
   SUPABASE_SERVICE_KEY
 
 Run:
-  pip install pdfplumber requests beautifulsoup4
-  python fetch_travel_pdf.py
+  pip install requests beautifulsoup4
+  python fetch_travel_pdf.py            # full run (writes data/, Supabase)
+  python fetch_travel_pdf.py --dry-run  # fetch + parse + match, no writes
 """
 
 import json
@@ -49,13 +81,8 @@ import time
 import tempfile
 import requests
 from datetime import datetime, timezone
+from urllib.parse import urljoin
 from bs4 import BeautifulSoup
-
-try:
-    import pdfplumber
-except ImportError:
-    print("[FATAL] pdfplumber not installed. Run: pip install pdfplumber")
-    sys.exit(1)
 
 
 # ---------------------------------------------------------------------------
@@ -65,253 +92,298 @@ BASE_DIR     = os.path.dirname(os.path.abspath(__file__))
 MEMBERS_PATH = os.path.join(BASE_DIR, "data", "members.json")
 DETAILS_DIR  = os.path.join(BASE_DIR, "data", "details")
 
-TRAVEL_INDEX = "https://clerk.house.gov/public_disc/travel/"
-USER_AGENT   = ("CongressWatch/1.0 "
-                "(public-interest-research; "
-                "mailto:project.congress.watch@gmail.com)")
-REQUEST_DELAY = 2.0  # seconds between PDF downloads
+SITE_BASE   = "https://disclosures-clerk.house.gov/"
+SEARCH_URL  = SITE_BASE + "GiftTravelFilings/ViewSearchResult"
+USER_AGENT  = ("CongressWatch/1.0 "
+               "(public-interest-research; "
+               "mailto:project.congress.watch@gmail.com)")
 
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
-# How many years of reports to download
+# How many years of filings to request (server-side TravelDateFrom filter)
 LOOKBACK_YEARS = 3
 
+DRY_RUN = "--dry-run" in sys.argv
+
 
 # ---------------------------------------------------------------------------
-# Helpers
+# JSON helpers (atomic write, strict load)
 # ---------------------------------------------------------------------------
 
-def load_json(path, default):
-    if os.path.exists(path):
-        with open(path, "r") as f:
-            try:
-                return json.load(f)
-            except Exception:
-                return default
-    return default
+def load_json_strict(path, default):
+    """Load JSON. Missing or empty file -> default. An EXISTING, NON-EMPTY
+    file that fails to parse ABORTS the run — silently returning a default
+    here could wipe fields other pipelines wrote into the same file."""
+    if not os.path.exists(path):
+        return default
+    with open(path, "r", encoding="utf-8") as f:
+        raw = f.read()
+    if not raw.strip():
+        return default
+    try:
+        return json.loads(raw)
+    except Exception as e:
+        print(f"[FATAL] {path} exists but is not valid JSON ({e}). "
+              f"Aborting to avoid clobbering data from other pipelines.")
+        raise SystemExit(1)
 
 
 def save_json(path, data):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w") as f:
-        json.dump(data, f, indent=2)
+    """Atomic write: temp file in the same directory, then os.replace."""
+    dirname = os.path.dirname(path)
+    os.makedirs(dirname, exist_ok=True)
+    fd, tmp_path = tempfile.mkstemp(prefix=".tmp_travel_",
+                                    suffix=".json", dir=dirname)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        os.replace(tmp_path, path)
+    except BaseException:
+        try:
+            os.unlink(tmp_path)
+        except OSError:
+            pass
+        raise
 
+
+# ---------------------------------------------------------------------------
+# Parsing helpers
+# ---------------------------------------------------------------------------
 
 def normalize_name(name):
     """Lowercase, strip suffixes and non-alpha."""
-    name = name.lower().strip()
+    name = (name or "").lower().strip()
     name = re.sub(r"\b(jr|sr|ii|iii|iv|v|hon|rep|mr|ms|mrs|dr)\b\.?", "", name)
     name = re.sub(r"[^a-z\s]", " ", name)
     return re.sub(r"\s+", " ", name).strip()
 
 
 def parse_date(s):
-    """Try parsing common date formats to YYYY-MM-DD."""
+    """Parse common date formats to YYYY-MM-DD. Returns '' on failure —
+    the raw string must never flow into Supabase DATE columns."""
     if not s or not s.strip():
         return ""
     s = s.strip()
-    for fmt in ["%m/%d/%Y", "%m/%d/%y", "%Y-%m-%d", "%B %d, %Y",
-                "%b %d, %Y", "%m-%d-%Y"]:
+    for fmt in ["%m/%d/%Y", "%Y/%m/%d", "%m/%d/%y", "%Y-%m-%d",
+                "%B %d, %Y", "%b %d, %Y", "%m-%d-%Y"]:
         try:
             return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
         except ValueError:
             continue
-    return s
+    return ""
 
 
-def parse_cost(s):
-    """Extract numeric cost from strings like '$2,345.67'."""
-    if not s:
-        return 0.0
-    cleaned = re.sub(r"[^\d.]", "", s.replace(",", ""))
-    try:
-        return round(float(cleaned), 2)
-    except ValueError:
-        return 0.0
+def split_date_range(text):
+    """Split '08/15/2024 - 08/16/2024' into (departure, return) raw strings."""
+    text = (text or "").strip()
+    if not text:
+        return "", ""
+    parts = re.split(r"\s+[-–]\s+", text)
+    if len(parts) >= 2:
+        return parts[0].strip(), parts[1].strip()
+    return text, ""
 
 
 # ---------------------------------------------------------------------------
-# PDF discovery
+# Fetch & parse the Clerk's consolidated filings table
 # ---------------------------------------------------------------------------
 
-def discover_pdf_links(session):
-    """Fetch the travel index page and extract PDF links."""
-    print(f"[TRAVEL] Fetching index: {TRAVEL_INDEX}")
-    resp = session.get(TRAVEL_INDEX, timeout=30)
-    if resp.status_code != 200:
-        print(f"[TRAVEL] Index returned {resp.status_code}")
-        return []
+def fetch_filings_html(session):
+    """POST an empty search (date-bounded) and return the results HTML,
+    or None on failure."""
+    from_date = f"01/01/{datetime.now().year - LOOKBACK_YEARS}"
+    payload = {
+        "MemberLastName": "",
+        "StaffLastName": "",
+        "TravelDateFrom": from_date,
+        "TravelDateTo": "",
+        "Sponsor": "",
+        "Destination": "",
+    }
+    print(f"[TRAVEL] Querying Gift Travel Filings database "
+          f"(travel dates from {from_date})")
 
-    soup = BeautifulSoup(resp.text, "html.parser")
-    links = []
-    current_year = datetime.now().year
+    for attempt in range(3):
+        if attempt:
+            wait = 10 * (2 ** (attempt - 1))
+            print(f"[TRAVEL] Retry {attempt + 1}/3 in {wait}s...")
+            time.sleep(wait)
+        try:
+            resp = session.post(SEARCH_URL, data=payload, timeout=120)
+        except Exception as e:
+            print(f"[TRAVEL] Request error: {e}")
+            continue
+        if resp.status_code == 200 and "<table" in resp.text:
+            print(f"[TRAVEL] Got results page ({len(resp.text):,} bytes)")
+            return resp.text
+        print(f"[TRAVEL] HTTP {resp.status_code}, "
+              f"body starts: {resp.text[:120]!r}")
+    return None
 
-    for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if not href.lower().endswith(".pdf"):
+
+def parse_filings(html):
+    """Parse the results table into filing dicts."""
+    soup = BeautifulSoup(html, "html.parser")
+    filings = []
+
+    for row in soup.find_all("tr"):
+        tds = row.find_all("td")
+        if len(tds) < 5:
             continue
 
-        url = href if href.startswith("http") else TRAVEL_INDEX.rstrip("/") + "/" + href.lstrip("/")
+        member_td, filer_td, dest_td, dates_td, sponsor_td = tds[:5]
 
-        # Filter to recent years
-        year_match = re.search(r"(20\d{2})", href)
-        if year_match:
-            year = int(year_match.group(1))
-            if year < current_year - LOOKBACK_YEARS:
-                continue
+        member_name = member_td.get_text(" ", strip=True)
+        if not member_name:
+            continue
 
-        links.append(url)
+        link = member_td.find("a", href=True)
+        doc_url, doc_id, filer_type = "", "", ""
+        if link:
+            href = link["href"].strip()
+            doc_url = urljoin(SITE_BASE, href)
+            doc_id = os.path.splitext(os.path.basename(href))[0]
+            path_upper = "/" + href.upper()
+            if "/MT/" in path_upper:
+                filer_type = "member"
+            elif "/ST/" in path_upper:
+                filer_type = "staff"
 
-    print(f"[TRAVEL] Found {len(links)} PDF links within {LOOKBACK_YEARS}-year window")
-    return links
+        filer_name = filer_td.get_text(" ", strip=True)
+        if not filer_type:
+            # No MT/ST hint in the URL: infer from filer vs member name.
+            m_norm = normalize_name(member_name).split()
+            f_norm = normalize_name(filer_name).split()
+            filer_type = ("member" if m_norm and f_norm and
+                          set(m_norm) == set(f_norm) else "staff")
 
+        destination = dest_td.get_text("; ", strip=True)
+        destination = re.sub(r"\s*;\s*", "; ", destination).strip("; ").strip()
 
-# ---------------------------------------------------------------------------
-# PDF parsing
-# ---------------------------------------------------------------------------
+        dep_raw, ret_raw = split_date_range(dates_td.get_text(" ", strip=True))
+        departure = parse_date(dates_td.get("data-sort", "")) or parse_date(dep_raw)
+        ret = parse_date(ret_raw)
 
-# Patterns for identifying header rows
-HEADER_KEYWORDS = {"name", "traveler", "member", "destination", "departure",
-                   "return", "sponsor", "cost", "total", "per diem",
-                   "transportation"}
+        filings.append({
+            "member_name": member_name,      # "Last, First"
+            "traveler": filer_name,
+            "filer_type": filer_type,
+            "destination": destination,
+            "departure_date": departure,
+            "departure_date_raw": dep_raw,
+            "return_date": ret,
+            "return_date_raw": ret_raw,
+            "sponsor": sponsor_td.get_text(" ", strip=True),
+            "doc_id": doc_id,
+            "doc_url": doc_url,
+        })
 
-
-def is_header_row(row):
-    """Check if a row looks like a table header."""
-    text = " ".join((c or "").lower() for c in row)
-    hits = sum(1 for kw in HEADER_KEYWORDS if kw in text)
-    return hits >= 3
-
-
-def map_columns(header_row):
-    """Map column indices to field names based on header text."""
-    col_map = {}
-    for i, cell in enumerate(header_row):
-        h = (cell or "").lower().strip()
-        if any(w in h for w in ["name", "traveler", "member"]):
-            col_map["name"] = i
-        elif "destination" in h or "country" in h or "city" in h:
-            col_map["destination"] = i
-        elif "departure" in h or ("depart" in h and "date" in h):
-            col_map["departure"] = i
-        elif "return" in h:
-            col_map["return"] = i
-        elif "sponsor" in h or "committee" in h or "organization" in h:
-            col_map["sponsor"] = i
-        elif "total" in h:
-            col_map["total_cost"] = i
-        elif "per diem" in h:
-            col_map["per_diem"] = i
-        elif "transport" in h:
-            col_map["transport"] = i
-    return col_map
-
-
-def extract_trips_from_pdf(pdf_path):
-    """Extract travel records from a PDF using pdfplumber."""
-    trips = []
-    col_map = {}
-
-    try:
-        with pdfplumber.open(pdf_path) as pdf:
-            for page in pdf.pages:
-                tables = page.extract_tables()
-                for table in tables:
-                    for row in table:
-                        if not row or all(not c for c in row):
-                            continue
-
-                        # Detect header row
-                        if is_header_row(row):
-                            col_map = map_columns(row)
-                            continue
-
-                        if not col_map:
-                            continue
-
-                        # Extract fields using column map
-                        def cell(key):
-                            idx = col_map.get(key)
-                            if idx is not None and idx < len(row):
-                                return (row[idx] or "").strip()
-                            return ""
-
-                        name = cell("name")
-                        dest = cell("destination")
-                        dep = cell("departure")
-                        ret = cell("return")
-                        sponsor = cell("sponsor")
-                        total = cell("total_cost")
-
-                        # If no total column, sum per_diem + transport
-                        if not total:
-                            pd_cost = parse_cost(cell("per_diem"))
-                            tr_cost = parse_cost(cell("transport"))
-                            if pd_cost or tr_cost:
-                                total = str(pd_cost + tr_cost)
-
-                        # Skip rows with no meaningful data
-                        if not name and not dest:
-                            continue
-
-                        trip = {
-                            "traveler_name": name,
-                            "destination_country": dest,
-                            "departure_date": parse_date(dep),
-                            "return_date": parse_date(ret),
-                            "sponsor": sponsor,
-                            "total_cost": parse_cost(total),
-                            "currency": "USD",
-                        }
-                        trips.append(trip)
-    except Exception as e:
-        print(f"    Error parsing PDF: {e}")
-
-    return trips
+    return filings
 
 
 # ---------------------------------------------------------------------------
-# Member matching
+# Member matching — no blind fallbacks
 # ---------------------------------------------------------------------------
 
 def build_member_lookup(members):
-    """Build normalized last-name -> [members] lookup for House members."""
+    """Index House members by normalized last-name token."""
     by_last = {}
+    house = []
     for m in members:
         if (m.get("chamber", "") or "").lower() != "house":
             continue
-        parts = m.get("name", "").split()
-        if not parts:
+        if not m.get("id") or not m.get("name"):
             continue
-        last = normalize_name(parts[-1])
-        by_last.setdefault(last, []).append(m)
-    return by_last
+        norm = normalize_name(m["name"])
+        if not norm:
+            continue
+        house.append((norm, m))
+        by_last.setdefault(norm.split()[-1], []).append((norm, m))
+    return by_last, house
 
 
-def match_member(traveler_name, by_last):
-    """Match a traveler name from PDF to a member. Returns bioguide_id or None."""
-    norm = normalize_name(traveler_name)
-    words = norm.split()
-    if not words:
-        return None
+def match_member(member_name, by_last, house):
+    """Match a 'Last, First' string to exactly one House member.
 
-    # Try last word as last name
-    last = words[-1]
-    candidates = by_last.get(last, [])
+    Returns (bioguide_id, 'matched') on a unique, first-name-confirmed
+    match; (None, 'unmatched') or (None, 'ambiguous') otherwise. Never
+    falls back to an arbitrary candidate."""
+    if "," in member_name:
+        last_part, first_part = member_name.split(",", 1)
+    else:
+        last_part, first_part = member_name, ""
 
-    if len(candidates) == 1:
-        return candidates[0]["id"]
-    elif len(candidates) > 1 and len(words) > 1:
-        first = words[0]
-        for c in candidates:
-            c_first = normalize_name(c["name"].split()[0])
-            if c_first == first or (len(first) >= 3 and len(c_first) >= 3 and
-                                     c_first.startswith(first[:3])):
-                return c["id"]
-        return candidates[0]["id"]
+    norm_last = normalize_name(last_part)
+    norm_first = normalize_name(first_part)
+    if not norm_last:
+        return None, "unmatched"
 
-    return None
+    last_token = norm_last.split()[-1]
+    candidates = list(by_last.get(last_token, []))
+    if len(norm_last.split()) > 1:
+        # Multi-word last name ("Van Duyne"): also try full-suffix match.
+        for norm, m in house:
+            if norm.endswith(norm_last) and (norm, m) not in candidates:
+                candidates.append((norm, m))
+    if not candidates:
+        return None, "unmatched"
+
+    first_token = norm_first.split()[0] if norm_first else ""
+    if not first_token:
+        # No first name to confirm with: accept only a unique candidate.
+        if len(candidates) == 1:
+            return candidates[0][1]["id"], "matched"
+        return None, "ambiguous"
+
+    exact = [c for c in candidates if c[0].split()[0] == first_token]
+    if len(exact) == 1:
+        return exact[0][1]["id"], "matched"
+    if len(exact) > 1:
+        return None, "ambiguous"
+
+    # Prefix tolerance ("Dan" vs "Daniel"), both directions, min 3 chars,
+    # and only when it identifies a UNIQUE candidate.
+    prefix = []
+    for c in candidates:
+        cand_first = c[0].split()[0]
+        if (len(first_token) >= 3 and len(cand_first) >= 3 and
+                (cand_first.startswith(first_token) or
+                 first_token.startswith(cand_first))):
+            prefix.append(c)
+    if len(prefix) == 1:
+        return prefix[0][1]["id"], "matched"
+    if len(prefix) > 1:
+        return None, "ambiguous"
+
+    return None, "unmatched"
+
+
+# ---------------------------------------------------------------------------
+# Dedup
+# ---------------------------------------------------------------------------
+
+def trip_keys(t):
+    """Identity keys for a trip. doc_id is the Clerk's stable per-filing id.
+    The composite fallback includes traveler, sponsor, BOTH dates and the
+    destination — and is only used when a departure date (parsed or raw)
+    exists, so unparseable-date trips are never collapsed together."""
+    keys = []
+    doc = (t.get("doc_id") or "").strip()
+    if doc:
+        keys.append(("doc", doc))
+    dep = t.get("departure_date") or t.get("departure_date_raw") or ""
+    ret = t.get("return_date") or t.get("return_date_raw") or ""
+    if dep:
+        keys.append((
+            "composite",
+            normalize_name(t.get("traveler", "")),
+            (t.get("sponsor") or "").strip().lower(),
+            dep,
+            ret,
+            (t.get("destination_country") or "").strip().lower(),
+        ))
+    return keys
 
 
 # ---------------------------------------------------------------------------
@@ -335,11 +407,14 @@ def supabase_upsert_travel(bid, trips):
         rows.append({
             "bioguide_id": bid,
             "destination_country": t.get("destination_country", ""),
+            # parse_date guarantees '' or YYYY-MM-DD; '' becomes NULL here,
+            # so raw strings can never reach the DATE columns.
             "departure_date": t.get("departure_date") or None,
             "return_date": t.get("return_date") or None,
             "sponsor": t.get("sponsor", ""),
             "total_cost": t.get("total_cost", 0),
             "currency": t.get("currency", "USD"),
+            "report_type": "gift_travel",
             "source": "house_clerk",
         })
 
@@ -370,103 +445,127 @@ def supabase_upsert_travel(bid, trips):
 
 def main():
     print("=" * 60)
-    print("CongressWatch — House Foreign Travel PDF Scraper")
-    print(f"Started: {datetime.now(timezone.utc).isoformat()}")
+    print("CongressWatch — House Gift Travel Disclosure Fetcher")
+    print(f"Started: {datetime.now(timezone.utc).isoformat()}"
+          + ("  [DRY RUN — no writes]" if DRY_RUN else ""))
     print("=" * 60)
 
-    members = load_json(MEMBERS_PATH, [])
+    members = load_json_strict(MEMBERS_PATH, [])
     if not members:
         print("[FATAL] data/members.json not found or empty.")
         sys.exit(1)
 
-    house = [m for m in members if (m.get("chamber", "") or "").lower() == "house"]
+    by_last, house = build_member_lookup(members)
     print(f"Loaded {len(house)} House members from {len(members)} total")
-
-    by_last = build_member_lookup(members)
 
     session = requests.Session()
     session.headers.update({"User-Agent": USER_AGENT})
 
-    # Discover PDFs
-    pdf_links = discover_pdf_links(session)
-    if not pdf_links:
-        print("[WARN] No PDF links found. The page format may have changed.")
-        sys.exit(0)
+    html = fetch_filings_html(session)
+    if html is None:
+        print("[FATAL] Could not fetch the Gift Travel Filings search "
+              "results. No data was written.")
+        sys.exit(1)
 
-    # Download and parse each PDF
+    filings = parse_filings(html)
+    print(f"[TRAVEL] Parsed {len(filings)} filing rows")
+    if not filings:
+        print("[FATAL] Results page fetched but zero filings parsed — the "
+              "page format may have changed. No data was written.")
+        sys.exit(1)
+
     stats = {
-        "pdfs_parsed": 0,
-        "trips_extracted": 0,
-        "trips_matched": 0,
+        "rows_parsed": len(filings),
+        "member_filings": 0,
+        "staff_filings_skipped": 0,
+        "matched": 0,
+        "unmatched_skipped": 0,
+        "ambiguous_skipped": 0,
         "members_updated": 0,
-        "errors": 0,
+        "trips_added": 0,
         "supabase_upserted": 0,
     }
 
     # bioguide_id -> [trip dicts]
     all_trips = {}
+    skipped_names = {}
 
-    for pdf_url in pdf_links:
-        print(f"\n  Downloading: {pdf_url.split('/')[-1]}")
-        time.sleep(REQUEST_DELAY)
+    for f in filings:
+        if f["filer_type"] != "member":
+            stats["staff_filings_skipped"] += 1
+            continue
+        stats["member_filings"] += 1
 
-        try:
-            resp = session.get(pdf_url, timeout=60)
-            if resp.status_code != 200:
-                print(f"    HTTP {resp.status_code}")
-                stats["errors"] += 1
-                continue
+        bid, status = match_member(f["member_name"], by_last, house)
+        if status != "matched":
+            stats[status + "_skipped"] += 1
+            skipped_names[f["member_name"]] = status
+            continue
+        stats["matched"] += 1
 
-            # Save to temp file for pdfplumber
-            with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
-                tmp.write(resp.content)
-                tmp_path = tmp.name
+        trip = {
+            "destination_country": f["destination"],
+            "departure_date": f["departure_date"],
+            "return_date": f["return_date"],
+            "sponsor": f["sponsor"],
+            "traveler": f["traveler"],
+            "filer_type": "member",
+            # Costs are only on scanned (image) PDFs — not machine-readable.
+            "total_cost": 0.0,
+            "currency": "USD",
+            "doc_id": f["doc_id"],
+            "source_doc": f["doc_url"],
+        }
+        # Keep raw date strings only when parsing failed, for auditability.
+        if not f["departure_date"] and f["departure_date_raw"]:
+            trip["departure_date_raw"] = f["departure_date_raw"]
+        if not f["return_date"] and f["return_date_raw"]:
+            trip["return_date_raw"] = f["return_date_raw"]
 
-            trips = extract_trips_from_pdf(tmp_path)
-            os.unlink(tmp_path)
+        all_trips.setdefault(bid, []).append(trip)
 
-            print(f"    Extracted {len(trips)} trip records")
-            stats["pdfs_parsed"] += 1
-            stats["trips_extracted"] += len(trips)
+    if skipped_names:
+        print(f"\n[TRAVEL] Skipped filers (no unique member match): "
+              f"{len(skipped_names)}")
+        for n, why in sorted(skipped_names.items())[:20]:
+            print(f"    {why}: {n}")
 
-            # Match to members
-            for trip in trips:
-                bid = match_member(trip["traveler_name"], by_last)
-                if bid:
-                    all_trips.setdefault(bid, []).append({
-                        "destination_country": trip["destination_country"],
-                        "departure_date": trip["departure_date"],
-                        "return_date": trip["return_date"],
-                        "sponsor": trip["sponsor"],
-                        "total_cost": trip["total_cost"],
-                        "currency": trip["currency"],
-                    })
-                    stats["trips_matched"] += 1
+    if not all_trips:
+        print("[FATAL] Zero member trips matched — nothing to write. "
+              "Exiting without touching data files.")
+        sys.exit(1)
 
-        except Exception as e:
-            print(f"    Error: {e}")
-            stats["errors"] += 1
+    if DRY_RUN:
+        print(f"\n[DRY RUN] Would update {len(all_trips)} members. Samples:")
+        members_by_id = {m["id"]: m for m in members}
+        for bid, trips in list(all_trips.items())[:5]:
+            name = members_by_id.get(bid, {}).get("name", "?")
+            print(f"  {bid} ({name}): {len(trips)} trips")
+            for t in trips[:2]:
+                print(f"      {json.dumps(t, ensure_ascii=False)}")
+        _print_summary(stats)
+        return
 
-    # Save results
+    # Save results (safe merge + dedup)
     print("\n--- Saving results ---")
-
     members_by_id = {m["id"]: m for m in members}
 
     for bid, trips in all_trips.items():
         detail_path = os.path.join(DETAILS_DIR, f"{bid}.json")
-        detail = load_json(detail_path, {})
+        detail = load_json_strict(detail_path, {})
 
-        # Dedup by (departure_date, destination_country)
-        existing = detail.get("travel", [])
-        seen = {(t.get("departure_date", ""), t.get("destination_country", ""))
-                for t in existing}
+        existing = detail.get("travel", []) or []
+        seen = set()
+        for t in existing:
+            seen.update(trip_keys(t))
 
         added = []
         for t in trips:
-            key = (t.get("departure_date", ""), t.get("destination_country", ""))
-            if key not in seen:
-                added.append(t)
-                seen.add(key)
+            keys = trip_keys(t)
+            if keys and any(k in seen for k in keys):
+                continue
+            added.append(t)
+            seen.update(keys)
 
         all_travel = existing + added
         detail["travel"] = all_travel
@@ -477,26 +576,32 @@ def main():
         if bid in members_by_id:
             members_by_id[bid]["travel_count"] = len(all_travel)
 
-        count = supabase_upsert_travel(bid, added)
-        stats["supabase_upserted"] += count
+        stats["trips_added"] += len(added)
         stats["members_updated"] += 1
+        stats["supabase_upserted"] += supabase_upsert_travel(bid, added)
 
         name = members_by_id.get(bid, {}).get("name", bid)
         print(f"  {name}: +{len(added)} trips ({len(all_travel)} total)")
 
     save_json(MEMBERS_PATH, members)
+    _print_summary(stats)
 
-    # Summary
+
+def _print_summary(stats):
     print("\n" + "=" * 60)
-    print("HOUSE TRAVEL PDF SCRAPER — COMPLETE")
+    print("HOUSE GIFT TRAVEL FETCH — COMPLETE"
+          + (" (DRY RUN)" if DRY_RUN else ""))
     print("=" * 60)
-    print(f"PDFs parsed:           {stats['pdfs_parsed']}")
-    print(f"Trips extracted:       {stats['trips_extracted']}")
-    print(f"Trips matched:         {stats['trips_matched']}")
-    print(f"Members updated:       {stats['members_updated']}")
-    print(f"Errors:                {stats['errors']}")
+    print(f"Filing rows parsed:      {stats['rows_parsed']}")
+    print(f"Member filings:          {stats['member_filings']}")
+    print(f"Staff filings skipped:   {stats['staff_filings_skipped']}")
+    print(f"Matched to members:      {stats['matched']}")
+    print(f"Unmatched (skipped):     {stats['unmatched_skipped']}")
+    print(f"Ambiguous (skipped):     {stats['ambiguous_skipped']}")
+    print(f"Members updated:         {stats['members_updated']}")
+    print(f"New trips added:         {stats['trips_added']}")
     if SUPABASE_URL:
-        print(f"Supabase upserted:     {stats['supabase_upserted']}")
+        print(f"Supabase upserted:       {stats['supabase_upserted']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 
