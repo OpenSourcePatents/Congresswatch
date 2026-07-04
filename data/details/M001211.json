@@ -339,7 +339,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.062,
+      "alec_best_similarity": 0.061,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -629,9 +629,17 @@
         "T000165"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "securities",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -722,7 +730,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.077,
+      "alec_best_similarity": 0.076,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -737,17 +745,23 @@
         "H001052"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:04:31.868395+00:00",
+  "bills_updated": "2026-07-04T10:19:12.336223+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

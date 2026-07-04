@@ -459,7 +459,7 @@
         {
           "bill_id": "HR8795-119",
           "sponsor_id": "L000596",
-          "similarity_score": 0.931
+          "similarity_score": 0.93
         }
       ],
       "cosponsors": [
@@ -514,9 +514,21 @@
         "F000466"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Real Estate": [
+            "housing",
+            "construction",
+            "development"
+          ]
+        }
       }
     },
     {
@@ -558,9 +570,26 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Labor & Unions"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "loan",
+            "interest",
+            "investment"
+          ],
+          "Real Estate": [
+            "housing"
+          ],
+          "Labor & Unions": [
+            "worker"
+          ]
+        }
       }
     },
     {
@@ -614,9 +643,27 @@
         "M001237"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Labor & Unions"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest",
+            "investment"
+          ],
+          "Real Estate": [
+            "construction",
+            "development",
+            "property"
+          ],
+          "Labor & Unions": [
+            "contractor"
+          ]
+        }
       }
     },
     {
@@ -705,17 +752,23 @@
         "V000133"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:58:50.882879+00:00",
+  "bills_updated": "2026-07-04T10:21:35.112420+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

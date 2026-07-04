@@ -243,9 +243,15 @@
         "M000934"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank"
+          ]
+        }
       }
     },
     {
@@ -383,9 +389,19 @@
         "E000295"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "loan"
+          ],
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -490,9 +506,15 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital"
+          ]
+        }
       }
     },
     {
@@ -535,14 +557,25 @@
         {
           "bill_id": "HR8662-119",
           "sponsor_id": "M001222",
-          "similarity_score": 0.926
+          "similarity_score": 0.925
         }
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Healthcare": [
+            "hospital",
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -591,17 +624,28 @@
         "B001288"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Healthcare": [
+            "provider",
+            "mental_health"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:00:10.856372+00:00",
+  "bills_updated": "2026-07-04T11:12:46.844937+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

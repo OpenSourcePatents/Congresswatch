@@ -268,19 +268,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
+          "bill_id": "S4210-119",
+          "sponsor_id": "S001194",
+          "similarity_score": 0.998
+        },
+        {
           "bill_id": "HR8252-119",
           "sponsor_id": "K000401",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         },
         {
           "bill_id": "SJRES189-119",
           "sponsor_id": "P000603",
-          "similarity_score": 0.999
-        },
-        {
-          "bill_id": "HR9168-119",
-          "sponsor_id": "W000831",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         }
       ],
       "cosponsors": [
@@ -340,9 +340,15 @@
         "N000147"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -385,7 +391,7 @@
         {
           "bill_id": "HRES910-119",
           "sponsor_id": "S001201",
-          "similarity_score": 0.837
+          "similarity_score": 0.836
         },
         {
           "bill_id": "HRES943-119",
@@ -450,9 +456,16 @@
         "C001131"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -537,15 +550,25 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.065,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "mortgage",
+            "rent",
+            "construction",
+            "development"
+          ]
+        }
       }
     },
     {
@@ -581,7 +604,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.047,
+      "alec_best_similarity": 0.048,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -681,7 +704,7 @@
         {
           "bill_id": "HRES1363-119",
           "sponsor_id": "R000606",
-          "similarity_score": 0.942
+          "similarity_score": 0.941
         },
         {
           "bill_id": "HRES982-119",
@@ -697,11 +720,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:40:34.331921+00:00",
+  "bills_updated": "2026-07-04T10:59:42.760842+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

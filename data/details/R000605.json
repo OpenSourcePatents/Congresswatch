@@ -424,7 +424,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.089,
+      "alec_best_similarity": 0.09,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -438,9 +438,26 @@
         "W000805"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest",
+            "securities"
+          ],
+          "Real Estate": [
+            "construction",
+            "property"
+          ],
+          "Technology": [
+            "artificial_intelligence"
+          ]
+        }
       }
     },
     {
@@ -467,11 +484,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:58:42.986015+00:00",
+  "bills_updated": "2026-07-04T11:11:52.482641+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "trades": [
     {

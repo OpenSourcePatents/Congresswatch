@@ -309,9 +309,15 @@
         "T000476"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -365,9 +371,16 @@
         "S001150"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -409,9 +422,20 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "medicare"
+          ],
+          "Insurance": [
+            "risk"
+          ]
+        }
       }
     },
     {
@@ -454,7 +478,7 @@
         {
           "bill_id": "HRES1254-119",
           "sponsor_id": "G000546",
-          "similarity_score": 0.833
+          "similarity_score": 0.831
         }
       ],
       "cosponsors": [
@@ -584,9 +608,15 @@
         "W000805"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "deductible"
+          ]
+        }
       }
     },
     {
@@ -660,11 +690,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:03:29.587242+00:00",
+  "bills_updated": "2026-07-04T11:15:02.190757+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {

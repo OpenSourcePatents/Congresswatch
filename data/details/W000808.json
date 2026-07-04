@@ -247,7 +247,7 @@
         {
           "bill_id": "HR9510-119",
           "sponsor_id": "D000635",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         },
         {
           "bill_id": "HR9487-119",
@@ -378,9 +378,16 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data"
+          ]
+        }
       }
     },
     {
@@ -422,9 +429,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -571,9 +584,20 @@
         "M001238"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "provider"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -727,11 +751,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:38:28.625206+00:00",
+  "bills_updated": "2026-07-04T10:55:26.596365+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

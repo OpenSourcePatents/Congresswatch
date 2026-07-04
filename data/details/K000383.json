@@ -388,9 +388,19 @@
         "C001088"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     },
     {
@@ -440,9 +450,15 @@
         "R000618"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -515,11 +531,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:01:09.994579+00:00",
+  "bills_updated": "2026-07-04T11:13:11.998787+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "trades": [
     {

@@ -294,9 +294,19 @@
         "F000466"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     },
     {
@@ -348,9 +358,19 @@
         "C001072"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Healthcare": [
+            "hospital"
+          ]
+        }
       }
     },
     {
@@ -392,9 +412,19 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -447,9 +477,25 @@
         "M001229"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "investment"
+          ],
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -492,7 +538,7 @@
         {
           "bill_id": "SRES720-119",
           "sponsor_id": "H001042",
-          "similarity_score": 0.944
+          "similarity_score": 0.943
         }
       ],
       "cosponsors": [
@@ -653,7 +699,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.039,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -670,9 +716,15 @@
         "C001055"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -731,11 +783,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:35:44.471528+00:00",
+  "bills_updated": "2026-07-04T10:52:22.692361+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

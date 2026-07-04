@@ -245,18 +245,18 @@
       "alec_match": null,
       "similar_member_bills": [
         {
+          "bill_id": "HR8252-119",
+          "sponsor_id": "K000401",
+          "similarity_score": 0.998
+        },
+        {
           "bill_id": "SJRES189-119",
           "sponsor_id": "P000603",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         },
         {
           "bill_id": "HR9113-119",
           "sponsor_id": "W000831",
-          "similarity_score": 0.999
-        },
-        {
-          "bill_id": "HR8252-119",
-          "sponsor_id": "K000401",
           "similarity_score": 0.998
         }
       ],
@@ -346,7 +346,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.067,
+      "alec_best_similarity": 0.066,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -354,9 +354,19 @@
         "V000081"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "loan",
+            "interest",
+            "federal_reserve",
+            "lending"
+          ]
+        }
       }
     },
     {
@@ -404,9 +414,20 @@
         "T000488"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Real Estate": [
+            "housing",
+            "eviction"
+          ]
+        }
       }
     },
     {
@@ -451,9 +472,18 @@
         "K000402"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data",
+            "digital",
+            "software"
+          ]
+        }
       }
     },
     {
@@ -499,9 +529,19 @@
         "Q000023"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -661,11 +701,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:53:09.150832+00:00",
+  "bills_updated": "2026-07-04T11:03:33.868363+00:00",
   "bills_count": 9,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 22.2,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

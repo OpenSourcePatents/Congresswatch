@@ -247,17 +247,17 @@
         {
           "bill_id": "HR9506-119",
           "sponsor_id": "B001323",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         },
         {
           "bill_id": "S4210-119",
           "sponsor_id": "S001194",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         },
         {
           "bill_id": "S4275-119",
           "sponsor_id": "S001181",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         }
       ],
       "cosponsors": [
@@ -329,9 +329,22 @@
         "F000466"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "school",
+            "student"
+          ],
+          "Technology": [
+            "internet",
+            "social_media"
+          ]
+        }
       }
     },
     {
@@ -405,9 +418,17 @@
         "W000795"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "internet",
+            "data",
+            "surveillance"
+          ]
+        }
       }
     },
     {
@@ -455,9 +476,17 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "loan",
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -493,7 +522,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.041,
+      "alec_best_similarity": 0.04,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -501,9 +530,16 @@
         "B001301"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -545,9 +581,20 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ],
+          "Technology": [
+            "software",
+            "hardware"
+          ]
+        }
       }
     },
     {
@@ -685,17 +732,24 @@
         "C001055"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "grant"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:07:47.812658+00:00",
+  "bills_updated": "2026-07-04T10:27:35.381546+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "travel": [
     {

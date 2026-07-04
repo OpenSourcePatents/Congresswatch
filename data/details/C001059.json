@@ -354,9 +354,27 @@
         "V000129"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Agriculture",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "farm",
+            "food",
+            "rural"
+          ],
+          "Healthcare": [
+            "telemedicine"
+          ]
+        }
       }
     },
     {
@@ -449,9 +467,23 @@
         "M001231"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "farm",
+            "food",
+            "organic",
+            "livestock"
+          ]
+        }
       }
     },
     {
@@ -504,9 +536,20 @@
         "K000398"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "property"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -551,9 +594,20 @@
         "M001232"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Healthcare": [
+            "healthcare"
+          ]
+        }
       }
     },
     {
@@ -589,7 +643,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.063,
+      "alec_best_similarity": 0.064,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -608,9 +662,20 @@
         "F000466"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction",
+            "development"
+          ],
+          "Agriculture": [
+            "agriculture"
+          ]
+        }
       }
     },
     {
@@ -661,9 +726,21 @@
         "V000129"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "property"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "rural"
+          ]
+        }
       }
     },
     {
@@ -714,17 +791,23 @@
         "D000617"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:02:50.014806+00:00",
+  "bills_updated": "2026-07-04T10:25:22.851022+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

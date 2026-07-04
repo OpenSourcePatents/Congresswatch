@@ -310,9 +310,38 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Education",
+          "Oil & Gas",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "construction",
+            "development",
+            "affordable_housing",
+            "property"
+          ],
+          "Education": [
+            "education",
+            "student",
+            "college",
+            "university",
+            "loan"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "loan",
+            "investment",
+            "capital_requirement"
+          ]
+        }
       }
     },
     {
@@ -357,9 +386,35 @@
         "W000800"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Education",
+          "Mining & Natural Resources",
+          "Oil & Gas",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "construction",
+            "development",
+            "property"
+          ],
+          "Education": [
+            "education",
+            "grant"
+          ],
+          "Mining & Natural Resources": [
+            "lease"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Finance & Banking": [
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -407,12 +462,12 @@
         {
           "bill_id": "S4315-119",
           "sponsor_id": "P000603",
-          "similarity_score": 0.982
+          "similarity_score": 0.978
         },
         {
           "bill_id": "HR9558-119",
           "sponsor_id": "L000582",
-          "similarity_score": 0.98
+          "similarity_score": 0.975
         }
       ],
       "cosponsors": [
@@ -556,7 +611,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.079,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -594,11 +649,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:57:30.397584+00:00",
+  "bills_updated": "2026-07-04T11:10:51.933818+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "trades": [
     {

@@ -301,9 +301,19 @@
         "H001101"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ],
+          "Finance & Banking": [
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -513,9 +523,16 @@
         "C001116"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -561,9 +578,16 @@
         "M001236"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "federal_reserve"
+          ]
+        }
       }
     },
     {
@@ -666,11 +690,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:20:19.937164+00:00",
+  "bills_updated": "2026-07-04T10:36:30.202038+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

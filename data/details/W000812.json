@@ -251,9 +251,24 @@
         "K000397"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "construction"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "interest",
+            "securities",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -498,23 +513,29 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.079,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S4840-119",
           "sponsor_id": "B001243",
-          "similarity_score": 0.934
+          "similarity_score": 0.937
         }
       ],
       "cosponsors": [
         "L000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -558,9 +579,15 @@
         "L000582"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -659,9 +686,20 @@
         "C001117"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing"
+          ],
+          "Finance & Banking": [
+            "securities",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -707,17 +745,28 @@
         "B001324"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "property"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:35:57.655591+00:00",
+  "bills_updated": "2026-07-04T10:52:33.296328+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "trades": [
     {

@@ -292,9 +292,16 @@
         "M001236"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment",
+            "derivative"
+          ]
+        }
       }
     },
     {
@@ -338,9 +345,15 @@
         "H001100"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -382,9 +395,17 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider",
+            "physician",
+            "nurse"
+          ]
+        }
       }
     },
     {
@@ -427,7 +448,7 @@
         {
           "bill_id": "S4371-119",
           "sponsor_id": "C001114",
-          "similarity_score": 0.976
+          "similarity_score": 0.975
         }
       ],
       "cosponsors": [
@@ -436,9 +457,28 @@
         "O000177"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Finance & Banking",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "healthcare",
+            "provider"
+          ],
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "student",
+            "college",
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -532,9 +572,16 @@
         "C000059"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -578,9 +625,15 @@
         "G000607"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -626,9 +679,15 @@
         "O000086"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -678,11 +737,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:19:34.082466+00:00",
+  "bills_updated": "2026-07-04T09:44:41.975754+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

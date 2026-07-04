@@ -316,9 +316,20 @@
         "A000372"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicaid",
+            "cms"
+          ],
+          "Pharmaceuticals": [
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -369,16 +380,26 @@
           "similarity_score": 1.0
         },
         {
-          "bill_id": "S4210-119",
-          "sponsor_id": "S001194",
+          "bill_id": "HR9296-119",
+          "sponsor_id": "S001156",
           "similarity_score": 0.999
         }
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicare"
+          ],
+          "Pharmaceuticals": [
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -414,7 +435,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
+      "alec_best_similarity": 0.041,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -525,9 +546,19 @@
         "B001285"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicaid"
+          ],
+          "Pharmaceuticals": [
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -572,9 +603,15 @@
         "B001260"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "controlled_substance"
+          ]
+        }
       }
     },
     {
@@ -621,9 +658,22 @@
         "J000302"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "medicare",
+            "provider",
+            "physician"
+          ],
+          "Pharmaceuticals": [
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -705,7 +755,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.047,
+      "alec_best_similarity": 0.048,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -728,11 +778,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:39:10.752528+00:00",
+  "bills_updated": "2026-07-04T10:57:21.162912+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

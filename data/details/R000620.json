@@ -249,9 +249,21 @@
         "C001123"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "healthcare",
+            "medicaid",
+            "mental_health"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -294,24 +306,31 @@
         {
           "bill_id": "HR9261-119",
           "sponsor_id": "B001292",
-          "similarity_score": 0.998
+          "similarity_score": 0.992
         },
         {
           "bill_id": "HR9281-119",
           "sponsor_id": "H001094",
-          "similarity_score": 0.998
+          "similarity_score": 0.991
         },
         {
           "bill_id": "S4261-119",
           "sponsor_id": "M001111",
-          "similarity_score": 0.981
+          "similarity_score": 0.98
         }
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "artificial_intelligence"
+          ]
+        }
       }
     },
     {
@@ -362,9 +381,20 @@
         "G000606"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -400,15 +430,21 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.059,
+      "alec_best_similarity": 0.06,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ]
+        }
       }
     },
     {
@@ -450,9 +486,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -505,9 +547,15 @@
         "L000602"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -560,9 +608,23 @@
         "L000582"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data",
+            "privacy",
+            "algorithm",
+            "artificial_intelligence"
+          ],
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -608,9 +670,16 @@
         "T000488"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "artificial_intelligence"
+          ]
+        }
       }
     },
     {
@@ -654,9 +723,17 @@
         "D000628"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "artificial_intelligence",
+            "digital"
+          ]
+        }
       }
     },
     {
@@ -709,17 +786,28 @@
         "N000147"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "investment"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:42:55.304708+00:00",
+  "bills_updated": "2026-07-04T10:50:25.634564+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 50.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 10,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

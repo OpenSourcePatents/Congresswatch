@@ -247,17 +247,17 @@
         {
           "bill_id": "HR9587-119",
           "sponsor_id": "M001229",
-          "similarity_score": 0.952
+          "similarity_score": 0.962
+        },
+        {
+          "bill_id": "HR9581-119",
+          "sponsor_id": "J000298",
+          "similarity_score": 0.955
         },
         {
           "bill_id": "HR9579-119",
           "sponsor_id": "G000553",
-          "similarity_score": 0.921
-        },
-        {
-          "bill_id": "HR9572-119",
-          "sponsor_id": "B001318",
-          "similarity_score": 0.908
+          "similarity_score": 0.937
         }
       ],
       "cosponsors": [],
@@ -300,7 +300,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
+      "alec_best_similarity": 0.035,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -317,9 +317,29 @@
         "O000175"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Oil & Gas",
+          "Tobacco & Alcohol"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "investment"
+          ],
+          "Real Estate": [
+            "development",
+            "property"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Tobacco & Alcohol": [
+            "marketing"
+          ]
+        }
       }
     },
     {
@@ -407,7 +427,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.095,
+      "alec_best_similarity": 0.094,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -484,9 +504,15 @@
         "F000484"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -694,9 +720,15 @@
         "S001224"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -744,17 +776,27 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Tobacco & Alcohol"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Tobacco & Alcohol": [
+            "alcohol"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:24:06.424274+00:00",
+  "bills_updated": "2026-07-04T09:51:12.660033+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

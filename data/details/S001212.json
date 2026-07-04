@@ -247,17 +247,17 @@
         {
           "bill_id": "HR9577-119",
           "sponsor_id": "F000485",
-          "similarity_score": 0.991
+          "similarity_score": 0.985
         },
         {
           "bill_id": "HR9582-119",
           "sponsor_id": "K000399",
-          "similarity_score": 0.979
+          "similarity_score": 0.981
         },
         {
           "bill_id": "HR9589-119",
           "sponsor_id": "V000139",
-          "similarity_score": 0.951
+          "similarity_score": 0.962
         }
       ],
       "cosponsors": [
@@ -310,9 +310,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -354,9 +360,20 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Healthcare": [
+            "provider",
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -392,7 +409,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.05,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -634,9 +651,19 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -695,11 +722,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:15:28.068273+00:00",
+  "bills_updated": "2026-07-04T10:31:57.439862+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "travel": [
     {

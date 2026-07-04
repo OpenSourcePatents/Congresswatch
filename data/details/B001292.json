@@ -245,19 +245,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "HR9323-119",
-          "sponsor_id": "R000620",
-          "similarity_score": 0.998
-        },
-        {
           "bill_id": "HR9281-119",
           "sponsor_id": "H001094",
           "similarity_score": 0.998
         },
         {
+          "bill_id": "HR9323-119",
+          "sponsor_id": "R000620",
+          "similarity_score": 0.992
+        },
+        {
           "bill_id": "S4261-119",
           "sponsor_id": "M001111",
-          "similarity_score": 0.986
+          "similarity_score": 0.985
         }
       ],
       "cosponsors": [
@@ -318,17 +318,17 @@
         {
           "bill_id": "HR9291-119",
           "sponsor_id": "M001225",
-          "similarity_score": 0.999
-        },
-        {
-          "bill_id": "HR9525-119",
-          "sponsor_id": "N000147",
-          "similarity_score": 0.977
+          "similarity_score": 0.995
         },
         {
           "bill_id": "HRES1292-119",
           "sponsor_id": "W000822",
-          "similarity_score": 0.974
+          "similarity_score": 0.975
+        },
+        {
+          "bill_id": "HR9519-119",
+          "sponsor_id": "L000557",
+          "similarity_score": 0.975
         }
       ],
       "cosponsors": [
@@ -386,12 +386,12 @@
         {
           "bill_id": "S4209-119",
           "sponsor_id": "S001198",
-          "similarity_score": 0.996
+          "similarity_score": 0.995
         },
         {
           "bill_id": "HR9470-119",
           "sponsor_id": "J000305",
-          "similarity_score": 0.996
+          "similarity_score": 0.995
         }
       ],
       "cosponsors": [
@@ -438,7 +438,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.081,
+      "alec_best_similarity": 0.082,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -455,9 +455,24 @@
         "S001205"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data",
+            "artificial_intelligence",
+            "software",
+            "hardware"
+          ],
+          "Real Estate": [
+            "construction",
+            "development"
+          ]
+        }
       }
     },
     {
@@ -493,7 +508,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.033,
+      "alec_best_similarity": 0.034,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -505,9 +520,15 @@
         "C001066"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -560,9 +581,15 @@
         "S001230"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -607,9 +634,19 @@
         "D000530"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ],
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -769,11 +806,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:27:26.308254+00:00",
+  "bills_updated": "2026-07-04T10:43:51.855596+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {

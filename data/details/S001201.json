@@ -294,9 +294,25 @@
         "B001314"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Healthcare",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing"
+          ],
+          "Healthcare": [
+            "healthcare",
+            "medicaid",
+            "medicare"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -388,9 +404,15 @@
         "S001214"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -432,9 +454,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -470,7 +498,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.106,
+      "alec_best_similarity": 0.105,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -487,9 +515,19 @@
         "C001133"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ],
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -576,7 +614,7 @@
         {
           "bill_id": "HRES1029-119",
           "sponsor_id": "F000466",
-          "similarity_score": 0.889
+          "similarity_score": 0.888
         }
       ],
       "cosponsors": [],
@@ -626,7 +664,7 @@
         {
           "bill_id": "HRES1029-119",
           "sponsor_id": "F000466",
-          "similarity_score": 0.889
+          "similarity_score": 0.888
         }
       ],
       "cosponsors": [],
@@ -697,11 +735,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:33:52.259067+00:00",
+  "bills_updated": "2026-07-04T09:59:31.985061+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {

@@ -257,7 +257,7 @@
         {
           "bill_id": "HR9494-119",
           "sponsor_id": "W000808",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         }
       ],
       "cosponsors": [
@@ -319,9 +319,15 @@
         "S001226"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -357,7 +363,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.062,
+      "alec_best_similarity": 0.061,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -365,9 +371,20 @@
         "H001098"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider",
+            "nurse"
+          ],
+          "Pharmaceuticals": [
+            "clinical"
+          ]
+        }
       }
     },
     {
@@ -469,9 +486,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "drug"
+          ]
+        }
       }
     },
     {
@@ -507,14 +530,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.021,
+      "alec_best_similarity": 0.022,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "SRES667-119",
           "sponsor_id": "W000779",
-          "similarity_score": 0.82
+          "similarity_score": 0.815
         }
       ],
       "cosponsors": [
@@ -580,9 +603,15 @@
         "H001103"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "platform"
+          ]
+        }
       }
     },
     {
@@ -618,15 +647,23 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.173,
+      "alec_best_similarity": 0.174,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "drug",
+            "biologics",
+            "controlled_substance"
+          ]
+        }
       }
     },
     {
@@ -662,7 +699,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
+      "alec_best_similarity": 0.035,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -716,17 +753,23 @@
         "L000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "clinical"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:25:28.849958+00:00",
+  "bills_updated": "2026-07-04T09:46:30.507176+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "travel": [
     {

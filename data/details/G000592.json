@@ -240,7 +240,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.055,
+      "alec_best_similarity": 0.054,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -307,9 +307,15 @@
         "L000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -353,9 +359,22 @@
         "S001214"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development",
+            "real_estate"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "interest",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -456,9 +475,17 @@
         "M001230"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance",
+            "affordable_care",
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -714,17 +741,24 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:07:21.731340+00:00",
+  "bills_updated": "2026-07-04T10:27:14.943565+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

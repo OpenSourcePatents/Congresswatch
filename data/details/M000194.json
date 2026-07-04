@@ -245,19 +245,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "S4334-119",
-          "sponsor_id": "S001198",
-          "similarity_score": 0.999
-        },
-        {
-          "bill_id": "S4318-119",
-          "sponsor_id": "R000608",
-          "similarity_score": 0.999
-        },
-        {
           "bill_id": "S4466-119",
           "sponsor_id": "S001194",
           "similarity_score": 0.999
+        },
+        {
+          "bill_id": "S4214-119",
+          "sponsor_id": "S000033",
+          "similarity_score": 0.998
+        },
+        {
+          "bill_id": "S4334-119",
+          "sponsor_id": "S001198",
+          "similarity_score": 0.998
         }
       ],
       "cosponsors": [
@@ -356,7 +356,7 @@
         {
           "bill_id": "HJRES172-119",
           "sponsor_id": "F000485",
-          "similarity_score": 0.803
+          "similarity_score": 0.802
         }
       ],
       "cosponsors": [],
@@ -406,17 +406,17 @@
         {
           "bill_id": "SJRES187-119",
           "sponsor_id": "W000802",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         },
         {
           "bill_id": "SJRES188-119",
           "sponsor_id": "W000802",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         },
         {
           "bill_id": "S4432-119",
           "sponsor_id": "S001217",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
         }
       ],
       "cosponsors": [
@@ -557,9 +557,15 @@
         "B000825"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -603,9 +609,26 @@
         "M001184"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "mortgage"
+          ],
+          "Healthcare": [
+            "insurance"
+          ],
+          "Real Estate": [
+            "housing",
+            "mortgage",
+            "rent",
+            "homeowner"
+          ]
+        }
       }
     },
     {
@@ -655,11 +678,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:57:28.329683+00:00",
+  "bills_updated": "2026-07-04T10:19:41.868124+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "travel": [
     {

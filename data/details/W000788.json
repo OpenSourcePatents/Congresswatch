@@ -274,9 +274,30 @@
         "M001160"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "loan"
+          ],
+          "Finance & Banking": [
+            "bank",
+            "financial",
+            "credit",
+            "loan",
+            "mortgage"
+          ],
+          "Real Estate": [
+            "housing",
+            "mortgage",
+            "development",
+            "fannie"
+          ]
+        }
       }
     },
     {
@@ -317,19 +338,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "S4187-119",
-          "sponsor_id": "S001203",
-          "similarity_score": 0.998
-        },
-        {
           "bill_id": "HR9460-119",
           "sponsor_id": "F000471",
           "similarity_score": 0.998
         },
         {
-          "bill_id": "S4881-119",
-          "sponsor_id": "W000800",
+          "bill_id": "S4187-119",
+          "sponsor_id": "S001203",
           "similarity_score": 0.997
+        },
+        {
+          "bill_id": "S4196-119",
+          "sponsor_id": "V000128",
+          "similarity_score": 0.996
         }
       ],
       "cosponsors": [
@@ -345,9 +366,16 @@
         "K000385"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "dodd",
+            "frank"
+          ]
+        }
       }
     },
     {
@@ -383,7 +411,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.038,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -450,9 +478,21 @@
         "T000481"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ],
+          "Healthcare": [
+            "insurance",
+            "medicaid",
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -498,9 +538,19 @@
         "C001117"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "grant"
+          ],
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -558,9 +608,15 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -655,9 +711,21 @@
         "S001215"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "loan"
+          ],
+          "Finance & Banking": [
+            "credit",
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -710,17 +778,36 @@
         "N000147"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Healthcare",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "grant"
+          ],
+          "Healthcare": [
+            "provider",
+            "physician",
+            "nurse",
+            "mental_health",
+            "telehealth"
+          ],
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:03:14.213249+00:00",
+  "bills_updated": "2026-07-04T10:25:44.591500+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

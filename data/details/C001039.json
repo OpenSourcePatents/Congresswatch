@@ -250,9 +250,19 @@
         "M001224"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ],
+          "Pharmaceuticals": [
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -346,7 +356,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.182,
+      "alec_best_similarity": 0.18,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -363,9 +373,16 @@
         "E000298"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "drug",
+            "prescription"
+          ]
+        }
       }
     },
     {
@@ -492,7 +509,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.049,
+      "alec_best_similarity": 0.048,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -514,9 +531,17 @@
         "D000230"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture",
+            "food",
+            "commodity"
+          ]
+        }
       }
     },
     {
@@ -571,9 +596,18 @@
         "M001219"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "credit",
+            "interest",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -615,9 +649,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -670,9 +710,15 @@
         "M001228"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "health_insurance"
+          ]
+        }
       }
     },
     {
@@ -729,11 +775,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:06:28.113780+00:00",
+  "bills_updated": "2026-07-04T10:26:43.324238+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

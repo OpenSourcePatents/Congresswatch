@@ -216,14 +216,54 @@
       "introduced_date": "2026-07-02",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9578?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "endstream",
+        "wms",
+        "pdf",
+        "xks",
+        "wks",
+        "font",
+        "vms",
+        "procset",
+        "text",
+        "type",
+        "ejc",
+        "smd",
+        "qlss",
+        "chnc",
+        "kscw",
+        "slklb",
+        "tnkn"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9579-119",
+          "sponsor_id": "G000553",
+          "similarity_score": 0.904
+        },
+        {
+          "bill_id": "HR9588-119",
+          "sponsor_id": "S001212",
+          "similarity_score": 0.894
+        },
+        {
+          "bill_id": "HR9573-119",
+          "sponsor_id": "C001126",
+          "similarity_score": 0.893
+        }
+      ],
+      "cosponsors": [
+        "K000398",
+        "L000607"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -340,9 +380,15 @@
         "M001188"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -386,9 +432,15 @@
         "B001298"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "physician"
+          ]
+        }
       }
     },
     {
@@ -440,9 +492,23 @@
         "M001208"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Insurance",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Insurance": [
+            "risk"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -493,9 +559,15 @@
         "R000609"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "damages"
+          ]
+        }
       }
     },
     {
@@ -539,9 +611,19 @@
         "L000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Labor & Unions",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Labor & Unions": [
+            "labor"
+          ],
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -584,12 +666,12 @@
         {
           "bill_id": "S4518-119",
           "sponsor_id": "S000033",
-          "similarity_score": 0.928
+          "similarity_score": 0.927
         },
         {
           "bill_id": "HR8798-119",
           "sponsor_id": "O000173",
-          "similarity_score": 0.913
+          "similarity_score": 0.912
         }
       ],
       "cosponsors": [
@@ -598,9 +680,20 @@
         "N000147"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "claim",
+            "risk"
+          ],
+          "Healthcare": [
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -644,9 +737,15 @@
         "P000621"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ]
+        }
       }
     },
     {
@@ -699,17 +798,23 @@
         "S001190"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "claim"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:21:51.530429+00:00",
+  "bills_updated": "2026-07-04T10:40:09.609263+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "trades": [
     {

@@ -286,7 +286,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.056,
+      "alec_best_similarity": 0.055,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -344,9 +344,16 @@
         "L000582"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance",
+            "physician"
+          ]
+        }
       }
     },
     {
@@ -390,9 +397,15 @@
         "M001219"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "nurse"
+          ]
+        }
       }
     },
     {
@@ -483,9 +496,20 @@
         "M001227"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Healthcare": [
+            "insurance",
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -623,9 +647,23 @@
         "C001067"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "loan",
+            "interest"
+          ],
+          "Healthcare": [
+            "provider",
+            "physician",
+            "nurse",
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -678,17 +716,27 @@
         "H001052"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:55:41.424100+00:00",
+  "bills_updated": "2026-07-04T10:16:43.898806+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {

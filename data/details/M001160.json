@@ -252,12 +252,12 @@
         {
           "bill_id": "HR8252-119",
           "sponsor_id": "K000401",
-          "similarity_score": 0.997
+          "similarity_score": 0.996
         },
         {
-          "bill_id": "HR9544-119",
-          "sponsor_id": "D000399",
-          "similarity_score": 0.997
+          "bill_id": "S4211-119",
+          "sponsor_id": "M000934",
+          "similarity_score": 0.996
         }
       ],
       "cosponsors": [
@@ -273,9 +273,15 @@
         "D000617"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ]
+        }
       }
     },
     {
@@ -355,14 +361,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.027,
+      "alec_best_similarity": 0.028,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "SRES698-119",
           "sponsor_id": "B001230",
-          "similarity_score": 0.946
+          "similarity_score": 0.948
         }
       ],
       "cosponsors": [
@@ -456,7 +462,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.064,
+      "alec_best_similarity": 0.063,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -517,7 +523,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.046,
+      "alec_best_similarity": 0.045,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -586,9 +592,20 @@
         "U000040"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "rural"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -635,9 +652,15 @@
         "E000299"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "food"
+          ]
+        }
       }
     },
     {
@@ -720,7 +743,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.124,
+      "alec_best_similarity": 0.123,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -737,17 +760,27 @@
         "H001068"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "loan",
+            "interest",
+            "investment"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:41:45.270481+00:00",
+  "bills_updated": "2026-07-04T11:01:31.973343+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

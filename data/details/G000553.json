@@ -247,17 +247,17 @@
         {
           "bill_id": "HR9573-119",
           "sponsor_id": "C001126",
-          "similarity_score": 0.996
+          "similarity_score": 0.992
+        },
+        {
+          "bill_id": "HR9581-119",
+          "sponsor_id": "J000298",
+          "similarity_score": 0.992
         },
         {
           "bill_id": "HR9587-119",
           "sponsor_id": "M001229",
-          "similarity_score": 0.977
-        },
-        {
-          "bill_id": "HR9572-119",
-          "sponsor_id": "B001318",
-          "similarity_score": 0.951
+          "similarity_score": 0.982
         }
       ],
       "cosponsors": [
@@ -328,9 +328,15 @@
         "D000623"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing"
+          ]
+        }
       }
     },
     {
@@ -659,9 +665,22 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance"
+          ],
+          "Real Estate": [
+            "housing",
+            "mortgage",
+            "development",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -706,17 +725,31 @@
         "N000191"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance"
+          ],
+          "Real Estate": [
+            "housing",
+            "construction",
+            "development",
+            "affordable_housing",
+            "property"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:34:15.671789+00:00",
+  "bills_updated": "2026-07-04T09:59:52.681703+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

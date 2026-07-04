@@ -250,14 +250,14 @@
           "similarity_score": 1.0
         },
         {
-          "bill_id": "HR9165-119",
-          "sponsor_id": "T000468",
-          "similarity_score": 1.0
+          "bill_id": "S4256-119",
+          "sponsor_id": "S001232",
+          "similarity_score": 0.999
         },
         {
-          "bill_id": "HR9461-119",
-          "sponsor_id": "F000471",
-          "similarity_score": 1.0
+          "bill_id": "S4214-119",
+          "sponsor_id": "S000033",
+          "similarity_score": 0.999
         }
       ],
       "cosponsors": [
@@ -266,9 +266,15 @@
         "G000553"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -321,9 +327,19 @@
         "C001119"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -366,7 +382,7 @@
         {
           "bill_id": "HCONRES61-119",
           "sponsor_id": "M001137",
-          "similarity_score": 0.858
+          "similarity_score": 0.859
         },
         {
           "bill_id": "HCONRES86-119",
@@ -392,9 +408,15 @@
         "L000602"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -445,9 +467,31 @@
         "J000298"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Finance & Banking",
+          "Real Estate",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "investment"
+          ],
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Education": [
+            "education",
+            "school"
+          ]
+        }
       }
     },
     {
@@ -500,9 +544,24 @@
         "R000617"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank"
+          ],
+          "Real Estate": [
+            "construction",
+            "property"
+          ],
+          "Education": [
+            "education"
+          ]
+        }
       }
     },
     {
@@ -555,9 +614,30 @@
         "N000147"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology",
+          "Real Estate",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider",
+            "mental_health",
+            "hhs"
+          ],
+          "Technology": [
+            "data",
+            "surveillance"
+          ],
+          "Real Estate": [
+            "development"
+          ],
+          "Education": [
+            "education"
+          ]
+        }
       }
     },
     {
@@ -649,7 +729,7 @@
         {
           "bill_id": "SJRES148-119",
           "sponsor_id": "M001111",
-          "similarity_score": 0.962
+          "similarity_score": 0.961
         },
         {
           "bill_id": "HJRES167-119",
@@ -659,9 +739,15 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -713,9 +799,44 @@
         "W000822"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Finance & Banking",
+          "Technology",
+          "Real Estate",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider",
+            "mental_health"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "technology",
+            "internet",
+            "data",
+            "privacy",
+            "surveillance"
+          ],
+          "Real Estate": [
+            "housing",
+            "rent",
+            "tenant",
+            "construction",
+            "development"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "student",
+            "grant",
+            "voucher"
+          ]
+        }
       }
     },
     {
@@ -751,7 +872,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.06,
+      "alec_best_similarity": 0.059,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -768,17 +889,27 @@
         "D000096"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "surveillance"
+          ],
+          "Real Estate": [
+            "housing"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:41:08.270226+00:00",
+  "bills_updated": "2026-07-04T10:10:09.047759+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 45.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 9,
   "edgar_status": "unresolved",
   "travel": [
     {

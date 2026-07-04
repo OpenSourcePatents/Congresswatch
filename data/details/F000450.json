@@ -298,9 +298,25 @@
         "L000597"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Education",
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ],
+          "Education": [
+            "education",
+            "college",
+            "grant"
+          ],
+          "Insurance": [
+            "claim"
+          ]
+        }
       }
     },
     {
@@ -344,9 +360,20 @@
         "S000185"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ],
+          "Insurance": [
+            "insurance",
+            "claim"
+          ]
+        }
       }
     },
     {
@@ -388,9 +415,21 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data",
+            "privacy"
+          ],
+          "Education": [
+            "education",
+            "school"
+          ]
+        }
       }
     },
     {
@@ -443,7 +482,7 @@
         {
           "bill_id": "HRES1345-119",
           "sponsor_id": "L000600",
-          "similarity_score": 0.888
+          "similarity_score": 0.889
         }
       ],
       "cosponsors": [],
@@ -494,9 +533,17 @@
         "L000595"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "school",
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -572,9 +619,15 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -681,11 +734,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:51:26.124127+00:00",
+  "bills_updated": "2026-07-04T11:02:18.978401+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "trades": [

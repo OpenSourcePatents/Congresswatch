@@ -404,9 +404,19 @@
         "K000367"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Finance & Banking": [
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -456,9 +466,16 @@
         "G000555"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -500,17 +517,24 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:01:43.343806+00:00",
+  "bills_updated": "2026-07-04T11:13:42.927963+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "trades": [

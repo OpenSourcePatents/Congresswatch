@@ -396,9 +396,17 @@
         "V000135"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "loan",
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -544,7 +552,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.023,
+      "alec_best_similarity": 0.024,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -714,7 +722,7 @@
         {
           "bill_id": "HR9025-119",
           "sponsor_id": "F000475",
-          "similarity_score": 0.89
+          "similarity_score": 0.891
         },
         {
           "bill_id": "HR7313-119",
@@ -741,11 +749,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:28:34.036049+00:00",
+  "bills_updated": "2026-07-04T09:51:46.630431+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "travel": [
     {

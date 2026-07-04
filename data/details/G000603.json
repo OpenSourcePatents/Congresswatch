@@ -273,9 +273,19 @@
         "F000484"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "mortgage"
+          ],
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -311,7 +321,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.068,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -480,9 +490,23 @@
         "M001212"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Oil & Gas",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -585,9 +609,19 @@
         "O000175"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -634,9 +668,15 @@
         "H001101"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -746,11 +786,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:20:11.952618+00:00",
+  "bills_updated": "2026-07-04T09:45:46.403407+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

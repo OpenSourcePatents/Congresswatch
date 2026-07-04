@@ -263,7 +263,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.137,
+      "alec_best_similarity": 0.136,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -274,9 +274,24 @@
         "L000570"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "school",
+            "student",
+            "grant"
+          ],
+          "Oil & Gas": [
+            "energy",
+            "carbon",
+            "climate"
+          ]
+        }
       }
     },
     {
@@ -464,11 +479,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:56:35.892593+00:00",
+  "bills_updated": "2026-07-04T11:10:02.287321+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "trades": [
     {

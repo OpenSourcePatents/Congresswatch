@@ -373,7 +373,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.046,
+      "alec_best_similarity": 0.047,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -381,9 +381,19 @@
         "H000273"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -480,9 +490,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -524,17 +540,44 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Insurance",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "financial",
+            "loan",
+            "interest"
+          ],
+          "Real Estate": [
+            "construction",
+            "development",
+            "property"
+          ],
+          "Insurance": [
+            "insurance",
+            "liability",
+            "risk"
+          ],
+          "Oil & Gas": [
+            "energy",
+            "carbon",
+            "methane"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:59:38.991149+00:00",
+  "bills_updated": "2026-07-04T11:12:20.937263+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

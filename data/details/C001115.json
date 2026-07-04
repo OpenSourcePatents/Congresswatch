@@ -240,15 +240,21 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.106,
+      "alec_best_similarity": 0.108,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -334,9 +340,23 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ],
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -389,9 +409,15 @@
         "M001212"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -444,9 +470,19 @@
         "W000816"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -499,9 +535,15 @@
         "H001096"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -548,9 +590,21 @@
         "A000372"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "university",
+            "charter"
+          ],
+          "Finance & Banking": [
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -634,7 +688,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.033,
+      "alec_best_similarity": 0.032,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -712,11 +766,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:19:45.904448+00:00",
+  "bills_updated": "2026-07-04T10:36:05.035401+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

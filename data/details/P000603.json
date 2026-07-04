@@ -358,9 +358,17 @@
         "M001153"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "insurance",
+            "premium",
+            "claim"
+          ]
+        }
       }
     },
     {
@@ -452,12 +460,12 @@
         {
           "bill_id": "HR9113-119",
           "sponsor_id": "W000831",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         },
         {
           "bill_id": "HR9226-119",
           "sponsor_id": "M000312",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         }
       ],
       "cosponsors": [],
@@ -530,17 +538,17 @@
         {
           "bill_id": "HR9558-119",
           "sponsor_id": "L000582",
-          "similarity_score": 0.992
+          "similarity_score": 0.985
         },
         {
           "bill_id": "SRES674-119",
           "sponsor_id": "W000437",
-          "similarity_score": 0.982
+          "similarity_score": 0.978
         },
         {
           "bill_id": "HR9520-119",
           "sponsor_id": "L000599",
-          "similarity_score": 0.982
+          "similarity_score": 0.978
         }
       ],
       "cosponsors": [
@@ -554,11 +562,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:58:57.402360+00:00",
+  "bills_updated": "2026-07-04T11:12:05.559821+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

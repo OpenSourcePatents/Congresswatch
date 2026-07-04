@@ -381,9 +381,26 @@
         "B001243"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Technology",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ],
+          "Technology": [
+            "internet",
+            "social_media",
+            "digital"
+          ],
+          "Healthcare": [
+            "healthcare",
+            "telehealth"
+          ]
+        }
       }
     },
     {
@@ -473,17 +490,31 @@
         "S001203"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "grant"
+          ],
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:01:04.848933+00:00",
+  "bills_updated": "2026-07-04T11:13:08.233651+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

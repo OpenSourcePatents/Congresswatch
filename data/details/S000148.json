@@ -525,7 +525,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.065,
+      "alec_best_similarity": 0.064,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -542,17 +542,32 @@
         "K000394"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "financial",
+            "credit",
+            "loan",
+            "interest"
+          ],
+          "Technology": [
+            "technology",
+            "artificial_intelligence"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:58:28.618045+00:00",
+  "bills_updated": "2026-07-04T11:11:41.790142+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

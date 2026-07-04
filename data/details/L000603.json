@@ -311,7 +311,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.068,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -363,7 +363,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.016,
+      "alec_best_similarity": 0.015,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -410,15 +410,21 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.041,
+      "alec_best_similarity": 0.042,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "food"
+          ]
+        }
       }
     },
     {
@@ -617,9 +623,16 @@
         "G000587"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction",
+            "development"
+          ]
+        }
       }
     },
     {
@@ -661,17 +674,27 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:36:32.844943+00:00",
+  "bills_updated": "2026-07-04T09:56:00.480015+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "travel": [
     {

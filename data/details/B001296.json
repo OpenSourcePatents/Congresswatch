@@ -269,9 +269,18 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance",
+            "medicaid",
+            "medicare",
+            "affordable_care"
+          ]
+        }
       }
     },
     {
@@ -315,9 +324,15 @@
         "V000133"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "digital"
+          ]
+        }
       }
     },
     {
@@ -358,19 +373,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "S4318-119",
-          "sponsor_id": "R000608",
-          "similarity_score": 0.999
-        },
-        {
-          "bill_id": "S4334-119",
-          "sponsor_id": "S001198",
-          "similarity_score": 0.998
-        },
-        {
           "bill_id": "S4466-119",
           "sponsor_id": "S001194",
-          "similarity_score": 0.998
+          "similarity_score": 0.997
+        },
+        {
+          "bill_id": "HR9148-119",
+          "sponsor_id": "H001072",
+          "similarity_score": 0.997
+        },
+        {
+          "bill_id": "S4214-119",
+          "sponsor_id": "S000033",
+          "similarity_score": 0.996
         }
       ],
       "cosponsors": [
@@ -537,9 +552,23 @@
         "E000301"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "loan",
+            "mortgage",
+            "interest"
+          ],
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -636,9 +665,21 @@
         "K000009"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest"
+          ],
+          "Technology": [
+            "privacy",
+            "platform"
+          ]
+        }
       }
     },
     {
@@ -680,17 +721,24 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:24:06.887824+00:00",
+  "bills_updated": "2026-07-04T10:37:29.140913+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {

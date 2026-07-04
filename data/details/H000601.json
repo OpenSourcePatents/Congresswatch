@@ -362,7 +362,7 @@
         {
           "bill_id": "HJRES193-119",
           "sponsor_id": "G000565",
-          "similarity_score": 0.861
+          "similarity_score": 0.86
         }
       ],
       "cosponsors": [
@@ -484,9 +484,15 @@
         "S001227"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     },
     {
@@ -528,9 +534,38 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Technology",
+          "Oil & Gas",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "interest",
+            "investment"
+          ],
+          "Real Estate": [
+            "housing",
+            "zoning",
+            "rent",
+            "construction",
+            "development"
+          ],
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -585,17 +620,35 @@
         "W000437"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "financial",
+            "credit",
+            "interest"
+          ],
+          "Real Estate": [
+            "housing",
+            "construction"
+          ],
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:01:59.864485+00:00",
+  "bills_updated": "2026-07-04T11:13:57.341697+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "trades": [
     {

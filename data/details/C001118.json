@@ -257,9 +257,23 @@
         "D000628"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "privacy",
+            "software"
+          ]
+        }
       }
     },
     {
@@ -501,7 +515,7 @@
         {
           "bill_id": "S3977-119",
           "sponsor_id": "G000386",
-          "similarity_score": 0.88
+          "similarity_score": 0.879
         }
       ],
       "cosponsors": [
@@ -513,9 +527,19 @@
         "T000490"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "securities"
+          ],
+          "Real Estate": [
+            "real_estate"
+          ]
+        }
       }
     },
     {
@@ -566,9 +590,15 @@
         "M000871"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -666,9 +696,15 @@
         "T000165"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -723,11 +759,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:08:00.483324+00:00",
+  "bills_updated": "2026-07-04T10:27:46.520153+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

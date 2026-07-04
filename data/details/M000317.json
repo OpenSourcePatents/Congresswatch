@@ -340,9 +340,15 @@
         "B000740"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -425,24 +431,24 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.093,
+      "alec_best_similarity": 0.094,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S4485-119",
           "sponsor_id": "H001089",
-          "similarity_score": 0.955
+          "similarity_score": 0.954
         },
         {
           "bill_id": "HR8795-119",
           "sponsor_id": "L000596",
-          "similarity_score": 0.817
+          "similarity_score": 0.816
         },
         {
           "bill_id": "HR7919-119",
           "sponsor_id": "P000614",
-          "similarity_score": 0.807
+          "similarity_score": 0.806
         }
       ],
       "cosponsors": [
@@ -498,9 +504,16 @@
         "M001238"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -548,9 +561,27 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "digital",
+            "software"
+          ],
+          "Healthcare": [
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -586,7 +617,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.024,
+      "alec_best_similarity": 0.025,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -630,7 +661,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.087,
+      "alec_best_similarity": 0.088,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -640,9 +671,23 @@
         "M001224"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Technology": [
+            "broadband"
+          ],
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -692,17 +737,27 @@
         "T000488"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:04:58.973023+00:00",
+  "bills_updated": "2026-07-04T10:19:34.094687+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

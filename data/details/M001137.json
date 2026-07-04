@@ -248,9 +248,24 @@
         "V000081"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -293,7 +308,7 @@
         {
           "bill_id": "SJRES143-119",
           "sponsor_id": "W000802",
-          "similarity_score": 0.965
+          "similarity_score": 0.964
         },
         {
           "bill_id": "HJRES169-119",
@@ -308,9 +323,15 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -412,7 +433,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.121,
+      "alec_best_similarity": 0.123,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -422,9 +443,15 @@
         "S000344"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing"
+          ]
+        }
       }
     },
     {
@@ -460,7 +487,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.059,
+      "alec_best_similarity": 0.06,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -477,9 +504,19 @@
         "K000009"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -639,9 +676,15 @@
         "O000176"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing"
+          ]
+        }
       }
     },
     {
@@ -750,11 +793,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:40:23.444732+00:00",
+  "bills_updated": "2026-07-04T10:49:40.996369+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

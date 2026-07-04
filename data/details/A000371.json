@@ -512,9 +512,30 @@
         "L000593"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "mortgage",
+            "interest"
+          ],
+          "Real Estate": [
+            "housing",
+            "mortgage",
+            "development",
+            "affordable_housing",
+            "property"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -655,9 +676,15 @@
         "P000597"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -705,11 +732,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:50:13.088020+00:00",
+  "bills_updated": "2026-07-04T10:22:18.858025+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

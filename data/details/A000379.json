@@ -403,9 +403,16 @@
         "N000191"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider",
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -441,14 +448,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.03,
+      "alec_best_similarity": 0.031,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S4670-119",
           "sponsor_id": "S001227",
-          "similarity_score": 0.972
+          "similarity_score": 0.969
         }
       ],
       "cosponsors": [
@@ -657,9 +664,18 @@
         "C001063"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "healthcare",
+            "hospital",
+            "medicare",
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -707,11 +723,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:40:28.450686+00:00",
+  "bills_updated": "2026-07-04T10:08:47.324964+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "trades": [

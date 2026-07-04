@@ -257,7 +257,7 @@
         {
           "bill_id": "S4211-119",
           "sponsor_id": "M000934",
-          "similarity_score": 0.996
+          "similarity_score": 0.995
         }
       ],
       "cosponsors": [
@@ -462,9 +462,16 @@
         "F000481"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture",
+            "commodity"
+          ]
+        }
       }
     },
     {
@@ -520,9 +527,21 @@
         "M001224"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "rural"
+          ],
+          "Oil & Gas": [
+            "drilling",
+            "crude",
+            "oil_gas"
+          ]
+        }
       }
     },
     {
@@ -581,9 +600,16 @@
         "E000298"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture",
+            "food"
+          ]
+        }
       }
     },
     {
@@ -734,17 +760,23 @@
         "C001053"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:04:47.485517+00:00",
+  "bills_updated": "2026-07-04T10:19:24.874579+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

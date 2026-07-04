@@ -304,7 +304,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.063,
+      "alec_best_similarity": 0.066,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -407,9 +407,15 @@
         "W000779"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "drug"
+          ]
+        }
       }
     },
     {
@@ -455,9 +461,16 @@
         "V000128"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -493,7 +506,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.111,
+      "alec_best_similarity": 0.11,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -505,9 +518,19 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "surveillance"
+          ],
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -557,11 +580,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T18:04:11.380147+00:00",
+  "bills_updated": "2026-07-04T11:15:39.689019+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "trades": [
     {

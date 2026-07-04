@@ -216,14 +216,61 @@
       "introduced_date": "2026-07-02",
       "latest_action": "Referred to the House Committee on Agriculture.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9581?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wks",
+        "lgp",
+        "pdq",
+        "ees",
+        "gxw",
+        "uqu",
+        "wqb",
+        "pqe",
+        "qdq",
+        "jat",
+        "vjg",
+        "ple"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9587-119",
+          "sponsor_id": "M001229",
+          "similarity_score": 0.995
+        },
+        {
+          "bill_id": "HR9579-119",
+          "sponsor_id": "G000553",
+          "similarity_score": 0.992
+        },
+        {
+          "bill_id": "HR9573-119",
+          "sponsor_id": "C001126",
+          "similarity_score": 0.982
+        }
+      ],
+      "cosponsors": [
+        "A000370",
+        "B001300",
+        "D000530",
+        "F000481",
+        "H001081",
+        "N000147",
+        "S001226",
+        "S000510",
+        "T000488"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -270,7 +317,7 @@
         {
           "bill_id": "HR9293-119",
           "sponsor_id": "O000019",
-          "similarity_score": 0.995
+          "similarity_score": 0.994
         },
         {
           "bill_id": "HR9240-119",
@@ -280,7 +327,7 @@
         {
           "bill_id": "HR9210-119",
           "sponsor_id": "R000606",
-          "similarity_score": 0.987
+          "similarity_score": 0.986
         }
       ],
       "cosponsors": [
@@ -344,9 +391,23 @@
         "C001112"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance",
+            "medicaid",
+            "medicare",
+            "affordable_care"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "credit"
+          ]
+        }
       }
     },
     {
@@ -405,9 +466,15 @@
         "C001080"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -526,9 +593,15 @@
         "J000288"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "internet"
+          ]
+        }
       }
     },
     {
@@ -581,9 +654,19 @@
         "S001200"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -636,9 +719,15 @@
         "C001091"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -681,17 +770,17 @@
         {
           "bill_id": "HR7059-119",
           "sponsor_id": "C001091",
-          "similarity_score": 0.868
+          "similarity_score": 0.867
         },
         {
           "bill_id": "HR6915-119",
           "sponsor_id": "M001196",
-          "similarity_score": 0.859
+          "similarity_score": 0.858
         },
         {
           "bill_id": "HR8707-119",
           "sponsor_id": "R000579",
-          "similarity_score": 0.817
+          "similarity_score": 0.816
         }
       ],
       "cosponsors": [
@@ -745,7 +834,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.121,
+      "alec_best_similarity": 0.12,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -762,17 +851,32 @@
         "F000483"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "interest"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:20:47.758720+00:00",
+  "bills_updated": "2026-07-04T10:39:25.218843+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "trades": [
     {

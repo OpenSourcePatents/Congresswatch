@@ -245,19 +245,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "S4318-119",
-          "sponsor_id": "R000608",
-          "similarity_score": 0.998
-        },
-        {
-          "bill_id": "HR9280-119",
-          "sponsor_id": "H001091",
-          "similarity_score": 0.998
-        },
-        {
           "bill_id": "HR9148-119",
           "sponsor_id": "H001072",
           "similarity_score": 0.998
+        },
+        {
+          "bill_id": "S4318-119",
+          "sponsor_id": "R000608",
+          "similarity_score": 0.997
+        },
+        {
+          "bill_id": "SRES707-119",
+          "sponsor_id": "S001181",
+          "similarity_score": 0.997
         }
       ],
       "cosponsors": [
@@ -311,15 +311,41 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.139,
+      "alec_best_similarity": 0.14,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Agriculture",
+          "Healthcare",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "credit",
+            "interest",
+            "investment"
+          ],
+          "Agriculture": [
+            "food",
+            "rural"
+          ],
+          "Healthcare": [
+            "hospital",
+            "insurance",
+            "medicaid",
+            "medicare",
+            "aca"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -378,9 +404,15 @@
         "G000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -470,7 +502,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.071,
+      "alec_best_similarity": 0.07,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -538,9 +570,29 @@
         "M001215"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Agriculture",
+          "Mining & Natural Resources",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "loan"
+          ],
+          "Agriculture": [
+            "farm",
+            "rural"
+          ],
+          "Mining & Natural Resources": [
+            "lease"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -652,7 +704,7 @@
         {
           "bill_id": "SRES668-119",
           "sponsor_id": "K000367",
-          "similarity_score": 0.915
+          "similarity_score": 0.914
         }
       ],
       "cosponsors": [
@@ -668,17 +720,23 @@
         "N000147"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:30:09.008688+00:00",
+  "bills_updated": "2026-07-04T10:46:44.274013+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

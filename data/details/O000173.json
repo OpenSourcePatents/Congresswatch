@@ -245,19 +245,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "S4272-119",
-          "sponsor_id": "S000033",
-          "similarity_score": 0.999
-        },
-        {
           "bill_id": "HR8305-119",
           "sponsor_id": "M001237",
           "similarity_score": 0.999
         },
         {
+          "bill_id": "S4272-119",
+          "sponsor_id": "S000033",
+          "similarity_score": 0.998
+        },
+        {
           "bill_id": "S4388-119",
           "sponsor_id": "W000817",
-          "similarity_score": 0.999
+          "similarity_score": 0.998
         }
       ],
       "cosponsors": [],
@@ -300,7 +300,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.065,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -318,9 +318,23 @@
         "P000597"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "rent",
+            "construction",
+            "development",
+            "affordable_housing"
+          ],
+          "Agriculture": [
+            "rural"
+          ]
+        }
       }
     },
     {
@@ -368,7 +382,7 @@
         {
           "bill_id": "HR8728-119",
           "sponsor_id": "G000583",
-          "similarity_score": 0.913
+          "similarity_score": 0.912
         }
       ],
       "cosponsors": [
@@ -384,9 +398,32 @@
         "B001324"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology",
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "reimbursement"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "privacy"
+          ],
+          "Real Estate": [
+            "development"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "farm",
+            "food",
+            "conservation"
+          ]
+        }
       }
     },
     {
@@ -439,9 +476,16 @@
         "J000298"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider",
+            "reimbursement"
+          ]
+        }
       }
     },
     {
@@ -494,9 +538,19 @@
         "D000623"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "reimbursement"
+          ],
+          "Agriculture": [
+            "food"
+          ]
+        }
       }
     },
     {
@@ -549,9 +603,15 @@
         "V000081"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -601,9 +661,16 @@
         "F000475"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "healthcare",
+            "hospital"
+          ]
+        }
       }
     },
     {
@@ -702,9 +769,29 @@
         "M001143"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ],
+          "Real Estate": [
+            "construction",
+            "development",
+            "property"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "farm",
+            "subsidy",
+            "usda",
+            "rural"
+          ]
+        }
       }
     },
     {
@@ -755,11 +842,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:15:46.500663+00:00",
+  "bills_updated": "2026-07-04T10:32:14.262981+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "travel": [
     {

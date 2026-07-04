@@ -322,7 +322,7 @@
         {
           "bill_id": "HR7746-119",
           "sponsor_id": "B001324",
-          "similarity_score": 0.913
+          "similarity_score": 0.914
         },
         {
           "bill_id": "HR4836-119",
@@ -591,23 +591,33 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.079,
+      "alec_best_similarity": 0.078,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S3980-119",
           "sponsor_id": "B001243",
-          "similarity_score": 0.989
+          "similarity_score": 0.99
         }
       ],
       "cosponsors": [
         "K000391"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "loan",
+            "interest",
+            "lending"
+          ]
+        }
       }
     },
     {
@@ -651,9 +661,15 @@
         "G000605"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "loan"
+          ]
+        }
       }
     },
     {
@@ -701,11 +717,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T16:54:27.880454+00:00",
+  "bills_updated": "2026-07-04T10:15:23.993235+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

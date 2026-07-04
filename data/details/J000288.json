@@ -262,9 +262,15 @@
         "L000602"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "internet"
+          ]
+        }
       }
     },
     {
@@ -300,7 +306,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.098,
+      "alec_best_similarity": 0.099,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -563,9 +569,26 @@
         "C001061"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ],
+          "Technology": [
+            "technology",
+            "antitrust",
+            "digital"
+          ],
+          "Finance & Banking": [
+            "credit",
+            "securities"
+          ]
+        }
       }
     },
     {
@@ -609,9 +632,19 @@
         "V000081"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance"
+          ],
+          "Technology": [
+            "surveillance"
+          ]
+        }
       }
     },
     {
@@ -664,9 +697,15 @@
         "M000312"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "derivative"
+          ]
+        }
       }
     },
     {
@@ -725,11 +764,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:46:50.872964+00:00",
+  "bills_updated": "2026-07-04T10:56:48.129291+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

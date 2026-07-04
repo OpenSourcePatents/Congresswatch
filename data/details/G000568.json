@@ -443,12 +443,12 @@
         {
           "bill_id": "HRES977-119",
           "sponsor_id": "H001093",
-          "similarity_score": 0.865
+          "similarity_score": 0.866
         },
         {
           "bill_id": "HRES1055-119",
           "sponsor_id": "S001214",
-          "similarity_score": 0.848
+          "similarity_score": 0.85
         },
         {
           "bill_id": "HRES1042-119",
@@ -644,9 +644,16 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance",
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -710,11 +717,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:38:01.567403+00:00",
+  "bills_updated": "2026-07-04T10:54:26.203589+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "travel": [
     {

@@ -248,9 +248,15 @@
         "L000560"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "rural"
+          ]
+        }
       }
     },
     {
@@ -330,14 +336,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.029,
+      "alec_best_similarity": 0.03,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "SRES726-119",
           "sponsor_id": "D000618",
-          "similarity_score": 0.842
+          "similarity_score": 0.835
         }
       ],
       "cosponsors": [
@@ -397,9 +403,17 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture",
+            "organic",
+            "livestock"
+          ]
+        }
       }
     },
     {
@@ -452,9 +466,17 @@
         "M001228"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -500,9 +522,16 @@
         "H001101"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -555,9 +584,21 @@
         "S001157"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "loan"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "farm",
+            "rural"
+          ]
+        }
       }
     },
     {
@@ -719,11 +760,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-03T17:26:50.431717+00:00",
+  "bills_updated": "2026-07-04T10:43:30.770765+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [
