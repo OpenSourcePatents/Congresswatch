@@ -249,9 +249,21 @@
         "M001246"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance",
+            "medicaid",
+            "medicare"
+          ],
+          "Insurance": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -351,9 +363,18 @@
         "G000606"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data",
+            "artificial_intelligence",
+            "digital"
+          ]
+        }
       }
     },
     {
@@ -398,9 +419,15 @@
         "G000606"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "artificial_intelligence"
+          ]
+        }
       }
     },
     {
@@ -538,9 +565,29 @@
         "E000297"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Insurance",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "healthcare",
+            "hospital",
+            "insurance",
+            "provider"
+          ],
+          "Insurance": [
+            "insurance"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "privacy",
+            "artificial_intelligence"
+          ]
+        }
       }
     },
     {
@@ -586,9 +633,15 @@
         "M001219"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     },
     {
@@ -683,17 +736,23 @@
         "L000557"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-07-04T09:45:03.569744+00:00",
+  "bills_updated": "2026-07-05T10:08:36.671437+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "fec_candidate_id": "H4PR01010",
