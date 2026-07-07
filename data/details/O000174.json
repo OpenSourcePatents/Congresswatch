@@ -209,21 +209,44 @@
   "bills": [
     {
       "bill_id": "S4932-119",
-      "title": "A bill to direct the Consumer Product Safety Commission to implement children's product safety recommendations of the Government Accountability Office.",
+      "title": "No Lead in Toys Act",
       "type": "S",
       "number": "4932",
       "congress": 119,
       "introduced_date": "2026-06-24",
       "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
       "url": "https://api.congress.gov/v3/bill/119/s/4932?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "product",
+        "safety",
+        "commission",
+        "consumer",
+        "children",
+        "recommendations",
+        "government",
+        "office",
+        "implement",
+        "accountability",
+        "committee",
+        "commerce",
+        "report",
+        "process",
+        "introduced",
+        "direct",
+        "bill",
+        "science",
+        "transportation",
+        "lead"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.062,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "C001056"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -232,25 +255,73 @@
     },
     {
       "bill_id": "S4884-119",
-      "title": "A bill protecting the right to vote in elections for Federal office, and for other purposes.",
+      "title": "Right to Vote Act",
       "type": "S",
       "number": "4884",
       "congress": 119,
       "introduced_date": "2026-06-24",
       "latest_action": "Read twice and referred to the Committee on Rules and Administration.",
       "url": "https://api.congress.gov/v3/bill/119/s/4884?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "vote",
+        "office",
+        "federal",
+        "governmental",
+        "action",
+        "government",
+        "impairment",
+        "rule",
+        "standard",
+        "practice",
+        "procedure",
+        "elections",
+        "right",
+        "election",
+        "substantial",
+        "district",
+        "plaintiff",
+        "ability",
+        "important",
+        "interest"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.129,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9437-119",
+          "sponsor_id": "L000602",
+          "similarity_score": 0.847
+        }
+      ],
+      "cosponsors": [
+        "B001277",
+        "C000127",
+        "H000273",
+        "H001042",
+        "K000383",
+        "K000367",
+        "M001176",
+        "P000145",
+        "S001150",
+        "W000790"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ],
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -592,11 +663,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-06T13:31:29.493054+00:00",
+  "bills_updated": "2026-07-07T12:38:41.008858+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 5.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 1,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

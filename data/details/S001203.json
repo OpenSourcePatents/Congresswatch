@@ -208,6 +208,29 @@
   "last_updated": "2026-07-07T09:22:58.854362",
   "bills": [
     {
+      "bill_id": "-119",
+      "title": "",
+      "type": "",
+      "number": "",
+      "congress": 119,
+      "introduced_date": "2026-06-23",
+      "latest_action": "",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/5979?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "SRES789-119",
       "title": "A resolution recognizing June 2026, as \"LGBTQ Pride Month\".",
       "type": "SRES",
@@ -272,29 +295,6 @@
             "mental_health"
           ]
         }
-      }
-    },
-    {
-      "bill_id": "-119",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2026-06-23",
-      "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/5979?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
       }
     },
     {
@@ -446,25 +446,55 @@
     },
     {
       "bill_id": "S4832-119",
-      "title": "A bill to amend the Indian Self-Determination and Education Assistance Act to allow the Secretary of Agriculture to enter into self-determination contracts with Indian Tribes and Tribal organizations to carry out supplemental nutrition assistance programs.",
+      "title": "SNAP Tribal Food Sovereignty Act of 2026",
       "type": "S",
       "number": "4832",
       "congress": 119,
       "introduced_date": "2026-06-18",
       "latest_action": "Read twice and referred to the Committee on Indian Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/s/4832?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "self",
+        "determination",
+        "indian",
+        "assistance",
+        "agriculture",
+        "secretary",
+        "tribal",
+        "contracts",
+        "tribes",
+        "organizations",
+        "nutrition",
+        "contract",
+        "education",
+        "enter",
+        "supplemental",
+        "snap",
+        "entered",
+        "office",
+        "introduced",
+        "allow"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.023,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "R000605"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture",
+            "food"
+          ]
+        }
       }
     },
     {
@@ -567,11 +597,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-06T13:29:58.322687+00:00",
+  "bills_updated": "2026-07-07T12:37:37.402052+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {

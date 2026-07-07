@@ -204,25 +204,59 @@
   "bills": [
     {
       "bill_id": "S4898-119",
-      "title": "A bill to implement recommendations of the Comptroller General of the United States for improving the Medicaid Recovery Audit Contractor program and identifying additional opportunities to recover Medicaid overpayments, and for other purposes.",
+      "title": "Medicaid RAC Improvement Act of 2026",
       "type": "S",
       "number": "4898",
       "congress": 119,
       "introduced_date": "2026-06-24",
       "latest_action": "Read twice and referred to the Committee on Finance.",
       "url": "https://api.congress.gov/v3/bill/119/s/4898?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "state",
+        "medicaid",
+        "rac",
+        "plan",
+        "program",
+        "audit",
+        "payment",
+        "secretary",
+        "recovery",
+        "health",
+        "subparagraph",
+        "defined",
+        "iii",
+        "contractor",
+        "overpayments",
+        "exception",
+        "later",
+        "report",
+        "organization",
+        "recommendations"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.08,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9422-119",
+          "sponsor_id": "B001257",
+          "similarity_score": 0.852
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicaid",
+            "cms"
+          ]
+        }
       }
     },
     {
@@ -667,11 +701,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-06T13:30:19.030398+00:00",
+  "bills_updated": "2026-07-07T12:37:53.242242+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "trades": [
     {

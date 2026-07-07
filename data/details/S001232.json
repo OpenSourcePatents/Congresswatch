@@ -325,7 +325,7 @@
       "congress": 119,
       "introduced_date": "2026-06-23",
       "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/5911?format=json",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/5909?format=json",
       "keywords": [],
       "has_text": false,
       "similarity_score": null,
@@ -348,7 +348,7 @@
       "congress": 119,
       "introduced_date": "2026-06-23",
       "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/5909?format=json",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/5911?format=json",
       "keywords": [],
       "has_text": false,
       "similarity_score": null,
@@ -365,25 +365,63 @@
     },
     {
       "bill_id": "S4824-119",
-      "title": "A bill to amend section 5545 of title 5, United States Code, to provide hazard pay for carrying out prescribed burns, and for other purposes.",
+      "title": "Wildland Firefighter Hazard Pay Correction Act",
       "type": "S",
       "number": "4824",
       "congress": 119,
       "introduced_date": "2026-06-18",
       "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/s/4824?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "pay",
+        "hazard",
+        "prescribed",
+        "purposes",
+        "code",
+        "suppression",
+        "management",
+        "duties",
+        "differential",
+        "office",
+        "burns",
+        "fires",
+        "firefighters",
+        "involving",
+        "regulations",
+        "enactment",
+        "made",
+        "introduced",
+        "provide",
+        "carrying"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.044,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR5091-119",
+          "sponsor_id": "M001228",
+          "similarity_score": 0.8
+        }
+      ],
+      "cosponsors": [
+        "P000145",
+        "B001267",
+        "H000273",
+        "C001114"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -483,11 +521,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-06T13:30:02.450298+00:00",
+  "bills_updated": "2026-07-07T12:37:42.986403+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
