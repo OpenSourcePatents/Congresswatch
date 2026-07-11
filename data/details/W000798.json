@@ -240,7 +240,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.089,
+      "alec_best_similarity": 0.088,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -272,18 +272,66 @@
       "introduced_date": "2026-07-09",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9607?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "education",
+        "labor",
+        "functions",
+        "department",
+        "transferred",
+        "secretary",
+        "function",
+        "office",
+        "career",
+        "technical",
+        "director",
+        "effect",
+        "adult",
+        "purposes",
+        "necessary",
+        "except",
+        "enactment",
+        "official",
+        "programs",
+        "workforce"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.072,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9602-119",
+          "sponsor_id": "B001322",
+          "similarity_score": 0.831
+        },
+        {
+          "bill_id": "HR9603-119",
+          "sponsor_id": "W000795",
+          "similarity_score": 0.822
+        },
+        {
+          "bill_id": "HR9605-119",
+          "sponsor_id": "G000576",
+          "similarity_score": 0.802
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Real Estate": [
+            "development",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -712,11 +760,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-10T11:16:09.936142+00:00",
+  "bills_updated": "2026-07-11T09:45:03.560760+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "trades": [
     {

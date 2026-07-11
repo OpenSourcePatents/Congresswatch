@@ -216,18 +216,49 @@
       "introduced_date": "2026-07-09",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9611?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "education",
+        "authorized",
+        "labor",
+        "higher",
+        "functions",
+        "department",
+        "secretary",
+        "transferred",
+        "seq",
+        "program",
+        "function",
+        "subpart",
+        "programs",
+        "office",
+        "vii",
+        "director",
+        "effect",
+        "postsecondary",
+        "purposes",
+        "made"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.081,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -239,18 +270,56 @@
       "introduced_date": "2026-07-09",
       "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committees on Financial Services, Natural Resources, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9610?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "education",
+        "authorized",
+        "elementary",
+        "secondary",
+        "program",
+        "functions",
+        "secretary",
+        "labor",
+        "seq",
+        "transferred",
+        "department",
+        "function",
+        "office",
+        "grants",
+        "purposes",
+        "except",
+        "director",
+        "effect",
+        "official",
+        "transfer"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.083,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9608-119",
+          "sponsor_id": "M001211",
+          "similarity_score": 0.824
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Real Estate": [
+            "development",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -714,11 +783,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-10T10:47:17.765384+00:00",
+  "bills_updated": "2026-07-11T09:14:25.903845+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 10.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 2,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {
