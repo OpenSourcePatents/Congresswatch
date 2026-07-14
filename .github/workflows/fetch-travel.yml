@@ -15,9 +15,6 @@ jobs:
           python-version: '3.11'
       - run: pip install requests beautifulsoup4
       - name: Run gift travel fetcher
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python fetch_travel_pdf.py
       - name: Save data
         run: |

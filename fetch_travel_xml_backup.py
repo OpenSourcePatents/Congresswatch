@@ -16,25 +16,8 @@ Senate travel: Senate disclosures are at
   https://www.senate.gov/legislative/travel_disclosures.htm
   but are published only as PDFs — not yet parseable automatically.
 
-Supabase table schema — run in SQL Editor before first use:
-
--- CREATE TABLE IF NOT EXISTS public.travel (
---   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---   bioguide_id TEXT NOT NULL,
---   destination_country TEXT,
---   departure_date DATE,
---   return_date DATE,
---   sponsor TEXT,
---   total_cost NUMERIC(12,2),
---   currency TEXT DEFAULT 'USD',
---   report_type TEXT,
---   source TEXT DEFAULT 'house_clerk',
---   created_at TIMESTAMPTZ DEFAULT now(),
---   UNIQUE(bioguide_id, departure_date, destination_country)
--- );
--- ALTER TABLE public.travel ENABLE ROW LEVEL SECURITY;
--- CREATE POLICY "travel_read" ON public.travel FOR SELECT TO anon USING (true);
--- CREATE POLICY "travel_service_all" ON public.travel FOR ALL TO service_role USING (true) WITH CHECK (true);
+DEAD CODE — no workflow invokes this. Superseded by fetch_travel_pdf.py.
+Kept for reference only; it fully OVERWRITES travel[] instead of safe-merging.
 """
 
 import os
@@ -45,9 +28,6 @@ from datetime import datetime
 
 MEMBERS_FILE = "data/members.json"
 DETAILS_DIR = "data/details"
-
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 # House Clerk travel XML base
 TRAVEL_BASE = "https://clerk.house.gov/public_disc/travel"
@@ -122,49 +102,6 @@ def parse_travel_xml(xml_text):
             trips.append(trip)
 
     return trips
-
-
-# ─── Supabase ───────────────────────────────────────────────
-
-def supabase_upsert_travel(bid, trips):
-    if not SUPABASE_URL or not SUPABASE_KEY or not trips:
-        return 0
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates"
-    }
-    rows = []
-    for t in trips:
-        rows.append({
-            "bioguide_id": bid,
-            "destination_country": t.get("destination_country", ""),
-            "departure_date": t.get("departure_date") or None,
-            "return_date": t.get("return_date") or None,
-            "sponsor": t.get("sponsor", ""),
-            "total_cost": float(re.sub(r"[^0-9.]", "", t.get("total_cost", "0")) or 0),
-            "currency": "USD",
-            "report_type": "foreign_travel",
-            "source": "house_clerk"
-        })
-    success = 0
-    for i in range(0, len(rows), 100):
-        chunk = rows[i:i+100]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/travel",
-                headers=headers,
-                json=chunk,
-                timeout=30
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"    Supabase travel batch {i}: {r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"    Supabase travel error: {e}")
-    return success
 
 
 # ─── Main ───────────────────────────────────────────────────
@@ -277,7 +214,6 @@ if __name__ == "__main__":
     # Match trips to members
     matched_members = 0
     total_matched_trips = 0
-    supabase_total = 0
 
     if all_trips:
         # Group trips by member name
@@ -326,13 +262,6 @@ if __name__ == "__main__":
             # Update members.json entry
             m_entry["travel_count"] = len(clean_trips)
 
-            # Supabase
-            try:
-                count = supabase_upsert_travel(bid, clean_trips)
-                supabase_total += count
-            except Exception as e:
-                print(f"  Supabase error for {bid}: {e}")
-
             print(f"  {name}: {len(clean_trips)} trips")
 
     # Save updated members.json
@@ -345,8 +274,6 @@ if __name__ == "__main__":
     print(f"Trips parsed:       {len(all_trips)}")
     print(f"Members matched:    {matched_members}/{len(house_members)}")
     print(f"Trips matched:      {total_matched_trips}")
-    if SUPABASE_URL:
-        print(f"Supabase upserted:  {supabase_total}")
     if not all_trips:
         print(f"\nNOTE: No machine-readable travel data found at House Clerk.")
         print(f"  The House Clerk may publish travel reports as PDFs only.")

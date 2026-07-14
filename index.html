@@ -447,10 +447,6 @@ window.addEventListener('popstate', function() {
   }
 });
 
-const SUPABASE_URL = 'https://ufrsumaylshtikwociwp.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVmcnN1bWF5bHNodGlrd29jaXdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyODcyMzksImV4cCI6MjA5MDg2MzIzOX0.TgFsjsvM-nbSKh0yBJOILosdNHZbx98Cng5VKIK1-N8';
-const SB_HEADERS = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}` };
-
 let allMembers = [], filtered = [], currentMember = null;
 let filters = { chamber:'all', party:'all', score:'all', search:'', sort:'score-desc' };
 let profileToken = 0;           // monotonic token — discards stale async profile loads
@@ -584,33 +580,11 @@ function mapMember(m) {
 
 async function loadData() {
   try {
-    let raw = [];
-
-    // Try same-origin JSON first
-    try {
-      const res = await fetch('data/members.json');
-      if (res.ok) {
-        const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          raw = data;
-          console.log('Loaded from JSON:', raw.length);
-        }
-      }
-    } catch(e) {
-      console.warn('JSON fetch failed, falling back to Supabase:', e);
-    }
-
-    // Fallback to Supabase if JSON returned nothing
-    if (raw.length === 0) {
-      const res = await fetch(`${SUPABASE_URL}/rest/v1/members?select=*&order=score.desc.nullslast`, {
-        headers: SB_HEADERS
-      });
-      if (!res.ok) throw new Error('no data');
-      const data = await res.json();
-      if (!Array.isArray(data) || data.length === 0) throw new Error('no data');
-      raw = data.map(m => ({ ...m, id: m.bioguide_id }));
-      console.log('Loaded from Supabase fallback:', raw.length);
-    }
+    const res = await fetch('data/members.json');
+    if (!res.ok) throw new Error(`members.json HTTP ${res.status}`);
+    const raw = await res.json();
+    if (!Array.isArray(raw) || raw.length === 0) throw new Error('members.json empty');
+    console.log('Loaded from JSON:', raw.length);
 
     allMembers = raw.map(mapMember);
     updateStats(); updateCoverage(); applyFilters(); renderSidebar();
@@ -834,11 +808,10 @@ async function openProfile(m) {
   setTimeout(() => drawSalaryChart('nw-canvas', startYear), 200);
   document.getElementById('content').scrollTop = 0;
 
-  // ── Fetch vault data: same-origin JSON first, Supabase fallback ──
+  // ── Fetch vault data: same-origin JSON ──
   if (bid) {
     let deep = detailCache.get(bid) || null;
 
-    // Try same-origin JSON vault file first
     if (!deep) {
       try {
         const res = await fetch(`data/details/${bid}.json`);
@@ -848,98 +821,7 @@ async function openProfile(m) {
           if (token !== profileToken) return;
         }
       } catch(e) {
-        console.warn('JSON vault fetch failed, trying Supabase:', e);
-      }
-    }
-
-    // Fallback to Supabase when JSON vault is missing or empty
-    if (!deep) {
-      try {
-        const [votesRes, billsRes, tradesRes, travelRes, donorsRes] = await Promise.all([
-          fetch(`${SUPABASE_URL}/rest/v1/votes?bioguide_id=eq.${bid}&order=date.desc&limit=100`, { headers: SB_HEADERS }),
-          fetch(`${SUPABASE_URL}/rest/v1/bills?bioguide_id=eq.${bid}&order=introduced_date.desc`, { headers: SB_HEADERS }),
-          fetch(`${SUPABASE_URL}/rest/v1/trades?bioguide_id=eq.${bid}&order=transaction_date.desc&limit=50`, { headers: SB_HEADERS }),
-          fetch(`${SUPABASE_URL}/rest/v1/travel?bioguide_id=eq.${bid}&order=departure_date.desc`, { headers: SB_HEADERS }),
-          fetch(`${SUPABASE_URL}/rest/v1/donors?bioguide_id=eq.${bid}&order=amount.desc&limit=20`, { headers: SB_HEADERS })
-        ]);
-        if (token !== profileToken) return;
-        const sbVotes = votesRes.ok ? await votesRes.json() : [];
-        const sbBills = billsRes.ok ? await billsRes.json() : [];
-        const sbTrades = tradesRes.ok ? await tradesRes.json() : [];
-        const sbTravel = travelRes.ok ? await travelRes.json() : [];
-        const sbDonors = donorsRes.ok ? await donorsRes.json() : [];
-        if (token !== profileToken) return;
-
-        if (sbVotes.length > 0 || sbBills.length > 0 || sbTrades.length > 0 || sbTravel.length > 0 || sbDonors.length > 0) {
-          // Map Supabase votes to frontend format
-          const mappedVotes = sbVotes.map(v => ({
-            bill: v.question || '',
-            question_text: v.description || '',
-            date: v.date || '',
-            position: v.position || '',
-            result: v.result || '',
-            chamber: v.chamber || '',
-            url: v.url || ''
-          }));
-          // Map Supabase bills to frontend format
-          const mappedBills = sbBills.map(b => ({
-            bill_id: b.bill_id || '',
-            title: b.title || '',
-            type: b.bill_type || '',
-            number: b.bill_number || '',
-            introduced_date: b.introduced_date || '',
-            latest_action: b.latest_action || '',
-            url: b.url || '',
-            alec_match: (b.alec_similarity_score || 0) > 0 ? {
-              similarity_score: b.alec_similarity_score,
-              matched_model: b.alec_matched_model || '',
-              category: b.alec_category || '',
-              source_url: b.alec_source_url || ''
-            } : null,
-            donor_interest: {
-              match: b.donor_interest_match || false,
-              matched_industries: (b.donor_interest_reason || '').split(', ').filter(Boolean),
-              keyword_hits: {}
-            },
-            similar_member_bills: [],
-            cosponsors: []
-          }));
-          // Map Supabase trades to frontend format
-          const mappedTrades = sbTrades.map(t => ({
-            transaction_date: t.transaction_date || '',
-            ticker: t.ticker || '',
-            asset_description: t.asset_description || '',
-            asset_type: t.asset_type || '',
-            type: t.trade_type || '',
-            amount: t.amount_range || '',
-            owner: t.owner || '',
-            ptr_link: t.ptr_link || ''
-          }));
-          // Map Supabase travel to frontend format
-          const mappedTravel = sbTravel.map(t => ({
-            destination_country: t.destination_country || '',
-            departure_date: t.departure_date || '',
-            return_date: t.return_date || '',
-            sponsor: t.sponsor || '',
-            total_cost: t.total_cost || '',
-            currency: t.currency || 'USD'
-          }));
-          // Map Supabase donors to frontend format
-          const mappedDonors = sbDonors.map(d => ({
-            name: d.contributor_name || '',
-            employer: d.contributor_employer || '',
-            occupation: d.contributor_occupation || '',
-            amount: d.amount || 0,
-            date: d.date || ''
-          }));
-          deep = { votes: mappedVotes, bills: mappedBills };
-          if (mappedTrades.length > 0) deep.trades = mappedTrades;
-          if (mappedTravel.length > 0) deep.travel = mappedTravel;
-          if (mappedDonors.length > 0) deep.top_donors_list = mappedDonors;
-          console.log(`Supabase vault: ${sbVotes.length} votes, ${sbBills.length} bills, ${sbTrades.length} trades, ${sbTravel.length} travel, ${sbDonors.length} donors`);
-        }
-      } catch(e) {
-        console.warn('Supabase detail fetch also failed:', e);
+        console.warn('JSON vault fetch failed:', e);
       }
     }
 

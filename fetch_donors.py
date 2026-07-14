@@ -11,29 +11,8 @@ Output:
   - data/details/{bioguide_id}.json — top_donors_list[] (safe merge)
   - data/members.json — (unchanged, donors are detail-only)
 
-Supabase table schema — run in SQL Editor before first use:
-
--- CREATE TABLE IF NOT EXISTS public.donors (
---   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---   bioguide_id TEXT NOT NULL,
---   contributor_name TEXT,
---   contributor_employer TEXT,
---   contributor_occupation TEXT,
---   amount NUMERIC(12,2),
---   date DATE,
---   source TEXT DEFAULT 'fec_schedule_a',
---   created_at TIMESTAMPTZ DEFAULT now(),
---   UNIQUE(bioguide_id, contributor_name, amount, date)
--- );
--- CREATE INDEX IF NOT EXISTS idx_donors_member ON public.donors(bioguide_id);
--- ALTER TABLE public.donors ENABLE ROW LEVEL SECURITY;
--- CREATE POLICY "donors_read" ON public.donors FOR SELECT TO anon USING (true);
--- CREATE POLICY "donors_service_all" ON public.donors FOR ALL TO service_role USING (true) WITH CHECK (true);
-
 Env vars:
   FEC_API_KEY (optional — falls back to DEMO_KEY)
-  SUPABASE_URL (optional)
-  SUPABASE_SERVICE_KEY (optional)
 
 Run:
   python fetch_donors.py
@@ -60,9 +39,6 @@ PER_PAGE    = 20         # top N donors per member
 DELAY       = 0.5        # seconds between API calls
 MAX_RETRIES = 3
 BACKOFF     = 2          # seconds, doubles each retry
-
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 
 # ---------------------------------------------------------------------------
@@ -238,55 +214,6 @@ def fetch_top_donors(committee_ids):
 
 
 # ---------------------------------------------------------------------------
-# Supabase
-# ---------------------------------------------------------------------------
-
-def supabase_upsert_donors(bid, donors):
-    """Upsert donors to Supabase donors table."""
-    if not SUPABASE_URL or not SUPABASE_KEY or not donors:
-        return 0
-
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates",
-    }
-
-    rows = []
-    for d in donors:
-        rows.append({
-            "bioguide_id": bid,
-            "contributor_name": d.get("name", ""),
-            "contributor_employer": d.get("employer", ""),
-            "contributor_occupation": d.get("occupation", ""),
-            "amount": d.get("amount", 0),
-            "date": d.get("date") or None,
-            "source": "fec_schedule_a",
-        })
-
-    success = 0
-    for i in range(0, len(rows), 100):
-        chunk = rows[i:i + 100]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/donors",
-                headers=headers,
-                json=chunk,
-                timeout=30,
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"    Supabase donors batch {i}: "
-                      f"{r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"    Supabase donors error: {e}")
-
-    return success
-
-
-# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -323,7 +250,6 @@ def main():
         "donors_found": 0,
         "members_updated": 0,
         "errors": 0,
-        "supabase_upserted": 0,
     }
 
     for idx, (member, detail, fec_id) in enumerate(eligible):
@@ -361,9 +287,6 @@ def main():
             detail["donors_updated"] = datetime.now(timezone.utc).isoformat()
             save_json(detail_path, detail)
 
-            # Supabase upsert
-            count = supabase_upsert_donors(bid, donors)
-            stats["supabase_upserted"] += count
             stats["members_updated"] += 1
 
             print(f"    {len(donors)} donors (top: "
@@ -381,8 +304,6 @@ def main():
     print(f"Total donors found:    {stats['donors_found']}")
     print(f"Members updated:       {stats['members_updated']}")
     print(f"Errors:                {stats['errors']}")
-    if SUPABASE_URL:
-        print(f"Supabase upserted:     {stats['supabase_upserted']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 

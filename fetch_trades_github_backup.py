@@ -11,29 +11,8 @@ House PTR data: Not yet implemented. House disclosures require scraping
 disclosures-clerk.house.gov/FinancialDisclosure (ASPX form) — planned
 for a future update.
 
-Supabase table schema — run in SQL Editor before first use:
-
--- CREATE TABLE IF NOT EXISTS public.trades (
---   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---   bioguide_id TEXT NOT NULL,
---   transaction_date DATE,
---   ticker TEXT,
---   asset_description TEXT,
---   asset_type TEXT,
---   trade_type TEXT,
---   amount_range TEXT,
---   owner TEXT,
---   ptr_link TEXT,
---   source TEXT DEFAULT 'senate_efd',
---   created_at TIMESTAMPTZ DEFAULT now(),
---   UNIQUE(bioguide_id, transaction_date, ticker, trade_type, amount_range)
--- );
--- CREATE INDEX IF NOT EXISTS idx_trades_member ON public.trades(bioguide_id);
--- CREATE INDEX IF NOT EXISTS idx_trades_date ON public.trades(transaction_date DESC);
--- CREATE INDEX IF NOT EXISTS idx_trades_ticker ON public.trades(ticker);
--- ALTER TABLE public.trades ENABLE ROW LEVEL SECURITY;
--- CREATE POLICY "trades_read" ON public.trades FOR SELECT TO anon USING (true);
--- CREATE POLICY "trades_service_all" ON public.trades FOR ALL TO service_role USING (true) WITH CHECK (true);
+DEAD CODE — no workflow invokes this. Superseded by fetch_senate_efd.py.
+Kept for reference only; it fully OVERWRITES trades[] instead of safe-merging.
 """
 
 import os
@@ -54,9 +33,6 @@ SENATE_TRADES_API_URL = (
 
 MEMBERS_FILE = "data/members.json"
 DETAILS_DIR = "data/details"
-
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 HEADERS = {
     "User-Agent": "CongressWatch/1.0 (public-interest-research)"
@@ -89,50 +65,6 @@ def normalize_name(name):
     name = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b", "", name)
     name = re.sub(r"[^a-z\s]", " ", name)
     return re.sub(r"\s+", " ", name).strip()
-
-
-# ─── Supabase ───────────────────────────────────────────────
-
-def supabase_upsert_trades(bid, trades, ptr_link=""):
-    if not SUPABASE_URL or not SUPABASE_KEY or not trades:
-        return
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates"
-    }
-    rows = []
-    for t in trades:
-        rows.append({
-            "bioguide_id": bid,
-            "transaction_date": t.get("transaction_date") or None,
-            "ticker": t.get("ticker", ""),
-            "asset_description": t.get("asset_description", ""),
-            "asset_type": t.get("asset_type", ""),
-            "trade_type": t.get("type", ""),
-            "amount_range": t.get("amount", ""),
-            "owner": t.get("owner", ""),
-            "ptr_link": ptr_link,
-            "source": "senate_efd"
-        })
-    success = 0
-    for i in range(0, len(rows), 100):
-        chunk = rows[i:i+100]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/trades",
-                headers=headers,
-                json=chunk,
-                timeout=30
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"    Supabase trades batch {i}: {r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"    Supabase trades error: {e}")
-    return success
 
 
 # ─── Main ───────────────────────────────────────────────────
@@ -207,7 +139,6 @@ if __name__ == "__main__":
     # Match senators
     matched = 0
     total_trades = 0
-    supabase_total = 0
 
     for m in members:
         bid = m.get("id") or m.get("bioguide_id", "")
@@ -264,14 +195,6 @@ if __name__ == "__main__":
         m["trade_count"] = len(transactions)
         m["latest_trade_date"] = latest_date
 
-        # Supabase
-        try:
-            count = supabase_upsert_trades(bid, transactions, ptr_link)
-            if count:
-                supabase_total += count
-        except Exception as e:
-            print(f"  Supabase error for {bid}: {e}")
-
         print(f"  {name}: {len(transactions)} trades (latest: {latest_date})")
 
     # Write updated members.json
@@ -283,6 +206,4 @@ if __name__ == "__main__":
     print(f"{'=' * 60}")
     print(f"Senators matched:  {matched}/{len(senators)}")
     print(f"Total trades:      {total_trades}")
-    if SUPABASE_URL:
-        print(f"Supabase upserted: {supabase_total}")
     print(f"{'=' * 60}")

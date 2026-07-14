@@ -5,8 +5,6 @@ import requests
 from datetime import datetime
 
 CONGRESS_KEY = os.environ.get("CONGRESS_API_KEY", "")
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 BASE = "https://api.congress.gov/v3"
 HEADERS = {"User-Agent": "CongressWatch/1.0"}
 
@@ -161,52 +159,6 @@ def fetch_all():
 BASE_FIELDS = {"name", "party", "state", "district", "chamber", "photo_url", "term_start", "data_updated"}
 
 
-def supabase_upsert_members(members_list):
-    if not SUPABASE_URL or not SUPABASE_KEY:
-        print("Supabase not configured, skipping")
-        return
-
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates"
-    }
-
-    rows = []
-    for m in members_list:
-        rows.append({
-            "bioguide_id": m.get("id") or m.get("bioguide_id"),
-            "name": m.get("name", ""),
-            "party": m.get("party", "Unknown"),
-            "state": m.get("state", ""),
-            "district": m.get("district", ""),
-            "chamber": m.get("chamber", "House"),
-            "photo_url": m.get("photo_url", ""),
-            "term_start": m.get("term_start", "2010-01-01"),
-            "congress_updated": datetime.now().isoformat()
-        })
-
-    success = 0
-    for i in range(0, len(rows), 50):
-        chunk = rows[i:i+50]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/members",
-                headers=headers,
-                json=chunk,
-                timeout=30
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"Supabase batch {i}: {r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"Supabase batch {i} error: {e}")
-
-    print(f"Supabase: {success}/{len(rows)} members upserted")
-
-
 if __name__ == "__main__":
     print("Fetching members...")
     raw, complete = fetch_all()
@@ -276,9 +228,3 @@ if __name__ == "__main__":
     os.replace(tmp_path, "data/members.json")
 
     print("Done. Saved data/members.json")
-
-    # Upsert to Supabase (non-blocking — JSON is already saved)
-    try:
-        supabase_upsert_members(all_members)
-    except Exception as e:
-        print(f"Supabase upsert failed (JSON still saved): {e}")

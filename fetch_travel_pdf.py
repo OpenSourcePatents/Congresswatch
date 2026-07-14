@@ -35,41 +35,10 @@ Output contract (unchanged):
   - data/details/{bioguide_id}.json — travel[] appended with dedup
     (safe merge: existing keys in the detail file are never dropped)
   - data/members.json — travel_count per matched member
-  - Supabase public.travel upsert via existing helper
-
-Supabase table schema — run in SQL Editor before first use:
-
--- CREATE TABLE IF NOT EXISTS public.travel (
---   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---   bioguide_id TEXT NOT NULL,
---   destination_country TEXT,
---   departure_date DATE,
---   return_date DATE,
---   sponsor TEXT,
---   total_cost NUMERIC(12,2),
---   currency TEXT DEFAULT 'USD',
---   report_type TEXT,
---   source TEXT DEFAULT 'house_clerk',
---   created_at TIMESTAMPTZ DEFAULT now(),
---   UNIQUE(bioguide_id, departure_date, destination_country)
--- );
--- CREATE INDEX IF NOT EXISTS idx_travel_member ON public.travel(bioguide_id);
--- ALTER TABLE public.travel ENABLE ROW LEVEL SECURITY;
--- CREATE POLICY "travel_read" ON public.travel FOR SELECT TO anon USING (true);
--- CREATE POLICY "travel_service_all" ON public.travel FOR ALL TO service_role USING (true) WITH CHECK (true);
---
--- NOTE: the UNIQUE(bioguide_id, departure_date, destination_country) key can
--- collapse two distinct same-day trips to the same destination. A future
--- migration should add a doc_id column and switch the unique key to
--- (bioguide_id, doc_id); doc_id is already stored in the JSON vault.
-
-Env vars (optional):
-  SUPABASE_URL
-  SUPABASE_SERVICE_KEY
 
 Run:
   pip install requests beautifulsoup4
-  python fetch_travel_pdf.py            # full run (writes data/, Supabase)
+  python fetch_travel_pdf.py            # full run (writes data/)
   python fetch_travel_pdf.py --dry-run  # fetch + parse + match, no writes
 """
 
@@ -97,9 +66,6 @@ SEARCH_URL  = SITE_BASE + "GiftTravelFilings/ViewSearchResult"
 USER_AGENT  = ("CongressWatch/1.0 "
                "(public-interest-research; "
                "mailto:project.congress.watch@gmail.com)")
-
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 # How many years of filings to request (server-side TravelDateFrom filter)
 LOOKBACK_YEARS = 3
@@ -161,7 +127,7 @@ def normalize_name(name):
 
 def parse_date(s):
     """Parse common date formats to YYYY-MM-DD. Returns '' on failure —
-    the raw string must never flow into Supabase DATE columns."""
+    a raw unparsed string must never reach the stored date fields."""
     if not s or not s.strip():
         return ""
     s = s.strip()
@@ -387,59 +353,6 @@ def trip_keys(t):
 
 
 # ---------------------------------------------------------------------------
-# Supabase
-# ---------------------------------------------------------------------------
-
-def supabase_upsert_travel(bid, trips):
-    """Upsert travel records to Supabase."""
-    if not SUPABASE_URL or not SUPABASE_KEY or not trips:
-        return 0
-
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates",
-    }
-
-    rows = []
-    for t in trips:
-        rows.append({
-            "bioguide_id": bid,
-            "destination_country": t.get("destination_country", ""),
-            # parse_date guarantees '' or YYYY-MM-DD; '' becomes NULL here,
-            # so raw strings can never reach the DATE columns.
-            "departure_date": t.get("departure_date") or None,
-            "return_date": t.get("return_date") or None,
-            "sponsor": t.get("sponsor", ""),
-            "total_cost": t.get("total_cost", 0),
-            "currency": t.get("currency", "USD"),
-            "report_type": "gift_travel",
-            "source": "house_clerk",
-        })
-
-    success = 0
-    for i in range(0, len(rows), 100):
-        chunk = rows[i:i + 100]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/travel",
-                headers=headers,
-                json=chunk,
-                timeout=30,
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"    Supabase travel batch {i}: "
-                      f"{r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"    Supabase travel error: {e}")
-
-    return success
-
-
-# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -483,7 +396,6 @@ def main():
         "ambiguous_skipped": 0,
         "members_updated": 0,
         "trips_added": 0,
-        "supabase_upserted": 0,
     }
 
     # bioguide_id -> [trip dicts]
@@ -578,7 +490,6 @@ def main():
 
         stats["trips_added"] += len(added)
         stats["members_updated"] += 1
-        stats["supabase_upserted"] += supabase_upsert_travel(bid, added)
 
         name = members_by_id.get(bid, {}).get("name", bid)
         print(f"  {name}: +{len(added)} trips ({len(all_travel)} total)")
@@ -600,8 +511,6 @@ def _print_summary(stats):
     print(f"Ambiguous (skipped):     {stats['ambiguous_skipped']}")
     print(f"Members updated:         {stats['members_updated']}")
     print(f"New trips added:         {stats['trips_added']}")
-    if SUPABASE_URL:
-        print(f"Supabase upserted:       {stats['supabase_upserted']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 

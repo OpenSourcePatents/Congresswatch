@@ -24,8 +24,6 @@ from datetime import datetime
 
 CONGRESS_KEY = os.environ.get('CONGRESS_API_KEY', '')
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 HEADERS = {
     "User-Agent": "CongressWatch/1.0 (public-interest-research; mailto:project.congress.watch@gmail.com)",
@@ -309,16 +307,20 @@ def fetch_fec_totals(cid):
 
 ANNUAL_SALARY = 174000  # Congressional salary baseline
 
-def compute_score(m, detail=None):
+def compute_score_components(m, detail=None):
     """
-    Full 6-signal weighted anomaly score (0-100).
-    Weights: trade timing 25, wealth gap 25, donor-vote 20,
-             bill authorship 15, foreign travel 10, attendance 5.
+    The six weighted signals behind the anomaly score, as a dict.
+
+    Max weights: trade timing 25, wealth gap 25, donor-vote 20,
+                 ALEC similarity 15, foreign travel 10, attendance 5
+    (sums to 100). compute_score() is just the clamped sum of these —
+    this function exists so the breakdown is a first-class stored fact
+    rather than something consumers have to reverse-engineer.
     """
     detail = detail or {}
-    score = 0
+    from datetime import timedelta
 
-    # 1. Stock trade timing (25 pts max) — SEC EDGAR + PTR trades
+    # 1. Stock trade timing (25 max) — SEC EDGAR signals + PTR trade frequency
     trade_score = 0
     signals = m.get("corporate_insider_signals", 0) or 0
     if signals >= 3:
@@ -328,12 +330,12 @@ def compute_score(m, detail=None):
     elif signals == 1:
         trade_score += 10
 
-    # PTR trade frequency bonus
     trades = detail.get("trades", []) or []
     if trades:
-        from datetime import timedelta
         cutoff = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
-        # transaction_date may be ISO or legacy MM/DD/YYYY — normalize first
+        # transaction_date may be ISO or legacy MM/DD/YYYY — normalize first.
+        # Scanned-PDF placeholder records have no transaction_date at all;
+        # parse_date_any('') -> '' which never clears the cutoff.
         recent = sum(1 for t in trades
                      if parse_date_any(t.get("transaction_date")) >= cutoff)
         if recent >= 20:
@@ -342,9 +344,10 @@ def compute_score(m, detail=None):
             trade_score += 10
         elif recent >= 5:
             trade_score += 5
-    score += min(trade_score, 25)
+    trade_timing = min(trade_score, 25)
 
-    # 2. Wealth gap (25 pts max) — estimated gap vs salary
+    # 2. Wealth gap (25 max) — estimated wealth vs cumulative salary
+    wealth_gap = 0
     total = m.get("total_raised", 0) or 0
     if total > 0:
         est_wealth = total * 0.45
@@ -353,27 +356,24 @@ def compute_score(m, detail=None):
             years_in_office = max(1, datetime.now().year - int(start_year))
         except (ValueError, TypeError):
             years_in_office = 10
-        cumulative_salary = years_in_office * ANNUAL_SALARY
-        gap = est_wealth - cumulative_salary
+        gap = est_wealth - (years_in_office * ANNUAL_SALARY)
         if gap > 5000000:
-            score += 25
+            wealth_gap = 25
         elif gap > 2000000:
-            score += 20
+            wealth_gap = 20
         elif gap > 500000:
-            score += 15
+            wealth_gap = 15
         elif gap > 100000:
-            score += 10
+            wealth_gap = 10
         elif gap > 0:
-            score += 5
+            wealth_gap = 5
 
-    # 3. Donor-vote alignment (20 pts max) — from bills pipeline
-    donor_score = detail.get("donor_alignment_score", 0) or 0
-    score += min(20, round(donor_score * 0.2))
+    # 3. Donor-vote alignment (20 max) — from bills pipeline
+    donor_alignment = min(20, round((detail.get("donor_alignment_score", 0) or 0) * 0.2))
 
-    # 4. Bill authorship / ALEC similarity (15 pts max) — from bills pipeline
-    bills = detail.get("bills", []) or []
+    # 4. Bill authorship / ALEC similarity (15 max) — from bills pipeline
     max_alec_sim = 0
-    for bill in bills:
+    for bill in (detail.get("bills", []) or []):
         alec = bill.get("alec_match")
         if alec and alec.get("similarity_score", 0) > max_alec_sim:
             max_alec_sim = alec["similarity_score"]
@@ -382,38 +382,51 @@ def compute_score(m, detail=None):
         if raw_sim > max_alec_sim:
             max_alec_sim = raw_sim
     if max_alec_sim >= 0.8:
-        score += 15
+        alec_similarity = 15
     elif max_alec_sim >= 0.65:
-        score += 11
+        alec_similarity = 11
     elif max_alec_sim >= 0.5:
-        score += 8
+        alec_similarity = 8
     elif max_alec_sim >= 0.35:
-        score += 4
+        alec_similarity = 4
+    else:
+        alec_similarity = 0
 
-    # 5. Foreign travel (10 pts max) — from travel pipeline
+    # 5. Foreign travel (10 max) — from travel pipeline
+    foreign_travel = 0
     travel = detail.get("travel", []) or []
     if travel:
-        from datetime import timedelta
         cutoff_2y = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
         recent_trips = sum(1 for t in travel
                            if parse_date_any(t.get("departure_date")) >= cutoff_2y)
         if recent_trips >= 5:
-            score += 10
+            foreign_travel = 10
         elif recent_trips >= 3:
-            score += 7
+            foreign_travel = 7
         elif recent_trips >= 1:
-            score += 3
+            foreign_travel = 3
 
-    # 6. Attendance (5 pts max) — missed votes ratio
+    # 6. Attendance (5 max) — missed votes ratio
+    attendance = 0
     votes = detail.get("votes", []) or []
     if votes:
         missed = sum(1 for v in votes if (v.get("position", "").lower() in
                      ("not voting", "absent", "")))
-        if len(votes) > 0:
-            miss_ratio = missed / len(votes)
-            score += min(5, round(miss_ratio * 50))
+        attendance = min(5, round((missed / len(votes)) * 50))
 
-    return min(score, 100)
+    return {
+        "trade_timing": trade_timing,          # max 25
+        "wealth_gap": wealth_gap,              # max 25
+        "donor_alignment": donor_alignment,    # max 20
+        "alec_similarity": alec_similarity,    # max 15
+        "foreign_travel": foreign_travel,      # max 10
+        "attendance": attendance,              # max 5
+    }
+
+def compute_score(m, detail=None):
+    """Full 6-signal weighted anomaly score (0-100) — the clamped sum of
+    compute_score_components(). Return type is an int, as callers expect."""
+    return min(sum(compute_score_components(m, detail).values()), 100)
 
 def update_flags(m):
 
@@ -429,68 +442,6 @@ def update_flags(m):
         flags.append("donor")
 
     m["flags"]=flags
-
-# ─────────────────────────────────────────────────────────────
-# SUPABASE
-# ─────────────────────────────────────────────────────────────
-
-def supabase_update_finance(bid, m):
-    if not SUPABASE_URL or not SUPABASE_KEY:
-        return
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal"
-    }
-    data = {
-        "score": m.get("score", 0),
-        "flags": m.get("flags", []),
-        "corporate_insider_signals": m.get("corporate_insider_signals", 0) or 0,
-        "edgar_status": m.get("edgar_status", "unresolved"),
-        "edgar_cik": m.get("edgar_cik"),
-        "fec_candidate_id": m.get("fec_candidate_id"),
-        "data_updated": datetime.now().isoformat()
-    }
-    # Only send finance figures we actually have — a missing value must not
-    # PATCH a real prior value down to 0
-    for field in ("total_raised", "pac_contributions", "individual_contributions"):
-        if m.get(field) is not None and field in m:
-            data[field] = float(m.get(field) or 0)
-    try:
-        r = requests.patch(
-            f"{SUPABASE_URL}/rest/v1/members?bioguide_id=eq.{bid}",
-            headers=headers,
-            json=data,
-            timeout=15
-        )
-        if r.status_code not in (200, 204):
-            print(f"  Supabase finance update failed: {r.status_code}")
-    except Exception as e:
-        print(f"  Supabase error: {e}")
-
-def supabase_update_stats():
-    if not SUPABASE_URL or not SUPABASE_KEY:
-        return
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "return=minimal"
-    }
-    try:
-        r = requests.post(
-            f"{SUPABASE_URL}/rest/v1/rpc/update_stats",
-            headers=headers,
-            json={},
-            timeout=15
-        )
-        if r.status_code in (200, 204):
-            print("Supabase stats updated")
-        else:
-            print(f"Supabase stats update failed: {r.status_code}")
-    except Exception as e:
-        print(f"Supabase stats error: {e}")
 
 # ─────────────────────────────────────────────────────────────
 # MAIN
@@ -547,9 +498,16 @@ if __name__=="__main__":
             if v is not None:
                 detail_data[k]=v
 
-        # score — pass detail_data so we can use votes + bills data
-        m["score"]=compute_score(m, detail_data)
+        # Score — pass detail_data so we can use votes + bills data.
+        # This is a best-effort score from whatever is on disk at 5am; the
+        # inputs (votes/trades/travel/bills) are refreshed by other crons, so
+        # recompute_scores.py re-derives it at 12pm and that run is the
+        # authoritative one. Components are written alongside the score so the
+        # two can never disagree with each other in between.
+        components=compute_score_components(m, detail_data)
+        m["score"]=min(sum(components.values()), 100)
         detail_data["score"]=m["score"]
+        detail_data["score_components"]=components
 
         update_flags(m)
         detail_data["flags"]=m["flags"]
@@ -557,11 +515,6 @@ if __name__=="__main__":
         detail_data["last_updated"]=m["data_updated"]
 
         save_detail(bid,detail_data)
-
-        try:
-            supabase_update_finance(bid, m)
-        except Exception as e:
-            print(f"  Supabase finance error for {bid}: {e}")
 
         light={k:v for k,v in m.items() if k in LIGHT_FIELDS}
         leaderboard.append(light)
@@ -593,10 +546,5 @@ if __name__=="__main__":
         "last_updated": datetime.now().isoformat()
     }
     save_json("data/stats.json", stats)
-
-    try:
-        supabase_update_stats()
-    except Exception as e:
-        print(f"Supabase stats error: {e}")
 
     print(f"✓ Production v3.5 Complete — {scored}/{len(final_members)} members scored")

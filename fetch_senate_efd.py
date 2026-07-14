@@ -13,10 +13,6 @@ Output:
   - data/details/{bioguide_id}.json — trades[] array (safe merge)
   - data/members.json — trade_count + latest_trade_date
 
-Env vars (optional):
-  SUPABASE_URL
-  SUPABASE_SERVICE_KEY
-
 Run:
   python fetch_senate_efd.py
 """
@@ -49,9 +45,6 @@ REQUEST_DELAY = 1.5   # seconds between requests
 MAX_FILINGS   = 500   # cap filings per run (safety)
 MAX_RETRIES   = 3
 BACKOFF_BASE  = 3     # seconds, doubles each retry
-
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 
 # ---------------------------------------------------------------------------
@@ -458,58 +451,6 @@ def parse_ptr_page(html, ptr_url=""):
 
 
 # ---------------------------------------------------------------------------
-# Supabase
-# ---------------------------------------------------------------------------
-
-def supabase_upsert_trades(bid, trades):
-    """Upsert trades to Supabase trades table. Batches in 100-row chunks."""
-    if not SUPABASE_URL or not SUPABASE_KEY or not trades:
-        return 0
-
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates",
-    }
-
-    rows = []
-    for t in trades:
-        rows.append({
-            "bioguide_id": bid,
-            "transaction_date": t.get("transaction_date") or None,
-            "ticker": t.get("ticker", ""),
-            "asset_description": t.get("asset_description", ""),
-            "asset_type": t.get("asset_type", ""),
-            "trade_type": t.get("type", ""),
-            "amount_range": t.get("amount", ""),
-            "owner": t.get("owner", ""),
-            "ptr_link": t.get("ptr_link", ""),
-            "source": "senate_efd",
-        })
-
-    success = 0
-    for i in range(0, len(rows), 100):
-        chunk = rows[i:i + 100]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/trades",
-                headers=headers,
-                json=chunk,
-                timeout=30,
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"    Supabase trades batch {i}: "
-                      f"{r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"    Supabase trades error: {e}")
-
-    return success
-
-
-# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -623,7 +564,6 @@ def main():
         "trades_found": 0,
         "skipped_existing": 0,
         "errors": 0,
-        "supabase_upserted": 0,
     }
 
     senator_trades = {}  # bioguide_id -> [trade dicts]
@@ -722,13 +662,6 @@ def main():
             members_by_id[bid]["trade_count"] = len(all_trades)
             members_by_id[bid]["latest_trade_date"] = detail["latest_trade_date"]
 
-        # Supabase upsert (new trades only)
-        try:
-            count = supabase_upsert_trades(bid, added)
-            stats["supabase_upserted"] += count
-        except Exception as e:
-            print(f"    Supabase error for {bid}: {e}")
-
         stats["senators_updated"] += 1
         name = members_by_id.get(bid, {}).get("name", bid)
         print(f"  {name}: +{len(added)} new trades "
@@ -746,8 +679,6 @@ def main():
     print(f"Filings skipped:       {stats['skipped_existing']} (already have)")
     print(f"Trades found:          {stats['trades_found']}")
     print(f"Errors:                {stats['errors']}")
-    if SUPABASE_URL:
-        print(f"Supabase upserted:     {stats['supabase_upserted']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 
