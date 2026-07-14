@@ -1,0 +1,38 @@
+name: Finalize (rescore + publish aggregates)
+# Runs LAST, after every fetcher has landed its data for the day:
+#   1am fetch · 2am votes · 5am finance · 7am bills
+#   8am senate-efd · 9am travel · 10am house-trades · 11am donors
+#
+# Two jobs that only make sense once everything else is on disk:
+#   recompute_scores.py — the anomaly score reads votes/trades/travel/bills,
+#     which four different crons refresh. Scoring here (not in fetch_finance)
+#     is what keeps the published score in agreement with the published data.
+#   build_aggregates.py — flattens the per-member vault into corpus-wide
+#     data/trades.json + data/bills.json for API/CDN consumers.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * *'
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Recompute anomaly scores from current data
+        run: python recompute_scores.py
+      - name: Build corpus-wide trade + bill aggregates
+        run: python build_aggregates.py
+      - name: Save data
+        run: |
+          git config --global user.name "bot"
+          git config --global user.email "bot@bot.com"
+          git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json
+          git diff --staged --quiet || git commit -m "Rescore + rebuild aggregates [$(date +%Y-%m-%d)]"
+          git pull --rebase origin main
+          git push

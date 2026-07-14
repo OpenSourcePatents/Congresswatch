@@ -64,7 +64,8 @@ How It’s Built
 	∙	Frontend: Plain HTML/CSS/JS — no frameworks, loads instantly
 	∙	Data pipeline: Python, runs automatically every day via GitHub Actions
 	∙	Hosting: Vercel (free)
-	∙	Database: GitHub repo (JSON files, upgrading to Supabase)
+	∙	Database: GitHub repo (JSON files served from the Vercel CDN)
+	∙	Public API: the published JSON is consumed by the OSP-API at api.opensourceforall.com
 	∙	Cost to run: $0
 
 Roadmap / Coming Soon

@@ -17,8 +17,6 @@ jobs:
       - name: Run FEC donor fetcher
         env:
           FEC_API_KEY: ${{ secrets.FEC_API_KEY }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
         run: python fetch_donors.py
       - name: Save data
         run: |

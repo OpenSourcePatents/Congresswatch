@@ -24,29 +24,9 @@ Output:
   - data/details/{bioguide_id}.json — trades[] array (safe merge)
   - data/members.json — trade_count + latest_trade_date
 
-Reuses Supabase trades table (same schema as fetch_senate_efd.py):
-
--- CREATE TABLE IF NOT EXISTS public.trades (
---   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
---   bioguide_id TEXT NOT NULL,
---   transaction_date DATE,
---   ticker TEXT,
---   asset_description TEXT,
---   asset_type TEXT,
---   trade_type TEXT,
---   amount_range TEXT,
---   owner TEXT,
---   ptr_link TEXT,
---   source TEXT DEFAULT 'senate_efd',
---   created_at TIMESTAMPTZ DEFAULT now(),
---   UNIQUE(bioguide_id, transaction_date, ticker, trade_type, amount_range)
--- );
-
 Env vars (optional):
-  SUPABASE_URL
-  SUPABASE_SERVICE_KEY
   MAX_NEW_FILINGS   — cap on new PDFs parsed per run (default 150)
-  DRY_RUN=1         — parse everything but write nothing (no disk, no Supabase)
+  DRY_RUN=1         — parse everything but write nothing
 
 Run:
   pip install requests pdfplumber
@@ -88,9 +68,6 @@ BACKOFF_BASE  = 3     # seconds, doubles each retry
 MAX_NEW_FILINGS = int(os.environ.get("MAX_NEW_FILINGS", "150"))
 DRY_RUN = (os.environ.get("DRY_RUN", "") == "1"
            or "--dry-run" in sys.argv)
-
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
-SUPABASE_KEY = os.environ.get("SUPABASE_SERVICE_KEY", "")
 
 # Full state/territory name (as used in members.json) -> USPS abbreviation
 STATE_ABBREV = {
@@ -604,57 +581,6 @@ def parse_ptr_pdf(pdf_bytes, ptr_url=""):
 
 
 # ---------------------------------------------------------------------------
-# Supabase
-# ---------------------------------------------------------------------------
-
-def supabase_upsert_trades(bid, trades):
-    """Upsert trades to Supabase trades table."""
-    if not SUPABASE_URL or not SUPABASE_KEY or not trades:
-        return 0
-
-    headers = {
-        "apikey": SUPABASE_KEY,
-        "Authorization": f"Bearer {SUPABASE_KEY}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates",
-    }
-
-    rows = []
-    for t in trades:
-        rows.append({
-            "bioguide_id": bid,
-            "transaction_date": t.get("transaction_date") or None,
-            "ticker": t.get("ticker", ""),
-            "asset_description": t.get("asset_description", ""),
-            "asset_type": t.get("asset_type", ""),
-            "trade_type": t.get("type", ""),
-            "amount_range": t.get("amount", ""),
-            "owner": t.get("owner", ""),
-            "ptr_link": t.get("ptr_link", ""),
-            "source": "house_clerk",
-        })
-
-    success = 0
-    for i in range(0, len(rows), 100):
-        chunk = rows[i:i + 100]
-        try:
-            r = requests.post(
-                f"{SUPABASE_URL}/rest/v1/trades",
-                headers=headers,
-                json=chunk,
-                timeout=30,
-            )
-            if r.status_code in (200, 201):
-                success += len(chunk)
-            else:
-                print(f"    Supabase batch {i}: {r.status_code} {r.text[:200]}")
-        except Exception as e:
-            print(f"    Supabase error: {e}")
-
-    return success
-
-
-# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -738,7 +664,6 @@ def main():
         "trades_found": 0,
         "members_updated": 0,
         "errors": 0,
-        "supabase_upserted": 0,
     }
 
     # ── Match filings to members ────────────────────────────────────
@@ -860,13 +785,6 @@ def main():
             members_by_id[bid]["trade_count"] = len(all_trades)
             members_by_id[bid]["latest_trade_date"] = detail["latest_trade_date"]
 
-        if not DRY_RUN:
-            try:
-                count = supabase_upsert_trades(bid, added)
-                stats["supabase_upserted"] += count
-            except Exception as e:
-                print(f"    Supabase error for {bid}: {e}")
-
         stats["members_updated"] += 1
         name = members_by_id.get(bid, {}).get("name", bid)
         print(f"  {name}: +{len(added)} trades ({len(all_trades)} total)"
@@ -894,8 +812,6 @@ def main():
     print(f"Trades found:          {stats['trades_found']}")
     print(f"Members updated:       {stats['members_updated']}")
     print(f"Errors:                {stats['errors']}")
-    if SUPABASE_URL:
-        print(f"Supabase upserted:     {stats['supabase_upserted']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 
