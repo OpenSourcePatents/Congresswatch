@@ -209,25 +209,57 @@
   "bills": [
     {
       "bill_id": "HR9663-119",
-      "title": "To amend the Environmental Research, Development, and Demonstration Authorization Act of 1978 to establish in the Environmental Protection Agency the State Standing Committee, and for other purposes.",
+      "title": "State Standing Committee Act",
       "type": "HR",
       "number": "9663",
       "congress": 119,
       "introduced_date": "2026-07-14",
       "latest_action": "Referred to the House Committee on Science, Space, and Technology.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9663?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "committee",
+        "federal",
+        "environmental",
+        "state",
+        "agency",
+        "administrator",
+        "member",
+        "board",
+        "advice",
+        "matters",
+        "seq",
+        "standing",
+        "protection",
+        "referred",
+        "federally",
+        "recognized",
+        "district",
+        "territory",
+        "tribe",
+        "specified"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.119,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "conservation"
+          ],
+          "Real Estate": [
+            "housing",
+            "development"
+          ]
+        }
       }
     },
     {
@@ -322,7 +354,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.06,
+      "alec_best_similarity": 0.061,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -737,11 +769,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-15T10:27:47.804727+00:00",
+  "bills_updated": "2026-07-16T10:30:46.333783+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "travel": [
     {

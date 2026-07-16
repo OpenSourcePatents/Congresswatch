@@ -213,6 +213,29 @@
       "type": "",
       "number": "",
       "congress": 119,
+      "introduced_date": "2026-07-14",
+      "latest_action": "",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/6684?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
+      "bill_id": "-119",
+      "title": "",
+      "type": "",
+      "number": "",
+      "congress": 119,
       "introduced_date": "2026-07-13",
       "latest_action": "",
       "url": "https://api.congress.gov/v3/amendment/119/samdt/6643?format=json",
@@ -286,7 +309,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.106,
+      "alec_best_similarity": 0.104,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -341,9 +364,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.056,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9651-119",
+          "sponsor_id": "H001099",
+          "similarity_score": 0.975
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -624,59 +653,9 @@
           ]
         }
       }
-    },
-    {
-      "bill_id": "S4643-119",
-      "title": "LEO K9 Protection Act",
-      "type": "S",
-      "number": "4643",
-      "congress": 119,
-      "introduced_date": "2026-05-21",
-      "latest_action": "Read twice and referred to the Committee on the Judiciary.",
-      "url": "https://api.congress.gov/v3/bill/119/s/4643?format=json",
-      "keywords": [
-        "dog",
-        "police",
-        "emergency",
-        "medical",
-        "official",
-        "transportation",
-        "code",
-        "used",
-        "enforcement",
-        "federal",
-        "agency",
-        "care",
-        "injured",
-        "secretary",
-        "harming",
-        "animals",
-        "animal",
-        "service",
-        "detection",
-        "department"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.052,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR4755-119",
-          "sponsor_id": "B001314",
-          "similarity_score": 0.925
-        }
-      ],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-07-15T11:09:13.202110+00:00",
+  "bills_updated": "2026-07-16T11:07:13.057586+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,

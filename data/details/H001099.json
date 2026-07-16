@@ -209,25 +209,64 @@
   "bills": [
     {
       "bill_id": "HR9651-119",
-      "title": "To authorize the Administrator of the National Aeronautics and Space Administration to conduct a pilot program for investment in infrastructure projects at NASA Centers, and for other purposes.",
+      "title": "Space Ready 2.0 Act",
       "type": "HR",
       "number": "9651",
       "congress": 119,
       "introduced_date": "2026-07-13",
       "latest_action": "Referred to the House Committee on Science, Space, and Technology.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9651?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "administrator",
+        "nasa",
+        "agreements",
+        "infrastructure",
+        "contributions",
+        "projects",
+        "project",
+        "commercial",
+        "entity",
+        "space",
+        "administration",
+        "use",
+        "agreement",
+        "entities",
+        "voluntary",
+        "amounts",
+        "cost",
+        "pilot",
+        "program",
+        "national"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.059,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4905-119",
+          "sponsor_id": "M001244",
+          "similarity_score": 0.975
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "investment"
+          ],
+          "Real Estate": [
+            "construction",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -389,11 +428,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-15T09:36:02.634779+00:00",
+  "bills_updated": "2026-07-16T09:42:08.559597+00:00",
   "bills_count": 4,
-  "donor_alignment_score": 12.5,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 1,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "travel": [
     {
