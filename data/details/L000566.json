@@ -208,6 +208,65 @@
   "last_updated": "2026-07-18T07:36:46.939088",
   "bills": [
     {
+      "bill_id": "HR7257-119",
+      "title": "SECURE Grid Act",
+      "type": "HR",
+      "number": "7257",
+      "congress": 119,
+      "introduced_date": "2026-01-27",
+      "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/7257?format=json",
+      "keywords": [
+        "distribution",
+        "energy",
+        "local",
+        "security",
+        "state",
+        "system",
+        "systems",
+        "physical",
+        "end",
+        "inserting",
+        "threats",
+        "vulnerabilities",
+        "subparagraph",
+        "policy",
+        "conservation",
+        "cybersecurity",
+        "resilience",
+        "plans",
+        "equipment",
+        "generation"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "alec_best_similarity": 0.038,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "M001163",
+        "B001306",
+        "J000307",
+        "O000177"
+      ],
+      "donor_interest": {
+        "match": true,
+        "matched_industries": [
+          "Agriculture",
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "conservation"
+          ],
+          "Insurance": [
+            "risk"
+          ]
+        }
+      }
+    },
+    {
       "bill_id": "HR9151-119",
       "title": "Advancing American Wi-Fi Against Foreign Adversaries Act",
       "type": "HR",
@@ -467,65 +526,6 @@
       }
     },
     {
-      "bill_id": "HR7257-119",
-      "title": "SECURE Grid Act",
-      "type": "HR",
-      "number": "7257",
-      "congress": 119,
-      "introduced_date": "2026-01-27",
-      "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7257?format=json",
-      "keywords": [
-        "distribution",
-        "energy",
-        "local",
-        "security",
-        "state",
-        "system",
-        "systems",
-        "physical",
-        "end",
-        "inserting",
-        "threats",
-        "vulnerabilities",
-        "subparagraph",
-        "policy",
-        "conservation",
-        "cybersecurity",
-        "resilience",
-        "plans",
-        "equipment",
-        "generation"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.038,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "M001163",
-        "B001306",
-        "J000307",
-        "O000177"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Agriculture",
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Agriculture": [
-            "conservation"
-          ],
-          "Insurance": [
-            "risk"
-          ]
-        }
-      }
-    },
-    {
       "bill_id": "HR6577-119",
       "title": "Stop Penalizing Working Seniors Act",
       "type": "HR",
@@ -613,9 +613,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.149,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR2289-119",
+          "sponsor_id": "C001103",
+          "similarity_score": 0.803
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -749,7 +755,7 @@
       }
     }
   ],
-  "bills_updated": "2026-07-17T10:58:21.990645+00:00",
+  "bills_updated": "2026-07-18T10:49:28.479358+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,
