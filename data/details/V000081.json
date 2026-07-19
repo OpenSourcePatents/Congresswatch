@@ -240,7 +240,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.096,
+      "alec_best_similarity": 0.095,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -424,7 +424,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.035,
+      "alec_best_similarity": 0.034,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -576,18 +576,53 @@
       "introduced_date": "2026-07-14",
       "latest_action": "Referred to the House Committee on Small Business.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9691?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "report",
+        "business",
+        "subparagraph",
+        "risk",
+        "loans",
+        "set",
+        "forth",
+        "separately",
+        "less",
+        "small",
+        "loan",
+        "equal",
+        "credit",
+        "program",
+        "subparagraphs",
+        "year",
+        "dollar",
+        "originated",
+        "defined",
+        "number"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.054,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "loan"
+          ],
+          "Finance & Banking": [
+            "bank",
+            "credit",
+            "loan",
+            "interest",
+            "lending"
+          ]
+        }
       }
     },
     {
@@ -683,7 +718,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.068,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -748,17 +783,17 @@
         {
           "bill_id": "HCONRES108-119",
           "sponsor_id": "T000481",
-          "similarity_score": 0.83
+          "similarity_score": 0.831
         },
         {
           "bill_id": "HCONRES68-119",
           "sponsor_id": "M000312",
-          "similarity_score": 0.822
+          "similarity_score": 0.823
         },
         {
           "bill_id": "HCONRES86-119",
           "sponsor_id": "M001137",
-          "similarity_score": 0.817
+          "similarity_score": 0.818
         }
       ],
       "cosponsors": [
@@ -779,11 +814,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-18T10:43:02.252533+00:00",
+  "bills_updated": "2026-07-19T10:34:36.988813+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

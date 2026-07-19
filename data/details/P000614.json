@@ -399,7 +399,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.079,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -446,7 +446,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.025,
+      "alec_best_similarity": 0.024,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -501,7 +501,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.088,
+      "alec_best_similarity": 0.087,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -591,14 +591,53 @@
       "introduced_date": "2026-07-16",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, the Judiciary, Oversight and Government Reform, Education and Workforce, and Financial Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9759?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wms",
+        "mqv",
+        "tmh",
+        "ihdc",
+        "mlx",
+        "slf",
+        "ncvr",
+        "dgkew",
+        "dem",
+        "duc",
+        "wrec",
+        "ecu"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9677-119",
+          "sponsor_id": "F000477",
+          "similarity_score": 0.993
+        },
+        {
+          "bill_id": "HR9708-119",
+          "sponsor_id": "H001086",
+          "similarity_score": 0.993
+        },
+        {
+          "bill_id": "HR9636-119",
+          "sponsor_id": "O000177",
+          "similarity_score": 0.989
+        }
+      ],
+      "cosponsors": [
+        "G000604"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -739,7 +778,7 @@
       }
     }
   ],
-  "bills_updated": "2026-07-18T10:20:35.214628+00:00",
+  "bills_updated": "2026-07-19T10:13:03.330751+00:00",
   "bills_count": 10,
   "donor_alignment_score": 20.0,
   "alec_match_count": 0,

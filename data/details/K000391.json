@@ -400,7 +400,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.055,
+      "alec_best_similarity": 0.06,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -502,7 +502,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.075,
+      "alec_best_similarity": 0.074,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -539,14 +539,53 @@
       "introduced_date": "2026-07-16",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9748?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wms",
+        "wks",
+        "kybid",
+        "ufa",
+        "dak",
+        "rcu",
+        "pqg",
+        "noz",
+        "jnn",
+        "bpu",
+        "pmh",
+        "csemq"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9117-119",
+          "sponsor_id": "L000600",
+          "similarity_score": 0.996
+        },
+        {
+          "bill_id": "HR9753-119",
+          "sponsor_id": "L000593",
+          "similarity_score": 0.995
+        },
+        {
+          "bill_id": "HR9750-119",
+          "sponsor_id": "L000599",
+          "similarity_score": 0.994
+        }
+      ],
+      "cosponsors": [
+        "D000096"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -562,14 +601,53 @@
       "introduced_date": "2026-07-16",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9747?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "endstream",
+        "wks",
+        "wms",
+        "pmp",
+        "pdf",
+        "cua",
+        "iumg",
+        "ygp",
+        "hlm",
+        "kft",
+        "uip",
+        "kcxv",
+        "yyl",
+        "vva",
+        "bhsn",
+        "tfs",
+        "nwr"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.012,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9577-119",
+          "sponsor_id": "F000485",
+          "similarity_score": 0.985
+        },
+        {
+          "bill_id": "HR9704-119",
+          "sponsor_id": "F000481",
+          "similarity_score": 0.982
+        },
+        {
+          "bill_id": "HR9706-119",
+          "sponsor_id": "G000583",
+          "similarity_score": 0.982
+        }
+      ],
+      "cosponsors": [
+        "S000510"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -616,17 +694,17 @@
         {
           "bill_id": "HRES1425-119",
           "sponsor_id": "G000553",
-          "similarity_score": 0.987
+          "similarity_score": 0.986
         },
         {
-          "bill_id": "HR9630-119",
+          "bill_id": "HR9743-119",
+          "sponsor_id": "H001086",
+          "similarity_score": 0.977
+        },
+        {
+          "bill_id": "HR9723-119",
           "sponsor_id": "M001230",
-          "similarity_score": 0.984
-        },
-        {
-          "bill_id": "HR9636-119",
-          "sponsor_id": "O000177",
-          "similarity_score": 0.978
+          "similarity_score": 0.973
         }
       ],
       "cosponsors": [
@@ -702,7 +780,7 @@
       }
     }
   ],
-  "bills_updated": "2026-07-18T10:31:44.970772+00:00",
+  "bills_updated": "2026-07-19T10:22:04.609493+00:00",
   "bills_count": 10,
   "donor_alignment_score": 15.0,
   "alec_match_count": 0,
