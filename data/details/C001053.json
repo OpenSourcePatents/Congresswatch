@@ -216,18 +216,64 @@
       "introduced_date": "2026-07-18",
       "latest_action": "Referred to the Committee on Appropriations, and in addition to the Committee on the Budget, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9770?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "appropriations",
+        "fiscal",
+        "year",
+        "available",
+        "made",
+        "funds",
+        "budget",
+        "department",
+        "authority",
+        "applicable",
+        "rate",
+        "amounts",
+        "amount",
+        "operations",
+        "necessary",
+        "emergency",
+        "otherwise",
+        "related",
+        "appropriation",
+        "activity"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.07,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Agriculture",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "loan",
+            "investment"
+          ],
+          "Real Estate": [
+            "housing",
+            "construction",
+            "development"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "food",
+            "livestock",
+            "rural"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -692,7 +738,7 @@
         {
           "bill_id": "HR8495-119",
           "sponsor_id": "J000295",
-          "similarity_score": 0.956
+          "similarity_score": 0.955
         },
         {
           "bill_id": "HR5166-119",
@@ -883,11 +929,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-19T10:45:50.832556+00:00",
+  "bills_updated": "2026-07-20T11:55:42.184089+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 40.0,
+  "donor_alignment_score": 45.0,
   "alec_match_count": 0,
-  "donor_match_count": 8,
+  "donor_match_count": 9,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

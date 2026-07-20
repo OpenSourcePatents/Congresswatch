@@ -440,7 +440,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.068,
+      "alec_best_similarity": 0.069,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -462,25 +462,56 @@
     },
     {
       "bill_id": "HR9740-119",
-      "title": "To establish a Critical Materials Processing Technology Testbed Capability, and for other purposes.",
+      "title": "Critical Materials Processing Technology Testbed Act",
       "type": "HR",
       "number": "9740",
       "congress": 119,
       "introduced_date": "2026-07-16",
       "latest_action": "Referred to the House Committee on Science, Space, and Technology.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9740?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "testbed",
+        "secretary",
+        "critical",
+        "materials",
+        "processing",
+        "technology",
+        "research",
+        "national",
+        "higher",
+        "education",
+        "energy",
+        "department",
+        "activities",
+        "establish",
+        "process",
+        "entities",
+        "reduced",
+        "material",
+        "capability",
+        "referred"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.048,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ],
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     },
     {
@@ -691,7 +722,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.059,
+      "alec_best_similarity": 0.058,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -756,11 +787,6 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "S4328-119",
-          "sponsor_id": "M001244",
-          "similarity_score": 0.999
-        },
-        {
           "bill_id": "HR9536-119",
           "sponsor_id": "T000165",
           "similarity_score": 0.999
@@ -769,6 +795,11 @@
           "bill_id": "HR9546-119",
           "sponsor_id": "G000583",
           "similarity_score": 0.999
+        },
+        {
+          "bill_id": "S4328-119",
+          "sponsor_id": "M001244",
+          "similarity_score": 0.997
         }
       ],
       "cosponsors": [
@@ -790,11 +821,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-19T10:33:31.021042+00:00",
+  "bills_updated": "2026-07-20T11:44:06.902000+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 45.0,
+  "donor_alignment_score": 50.0,
   "alec_match_count": 0,
-  "donor_match_count": 9,
+  "donor_match_count": 10,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [
