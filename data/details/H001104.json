@@ -209,25 +209,63 @@
   "bills": [
     {
       "bill_id": "S5028-119",
-      "title": "A bill to amend the Public Utility Regulatory Policies Act of 1978 to establish a Federal standard relating to the recovery of the full, incremental costs of upgrades that serve large-load customers, and for other purposes.",
+      "title": "Ratepayer Protection Act",
       "type": "S",
       "number": "5028",
       "congress": 119,
       "introduced_date": "2026-07-16",
       "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources.",
       "url": "https://api.congress.gov/v3/bill/119/s/5028?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "electric",
+        "utility",
+        "standard",
+        "load",
+        "large",
+        "state",
+        "regulatory",
+        "customer",
+        "enactment",
+        "policies",
+        "energy",
+        "adding",
+        "end",
+        "authority",
+        "established",
+        "full",
+        "incremental",
+        "serve",
+        "customers",
+        "respect"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.053,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9340-119",
+          "sponsor_id": "E000300",
+          "similarity_score": 0.871
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "technology",
+            "data"
+          ]
+        }
       }
     },
     {
@@ -438,11 +476,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-20T12:04:45.786770+00:00",
+  "bills_updated": "2026-07-21T11:26:08.166126+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
