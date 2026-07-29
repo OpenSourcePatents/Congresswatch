@@ -209,25 +209,58 @@
   "bills": [
     {
       "bill_id": "HR9843-119",
-      "title": "To amend the Federal Power Act to authorize the allocation of the costs of certain interstate electric power transmission lines and electric power transmission lines that are located offshore, and for other purposes.",
+      "title": "Enhancing Electric Grid Resilience Act",
       "type": "HR",
       "number": "9843",
       "congress": 119,
       "introduced_date": "2026-07-22",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9843?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "transmission",
+        "power",
+        "electric",
+        "costs",
+        "line",
+        "facilities",
+        "allocation",
+        "national",
+        "significance",
+        "facility",
+        "commission",
+        "certain",
+        "interstate",
+        "lines",
+        "located",
+        "offshore",
+        "necessary",
+        "operation",
+        "federal",
+        "tariff"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.055,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5074-119",
+          "sponsor_id": "W000800",
+          "similarity_score": 0.978
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -442,7 +475,7 @@
         {
           "bill_id": "SJRES197-119",
           "sponsor_id": "B001230",
-          "similarity_score": 0.927
+          "similarity_score": 0.926
         }
       ],
       "cosponsors": [
@@ -708,7 +741,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.057,
+      "alec_best_similarity": 0.056,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -744,11 +777,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-28T11:40:38.746358+00:00",
+  "bills_updated": "2026-07-29T11:24:19.784359+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [
