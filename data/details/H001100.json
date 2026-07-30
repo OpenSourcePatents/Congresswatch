@@ -241,9 +241,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.05,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5101-119",
+          "sponsor_id": "B001267",
+          "similarity_score": 0.928
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -355,9 +361,15 @@
         "L000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -402,15 +414,9 @@
         "C001121"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -505,16 +511,19 @@
         "match": true,
         "matched_industries": [
           "Finance & Banking",
-          "Oil & Gas"
+          "Technology",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "interest",
             "investment"
           ],
-          "Oil & Gas": [
-            "energy",
-            "drilling"
+          "Technology": [
+            "data"
+          ],
+          "Real Estate": [
+            "development"
           ]
         }
       }
@@ -562,15 +571,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Agriculture"
+          "Finance & Banking"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "credit"
-          ],
-          "Agriculture": [
-            "rural"
           ]
         }
       }
@@ -676,9 +681,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -733,26 +744,21 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Education",
-          "Oil & Gas"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Education": [
-            "education",
-            "grant"
-          ],
-          "Oil & Gas": [
-            "energy"
+          "Real Estate": [
+            "development"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-07-29T11:12:50.508498+00:00",
+  "bills_updated": "2026-07-30T10:45:19.885651+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {
