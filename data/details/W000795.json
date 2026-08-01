@@ -240,7 +240,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.026,
+      "alec_best_similarity": 0.027,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -264,25 +264,57 @@
     },
     {
       "bill_id": "HR9891-119",
-      "title": "To direct the Secretary of Health and Human Services to conduct a demonstration program to share savings with plans that invest in preventing the progression of kidney disease to end-stage renal disease.",
+      "title": "PREVENT ESRD Act",
       "type": "HR",
       "number": "9891",
       "congress": 119,
       "introduced_date": "2026-07-22",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9891?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "kidney",
+        "secretary",
+        "program",
+        "plan",
+        "disease",
+        "services",
+        "care",
+        "participating",
+        "savings",
+        "specified",
+        "health",
+        "esrd",
+        "year",
+        "medicare",
+        "plans",
+        "shared",
+        "payment",
+        "enrollees",
+        "payments",
+        "screening"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.126,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "food",
+            "rural"
+          ],
+          "Finance & Banking": [
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -489,10 +521,16 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.013,
-      "match_type": null,
+      "alec_best_similarity": 0.011,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES742-118",
+          "sponsor_id": "P000197",
+          "similarity_score": 0.805
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -739,11 +777,11 @@
       }
     }
   ],
-  "bills_updated": "2026-07-30T11:12:01.310675+00:00",
+  "bills_updated": "2026-08-01T11:04:11.645106+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

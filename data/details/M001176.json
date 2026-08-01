@@ -208,6 +208,52 @@
   "last_updated": "2026-08-01T08:15:26.767213",
   "bills": [
     {
+      "bill_id": "-119",
+      "title": "",
+      "type": "",
+      "number": "",
+      "congress": 119,
+      "introduced_date": "2026-07-30",
+      "latest_action": "",
+      "url": "https://api.congress.gov/v3/amendment/119/samdt/6728?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
+      "bill_id": "S5184-119",
+      "title": "A bill to amend the Richard B. Russell National School Lunch Act to establish a summer meal delivery vehicle pilot program, and for other purposes.",
+      "type": "S",
+      "number": "5184",
+      "congress": 119,
+      "introduced_date": "2026-07-30",
+      "latest_action": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry.",
+      "url": "https://api.congress.gov/v3/bill/119/s/5184?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "S5106-119",
       "title": "A bill to establish a grant program to promote wildfire resilience investments and a pilot program to reduce the cost burden of insurance premiums, and for other purposes.",
       "type": "S",
@@ -232,25 +278,73 @@
     },
     {
       "bill_id": "S5071-119",
-      "title": "A bill to provide protections for children in immigration custody, and for other purposes.",
+      "title": "Children's Safe Welcome Act of 2026",
       "type": "S",
       "number": "5071",
       "congress": 119,
       "introduced_date": "2026-07-22",
       "latest_action": "Read twice and referred to the Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/s/5071?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "child",
+        "noncitizen",
+        "children",
+        "unaccompanied",
+        "family",
+        "services",
+        "nonparent",
+        "member",
+        "health",
+        "legal",
+        "case",
+        "secretary",
+        "human",
+        "facility",
+        "protection",
+        "border",
+        "release",
+        "care",
+        "apprehended",
+        "custody"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.06,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9805-119",
+          "sponsor_id": "K000400",
+          "similarity_score": 0.995
+        }
+      ],
+      "cosponsors": [
+        "D000563",
+        "W000779",
+        "S000033",
+        "H001042",
+        "W000817",
+        "S001194",
+        "K000367",
+        "S001203",
+        "M000133",
+        "D000622"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "food"
+          ],
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -392,7 +486,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.14,
+      "alec_best_similarity": 0.141,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -550,59 +644,13 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "-119",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2026-06-24",
-      "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/6431?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
-    },
-    {
-      "bill_id": "-119",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2026-06-24",
-      "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/6432?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-07-30T11:16:43.271858+00:00",
+  "bills_updated": "2026-08-01T11:09:58.601095+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [
