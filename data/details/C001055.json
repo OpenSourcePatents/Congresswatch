@@ -252,15 +252,9 @@
         "P000610"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -499,11 +493,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "credit"
+          ],
+          "Real Estate": [
+            "housing",
+            "development"
           ]
         }
       }
@@ -551,11 +550,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Pharmaceuticals"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "financial"
+          ],
+          "Pharmaceuticals": [
+            "drug"
           ]
         }
       }
@@ -603,11 +606,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "financial"
+          ],
+          "Real Estate": [
+            "construction",
+            "development"
           ]
         }
       }
@@ -655,13 +663,21 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate",
+          "Technology"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "financial",
             "credit",
             "investment"
+          ],
+          "Real Estate": [
+            "development"
+          ],
+          "Technology": [
+            "internet"
           ]
         }
       }
@@ -747,7 +763,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.039,
+      "alec_best_similarity": 0.038,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -764,13 +780,23 @@
         "V000130"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Technology": [
+            "technology"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-08-01T10:40:36.093878+00:00",
+  "bills_updated": "2026-08-02T10:33:43.648891+00:00",
   "bills_count": 10,
   "donor_alignment_score": 25.0,
   "alec_match_count": 0,
