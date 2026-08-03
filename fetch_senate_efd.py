@@ -23,7 +23,7 @@ import re
 import sys
 import time
 import requests
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from bs4 import BeautifulSoup
 
 
@@ -271,8 +271,18 @@ class SenateEFDClient:
             "order[0][dir]": "desc",   # newest first
             "first_name": "",
             "last_name": "",
-            "filer_type": "1",         # 1 = Senator
-            "report_type": "11",       # 11 = Periodic Transaction Report
+            "filer_types": "[1]",      # 1 = Senator (plural, bracketed — the
+            "report_types": "[11]",    # singular forms now 503)
+            # The endpoint answers 503 "Site Under Maintenance" unless a
+            # non-empty start date is supplied. Rolling window; per-senator
+            # ptr_link dedupe absorbs the overlap between daily runs.
+            "submitted_start_date": (
+                datetime.now(timezone.utc) - timedelta(days=30)
+            ).strftime("%m/%d/%Y 00:00:00"),
+            "submitted_end_date": "",
+            "candidate_state": "",
+            "senator_state": "",
+            "office_id": "",
             "csrfmiddlewaretoken": csrf_token,
         }
 
@@ -294,17 +304,20 @@ class SenateEFDClient:
             },
         )
 
+        # Raise instead of masking as an empty page: a failure mid-pagination
+        # would otherwise silently truncate the filing list while the run
+        # stays green.
         if not resp or resp.status_code != 200:
-            print(f"    Search failed: "
-                  f"{resp.status_code if resp else 'no response'}")
-            return {"data": [], "recordsTotal": 0}
+            raise RuntimeError(
+                f"eFD search failed: "
+                f"{resp.status_code if resp else 'no response'}")
 
         try:
             return resp.json()
         except (ValueError, requests.exceptions.JSONDecodeError):
-            print("[EFD] Search returned non-JSON "
-                  "(agreement may not have been accepted)")
-            return {"data": [], "recordsTotal": 0}
+            raise RuntimeError(
+                "eFD search returned non-JSON "
+                "(agreement may not have been accepted)")
 
     def fetch_ptr_page(self, url):
         """Fetch a PTR detail page. Returns HTML string or None."""
@@ -321,21 +334,25 @@ class SenateEFDClient:
 def parse_search_results(response_json):
     """
     Parse DataTables search response into a list of filing dicts.
-    Each row is [name_html, office, filer_type, report_type, date_filed].
+    Each row is [first_name, last_name, "Last, First (Senator)",
+    report_link_html, date_filed].
     """
     filings = []
     for row in response_json.get("data", []):
         if not row or len(row) < 5:
             continue
 
-        # Column 0: senator name with <a href="...">
-        soup = BeautifulSoup(str(row[0]), "html.parser")
+        # The report anchor lives in column 3 and its text is
+        # "Periodic Transaction Report for MM/DD/YYYY" — not a name — so the
+        # name is rebuilt from the last/first columns. .strip(',') because
+        # live rows have been observed with a trailing comma ("Moran,").
+        soup = BeautifulSoup(str(row[3]), "html.parser")
         link = soup.find("a")
         if not link:
             continue
 
         href = link.get("href", "")
-        name = link.get_text(strip=True)
+        name = f"{str(row[1]).strip().strip(',')}, {str(row[0]).strip()}"
 
         # Skip paper filings (scanned PDFs — can't parse HTML tables)
         if "/paper/" in href:
@@ -517,10 +534,15 @@ def main():
     all_filings = all_filings[:MAX_FILINGS]
     print(f"\nTotal electronic PTR filings found: {len(all_filings)}")
 
+    # Zero rows from the server is never legitimate for a 30-day window over
+    # ~100 senators — it means eFD is blocking us or changed its contract
+    # again. Fail the run so CI flags it instead of going green-but-empty
+    # (which hid a total outage from 2026-04 to 2026-08). "Rows found but all
+    # already known" dedupes AFTER this gate and still exits 0.
     if not all_filings:
-        print("[WARN] No filings found. The eFD site may be down "
-              "or the search format may have changed.")
-        sys.exit(0)
+        print("[FATAL] Search returned ZERO PTR filings for the window — "
+              "eFD blocked the request or the search/response format changed.")
+        sys.exit(1)
 
     # ── Match filings to senators ───────────────────────────────
     matched = {}    # bioguide_id -> [filing dicts]

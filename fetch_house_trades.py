@@ -684,8 +684,11 @@ def main():
             continue
 
         # Paper filings (DocIDs starting 8/9) are scanned images — skip
-        # up front so we don't re-download them every run.
-        if not filing["doc_id"].startswith("2"):
+        # up front so we don't re-download them every run. Only known-paper
+        # prefixes are skipped: an unrecognized prefix (e.g. a Clerk numbering
+        # change) is attempted as electronic, degrading to a visible parse
+        # failure instead of silently skipping every filing forever.
+        if filing["doc_id"][:1] in ("8", "9"):
             stats["paper_skipped"] += 1
             continue
 

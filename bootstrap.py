@@ -13,7 +13,6 @@ REQUIRED_DIRS = [
     "data",
     "data/details",
     "data/bills",
-    "data/cache",
 ]
 
 MEMBERS_FILE = "data/members.json"

@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 11 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 jobs:
   fetch:
     runs-on: ubuntu-latest

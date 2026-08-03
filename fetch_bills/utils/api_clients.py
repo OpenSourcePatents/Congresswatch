@@ -70,11 +70,16 @@ def congress_get(path, params=None):
         return None
 
 
-def get_member_sponsored_bills(bioguide_id, congress=119, limit=20):
+def get_member_sponsored_bills(bioguide_id, congress=None, limit=20):
     """
     Fetch bills sponsored by a member in the given congress.
     Returns list of bill stubs: {bill_id, title, type, number, congress, url}
+    congress=None derives the sitting Congress from the date (new Congress
+    each odd-year January) so this default can't silently go stale.
     """
+    if congress is None:
+        from datetime import date
+        congress = (date.today().year - 1789) // 2 + 1
     data = congress_get(
         f"member/{bioguide_id}/sponsored-legislation",
         {"congress": congress, "limit": limit}

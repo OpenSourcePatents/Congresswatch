@@ -5,6 +5,10 @@ on:
     - cron: '0 2 * * *' # Daily at 2:00 AM UTC (after finance run)
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
 jobs:
   fetch:
     runs-on: ubuntu-latest

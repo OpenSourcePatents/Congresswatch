@@ -22,7 +22,6 @@ from collections import defaultdict
 import requests
 from datetime import datetime
 
-CONGRESS_KEY = os.environ.get('CONGRESS_API_KEY', '')
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
 
 HEADERS = {
@@ -40,13 +39,15 @@ CIK_REVIEW_FILE = "data/unresolved_cik_candidates.json"
 
 os.makedirs(DETAILS_DIR, exist_ok=True)
 
+# Whitelist of keys copied from the computed member dict onto members.json rows.
+# missed_votes_pct / alec_match_count are NOT here on purpose: recompute_scores.py
+# (finalize) owns promoting those from detail files.
 LIGHT_FIELDS = {
     "id","bioguide_id","name","party","state","district","chamber",
     "photo_url","term_start","score","flags",
     "corporate_insider_signals",
-    "total_raised","total_raised_display",
+    "total_raised",
     "pac_contributions","individual_contributions",
-    "missed_votes_pct","votes_with_party_pct",
     "govtrack_id","data_updated",
     "edgar_status","edgar_cik"
 }
@@ -145,7 +146,12 @@ def name_aliases(name):
         f"{last}, {first}"
     ]))
 
-def sec_search(query):
+# Run-level tally so a total SEC outage can abort the publish step instead of
+# silently zeroing every member's insider signals (which is what a bare
+# except here hid from 2026-04 onward).
+SEC_STATS = {"ok": 0, "fail": 0}
+
+def sec_search(query, ciks=None):
     # Rolling 2-year window; EDGAR FTS custom ranges need both bounds
     from datetime import timedelta
     end = datetime.now().strftime("%Y-%m-%d")
@@ -155,9 +161,14 @@ def sec_search(query):
         f"?q={requests.utils.quote(query)}"
         f"&forms=4&dateRange=custom&startdt={start}&enddt={end}"
     )
+    if ciks:
+        # Proper entity filter — without it a CIK-digits query merely
+        # full-text-matches the digits anywhere in any document.
+        url += f"&ciks={requests.utils.quote(str(ciks))}"
     sleep(1.2)
     r = requests.get(url,headers=HEADERS,timeout=20)
     r.raise_for_status()
+    SEC_STATS["ok"] += 1
     return r.json()
 
 def resolve_member_cik(member):
@@ -176,18 +187,22 @@ def resolve_member_cik(member):
     for alias in name_aliases(member["name"]):
         try:
             data = sec_search(f'"{alias}"')
-        except:
+        except Exception as e:
+            SEC_STATS["fail"] += 1
+            print(f"    SEC search failed for {alias!r}: {e}")
             continue
 
         hits = data.get("hits",{}).get("hits",[])
 
         for h in hits:
             source = h.get("_source",{})
-            cik = str(source.get("cik","")).strip()
-            name = str(source.get("display_names","")).strip()
-
-            if cik.isdigit():
-                candidates[cik]+=1
+            # EDGAR FTS has no '_source.cik' — it returns 'ciks', a list of
+            # zero-padded digit strings. Reading the singular key is why
+            # every member sat at "unresolved" for months.
+            for cik in (source.get("ciks") or []):
+                cik = str(cik).strip()
+                if cik.isdigit():
+                    candidates[cik]+=1
 
     if not candidates:
         return {"status":"unresolved","cik":None}
@@ -222,15 +237,19 @@ def fetch_edgar_signals(member):
         return 0
 
     try:
-        payload = sec_search(res["cik"])
-        hits = payload.get("hits",{}).get("hits",[])
-        count = len(hits)
+        payload = sec_search(res["cik"], ciks=res["cik"])
+        # hits.hits is capped (~100/page); hits.total.value is the real count
+        total = (payload.get("hits",{}).get("total",{}) or {}).get("value")
+        if total is None:
+            total = len(payload.get("hits",{}).get("hits",[]))
+        count = int(total)
 
         print(f"    EDGAR Hit: {count} filings via CIK {res['cik']}")
         return count
 
     except Exception as e:
         # None = "query failed, keep previous value" — distinct from a real 0
+        SEC_STATS["fail"] += 1
         print(f"    EDGAR query failed: {e}")
         member["edgar_status"]="query_failed"
         return None
@@ -292,8 +311,15 @@ def fetch_fec_totals(cid):
             best = next((x for x in res if x.get("receipts")), res[0])
             return {
                 "total_raised":best.get("receipts",0),
-                "pac_contributions":best.get("contributions_from_other_committees",0),
-                "individual_contributions":best.get("individual_contributions",0),
+                # /candidates/totals/ field names (verified live 2026-08):
+                # PAC money is 'other_political_committee_contributions';
+                # individual money is only exposed as
+                # 'individual_itemized_contributions' on this endpoint.
+                "pac_contributions":best.get("other_political_committee_contributions",0) or 0,
+                "individual_contributions":best.get("individual_itemized_contributions",0) or 0,
+                "total_spent":float(best.get("disbursements") or 0),
+                # arrives as a string ('42587451.00') on this endpoint
+                "cash_on_hand":float(best.get("cash_on_hand_end_period") or 0),
                 "fec_cycle":best.get("cycle")
             }
     except Exception as e:
@@ -305,7 +331,20 @@ def fetch_fec_totals(cid):
 # SCORING
 # ─────────────────────────────────────────────────────────────
 
-ANNUAL_SALARY = 174000  # Congressional salary baseline
+# Congressional base salary by year — keep in sync with CONGRESSIONAL_SALARY in
+# index.html. Flat at 174,000 since 2009; earlier years matter for long-serving
+# members' cumulative-salary baseline.
+SALARY_BY_YEAR = {
+    1998:136700, 1999:136700, 2000:141300, 2001:145100, 2002:150000,
+    2003:154700, 2004:158100, 2005:162100, 2006:165200, 2007:165200,
+    2008:169300,
+}
+ANNUAL_SALARY = 174000  # 2009-present
+
+def cumulative_salary(start_year, end_year):
+    """Sum of base salaries for start_year..end_year inclusive (mirrors the
+    frontend's computeCareerEarnings)."""
+    return sum(SALARY_BY_YEAR.get(y, ANNUAL_SALARY) for y in range(start_year, end_year + 1))
 
 def compute_score_components(m, detail=None):
     """
@@ -353,10 +392,10 @@ def compute_score_components(m, detail=None):
         est_wealth = total * 0.45
         start_year = m.get("term_start", "2010")[:4]
         try:
-            years_in_office = max(1, datetime.now().year - int(start_year))
+            start = int(start_year)
         except (ValueError, TypeError):
-            years_in_office = 10
-        gap = est_wealth - (years_in_office * ANNUAL_SALARY)
+            start = datetime.now().year - 10
+        gap = est_wealth - cumulative_salary(start, datetime.now().year)
         if gap > 5000000:
             wealth_gap = 25
         elif gap > 2000000:
@@ -518,6 +557,14 @@ if __name__=="__main__":
 
         light={k:v for k,v in m.items() if k in LIGHT_FIELDS}
         leaderboard.append(light)
+
+    # A run where every single SEC request failed must not publish zeroed
+    # insider signals as if they were findings. (Detail files already keep
+    # last-known values via the signals-is-None fallback.)
+    if SEC_STATS["fail"] and SEC_STATS["ok"] == 0:
+        raise SystemExit(
+            f"ABORT: all {SEC_STATS['fail']} SEC EDGAR requests failed — "
+            "not publishing zeroed insider signals")
 
     # Safe merge into existing members.json — preserve fields from other pipelines
     existing_members=load_members()

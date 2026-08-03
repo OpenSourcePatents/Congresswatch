@@ -12,7 +12,7 @@ Live site: congresswatch.vercel.app
 
 **Frontend:** Single `index.html` file (plain HTML/CSS/JS, no framework). Canvas-drawn charts (no Chart.js).
 
-**Data pipeline:** Eight independent Python scripts run daily via GitHub Actions on staggered schedules (UTC):
+**Data pipeline:** Nine scheduled workflows run daily via GitHub Actions on staggered schedules (UTC):
 - `fetch.py` (1am) — Congress.gov member data (runs first, base data)
 - `fetch_votes.py` (2am) — GovTrack vote history
 - `fetch_finance.py` (5am) — FEC campaign finance + SEC EDGAR trade signals + anomaly scoring
@@ -21,13 +21,17 @@ Live site: congresswatch.vercel.app
 - `fetch_travel_pdf.py` (9am) — House gift-travel filings from the Clerk's consolidated search (HTML, not PDFs — the disclosure PDFs are scanned images)
 - `fetch_house_trades.py` (10am) — House stock trades: yearly FD.zip index from disclosures-clerk.house.gov + pdfplumber PTR PDF parsing
 - `fetch_donors.py` (11am) — FEC Schedule A itemized donors (candidate → committee → contributions) + `top_donor_industries` derivation
+- `finalize.yml` (12pm) — runs LAST: `recompute_scores.py` (authoritative rescore from whatever is on disk + promotion of detail-only fields like `alec_match_count`/`missed_votes_pct` to members.json) and `build_aggregates.py` (flattens the vault into `data/trades.json` + `data/bills.json`)
 
 Each workflow commits updated JSON files back to the repo automatically (commit → `git pull --rebase` → push).
+
+**Pipeline health rule: a green run proves nothing — check for the bot COMMIT.** Several fetchers can exit 0 with no data (site blocked, format changed). If a pipeline's daily commit is missing for more than a couple of days, inspect its run logs (`gh run list --workflow <file>.yml`).
 
 **Data storage:** JSON files in `data/`. Two-tier structure:
 - `data/members.json` — lightweight leaderboard (all 535+ members)
 - `data/details/{bioguideId}.json` — full per-member vault (votes, finance, trades, bills, anomaly components)
-- `data/bills/all_bills.json` — central bill cache with TF-IDF vectors (~104MB)
+- `data/bills/all_bills.json` — central bill cache with TF-IDF vectors (~100MB). NOT in the repo: it is gitignored and persists only via `actions/cache` in `fetch_bills.yml`. A cache eviction cold-starts the corpus, which legitimately disables ALEC matching for that run (`MIN_CORPUS_FOR_ALEC = 50`)
+- `data/trades.json`, `data/bills.json`, `data/stats.json` — corpus-wide aggregates rebuilt daily by `finalize.yml`
 
 ## Bill Similarity Engine (fetch_bills/)
 

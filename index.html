@@ -740,7 +740,7 @@ function showToast(msg) {
 
 const CONGRESSIONAL_SALARY = {
   2000:141300,2001:145100,2002:150000,2003:154700,2004:158100,
-  2005:162100,2006:165200,2007:168500,2008:169300,2009:174000,
+  2005:162100,2006:165200,2007:165200,2008:169300,2009:174000,
   2010:174000,2011:174000,2012:174000,2013:174000,2014:174000,
   2015:174000,2016:174000,2017:174000,2018:174000,2019:174000,
   2020:174000,2021:174000,2022:174000,2023:174000,2024:174000,
@@ -838,7 +838,7 @@ async function loadData() {
 
     allMembers = raw.map(mapMember);
     updateStats(); updateCoverage(); applyFilters();
-  } catch(e) { loadDemo(); }
+  } catch(e) { console.error('members.json load failed:', e); loadDemo(); }
 }
 
 function updateCoverage() {
@@ -1049,7 +1049,7 @@ function linkBtnHtml(url, label, caption) {
      Track width encodes the signal's weight (max/25 of the row); fill encodes value/max. ── */
 const SCORE_COMPONENTS = [
   { key:'trade_timing',    label:'Stock trade timing',     max:25 },
-  { key:'wealth_gap',      label:'Wealth gap',             max:25 },
+  { key:'wealth_gap',      label:'Wealth gap (fundraising-based proxy)', max:25 },
   { key:'donor_alignment', label:'Donor-vote alignment',   max:20 },
   { key:'alec_similarity', label:'Bill authorship / ALEC', max:15 },
   { key:'foreign_travel',  label:'Foreign travel',         max:10 },
@@ -1162,6 +1162,9 @@ async function openProfile(m) {
         if (res.ok) {
           deep = await res.json();
           if (token !== profileToken) return;
+        } else {
+          // A missing vault file must be distinguishable from an empty one
+          console.warn(`vault fetch for ${bid}: HTTP ${res.status}`);
         }
       } catch(e) {
         console.warn('JSON vault fetch failed:', e);
@@ -1331,7 +1334,14 @@ function fillVotes(m, s) {
       const intro = bill.introduced_date ? bill.introduced_date.slice(0,10) : '—';
       const titleShort = (bill.title||'').slice(0,80) + ((bill.title||'').length>80?'…':'');
 
+      // No alec_match (>=80% similarity) is the norm — surface the always-stored
+      // closest-model similarity instead of a permanently blank column.
       let alecCell = '<span style="color:var(--fg-faint)">—</span>';
+      if (!alec && (bill.alec_best_similarity||0) > 0) {
+        const bpct = Math.round(bill.alec_best_similarity*100);
+        alecCell = `<span class="td-mono" style="color:var(--fg-dim)">${bpct}% closest model</span>
+          <div class="td-sub">below 80% match threshold</div>`;
+      }
       if (alec && (alec.similarity_score||0) > 0) {
         const pct = Math.round((alec.similarity_score||0)*100);
         const isHighMatch = pct >= 70;
@@ -1420,6 +1430,8 @@ function fillFinance(m, s, cumSalary) {
       note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
     { label:'PAC Money', value: fmtMoney(pac), color: pac > total*0.3 ? '#ff3b4e' : undefined, note:`${pacRatio}% of total` },
     { label:'Individual Donors', value: fmtMoney(m.individual_contributions), color:'#f3c25a', note:'itemized' },
+    { label:'Total Spent', value: fmtMoney(m.total_spent), note:'FEC disbursements' },
+    { label:'Cash on Hand', value: fmtMoney(m.cash_on_hand), note:'end of last FEC period' },
   ]);
 
   const chart = chartPanelHtml('fin-canvas', 'CONGRESSIONAL BASE SALARY (PUBLIC RECORD)', [
@@ -1519,10 +1531,14 @@ function fillTravel(m) {
   let html = '';
 
   if (trips.length > 0) {
+    // The Clerk's consolidated gift-travel search carries no cost data (costs
+    // live only in scanned PDFs), so only render the column if a source ever
+    // starts populating total_cost — an all-dash column reads as a bug.
+    const hasCost = trips.some(t => t.total_cost);
     let tbl = `
     <table class="data-table">
       <thead><tr>
-        <th>Destination</th><th>Departure</th><th>Return</th><th>Sponsor</th><th>Cost</th>
+        <th>Destination</th><th>Departure</th><th>Return</th><th>Sponsor</th>${hasCost ? '<th>Cost</th>' : ''}
       </tr></thead>
       <tbody>`;
     trips.forEach(t => {
@@ -1533,8 +1549,8 @@ function fillTravel(m) {
         <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.departure_date||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.return_date||'—')}</td>
-        <td>${sponsor}</td>
-        <td class="td-mono">${t.total_cost ? '$'+esc(t.total_cost) : '—'}</td>
+        <td>${sponsor}</td>${hasCost ? `
+        <td class="td-mono">${t.total_cost ? '$'+esc(t.total_cost) : '—'}</td>` : ''}
       </tr>`;
     });
     tbl += `</tbody></table>`;

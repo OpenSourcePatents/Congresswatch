@@ -30,11 +30,14 @@ from datetime import datetime
 from fetch_finance import (
     load_json,
     save_json,
-    compute_score,
     compute_score_components,
     OUTPUT_FILE,
     DETAILS_DIR,
 )
+
+# Positions that count as a missed vote — mirrors both compute_score_components()
+# and the frontend's HIGH MISSED VOTE RATE flag (index.html fillVotes).
+MISSED_POSITIONS = ("not voting", "absent", "")
 
 STATS_FILE = "data/stats.json"
 
@@ -72,6 +75,18 @@ def main():
             name = m.get("name", bid)
             print(f"  {name} ({bid}): {old} -> {score}")
             changed += 1
+
+        # Leaderboard promotion: these live in detail files only (bills/votes
+        # pipelines never touch members.json), but the frontend grid reads them
+        # from members.json — without this they can never render there.
+        m["alec_match_count"] = detail.get("alec_match_count", 0) or 0
+        votes = detail.get("votes") or []
+        if votes:
+            missed = sum(1 for v in votes
+                         if (v.get("position") or "").lower() in MISSED_POSITIONS)
+            pct = round(missed * 100.0 / len(votes), 1)
+            detail["missed_votes_pct"] = pct
+            m["missed_votes_pct"] = pct
 
         # Safe merge: only touch the score fields, leave every other
         # pipeline's data in the detail file untouched.

@@ -62,7 +62,18 @@ BILLS_CACHE    = os.path.join(BASE_DIR, "data", "bills", "all_bills.json")
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-CURRENT_CONGRESS = 119
+def _current_congress():
+    """119th = 2025-2026; a new Congress convenes in January of odd years.
+    Derived from the date so the pipeline doesn't silently keep querying a
+    closed Congress after each January turnover. CURRENT_CONGRESS env var
+    overrides if a run ever needs pinning."""
+    override = os.environ.get("CURRENT_CONGRESS")
+    if override:
+        return int(override)
+    from datetime import date
+    return (date.today().year - 1789) // 2 + 1
+
+CURRENT_CONGRESS = _current_congress()
 MAX_BILLS_PER_MEMBER = 10   # sponsored bills to analyze per member
 LEGISCAN_QUERY_BUDGET = 200  # max LegiScan text fetches per run (protect quota)
 SIMILARITY_THRESHOLD = 0.80
