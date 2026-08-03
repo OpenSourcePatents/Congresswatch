@@ -47,7 +47,20 @@ missed-vote percentage and saturates at 25% missed, where the full 5 points
 apply (`ATTENDANCE_SATURATION_PCT` in `fetch_finance.py`) — so 5% missed costs
 1 point, 10% costs 2, and anything at or above 25% costs 5. Members with fewer
 than 20 votes on record score 0 for this signal rather than being penalized on
-an unreliable sample. The member profile separately flags absence above 15% as
+an unreliable sample.
+
+Non-voting delegates are exempt. The five House delegates (District of Columbia,
+Virgin Islands, Guam, American Samoa, Northern Mariana Islands) and Puerto
+Rico's Resident Commissioner cannot vote on final passage, so a "missed vote" is
+not a meaningful measure of their attendance. They score 0 for this signal and
+their profiles display "N/A — non-voting delegate" instead of a percentage. The
+member schema has no role field, so they are identified by exact state +
+chamber match (`NON_VOTING_STATES` in `fetch_finance.py`) — never a substring
+test, since "Virgin Islands" shares a prefix with "Virginia" and "West
+Virginia". `test_delegates.py` asserts this and is worth running after any
+change to that classifier.
+
+The member profile separately flags absence above 15% as
 a warning; that threshold is deliberately a tier below the scoring saturation
 point, not the same number.
 

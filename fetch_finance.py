@@ -341,7 +341,36 @@ SALARY_BY_YEAR = {
 }
 ANNUAL_SALARY = 174000  # 2009-present
 
-# Attendance scoring: minimum vote sample before the signal is scored at all,
+# Delegates and the Resident Commissioner are seated in the House but cannot
+# vote on final passage, so a "missed vote" is meaningless for them and the
+# attendance signal must be skipped entirely. The member schema carries no
+# role/type field, so they are identified by state + chamber.
+#
+# EXACT set membership only, never a substring test: "Virgin Islands" is a
+# substring collision with "Virginia" and "West Virginia", and a substring
+# match would silently de-score every member from both states.
+NON_VOTING_STATES = frozenset({
+    "District of Columbia",
+    "Puerto Rico",
+    "Virgin Islands",
+    "Guam",
+    "American Samoa",
+    "Northern Mariana Islands",
+})
+
+
+def is_non_voting_delegate(member):
+    """True for House delegates / the Resident Commissioner, who cannot vote
+    on final passage. Upstream vote data for them is inconsistent (some show
+    0% missed, some 100%), so exclusion is identity-based, never data-based.
+    """
+    if not member:
+        return False
+    return ((member.get("state") or "") in NON_VOTING_STATES
+            and (member.get("chamber") or "") == "House")
+
+
+# Attendance scoring: minimum sample before the signal is scored at all,
 # and the missed-vote ratio at which the full 5-point penalty applies.
 # fetch_votes.VOTE_WINDOW (100) is the upstream sample size.
 MIN_VOTES_FOR_ATTENDANCE = 20
@@ -459,9 +488,12 @@ def compute_score_components(m, detail=None):
     # deliberately below this saturation point.
     # Samples under 20 votes are not scored at all: with a 20-vote window
     # every ratio is a multiple of 5%, which is noise, not signal.
+    # Non-voting delegates are exempt: they cannot cast the votes they would
+    # be penalized for missing.
     attendance = 0
     votes = detail.get("votes", []) or []
-    if len(votes) >= MIN_VOTES_FOR_ATTENDANCE:
+    if (not is_non_voting_delegate(m)
+            and len(votes) >= MIN_VOTES_FOR_ATTENDANCE):
         missed = sum(1 for v in votes if (v.get("position", "").lower() in
                      ("not voting", "absent", "")))
         missed_pct = missed * 100.0 / len(votes)

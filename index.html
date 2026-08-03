@@ -759,6 +759,23 @@ const SALARY_BY_YEAR = CONGRESSIONAL_SALARY;
 // back to the bioguide portrait, else the initials underneath stay visible.
 function photoUrl(id) { if (!id) return ''; return `https://unitedstates.github.io/images/congress/225x275/${id}.jpg`; }
 function initials(name) { return (name||'').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase(); }
+
+// House delegates and the Resident Commissioner cannot vote on final passage,
+// so missed-vote figures are meaningless for them. Mirrors NON_VOTING_STATES /
+// is_non_voting_delegate() in fetch_finance.py.
+// EXACT set membership, never a substring test: "Virgin Islands" collides with
+// "Virginia" and "West Virginia", and .includes() would wrongly capture both.
+const NON_VOTING_STATES = new Set([
+  'District of Columbia', 'Puerto Rico', 'Virgin Islands',
+  'Guam', 'American Samoa', 'Northern Mariana Islands'
+]);
+// Prefers the flag written by recompute_scores.py; falls back to state+chamber
+// so the UI is still correct against detail files written before that flag.
+function isNonVotingDelegate(m) {
+  if (!m) return false;
+  if (typeof m.non_voting_delegate === 'boolean') return m.non_voting_delegate;
+  return NON_VOTING_STATES.has(m.state) && m.chamber === 'House';
+}
 function partyColor(party) {
   if (!party) return '#5d7180';
   const p = party.toLowerCase();
@@ -1132,7 +1149,13 @@ async function openProfile(m) {
     pair('LAST UPDATED', m.data_updated ? esc(String(m.data_updated).slice(0,10)) : '—') +
     // missed_votes_pct is already a percentage (0-100) from recompute_scores.py.
     // Null-check, not truthiness, so a legitimate 0.0% still renders.
-    (m.missed_votes_pct != null ? pair('MISSED VOTES', Number(m.missed_votes_pct).toFixed(1)+'%') : '');
+    // Delegates short-circuit first: their upstream vote data is inconsistent
+    // (some read 0.0%, some 100%), so neither number may be shown as fact.
+    (isNonVotingDelegate(m)
+      ? pair('MISSED VOTES', '<span style="color:var(--fg-faint)">N/A &mdash; non-voting delegate</span>')
+      : m.missed_votes_pct != null
+        ? pair('MISSED VOTES', Number(m.missed_votes_pct).toFixed(1)+'%')
+        : '');
 
   const scoreBig = document.getElementById('pf-score-big');
   scoreBig.textContent = s !== null ? s : '--';
@@ -1269,9 +1292,11 @@ function buildFlags(m, s) {
   const insiderCount = m.corporate_insider_signals || 0;
   if (insiderCount > 0) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
     body:`${insiderCount} Form 4 filing${insiderCount>1?'s':''} found in SEC EDGAR. Source: SEC EDGAR Form 4.`});
-  // ATTENDANCE: only if real vote data shows missed > 15%
+  // ATTENDANCE: only if real vote data shows missed > 15%.
+  // Delegates are exempt — they cannot cast the votes they'd be flagged for
+  // missing, and their stored vote records are unreliable either way.
   const votes = m.votes || [];
-  if (votes.length > 0) {
+  if (votes.length > 0 && !isNonVotingDelegate(m)) {
     const missed = votes.filter(v => {
       const pos = (v.position||'').toLowerCase();
       return pos === 'not voting' || pos === 'absent' || pos === '';
@@ -1591,9 +1616,9 @@ function fillPatterns(m, s) {
   }
   // INSIDER_TRADING: only if corporate_insider_signals > 0
   if ((m.corporate_insider_signals||0) > 0) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
-  // ATTENDANCE: real vote data
+  // ATTENDANCE: real vote data. Delegates exempt (cannot vote on final passage).
   const votes = m.votes || [];
-  if (votes.length > 0) {
+  if (votes.length > 0 && !isNonVotingDelegate(m)) {
     const missed = votes.filter(v => {
       const pos = (v.position||'').toLowerCase();
       return pos === 'not voting' || pos === 'absent' || pos === '';

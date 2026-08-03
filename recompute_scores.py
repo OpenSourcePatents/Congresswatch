@@ -31,6 +31,7 @@ from fetch_finance import (
     load_json,
     save_json,
     compute_score_components,
+    is_non_voting_delegate,
     OUTPUT_FILE,
     DETAILS_DIR,
 )
@@ -80,8 +81,19 @@ def main():
         # pipelines never touch members.json), but the frontend grid reads them
         # from members.json — without this they can never render there.
         m["alec_match_count"] = detail.get("alec_match_count", 0) or 0
+        # Non-voting delegates carry a flag instead of a percentage. Their
+        # upstream vote records are inconsistent (some read 0% missed, some
+        # 100%), so no percentage derived from them is trustworthy — the
+        # frontend renders "N/A" off this flag rather than off a number.
+        delegate = is_non_voting_delegate(m)
+        m["non_voting_delegate"] = delegate
+        detail["non_voting_delegate"] = delegate
+
         votes = detail.get("votes") or []
-        if votes:
+        if delegate:
+            detail["missed_votes_pct"] = None
+            m["missed_votes_pct"] = None
+        elif votes:
             missed = sum(1 for v in votes
                          if (v.get("position") or "").lower() in MISSED_POSITIONS)
             pct = round(missed * 100.0 / len(votes), 1)
