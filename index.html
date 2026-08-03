@@ -10,7 +10,7 @@
 <title>CongressWatch — Follow The Money</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://theunitedstates.io">
+<link rel="preconnect" href="https://unitedstates.github.io">
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -748,9 +748,12 @@ const CONGRESSIONAL_SALARY = {
 };
 const SALARY_BY_YEAR = CONGRESSIONAL_SALARY;
 
-// 225x275 CDN thumbnails (~17KB) instead of full-size bioguide photos (~400KB behind
-// a redirect + Cloudflare). Missing members return an empty 410 -> initials fallback.
-function photoUrl(id) { if (!id) return ''; return `https://theunitedstates.io/images/congress/225x275/${id}.jpg`; }
+// 225x275 thumbnails from the unitedstates/images project instead of full-size bioguide
+// photos (~400KB behind a redirect). Must stay on the GitHub Pages host: theunitedstates.io
+// answers these image paths without a decodable JPEG body (410/text-html), so every photo
+// silently fails. Newest members lag that repo's automation and 404 -> setPhoto() falls
+// back to the bioguide portrait, else the initials underneath stay visible.
+function photoUrl(id) { if (!id) return ''; return `https://unitedstates.github.io/images/congress/225x275/${id}.jpg`; }
 function initials(name) { return (name||'').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase(); }
 function partyColor(party) {
   if (!party) return '#5d7180';
@@ -820,6 +823,7 @@ function mapMember(m) {
   else if (pl.includes('independent') || pl === 'i') party = 'Independent';
   return { ...m, id: m.id || m.bioguide_id, chamber, party, displayScore: score,
     photo: photoUrl(m.id || m.bioguide_id) || m.photo_url || '',
+    photoFb: photoUrl(m.id || m.bioguide_id) ? (m.photo_url || '') : '',
     partyC: partyColor(party), partyS: partyShort(party),
     careerEarnings: computeCareerEarnings(m), netWorth: getNetWorth(m) };
 }
@@ -944,7 +948,7 @@ function renderGrid() {
     card.innerHTML = `
       <div class="m-card-stripe" style="background:${m.partyC}"></div>
       <div class="m-card-row">
-        <div class="m-thumb"><span>${esc(initials(m.name))}</span><div class="m-thumb-photo" data-photo="${esc(m.photo)}"></div></div>
+        <div class="m-thumb"><span>${esc(initials(m.name))}</span><div class="m-thumb-photo" data-photo="${esc(m.photo)}" data-photo-fb="${esc(m.photoFb)}"></div></div>
         <div class="m-card-text">
           <div class="m-card-name">${esc(m.name)}</div>
           <div class="m-card-party" style="color:${m.partyC}">${esc(m.party||'—')}</div>
@@ -974,11 +978,22 @@ function renderGrid() {
 }
 
 /* ── Lazy card photos — fetch a thumb only once its card nears the viewport ── */
+// Probe with new Image() before painting: CSS background-image failures are silent (no
+// onerror), so a 404 thumb would strand the card on initials even though bioguide has a
+// portrait. The probe shares the HTTP cache with the background paint, so each card still
+// fetches only ONE decodable image; the fallback fires only after a (tiny) 404 response.
+function setPhoto(el, primary, fallback) {
+  if (!primary) { if (fallback) setPhoto(el, fallback, ''); return; }
+  const probe = new Image();
+  probe.onload = () => { el.style.backgroundImage = cssUrl(primary); };
+  probe.onerror = () => { if (fallback) setPhoto(el, fallback, ''); };
+  probe.src = primary;
+}
 const photoObserver = ('IntersectionObserver' in window)
   ? new IntersectionObserver(entries => {
       entries.forEach(en => {
         if (!en.isIntersecting) return;
-        en.target.style.backgroundImage = cssUrl(en.target.dataset.photo);
+        setPhoto(en.target, en.target.dataset.photo, en.target.dataset.photoFb || '');
         photoObserver.unobserve(en.target);
       });
     }, { rootMargin: '300px' })
@@ -987,7 +1002,7 @@ function observeThumbs(root) {
   root.querySelectorAll('.m-thumb-photo[data-photo]').forEach(t => {
     if (!t.dataset.photo) return;
     if (photoObserver) photoObserver.observe(t);
-    else t.style.backgroundImage = cssUrl(t.dataset.photo);
+    else setPhoto(t, t.dataset.photo, t.dataset.photoFb || '');
   });
 }
 
@@ -1098,7 +1113,7 @@ async function openProfile(m) {
   document.getElementById('pf-crumb-id').textContent = bid || '—';
   document.getElementById('pf-name').textContent = m.name.toUpperCase();
   document.getElementById('pf-photo-ini').textContent = initials(m.name);
-  document.getElementById('pf-photo').style.backgroundImage = cssUrl(m.photo);
+  setPhoto(document.getElementById('pf-photo'), m.photo, m.photoFb || '');
 
   const band = scoreBand(s);
   const pill = (label, c) => `<span class="pill" style="background:color-mix(in srgb, ${c} 12%, transparent);border:1px solid color-mix(in srgb, ${c} 40%, transparent);color:${c}">${esc(label)}</span>`;
@@ -1158,7 +1173,7 @@ async function openProfile(m) {
       const deepNW = getNetWorth(deep);
       currentMember = {
         ...currentMember, ...deep,
-        displayScore: s, photo: m.photo, partyC: m.partyC, partyS: m.partyS,
+        displayScore: s, photo: m.photo, photoFb: m.photoFb, partyC: m.partyC, partyS: m.partyS,
         careerEarnings: m.careerEarnings, netWorth: deepNW !== null ? deepNW : m.netWorth,
       };
       renderOverview(currentMember, s, cumSalary);
