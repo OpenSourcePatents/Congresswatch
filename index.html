@@ -143,6 +143,23 @@ header { border-bottom:1px solid var(--border-default); padding:0 1.2rem; displa
 
 /* ── Tabs ── */
 .profile-tabs { display:flex; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid var(--border-default); background:var(--bg-surface); padding:0 0.8rem; }
+/* Mobile: tab strip is replaced by a hamburger dropdown */
+.ptab-mobile { display:none; position:relative; border-bottom:1px solid var(--border-default); background:var(--bg-surface); padding:0.55rem 1.2rem; }
+@media (max-width:760px) {
+  .profile-tabs { display:none; }
+  .ptab-mobile { display:block; }
+}
+.ptab-menu-btn { display:flex; align-items:center; gap:10px; width:100%; background:var(--bg-raised); border:1px solid var(--border-default); border-radius:var(--radius-md); color:var(--fg-bright); font-family:var(--font-label); font-weight:700; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; padding:9px 12px; cursor:pointer; transition:border-color 0.15s; -webkit-appearance:none; }
+.ptab-menu-btn:active, .ptab-mobile.open .ptab-menu-btn { border-color:var(--accent-blue); }
+.ptab-menu-btn .burger { width:16px; height:16px; flex-shrink:0; color:var(--accent-blue); }
+.ptab-menu-btn .chev { width:12px; height:12px; margin-left:auto; flex-shrink:0; color:var(--fg-faint); transition:transform 0.2s; }
+.ptab-mobile.open .ptab-menu-btn .chev { transform:rotate(180deg); }
+.ptab-menu { display:none; position:absolute; left:1.2rem; right:1.2rem; top:calc(100% - 6px); z-index:180; background:var(--bg-raised); border:1px solid var(--border-medium); border-radius:var(--radius-md); overflow:hidden; box-shadow:0 18px 50px rgba(0,0,0,0.6); }
+.ptab-mobile.open .ptab-menu { display:block; }
+.ptab-menu-item { display:block; width:100%; text-align:left; background:none; border:none; border-bottom:1px solid var(--border-subtle); font-family:var(--font-label); font-weight:700; font-size:11px; letter-spacing:1.2px; text-transform:uppercase; color:var(--fg-muted); padding:12px 14px; cursor:pointer; transition:background 0.15s; -webkit-appearance:none; }
+.ptab-menu-item:last-child { border-bottom:none; }
+.ptab-menu-item:hover { background:rgba(120,180,210,0.05); }
+.ptab-menu-item.active { color:var(--accent-blue); background:rgba(59,130,246,0.10); }
 .profile-tabs::-webkit-scrollbar { display:none; }
 .ptab { font-family:var(--font-label); font-weight:700; font-size:10px; letter-spacing:1.2px; text-transform:uppercase; padding:0.8rem 0.9rem; border:none; background:none; color:var(--fg-faint); cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; transition:all 0.2s; flex-shrink:0; -webkit-appearance:none; border-radius:0; }
 .ptab:hover { color:var(--fg-muted); }
@@ -364,6 +381,14 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
         <button class="ptab" data-panel="patterns">Patterns</button>
         <button class="ptab" data-panel="network">Donors</button>
         <button class="ptab" data-panel="compare">Compare</button>
+      </div>
+      <div class="ptab-mobile" id="ptab-mobile">
+        <button class="ptab-menu-btn" id="ptab-menu-btn" aria-haspopup="true" aria-expanded="false">
+          <svg class="burger" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <span id="ptab-menu-label">Overview</span>
+          <svg class="chev" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="ptab-menu" id="ptab-menu" role="menu"></div>
       </div>
 
       <div class="ppanel active" id="ppanel-overview">
@@ -732,6 +757,8 @@ async function openProfile(m) {
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
   document.getElementById('ppanel-overview').classList.add('active');
+  closeMobileTabMenu();
+  syncMobileTabUI();
 
   // Show loading in bills & votes panel
   document.getElementById('pf-votes-content').innerHTML = `
@@ -892,6 +919,7 @@ function renderScoreBreakdown(m, s) {
 
 function _showMembersListInternal() {
   profileToken++; // invalidate any in-flight profile fetch
+  closeMobileTabMenu();
   document.getElementById('profile-view').classList.remove('active');
   document.getElementById('members-view').classList.remove('hidden');
   currentMember = null;
@@ -1467,6 +1495,42 @@ function drawNetwork(m) {
   });
 }
 
+// ── Mobile tab menu (hamburger dropdown, replaces the tab strip <=760px) ──
+const ptabMobile = document.getElementById('ptab-mobile');
+const ptabMenuBtn = document.getElementById('ptab-menu-btn');
+const ptabMenu = document.getElementById('ptab-menu');
+
+function buildMobileTabMenu() {
+  ptabMenu.innerHTML = '';
+  document.querySelectorAll('#profile-tabs .ptab').forEach(t => {
+    const item = document.createElement('button');
+    item.className = 'ptab-menu-item' + (t.classList.contains('active') ? ' active' : '');
+    item.setAttribute('role', 'menuitem');
+    item.dataset.panel = t.dataset.panel;
+    item.textContent = t.textContent;
+    item.addEventListener('click', () => { closeMobileTabMenu(); t.click(); });
+    ptabMenu.appendChild(item);
+  });
+}
+function syncMobileTabUI() {
+  const active = document.querySelector('#profile-tabs .ptab.active');
+  document.getElementById('ptab-menu-label').textContent = active ? active.textContent : 'Overview';
+  ptabMenu.querySelectorAll('.ptab-menu-item').forEach(i =>
+    i.classList.toggle('active', !!active && i.dataset.panel === active.dataset.panel));
+}
+function closeMobileTabMenu() {
+  ptabMobile.classList.remove('open');
+  ptabMenuBtn.setAttribute('aria-expanded', 'false');
+}
+ptabMenuBtn.addEventListener('click', () => {
+  const open = ptabMobile.classList.toggle('open');
+  ptabMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+document.addEventListener('click', e => {
+  if (ptabMobile.classList.contains('open') && !ptabMobile.contains(e.target)) closeMobileTabMenu();
+});
+buildMobileTabMenu();
+
 document.getElementById('profile-tabs').addEventListener('click', e => {
   const btn = e.target.closest('.ptab');
   if (!btn) return;
@@ -1475,6 +1539,7 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(`ppanel-${panel}`).classList.add('active');
+  syncMobileTabUI();
   if (panel === 'network' && currentMember) {
     fillDonors(currentMember);
   }
@@ -1600,7 +1665,9 @@ document.getElementById('cb-search').addEventListener('input', e => {
 document.getElementById('sort-sel').addEventListener('change', e => { filters.sort = e.target.value; applyFilters(); });
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && document.getElementById('profile-view').classList.contains('active')) {
+  if (e.key !== 'Escape') return;
+  if (ptabMobile.classList.contains('open')) { closeMobileTabMenu(); return; }
+  if (document.getElementById('profile-view').classList.contains('active')) {
     showMembersList();
   }
 });
