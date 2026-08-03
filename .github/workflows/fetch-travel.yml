@@ -25,5 +25,5 @@ jobs:
           git config --global user.email "bot@bot.com"
           git add data/members.json data/details/
           git diff --staged --quiet || git commit -m "Update House travel data [$(date +%Y-%m-%d)]"
-          git pull --rebase origin main
+          git pull --rebase --autostash origin main
           git push
