@@ -8,7 +8,15 @@
       "Bash(python3:*)",
       "Bash(grep -l \"transaction_date\" /c/Users/cjdow/Congresswatch/data/details/*.json)",
       "Bash(grep -l '\"travel\":' \"C:\\\\Users\\\\cjdow\\\\Congresswatch\\\\data\\\\details\"/*.json)",
-      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('data/members.json'\\)\\);console.log\\('Restored:',d.length,'members'\\)\")"
+      "Bash(node -e \"const d=JSON.parse\\(require\\('fs'\\).readFileSync\\('data/members.json'\\)\\);console.log\\('Restored:',d.length,'members'\\)\")",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(GIT_EDITOR=true git rebase --continue)",
+      "Bash(git push *)",
+      "Bash(git rebase *)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(git commit *)",
+      "Bash(git stash *)"
     ]
   },
   "outputStyle": "Explanatory"
