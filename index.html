@@ -1525,7 +1525,7 @@ function fillTravel(m) {
   const isHouse = chamber.includes('house');
   const travelUrl = isHouse
     ? 'https://clerk.house.gov/public_disc/travel/'
-    : 'https://www.senate.gov/legislative/travel_disclosures.htm';
+    : 'https://giftrule-disclosure.senate.gov/';  // senate.gov/legislative/travel_disclosures.htm is a 404
   const chamberLabel = isHouse ? 'House' : 'Senate';
   const trips = m.travel || [];
   let html = '';
@@ -1542,15 +1542,18 @@ function fillTravel(m) {
       </tr></thead>
       <tbody>`;
     trips.forEach(t => {
+      // Senate gift-rule records have no machine-readable sponsor — the linked
+      // scanned filing is the substance, so label the link accordingly.
+      const sponsorLabel = t.sponsor || (t.source_doc ? 'View filing (PDF)' : '—');
       const sponsor = t.source_doc
-        ? `<a href="${esc(safeUrl(t.source_doc))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-muted);text-decoration:none;border-bottom:1px dotted var(--accent-blue)">${esc(t.sponsor||'—')}</a>`
-        : esc(t.sponsor||'—');
+        ? `<a href="${esc(safeUrl(t.source_doc))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-muted);text-decoration:none;border-bottom:1px dotted var(--accent-blue)">${esc(sponsorLabel)}</a>`
+        : esc(sponsorLabel);
       tbl += `<tr>
         <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.departure_date||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.return_date||'—')}</td>
         <td>${sponsor}</td>${hasCost ? `
-        <td class="td-mono">${t.total_cost ? '$'+esc(t.total_cost) : '—'}</td>` : ''}
+        <td class="td-mono">${t.total_cost ? '$'+Number(t.total_cost).toLocaleString(undefined,{maximumFractionDigits:0}) : '—'}</td>` : ''}
       </tr>`;
     });
     tbl += `</tbody></table>`;

@@ -21,6 +21,8 @@ Live site: congresswatch.vercel.app
 - `fetch_travel_pdf.py` (9am) — House gift-travel filings from the Clerk's consolidated search (HTML, not PDFs — the disclosure PDFs are scanned images)
 - `fetch_house_trades.py` (10am) — House stock trades: yearly FD.zip index from disclosures-clerk.house.gov + pdfplumber PTR PDF parsing
 - `fetch_donors.py` (11am) — FEC Schedule A itemized donors (candidate → committee → contributions) + `top_donor_industries` derivation
+- `fetch_senate_travel.py` (11:30am) — Senate Rule 35 gift-rule travel from the Secretary of the Senate's bulk XML (giftrule-disclosure.senate.gov; one GET, no auth). Member filings only; destination/sponsor/cost live in scanned PDFs, so records carry dates + document link. Rolling ~4-year source window — the script only ever ADDS trips
+- `fetch_travel_costs.py` (1pm) — extracts trip costs from House gift-travel filing PDFs (Question 5 of the Sponsor Post-Travel Disclosure Form): pdfplumber text layer first (~14% of packets), tesseract OCR fallback for the rest (typed fills in a ruled table; toolchain is CI-only). `data/travel_cost_manifest.json` tracks per-doc outcomes so settled docs are never re-downloaded; 40 PDFs/run cap. `total_cost` = traveler row only; 0/empty means UNKNOWN, never "free trip"
 - `finalize.yml` (12pm) — runs LAST: `recompute_scores.py` (authoritative rescore from whatever is on disk + promotion of detail-only fields like `alec_match_count`/`missed_votes_pct` to members.json) and `build_aggregates.py` (flattens the vault into `data/trades.json` + `data/bills.json`)
 
 Each workflow commits updated JSON files back to the repo automatically (commit → `git pull --rebase` → push).

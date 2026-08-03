@@ -1,0 +1,33 @@
+name: Fetch Travel Costs (OCR)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 13 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install OCR toolchain
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q tesseract-ocr
+          pip install requests pdfplumber pytesseract pypdfium2
+      - name: Extract travel costs
+        run: python fetch_travel_costs.py
+      - name: Save data
+        run: |
+          git config --global user.name "bot"
+          git config --global user.email "bot@bot.com"
+          git add data/details/ data/travel_cost_manifest.json
+          git diff --staged --quiet || git commit -m "Extract travel costs from filing PDFs [$(date +%Y-%m-%d)]"
+          git pull --rebase origin main
+          git push

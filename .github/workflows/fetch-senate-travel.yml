@@ -1,0 +1,29 @@
+name: Fetch Senate Travel
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 11 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Run Senate travel fetcher
+        run: python fetch_senate_travel.py
+      - name: Save data
+        run: |
+          git config --global user.name "bot"
+          git config --global user.email "bot@bot.com"
+          git add data/members.json data/details/
+          git diff --staged --quiet || git commit -m "Update Senate travel data [$(date +%Y-%m-%d)]"
+          git pull --rebase origin main
+          git push
