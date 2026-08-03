@@ -10,436 +10,670 @@
 <title>CongressWatch — Follow The Money</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
+:root {
+  /* backgrounds */
+  --bg-base:      #04060a;
+  --bg-raised:    #0a0c10;
+  --glass-bg:     rgba(9, 13, 19, 0.64);
+  --glass-blur:   blur(11px);
+  --bg-header:    linear-gradient(180deg, rgba(9,12,17,0.95), rgba(9,12,17,0.45));
+
+  /* foregrounds */
+  --fg-primary:   #eef4f8;
+  --fg-secondary: #dce8ef;
+  --fg-body:      #c8d6df;
+  --fg-muted:     #aebfc9;
+  --fg-dim:       #7c93a1;
+  --fg-faint:     #5d7180;
+
+  /* accents — red / white / blue */
+  --accent-blue:   #3b82f6;
+  --accent-red:    #ff5667;
+  --accent-red-br: #ff3b4e;
+  --accent-orange: #ff7a4e;
+  --accent-amber:  #f3c25a;
+  --accent-green:  #9fe7c8;
+  --accent-purple: #a855f7;
+
+  /* borders */
+  --border-subtle: rgba(120, 180, 210, 0.14);
+  --border-default: rgba(120, 180, 210, 0.16);
+  --border-medium: rgba(120, 180, 210, 0.25);
+
+  /* radii */
+  --radius-sm: 3px; --radius-md: 5px; --radius-lg: 7px; --radius-xl: 9px; --radius-2xl: 12px;
+
+  /* tracking */
+  --tracking-wide: 1px; --tracking-wider: 1.6px; --tracking-widest: 2.4px; --tracking-ultra: 3.5px;
+}
 * { margin:0; padding:0; box-sizing:border-box; }
-body { background:#0a0a0a; color:#e8e8e8; font-family:'IBM Plex Sans',sans-serif; min-height:100vh; overflow-x:hidden; }
-header { border-bottom:1px solid #2a2a2a; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:56px; position:fixed; top:0; left:0; right:0; background:rgba(10,10,10,0.97); backdrop-filter:blur(10px); z-index:200; }
-.logo { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:3px; color:#ff3c00 !important; }
-.logo span { color:#ffffff !important; }
-.tagline { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:#666666; letter-spacing:1.5px; text-transform:uppercase; display:none; }
-@media (min-width:600px) { .tagline { display:block; } }
-.header-right { display:flex; gap:0.8rem; align-items:center; }
-.status-dot { width:7px; height:7px; border-radius:50%; background:#00ff88; animation:pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-.status-text { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:#00ff88; letter-spacing:1px; }
-.mobile-nav { position:fixed; bottom:0; left:0; right:0; z-index:200; background:rgba(10,10,10,0.97); border-top:1px solid #2a2a2a; display:flex; justify-content:space-around; padding:8px 0 max(8px,env(safe-area-inset-bottom)); }
-@media (min-width:900px) { .mobile-nav { display:none; } }
-.mobile-nav-btn { display:flex; flex-direction:column; align-items:center; gap:3px; font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.5px; color:#666666; background:none; border:none; cursor:pointer; padding:4px 8px; transition:color 0.2s; text-transform:uppercase; -webkit-appearance:none; border-radius:0; }
-.mobile-nav-btn.active { color:#e8ff00; }
-.mobile-nav-btn svg { width:20px; height:20px; }
-.app { margin-top:56px; display:grid; grid-template-columns:1fr; min-height:calc(100vh - 56px); }
-@media (min-width:900px) { .app { grid-template-columns:280px 1fr; } }
-.sidebar { display:none; border-right:1px solid #2a2a2a; background:#111111; height:calc(100vh - 56px); position:sticky; top:56px; overflow-y:auto; flex-direction:column; }
-@media (min-width:900px) { .sidebar { display:flex; } }
-.sidebar-inner { padding:1rem; }
-.sidebar-search { width:100%; background:#0a0a0a; border:1px solid #2a2a2a; color:#e8e8e8; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; padding:0.6rem 0.8rem; outline:none; margin-bottom:1rem; transition:border-color 0.2s; -webkit-appearance:none; border-radius:0; }
-.sidebar-search:focus { border-color:#e8ff00; }
-.sidebar-search::placeholder { color:#666666; }
-.sidebar-label { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; letter-spacing:2px; text-transform:uppercase; color:#666666; margin-bottom:0.6rem; display:flex; align-items:center; gap:0.5rem; }
-.sidebar-label::after { content:''; flex:1; height:1px; background:#2a2a2a; }
-.sidebar-filters { display:flex; gap:4px; margin-bottom:0.8rem; flex-wrap:wrap; }
-.sf-btn { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; letter-spacing:1px; text-transform:uppercase; border:1px solid #2a2a2a; background:none; color:#666666; padding:3px 8px; cursor:pointer; transition:all 0.15s; -webkit-appearance:none; border-radius:0; }
-.sf-btn.active { background:#e8ff00; color:#000; border-color:#e8ff00; }
-.sf-btn.dem.active { background:#3b82f6; border-color:#3b82f6; color:#fff; }
-.sf-btn.rep.active { background:#ef4444; border-color:#ef4444; color:#fff; }
-.sf-btn.ind.active { background:#a855f7; border-color:#a855f7; color:#fff; }
-.member-list { display:flex; flex-direction:column; gap:2px; }
-.member-card { display:flex; align-items:center; gap:0.7rem; padding:0.6rem; border:1px solid transparent; cursor:pointer; transition:all 0.15s; background:#0a0a0a; }
-.member-card:hover { border-color:#2a2a2a; background:#1a1a1a; }
-.member-card.active { border-color:#e8ff00; background:rgba(232,255,0,0.04); }
-.member-avatar { width:34px; height:34px; flex-shrink:0; overflow:hidden; border:1px solid #2a2a2a; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:0.9rem; color:#e8ff00; background:#1a1a1a; }
-.member-avatar img { width:100%; height:100%; object-fit:cover; object-position:top; }
-.member-info { flex:1; min-width:0; }
-.member-name { font-size:0.78rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.member-meta { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#666666; margin-top:1px; }
-.member-score { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; font-weight:600; flex-shrink:0; }
-.score-crit { color:#ff3c00; }
-.score-high { color:#ffaa00; }
-.score-med  { color:#e8ff00; }
-.score-low  { color:#00ff88; }
-.content { overflow-y:auto; height:calc(100vh - 56px); padding-bottom:70px; }
-@media (min-width:900px) { .content { padding-bottom:0; } }
-.hero-bar { padding:1.2rem 1.5rem 0; border-bottom:1px solid #2a2a2a; background:#111111; }
-.hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,6vw,3rem); letter-spacing:4px; line-height:1; margin-bottom:4px; }
-.hero-title span { color:#e8ff00; }
-.hero-sub { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#666666; letter-spacing:1px; margin-bottom:1rem; }
-.stats-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:#2a2a2a; border:1px solid #2a2a2a; margin-bottom:1rem; }
-.stat-box { background:#1a1a1a; padding:0.8rem 1rem; text-align:center; }
-.stat-num { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.4rem,4vw,2rem); color:#ff3c00; line-height:1; display:block; }
-.stat-lbl { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:#666666; letter-spacing:1px; text-transform:uppercase; margin-top:3px; }
-.mobile-filters { padding:0.8rem 1rem; border-bottom:1px solid #2a2a2a; background:#0a0a0a; display:block; }
-@media (min-width:900px) { .mobile-filters { display:none; } }
-.mf-search { width:100%; background:#111111; border:1px solid #2a2a2a; color:#e8e8e8; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; padding:0.6rem 0.8rem; outline:none; margin-bottom:0.6rem; transition:border-color 0.2s; -webkit-appearance:none; border-radius:0; }
-.mf-search:focus { border-color:#e8ff00; }
-.mf-search::placeholder { color:#666666; }
-.mf-row { display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; margin-bottom:4px; }
-.mf-row::-webkit-scrollbar { display:none; }
-.mf-btn { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.8px; text-transform:uppercase; border:1px solid #2a2a2a; background:none; color:#666666; padding:4px 10px; cursor:pointer; white-space:nowrap; flex-shrink:0; transition:all 0.15s; -webkit-appearance:none; border-radius:0; }
-.mf-btn.active { background:#e8e8e8; color:#0a0a0a; border-color:#e8e8e8; }
-.mf-btn.dem.active { background:#3b82f6; border-color:#3b82f6; color:#fff; }
-.mf-btn.rep.active { background:#ef4444; border-color:#ef4444; color:#fff; }
-.mf-btn.ind.active { background:#a855f7; border-color:#a855f7; color:#fff; }
-.results-bar { display:flex; justify-content:space-between; align-items:center; margin-top:4px; }
-.results-count { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:#666666; }
-.sort-sel { background:#111111; border:1px solid #2a2a2a; color:#e8e8e8; font-family:'IBM Plex Mono',monospace; font-size:0.6rem; padding:4px 8px; outline:none; -webkit-appearance:none; border-radius:0; }
-.member-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:#2a2a2a; }
-@media (min-width:600px) { .member-grid { grid-template-columns:repeat(3,1fr); } }
-.grid-card { background:#111111; cursor:pointer; position:relative; overflow:hidden; aspect-ratio:3/4; transition:background 0.15s; }
-.grid-card:hover { background:#1a1a1a; }
-.grid-photo { width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform 0.3s; }
-.grid-card:hover .grid-photo { transform:scale(1.03); }
-.grid-placeholder { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:2.5rem; color:#666666; background:#1a1a1a; }
-.grid-overlay { position:absolute; bottom:0; left:0; right:0; background:linear-gradient(transparent,rgba(0,0,0,0.93) 35%); padding:28px 8px 8px; }
-.party-stripe { position:absolute; top:0; left:0; width:3px; height:100%; }
-.grid-score { position:absolute; top:8px; right:8px; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:14px; font-weight:700; color:#000; border:2px solid rgba(255,255,255,0.2); }
-.grid-name { font-family:'IBM Plex Sans',sans-serif; font-weight:600; font-size:0.8rem; color:#fff; line-height:1.2; margin-bottom:2px; }
-.grid-meta { font-size:0.65rem; color:rgba(255,255,255,0.55); }
-.grid-tags { display:flex; gap:3px; margin-top:4px; flex-wrap:wrap; }
-.grid-tag { font-family:'IBM Plex Mono',monospace; font-size:0.5rem; letter-spacing:0.5px; padding:2px 5px; text-transform:uppercase; }
+body { background:var(--bg-base); color:var(--fg-body); font-family:'Barlow',sans-serif; min-height:100vh; overflow-x:hidden; }
+a { color:var(--accent-blue); }
+
+/* ── Ambient backdrop ── */
+.backdrop-grid {
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image: linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+.backdrop-grid::after {
+  content:''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 40%, transparent 0%, rgba(4,6,10,0.72) 70%);
+}
+.backdrop-scan { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; mix-blend-mode:screen; }
+@keyframes grid-scan { 0% { transform: translateY(-100%); } 100% { transform: translateY(100vh); } }
+@keyframes scan-color { 0% { color: #3b82f6; } 33% { color: #eef4f8; } 66% { color: #ff5667; } 100% { color: #3b82f6; } }
+.scan-line {
+  position:absolute; left:0; right:0; top:0; height:2px;
+  background: linear-gradient(90deg, transparent 5%, color-mix(in srgb, currentColor 35%, transparent) 20%, color-mix(in srgb, currentColor 60%, transparent) 50%, color-mix(in srgb, currentColor 35%, transparent) 80%, transparent 95%);
+  box-shadow: 0 0 8px color-mix(in srgb, currentColor 40%, transparent), 0 0 20px color-mix(in srgb, currentColor 15%, transparent);
+}
+.scan-line.l1 { animation: grid-scan 9s linear infinite, scan-color 27s step-end infinite; }
+.scan-line.l2 { animation: grid-scan 9s linear 4.5s infinite, scan-color 27s step-end -4.5s infinite; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+
+/* ── OSP global nav ── */
+.osp-nav {
+  position:relative; z-index:10; min-height:54px; padding:8px 20px;
+  background:var(--bg-header); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px);
+  border-bottom:1px solid rgba(59,130,246,0.22);
+  display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+}
+.osp-brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
+@keyframes logo-spin { 0%{transform:rotateY(0)} 49.9%{transform:rotateY(90deg)} 50%{transform:rotateY(-90deg)} 100%{transform:rotateY(0)} }
+.osp-logo { width:32px; height:32px; border-radius:50%; border:1px solid var(--border-medium); animation:logo-spin 8s linear infinite; display:block; }
+.osp-name { font-family:'Oxanium',sans-serif; font-weight:800; font-size:15px; letter-spacing:var(--tracking-ultra); color:var(--fg-primary); }
+.osp-links { display:flex; align-items:center; gap:2px; }
+.osp-links a { font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; color:var(--fg-muted); text-decoration:none; padding:8px 13px; border-radius:var(--radius-md); transition:all .2s; white-space:nowrap; }
+.osp-links a:hover { color:var(--fg-primary); background:rgba(59,130,246,0.1); }
+.osp-right { display:flex; align-items:center; gap:10px; }
+.osp-api {
+  padding:6px 14px; background:rgba(59,130,246,0.12); border:1px solid rgba(59,130,246,0.35);
+  color:var(--accent-blue); font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px;
+  letter-spacing:var(--tracking-wider); text-decoration:none; border-radius:var(--radius-md); transition:all .2s; white-space:nowrap;
+}
+.osp-api:hover { background:rgba(59,130,246,0.22); }
+.osp-burger { display:none; background:none; border:1px solid var(--border-default); border-radius:var(--radius-md); color:var(--fg-muted); font-size:15px; padding:5px 11px; cursor:pointer; }
+.osp-menu { display:none; width:100%; background:var(--bg-raised); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); margin-top:6px; }
+.osp-menu a { display:block; padding:13px 24px; font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; color:var(--fg-muted); text-decoration:none; border-bottom:1px solid var(--border-subtle); }
+.osp-menu a:last-child { border-bottom:none; }
+.osp-menu.open { display:block; }
+@media (max-width:900px) { .osp-links { display:none; } .osp-burger { display:block; } }
+
+/* ── Notice strip ── */
+.notice-strip {
+  position:relative; z-index:9;
+  background: color-mix(in srgb, #f3c25a 7%, transparent);
+  border-bottom:1px solid rgba(243,194,90,0.22);
+  padding:10px 20px; display:flex; justify-content:space-between; align-items:center; gap:12px;
+  font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:#f3d79a;
+}
+.notice-strip button {
+  background:transparent; border:1px solid rgba(243,194,90,0.35); color:#f3d79a;
+  font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; letter-spacing:var(--tracking-wider);
+  padding:3px 10px; cursor:pointer; flex-shrink:0; border-radius:var(--radius-sm);
+}
+
+/* ── Product bar ── */
+.product-bar {
+  position:relative; z-index:9; padding:11px 20px;
+  border-bottom:1px solid var(--border-subtle);
+  background:rgba(9,13,19,0.5); backdrop-filter:blur(9px); -webkit-backdrop-filter:blur(9px);
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+.product-left { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; }
+.wordmark { font-family:'Oxanium',sans-serif; font-weight:800; font-size:19px; letter-spacing:3px; color:var(--fg-primary); }
+.wordmark span { color:var(--accent-red); }
+.product-tagline { font-family:'Oxanium',sans-serif; font-weight:600; font-size:10px; letter-spacing:var(--tracking-widest); text-transform:uppercase; color:var(--fg-primary); }
+.live-wrap { display:flex; align-items:center; gap:8px; }
+@keyframes pulse-dot { 0%,100%{opacity:1} 50%{opacity:.35} }
+.live-dot { width:7px; height:7px; border-radius:50%; background:var(--accent-green); box-shadow:0 0 8px #9fe7c8; animation:pulse-dot 2.2s ease-in-out infinite; }
+.live-text { font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; letter-spacing:var(--tracking-widest); color:var(--accent-green); }
+
+/* ── Page layout ── */
+.page { position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 24px; }
+
+/* ── Hero ── */
+.hero { position:relative; overflow:hidden; text-align:center; padding:52px 24px 34px; }
+.hero-glow { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:640px; height:520px; background:radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 62%); pointer-events:none; }
+.hero-title { position:relative; font-family:'Oxanium',sans-serif; font-weight:800; font-size:clamp(32px, 6.5vw, 62px); text-transform:uppercase; letter-spacing:-0.02em; line-height:1.05; color:var(--fg-primary); }
+.hero-title span { color:var(--accent-red); }
+.hero-sub { position:relative; margin-top:12px; font-family:'Oxanium',sans-serif; font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:var(--tracking-widest); color:var(--fg-dim); }
+
+/* ── Glass panel base ── */
+.glass { background:var(--glass-bg); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1px solid var(--border-default); }
+
+/* ── Stat strip ── */
+.stat-strip { display:grid; grid-template-columns:repeat(auto-fit, minmax(178px, 1fr)); gap:12px; margin-bottom:16px; }
+.stat-box { border-radius:var(--radius-xl); padding:15px 16px; }
+.stat-lbl { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:var(--tracking-widest); color:var(--fg-faint); margin-bottom:6px; }
+.stat-num { font-family:'Oxanium',sans-serif; font-weight:800; font-size:30px; line-height:1; color:var(--fg-primary); display:block; }
+.stat-num.mono { font-family:'IBM Plex Mono',monospace; font-weight:500; font-size:19px; color:var(--fg-body); }
+
+/* ── Control bar ── */
+.control-bar { position:sticky; top:0; z-index:6; border-radius:var(--radius-xl); padding:12px 14px; margin-bottom:16px; }
+.cb-row1 { display:flex; gap:10px; margin-bottom:10px; }
+.cb-search {
+  flex:1; min-width:0; background:var(--bg-raised); border:1px solid var(--border-default); border-radius:var(--radius-md);
+  color:var(--fg-primary); font-family:'Oxanium',sans-serif; font-weight:600; font-size:13px; letter-spacing:1px;
+  padding:9px 12px; outline:none; -webkit-appearance:none; transition:border-color .2s;
+}
+.cb-search:focus { border-color:rgba(59,130,246,0.5); }
+.cb-search::placeholder { color:var(--fg-faint); }
+.sort-sel {
+  background:var(--bg-raised); border:1px solid var(--border-default); border-radius:var(--radius-md);
+  color:var(--fg-muted); font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase;
+  letter-spacing:1px; padding:8px 10px; outline:none; -webkit-appearance:none; cursor:pointer;
+}
+.cb-row2 { display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+.chip-group { display:flex; align-items:center; gap:5px; flex-wrap:wrap; }
+.chip-group-label { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; letter-spacing:var(--tracking-wider); color:var(--fg-faint); margin-right:2px; }
+.chip {
+  padding:5px 12px; border-radius:var(--radius-sm); cursor:pointer;
+  font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase; letter-spacing:var(--tracking-wider);
+  background:transparent; border:1px solid var(--border-default); color:var(--fg-dim);
+  transition:all .15s; -webkit-appearance:none;
+}
+.chip.active { background:color-mix(in srgb, var(--accent-blue) 14%, transparent); border-color:color-mix(in srgb, var(--accent-blue) 45%, transparent); color:var(--accent-blue); }
+.chip.dem.active { background:color-mix(in srgb, #3b82f6 14%, transparent); border-color:color-mix(in srgb, #3b82f6 45%, transparent); color:#3b82f6; }
+.chip.rep.active { background:color-mix(in srgb, #ef4444 14%, transparent); border-color:color-mix(in srgb, #ef4444 45%, transparent); color:#ef4444; }
+.chip.ind.active { background:color-mix(in srgb, #a855f7 14%, transparent); border-color:color-mix(in srgb, #a855f7 45%, transparent); color:#a855f7; }
+.chip.s-crit.active { background:color-mix(in srgb, var(--accent-red-br) 14%, transparent); border-color:color-mix(in srgb, var(--accent-red-br) 45%, transparent); color:var(--accent-red-br); }
+.chip.s-high.active { background:color-mix(in srgb, var(--accent-orange) 14%, transparent); border-color:color-mix(in srgb, var(--accent-orange) 45%, transparent); color:var(--accent-orange); }
+.chip.s-low.active { background:color-mix(in srgb, var(--accent-green) 14%, transparent); border-color:color-mix(in srgb, var(--accent-green) 45%, transparent); color:var(--accent-green); }
+.results-count { margin-left:auto; font-family:'Oxanium',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:var(--tracking-wider); color:var(--fg-primary); white-space:nowrap; }
+
+/* ── Member grid ── */
+.member-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(272px, 1fr)); gap:13px; }
+.m-card {
+  position:relative; overflow:hidden; cursor:pointer; padding:16px 16px 14px 19px;
+  border-radius:var(--radius-2xl); transition:all .25s ease;
+}
+.m-card:hover { border-color:rgba(59,130,246,0.4); transform:translateY(-2px); }
+.m-stripe { position:absolute; top:0; left:0; width:3px; height:100%; opacity:.75; }
+.m-top { display:flex; align-items:flex-start; gap:12px; }
+.thumb {
+  position:relative; flex-shrink:0; width:52px; height:64px; border-radius:var(--radius-md);
+  border:1px solid rgba(120,180,210,0.2); background:var(--bg-raised); overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Oxanium',sans-serif; font-weight:800; font-size:16px; color:var(--fg-faint);
+}
+.thumb-img { position:absolute; inset:0; background-size:cover; background-position:top center; background-repeat:no-repeat; }
+.m-text { flex:1; min-width:0; }
+.m-name { font-family:'Oxanium',sans-serif; font-weight:700; font-size:14.5px; color:var(--fg-primary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.m-party { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:2px; margin-top:3px; }
+.m-loc { font-family:'Oxanium',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.2px; color:var(--fg-primary); margin-top:3px; }
+.m-score {
+  flex-shrink:0; width:42px; height:42px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Oxanium',sans-serif; font-weight:800; font-size:15px;
+}
+.m-tags { display:flex; gap:4px; margin-top:10px; flex-wrap:wrap; }
+.m-tag { padding:3px 8px; border-radius:var(--radius-sm); font-family:'IBM Plex Mono',monospace; font-size:9px; }
+.load-more-wrap { text-align:center; margin:20px 0 6px; }
+.load-more {
+  padding:9px 22px; background:transparent; border:1px solid rgba(59,130,246,0.4); border-radius:var(--radius-md);
+  color:var(--accent-blue); font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase;
+  letter-spacing:var(--tracking-wider); cursor:pointer; transition:all .2s;
+}
+.load-more:hover { background:rgba(59,130,246,0.12); }
+
+/* ── Coverage + sources panels ── */
+.info-panels { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:13px; margin:22px 0 34px; }
+.info-panel { border-radius:var(--radius-xl); overflow:hidden; }
+.info-panel-head { padding:9px 13px; border-bottom:1px solid var(--border-subtle); font-family:'Oxanium',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:2px; color:var(--fg-secondary); }
+.info-panel-body { padding:13px; }
+.cov-row { margin-bottom:12px; }
+.cov-row:last-child { margin-bottom:0; }
+.cov-line { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:5px; }
+.cov-label { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:var(--tracking-wider); color:var(--fg-faint); }
+.cov-val { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--fg-body); }
+.cov-track { height:3px; background:rgba(120,180,210,0.14); border-radius:2px; overflow:visible; }
+.cov-fill { height:100%; border-radius:2px; transition:width .6s ease; }
+.src-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 14px; }
+.src-item { display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--fg-muted); }
+.src-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.src-dot.live { background:var(--accent-green); box-shadow:0 0 6px var(--accent-green); }
+.src-dot.coming { background:transparent; border:1px solid var(--fg-faint); }
+@media (max-width:420px) { .src-grid { grid-template-columns:1fr; } }
+
+/* ── Views ── */
 .profile-view { display:none; }
 .profile-view.active { display:block; }
 .members-view { display:block; }
 .members-view.hidden { display:none; }
-.profile-header-bar { display:flex; align-items:center; gap:0.8rem; padding:0.8rem 1rem; border-bottom:1px solid #2a2a2a; background:#111111; }
-.back-btn { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:1px; color:#e8ff00; background:none; border:1px solid #e8ff00; padding:4px 10px; cursor:pointer; text-transform:uppercase; flex-shrink:0; -webkit-appearance:none; border-radius:0; }
-.profile-name-small { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.profile-hero { display:grid; grid-template-columns:auto 1fr auto; gap:1rem; padding:1.2rem; border-bottom:1px solid #2a2a2a; background:#111111; }
-.profile-photo { width:72px; height:90px; object-fit:cover; object-position:top; flex-shrink:0; border:2px solid #2a2a2a; }
-.profile-photo-placeholder { width:72px; height:90px; background:#1a1a1a; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:1.8rem; color:#e8ff00; border:2px solid #2a2a2a; flex-shrink:0; }
-.profile-full-name { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.4rem,4vw,2rem); letter-spacing:2px; line-height:1; margin-bottom:6px; }
-.profile-details { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#aaa; line-height:2; text-transform:uppercase; }
-.profile-details b { color:#e8e8e8; }
-.score-display { text-align:right; }
-.score-big { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.6rem,7vw,3.5rem); line-height:1; }
-.score-sublabel { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:#666666; letter-spacing:1.5px; text-transform:uppercase; margin-top:2px; }
-.score-bar { width:80px; height:4px; background:#2a2a2a; margin:6px 0 0 auto; }
-.score-bar-fill { height:100%; transition:width 0.8s ease; }
-.profile-tabs { display:flex; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid #2a2a2a; background:#111111; padding:0 1rem; }
+
+/* ── Profile header ── */
+.profile-topline { display:flex; align-items:center; gap:14px; margin:18px 0 14px; flex-wrap:wrap; }
+.back-btn {
+  padding:7px 14px; background:transparent; border:1px solid rgba(59,130,246,0.4); border-radius:var(--radius-md);
+  color:var(--accent-blue); font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase;
+  letter-spacing:var(--tracking-wider); cursor:pointer; white-space:nowrap; -webkit-appearance:none; transition:all .2s;
+}
+.back-btn:hover { background:rgba(59,130,246,0.12); }
+.breadcrumb { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--fg-faint); letter-spacing:0.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.profile-hero { border-radius:var(--radius-2xl); padding:22px; display:flex; gap:22px; flex-wrap:wrap; margin-bottom:18px; }
+.profile-photo-wrap {
+  position:relative; flex-shrink:0; width:96px; height:120px; border-radius:var(--radius-lg);
+  border:1px solid rgba(120,180,210,0.2); background:var(--bg-raised); overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Oxanium',sans-serif; font-weight:800; font-size:26px; color:var(--fg-faint);
+}
+.profile-main { flex:1; min-width:220px; }
+.profile-name { font-family:'Oxanium',sans-serif; font-weight:800; font-size:clamp(24px, 3.6vw, 38px); text-transform:uppercase; line-height:1.1; color:var(--fg-primary); }
+.pill-row { display:flex; gap:6px; margin-top:10px; flex-wrap:wrap; }
+.pill { padding:3px 9px; border-radius:var(--radius-sm); font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:1px; }
+.kv-pairs { display:flex; gap:22px; margin-top:16px; flex-wrap:wrap; }
+.kv-pair .k { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:var(--tracking-wider); color:var(--fg-faint); margin-bottom:3px; }
+.kv-pair .v { font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--fg-body); }
+.score-block { text-align:right; margin-left:auto; }
+.score-block-label { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; text-transform:uppercase; letter-spacing:var(--tracking-widest); color:var(--fg-faint); }
+.score-big { font-family:'Oxanium',sans-serif; font-weight:800; font-size:clamp(40px, 7vw, 64px); line-height:1; }
+.score-track { width:130px; height:4px; background:rgba(120,180,210,0.14); border-radius:2px; margin:8px 0 6px auto; }
+.score-fill { height:100%; border-radius:2px; transition:width .8s ease; }
+.score-band { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--fg-faint); }
+
+/* ── Tabs ── */
+.profile-tabs { display:flex; overflow-x:auto; scrollbar-width:none; border-bottom:1px solid var(--border-subtle); margin-bottom:20px; }
 .profile-tabs::-webkit-scrollbar { display:none; }
-.ptab { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:1.5px; text-transform:uppercase; padding:0.8rem 1rem; border:none; background:none; color:#666666; cursor:pointer; white-space:nowrap; border-bottom:2px solid transparent; transition:all 0.2s; flex-shrink:0; -webkit-appearance:none; border-radius:0; }
-.ptab:hover { color:#e8e8e8; }
-.ptab.active { color:#e8ff00; border-bottom-color:#e8ff00; }
-.ppanel { display:none; padding:1.2rem; }
+.ptab {
+  font-family:'Oxanium',sans-serif; font-weight:700; font-size:10.5px; text-transform:uppercase; letter-spacing:var(--tracking-wider);
+  padding:11px 15px; border:none; background:none; color:var(--fg-dim); cursor:pointer; white-space:nowrap;
+  border-bottom:2px solid transparent; margin-bottom:-1px; transition:all .2s; flex-shrink:0; -webkit-appearance:none;
+}
+.ptab:hover { color:var(--fg-primary); }
+.ptab.active { color:var(--accent-blue); border-bottom-color:var(--accent-blue); }
+.ppanel { display:none; }
 .ppanel.active { display:block; }
-.stats-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:#2a2a2a; border:1px solid #2a2a2a; margin-bottom:1.2rem; }
-@media (min-width:600px) { .stats-grid { grid-template-columns:repeat(4,1fr); } }
-.stat-cell { background:#111111; padding:1rem; }
-.stat-cell-label { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; letter-spacing:1.5px; text-transform:uppercase; color:#666666; margin-bottom:0.4rem; }
-.stat-cell-value { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; line-height:1; }
-.stat-cell-change { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; margin-top:0.3rem; }
-.up { color:#ff3c00; }
-.neutral { color:#666666; }
-.sec-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.8rem; }
-.sec-title { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:2px; display:flex; align-items:center; gap:0.6rem; }
-.sec-title::before { content:''; width:3px; height:1rem; background:#e8ff00; flex-shrink:0; }
-.sec-badge { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; background:rgba(232,255,0,0.1); color:#e8ff00; border:1px solid rgba(232,255,0,0.3); padding:2px 8px; letter-spacing:1px; }
-.chart-box { background:#111111; border:1px solid #2a2a2a; padding:1rem; margin-bottom:1.2rem; }
-.chart-area { height:160px; position:relative; margin-top:0.8rem; }
-canvas.chart-canvas { width:100% !important; height:160px !important; }
-.chart-legend { display:flex; gap:1rem; margin-top:0.8rem; flex-wrap:wrap; }
-.legend-item { display:flex; align-items:center; gap:5px; font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#666666; }
+
+/* ── Generic panel slots ── */
+.stats-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:18px; }
+.stat-cell { border-radius:var(--radius-xl); padding:14px 15px; }
+.stat-cell-label { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; letter-spacing:var(--tracking-widest); text-transform:uppercase; color:var(--fg-faint); margin-bottom:7px; }
+.stat-cell-value { font-family:'Oxanium',sans-serif; font-weight:800; font-size:26px; line-height:1; color:var(--fg-primary); }
+.stat-cell-note { font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--fg-faint); margin-top:6px; }
+
+.alert-box {
+  display:flex; gap:12px; padding:13px 15px; border-radius:var(--radius-lg); margin-bottom:10px;
+  background:color-mix(in srgb, var(--accent-red) 7%, transparent);
+  border:1px solid color-mix(in srgb, var(--accent-red) 28%, transparent);
+  border-left:3px solid var(--accent-red);
+}
+.alert-box .alert-icon { color:var(--accent-red); font-size:15px; flex-shrink:0; line-height:1.3; }
+.alert-box .alert-title { font-family:'Oxanium',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--accent-red); margin-bottom:4px; }
+.alert-box.warn { background:color-mix(in srgb, var(--accent-amber) 7%, transparent); border-color:color-mix(in srgb, var(--accent-amber) 28%, transparent); border-left-color:var(--accent-amber); }
+.alert-box.warn .alert-icon, .alert-box.warn .alert-title { color:var(--accent-amber); }
+.alert-box.info { background:color-mix(in srgb, var(--accent-blue) 7%, transparent); border-color:color-mix(in srgb, var(--accent-blue) 28%, transparent); border-left-color:var(--accent-blue); }
+.alert-box.info .alert-icon, .alert-box.info .alert-title { color:var(--accent-blue); }
+.alert-body { font-family:'Barlow',sans-serif; font-size:13px; color:var(--fg-body); line-height:1.6; }
+.alert-body code { font-family:'IBM Plex Mono',monospace; font-size:11px; background:rgba(120,180,210,0.1); padding:1px 4px; border-radius:2px; color:var(--fg-primary); }
+.alert-body a { font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--accent-blue); text-decoration:none; border-bottom:1px dotted var(--accent-blue); }
+
+.sec-header { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }
+.sec-title { font-family:'Oxanium',sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:2px; color:var(--fg-primary); display:flex; align-items:center; gap:9px; }
+.sec-title::before { content:''; width:3px; height:14px; background:var(--accent-red); flex-shrink:0; border-radius:1px; }
+.sec-badge { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--accent-blue); border:1px solid rgba(59,130,246,0.4); border-radius:var(--radius-sm); padding:3px 9px; white-space:nowrap; }
+
+.table-panel { border-radius:var(--radius-xl); overflow:auto; margin-bottom:8px; }
+.data-table { width:100%; border-collapse:collapse; }
+.data-table th { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; letter-spacing:var(--tracking-widest); text-transform:uppercase; color:var(--fg-faint); text-align:left; padding:10px 12px; border-bottom:1px solid var(--border-default); white-space:nowrap; }
+.data-table td { padding:9px 12px; border-bottom:1px solid rgba(120,180,210,0.08); vertical-align:top; font-family:'Barlow',sans-serif; font-size:12.5px; color:var(--fg-body); }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table tr:hover td { background:rgba(120,180,210,0.03); }
+.data-table td.mono { font-family:'IBM Plex Mono',monospace; font-size:11px; }
+.cell-sub { font-family:'Barlow',sans-serif; font-size:11px; color:var(--fg-dim); margin-top:2px; }
+.table-note { font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--fg-faint); margin:6px 2px 18px; }
+.donor-tag { display:inline-block; padding:2px 7px; border-radius:var(--radius-sm); font-family:'IBM Plex Mono',monospace; font-size:9px; background:color-mix(in srgb, #ff5667 10%, transparent); border:1px solid color-mix(in srgb, #ff5667 32%, transparent); color:var(--accent-red); margin:1px; }
+.vote-yes { color:var(--accent-green); font-weight:600; }
+.vote-no  { color:var(--accent-red-br); font-weight:600; }
+.vote-abs { color:var(--fg-faint); }
+.bill-id { font-family:'IBM Plex Mono',monospace; font-size:11px; }
+.bill-id a { color:var(--accent-blue); text-decoration:none; }
+
+.chart-box { border-radius:var(--radius-xl); margin-bottom:18px; overflow:hidden; }
+.chart-box-head { padding:9px 13px; border-bottom:1px solid var(--border-subtle); font-family:'Oxanium',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:2px; color:var(--fg-secondary); }
+.chart-box-body { padding:14px 15px; }
+.chart-area { height:170px; position:relative; }
+canvas.chart-canvas { width:100% !important; height:170px !important; }
+.chart-legend { display:flex; gap:16px; margin-top:10px; flex-wrap:wrap; }
+.legend-item { display:flex; align-items:center; gap:6px; font-family:'IBM Plex Mono',monospace; font-size:10px; color:var(--fg-dim); }
 .legend-line { width:18px; height:2px; border-radius:1px; }
-.chart-note { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:#333; margin-top:6px; }
-.alert-box { border:1px solid #ff3c00; background:rgba(255,60,0,0.06); border-left:3px solid #ff3c00; padding:0.9rem 1rem; margin-bottom:0.7rem; display:flex; gap:0.8rem; align-items:flex-start; }
-.alert-box.warn { border-color:#ffaa00; background:rgba(255,170,0,0.06); border-left-color:#ffaa00; }
-.alert-box.info { border-color:#00d4ff; background:rgba(0,212,255,0.05); border-left-color:#00d4ff; }
-.alert-icon { font-family:'Bebas Neue',sans-serif; font-size:1.1rem; color:#ff3c00; flex-shrink:0; line-height:1; margin-top:2px; }
-.alert-box.warn .alert-icon { color:#ffaa00; }
-.alert-box.info .alert-icon { color:#00d4ff; }
-.alert-title { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; font-weight:600; color:#ff3c00; letter-spacing:0.5px; margin-bottom:4px; text-transform:uppercase; }
-.alert-box.warn .alert-title { color:#ffaa00; }
-.alert-box.info .alert-title { color:#00d4ff; }
-.alert-body { font-size:0.78rem; color:#e8e8e8; line-height:1.6; }
-.alert-body code { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; background:rgba(255,255,255,0.08); padding:1px 4px; color:#e8ff00; }
-.data-table { width:100%; border-collapse:collapse; font-size:0.78rem; margin-bottom:1.2rem; display:block; overflow-x:auto; }
-.data-table th { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:1.5px; text-transform:uppercase; color:#666666; text-align:left; padding:0.5rem 0.7rem; border-bottom:1px solid #2a2a2a; background:#111111; white-space:nowrap; }
-.data-table td { padding:0.6rem 0.7rem; border-bottom:1px solid rgba(255,255,255,0.04); vertical-align:top; }
-.data-table tr:hover td { background:rgba(255,255,255,0.02); }
-.bill-id { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:#00d4ff; }
-.vote-yes { color:#00ff88; font-weight:600; }
-.vote-no  { color:#ff3c00; font-weight:600; }
-.vote-abs { color:#666666; }
-.donor-tag { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.52rem; letter-spacing:0.5px; background:rgba(255,60,0,0.1); border:1px solid rgba(255,60,0,0.25); color:#ff3c00; padding:1px 5px; margin:1px; }
-.kv-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.05); font-size:0.8rem; }
-.kv-row:last-child { border-bottom:none; }
-.kv-label { color:#888; font-size:0.75rem; }
-.kv-val { color:#e8e8e8; text-align:right; }
-.kv-val.hot { color:#ff3c00; }
-.kv-val.warm { color:#ffaa00; }
-.kv-val.cool { color:#00ff88; }
-.network-box { background:#111111; border:1px solid #2a2a2a; height:260px; position:relative; overflow:hidden; margin-bottom:1.2rem; }
-canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
-.compare-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:#2a2a2a; border:1px solid #2a2a2a; margin-bottom:1.2rem; }
-@media (min-width:600px) { .compare-grid { grid-template-columns:repeat(4,1fr); } }
-.tools-bar { border-top:1px solid #2a2a2a; padding:0.8rem 1.2rem; display:flex; gap:0.5rem; background:#111111; flex-wrap:wrap; }
-.tool-btn { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:1px; text-transform:uppercase; border:1px solid #2a2a2a; background:none; color:#e8e8e8; padding:5px 10px; cursor:pointer; transition:all 0.15s; -webkit-appearance:none; border-radius:0; }
-.tool-btn:hover { border-color:#e8ff00; color:#e8ff00; }
-.tool-btn.danger:hover { border-color:#ff3c00; color:#ff3c00; }
+.chart-note { font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--fg-faint); margin-top:7px; }
+
+.link-btn {
+  display:inline-block; padding:8px 16px; background:transparent; border:1px solid rgba(59,130,246,0.4); border-radius:var(--radius-md);
+  color:var(--accent-blue); font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase;
+  letter-spacing:var(--tracking-wider); text-decoration:none; cursor:pointer; transition:all .2s; margin:4px 0 14px;
+}
+.link-btn:hover { background:rgba(59,130,246,0.12); }
+.link-lead { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--fg-body); margin-bottom:8px; }
+.link-lead code { background:rgba(120,180,210,0.1); padding:1px 4px; border-radius:2px; }
+
+/* ── Score breakdown ── */
+.breakdown-panel { border-radius:var(--radius-xl); margin-bottom:18px; overflow:hidden; }
+.breakdown-head { padding:9px 13px; border-bottom:1px solid var(--border-subtle); display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.breakdown-title { font-family:'Oxanium',sans-serif; font-weight:700; font-size:11px; text-transform:uppercase; letter-spacing:2px; color:var(--fg-secondary); }
+.breakdown-sub { font-family:'Oxanium',sans-serif; font-weight:700; font-size:9px; letter-spacing:var(--tracking-wider); color:var(--fg-faint); white-space:nowrap; }
+.breakdown-body { padding:14px 15px; }
+.bd-row { margin-bottom:13px; }
+.bd-row:last-child { margin-bottom:0; }
+.bd-line { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:5px; }
+.bd-label { font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase; letter-spacing:1px; color:var(--fg-muted); }
+.bd-val { font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--fg-body); }
+.bd-track { height:5px; background:rgba(120,180,210,0.14); border-radius:3px; }
+.bd-fill { height:100%; border-radius:3px; transition:width .6s ease; }
+
+/* ── Tools bar / misc ── */
+.tools-bar { border-top:1px solid var(--border-subtle); padding:16px 0; display:flex; gap:8px; flex-wrap:wrap; margin-top:24px; }
+.tool-btn {
+  padding:7px 14px; border-radius:var(--radius-md); background:transparent; border:1px solid var(--border-default);
+  color:var(--fg-muted); font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; text-transform:uppercase;
+  letter-spacing:1px; cursor:pointer; white-space:nowrap; transition:all .15s; -webkit-appearance:none;
+}
+.tool-btn:hover { border-color:rgba(59,130,246,0.45); color:var(--accent-blue); }
+.tool-btn.danger { color:var(--accent-red); }
+.tool-btn.danger:hover { border-color:color-mix(in srgb, var(--accent-red) 45%, transparent); color:var(--accent-red-br); }
+.disclaimer { font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:var(--fg-faint); line-height:1.7; padding:12px 14px; border:1px solid var(--border-subtle); border-radius:var(--radius-lg); margin-top:14px; }
 .loading-wrap { text-align:center; padding:60px 20px; }
-.loading-text { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#666666; letter-spacing:2px; }
-.loading-bar { width:200px; height:2px; background:#2a2a2a; margin:16px auto 0; overflow:hidden; }
-.loading-fill { height:100%; background:#e8ff00; animation:loadanim 1.5s ease-in-out infinite; }
+.loading-text { font-family:'Oxanium',sans-serif; font-weight:700; font-size:11px; color:var(--fg-faint); letter-spacing:var(--tracking-widest); }
+.loading-bar { width:200px; height:2px; background:rgba(120,180,210,0.14); margin:16px auto 0; overflow:hidden; border-radius:1px; }
+.loading-fill { height:100%; background:var(--accent-blue); animation:loadanim 1.5s ease-in-out infinite; }
 @keyframes loadanim { 0%{width:0;margin-left:0} 50%{width:100%;margin-left:0} 100%{width:0;margin-left:100%} }
-.empty-msg { text-align:center; padding:40px 20px; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:#666666; }
-.toast { position:fixed; left:50%; bottom:calc(70px + env(safe-area-inset-bottom)); transform:translateX(-50%) translateY(8px); background:#1a1a1a; border:1px solid #e8ff00; color:#e8ff00; font-family:'IBM Plex Mono',monospace; font-size:0.62rem; letter-spacing:1px; text-transform:uppercase; padding:8px 14px; z-index:300; opacity:0; pointer-events:none; transition:opacity 0.2s,transform 0.2s; }
+.empty-msg { text-align:center; padding:40px 20px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--fg-faint); }
+.toast {
+  position:fixed; left:50%; bottom:calc(24px + env(safe-area-inset-bottom)); transform:translateX(-50%) translateY(8px);
+  background:var(--bg-raised); border:1px solid rgba(59,130,246,0.4); border-radius:var(--radius-md); color:var(--accent-blue);
+  font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; letter-spacing:1px; text-transform:uppercase;
+  padding:9px 15px; z-index:300; opacity:0; pointer-events:none; transition:opacity .2s, transform .2s;
+}
 .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
-.disclaimer { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#333; margin-top:0.8rem; line-height:1.6; padding:0.6rem; border:1px solid #1a1a1a; }
+.network-box { position:relative; height:260px; overflow:hidden; border-radius:var(--radius-xl); margin-bottom:14px; }
+canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+/* ── Footer ── */
+.osp-footer { position:relative; z-index:1; border-top:1px solid var(--border-subtle); padding:40px 24px; margin-top:44px; }
+.footer-inner { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:28px; }
+@media (max-width:760px) { .footer-inner { grid-template-columns:1fr 1fr; } }
+@media (max-width:460px) { .footer-inner { grid-template-columns:1fr; } }
+.footer-brand-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.footer-logo { width:28px; height:28px; border-radius:50%; border:1px solid var(--border-medium); animation:logo-spin 8s linear infinite; }
+.footer-osp { font-family:'Oxanium',sans-serif; font-weight:800; font-size:13px; letter-spacing:var(--tracking-ultra); color:var(--accent-blue); }
+.footer-org { font-family:'Barlow',sans-serif; font-size:12px; color:var(--fg-dim); line-height:1.6; }
+.footer-email { display:inline-block; margin-top:10px; font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--fg-muted); text-decoration:none; border-bottom:1px dotted var(--accent-blue); }
+.footer-col-head { font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; letter-spacing:var(--tracking-widest); text-transform:uppercase; color:var(--fg-faint); margin-bottom:12px; }
+.footer-col a { display:block; font-family:'Barlow',sans-serif; font-size:13px; color:var(--fg-muted); text-decoration:none; margin-bottom:8px; transition:color .2s; }
+.footer-col a:hover { color:var(--accent-blue); }
+.footer-bottom { max-width:1180px; margin:32px auto 0; padding-top:16px; border-top:1px solid var(--border-subtle); display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:8px; color:var(--fg-faint); letter-spacing:0.5px; }
 </style>
 </head>
 <body>
 
-<header>
-  <div>
-    <div class="logo">Congress<span>Watch</span></div>
-    <div class="tagline">Open Source Government Accountability</div>
-  </div>
-  <div class="header-right">
-    <div class="status-dot"></div>
-    <div class="status-text">LIVE DATA</div>
-  </div>
-</header>
+<div class="backdrop-grid"></div>
+<div class="backdrop-scan">
+  <div class="scan-line l1"></div>
+  <div class="scan-line l2"></div>
+</div>
 
-<div id="data-banner" style="background:#1a1500;border-bottom:1px solid #3a3000;padding:10px 1.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#c8b830;display:flex;justify-content:space-between;align-items:center">
+<nav class="osp-nav">
+  <a class="osp-brand" href="https://opensourceforall.com" target="_blank" rel="noopener">
+    <img class="osp-logo" src="osp-logo.jpg" alt="OSP logo">
+    <span class="osp-name">O.S.P.</span>
+  </a>
+  <div class="osp-links">
+    <a href="https://opensourceforall.com/work" target="_blank" rel="noopener">PORTFOLIO</a>
+    <a href="https://opensourceforall.com/services" target="_blank" rel="noopener">SERVICES</a>
+    <a href="https://opensourceforall.com/mission" target="_blank" rel="noopener">MISSION</a>
+    <a href="https://opensourceforall.com/staff" target="_blank" rel="noopener">STAFF</a>
+    <a href="https://opensourceforall.com/voice" target="_blank" rel="noopener">YOUR VOICE</a>
+    <a href="https://opensourceforall.com/contact" target="_blank" rel="noopener">CONTACT</a>
+  </div>
+  <div class="osp-right">
+    <a class="osp-api" href="https://api.opensourceforall.com" target="_blank" rel="noopener">API →</a>
+    <button class="osp-burger" id="osp-burger" aria-label="Menu">☰</button>
+  </div>
+  <div class="osp-menu" id="osp-menu">
+    <a href="https://opensourceforall.com/work" target="_blank" rel="noopener">PORTFOLIO</a>
+    <a href="https://opensourceforall.com/services" target="_blank" rel="noopener">SERVICES</a>
+    <a href="https://opensourceforall.com/mission" target="_blank" rel="noopener">MISSION</a>
+    <a href="https://opensourceforall.com/staff" target="_blank" rel="noopener">STAFF</a>
+    <a href="https://opensourceforall.com/voice" target="_blank" rel="noopener">YOUR VOICE</a>
+    <a href="https://opensourceforall.com/contact" target="_blank" rel="noopener">CONTACT</a>
+  </div>
+</nav>
+
+<div id="data-banner" class="notice-strip">
   <span>CongressWatch data pipelines run daily. Scores and detailed profiles update automatically as government API data becomes available. Members showing '--' are pending their first complete data pull.</span>
-  <button onclick="this.parentElement.style.display='none'" style="background:none;border:1px solid #3a3000;color:#c8b830;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;padding:2px 8px;cursor:pointer;flex-shrink:0;margin-left:12px;border-radius:0;-webkit-appearance:none">DISMISS</button>
+  <button onclick="this.parentElement.style.display='none'">DISMISS</button>
 </div>
-<div class="app">
-  <div class="sidebar">
-    <div class="sidebar-inner">
-      <input class="sidebar-search" id="sidebar-search" type="search" placeholder="Search members...">
-      <div class="sidebar-label">Chamber</div>
-      <div class="sidebar-filters">
-        <button class="sf-btn active" data-chamber="all">All</button>
-        <button class="sf-btn" data-chamber="Senate">Senate</button>
-        <button class="sf-btn" data-chamber="House">House</button>
+
+<div class="product-bar">
+  <div class="product-left">
+    <div class="wordmark"><span>CONGRESS</span>WATCH</div>
+    <div class="product-tagline">Open Source Government Accountability</div>
+  </div>
+  <div class="live-wrap">
+    <div class="live-dot"></div>
+    <div class="live-text">LIVE DATA</div>
+  </div>
+</div>
+
+<div class="page">
+
+  <div class="members-view" id="members-view">
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <h1 class="hero-title">FOLLOW THE <span>MONEY</span></h1>
+      <div class="hero-sub">PUBLIC RECORDS ONLY — ALL SOURCES CITED — OPEN SOURCE</div>
+    </section>
+
+    <div class="stat-strip">
+      <div class="stat-box glass">
+        <div class="stat-lbl">High Anomaly (60+)</div>
+        <span class="stat-num" id="stat-high" style="color:var(--accent-red-br)">—</span>
       </div>
-      <div class="sidebar-label">Party</div>
-      <div class="sidebar-filters">
-        <button class="sf-btn active" data-party="all">All</button>
-        <button class="sf-btn dem" data-party="Democratic">Dem</button>
-        <button class="sf-btn rep" data-party="Republican">Rep</button>
-        <button class="sf-btn ind" data-party="Independent">Ind</button>
+      <div class="stat-box glass">
+        <div class="stat-lbl">Total Members</div>
+        <span class="stat-num" id="stat-total">—</span>
       </div>
-      <div class="sidebar-label">Score</div>
-      <div class="sidebar-filters">
-        <button class="sf-btn active" data-score="all">All</button>
-        <button class="sf-btn" data-score="critical">80+</button>
-        <button class="sf-btn" data-score="high">60+</button>
-        <button class="sf-btn" data-score="low">&lt;40</button>
+      <div class="stat-box glass">
+        <div class="stat-lbl">Corporate Insider Signals</div>
+        <span class="stat-num" id="stat-trades" style="color:var(--accent-amber)">—</span>
       </div>
-      <div class="sidebar-label" style="margin-top:0.5rem">Members <span id="sidebar-count" style="color:#e8e8e8"></span></div>
-      <div class="member-list" id="sidebar-list">
-        <div class="loading-wrap" style="padding:20px">
-          <div class="loading-text">LOADING</div>
-          <div class="loading-bar"><div class="loading-fill"></div></div>
+      <div class="stat-box glass">
+        <div class="stat-lbl">Data Coverage</div>
+        <span class="stat-num" id="stat-coverage" style="color:var(--accent-blue)">—</span>
+      </div>
+      <div class="stat-box glass">
+        <div class="stat-lbl">Last Updated</div>
+        <span class="stat-num mono" id="stat-fresh">—</span>
+      </div>
+    </div>
+
+    <div class="control-bar glass">
+      <div class="cb-row1">
+        <input class="cb-search" id="cb-search" type="search" placeholder="Search name, state, district">
+        <select class="sort-sel" id="sort-sel">
+          <option value="score-desc">Highest Score</option>
+          <option value="score-asc">Lowest Score</option>
+          <option value="name-asc">Name A–Z</option>
+          <option value="name-desc">Name Z–A</option>
+          <option value="state-asc">State A–Z</option>
+        </select>
+      </div>
+      <div class="cb-row2">
+        <div class="chip-group">
+          <span class="chip-group-label">CHAMBER</span>
+          <button class="chip active" data-chamber="all">All</button>
+          <button class="chip" data-chamber="Senate">Senate</button>
+          <button class="chip" data-chamber="House">House</button>
+        </div>
+        <div class="chip-group">
+          <span class="chip-group-label">PARTY</span>
+          <button class="chip active" data-party="all">All</button>
+          <button class="chip dem" data-party="Democratic">Dem</button>
+          <button class="chip rep" data-party="Republican">Rep</button>
+          <button class="chip ind" data-party="Independent">Ind</button>
+        </div>
+        <div class="chip-group">
+          <span class="chip-group-label">SCORE</span>
+          <button class="chip active" data-score="all">All</button>
+          <button class="chip s-crit" data-score="critical">80+</button>
+          <button class="chip s-high" data-score="high">60+</button>
+          <button class="chip s-low" data-score="low">&lt;40</button>
+        </div>
+        <span class="results-count" id="results-count">Loading…</span>
+      </div>
+    </div>
+
+    <div id="grid-wrap">
+      <div class="loading-wrap">
+        <div class="loading-text">LOADING MEMBERS</div>
+        <div class="loading-bar"><div class="loading-fill"></div></div>
+      </div>
+    </div>
+
+    <div class="info-panels">
+      <div class="info-panel glass">
+        <div class="info-panel-head">Data Coverage</div>
+        <div class="info-panel-body" id="coverage-body">
+          <div class="empty-msg" style="padding:12px">Loading…</div>
         </div>
       </div>
-      <div class="sidebar-label" style="margin-top:1rem">Data Coverage</div>
-      <div id="sidebar-coverage" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:#666666;line-height:2.2;margin-bottom:0.8rem">Loading...</div>
-      <div class="sidebar-label" style="margin-top:0.5rem">Data Sources</div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:#666666;line-height:2.2">
-        ✓ Congress.gov API<br>
-        ✓ FEC.gov filings<br>
-        ✓ SEC EDGAR (Form 4)<br>
-        ✓ GovTrack.us<br>
-        ✓ LegiScan bill text<br>
-        ✓ Senate/House eFD<br>
-        ◌ OpenSecrets (coming)<br>
-        ◌ LobbyView FARA (coming)
+      <div class="info-panel glass">
+        <div class="info-panel-head">Data Sources</div>
+        <div class="info-panel-body">
+          <div class="src-grid">
+            <div class="src-item"><span class="src-dot live"></span>Congress.gov API</div>
+            <div class="src-item"><span class="src-dot live"></span>FEC.gov filings</div>
+            <div class="src-item"><span class="src-dot live"></span>SEC EDGAR (Form 4)</div>
+            <div class="src-item"><span class="src-dot live"></span>GovTrack.us</div>
+            <div class="src-item"><span class="src-dot live"></span>LegiScan bill text</div>
+            <div class="src-item"><span class="src-dot live"></span>Senate/House eFD</div>
+            <div class="src-item"><span class="src-dot coming"></span>OpenSecrets (coming)</div>
+            <div class="src-item"><span class="src-dot coming"></span>LobbyView FARA (coming)</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="content" id="content">
-    <div class="members-view" id="members-view">
-      <div class="hero-bar">
-        <div class="hero-title">FOLLOW THE <span>MONEY</span></div>
-        <div class="hero-sub">// PUBLIC RECORDS ONLY — ALL SOURCES CITED — OPEN SOURCE</div>
-        <div class="stats-strip" style="grid-template-columns:repeat(5,1fr)">
-          <div class="stat-box">
-            <span class="stat-num" id="stat-high">—</span>
-            <div class="stat-lbl">High Anomaly (60+)</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" id="stat-total">—</span>
-            <div class="stat-lbl">Total Members</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" id="stat-trades">—</span>
-            <div class="stat-lbl">Corporate Insider Signals</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" id="stat-coverage">—</span>
-            <div class="stat-lbl">Data Coverage</div>
-          </div>
-          <div class="stat-box">
-            <span class="stat-num" id="stat-fresh" style="font-size:clamp(0.9rem,2.5vw,1.3rem)">—</span>
-            <div class="stat-lbl">Last Updated</div>
-          </div>
-        </div>
+  <div class="profile-view" id="profile-view">
+    <div class="profile-topline">
+      <button class="back-btn" onclick="showMembersList()">← ALL MEMBERS</button>
+      <div class="breadcrumb" id="profile-breadcrumb">CONGRESSWATCH / MEMBER VAULT</div>
+    </div>
+
+    <div class="profile-hero glass">
+      <div class="profile-photo-wrap" id="pf-photo-wrap">
+        <span id="pf-initials">—</span>
+        <div class="thumb-img" id="pf-photo"></div>
       </div>
-      <div class="mobile-filters">
-        <input class="mf-search" id="mobile-search" type="search" placeholder="Search name, state, district...">
-        <div class="mf-row" id="mf-chamber">
-          <button class="mf-btn active" data-chamber="all">All</button>
-          <button class="mf-btn" data-chamber="Senate">Senate</button>
-          <button class="mf-btn" data-chamber="House">House</button>
-        </div>
-        <div class="mf-row" id="mf-party">
-          <button class="mf-btn active" data-party="all">All</button>
-          <button class="mf-btn dem" data-party="Democratic">Dem</button>
-          <button class="mf-btn rep" data-party="Republican">Rep</button>
-          <button class="mf-btn ind" data-party="Independent">Ind</button>
-        </div>
-        <div class="results-bar">
-          <span class="results-count" id="results-count">Loading...</span>
-          <select class="sort-sel" id="sort-sel">
-            <option value="score-desc">Highest Score</option>
-            <option value="score-asc">Lowest Score</option>
-            <option value="name-asc">Name A–Z</option>
-            <option value="name-desc">Name Z–A</option>
-            <option value="state-asc">State A–Z</option>
-          </select>
-        </div>
+      <div class="profile-main">
+        <h1 class="profile-name" id="pf-name">—</h1>
+        <div class="pill-row" id="pf-pills"></div>
+        <div class="kv-pairs" id="pf-kv"></div>
       </div>
-      <div id="grid-wrap">
-        <div class="loading-wrap">
-          <div class="loading-text">LOADING MEMBERS</div>
+      <div class="score-block">
+        <div class="score-block-label">Anomaly Score</div>
+        <div class="score-big" id="pf-score-big">—</div>
+        <div class="score-track"><div class="score-fill" id="pf-score-bar"></div></div>
+        <div class="score-band" id="pf-score-band">—</div>
+      </div>
+    </div>
+
+    <div class="profile-tabs" id="profile-tabs">
+      <button class="ptab active" data-panel="overview">Overview</button>
+      <button class="ptab" data-panel="votes">Bills &amp; votes</button>
+      <button class="ptab" data-panel="finance">Finances</button>
+      <button class="ptab" data-panel="stocks">Stocks</button>
+      <button class="ptab" data-panel="travel">Travel</button>
+      <button class="ptab" data-panel="patterns">Patterns</button>
+      <button class="ptab" data-panel="network">Donors</button>
+      <button class="ptab" data-panel="compare">Compare</button>
+    </div>
+
+    <div class="ppanel active" id="ppanel-overview"><div id="pf-overview-content"></div></div>
+    <div class="ppanel" id="ppanel-votes">
+      <div id="pf-votes-content">
+        <div class="loading-wrap" style="padding:30px 20px">
+          <div class="loading-text">LOADING VAULT DATA</div>
           <div class="loading-bar"><div class="loading-fill"></div></div>
         </div>
       </div>
     </div>
-
-    <div class="profile-view" id="profile-view">
-      <div class="profile-header-bar">
-        <button class="back-btn" onclick="showMembersList()">← BACK</button>
-        <div class="profile-name-small" id="profile-name-small">—</div>
+    <div class="ppanel" id="ppanel-finance"><div id="pf-finance-content"></div></div>
+    <div class="ppanel" id="ppanel-stocks"><div id="pf-stocks-content"></div></div>
+    <div class="ppanel" id="ppanel-travel"><div id="pf-travel-content"></div></div>
+    <div class="ppanel" id="ppanel-patterns"><div id="pf-patterns-content"></div></div>
+    <div class="ppanel" id="ppanel-network"><div id="pf-donor-content"></div></div>
+    <div class="ppanel" id="ppanel-compare">
+      <div class="sec-header">
+        <div class="sec-title">ALL MEMBERS COMPARISON</div>
+        <div class="sec-badge" id="compare-badge">— TRACKED</div>
       </div>
-      <div class="profile-hero">
-        <div>
-          <img class="profile-photo" id="pf-photo" src="" alt=""
-            onerror="this.style.display='none';document.getElementById('pf-placeholder').style.display='flex'">
-          <div class="profile-photo-placeholder" id="pf-placeholder" style="display:none">—</div>
-        </div>
-        <div class="profile-info">
-          <div class="profile-full-name" id="pf-name">—</div>
-          <div class="profile-details" id="pf-details">—</div>
-        </div>
-        <div class="score-display">
-          <div class="score-big" id="pf-score-big">—</div>
-          <div class="score-sublabel">Anomaly<br>Score</div>
-          <div class="score-bar"><div class="score-bar-fill" id="pf-score-bar"></div></div>
-        </div>
-      </div>
-      <div class="profile-tabs" id="profile-tabs">
-        <button class="ptab active" data-panel="overview">Overview</button>
-        <button class="ptab" data-panel="votes">Votes</button>
-        <button class="ptab" data-panel="finance">Finances</button>
-        <button class="ptab" data-panel="stocks">Stocks</button>
-        <button class="ptab" data-panel="travel">Travel</button>
-        <button class="ptab" data-panel="patterns">Patterns</button>
-        <button class="ptab" data-panel="network">Donors</button>
-        <button class="ptab" data-panel="compare">Compare</button>
-      </div>
-
-      <div class="ppanel active" id="ppanel-overview">
-        <div class="stats-grid" id="pf-stats-grid"></div>
-        <div class="chart-box">
-          <div class="sec-title">CONGRESSIONAL SALARY OVER TIME</div>
-          <div class="chart-area"><canvas class="chart-canvas" id="nw-canvas"></canvas></div>
-          <div class="chart-legend">
-            <div class="legend-item"><div class="legend-line" style="background:#e8ff00"></div>Congressional Base Salary (Public Record)</div>
-            <div class="legend-item"><div class="legend-line" style="background:#555;opacity:0.6"></div>Cumulative Career Earnings</div>
-          </div>
-          <div class="chart-note">Chart shows annual congressional base salary and cumulative career salary earnings from public pay records.</div>
-        </div>
-        <div id="pf-career-earnings" style="font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:#e8e8e8;padding:0.6rem;border:1px solid #2a2a2a;background:#111111;margin-bottom:1.2rem"></div>
-        <div class="sec-header">
-          <div class="sec-title">ANOMALY FLAGS</div>
-          <div class="sec-badge" id="pf-flag-count">—</div>
-        </div>
-        <div id="pf-flags"></div>
-        <div class="disclaimer">DISCLAIMER: Anomaly scores are statistical indicators only and do not imply illegal activity. All data sourced from public government records. Methodology is open source and auditable. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.us, LegiScan.</div>
-      </div>
-
-      <div class="ppanel" id="ppanel-votes">
-        <div id="pf-votes-content">
-          <div class="loading-wrap" style="padding:30px 20px">
-            <div class="loading-text">LOADING VAULT DATA</div>
-            <div class="loading-bar"><div class="loading-fill"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="ppanel" id="ppanel-finance">
-        <div class="stats-grid" id="pf-finance-stats"></div>
-        <div class="chart-box">
-          <div class="sec-title">CONGRESSIONAL BASE SALARY (PUBLIC RECORD)</div>
-          <div class="chart-area"><canvas class="chart-canvas" id="fin-canvas"></canvas></div>
-          <div class="chart-legend">
-            <div class="legend-item"><div class="legend-line" style="background:#e8ff00"></div>Annual Congressional Salary</div>
-            <div class="legend-item"><div class="legend-line" style="background:#555"></div>Cumulative Career Earnings</div>
-          </div>
-          <div class="chart-note">Chart shows annual congressional base salary and cumulative career salary earnings from public pay records.</div>
-        </div>
-        <div id="pf-finance-donors"></div>
-      </div>
-
-      <div class="ppanel" id="ppanel-stocks"><div id="pf-stocks-content"></div></div>
-      <div class="ppanel" id="ppanel-travel"><div id="pf-travel-content"></div></div>
-      <div class="ppanel" id="ppanel-patterns"><div id="pf-patterns-content"></div></div>
-
-      <div class="ppanel" id="ppanel-network">
-        <div id="pf-donor-content"></div>
-      </div>
-
-      <div class="ppanel" id="ppanel-compare">
-        <div class="sec-header">
-          <div class="sec-title">ALL MEMBERS COMPARISON</div>
-          <div class="sec-badge" id="compare-badge">— TRACKED</div>
-        </div>
-        <div class="compare-grid" id="compare-stats"></div>
-        <div id="compare-charts-wrap"></div>
-        <div id="compare-note" style="font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:#444;margin-top:0.8rem"></div>
-      </div>
-
-      <div class="tools-bar">
-        <button class="tool-btn" onclick="exportMemberCSV()">EXPORT CSV</button>
-        <button class="tool-btn" onclick="exportMemberJSON()">EXPORT JSON</button>
-        <button class="tool-btn" onclick="shareMember()">SHARE FINDINGS</button>
-        <button class="tool-btn danger" onclick="if(currentMember)window.open('https://github.com/OpenSourcePatents/Congresswatch/issues/new?title=Data+Review+Request:+'+encodeURIComponent(currentMember.name),'_blank')">FLAG FOR REVIEW</button>
-        <button class="tool-btn" style="margin-left:auto" onclick="window.open('https://github.com/opensourcepatents/congresswatch')">GITHUB →</button>
-      </div>
+      <div class="stats-grid" id="compare-stats"></div>
+      <div id="compare-charts-wrap"></div>
+      <div id="compare-note" class="table-note"></div>
     </div>
 
+    <div class="tools-bar">
+      <button class="tool-btn" onclick="exportMemberCSV()">EXPORT CSV</button>
+      <button class="tool-btn" onclick="exportMemberJSON()">EXPORT JSON</button>
+      <button class="tool-btn" onclick="shareMember()">SHARE FINDINGS</button>
+      <button class="tool-btn danger" onclick="if(currentMember)window.open('https://github.com/OpenSourcePatents/Congresswatch/issues/new?title=Data+Review+Request:+'+encodeURIComponent(currentMember.name),'_blank')">FLAG FOR REVIEW</button>
+      <button class="tool-btn" style="margin-left:auto" onclick="window.open('https://github.com/opensourcepatents/congresswatch')">GITHUB →</button>
+    </div>
+    <div class="disclaimer">DISCLAIMER: Anomaly scores are statistical indicators only and do not imply illegal activity. All data sourced from public government records. Methodology is open source and auditable. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.us, LegiScan.</div>
   </div>
+
 </div>
 
-<div class="mobile-nav">
-  <button class="mobile-nav-btn active" id="mnav-members" onclick="mobileNav('members')">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
-    Members
-  </button>
-  <button class="mobile-nav-btn" id="mnav-bills" onclick="mobileNav('bills')">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-    Bills
-  </button>
-  <button class="mobile-nav-btn" id="mnav-donors" onclick="mobileNav('donors')">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-    Donors
-  </button>
-  <button class="mobile-nav-btn" id="mnav-trades" onclick="mobileNav('trades')">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
-    Trades
-  </button>
-  <button class="mobile-nav-btn" id="mnav-compare" onclick="mobileNav('compare')">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
-    Compare
-  </button>
-</div>
+<footer class="osp-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-row">
+        <img class="footer-logo" src="osp-logo.jpg" alt="OSP logo">
+        <span class="footer-osp">O.S.P.</span>
+      </div>
+      <div class="footer-org">OpenSourcePatents LLC<br>New Hampshire</div>
+      <a class="footer-email" href="mailto:opensourcepatents@gmail.com">opensourcepatents@gmail.com</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Studio</div>
+      <a href="https://opensourceforall.com/work" target="_blank" rel="noopener">Portfolio</a>
+      <a href="https://opensourceforall.com/services" target="_blank" rel="noopener">Services</a>
+      <a href="https://opensourceforall.com/staff" target="_blank" rel="noopener">The Team</a>
+      <a href="https://opensourceforall.com/contact" target="_blank" rel="noopener">Contact</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Open Source</div>
+      <a href="https://opensourceforall.com/mission" target="_blank" rel="noopener">Mission</a>
+      <a href="https://opensourceforall.com/services" target="_blank" rel="noopener">Civic Tools</a>
+      <a href="https://opensourceforall.com/work" target="_blank" rel="noopener">Patents</a>
+      <a href="https://opensourceforall.com/voice" target="_blank" rel="noopener">Your Voice</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-head">Connect</div>
+      <a href="https://api.opensourceforall.com" target="_blank" rel="noopener">Civic Data API</a>
+      <a href="https://github.com/opensourcepatents/congresswatch" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/opensourcepatents" target="_blank" rel="noopener">@opnsorcepatents</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>BUILT IN THE OPEN — GITHUB.COM/OPENSOURCEPATENTS</span>
+    <span id="footer-year">© OPENSOURCEPATENTS LLC</span>
+  </div>
+</footer>
 
 <script>
+document.getElementById('footer-year').textContent = '© ' + new Date().getFullYear() + ' OPENSOURCEPATENTS LLC';
+
+document.getElementById('osp-burger').addEventListener('click', () => {
+  document.getElementById('osp-menu').classList.toggle('open');
+});
+
 window.addEventListener('popstate', function() {
   // If a profile is open, close it. Otherwise do nothing — let the browser leave the site.
   if (document.getElementById('profile-view').classList.contains('active')) {
@@ -451,6 +685,8 @@ let allMembers = [], filtered = [], currentMember = null;
 let filters = { chamber:'all', party:'all', score:'all', search:'', sort:'score-desc' };
 let profileToken = 0;           // monotonic token — discards stale async profile loads
 const detailCache = new Map();  // bioguideId -> vault detail object (avoids refetch on reopen)
+const PAGE_SIZE = 60;
+let visibleCount = PAGE_SIZE;
 
 // Escape text for interpolation into HTML strings
 function esc(s) {
@@ -494,7 +730,7 @@ const SALARY_BY_YEAR = CONGRESSIONAL_SALARY;
 function photoUrl(id) { if (!id) return ''; return `https://bioguide.congress.gov/bioguide/photo/${id[0].toUpperCase()}/${id}.jpg`; }
 function initials(name) { return (name||'').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase(); }
 function partyColor(party) {
-  if (!party) return '#555';
+  if (!party) return '#5d7180';
   const p = party.toLowerCase();
   if (p.includes('dem')) return '#3b82f6';
   if (p.includes('rep')) return '#ef4444';
@@ -508,26 +744,18 @@ function partyShort(party) {
   return 'I';
 }
 function scoreColor(s) {
-  if (s === null || s === undefined) return '#555';
-  if (s >= 80) return '#ff3c00';
-  if (s >= 60) return '#ffaa00';
-  if (s >= 40) return '#e8ff00';
-  if (s >= 20) return '#00ff88';
-  return '#555';
+  if (s === null || s === undefined) return '#5d7180';
+  if (s >= 80) return '#ff3b4e';
+  if (s >= 60) return '#ff7a4e';
+  if (s >= 40) return '#f3c25a';
+  return '#9fe7c8';
 }
-function scoreClass(s) {
-  if (s === null || s === undefined) return 'score-low';
-  if (s >= 80) return 'score-crit';
-  if (s >= 60) return 'score-high';
-  if (s >= 40) return 'score-med';
-  return 'score-low';
-}
-function scoreBg(s) {
-  if (s === null || s === undefined) return '#333';
-  if (s >= 80) return '#ff3c00';
-  if (s >= 60) return '#ffaa00';
-  if (s >= 40) return '#e8ff00';
-  return '#00ff88';
+function scoreBand(s) {
+  if (s === null || s === undefined) return 'DATA PENDING';
+  if (s >= 80) return 'CRITICAL';
+  if (s >= 60) return 'HIGH';
+  if (s >= 40) return 'ELEVATED';
+  return 'TYPICAL';
 }
 function fmtMoney(v) {
   if (!v && v !== 0) return '—';
@@ -587,21 +815,33 @@ async function loadData() {
     console.log('Loaded from JSON:', raw.length);
 
     allMembers = raw.map(mapMember);
-    updateStats(); updateCoverage(); applyFilters(); renderSidebar();
+    updateStats(); updateCoverage(); applyFilters();
   } catch(e) { loadDemo(); }
 }
 
 function updateCoverage() {
-  const el = document.getElementById('sidebar-coverage');
+  const el = document.getElementById('coverage-body');
   if (!el) return;
   const total = allMembers.length;
   const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0).length;
   const withTrades = allMembers.filter(m=>(m.trade_count||0)>0).length;
-  el.innerHTML = `
-    Members with scores: <b style="color:#e8e8e8">${scored} / ${total}</b><br>
-    Members with trades: <b style="color:#e8e8e8">${withTrades} / ${total}</b><br>
-    Vote + Bill data: <b style="color:#e8e8e8">in vault files</b>
-  `;
+  const withData = allMembers.filter(m=>hasRealData(m)).length;
+  const rows = [
+    { label:'Members with scores', n:scored, c:'#3b82f6' },
+    { label:'Members with trade signals', n:withTrades, c:'#f3c25a' },
+    { label:'Complete data profiles', n:withData, c:'#9fe7c8' },
+  ];
+  el.innerHTML = rows.map(r => {
+    const pct = total > 0 ? (r.n/total)*100 : 0;
+    return `
+      <div class="cov-row">
+        <div class="cov-line">
+          <span class="cov-label">${esc(r.label)}</span>
+          <span class="cov-val">${r.n} / ${total}</span>
+        </div>
+        <div class="cov-track"><div class="cov-fill" style="width:${pct}%;background:${r.c};box-shadow:0 0 6px ${r.c}"></div></div>
+      </div>`;
+  }).join('');
 }
 
 function loadDemo() {
@@ -664,8 +904,17 @@ function applyFilters() {
     if (typeof va==='string') return dir==='asc'?va.localeCompare(vb):vb.localeCompare(va);
     return dir==='asc'?va-vb:vb-va;
   });
-  document.getElementById('results-count').textContent = `${filtered.length} members`;
-  renderGrid(); renderSidebar();
+  document.getElementById('results-count').textContent = `${filtered.length} OF ${allMembers.length} MEMBERS`;
+  visibleCount = PAGE_SIZE;
+  renderGrid();
+}
+
+function thumbHtml(m, cls) {
+  return `
+    <div class="${cls}">
+      <span>${esc(initials(m.name))}</span>
+      <div class="thumb-img" style="background-image:url('${esc(m.photo)}')"></div>
+    </div>`;
 }
 
 function renderGrid() {
@@ -673,69 +922,149 @@ function renderGrid() {
   if (filtered.length === 0) { wrap.innerHTML = '<div class="empty-msg">No members match filters.</div>'; return; }
   const grid = document.createElement('div');
   grid.className = 'member-grid';
-  filtered.forEach(m => {
+  filtered.slice(0, visibleCount).forEach(m => {
     const s = m.displayScore;
     const card = document.createElement('div');
-    card.className = 'grid-card';
+    card.className = 'm-card glass';
     card.onclick = () => openProfile(m);
-    const dist = m.district ? `· ${m.state}-${m.district}` : `· ${m.state}`;
+    const loc = m.district ? `${m.state}-${m.district}` : m.state;
     const scoreLabel = s !== null ? s : '--';
+    const sc = scoreColor(s);
     const showInsider = (m.corporate_insider_signals||0) > 0;
     const showDonor = (m.total_raised||0) > 0;
     const showBill = (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
     const pending = !hasRealData(m);
+    const tag = (label, c) => `<span class="m-tag" style="background:color-mix(in srgb, ${c} 10%, transparent);border:1px solid color-mix(in srgb, ${c} 32%, transparent);color:${c}">${label}</span>`;
     card.innerHTML = `
-      <div class="party-stripe" style="background:${m.partyC}"></div>
-      <img class="grid-photo" src="${esc(m.photo)}" alt="${esc(m.name)}"
-        onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-      <div class="grid-placeholder" style="display:none">${esc(initials(m.name))}</div>
-      <div class="grid-overlay">
-        <div class="grid-name">${esc(m.name)}</div>
-        <div class="grid-meta">${esc(m.partyS)} · ${esc(m.chamber)} ${esc(dist)}</div>
-        <div class="grid-tags">
-          ${showTrades?'<span class="grid-tag" style="background:#0a2010;color:#00ff88">TRADES</span>':''}
-          ${showInsider?'<span class="grid-tag" style="background:#3a0a0a;color:#ff6b6b">INSIDER</span>':''}
-          ${showDonor?'<span class="grid-tag" style="background:#2a1500;color:#ffaa00">DONOR</span>':''}
-          ${showBill?'<span class="grid-tag" style="background:#0a1520;color:#00d4ff">BILL</span>':''}
-          ${pending?'<span class="grid-tag" style="background:#1a1a1a;color:#555;border:1px solid #333">DATA PENDING</span>':''}
+      <div class="m-stripe" style="background:${m.partyC}"></div>
+      <div class="m-top">
+        ${thumbHtml(m, 'thumb')}
+        <div class="m-text">
+          <div class="m-name">${esc(m.name)}</div>
+          <div class="m-party" style="color:${m.partyC}">${esc(m.party||'—')}</div>
+          <div class="m-loc">${esc(m.chamber)} · ${esc(loc)}</div>
         </div>
+        <div class="m-score" style="background:color-mix(in srgb, ${sc} 12%, transparent);border:1px solid color-mix(in srgb, ${sc} 45%, transparent);color:${sc};${s!==null&&s>=60?`box-shadow:0 0 14px color-mix(in srgb, ${sc} 30%, transparent);`:''}" title="${s===null?'Score pending — pipeline processing':'Anomaly score'}">${scoreLabel}</div>
       </div>
-      <div class="grid-score" style="background:${scoreBg(s)};color:#000" title="${s===null?'Score pending \u2014 pipeline processing':'Anomaly score'}">${scoreLabel}</div>
+      <div class="m-tags">
+        ${showTrades?tag('TRADES','#9fe7c8'):''}
+        ${showInsider?tag('INSIDER','#ff3b4e'):''}
+        ${showDonor?tag('DONOR','#f3c25a'):''}
+        ${showBill?tag('BILL','#3b82f6'):''}
+        ${pending?tag('DATA PENDING','#5d7180'):''}
+      </div>
     `;
     grid.appendChild(card);
   });
   wrap.innerHTML = ''; wrap.appendChild(grid);
+  const remaining = filtered.length - visibleCount;
+  if (remaining > 0) {
+    const lm = document.createElement('div');
+    lm.className = 'load-more-wrap';
+    lm.innerHTML = `<button class="load-more">Load ${Math.min(PAGE_SIZE, remaining)} more</button>`;
+    lm.querySelector('button').onclick = () => { visibleCount += PAGE_SIZE; renderGrid(); };
+    wrap.appendChild(lm);
+  }
 }
 
-function renderSidebar() {
-  const list = document.getElementById('sidebar-list');
-  const count = document.getElementById('sidebar-count');
-  if (!list) return;
-  count.textContent = `(${filtered.length})`;
-  const show = filtered.slice(0, 100);
-  if (show.length === 0) {
-    list.innerHTML = '<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.65rem;color:#666666;padding:0.5rem">No results.</div>';
+// ── Generic panel slot builders ──
+function statCellHtml(c) {
+  return `
+    <div class="stat-cell glass">
+      <div class="stat-cell-label">${c.label}</div>
+      <div class="stat-cell-value"${c.color?` style="color:${c.color}"`:''}>${c.value}</div>
+      <div class="stat-cell-note">${c.note||''}</div>
+    </div>`;
+}
+function statCellsHtml(cells) {
+  return `<div class="stats-grid">${cells.map(statCellHtml).join('')}</div>`;
+}
+function alertHtml(a) {
+  const cls = a.type === 'info' ? 'info' : a.type === 'warn' ? 'warn' : '';
+  const icon = a.type === 'info' ? 'ℹ' : '⚠';
+  return `
+    <div class="alert-box ${cls}">
+      <div class="alert-icon">${icon}</div>
+      <div><div class="alert-title">${a.title}</div><div class="alert-body">${a.body}</div></div>
+    </div>`;
+}
+function sectionHeaderHtml(title, badge) {
+  return `<div class="sec-header"><div class="sec-title">${title}</div><div class="sec-badge">${badge}</div></div>`;
+}
+function tablePanelHtml(headers, rowsHtml, note) {
+  return `
+    <div class="table-panel glass">
+      <table class="data-table">
+        <thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+    </div>${note?`<div class="table-note">${note}</div>`:''}`;
+}
+function chartPanelHtml(title, canvasId, legends, note) {
+  return `
+    <div class="chart-box glass">
+      <div class="chart-box-head">${title}</div>
+      <div class="chart-box-body">
+        <div class="chart-area"><canvas class="chart-canvas" id="${canvasId}"></canvas></div>
+        ${legends && legends.length ? `<div class="chart-legend">${legends.map(l=>`<div class="legend-item"><div class="legend-line" style="background:${l.color}${l.dim?';opacity:0.7':''}"></div>${l.label}</div>`).join('')}</div>` : ''}
+        ${note?`<div class="chart-note">${note}</div>`:''}
+      </div>
+    </div>`;
+}
+function linkBtnHtml(href, label) {
+  return `<a class="link-btn" href="${esc(href)}" target="_blank" rel="noopener">${label}</a>`;
+}
+
+// ── Anomaly score breakdown (Overview) ──
+const SCORE_COMPONENT_DEFS = [
+  { key:'trade_timing',    label:'Stock trade timing',    max:25 },
+  { key:'wealth_gap',      label:'Wealth gap',            max:25 },
+  { key:'donor_alignment', label:'Donor-vote alignment',  max:20 },
+  { key:'alec_similarity', label:'Bill authorship / ALEC',max:15 },
+  { key:'foreign_travel',  label:'Foreign travel',        max:10 },
+  { key:'attendance',      label:'Attendance',            max:5 },
+];
+function scoreBreakdownHtml(m) {
+  const comps = m.score_components || null;
+  const rows = SCORE_COMPONENT_DEFS.map(def => {
+    const trackW = (def.max/25)*100;
+    if (!comps) {
+      return `
+        <div class="bd-row">
+          <div class="bd-line"><span class="bd-label">${def.label}</span><span class="bd-val" style="color:var(--fg-faint)">pending</span></div>
+          <div class="bd-track" style="width:${trackW}%"><div class="bd-fill" style="width:0%;background:var(--fg-faint)"></div></div>
+        </div>`;
+    }
+    const v = Math.max(0, Math.min(def.max, comps[def.key] || 0));
+    const ratio = def.max > 0 ? v/def.max : 0;
+    const c = v === 0 ? '#9fe7c8' : (ratio >= 0.6 ? '#ff3b4e' : '#f3c25a');
+    return `
+      <div class="bd-row">
+        <div class="bd-line"><span class="bd-label">${def.label}</span><span class="bd-val">${v} / ${def.max} pts</span></div>
+        <div class="bd-track" style="width:${trackW}%"><div class="bd-fill" style="width:${ratio*100}%;background:${c};box-shadow:0 0 8px ${c}"></div></div>
+      </div>`;
+  }).join('');
+  return `
+    <div class="breakdown-panel glass">
+      <div class="breakdown-head">
+        <span class="breakdown-title">Anomaly Score Breakdown</span>
+        <span class="breakdown-sub">SIX WEIGHTED SIGNALS</span>
+      </div>
+      <div class="breakdown-body">${rows}</div>
+    </div>`;
+}
+
+// ── Chart draw guard: only draw once the canvas has a real width ──
+function drawWhenSized(canvasId, fn, tries) {
+  tries = tries || 0;
+  const c = document.getElementById(canvasId);
+  if (!c) return;
+  if (!c.offsetWidth) {
+    if (tries < 20) setTimeout(() => drawWhenSized(canvasId, fn, tries+1), 120);
     return;
   }
-  list.innerHTML = show.map((m, i) => {
-    const s = m.displayScore;
-    const dist = m.district ? `${m.partyS}·${m.state}-${m.district}·${m.chamber}` : `${m.partyS}·${m.state}·${m.chamber}`;
-    const ini = initials(m.name).replace(/[^A-Za-z0-9]/g,'');
-    return `
-      <div class="member-card ${currentMember?.id===m.id?'active':''}" onclick="openProfileByIndex(${i})">
-        <div class="member-avatar">
-          <img src="${esc(m.photo)}" alt="${ini}"
-            onerror="this.style.display='none';this.parentElement.textContent='${ini}'">
-        </div>
-        <div class="member-info">
-          <div class="member-name">${esc(m.name)}</div>
-          <div class="member-meta">${esc(dist)}</div>
-        </div>
-        <div class="member-score ${scoreClass(s)}">${s !== null ? s : '--'}</div>
-      </div>
-    `;
-  }).join('');
+  fn(c);
 }
 
 function openProfileByIndex(i) {
@@ -770,7 +1099,7 @@ async function openProfile(m) {
   document.querySelector('.ptab[data-panel="overview"]').classList.add('active');
   document.getElementById('ppanel-overview').classList.add('active');
 
-  // Show loading in votes panel
+  // Show loading in bills & votes panel
   document.getElementById('pf-votes-content').innerHTML = `
     <div class="loading-wrap" style="padding:30px 20px">
       <div class="loading-text">LOADING VAULT DATA</div>
@@ -778,22 +1107,34 @@ async function openProfile(m) {
     </div>`;
 
   // Render header immediately from light data
-  document.getElementById('profile-name-small').textContent = m.name;
+  document.getElementById('profile-breadcrumb').textContent = `CONGRESSWATCH / MEMBER VAULT / ${bid || '—'}`;
   document.getElementById('pf-name').textContent = m.name.toUpperCase();
-  document.getElementById('pf-photo').src = m.photo;
-  document.getElementById('pf-placeholder').textContent = initials(m.name);
-  document.getElementById('pf-details').innerHTML = `
-    PARTY: <b>${esc(m.party||'—')}</b> &nbsp;|&nbsp;
-    CHAMBER: <b>${esc(m.chamber)}</b> &nbsp;|&nbsp;
-    STATE: <b>${esc(dist)}</b><br>
-    ${m.term_start ? `SINCE: <b>${esc(m.term_start.slice(0,4))}</b> &nbsp;|&nbsp;` : ''}
-    ${m.missed_votes_pct ? `MISSED VOTES: <b>${(m.missed_votes_pct*100).toFixed(1)}%</b>` : ''}
-  `;
+  document.getElementById('pf-initials').textContent = initials(m.name);
+  document.getElementById('pf-photo').style.backgroundImage = m.photo ? `url('${m.photo.replace(/'/g,"%27")}')` : 'none';
+
+  const sc = scoreColor(s), band = scoreBand(s);
+  const pill = (label, c) => `<span class="pill" style="background:color-mix(in srgb, ${c} 12%, transparent);border:1px solid color-mix(in srgb, ${c} 40%, transparent);color:${c}">${esc(label)}</span>`;
+  document.getElementById('pf-pills').innerHTML =
+    pill(m.party||'—', m.partyC) + pill(m.chamber, '#eef4f8') + pill(band, sc);
+
+  const kv = (k, v) => `<div class="kv-pair"><div class="k">${k}</div><div class="v">${v}</div></div>`;
+  const lastUpdated = (m.data_updated || m.last_updated || '').slice(0,10) || '—';
+  document.getElementById('pf-kv').innerHTML =
+    kv('STATE', esc(dist)) +
+    (m.term_start ? kv('SERVING SINCE', esc(m.term_start.slice(0,4))) : '') +
+    kv('BIOGUIDE ID', esc(bid||'—')) +
+    kv('LAST UPDATED', esc(lastUpdated)) +
+    (m.missed_votes_pct ? kv('MISSED VOTES', (m.missed_votes_pct*100).toFixed(1)+'%') : '');
 
   const scoreBig = document.getElementById('pf-score-big');
-  scoreBig.textContent = s !== null ? s : '--'; scoreBig.style.color = scoreColor(s);
+  scoreBig.textContent = s !== null ? s : '--';
+  scoreBig.style.color = sc;
+  scoreBig.style.textShadow = `0 0 24px color-mix(in srgb, ${sc} 35%, transparent)`;
   const bar = document.getElementById('pf-score-bar');
-  bar.style.width = (s !== null ? s : 0) + '%'; bar.style.background = scoreColor(s);
+  bar.style.width = (s !== null ? s : 0) + '%';
+  bar.style.background = sc;
+  bar.style.boxShadow = `0 0 8px ${sc}`;
+  document.getElementById('pf-score-band').textContent = `${band} · 0–100`;
 
   const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
   const cumSalary = computeCareerEarnings(m) || 0;
@@ -805,8 +1146,8 @@ async function openProfile(m) {
   fillPatterns(currentMember, s);
   fillDonors(currentMember);
 
-  setTimeout(() => drawSalaryChart('nw-canvas', startYear), 200);
-  document.getElementById('content').scrollTop = 0;
+  setTimeout(() => drawWhenSized('nw-canvas', () => drawSalaryChart('nw-canvas', startYear)), 200);
+  window.scrollTo(0, 0);
 
   // ── Fetch vault data: same-origin JSON ──
   if (bid) {
@@ -840,7 +1181,7 @@ async function openProfile(m) {
       fillTravel(currentMember);
       fillPatterns(currentMember, s);
       fillDonors(currentMember);
-      setTimeout(() => drawSalaryChart('nw-canvas', startYear), 100);
+      setTimeout(() => drawWhenSized('nw-canvas', () => drawSalaryChart('nw-canvas', startYear)), 100);
     } else {
       fillVotes(currentMember, s);
     }
@@ -853,48 +1194,35 @@ function renderOverview(m, s, cumSalary) {
   const nw = m.netWorth;
   const hasNW = nw !== null && nw !== undefined;
   const insiderSignals = m.corporate_insider_signals != null ? m.corporate_insider_signals : '—';
-  const signalSource = m.edgar_signal_type || 'SEC EDGAR Form 4';
   const careerEarnings = computeCareerEarnings(m);
 
-  document.getElementById('pf-stats-grid').innerHTML = `
-    <div class="stat-cell">
-      <div class="stat-cell-label">Net Worth</div>
-      <div class="stat-cell-value" style="color:${hasNW?'#e8ff00':'#666'}">${hasNW ? fmtMoney(nw) : '—'}</div>
-      <div class="stat-cell-change neutral">${hasNW ? 'from financial disclosures' : 'Financial disclosure data not available'}</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Est. Career Earnings</div>
-      <div class="stat-cell-value" style="color:#e8e8e8">${careerEarnings ? fmtMoney(careerEarnings) : '—'}</div>
-      <div class="stat-cell-change neutral">${careerEarnings ? 'congressional salary only' : 'pending'}</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Total Raised (FEC)</div>
-      <div class="stat-cell-value">${m.total_raised ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—')}</div>
-      <div class="stat-cell-change neutral">${m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending'}</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-cell-label">Insider Signals</div>
-      <div class="stat-cell-value" style="color:${(m.corporate_insider_signals||0)>10?'#ff3c00':'#e8e8e8'}">${esc(insiderSignals)}</div>
-      <div class="stat-cell-change neutral">${esc(signalSource)}</div>
-    </div>
-  `;
+  let html = statCellsHtml([
+    { label:'Net Worth', value: hasNW ? fmtMoney(nw) : '—', color: hasNW ? 'var(--accent-amber)' : 'var(--fg-faint)',
+      note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
+    { label:'Est. Career Earnings', value: careerEarnings ? fmtMoney(careerEarnings) : '—',
+      note: careerEarnings ? `congressional salary only · since ${m.term_start ? m.term_start.slice(0,4) : '?'}` : 'pending' },
+    { label:'Total Raised (FEC)', value: m.total_raised ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—'),
+      note: m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending' },
+    { label:'Insider Signals', value: esc(insiderSignals), color: (m.corporate_insider_signals||0)>10 ? 'var(--accent-red-br)' : undefined,
+      note: 'SEC EDGAR Form 4' },
+  ]);
 
-  // Career earnings display
-  const ceEl = document.getElementById('pf-career-earnings');
-  if (ceEl) {
-    ceEl.innerHTML = careerEarnings
-      ? `Est. Career Congressional Earnings: <b style="color:#e8ff00">${fmtMoney(careerEarnings)}</b> <span style="color:#555">(based on ${m.term_start ? m.term_start.slice(0,4) : '?'} to present × annual salary)</span>`
-      : '';
-  }
+  html += scoreBreakdownHtml(m);
+
+  html += chartPanelHtml('CONGRESSIONAL SALARY OVER TIME', 'nw-canvas', [
+    { color:'#3b82f6', label:'Congressional Base Salary (Public Record)' },
+    { color:'#ff5667', label:'Cumulative Career Earnings', dim:true },
+  ], 'Chart shows annual congressional base salary and cumulative career salary earnings from public pay records.');
 
   const flags = buildFlags(m, s);
-  document.getElementById('pf-flag-count').textContent = `${flags.length} ACTIVE`;
-  document.getElementById('pf-flags').innerHTML = flags.map(f => `
-    <div class="alert-box ${f.type}">
-      <div class="alert-icon">${f.type==='info'?'\u2139':'\u26A0'}</div>
-      <div><div class="alert-title">${f.title}</div><div class="alert-body">${f.body}</div></div>
-    </div>
-  `).join('');
+  html += sectionHeaderHtml('ANOMALY FLAGS', `${flags.length} ACTIVE`);
+  html += flags.map(alertHtml).join('');
+
+  html += `<div class="disclaimer">DISCLAIMER: Anomaly scores are statistical indicators only and do not imply illegal activity. All data sourced from public government records. Methodology is open source and auditable. Sources: Congress.gov, FEC.gov, SEC EDGAR, GovTrack.us, LegiScan.</div>`;
+
+  document.getElementById('pf-overview-content').innerHTML = html;
+  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
+  setTimeout(() => drawWhenSized('nw-canvas', () => drawSalaryChart('nw-canvas', startYear)), 60);
 }
 
 function _showMembersListInternal() {
@@ -902,7 +1230,7 @@ function _showMembersListInternal() {
   document.getElementById('profile-view').classList.remove('active');
   document.getElementById('members-view').classList.remove('hidden');
   currentMember = null;
-  document.getElementById('content').scrollTop = 0;
+  window.scrollTo(0, 0);
 }
 
 function showMembersList() {
@@ -938,7 +1266,7 @@ function buildFlags(m, s) {
       return pos === 'not voting' || pos === 'absent' || pos === '';
     }).length;
     const missRatio = missed / votes.length;
-    if (missRatio > 0.15) flags.push({type:'warn',title:`HIGH MISSED VOTE RATE \u2014 ${(missRatio*100).toFixed(1)}%`,
+    if (missRatio > 0.15) flags.push({type:'warn',title:`HIGH MISSED VOTE RATE — ${(missRatio*100).toFixed(1)}%`,
       body:`Missed ${missed} of ${votes.length} recorded votes (>${(missRatio*100).toFixed(0)}%). Source: GovTrack.us.`});
   }
   // HIGH_RAISE: only if total_raised > 5000000 (real FEC data)
@@ -956,46 +1284,39 @@ function fillVotes(m, s) {
   const bills = m.bills || [];
   let html = '';
 
+  if (bills.length === 0 && votes.length === 0) {
+    html += alertHtml({type:'info',title:'BILL &amp; VOTING DATA PENDING',
+      body:'Sponsored-bill and voting data load from the member vault. Run the fetch_votes workflow if this persists.'});
+    container.innerHTML = html;
+    return;
+  }
+
+  // Donor alignment score (optional stat cell)
+  if (m.donor_alignment_score > 0) {
+    html += statCellsHtml([{
+      label:'Donor Alignment Score', value:`${m.donor_alignment_score}/100`,
+      color: m.donor_alignment_score>50 ? 'var(--accent-red-br)' : m.donor_alignment_score>25 ? 'var(--accent-amber)' : undefined,
+      note:'bill language vs. donor industries',
+    }]);
+  }
+
   // ── Sponsored Bills section ──
   if (bills.length > 0) {
     const alecCount = bills.filter(b => b.alec_match).length;
     const donorCount = bills.filter(b => b.donor_interest && b.donor_interest.match).length;
 
-    html += `
-      <div class="sec-header" style="margin-bottom:0.8rem">
-        <div class="sec-title">SPONSORED BILLS — SIMILARITY ANALYSIS</div>
-        <div class="sec-badge">${bills.length} BILLS</div>
-      </div>`;
-
     if (alecCount > 0) {
-      html += `
-        <div class="alert-box warn" style="margin-bottom:0.8rem">
-          <div class="alert-icon">⚠</div>
-          <div>
-            <div class="alert-title">ALEC MODEL LEGISLATION MATCH</div>
-            <div class="alert-body">${alecCount} sponsored bill${alecCount>1?'s':''} share significant language (80%+ cosine similarity) with known ALEC model legislation templates.</div>
-          </div>
-        </div>`;
+      html += alertHtml({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
+        body:`${alecCount} sponsored bill${alecCount>1?'s':''} share significant language (80%+ cosine similarity) with known ALEC model legislation templates.`});
     }
-
     if (donorCount > 0) {
-      html += `
-        <div class="alert-box warn" style="margin-bottom:0.8rem">
-          <div class="alert-icon">⚠</div>
-          <div>
-            <div class="alert-title">DONOR INTEREST ALIGNMENT</div>
-            <div class="alert-body">${donorCount} sponsored bill${donorCount>1?'s':''} contain language aligned with this member's top donor industries.</div>
-          </div>
-        </div>`;
+      html += alertHtml({type:'warn',title:'DONOR INTEREST ALIGNMENT',
+        body:`${donorCount} sponsored bill${donorCount>1?'s':''} contain language aligned with this member's top donor industries.`});
     }
 
-    html += `
-      <table class="data-table" style="margin-bottom:1.5rem">
-        <thead><tr>
-          <th>Bill</th><th>Title</th><th>Introduced</th><th>ALEC Match</th><th>Donor Interest</th><th>Co-Author Links</th>
-        </tr></thead>
-        <tbody>`;
+    html += sectionHeaderHtml('SPONSORED BILLS — SIMILARITY ANALYSIS', `${bills.length} BILLS`);
 
+    let rows = '';
     bills.forEach(bill => {
       const alec = bill.alec_match;
       const donor = bill.donor_interest || {};
@@ -1004,94 +1325,69 @@ function fillVotes(m, s) {
       const intro = bill.introduced_date ? bill.introduced_date.slice(0,10) : '—';
       const titleShort = (bill.title||'').slice(0,80) + ((bill.title||'').length>80?'…':'');
 
-      let alecCell = '<span style="color:#666">\u2014</span>';
+      let alecCell = '<span style="color:var(--fg-faint)">—</span>';
       if (alec && (alec.similarity_score||0) > 0) {
         const pct = Math.round((alec.similarity_score||0)*100);
         const isHighMatch = pct >= 70;
-        alecCell = `${isHighMatch?'<span style="display:inline-block;background:#ff3c00;color:#fff;font-family:\'IBM Plex Mono\',monospace;font-size:0.5rem;font-weight:600;padding:2px 6px;letter-spacing:0.5px;margin-bottom:3px">ALEC MATCH</span><br>':''}
-          <span style="color:${isHighMatch?'#ff3c00':'#ffaa00'};font-family:'IBM Plex Mono',monospace;font-size:0.65rem;font-weight:600">${pct}% match to ALEC model legislation</span>
-          <div style="font-size:0.6rem;color:#888;margin-top:2px">${esc(alec.matched_model||'')}</div>
-          <div style="font-size:0.55rem;margin-top:1px"><a href="${esc(safeUrl(alec.source_url))}" target="_blank" style="color:#666;text-decoration:none">ALEC ${esc(alec.category||'')}</a></div>`;
+        const alecColor = isHighMatch ? 'var(--accent-red-br)' : 'var(--accent-amber)';
+        alecCell = `<span style="font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:${alecColor}">${pct}% match to ALEC model legislation</span>
+          <div class="cell-sub">${esc(alec.matched_model||'')}</div>
+          <div class="cell-sub"><a href="${esc(safeUrl(alec.source_url))}" target="_blank" style="color:var(--fg-dim);text-decoration:none">ALEC ${esc(alec.category||'')}</a></div>`;
       }
 
-      let donorCell = '<span style="color:#666">—</span>';
+      let donorCell = '<span style="color:var(--fg-faint)">—</span>';
       if (donor.match && donor.matched_industries && donor.matched_industries.length > 0) {
         donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${esc(ind)}</span>`).join('');
       }
 
-      let coCell = '<span style="color:#666">—</span>';
+      let coCell = '<span style="color:var(--fg-faint)">—</span>';
       if (coAuthors.length > 0) {
         const pct = Math.round((coAuthors[0].similarity_score||0)*100);
-        coCell = `<span style="color:#00d4ff;font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${pct}% match</span>
-          <div style="font-size:0.58rem;color:#666;margin-top:1px">${coAuthors.length} member bill${coAuthors.length>1?'s':''}</div>`;
+        coCell = `<span style="color:var(--accent-blue);font-family:'IBM Plex Mono',monospace;font-size:11px">${pct}% match</span>
+          <div class="cell-sub">${coAuthors.length} member bill${coAuthors.length>1?'s':''}</div>`;
       }
 
-      html += `<tr>
-        <td><div class="bill-id">${bill.url?`<a href="${esc(safeUrl(bill.url))}" target="_blank" style="color:#00d4ff;text-decoration:none">${esc(billLabel)}</a>`:esc(billLabel)}</div></td>
-        <td style="max-width:200px;font-size:0.72rem;line-height:1.4">${esc(titleShort)}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(intro)}</td>
+      rows += `<tr>
+        <td class="mono"><span class="bill-id">${bill.url?`<a href="${esc(safeUrl(bill.url))}" target="_blank">${esc(billLabel)}</a>`:esc(billLabel)}</span></td>
+        <td style="max-width:220px">${esc(titleShort)}</td>
+        <td class="mono" style="white-space:nowrap">${esc(intro)}</td>
         <td>${alecCell}</td>
         <td>${donorCell}</td>
         <td>${coCell}</td>
       </tr>`;
     });
 
-    html += `</tbody></table>`;
-
-    if (m.donor_alignment_score > 0) {
-      html += `<div class="kv-row">
-        <span class="kv-label">Donor Alignment Score</span>
-        <span class="kv-val ${m.donor_alignment_score>50?'hot':m.donor_alignment_score>25?'warm':''}">${m.donor_alignment_score}/100</span>
-      </div>`;
-    }
+    html += tablePanelHtml(['Bill','Title','Introduced','ALEC Match','Donor Interest','Co-Author Links'], rows,
+      'Source: LegiScan + Congress.gov bill similarity engine');
   }
 
   // ── Voting Record section ──
-  html += `
-    <div class="sec-header" style="margin:${bills.length>0?'1.5rem':'0'} 0 0.8rem">
-      <div class="sec-title">VOTING RECORD</div>
-      <div class="sec-badge">${votes.length>0?votes.length+' VOTES':'PENDING'}</div>
-    </div>`;
+  html += sectionHeaderHtml('VOTING RECORD', votes.length>0 ? `${votes.length} VOTES` : 'PENDING');
 
   if (votes.length > 0) {
-    html += `
-      <table class="data-table">
-        <thead><tr>
-          <th>Date</th><th>Bill / Motion</th><th>Vote</th><th>Result</th><th>Chamber</th>
-        </tr></thead>
-        <tbody>`;
-
+    let rows = '';
     votes.forEach(vote => {
       const pos = (vote.position||'').toLowerCase();
       const posClass = (pos==='yea'||pos==='yes') ? 'vote-yes' : (pos==='nay'||pos==='no') ? 'vote-no' : 'vote-abs';
       const posLabel = (pos==='yea'||pos==='yes') ? 'YEA' : (pos==='nay'||pos==='no') ? 'NAY' : (vote.position||'—').toUpperCase();
-      const resultColor = (vote.result||'').toLowerCase()==='passed' ? '#00ff88' : '#ff3c00';
+      const resultColor = (vote.result||'').toLowerCase()==='passed' ? 'var(--accent-green)' : 'var(--accent-red-br)';
       const titleShort = (vote.bill||'').slice(0,90)+((vote.bill||'').length>90?'…':'');
 
-      html += `<tr>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(vote.date||'—')}</td>
-        <td style="max-width:220px;font-size:0.72rem;line-height:1.4">
-          ${vote.url?`<a href="${esc(safeUrl(vote.url))}" target="_blank" style="color:#e8e8e8;text-decoration:none">${esc(titleShort)}</a>`:esc(titleShort)}
+      rows += `<tr>
+        <td class="mono" style="white-space:nowrap">${esc(vote.date||'—')}</td>
+        <td style="max-width:260px">
+          ${vote.url?`<a href="${esc(safeUrl(vote.url))}" target="_blank" style="color:var(--fg-body);text-decoration:none">${esc(titleShort)}</a>`:esc(titleShort)}
         </td>
         <td><span class="${posClass}">${esc(posLabel)}</span></td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${resultColor}">${esc(vote.result||'—')}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#666">${esc(vote.chamber||'—')}</td>
+        <td class="mono" style="color:${resultColor}">${esc(vote.result||'—')}</td>
+        <td class="mono" style="color:var(--fg-faint)">${esc(vote.chamber||'—')}</td>
       </tr>`;
     });
-
-    html += `</tbody></table>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:#444;margin-top:0.5rem">
-        Source: GovTrack.us · ${votes.length} most recent votes
-      </div>`;
+    html += tablePanelHtml(['Date','Bill / Motion','Vote','Result','Chamber'], rows,
+      `Source: GovTrack.us · ${votes.length} most recent votes`);
   } else {
-    html += `
-      <div class="alert-box info">
-        <div class="alert-icon">ℹ</div>
-        <div>
-          <div class="alert-title">VOTING RECORD PENDING</div>
-          <div class="alert-body">Voting data loads from the member vault. Run the fetch_votes workflow if this persists.</div>
-        </div>
-      </div>`;
+    html += alertHtml({type:'info',title:'VOTING RECORD PENDING',
+      body:'Voting data loads from the member vault. Run the fetch_votes workflow if this persists.'});
   }
 
   container.innerHTML = html;
@@ -1103,20 +1399,27 @@ function fillFinance(m, s, cumSalary) {
   const careerEarnings = computeCareerEarnings(m);
   const nw = m.netWorth;
   const hasNW = nw !== null && nw !== undefined;
-  document.getElementById('pf-finance-stats').innerHTML = `
-    <div class="stat-cell"><div class="stat-cell-label">Est. Career Earnings</div><div class="stat-cell-value">${careerEarnings ? fmtMoney(careerEarnings) : '\u2014'}</div><div class="stat-cell-change neutral">congressional salary only</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Net Worth</div><div class="stat-cell-value" style="color:${hasNW?'#e8ff00':'#666'}">${hasNW ? fmtMoney(nw) : '\u2014'}</div><div class="stat-cell-change neutral">${hasNW ? 'from financial disclosures' : 'Financial disclosure data not available'}</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">PAC Money</div><div class="stat-cell-value" style="color:${pac>total*0.3?'#ff3c00':'#e8e8e8'}">${fmtMoney(pac)}</div><div class="stat-cell-change ${pac>total*0.3?'up':'neutral'}">${pacRatio}% of total</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Individual Donors</div><div class="stat-cell-value">${fmtMoney(m.individual_contributions)}</div><div class="stat-cell-change neutral">itemized</div></div>
-  `;
+
+  let html = statCellsHtml([
+    { label:'Est. Career Earnings', value: careerEarnings ? fmtMoney(careerEarnings) : '—', note:'congressional salary only' },
+    { label:'Net Worth', value: hasNW ? fmtMoney(nw) : '—', color: hasNW ? 'var(--accent-amber)' : 'var(--fg-faint)',
+      note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
+    { label:'PAC Money', value: fmtMoney(pac), color: pac>total*0.3 ? 'var(--accent-red-br)' : undefined, note:`${pacRatio}% of total` },
+    { label:'Individual Donors', value: fmtMoney(m.individual_contributions), note:'itemized' },
+  ]);
+
+  html += chartPanelHtml('CONGRESSIONAL BASE SALARY (PUBLIC RECORD)', 'fin-canvas', [
+    { color:'#3b82f6', label:'Annual Congressional Salary' },
+    { color:'#ff5667', label:'Cumulative Career Earnings', dim:true },
+  ], 'Chart shows annual congressional base salary and cumulative career salary earnings from public pay records.');
+
   const fecId = m.fec_candidate_id || '';
   const fecLink = fecId ? `https://www.fec.gov/data/candidate/${encodeURIComponent(fecId)}/` : 'https://www.fec.gov/data/search/';
-  document.getElementById('pf-finance-donors').innerHTML = `
-    <div style="margin-top:0.8rem">
-      <a href="${esc(fecLink)}" target="_blank" style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#00d4ff;text-decoration:none;letter-spacing:0.5px">View full FEC filing at FEC.gov \u2192</a>
-    </div>`;
+  html += linkBtnHtml(fecLink, 'View full FEC filing at FEC.gov →');
+
+  document.getElementById('pf-finance-content').innerHTML = html;
   const startYear = parseInt((m.term_start||'2010').slice(0,4));
-  setTimeout(() => drawSalaryChart('fin-canvas', startYear), 80);
+  setTimeout(() => drawWhenSized('fin-canvas', () => drawSalaryChart('fin-canvas', startYear)), 80);
 }
 
 function fillStocks(m, s) {
@@ -1129,59 +1432,46 @@ function fillStocks(m, s) {
 
   // ── Trade table (from PTR pipeline) ──
   if (trades.length > 0) {
-    html += `
-    <div class="sec-header" style="margin-bottom:0.8rem">
-      <div class="sec-title">STOCK TRADES (PTR DISCLOSURES)</div>
-      <div class="sec-badge">${trades.length} TRADES</div>
-    </div>
-    <table class="data-table">
-      <thead><tr>
-        <th>Date</th><th>Ticker</th><th>Type</th><th>Amount</th><th>Asset</th><th>Owner</th>
-      </tr></thead>
-      <tbody>`;
+    html += sectionHeaderHtml('STOCK TRADES (PTR DISCLOSURES)', `${trades.length} TRADES`);
+    let rows = '';
     trades.slice(0, 50).forEach(t => {
       const tp = (t.type||'').toLowerCase();
-      const typeColor = tp.includes('purchase') ? '#00ff88' : tp.includes('sale') ? '#ff3c00' : '#e8ff00';
-      const typeLabel = tp.includes('purchase') ? 'BUY' : tp.includes('sale') ? 'SELL' : (t.type||'\u2014').toUpperCase();
-      // Some ticker values arrive as HTML anchors (e.g. <a href="...">NKE</a>) \u2014 reduce to plain text
-      const ticker = stripTags(t.ticker).trim() || '\u2014';
-      const tickerStyle = ticker !== '\u2014' ? 'color:#e8ff00;font-weight:600' : 'color:#666';
+      const typeColor = tp.includes('purchase') ? 'var(--accent-green)' : tp.includes('sale') ? 'var(--accent-red-br)' : 'var(--accent-amber)';
+      const typeLabel = tp.includes('purchase') ? 'BUY' : tp.includes('sale') ? 'SELL' : (t.type||'—').toUpperCase();
+      // Some ticker values arrive as HTML anchors (e.g. <a href="...">NKE</a>) — reduce to plain text
+      const ticker = stripTags(t.ticker).trim() || '—';
+      const ptr = t.ptr_link ? safeUrl(t.ptr_link) : '';
+      const tickerHtml = ticker === '—'
+        ? `<span style="color:var(--fg-faint)">—</span>`
+        : (ptr && ptr !== '#'
+          ? `<a href="${esc(ptr)}" target="_blank" style="color:var(--fg-primary);font-weight:600;text-decoration:none;border-bottom:1px dotted var(--accent-blue)">${esc(ticker)}</a>`
+          : `<span style="color:var(--fg-primary);font-weight:600">${esc(ticker)}</span>`);
       const assetDesc = stripTags(t.asset_description);
-      html += `<tr>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(t.transaction_date||'\u2014')}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;${tickerStyle}">${esc(ticker)}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:${typeColor};font-weight:600">${esc(typeLabel)}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${esc(t.amount||'\u2014')}</td>
-        <td style="font-size:0.7rem;max-width:180px;line-height:1.3">${esc(assetDesc.slice(0,60))}${assetDesc.length>60?'\u2026':''}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:#888">${esc(t.owner||'\u2014')}</td>
+      rows += `<tr>
+        <td class="mono" style="white-space:nowrap">${esc(t.transaction_date||'—')}</td>
+        <td class="mono">${tickerHtml}</td>
+        <td class="mono" style="color:${typeColor};font-weight:600">${esc(typeLabel)}</td>
+        <td class="mono" style="white-space:nowrap">${esc(t.amount||'—')}</td>
+        <td style="max-width:200px">${esc(assetDesc.slice(0,60))}${assetDesc.length>60?'…':''}</td>
+        <td class="mono" style="color:var(--fg-dim)">${esc(t.owner||'—')}</td>
       </tr>`;
     });
-    html += `</tbody></table>`;
-    if (trades.length > 50) {
-      html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:#666;margin-bottom:1rem">Showing 50 of ${trades.length} trades</div>`;
-    }
-    html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:#444;margin-bottom:1.2rem">Source: Senate eFD / PTR Disclosures</div>`;
+    const noteParts = [];
+    if (trades.length > 50) noteParts.push(`Showing 50 of ${trades.length} trades`);
+    noteParts.push('Source: Senate eFD / PTR Disclosures');
+    html += tablePanelHtml(['Date','Ticker','Type','Amount','Asset','Owner'], rows, noteParts.join(' · '));
   }
 
   // ── EDGAR signals ──
   if (tc > 0) {
-    html += `
-    <div class="alert-box warn">
-      <div class="alert-icon">\u26A0</div>
-      <div>
-        <div class="alert-title">CORPORATE INSIDER SIGNALS DETECTED</div>
-        <div class="alert-body"><code>${tc}</code> Form 4 filing${tc>1?'s':''} detected via SEC EDGAR.</div>
-      </div>
-    </div>`;
+    html += alertHtml({type:'warn',title:'CORPORATE INSIDER SIGNALS DETECTED',
+      body:`<code>${tc}</code> Form 4 filing${tc>1?'s':''} detected via SEC EDGAR.`});
   }
 
   if (edgarStatus === 'verified_manual' || edgarStatus === 'verified_auto' || (edgarStatus === 'resolved' && cik)) {
     const edgarUrl = `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(cik)}&type=4&dateb=&owner=include&count=40`;
-    html += `
-    <div style="background:#111111;border:1px solid #2a2a2a;padding:1rem;margin-bottom:1rem">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#e8e8e8;margin-bottom:8px">SEC EDGAR CIK: <code>${esc(cik)}</code> &mdash; Status: ${esc(edgarStatus)}</div>
-      <a href="${esc(edgarUrl)}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View on SEC EDGAR \u2192</a>
-    </div>`;
+    html += alertHtml({type:'info',title:'SEC EDGAR RECORD',
+      body:`SEC EDGAR CIK: <code>${esc(cik)}</code> — Status: ${esc(edgarStatus)}<br><a href="${esc(edgarUrl)}" target="_blank">View on SEC EDGAR →</a>`});
   }
 
   // PTR source links
@@ -1189,19 +1479,12 @@ function fillStocks(m, s) {
     ? 'https://disclosures.house.gov/public_disc/ptr-pdfs/'
     : 'https://efts.sec.gov/LATEST/search-index?q=%22periodic+transaction%22&dateRange=custom';
   const ptrSource = chamber.includes('house') ? 'House Financial Disclosures' : 'Senate eFD / SEC';
-  html += `
-    <div class="alert-box info">
-      <div class="alert-icon">\u2139</div>
-      <div>
-        <div class="alert-title">PERIODIC TRANSACTION REPORTS (PTR)</div>
-        <div class="alert-body">${trades.length > 0 ? 'Trade data sourced from Senate PTR disclosures.' : 'Detailed trade history via House/Senate PTR disclosures.'}<br>
-          <a href="${ptrUrl}" target="_blank" style="color:#00d4ff;text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:0.65rem">View raw ${ptrSource} disclosures \u2192</a>
-        </div>
-      </div>
-    </div>`;
+  html += alertHtml({type:'info',title:'PERIODIC TRANSACTION REPORTS (PTR)',
+    body:`${trades.length > 0 ? 'Trade data sourced from Senate PTR disclosures.' : 'Detailed trade history via House/Senate PTR disclosures.'}<br>
+      <a href="${ptrUrl}" target="_blank">View raw ${ptrSource} disclosures →</a>`});
 
   if (trades.length === 0 && tc === 0) {
-    html += `<div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#666666;padding:0.5rem 0">No stock trades or corporate insider signals found in current data.</div>`;
+    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals found in current data.</div>`;
   }
 
   document.getElementById('pf-stocks-content').innerHTML = html;
@@ -1217,48 +1500,33 @@ function fillTravel(m) {
   const trips = m.travel || [];
   let html = '';
 
-  html += `
-    <div class="sec-header" style="margin-bottom:0.8rem">
-      <div class="sec-title">FOREIGN TRAVEL DISCLOSURES</div>
-      <div class="sec-badge">${trips.length > 0 ? trips.length + ' TRIPS' : chamberLabel.toUpperCase()}</div>
-    </div>`;
+  html += sectionHeaderHtml('FOREIGN TRAVEL DISCLOSURES', trips.length > 0 ? `${trips.length} TRIPS` : chamberLabel.toUpperCase());
 
   if (trips.length > 0) {
-    html += `
-    <table class="data-table">
-      <thead><tr>
-        <th>Destination</th><th>Departure</th><th>Return</th><th>Sponsor</th><th>Cost</th>
-      </tr></thead>
-      <tbody>`;
+    let rows = '';
     trips.forEach(t => {
-      html += `<tr>
-        <td style="font-weight:600">${esc(t.destination_country||'\u2014')}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(t.departure_date||'\u2014')}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;white-space:nowrap">${esc(t.return_date||'\u2014')}</td>
-        <td style="font-size:0.72rem;color:#aaa">${esc(t.sponsor||'\u2014')}</td>
-        <td style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem">${t.total_cost ? '$'+esc(t.total_cost) : '\u2014'}</td>
+      const src = t.source_doc ? safeUrl(t.source_doc) : '';
+      const sponsorHtml = (src && src !== '#')
+        ? `<a href="${esc(src)}" target="_blank" style="color:var(--fg-body);text-decoration:none;border-bottom:1px dotted var(--accent-blue)">${esc(t.sponsor||'—')}</a>`
+        : esc(t.sponsor||'—');
+      rows += `<tr>
+        <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}</td>
+        <td class="mono" style="white-space:nowrap">${esc(t.departure_date||'—')}</td>
+        <td class="mono" style="white-space:nowrap">${esc(t.return_date||'—')}</td>
+        <td>${sponsorHtml}</td>
+        <td class="mono">${t.total_cost ? '$'+esc(t.total_cost) : '—'}</td>
       </tr>`;
     });
-    html += `</tbody></table>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:#444;margin-bottom:1.2rem">Source: ${chamberLabel} Clerk Foreign Travel Disclosures</div>`;
+    html += tablePanelHtml(['Destination','Departure','Return','Sponsor','Cost'], rows,
+      `Source: ${chamberLabel} Clerk Foreign Travel Disclosures`);
   } else {
-    html += `
-    <div class="alert-box info">
-      <div class="alert-icon">\u2139</div>
-      <div>
-        <div class="alert-title">CONGRESSIONAL FOREIGN TRAVEL (CODEL) DISCLOSURES</div>
-        <div class="alert-body">Funded trips by foreign-connected entities, privately funded travel, and gifts reported under ${chamberLabel} ethics rules.<br><br>
-          Automated parsing of travel disclosures coming in a future update.
-        </div>
-      </div>
-    </div>`;
+    html += alertHtml({type:'info',title:'CONGRESSIONAL FOREIGN TRAVEL (CODEL) DISCLOSURES',
+      body:`Funded trips by foreign-connected entities, privately funded travel, and gifts reported under ${chamberLabel} ethics rules.<br><br>
+        Automated parsing of travel disclosures coming in a future update.`});
   }
 
-  html += `
-    <div style="background:#111111;border:1px solid #2a2a2a;padding:1rem;margin-top:1rem">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#e8e8e8;margin-bottom:8px">${chamberLabel} Travel Disclosure Database</div>
-      <a href="${travelUrl}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View ${chamberLabel} travel disclosures \u2192</a>
-    </div>`;
+  html += `<div class="link-lead">${chamberLabel} Travel Disclosure Database</div>`;
+  html += linkBtnHtml(travelUrl, `View ${chamberLabel} travel disclosures →`);
 
   document.getElementById('pf-travel-content').innerHTML = html;
 }
@@ -1289,9 +1557,18 @@ function fillPatterns(m, s) {
   }
   // HIGH_RAISE: only if total_raised > 5000000
   if ((m.total_raised||0) > 5000000) patterns.push({title:'HIGH FUNDRAISING TOTAL',body:`Total raised: ${fmtMoney(m.total_raised)}. Source: FEC.gov.`});
-  document.getElementById('pf-patterns-content').innerHTML = patterns.length > 0 ? patterns.map(p=>`
-    <div class="alert-box"><div class="alert-icon">\u26A0</div><div><div class="alert-title">${p.title}</div><div class="alert-body">${p.body}</div></div></div>
-  `).join('') : '<div class="empty-msg">No anomalous patterns detected in available data. This member\'s complete data profile is still being compiled.</div>';
+
+  let html = patterns.map(p => alertHtml({type:'crit', title:p.title, body:p.body})).join('');
+
+  // Top donor industries (info alert)
+  const industries = m.top_donor_industries || [];
+  if (industries.length > 0) {
+    html += alertHtml({type:'info',title:'TOP DONOR INDUSTRIES',
+      body: industries.map(ind => `<span class="donor-tag">${esc(ind)}</span>`).join(' ')});
+  }
+
+  document.getElementById('pf-patterns-content').innerHTML = html ||
+    '<div class="empty-msg">No anomalous patterns detected in available data. This member\'s complete data profile is still being compiled.</div>';
 }
 
 function drawSalaryChart(canvasId, startYear) {
@@ -1305,16 +1582,16 @@ function drawSalaryChart(canvasId, startYear) {
   let cumSal = 0;
   const cumLine = years.map(y => { cumSal += (CONGRESSIONAL_SALARY[y]||174000); return cumSal; });
   _drawChart(canvas.getContext('2d'), canvas, years, [
-    {values:salLine, color:'#e8ff00', width:2.5},
-    {values:cumLine, color:'#555', width:1.5, dash:[4,3]},
+    {values:salLine, color:'#3b82f6', width:2.5},
+    {values:cumLine, color:'#ff5667', width:1.5, dash:[4,3]},
   ]);
 }
 
 function _drawChart(ctx, canvas, years, datasets) {
   const dpr = window.devicePixelRatio || 1;
-  const W = canvas.offsetWidth || canvas.parentElement.offsetWidth || 340, H = 160;
+  const W = canvas.offsetWidth || canvas.parentElement.offsetWidth || 340, H = 170;
   canvas.width = W*dpr; canvas.height = H*dpr; ctx.scale(dpr,dpr);
-  const PAD = {top:8,right:8,bottom:24,left:52};
+  const PAD = {top:8,right:8,bottom:24,left:56};
   const cW = W-PAD.left-PAD.right, cH = H-PAD.top-PAD.bottom;
   ctx.clearRect(0,0,W,H);
   const allVals = datasets.flatMap(d=>d.values);
@@ -1322,14 +1599,14 @@ function _drawChart(ctx, canvas, years, datasets) {
   const xp = i => PAD.left+(i/Math.max(n-1,1))*cW;
   const yp = v => PAD.top+cH-(v/maxV)*cH;
   const fmtV = v => v>=1e9?`$${(v/1e9).toFixed(1)}B`:v>=1e6?`$${(v/1e6).toFixed(1)}M`:v>=1e3?`$${(v/1e3).toFixed(0)}K`:'$0';
-  ctx.font='8px IBM Plex Mono,monospace'; ctx.textAlign='right';
+  ctx.font='9px IBM Plex Mono,monospace'; ctx.textAlign='right';
   [0,0.25,0.5,0.75,1].forEach(p=>{
     const v=maxV*p,y=yp(v);
-    ctx.fillStyle='#444'; ctx.fillText(fmtV(v),PAD.left-3,y+3);
-    ctx.strokeStyle='#1a1a1a'; ctx.lineWidth=1;
+    ctx.fillStyle='#5d7180'; ctx.fillText(fmtV(v),PAD.left-3,y+3);
+    ctx.strokeStyle='rgba(120,180,210,0.10)'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(PAD.left+cW,y); ctx.stroke();
   });
-  ctx.textAlign='center'; ctx.fillStyle='#444';
+  ctx.textAlign='center'; ctx.fillStyle='#5d7180';
   years.forEach((y,i)=>{ if(i%Math.ceil(n/5)===0||i===n-1) ctx.fillText(y,xp(i),H-6); });
   datasets.forEach(ds=>{
     ctx.save();
@@ -1356,39 +1633,39 @@ function fillDonors(m) {
   const topDonors = m.top_donors_list || [];
   let html = '';
 
-  html += `<div class="sec-header"><div class="sec-title">DONOR DATA</div><div class="sec-badge">FEC</div></div>`;
+  html += sectionHeaderHtml('DONOR DATA', 'FEC');
 
   if (topDonors.length > 0) {
     // Real donor data exists -- show network and table
-    html += `<div class="network-box"><canvas id="netCanvas"></canvas></div>`;
-    html += `<table class="data-table"><thead><tr><th>Donor</th><th>Amount</th></tr></thead><tbody>`;
+    html += `<div class="network-box glass"><canvas id="netCanvas"></canvas></div>`;
+    let rows = '';
     topDonors.forEach(d => {
-      html += `<tr><td>${esc(d.employer||d.name||'\u2014')}</td><td style="font-family:'IBM Plex Mono',monospace">${fmtMoney(d.amount||0)}</td></tr>`;
+      rows += `<tr>
+        <td style="font-weight:600;color:var(--fg-primary)">${esc(d.name||'—')}</td>
+        <td>${esc(d.employer||'—')}</td>
+        <td>${esc(d.occupation||'—')}</td>
+        <td class="mono" style="color:var(--accent-amber)">${fmtMoney(d.amount||0)}</td>
+        <td class="mono" style="white-space:nowrap">${esc(d.date||'—')}</td>
+      </tr>`;
     });
-    html += `</tbody></table>`;
+    html += tablePanelHtml(['Donor','Employer','Occupation','Amount','Date'], rows,
+      'Source: FEC Schedule A itemized contributions');
   } else if (totalRaised > 0) {
-    html += `
-    <div style="background:#111111;border:1px solid #2a2a2a;padding:1.2rem;margin-bottom:1rem">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.8rem;color:#e8e8e8;margin-bottom:6px">Total raised: <b style="color:#e8ff00">${fmtMoney(totalRaised)}</b></div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:#666">Itemized donor breakdown via FEC API pending.</div>
-    </div>`;
+    html += statCellsHtml([{
+      label:'Total Raised', value: fmtMoney(totalRaised), color:'var(--accent-amber)',
+      note:'Itemized donor breakdown via FEC API pending.',
+    }]);
   } else {
-    html += `
-    <div style="background:#111111;border:1px solid #2a2a2a;padding:1.2rem;margin-bottom:1rem">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#666">FEC campaign finance data pending for this member.</div>
-    </div>`;
+    html += `<div class="empty-msg" style="text-align:left;padding:16px 4px">FEC campaign finance data pending for this member.</div>`;
   }
 
-  html += `
-    <div style="margin-top:0.8rem">
-      <a href="${esc(fecLink)}" target="_blank" style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:0.65rem;letter-spacing:1px;text-transform:uppercase;border:1px solid #00d4ff;color:#00d4ff;padding:6px 14px;text-decoration:none">View full FEC filing at FEC.gov \u2192</a>
-    </div>`;
+  html += linkBtnHtml(fecLink, 'View full FEC filing at FEC.gov →');
 
   container.innerHTML = html;
 
   // Draw network only if real donor data exists
   if (topDonors.length > 0) {
-    setTimeout(() => drawNetwork(m), 50);
+    setTimeout(() => drawWhenSized('netCanvas', () => drawNetwork(m)), 50);
   }
 }
 
@@ -1407,10 +1684,10 @@ function drawNetwork(m) {
   if (donors.length === 0) return;
   const angles = donors.map((_,i)=>(i/donors.length)*Math.PI*2-Math.PI/2);
   const radius = Math.min(W,H)*0.32;
-  const nodes = [{x:cx,y:cy,r:16,color:'#ff3c00',label:(m.name||'').split(' ').pop().slice(0,8).toUpperCase()},
-    ...donors.map((d,i)=>({x:cx+Math.cos(angles[i])*radius,y:cy+Math.sin(angles[i])*radius,r:7+Math.min(d.amount/100000,8),color:'#e8ff00',label:d.label}))];
-  nodes.slice(1).forEach(n=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(n.x,n.y);ctx.strokeStyle='rgba(255,60,0,0.25)';ctx.lineWidth=1.5;ctx.stroke();});
-  nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n.color;ctx.fill();ctx.fillStyle='#aaa';ctx.font=`${Math.max(7,n.r*0.55)}px IBM Plex Mono,monospace`;ctx.textAlign='center';ctx.fillText(n.label,n.x,n.y+n.r+11);});
+  const nodes = [{x:cx,y:cy,r:16,color:'#ff5667',label:(m.name||'').split(' ').pop().slice(0,8).toUpperCase(),labelColor:'#eef4f8'},
+    ...donors.map((d,i)=>({x:cx+Math.cos(angles[i])*radius,y:cy+Math.sin(angles[i])*radius,r:7+Math.min(d.amount/100000,8),color:'#3b82f6',label:d.label,labelColor:'#aebfc9'}))];
+  nodes.slice(1).forEach(n=>{ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(n.x,n.y);ctx.strokeStyle='rgba(59,130,246,0.28)';ctx.lineWidth=1.5;ctx.stroke();});
+  nodes.forEach(n=>{ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);ctx.fillStyle=n.color;ctx.fill();ctx.fillStyle=n.labelColor;ctx.font=`${Math.max(7,n.r*0.55)}px IBM Plex Mono,monospace`;ctx.textAlign='center';ctx.fillText(n.label,n.x,n.y+n.r+11);});
 }
 
 document.getElementById('profile-tabs').addEventListener('click', e => {
@@ -1421,13 +1698,17 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(`ppanel-${panel}`).classList.add('active');
+  if (panel === 'overview' && currentMember) {
+    const sy = parseInt((currentMember.term_start||'2010').slice(0,4));
+    setTimeout(()=>drawWhenSized('nw-canvas', ()=>drawSalaryChart('nw-canvas',sy)),50);
+  }
   if (panel === 'network' && currentMember) {
     fillDonors(currentMember);
   }
   if (panel === 'compare') fillCompare();
   if (panel === 'finance' && currentMember) {
     const sy = parseInt((currentMember.term_start||'2010').slice(0,4));
-    setTimeout(()=>drawSalaryChart('fin-canvas',sy),50);
+    setTimeout(()=>drawWhenSized('fin-canvas', ()=>drawSalaryChart('fin-canvas',sy)),50);
   }
 });
 
@@ -1437,12 +1718,15 @@ function fillCompare() {
   const high = scored.filter(m=>m.displayScore>=60).length;
   const totalSignals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
-  document.getElementById('compare-stats').innerHTML = `
-    <div class="stat-cell"><div class="stat-cell-label">Members Scored</div><div class="stat-cell-value">${scored.length}</div><div class="stat-cell-change neutral">of ${allMembers.length} total</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Data Coverage</div><div class="stat-cell-value" style="color:#e8ff00">${withData}</div><div class="stat-cell-change neutral">${allMembers.length>0?Math.round((withData/allMembers.length)*100)+'%':'\u2014'} complete</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">High Anomaly Members</div><div class="stat-cell-value" style="color:#ff3c00">${high>0?high:'\u2014'}</div><div class="stat-cell-change ${high>0?'up':'neutral'}">${scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending'}</div></div>
-    <div class="stat-cell"><div class="stat-cell-label">Corporate Insider Signals</div><div class="stat-cell-value">${totalSignals>0?totalSignals.toLocaleString():'\u2014'}</div><div class="stat-cell-change neutral">SEC EDGAR Form 4</div></div>
-  `;
+  document.getElementById('compare-stats').innerHTML = [
+    { label:'Members Scored', value:String(scored.length), note:`of ${allMembers.length} total` },
+    { label:'Data Coverage', value:String(withData), color:'var(--accent-blue)',
+      note:`${allMembers.length>0?Math.round((withData/allMembers.length)*100)+'%':'—'} complete` },
+    { label:'High Anomaly Members', value:String(high>0?high:'—'), color:'var(--accent-red-br)',
+      note:`${scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending'}` },
+    { label:'Corporate Insider Signals', value:totalSignals>0?totalSignals.toLocaleString():'—', color:'var(--accent-amber)',
+      note:'SEC EDGAR Form 4' },
+  ].map(statCellHtml).join('');
 
   const chartsWrap = document.getElementById('compare-charts-wrap');
   if (!chartsWrap) return;
@@ -1450,18 +1734,18 @@ function fillCompare() {
 
   // Top 10 by anomaly score
   if (scored.length > 0) {
-    html += `<div class="chart-box"><div class="sec-title">TOP 10 BY ANOMALY SCORE</div><div class="chart-area"><canvas class="chart-canvas" id="compare-score-canvas"></canvas></div></div>`;
+    html += chartPanelHtml('TOP 10 BY ANOMALY SCORE', 'compare-score-canvas', [], '');
   } else {
-    html += `<div class="chart-box"><div class="sec-title">TOP 10 BY ANOMALY SCORE</div><div class="empty-msg">Score data pending \u2014 pipeline processing</div></div>`;
+    html += `<div class="chart-box glass"><div class="chart-box-head">TOP 10 BY ANOMALY SCORE</div><div class="empty-msg">Score data pending — pipeline processing</div></div>`;
   }
 
   // Top 10 by career earnings (always real data)
-  html += `<div class="chart-box"><div class="sec-title">TOP 10 BY CAREER CONGRESSIONAL EARNINGS</div><div class="chart-area"><canvas class="chart-canvas" id="compare-earnings-canvas"></canvas></div></div>`;
+  html += chartPanelHtml('TOP 10 BY CAREER CONGRESSIONAL EARNINGS', 'compare-earnings-canvas', [], '');
 
   // Top 10 by total raised (FEC)
   const withRaised = allMembers.filter(m=>(m.total_raised||0)>0);
   if (withRaised.length > 0) {
-    html += `<div class="chart-box"><div class="sec-title">TOP 10 BY TOTAL RAISED (FEC)</div><div class="chart-area"><canvas class="chart-canvas" id="compare-raised-canvas"></canvas></div></div>`;
+    html += chartPanelHtml('TOP 10 BY TOTAL RAISED (FEC)', 'compare-raised-canvas', [], '');
   }
 
   chartsWrap.innerHTML = html;
@@ -1472,18 +1756,18 @@ function fillCompare() {
   // Draw score chart
   if (scored.length > 0) {
     const top10score = [...scored].sort((a,b)=>(b.displayScore||0)-(a.displayScore||0)).slice(0,10);
-    setTimeout(() => drawBarChart('compare-score-canvas', top10score, m=>m.displayScore||0, m=>scoreColor(m.displayScore)), 50);
+    setTimeout(() => drawWhenSized('compare-score-canvas', () => drawBarChart('compare-score-canvas', top10score, m=>m.displayScore||0, m=>scoreColor(m.displayScore))), 50);
   }
 
   // Draw career earnings chart (always available)
   const withEarnings = allMembers.filter(m=>m.careerEarnings && m.careerEarnings > 0);
   const top10earnings = [...withEarnings].sort((a,b)=>(b.careerEarnings||0)-(a.careerEarnings||0)).slice(0,10);
-  setTimeout(() => drawBarChart('compare-earnings-canvas', top10earnings, m=>m.careerEarnings||0, ()=>'#e8ff00'), 100);
+  setTimeout(() => drawWhenSized('compare-earnings-canvas', () => drawBarChart('compare-earnings-canvas', top10earnings, m=>m.careerEarnings||0, ()=>'#3b82f6')), 100);
 
   // Draw raised chart
   if (withRaised.length > 0) {
     const top10raised = [...withRaised].sort((a,b)=>(b.total_raised||0)-(a.total_raised||0)).slice(0,10);
-    setTimeout(() => drawBarChart('compare-raised-canvas', top10raised, m=>m.total_raised||0, ()=>'#00d4ff'), 150);
+    setTimeout(() => drawWhenSized('compare-raised-canvas', () => drawBarChart('compare-raised-canvas', top10raised, m=>m.total_raised||0, ()=>'#ff5667')), 150);
   }
 }
 
@@ -1491,20 +1775,20 @@ function drawBarChart(canvasId, items, valueFn, colorFn) {
   const canvas = document.getElementById(canvasId);
   if (!canvas || items.length === 0) return;
   const ctx = canvas.getContext('2d'), dpr = window.devicePixelRatio||1;
-  const W = canvas.offsetWidth||340, H = 160;
+  const W = canvas.offsetWidth||340, H = 170;
   canvas.width = W*dpr; canvas.height = H*dpr; ctx.scale(dpr,dpr);
-  const PAD = {top:8,right:8,bottom:28,left:52};
+  const PAD = {top:8,right:8,bottom:28,left:56};
   ctx.clearRect(0,0,W,H);
   const values = items.map(m=>valueFn(m));
   const maxV = Math.max(...values)*1.1 || 1;
   const barW = (W-PAD.left-PAD.right)/items.length-2;
   const fmtV = v => v>=1e9?`$${(v/1e9).toFixed(1)}B`:v>=1e6?`$${(v/1e6).toFixed(1)}M`:v>=1e3?`$${(v/1e3).toFixed(0)}K`:String(v);
   // Y axis labels
-  ctx.font='8px IBM Plex Mono,monospace'; ctx.textAlign='right';
+  ctx.font='9px IBM Plex Mono,monospace'; ctx.textAlign='right';
   [0,0.25,0.5,0.75,1].forEach(p=>{
     const v=maxV*p,y=PAD.top+(H-PAD.top-PAD.bottom)*(1-p);
-    ctx.fillStyle='#444'; ctx.fillText(fmtV(Math.round(v)),PAD.left-3,y+3);
-    ctx.strokeStyle='#1a1a1a'; ctx.lineWidth=1;
+    ctx.fillStyle='#5d7180'; ctx.fillText(fmtV(Math.round(v)),PAD.left-3,y+3);
+    ctx.strokeStyle='rgba(120,180,210,0.10)'; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(PAD.left+(W-PAD.left-PAD.right),y); ctx.stroke();
   });
   items.forEach((m,i)=>{
@@ -1514,13 +1798,12 @@ function drawBarChart(canvasId, items, valueFn, colorFn) {
     const y = PAD.top+(H-PAD.top-PAD.bottom)-barH;
     ctx.fillStyle = colorFn(m);
     ctx.fillRect(x+1,y,barW,barH);
-    ctx.fillStyle='#444'; ctx.font='7px IBM Plex Mono,monospace'; ctx.textAlign='center';
+    ctx.fillStyle='#5d7180'; ctx.font='7px IBM Plex Mono,monospace'; ctx.textAlign='center';
     ctx.fillText(m.name.split(' ').pop().slice(0,7),x+barW/2,H-6);
   });
 }
 
 // Mirror active state across every button group sharing the same data attribute
-// (keeps sidebar .sf-btn and mobile .mf-btn groups in sync)
 function syncFilterButtons(btnAttr, val) {
   document.querySelectorAll(`[data-${btnAttr}]`).forEach(b => b.classList.toggle('active', b.dataset[btnAttr] === val));
 }
@@ -1534,22 +1817,19 @@ function wireFilters(containerSelector, filterKey, btnAttr) {
     });
   });
 }
-wireFilters('.sidebar','chamber','chamber');
-wireFilters('.sidebar','party','party');
-wireFilters('.sidebar','score','score');
-wireFilters('#mf-chamber','chamber','chamber');
-wireFilters('#mf-party','party','party');
+wireFilters('.control-bar','chamber','chamber');
+wireFilters('.control-bar','party','party');
+wireFilters('.control-bar','score','score');
 
 function wireSearch(id, otherId) {
   document.getElementById(id).addEventListener('input', e => {
     filters.search = e.target.value;
-    const other = document.getElementById(otherId);
+    const other = otherId ? document.getElementById(otherId) : null;
     if (other) other.value = e.target.value;
     applyFilters();
   });
 }
-wireSearch('sidebar-search','mobile-search');
-wireSearch('mobile-search','sidebar-search');
+wireSearch('cb-search', null);
 document.getElementById('sort-sel').addEventListener('change', e => { filters.sort = e.target.value; applyFilters(); });
 
 document.addEventListener('keydown', e => {
@@ -1557,23 +1837,6 @@ document.addEventListener('keydown', e => {
     showMembersList();
   }
 });
-
-function mobileNav(tab) {
-  document.querySelectorAll('.mobile-nav-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(`mnav-${tab}`).classList.add('active');
-  if (tab === 'members') { showMembersList(); }
-  else if (currentMember) {
-    const tabMap = {bills:'votes',donors:'network',trades:'stocks',compare:'compare'};
-    const ptab = tabMap[tab];
-    if (ptab) document.querySelector(`[data-panel="${ptab}"]`)?.click();
-  } else {
-    // No profile open — return to the members view and prompt a selection
-    document.getElementById(`mnav-${tab}`).classList.remove('active');
-    document.getElementById('mnav-members').classList.add('active');
-    showMembersList();
-    showToast('Select a member first');
-  }
-}
 
 function csvField(v) {
   let s = String(v === null || v === undefined ? '' : v);
