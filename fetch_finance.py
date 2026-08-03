@@ -341,6 +341,12 @@ SALARY_BY_YEAR = {
 }
 ANNUAL_SALARY = 174000  # 2009-present
 
+# Attendance scoring: minimum vote sample before the signal is scored at all,
+# and the missed-vote ratio at which the full 5-point penalty applies.
+# fetch_votes.VOTE_WINDOW (100) is the upstream sample size.
+MIN_VOTES_FOR_ATTENDANCE = 20
+ATTENDANCE_SATURATION_PCT = 25
+
 def cumulative_salary(start_year, end_year):
     """Sum of base salaries for start_year..end_year inclusive (mirrors the
     frontend's computeCareerEarnings)."""
@@ -445,13 +451,21 @@ def compute_score_components(m, detail=None):
         elif recent_trips >= 1:
             foreign_travel = 3
 
-    # 6. Attendance (5 max) — missed votes ratio
+    # 6. Attendance (5 max) — missed votes ratio.
+    # Linear to a saturation point of 25% missed: at >=25% the full 5-point
+    # penalty applies. The old *50 multiplier maxed out at just 10% missed,
+    # which pinned most members at 5 and made the signal meaningless. The
+    # frontend's >15% "high absence" flag (index.html) is a warning tier
+    # deliberately below this saturation point.
+    # Samples under 20 votes are not scored at all: with a 20-vote window
+    # every ratio is a multiple of 5%, which is noise, not signal.
     attendance = 0
     votes = detail.get("votes", []) or []
-    if votes:
+    if len(votes) >= MIN_VOTES_FOR_ATTENDANCE:
         missed = sum(1 for v in votes if (v.get("position", "").lower() in
                      ("not voting", "absent", "")))
-        attendance = min(5, round((missed / len(votes)) * 50))
+        missed_pct = missed * 100.0 / len(votes)
+        attendance = min(5, round(missed_pct * 5.0 / ATTENDANCE_SATURATION_PCT))
 
     return {
         "trade_timing": trade_timing,          # max 25

@@ -1,6 +1,6 @@
 """
 CongressWatch — Vote History Fetcher (GovTrack v3)
-Pulls: Recent 20 votes per member from GovTrack.us API
+Pulls: Recent 100 votes per member from GovTrack.us API
 REPLACES: Retired ProPublica API
 OPTIMIZATION: Reuses existing govtrack_id from members.json to save 500+ API calls.
 NO API KEY REQUIRED
@@ -16,6 +16,10 @@ from urllib.parse import urlencode
 
 MEMBERS_FILE = 'data/members.json'
 DETAILS_DIR = 'data/details'
+
+# Votes requested per member. Kept in sync with the attendance scorer's
+# minimum-sample guard in fetch_finance.compute_score_components().
+VOTE_WINDOW = 100
 
 os.makedirs(DETAILS_DIR, exist_ok=True)
 
@@ -91,12 +95,16 @@ def build_crosswalk():
     return crosswalk
 
 def fetch_member_votes(gt_id):
-    """Fetches 20 most recent votes for a GovTrack person ID.
+    """Fetches the 100 most recent votes for a GovTrack person ID.
     Includes exponential backoff on 429.
     Returns a list on success ([] = genuinely no votes) or None on
     HTTP/network failure so callers can tell an outage from an empty record.
+
+    Window size matters for scoring: at the old limit of 20 every
+    missed-vote percentage was a multiple of 5, too coarse to score
+    attendance against. 100 gives 1% resolution.
     """
-    params = {'person': gt_id, 'limit': 20, 'sort': '-created'}
+    params = {'person': gt_id, 'limit': VOTE_WINDOW, 'sort': '-created'}
     url = 'https://www.govtrack.us/api/v2/vote_voter?' + urlencode(params)
     for attempt in range(3):
         try:

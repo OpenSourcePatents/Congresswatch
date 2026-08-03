@@ -40,6 +40,17 @@ Each member receives a score from 0–100 based on six weighted signals:
 |Foreign travel      |10%   |Trips sponsored by foreign-connected entities      |
 |Attendance          |5%    |Missed votes while collecting full salary          |
 
+Attendance methodology: scored over the most recent 100 roll-call votes per
+member (GovTrack `vote_voter`, `fetch_votes.VOTE_WINDOW`). A "missed" vote is a
+position of Not Voting, Absent, or blank. The penalty scales linearly with the
+missed-vote percentage and saturates at 25% missed, where the full 5 points
+apply (`ATTENDANCE_SATURATION_PCT` in `fetch_finance.py`) — so 5% missed costs
+1 point, 10% costs 2, and anything at or above 25% costs 5. Members with fewer
+than 20 votes on record score 0 for this signal rather than being penalized on
+an unreliable sample. The member profile separately flags absence above 15% as
+a warning; that threshold is deliberately a tier below the scoring saturation
+point, not the same number.
+
 Important: The anomaly score is a statistical indicator only. It does not imply illegal activity or wrongdoing. All inputs are from public records. Full methodology is open source and auditable in this repository.
 
 The Bill Similarity Engine

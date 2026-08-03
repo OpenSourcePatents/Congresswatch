@@ -1130,7 +1130,9 @@ async function openProfile(m) {
     pair('SERVING SINCE', m.term_start ? esc(m.term_start.slice(0,4)) : '—') +
     pair('BIOGUIDE ID', esc(bid || '—')) +
     pair('LAST UPDATED', m.data_updated ? esc(String(m.data_updated).slice(0,10)) : '—') +
-    (m.missed_votes_pct ? pair('MISSED VOTES', (m.missed_votes_pct*100).toFixed(1)+'%') : '');
+    // missed_votes_pct is already a percentage (0-100) from recompute_scores.py.
+    // Null-check, not truthiness, so a legitimate 0.0% still renders.
+    (m.missed_votes_pct != null ? pair('MISSED VOTES', Number(m.missed_votes_pct).toFixed(1)+'%') : '');
 
   const scoreBig = document.getElementById('pf-score-big');
   scoreBig.textContent = s !== null ? s : '--';
