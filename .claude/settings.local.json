@@ -16,7 +16,17 @@
       "Bash(git rebase *)",
       "Bash(echo \"exit=$?\")",
       "Bash(git commit *)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(python -c ' *)",
+      "Bash(curl -sI \"https://bioguide.congress.gov/bioguide/photo/A/A000148.jpg\")",
+      "Bash(curl -sI \"https://theunitedstates.io/images/congress/225x275/A000148.jpg\")",
+      "Bash(curl -sL -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126.0 Safari/537.36' https://bioguide.congress.gov/bioguide/photo/A/A000148.jpg -o /dev/null -w 'bioguide followed: status=%{http_code} bytes=%{size_download} time=%{time_total}s redirects=%{num_redirects}\\\\n')",
+      "Bash(curl -s -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126.0 Safari/537.36' https://theunitedstates.io/images/congress/225x275/X000000.jpg -o /dev/null -w 'missing member: status=%{http_code}\\\\n')",
+      "Bash(curl -sI -A 'Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) Chrome/126.0 Safari/537.36' https://theunitedstates.io/images/congress/225x275/A000148.jpg)",
+      "Bash(curl -s -A Mozilla/5.0 -D - https://theunitedstates.io/images/congress/225x275/X000000.jpg -o /tmp/miss.bin -w '\\\\nbytes=%{size_download}\\\\n')",
+      "Read(//tmp/**)",
+      "Bash(node --check \"C:/Users/cjdow/AppData/Local/Temp/claude/C--Users-cjdow-congresswatch/34739d4c-2b32-4259-a449-f75b737a79bd/scratchpad/main2.js\")",
+      "Bash(python *)"
     ]
   },
   "outputStyle": "Explanatory"

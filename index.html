@@ -10,6 +10,7 @@
 <title>CongressWatch — Follow The Money</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://theunitedstates.io">
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -747,7 +748,9 @@ const CONGRESSIONAL_SALARY = {
 };
 const SALARY_BY_YEAR = CONGRESSIONAL_SALARY;
 
-function photoUrl(id) { if (!id) return ''; return `https://bioguide.congress.gov/bioguide/photo/${id[0].toUpperCase()}/${id}.jpg`; }
+// 225x275 CDN thumbnails (~17KB) instead of full-size bioguide photos (~400KB behind
+// a redirect + Cloudflare). Missing members return an empty 410 -> initials fallback.
+function photoUrl(id) { if (!id) return ''; return `https://theunitedstates.io/images/congress/225x275/${id}.jpg`; }
 function initials(name) { return (name||'').split(' ').map(n=>n[0]).join('').slice(0,2).toUpperCase(); }
 function partyColor(party) {
   if (!party) return '#5d7180';
@@ -816,7 +819,7 @@ function mapMember(m) {
   else if (pl.includes('republican') || pl === 'r') party = 'Republican';
   else if (pl.includes('independent') || pl === 'i') party = 'Independent';
   return { ...m, id: m.id || m.bioguide_id, chamber, party, displayScore: score,
-    photo: m.photo_url || photoUrl(m.id || m.bioguide_id),
+    photo: photoUrl(m.id || m.bioguide_id) || m.photo_url || '',
     partyC: partyColor(party), partyS: partyShort(party),
     careerEarnings: computeCareerEarnings(m), netWorth: getNetWorth(m) };
 }
@@ -941,7 +944,7 @@ function renderGrid() {
     card.innerHTML = `
       <div class="m-card-stripe" style="background:${m.partyC}"></div>
       <div class="m-card-row">
-        <div class="m-thumb"><span>${esc(initials(m.name))}</span><div class="m-thumb-photo" style="background-image:${cssUrl(m.photo)}"></div></div>
+        <div class="m-thumb"><span>${esc(initials(m.name))}</span><div class="m-thumb-photo" data-photo="${esc(m.photo)}"></div></div>
         <div class="m-card-text">
           <div class="m-card-name">${esc(m.name)}</div>
           <div class="m-card-party" style="color:${m.partyC}">${esc(m.party||'—')}</div>
@@ -960,6 +963,7 @@ function renderGrid() {
     grid.appendChild(card);
   });
   wrap.innerHTML = ''; wrap.appendChild(grid);
+  observeThumbs(grid);
   if (filtered.length > visibleCount) {
     const more = document.createElement('button');
     more.className = 'load-more';
@@ -967,6 +971,24 @@ function renderGrid() {
     more.onclick = () => { visibleCount += 60; renderGrid(); };
     wrap.appendChild(more);
   }
+}
+
+/* ── Lazy card photos — fetch a thumb only once its card nears the viewport ── */
+const photoObserver = ('IntersectionObserver' in window)
+  ? new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        en.target.style.backgroundImage = cssUrl(en.target.dataset.photo);
+        photoObserver.unobserve(en.target);
+      });
+    }, { rootMargin: '300px' })
+  : null;
+function observeThumbs(root) {
+  root.querySelectorAll('.m-thumb-photo[data-photo]').forEach(t => {
+    if (!t.dataset.photo) return;
+    if (photoObserver) photoObserver.observe(t);
+    else t.style.backgroundImage = cssUrl(t.dataset.photo);
+  });
 }
 
 /* ── Generic panel building blocks — every tab renders the same slots:
