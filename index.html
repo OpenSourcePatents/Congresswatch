@@ -129,6 +129,9 @@ button { font-family:inherit; }
 .pb-left { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
 .wordmark { font-family:'Oxanium',sans-serif; font-weight:800; font-size:19px; letter-spacing:3px; color:var(--fg-primary); text-transform:uppercase; }
 .wordmark span { color:var(--accent-red); }
+.wordmark .wordmark-tld { color:var(--accent-blue); }
+.wordmark-row { display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; }
+.wordmark .wordmark-by { font-family:'Oxanium',sans-serif; font-weight:600; font-size:9.5px; letter-spacing:var(--tracking-widest); color:var(--fg-faint); text-transform:uppercase; }
 .pb-tagline { font-family:'Oxanium',sans-serif; font-weight:600; font-size:10px; letter-spacing:var(--tracking-widest); color:var(--fg-primary); text-transform:uppercase; }
 .pb-live { display:flex; align-items:center; gap:8px; }
 .live-dot { width:7px; height:7px; border-radius:50%; background:var(--accent-green); box-shadow:0 0 8px #9fe7c8; animation:pulse-dot 2.2s ease-in-out infinite; }
@@ -473,7 +476,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
 
 <div class="product-bar">
   <div class="pb-left">
-    <div class="wordmark"><span>CONGRESS</span>WATCH</div>
+    <div class="wordmark wordmark-row"><div><span>CONGRESS</span>WATCH<span class="wordmark-tld">.US</span></div><span class="wordmark-by">By OpenSourcePatents</span></div>
     <div class="pb-tagline">Open Source Government Accountability</div>
   </div>
   <div class="pb-live">
