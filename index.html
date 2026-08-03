@@ -90,6 +90,8 @@ button { font-family:inherit; }
 .osp-brand { display:flex; align-items:center; gap:11px; text-decoration:none; }
 .osp-logo { width:32px; height:32px; border-radius:50%; border:1px solid var(--border-medium); animation:logo-spin 8s linear infinite; }
 .osp-word { font-family:'Oxanium',sans-serif; font-weight:800; font-size:15px; letter-spacing:var(--tracking-ultra); color:var(--fg-primary); }
+.nav-tagline { margin-right:auto; padding-left:11px; border-left:1px solid var(--border-medium); }
+@media (max-width:900px) { .nav-tagline { display:none; } }
 .osp-links { display:flex; flex-wrap:wrap; }
 .osp-links a { font-family:'Oxanium',sans-serif; font-weight:700; font-size:10px; letter-spacing:2px; color:var(--fg-muted); text-decoration:none; padding:8px 13px; border-radius:var(--radius-md); transition:all .15s; }
 .osp-links a:hover { color:var(--fg-primary); background:rgba(59,130,246,0.08); }
@@ -131,7 +133,7 @@ button { font-family:inherit; }
 .wordmark span { color:var(--accent-red); }
 .wordmark .wordmark-tld { color:var(--accent-blue); }
 .wordmark-row { display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; }
-.wordmark .wordmark-by { font-family:'Oxanium',sans-serif; font-weight:600; font-size:9.5px; letter-spacing:var(--tracking-widest); color:var(--fg-faint); text-transform:uppercase; }
+.wordmark .wordmark-by { font-family:'Oxanium',sans-serif; font-weight:600; font-size:10px; letter-spacing:var(--tracking-widest); color:var(--fg-primary); text-transform:uppercase; }
 .pb-tagline { font-family:'Oxanium',sans-serif; font-weight:600; font-size:10px; letter-spacing:var(--tracking-widest); color:var(--fg-primary); text-transform:uppercase; }
 .pb-live { display:flex; align-items:center; gap:8px; }
 .live-dot { width:7px; height:7px; border-radius:50%; background:var(--accent-green); box-shadow:0 0 8px #9fe7c8; animation:pulse-dot 2.2s ease-in-out infinite; }
@@ -447,6 +449,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
     <img class="osp-logo" src="osp-logo.jpg" alt="OSP">
     <span class="osp-word">O.S.P.</span>
   </a>
+  <div class="pb-tagline nav-tagline">Open Source Government Accountability</div>
   <div class="osp-links">
     <a href="https://opensourceforall.com/work" target="_blank" rel="noopener noreferrer">PORTFOLIO</a>
     <a href="https://opensourceforall.com/services" target="_blank" rel="noopener noreferrer">SERVICES</a>
@@ -476,9 +479,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
 
 <div class="product-bar">
   <div class="pb-left">
-    <div class="wordmark wordmark-row"><div><span>CONGRESS</span>WATCH<span class="wordmark-tld">.US</span></div><span class="wordmark-by">By OpenSourcePatents</span></div>
-    <div class="pb-tagline">Open Source Government Accountability</div>
-  </div>
+    <div class="wordmark wordmark-row"><div><span>CONGRESS</span>WATCH<span class="wordmark-tld">.US</span></div><span class="wordmark-by">By OpenSourcePatents</span></div>  </div>
   <div class="pb-live">
     <div class="live-dot"></div>
     <span>LIVE DATA</span>
