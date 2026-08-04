@@ -1960,5 +1960,15 @@ function shareMember() {
 loadData();
 </script>
 
+<!-- Vercel Web Analytics. This is a static site (no framework, no build step),
+     so it uses the plain-HTML install rather than the @vercel/analytics React
+     component. The script is served by the Vercel edge network at deploy time
+     and 404s on local file:// or plain-http previews, which is expected.
+     Requires Web Analytics to be enabled for the project in the dashboard. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 </body>
 </html>
