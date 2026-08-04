@@ -956,9 +956,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.031,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES1476-119",
+          "sponsor_id": "V000129",
+          "similarity_score": 0.877
+        }
+      ],
       "cosponsors": [
         "E000295",
         "K000383",
@@ -1042,21 +1048,50 @@
     },
     {
       "bill_id": "S5124-119",
-      "title": "A bill to prohibit interference in elections for Federal office, and for other purposes.",
+      "title": "Stop Harassment and Intimidations in Elections through Legal Defenses (SHIELD) Our Elections Act",
       "type": "S",
       "number": "5124",
       "congress": 119,
       "introduced_date": "2026-07-23",
       "latest_action": "Read twice and referred to the Committee on Rules and Administration.",
       "url": "https://api.congress.gov/v3/bill/119/s/5124?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "election",
+        "ballot",
+        "information",
+        "equipment",
+        "program",
+        "voter",
+        "person",
+        "offense",
+        "records",
+        "papers",
+        "tracking",
+        "general",
+        "ballots",
+        "office",
+        "adding",
+        "end",
+        "state",
+        "materials",
+        "absentee",
+        "requirements"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.192,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "B001277",
+        "K000383",
+        "K000367",
+        "H000273",
+        "H001042",
+        "S001208",
+        "B001230"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1254,7 +1289,7 @@
       }
     }
   ],
-  "bills_updated": "2026-08-03T15:26:34.714211+00:00",
+  "bills_updated": "2026-08-04T11:39:35.544903+00:00",
   "bills_count": 10,
   "donor_alignment_score": 5.0,
   "alec_match_count": 0,

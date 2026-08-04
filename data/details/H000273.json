@@ -929,25 +929,64 @@
   "bills": [
     {
       "bill_id": "S5176-119",
-      "title": "A bill to establish a pilot program to address critical workforce integration and national security imperatives.",
+      "title": "National Guard for National Service Act",
       "type": "S",
       "number": "5176",
       "congress": 119,
       "introduced_date": "2026-07-30",
       "latest_action": "Read twice and referred to the Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/s/5176?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "national",
+        "service",
+        "guard",
+        "workforce",
+        "security",
+        "critical",
+        "community",
+        "activities",
+        "establish",
+        "pilot",
+        "program",
+        "address",
+        "integration",
+        "imperatives",
+        "laws",
+        "resilience",
+        "meaning",
+        "given",
+        "introduced",
+        "bill"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.045,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9997-119",
+          "sponsor_id": "N000191",
+          "similarity_score": 0.867
+        }
+      ],
+      "cosponsors": [
+        "C001075"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -1158,11 +1197,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-03T15:28:25.005787+00:00",
+  "bills_updated": "2026-08-04T11:41:51.235896+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "trades": [
     {

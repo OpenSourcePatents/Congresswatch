@@ -929,25 +929,73 @@
   "bills": [
     {
       "bill_id": "HR9988-119",
-      "title": "To amend the Federal Food, Drug, and Cosmetic Act to include barley, rye, and oats as major food allergens, and for other purposes.",
+      "title": "FASTER Act of 2026",
       "type": "HR",
       "number": "9988",
       "congress": 119,
       "introduced_date": "2026-07-30",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9988?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "food",
+        "celiac",
+        "disease",
+        "drug",
+        "federal",
+        "cosmetic",
+        "barley",
+        "rye",
+        "oats",
+        "major",
+        "allergens",
+        "species",
+        "genus",
+        "introduced",
+        "purposes",
+        "committee",
+        "commerce",
+        "year",
+        "enactment",
+        "include"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.054,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "W000814",
+        "G000565",
+        "B001321",
+        "V000133",
+        "M001204",
+        "F000466",
+        "D000631",
+        "S001201",
+        "P000597",
+        "R000619"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Agriculture",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data",
+            "surveillance"
+          ],
+          "Agriculture": [
+            "food",
+            "grain"
+          ],
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -1372,11 +1420,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-03T14:20:35.561511+00:00",
+  "bills_updated": "2026-08-04T10:20:32.736952+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

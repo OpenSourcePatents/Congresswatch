@@ -929,25 +929,66 @@
   "bills": [
     {
       "bill_id": "HR9990-119",
-      "title": "To amend title XVIII of the Social Security Act to expand access to psychological and behavioral services.",
+      "title": "Increasing Mental Health Options Act of 2026",
       "type": "HR",
       "number": "9990",
       "congress": 119,
       "introduced_date": "2026-07-30",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9990?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "services",
+        "psychologist",
+        "clinical",
+        "inserting",
+        "qualified",
+        "extent",
+        "authorized",
+        "state",
+        "social",
+        "security",
+        "case",
+        "health",
+        "physician",
+        "supervision",
+        "individual",
+        "described",
+        "iii",
+        "receiving",
+        "respect",
+        "behavioral"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.105,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5120-119",
+          "sponsor_id": "H001046",
+          "similarity_score": 0.949
+        }
+      ],
+      "cosponsors": [
+        "C001080",
+        "P000048",
+        "S001145"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "insurance",
+            "physician",
+            "nurse",
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -1003,7 +1044,9 @@
           "similarity_score": 1.0
         }
       ],
-      "cosponsors": [],
+      "cosponsors": [
+        "F000484"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1451,11 +1494,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-03T14:34:35.291361+00:00",
+  "bills_updated": "2026-08-04T10:44:58.492067+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

@@ -931,25 +931,64 @@
   "bills": [
     {
       "bill_id": "HR9984-119",
-      "title": "To amend title XVIII of the Social Security Act to provide for payment for services of radiologist assistants under the Medicare program, and for other purposes.",
+      "title": "Medicare Access to Radiology Care Act of 2026",
       "type": "HR",
       "number": "9984",
       "congress": 119,
       "introduced_date": "2026-07-30",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9984?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "radiologist",
+        "services",
+        "assistant",
+        "payment",
+        "assistants",
+        "defined",
+        "social",
+        "security",
+        "setting",
+        "end",
+        "furnished",
+        "made",
+        "covered",
+        "facility",
+        "medicare",
+        "case",
+        "supervision",
+        "perform",
+        "supervising",
+        "amount"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.117,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4624-119",
+          "sponsor_id": "B001236",
+          "similarity_score": 0.846
+        }
+      ],
+      "cosponsors": [
+        "T000460"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "medicare",
+            "provider",
+            "physician",
+            "nurse"
+          ]
+        }
       }
     },
     {
@@ -1473,11 +1512,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-03T14:42:59.869421+00:00",
+  "bills_updated": "2026-08-04T10:51:26.308326+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "needs_review",
   "travel": [
     {
