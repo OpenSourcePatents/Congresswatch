@@ -936,18 +936,73 @@
       "introduced_date": "2026-08-03",
       "latest_action": "Referred to the House Committee on Financial Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10017?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wms",
+        "vms",
+        "ozi",
+        "sjf",
+        "xlk",
+        "aqy",
+        "ouw",
+        "avl",
+        "zkqc",
+        "bry",
+        "gue",
+        "ypa"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9628-119",
+          "sponsor_id": "H001091",
+          "similarity_score": 0.965
+        },
+        {
+          "bill_id": "HR9772-119",
+          "sponsor_id": "S001183",
+          "similarity_score": 0.965
+        },
+        {
+          "bill_id": "HR9619-119",
+          "sponsor_id": "F000477",
+          "similarity_score": 0.962
+        }
+      ],
+      "cosponsors": [
+        "D000032",
+        "M001233",
+        "R000614",
+        "C001103",
+        "M001212",
+        "P000605",
+        "C001116",
+        "M001218",
+        "S001214",
+        "S001224"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "federal_reserve"
+          ]
+        }
       }
     },
     {
@@ -1085,7 +1140,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.103,
+      "alec_best_similarity": 0.105,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1179,7 +1234,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.052,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1305,7 +1360,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.065,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1443,11 +1498,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-04T11:00:15.967628+00:00",
+  "bills_updated": "2026-08-05T11:01:53.986409+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 3,
   "travel": [
