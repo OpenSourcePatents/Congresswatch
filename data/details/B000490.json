@@ -1034,9 +1034,16 @@
         "M001194"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "college"
+          ]
+        }
       }
     },
     {
@@ -1083,9 +1090,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Education",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Education": [
+            "education"
+          ],
           "Finance & Banking": [
             "interest",
             "investment"
@@ -1235,9 +1246,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Education",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Education": [
+            "education"
+          ],
           "Finance & Banking": [
             "financial",
             "interest"
@@ -1345,9 +1360,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Education",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Education": [
+            "education"
+          ],
           "Finance & Banking": [
             "financial",
             "interest"
@@ -1395,12 +1414,7 @@
         {
           "bill_id": "HR7423-118",
           "sponsor_id": "S001176",
-          "similarity_score": 0.821
-        },
-        {
-          "bill_id": "HR7746-119",
-          "sponsor_id": "B001324",
-          "similarity_score": 0.801
+          "similarity_score": 0.82
         }
       ],
       "cosponsors": [
@@ -1466,11 +1480,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-06T11:34:10.550329+00:00",
+  "bills_updated": "2026-08-07T10:03:27.239622+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "travel": [

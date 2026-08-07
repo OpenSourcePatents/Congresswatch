@@ -929,12 +929,33 @@
       "number": "828",
       "congress": 119,
       "introduced_date": "2026-08-04",
-      "latest_action": "Referred to the Committee on the Judiciary.",
+      "latest_action": "Referred to the Committee on the Judiciary. (text: CR S4436)",
       "url": "https://api.congress.gov/v3/bill/119/sres/828?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "trump",
+        "president",
+        "lawsuit",
+        "tax",
+        "settlement",
+        "purported",
+        "immunity",
+        "investigations",
+        "revenue",
+        "weaponization",
+        "equal",
+        "protection",
+        "claims",
+        "irs",
+        "disclosure",
+        "government",
+        "internal",
+        "service",
+        "anti",
+        "fund"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.085,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -947,25 +968,70 @@
     },
     {
       "bill_id": "S5219-119",
-      "title": "A bill to improve end-of-life care.",
+      "title": "Compassionate Care Act",
       "type": "S",
       "number": "5219",
       "congress": 119,
       "introduced_date": "2026-08-03",
       "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
       "url": "https://api.congress.gov/v3/bill/119/s/5219?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "care",
+        "health",
+        "advance",
+        "planning",
+        "secretary",
+        "life",
+        "education",
+        "national",
+        "qualified",
+        "providers",
+        "end",
+        "services",
+        "study",
+        "medical",
+        "report",
+        "appropriate",
+        "program",
+        "provider",
+        "training",
+        "measures"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.116,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10013-119",
+          "sponsor_id": "B001300",
+          "similarity_score": 0.988
+        }
+      ],
+      "cosponsors": [
+        "S001150"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "internet",
+            "privacy",
+            "social_media"
+          ],
+          "Pharmaceuticals": [
+            "medicare",
+            "medicaid",
+            "clinical",
+            "health_insurance"
+          ]
+        }
       }
     },
     {
@@ -1024,14 +1090,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.081,
+      "alec_best_similarity": 0.082,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR8385-119",
           "sponsor_id": "P000034",
-          "similarity_score": 0.813
+          "similarity_score": 0.814
         }
       ],
       "cosponsors": [
@@ -1311,11 +1377,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-06T11:48:47.960212+00:00",
+  "bills_updated": "2026-08-07T10:20:57.745422+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "trades": [
     {

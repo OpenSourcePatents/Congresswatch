@@ -1317,9 +1317,15 @@
         "G000600"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -1355,7 +1361,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.064,
+      "alec_best_similarity": 0.063,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1363,19 +1369,26 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate",
           "Finance & Banking",
+          "Technology",
+          "Real Estate",
           "Oil & Gas"
         ],
         "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "credit"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "surveillance",
+            "digital"
+          ],
           "Real Estate": [
             "construction",
             "development",
             "property"
-          ],
-          "Finance & Banking": [
-            "financial",
-            "credit"
           ],
           "Oil & Gas": [
             "energy"
@@ -1424,9 +1437,15 @@
         "V000138"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -1476,11 +1495,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-06T10:38:11.500798+00:00",
+  "bills_updated": "2026-08-07T09:20:59.972244+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

@@ -1036,12 +1036,19 @@
         "S001214",
         "B001295",
         "T000480",
-        "W000816"
+        "W000816",
+        "F000470"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "risk"
+          ]
+        }
       }
     },
     {
@@ -1143,11 +1150,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Education"
+          "Education",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Education": [
             "education"
+          ],
+          "Real Estate": [
+            "construction"
           ]
         }
       }
@@ -1240,9 +1251,15 @@
         "A000372"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -1344,11 +1361,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Education"
+          "Education",
+          "Insurance"
         ],
         "keyword_hits": {
           "Education": [
             "education"
+          ],
+          "Insurance": [
+            "risk"
           ]
         }
       }
@@ -1465,11 +1486,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-06T10:11:50.851370+00:00",
+  "bills_updated": "2026-08-07T08:43:10.691392+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "trades": [

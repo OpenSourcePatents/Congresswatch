@@ -924,25 +924,61 @@
   "bills": [
     {
       "bill_id": "S5216-119",
-      "title": "A bill to amend the Internal Revenue Code of 1986 to allow a credit against tax for qualified accessible housing expenses, and for other purposes.",
+      "title": "Senior Accessible Housing Tax Credit Act of 2026",
       "type": "S",
       "number": "5216",
       "congress": 119,
       "introduced_date": "2026-08-03",
       "latest_action": "Read twice and referred to the Committee on Finance.",
       "url": "https://api.congress.gov/v3/bill/119/s/5216?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "credit",
+        "amount",
+        "year",
+        "qualified",
+        "accessible",
+        "housing",
+        "taxable",
+        "expenses",
+        "purposes",
+        "case",
+        "allowed",
+        "taxpayer",
+        "installing",
+        "gross",
+        "income",
+        "tax",
+        "general",
+        "individual",
+        "adjusted",
+        "code"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.074,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9554-119",
+          "sponsor_id": "L000606",
+          "similarity_score": 0.905
+        }
+      ],
+      "cosponsors": [
+        "G000555"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -1048,14 +1084,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.08,
+      "alec_best_similarity": 0.081,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR9833-119",
           "sponsor_id": "B001300",
-          "similarity_score": 0.87
+          "similarity_score": 0.868
         }
       ],
       "cosponsors": [],
@@ -1235,11 +1271,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-06T11:49:23.976279+00:00",
+  "bills_updated": "2026-08-07T10:21:40.294808+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 5.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 1,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "votes_fail_count": 1,
   "top_donors_list": [

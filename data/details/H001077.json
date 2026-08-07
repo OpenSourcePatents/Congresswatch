@@ -984,9 +984,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Agriculture",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Agriculture": [
+            "commodity"
+          ],
           "Finance & Banking": [
             "credit"
           ]
@@ -1034,9 +1038,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Technology",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data"
+          ],
           "Finance & Banking": [
             "financial"
           ]
@@ -1089,9 +1098,15 @@
         "M001194"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "internet"
+          ]
+        }
       }
     },
     {
@@ -1135,9 +1150,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Technology",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Technology": [
+            "surveillance"
+          ],
           "Finance & Banking": [
             "interest"
           ]
@@ -1307,12 +1326,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate",
+          "Technology",
           "Finance & Banking"
         ],
         "keyword_hits": {
-          "Real Estate": [
-            "construction"
+          "Technology": [
+            "privacy",
+            "surveillance",
+            "digital"
           ],
           "Finance & Banking": [
             "bank",
@@ -1356,21 +1377,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
+      "alec_best_similarity": 0.041,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Real Estate": [
-            "property"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1455,7 +1470,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.231,
+      "alec_best_similarity": 0.232,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1472,24 +1487,17 @@
         "B001295"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "physician",
-            "nurse"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     }
   ],
-  "bills_updated": "2026-08-06T11:04:31.919209+00:00",
+  "bills_updated": "2026-08-07T09:39:30.722868+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {
