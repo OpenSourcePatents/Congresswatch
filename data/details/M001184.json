@@ -960,7 +960,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.039,
+      "alec_best_similarity": 0.038,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1022,7 +1022,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.079,
+      "alec_best_similarity": 0.077,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1066,7 +1066,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.064,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1085,11 +1085,19 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Agriculture"
+          "Real Estate",
+          "Agriculture",
+          "Finance & Banking"
         ],
         "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ],
           "Agriculture": [
             "farm"
+          ],
+          "Finance & Banking": [
+            "interest"
           ]
         }
       }
@@ -1135,9 +1143,28 @@
         "B000825"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction",
+            "property"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "technology",
+            "internet",
+            "data",
+            "privacy",
+            "social_media"
+          ]
+        }
       }
     },
     {
@@ -1219,7 +1246,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.063,
+      "alec_best_similarity": 0.061,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1235,9 +1262,23 @@
         "A000381"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "privacy"
+          ]
+        }
       }
     },
     {
@@ -1273,7 +1314,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.064,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1289,9 +1330,23 @@
         "A000381"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ],
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "privacy"
+          ]
+        }
       }
     },
     {
@@ -1327,7 +1382,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.026,
+      "alec_best_similarity": 0.025,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1399,11 +1454,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-07T09:56:04.177180+00:00",
+  "bills_updated": "2026-08-08T09:33:00.218761+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 10.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 2,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "fec_cycle": 2026,
   "top_donors_list": [

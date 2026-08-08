@@ -960,7 +960,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.055,
+      "alec_best_similarity": 0.051,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1121,7 +1121,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.079,
+      "alec_best_similarity": 0.074,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1168,7 +1168,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.071,
+      "alec_best_similarity": 0.067,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1218,7 +1218,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.028,
+      "alec_best_similarity": 0.027,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1381,9 +1381,15 @@
         "D000624"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -1419,14 +1425,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.048,
+      "alec_best_similarity": 0.045,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S4483-119",
           "sponsor_id": "S001203",
-          "similarity_score": 0.946
+          "similarity_score": 0.945
         }
       ],
       "cosponsors": [
@@ -1447,11 +1453,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-07T08:57:21.058334+00:00",
+  "bills_updated": "2026-08-08T08:30:40.149399+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "travel": [
     {
