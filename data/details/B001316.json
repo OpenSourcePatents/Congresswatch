@@ -967,7 +967,7 @@
         {
           "bill_id": "HR9809-119",
           "sponsor_id": "M001238",
-          "similarity_score": 0.991
+          "similarity_score": 0.992
         },
         {
           "bill_id": "HR9938-119",
@@ -1132,11 +1132,16 @@
         "match": true,
         "matched_industries": [
           "Agriculture",
+          "Real Estate",
           "Technology"
         ],
         "keyword_hits": {
           "Agriculture": [
             "food"
+          ],
+          "Real Estate": [
+            "construction",
+            "development"
           ],
           "Technology": [
             "data"
@@ -1223,7 +1228,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.092,
+      "alec_best_similarity": 0.091,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1327,9 +1332,17 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction",
+            "development",
+            "real_estate"
+          ]
+        }
       }
     },
     {
@@ -1378,9 +1391,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Real Estate",
           "Technology"
         ],
         "keyword_hits": {
+          "Real Estate": [
+            "rent",
+            "construction"
+          ],
           "Technology": [
             "technology",
             "internet",
@@ -1429,17 +1447,23 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-08-08T08:36:39.919972+00:00",
+  "bills_updated": "2026-08-09T08:41:50.164768+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {
