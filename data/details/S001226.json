@@ -985,7 +985,8 @@
       "cosponsors": [
         "M000687",
         "B001326",
-        "N000147"
+        "N000147",
+        "D000635"
       ],
       "donor_interest": {
         "match": false,
@@ -1036,14 +1037,14 @@
           "similarity_score": 0.998
         },
         {
+          "bill_id": "HR9995-119",
+          "sponsor_id": "N000002",
+          "similarity_score": 0.997
+        },
+        {
           "bill_id": "HR9890-119",
           "sponsor_id": "W000788",
           "similarity_score": 0.996
-        },
-        {
-          "bill_id": "HR9755-119",
-          "sponsor_id": "M001218",
-          "similarity_score": 0.995
         }
       ],
       "cosponsors": [
@@ -1169,9 +1170,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Oil & Gas",
           "Real Estate"
         ],
         "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ],
           "Real Estate": [
             "development"
           ]
@@ -1211,7 +1216,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.076,
+      "alec_best_similarity": 0.08,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1227,9 +1232,15 @@
         "E000246"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "carbon"
+          ]
+        }
       }
     },
     {
@@ -1265,7 +1276,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.079,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1390,9 +1401,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Oil & Gas",
           "Real Estate"
         ],
         "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ],
           "Real Estate": [
             "construction",
             "development"
@@ -1485,7 +1500,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.042,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1512,11 +1527,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-09T08:27:58.922377+00:00",
+  "bills_updated": "2026-08-12T08:56:59.583516+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [

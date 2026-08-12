@@ -929,20 +929,67 @@
       "number": "38",
       "congress": 119,
       "introduced_date": "2026-08-07",
-      "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 550.",
+      "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 550. (text: CR S4571-4577)",
       "url": "https://api.congress.gov/v3/bill/119/sconres/38?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "fiscal",
+        "year",
+        "budget",
+        "outlays",
+        "new",
+        "authority",
+        "committee",
+        "levels",
+        "years",
+        "changes",
+        "laws",
+        "within",
+        "resolution",
+        "follows",
+        "amounts",
+        "jurisdiction",
+        "increase",
+        "deficit",
+        "period",
+        "appropriate"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.034,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SCONRES39-119",
+          "sponsor_id": "P000603",
+          "similarity_score": 0.997
+        },
+        {
+          "bill_id": "HCONRES113-119",
+          "sponsor_id": "A000375",
+          "similarity_score": 0.904
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit",
+            "interest"
+          ],
+          "Technology": [
+            "technology"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -1029,7 +1076,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.056,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1219,11 +1266,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-09T09:49:53.152848+00:00",
+  "bills_updated": "2026-08-12T08:39:28.445447+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 5.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 1,
+  "donor_match_count": 2,
   "edgar_status": "unresolved",
   "trades": [
     {
