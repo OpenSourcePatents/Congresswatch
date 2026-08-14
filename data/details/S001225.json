@@ -979,9 +979,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Education",
           "Real Estate"
         ],
         "keyword_hits": {
+          "Education": [
+            "grant"
+          ],
           "Real Estate": [
             "housing"
           ]
@@ -1021,7 +1025,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.085,
+      "alec_best_similarity": 0.083,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1081,9 +1085,18 @@
         "B001278"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "school",
+            "student",
+            "teacher"
+          ]
+        }
       }
     },
     {
@@ -1119,14 +1132,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.055,
+      "alec_best_similarity": 0.053,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S4148-119",
           "sponsor_id": "K000367",
-          "similarity_score": 0.982
+          "similarity_score": 0.981
         }
       ],
       "cosponsors": [
@@ -1140,11 +1153,22 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Education",
+          "Real Estate",
+          "Finance & Banking"
         ],
         "keyword_hits": {
+          "Education": [
+            "loan",
+            "grant",
+            "charter"
+          ],
           "Real Estate": [
             "development"
+          ],
+          "Finance & Banking": [
+            "credit",
+            "loan"
           ]
         }
       }
@@ -1182,7 +1206,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.038,
+      "alec_best_similarity": 0.037,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1298,9 +1322,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Education",
           "Real Estate"
         ],
         "keyword_hits": {
+          "Education": [
+            "education",
+            "grant"
+          ],
           "Real Estate": [
             "development",
             "property"
@@ -1341,7 +1370,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.07,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1401,14 +1430,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.029,
+      "alec_best_similarity": 0.028,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S3835-119",
           "sponsor_id": "M001243",
-          "similarity_score": 0.891
+          "similarity_score": 0.876
         },
         {
           "bill_id": "HR6849-119",
@@ -1467,23 +1496,29 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.039,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "university"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-08-12T08:56:28.813393+00:00",
+  "bills_updated": "2026-08-14T08:54:06.223793+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "travel": [
     {

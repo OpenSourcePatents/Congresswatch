@@ -1067,7 +1067,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.035,
+      "alec_best_similarity": 0.032,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1117,19 +1117,19 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.102,
+      "alec_best_similarity": 0.096,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HJRES211-119",
           "sponsor_id": "P000609",
-          "similarity_score": 0.978
+          "similarity_score": 0.975
         },
         {
           "bill_id": "SJRES207-119",
           "sponsor_id": "R000618",
-          "similarity_score": 0.825
+          "similarity_score": 0.826
         }
       ],
       "cosponsors": [
@@ -1181,14 +1181,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.1,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HJRES152-119",
           "sponsor_id": "L000597",
-          "similarity_score": 0.804
+          "similarity_score": 0.807
         }
       ],
       "cosponsors": [],
@@ -1238,7 +1238,7 @@
         {
           "bill_id": "HR7156-119",
           "sponsor_id": "E000294",
-          "similarity_score": 0.906
+          "similarity_score": 0.909
         }
       ],
       "cosponsors": [
@@ -1375,25 +1375,59 @@
     },
     {
       "bill_id": "S5253-119",
-      "title": "A bill to amend the Food, Agriculture, Conservation, and Trade Act of 1990 to prioritize emerging tick-borne livestock disease research, and for other purposes.",
+      "title": "Tick-Borne Livestock Disease Research Prioritization Act",
       "type": "S",
       "number": "5253",
       "congress": 119,
       "introduced_date": "2026-08-05",
       "latest_action": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry.",
       "url": "https://api.congress.gov/v3/bill/119/s/5253?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "livestock",
+        "tick",
+        "diseases",
+        "borne",
+        "agriculture",
+        "research",
+        "emerging",
+        "food",
+        "extension",
+        "support",
+        "conservation",
+        "trade",
+        "purposes",
+        "invasive",
+        "asian",
+        "longhorned",
+        "bovine",
+        "losses",
+        "producers",
+        "introduced"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.032,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "J000312",
+        "M001198"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "risk"
+          ],
+          "Technology": [
+            "surveillance"
+          ]
+        }
       }
     },
     {
@@ -1420,11 +1454,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-12T10:05:49.873582+00:00",
+  "bills_updated": "2026-08-14T10:27:57.151068+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

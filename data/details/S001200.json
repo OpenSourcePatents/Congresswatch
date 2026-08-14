@@ -972,9 +972,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Insurance",
           "Real Estate"
         ],
         "keyword_hits": {
+          "Insurance": [
+            "liability",
+            "damages"
+          ],
           "Real Estate": [
             "development",
             "property"
@@ -1015,7 +1020,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.084,
+      "alec_best_similarity": 0.081,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1034,11 +1039,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Healthcare"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "frank"
+          ],
+          "Healthcare": [
+            "mental_health"
           ]
         }
       }
@@ -1145,12 +1154,7 @@
         {
           "bill_id": "HRES910-119",
           "sponsor_id": "S001201",
-          "similarity_score": 0.802
-        },
-        {
-          "bill_id": "HRES965-119",
-          "sponsor_id": "P000617",
-          "similarity_score": 0.801
+          "similarity_score": 0.8
         }
       ],
       "cosponsors": [
@@ -1196,7 +1200,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.027,
+      "alec_best_similarity": 0.026,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1269,13 +1273,9 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Telecommunications",
           "Education"
         ],
         "keyword_hits": {
-          "Telecommunications": [
-            "spectrum"
-          ],
           "Education": [
             "grant"
           ]
@@ -1325,11 +1325,23 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Insurance",
+          "Healthcare"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "credit"
+          ],
+          "Insurance": [
+            "insurance",
+            "premium"
+          ],
+          "Healthcare": [
+            "insurance",
+            "medicaid",
+            "medicare",
+            "affordable_care"
           ]
         }
       }
@@ -1367,7 +1379,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.049,
+      "alec_best_similarity": 0.047,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1380,20 +1392,24 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate",
+          "Finance & Banking",
           "Education",
-          "Finance & Banking"
+          "Real Estate",
+          "Healthcare"
         ],
         "keyword_hits": {
-          "Real Estate": [
-            "housing",
-            "development"
+          "Finance & Banking": [
+            "financial"
           ],
           "Education": [
             "education"
           ],
-          "Finance & Banking": [
-            "financial"
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Healthcare": [
+            "mental_health"
           ]
         }
       }
@@ -1475,7 +1491,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.08,
+      "alec_best_similarity": 0.078,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1494,17 +1510,21 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Healthcare"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "frank"
+          ],
+          "Healthcare": [
+            "mental_health"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-08-12T09:37:43.332414+00:00",
+  "bills_updated": "2026-08-14T09:46:38.245557+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,

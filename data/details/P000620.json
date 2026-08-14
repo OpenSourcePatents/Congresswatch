@@ -1026,7 +1026,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
+      "alec_best_similarity": 0.032,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1037,10 +1037,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Technology",
           "Real Estate",
           "Agriculture"
         ],
         "keyword_hits": {
+          "Technology": [
+            "technology"
+          ],
           "Real Estate": [
             "development"
           ],
@@ -1093,9 +1097,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Technology",
           "Agriculture"
         ],
         "keyword_hits": {
+          "Technology": [
+            "data"
+          ],
           "Agriculture": [
             "agriculture"
           ]
@@ -1136,9 +1144,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.052,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5290-119",
+          "sponsor_id": "B001267",
+          "similarity_score": 0.827
+        }
+      ],
       "cosponsors": [
         "N000191"
       ],
@@ -1300,7 +1314,8 @@
       ],
       "cosponsors": [
         "M001230",
-        "F000466"
+        "F000466",
+        "V000138"
       ],
       "donor_interest": {
         "match": true,
@@ -1479,7 +1494,7 @@
       }
     }
   ],
-  "bills_updated": "2026-08-12T08:57:21.056061+00:00",
+  "bills_updated": "2026-08-14T09:10:55.390438+00:00",
   "bills_count": 10,
   "donor_alignment_score": 25.0,
   "alec_match_count": 0,

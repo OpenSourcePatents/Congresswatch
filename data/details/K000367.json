@@ -924,25 +924,69 @@
   "bills": [
     {
       "bill_id": "S5285-119",
-      "title": "A bill to amend the Internal Revenue Code of 1986 to improve the low-income housing credit.",
+      "title": "Visitable Inclusive Tax credits for Accessible Living (VITAL) Act",
       "type": "S",
       "number": "5285",
       "congress": 119,
       "introduced_date": "2026-08-06",
       "latest_action": "Read twice and referred to the Committee on Finance.",
       "url": "https://api.congress.gov/v3/bill/119/s/5285?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "amount",
+        "calendar",
+        "year",
+        "housing",
+        "people",
+        "determined",
+        "disabilities",
+        "subparagraph",
+        "dollar",
+        "credit",
+        "income",
+        "code",
+        "low",
+        "adults",
+        "internal",
+        "revenue",
+        "multiple",
+        "designated",
+        "older",
+        "per"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.077,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10049-119",
+          "sponsor_id": "E000296",
+          "similarity_score": 0.99
+        }
+      ],
+      "cosponsors": [
+        "G000555",
+        "D000622",
+        "K000394",
+        "V000128",
+        "W000800"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "credit"
+          ],
+          "Real Estate": [
+            "housing",
+            "affordable_housing"
+          ]
+        }
       }
     },
     {
@@ -1040,7 +1084,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.103,
+      "alec_best_similarity": 0.102,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1374,11 +1418,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-12T10:08:00.923460+00:00",
+  "bills_updated": "2026-08-14T10:31:14.734527+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {

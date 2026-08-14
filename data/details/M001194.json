@@ -1032,9 +1032,15 @@
         "S001172"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital"
+          ]
+        }
       }
     },
     {
@@ -1084,27 +1090,9 @@
         "H001101"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology",
-          "Finance & Banking",
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data",
-            "software",
-            "semiconductor"
-          ],
-          "Finance & Banking": [
-            "financial",
-            "securities"
-          ],
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1150,17 +1138,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Oil & Gas",
+          "Healthcare",
           "Real Estate"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "investment"
-          ],
-          "Oil & Gas": [
-            "energy"
+          "Healthcare": [
+            "hospital",
+            "insurance",
+            "medicaid",
+            "affordable_care",
+            "physician"
           ],
           "Real Estate": [
             "development"
@@ -1201,7 +1188,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.071,
+      "alec_best_similarity": 0.069,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1226,25 +1213,9 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking",
-          "Oil & Gas",
           "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data",
-            "spectrum",
-            "artificial_intelligence",
-            "surveillance"
-          ],
-          "Finance & Banking": [
-            "interest"
-          ],
-          "Oil & Gas": [
-            "energy"
-          ],
           "Real Estate": [
             "construction",
             "development",
@@ -1286,7 +1257,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.059,
+      "alec_best_similarity": 0.057,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1305,23 +1276,9 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking",
-          "Oil & Gas",
           "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data"
-          ],
-          "Finance & Banking": [
-            "financial",
-            "investment"
-          ],
-          "Oil & Gas": [
-            "energy"
-          ],
           "Real Estate": [
             "housing",
             "development",
@@ -1364,7 +1321,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.052,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1410,7 +1367,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.068,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1418,22 +1375,9 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking",
           "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "internet",
-            "artificial_intelligence",
-            "software",
-            "hardware",
-            "semiconductor"
-          ],
-          "Finance & Banking": [
-            "financial",
-            "interest"
-          ],
           "Real Estate": [
             "housing",
             "construction"
@@ -1474,21 +1418,15 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.063,
+      "alec_best_similarity": 0.06,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1552,13 +1490,19 @@
         "M001212"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicare"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-08-12T09:09:42.078032+00:00",
+  "bills_updated": "2026-08-14T09:09:00.315033+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,

@@ -960,14 +960,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.043,
+      "alec_best_similarity": 0.042,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HRES1475-119",
           "sponsor_id": "V000129",
-          "similarity_score": 0.942
+          "similarity_score": 0.94
         }
       ],
       "cosponsors": [
@@ -1030,7 +1030,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.076,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1087,7 +1087,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.021,
+      "alec_best_similarity": 0.02,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1270,25 +1270,58 @@
     },
     {
       "bill_id": "S5349-119",
-      "title": "A bill to authorize the Secretary of Defense to eliminate any internal Department of Defense depreciated costs or cancel any internal Department debts associated with depots and arsenal from accounts of a military department or the Department that are associated with certain capital expenditures that no longer generate revenue due to mission changes.",
+      "title": "DEPOTS Act",
       "type": "S",
       "number": "5349",
       "congress": 119,
       "introduced_date": "2026-08-06",
       "latest_action": "Read twice and referred to the Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/s/5349?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "department",
+        "defense",
+        "internal",
+        "secretary",
+        "associated",
+        "military",
+        "depots",
+        "capital",
+        "write",
+        "eliminate",
+        "arsenal",
+        "accounts",
+        "generate",
+        "revenue",
+        "due",
+        "mission",
+        "offs",
+        "authority",
+        "government",
+        "introduced"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.036,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10046-119",
+          "sponsor_id": "C001115",
+          "similarity_score": 0.986
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -1331,7 +1364,7 @@
         {
           "bill_id": "S5100-119",
           "sponsor_id": "B001288",
-          "similarity_score": 0.821
+          "similarity_score": 0.82
         },
         {
           "bill_id": "HR9872-119",
@@ -1350,21 +1383,50 @@
     },
     {
       "bill_id": "S5348-119",
-      "title": "A bill to modify the report on limitations on performance of depot-level maintenance to include information on each facility.",
+      "title": "Depot Data Transparency Act",
       "type": "S",
       "number": "5348",
       "congress": 119,
       "introduced_date": "2026-08-06",
       "latest_action": "Read twice and referred to the Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/s/5348?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "depot",
+        "report",
+        "level",
+        "maintenance",
+        "introduced",
+        "modify",
+        "limitations",
+        "performance",
+        "include",
+        "information",
+        "facility",
+        "bill",
+        "striking",
+        "defense",
+        "agency",
+        "percentage",
+        "inserting",
+        "subparagraph",
+        "end",
+        "congressional"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.072,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10047-119",
+          "sponsor_id": "C001115",
+          "similarity_score": 0.947
+        }
+      ],
+      "cosponsors": [
+        "F000479"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1404,7 +1466,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.113,
+      "alec_best_similarity": 0.107,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1418,11 +1480,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-12T10:11:01.137602+00:00",
+  "bills_updated": "2026-08-14T10:35:06.091920+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {
