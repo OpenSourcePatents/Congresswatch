@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.096,
+      "alec_best_similarity": 0.095,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1193,9 +1193,15 @@
         "B001281"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -1246,9 +1252,20 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Healthcare",
+          "Real Estate",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Healthcare": [
+            "hospital",
+            "medicare",
+            "mental_health",
+            "reimbursement"
+          ],
+          "Real Estate": [
+            "development"
+          ],
           "Finance & Banking": [
             "financial",
             "loan",
@@ -1410,9 +1427,15 @@
         "B001326"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -1477,11 +1500,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-20T08:11:22.073406+00:00",
+  "bills_updated": "2026-08-21T08:12:10.876213+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 10.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 2,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {
