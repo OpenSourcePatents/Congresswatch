@@ -462,17 +462,47 @@
         "B001319"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Defense & Military",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "financial",
+            "interest",
+            "securities",
+            "investment"
+          ],
+          "Real Estate": [
+            "housing",
+            "construction",
+            "property"
+          ],
+          "Defense & Military": [
+            "defense",
+            "military",
+            "arms",
+            "national_security",
+            "armed_forces"
+          ],
+          "Technology": [
+            "technology",
+            "digital",
+            "software"
+          ]
+        }
       }
     }
   ],
-  "bills_updated": "2026-08-26T09:49:20.000673+00:00",
+  "bills_updated": "2026-08-27T19:48:22.714842+00:00",
   "bills_count": 3,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 16.7,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "score_updated": "2026-08-26T12:23:15.234423",
   "fec_candidate_id": "S6SC04437",
   "total_raised": 346782.64,

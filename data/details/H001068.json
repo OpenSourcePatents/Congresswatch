@@ -974,6 +974,7 @@
         "match": true,
         "matched_industries": [
           "Finance & Banking",
+          "Real Estate",
           "Technology"
         ],
         "keyword_hits": {
@@ -981,6 +982,9 @@
             "financial",
             "interest",
             "investment"
+          ],
+          "Real Estate": [
+            "development"
           ],
           "Technology": [
             "data"
@@ -1029,9 +1033,16 @@
         "H001094"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "energy",
+            "greenhouse"
+          ]
+        }
       }
     },
     {
@@ -1075,11 +1086,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "interest"
+          ],
+          "Real Estate": [
+            "construction"
           ]
         }
       }
@@ -1139,9 +1154,15 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -1186,9 +1207,15 @@
         "K000375"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "offshore"
+          ]
+        }
       }
     },
     {
@@ -1346,12 +1373,22 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Oil & Gas",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "financial",
             "interest"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Real Estate": [
+            "construction",
+            "development",
+            "property"
           ]
         }
       }
@@ -1406,9 +1443,15 @@
         "C001068"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "oil_gas"
+          ]
+        }
       }
     },
     {
@@ -1452,7 +1495,9 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Oil & Gas",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
@@ -1461,16 +1506,27 @@
             "loan",
             "investment",
             "derivative"
+          ],
+          "Oil & Gas": [
+            "energy",
+            "fossil",
+            "emissions",
+            "petroleum",
+            "natural gas"
+          ],
+          "Real Estate": [
+            "construction",
+            "development"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-08-26T09:28:55.256253+00:00",
+  "bills_updated": "2026-08-27T19:37:34.978245+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "votes_fail_count": 2,
   "travel": [
