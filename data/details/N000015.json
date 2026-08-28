@@ -962,14 +962,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.087,
+      "alec_best_similarity": 0.088,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "S5275-119",
           "sponsor_id": "W000779",
-          "similarity_score": 0.963
+          "similarity_score": 0.965
         }
       ],
       "cosponsors": [
@@ -1035,16 +1035,9 @@
       ],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "credit",
-            "securities"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1093,11 +1086,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Insurance"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
+          "Insurance": [
+            "risk"
           ]
         }
       }
@@ -1141,19 +1134,18 @@
       "similar_member_bills": [],
       "cosponsors": [
         "D000096",
-        "S001156"
+        "S001156",
+        "V000138"
       ],
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Insurance"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit",
-            "interest",
-            "investment"
+          "Insurance": [
+            "liability",
+            "deductible"
           ]
         }
       }
@@ -1271,11 +1263,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Insurance"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "investment"
+          "Insurance": [
+            "claim"
           ]
         }
       }
@@ -1376,14 +1368,12 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Insurance"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit",
-            "interest",
-            "investment"
+          "Insurance": [
+            "liability",
+            "deductible"
           ]
         }
       }
@@ -1421,7 +1411,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.077,
+      "alec_best_similarity": 0.078,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1438,9 +1428,16 @@
         "B001285"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "insurance",
+            "actuary"
+          ]
+        }
       }
     },
     {
@@ -1495,17 +1492,17 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Insurance"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
+          "Insurance": [
+            "risk"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-08-27T19:34:31.355697+00:00",
+  "bills_updated": "2026-08-28T20:49:56.006086+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,

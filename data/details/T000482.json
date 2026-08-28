@@ -1213,9 +1213,15 @@
         "P000048"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -1270,12 +1276,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "financial",
             "interest"
+          ],
+          "Real Estate": [
+            "property"
           ]
         }
       }
@@ -1373,13 +1383,19 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "financial",
             "interest",
             "investment"
+          ],
+          "Real Estate": [
+            "housing",
+            "development",
+            "property"
           ]
         }
       }
@@ -1437,7 +1453,8 @@
         "match": true,
         "matched_industries": [
           "Healthcare",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Real Estate"
         ],
         "keyword_hits": {
           "Healthcare": [
@@ -1449,6 +1466,9 @@
           ],
           "Finance & Banking": [
             "financial"
+          ],
+          "Real Estate": [
+            "development"
           ]
         }
       }
@@ -1501,11 +1521,11 @@
       }
     }
   ],
-  "bills_updated": "2026-08-27T19:13:57.434549+00:00",
+  "bills_updated": "2026-08-28T20:26:44.605654+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 3,
   "trades": [
