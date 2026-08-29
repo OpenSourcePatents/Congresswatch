@@ -936,14 +936,55 @@
       "introduced_date": "2026-08-27",
       "latest_action": "Referred to the House Committee on Ways and Means.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10153?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wks",
+        "wms",
+        "vqs",
+        "rnb",
+        "tfjc",
+        "tuqx",
+        "lnvg",
+        "adg",
+        "idqf",
+        "rnz",
+        "xdm",
+        "mrm"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9672-119",
+          "sponsor_id": "D000399",
+          "similarity_score": 0.988
+        },
+        {
+          "bill_id": "HR10101-119",
+          "sponsor_id": "O000176",
+          "similarity_score": 0.985
+        },
+        {
+          "bill_id": "HR10097-119",
+          "sponsor_id": "L000590",
+          "similarity_score": 0.978
+        }
+      ],
+      "cosponsors": [
+        "S001201",
+        "M000317",
+        "B001296"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1450,7 +1491,7 @@
       }
     }
   ],
-  "bills_updated": "2026-08-28T20:31:09.000524+00:00",
+  "bills_updated": "2026-08-29T14:24:06.661803+00:00",
   "bills_count": 10,
   "donor_alignment_score": 25.0,
   "alec_match_count": 0,
