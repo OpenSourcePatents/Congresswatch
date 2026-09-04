@@ -1089,23 +1089,27 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
           "Healthcare",
-          "Finance & Banking"
+          "Technology",
+          "Finance & Banking",
+          "Education"
         ],
         "keyword_hits": {
+          "Healthcare": [
+            "healthcare"
+          ],
           "Technology": [
             "technology",
             "internet",
             "social_media",
             "artificial_intelligence"
           ],
-          "Healthcare": [
-            "healthcare"
-          ],
           "Finance & Banking": [
             "financial",
             "interest"
+          ],
+          "Education": [
+            "grant"
           ]
         }
       }
@@ -1160,9 +1164,15 @@
         "P000620"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "school"
+          ]
+        }
       }
     },
     {
@@ -1198,7 +1208,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.048,
+      "alec_best_similarity": 0.05,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1217,11 +1227,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Finance & Banking",
+          "Education"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "investment"
+          ],
+          "Education": [
+            "education"
           ]
         }
       }
@@ -1278,11 +1292,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Healthcare"
+          "Healthcare",
+          "Education"
         ],
         "keyword_hits": {
           "Healthcare": [
             "insurance"
+          ],
+          "Education": [
+            "education"
           ]
         }
       }
@@ -1340,7 +1358,8 @@
         "match": true,
         "matched_industries": [
           "Healthcare",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Education"
         ],
         "keyword_hits": {
           "Healthcare": [
@@ -1351,6 +1370,10 @@
           "Finance & Banking": [
             "financial",
             "interest"
+          ],
+          "Education": [
+            "education",
+            "grant"
           ]
         }
       }
@@ -1407,20 +1430,26 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Healthcare",
           "Technology",
-          "Healthcare"
+          "Education"
         ],
         "keyword_hits": {
-          "Technology": [
-            "data",
-            "surveillance"
-          ],
           "Healthcare": [
             "hospital",
             "provider",
             "physician",
             "nurse",
             "mental_health"
+          ],
+          "Technology": [
+            "data",
+            "surveillance"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "grant"
           ]
         }
       }
@@ -1523,17 +1552,17 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
           "Healthcare",
+          "Technology",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Healthcare": [
+            "healthcare"
+          ],
           "Technology": [
             "technology",
             "data"
-          ],
-          "Healthcare": [
-            "healthcare"
           ],
           "Finance & Banking": [
             "investment"
@@ -1542,11 +1571,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-03T13:46:29.759041+00:00",
+  "bills_updated": "2026-09-04T13:43:40.758368+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
