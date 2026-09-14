@@ -978,14 +978,16 @@
         "match": true,
         "matched_industries": [
           "Finance & Banking",
-          "Real Estate"
+          "Education"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "credit"
           ],
-          "Real Estate": [
-            "construction"
+          "Education": [
+            "education",
+            "student",
+            "college"
           ]
         }
       }
@@ -1031,15 +1033,9 @@
         "F000482"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Real Estate": [
-            "property"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1203,15 +1199,9 @@
         "P000614"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Real Estate": [
-            "development"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1269,8 +1259,7 @@
         "match": true,
         "matched_industries": [
           "Finance & Banking",
-          "Healthcare",
-          "Real Estate"
+          "Healthcare"
         ],
         "keyword_hits": {
           "Finance & Banking": [
@@ -1282,11 +1271,6 @@
           ],
           "Healthcare": [
             "insurance"
-          ],
-          "Real Estate": [
-            "construction",
-            "property",
-            "real_estate"
           ]
         }
       }
@@ -1334,7 +1318,8 @@
         "matched_industries": [
           "Finance & Banking",
           "Healthcare",
-          "Real Estate"
+          "Technology",
+          "Education"
         ],
         "keyword_hits": {
           "Finance & Banking": [
@@ -1351,11 +1336,12 @@
             "medicare",
             "affordable_care"
           ],
-          "Real Estate": [
-            "rent",
-            "development",
-            "property",
-            "real_estate"
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Education": [
+            "loan"
           ]
         }
       }
@@ -1412,11 +1398,19 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Healthcare"
+          "Healthcare",
+          "Education"
         ],
         "keyword_hits": {
           "Healthcare": [
             "provider"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "college",
+            "grant",
+            "pell"
           ]
         }
       }
@@ -1505,7 +1499,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.023,
+      "alec_best_similarity": 0.024,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1519,11 +1513,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-12T11:56:11.170955+00:00",
+  "bills_updated": "2026-09-14T14:09:26.896025+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 7,
   "top_donors_list": [
