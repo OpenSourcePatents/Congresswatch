@@ -928,6 +928,29 @@
   "last_updated": "2026-09-17T10:16:07.983266",
   "bills": [
     {
+      "bill_id": "HR10411-119",
+      "title": "To direct the Secretary of Agriculture to consider certain acreage not planted due to a lack of irrigation water to be eligible for prevented planting payments, and for other purposes.",
+      "type": "HR",
+      "number": "10411",
+      "congress": 119,
+      "introduced_date": "2026-09-16",
+      "latest_action": "Referred to the House Committee on Agriculture.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/10411?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HR9826-119",
       "title": "Glenwood Hot Springs Protection Act",
       "type": "HR",
@@ -1142,9 +1165,15 @@
         "C001121"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Oil & Gas": [
+            "energy"
+          ]
+        }
       }
     },
     {
@@ -1239,11 +1268,16 @@
         "match": true,
         "matched_industries": [
           "Real Estate",
+          "Oil & Gas",
           "Finance & Banking"
         ],
         "keyword_hits": {
           "Real Estate": [
             "development"
+          ],
+          "Oil & Gas": [
+            "energy",
+            "drilling"
           ],
           "Finance & Banking": [
             "interest",
@@ -1296,15 +1330,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Agriculture"
+          "Finance & Banking"
         ],
         "keyword_hits": {
           "Finance & Banking": [
             "credit"
-          ],
-          "Agriculture": [
-            "rural"
           ]
         }
       }
@@ -1420,70 +1450,9 @@
           ]
         }
       }
-    },
-    {
-      "bill_id": "HR7954-119",
-      "title": "Don Young Doug LaMalfa Indian Buffalo Management Act",
-      "type": "HR",
-      "number": "7954",
-      "congress": 119,
-      "introduced_date": "2026-03-17",
-      "latest_action": "Referred to the House Committee on Natural Resources.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7954?format=json",
-      "keywords": [
-        "buffalo",
-        "indian",
-        "tribal",
-        "tribes",
-        "habitat",
-        "secretary",
-        "tribe",
-        "organizations",
-        "management",
-        "land",
-        "organization",
-        "department",
-        "promote",
-        "development",
-        "restoration",
-        "use",
-        "activities",
-        "described",
-        "purposes",
-        "cultural"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.045,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "L000273",
-        "F000482",
-        "N000189",
-        "F000459",
-        "C001053",
-        "B001323",
-        "D000629",
-        "B000740",
-        "Z000018",
-        "V000136"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Real Estate": [
-            "development"
-          ]
-        }
-      }
     }
   ],
-  "bills_updated": "2026-09-16T13:59:25.066265+00:00",
+  "bills_updated": "2026-09-17T13:48:04.629961+00:00",
   "bills_count": 10,
   "donor_alignment_score": 25.0,
   "alec_match_count": 0,
