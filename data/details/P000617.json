@@ -960,7 +960,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.088,
+      "alec_best_similarity": 0.087,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -994,18 +994,72 @@
       "introduced_date": "2026-09-15",
       "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10397?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "endstream",
+        "wks",
+        "wms",
+        "vms",
+        "wkw",
+        "pdf",
+        "zdv",
+        "nyf",
+        "dpr",
+        "fzwq",
+        "kvp",
+        "wux",
+        "ksv",
+        "cbc",
+        "kfw",
+        "mmw",
+        "nfdo"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10087-119",
+          "sponsor_id": "D000623",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HR9634-119",
+          "sponsor_id": "M001234",
+          "similarity_score": 0.973
+        },
+        {
+          "bill_id": "HR9656-119",
+          "sponsor_id": "R000614",
+          "similarity_score": 0.971
+        }
+      ],
+      "cosponsors": [
+        "L000273",
+        "R000305",
+        "A000381",
+        "B001318",
+        "B001281",
+        "B001324",
+        "B001296",
+        "C001112",
+        "C001072",
+        "C001067"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -1182,17 +1236,17 @@
         {
           "bill_id": "HR10267-119",
           "sponsor_id": "G000559",
-          "similarity_score": 0.987
+          "similarity_score": 0.985
         },
         {
           "bill_id": "HR10215-119",
           "sponsor_id": "P000608",
-          "similarity_score": 0.982
+          "similarity_score": 0.98
         },
         {
           "bill_id": "HR9937-119",
           "sponsor_id": "S001188",
-          "similarity_score": 0.979
+          "similarity_score": 0.977
         }
       ],
       "cosponsors": [
@@ -1516,11 +1570,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-18T13:22:38.666163+00:00",
+  "bills_updated": "2026-09-19T12:59:20.398689+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "travel": [
     {
