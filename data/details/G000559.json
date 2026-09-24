@@ -938,18 +938,57 @@
       "introduced_date": "2026-09-21",
       "latest_action": "Referred to the House Committee on Foreign Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/hconres/119?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "peace",
+        "corps",
+        "development",
+        "volunteers",
+        "service",
+        "global",
+        "economic",
+        "anniversary",
+        "friendship",
+        "american",
+        "education",
+        "community",
+        "con",
+        "res",
+        "celebrating",
+        "establishment",
+        "commending",
+        "contributions",
+        "concurrent",
+        "resolution"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.029,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES872-119",
+          "sponsor_id": "B001288",
+          "similarity_score": 0.941
+        }
+      ],
+      "cosponsors": [
+        "R000600"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Agriculture": [
+            "agriculture"
+          ]
+        }
       }
     },
     {
@@ -1238,7 +1277,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.013,
+      "alec_best_similarity": 0.014,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1508,11 +1547,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-23T13:36:55.411568+00:00",
+  "bills_updated": "2026-09-24T13:35:59.160288+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "votes_fail_count": 8,
   "travel": [

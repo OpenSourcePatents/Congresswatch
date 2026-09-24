@@ -931,25 +931,62 @@
   "bills": [
     {
       "bill_id": "HR10452-119",
-      "title": "To amend the Higher Education Act of 1965 to include in the calculation of cost of attendance an allowance for costs for prior learning assessments.",
+      "title": "Credit for Prior Learning Act",
       "type": "HR",
       "number": "10452",
       "congress": 119,
       "introduced_date": "2026-09-16",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10452?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "learning",
+        "prior",
+        "credit",
+        "education",
+        "higher",
+        "assessment",
+        "allowance",
+        "costs",
+        "assessments",
+        "adding",
+        "end",
+        "eligible",
+        "institution",
+        "include",
+        "cost",
+        "attendance",
+        "striking",
+        "introduced",
+        "calculation",
+        "bill"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.134,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S4897-119",
+          "sponsor_id": "K000367",
+          "similarity_score": 0.973
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "student",
+            "college",
+            "grant",
+            "pell"
+          ]
+        }
       }
     },
     {
@@ -1036,7 +1073,7 @@
         {
           "bill_id": "S4941-119",
           "sponsor_id": "M000133",
-          "similarity_score": 0.951
+          "similarity_score": 0.949
         }
       ],
       "cosponsors": [
@@ -1501,11 +1538,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-23T14:03:54.974734+00:00",
+  "bills_updated": "2026-09-24T14:14:16.631996+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 40.0,
+  "donor_alignment_score": 45.0,
   "alec_match_count": 0,
-  "donor_match_count": 8,
+  "donor_match_count": 9,
   "edgar_status": "unresolved",
   "travel": [
     {

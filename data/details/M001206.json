@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.038,
+      "alec_best_similarity": 0.039,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1185,7 +1185,7 @@
         {
           "bill_id": "HR10224-119",
           "sponsor_id": "B001327",
-          "similarity_score": 0.853
+          "similarity_score": 0.852
         },
         {
           "bill_id": "HR9905-119",
@@ -1218,25 +1218,63 @@
     },
     {
       "bill_id": "HR10451-119",
-      "title": "To amend the Higher Education Act of 1965 to establish an emergency grant aid program, and for other purposes.",
+      "title": "Emergency Grant Aid for College Students Act",
       "type": "HR",
       "number": "10451",
       "congress": 119,
       "introduced_date": "2026-09-16",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10451?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "eligible",
+        "grant",
+        "emergency",
+        "aid",
+        "students",
+        "entity",
+        "financial",
+        "student",
+        "education",
+        "program",
+        "grants",
+        "higher",
+        "degree",
+        "secretary",
+        "amount",
+        "assistance",
+        "institution",
+        "number",
+        "college",
+        "carry"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.118,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Technology",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "tenant"
+          ],
+          "Technology": [
+            "data"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -1332,7 +1370,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.132,
+      "alec_best_similarity": 0.131,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1486,11 +1524,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-23T13:51:11.427645+00:00",
+  "bills_updated": "2026-09-24T13:59:55.346302+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 6,
   "top_donors_list": [
