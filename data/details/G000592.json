@@ -936,18 +936,63 @@
       "introduced_date": "2026-09-24",
       "latest_action": "Referred to the House Committee on Veterans' Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10555?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wks",
+        "vmo",
+        "wms",
+        "vms",
+        "qnr",
+        "iacw",
+        "qrr",
+        "phu",
+        "lld",
+        "lvy",
+        "mwjg",
+        "pnp"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9942-119",
+          "sponsor_id": "V000135",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HR9707-119",
+          "sponsor_id": "H001101",
+          "similarity_score": 0.979
+        },
+        {
+          "bill_id": "HR10071-119",
+          "sponsor_id": "C001123",
+          "similarity_score": 0.976
+        }
+      ],
+      "cosponsors": [
+        "L000599"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital"
+          ]
+        }
       }
     },
     {
@@ -983,7 +1028,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.056,
+      "alec_best_similarity": 0.059,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1272,17 +1317,17 @@
         {
           "bill_id": "HRES1345-119",
           "sponsor_id": "L000600",
-          "similarity_score": 0.869
+          "similarity_score": 0.867
         },
         {
           "bill_id": "HRES1095-119",
           "sponsor_id": "J000311",
-          "similarity_score": 0.849
+          "similarity_score": 0.846
         },
         {
           "bill_id": "HRES1131-119",
           "sponsor_id": "H001093",
-          "similarity_score": 0.837
+          "similarity_score": 0.834
         }
       ],
       "cosponsors": [],
@@ -1447,11 +1492,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-25T13:45:24.110013+00:00",
+  "bills_updated": "2026-09-26T13:11:38.355919+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

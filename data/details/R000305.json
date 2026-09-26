@@ -936,18 +936,67 @@
       "introduced_date": "2026-09-24",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10599?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "stream",
+        "endstream",
+        "wms",
+        "xms",
+        "fsn",
+        "vms",
+        "nzf",
+        "ahf",
+        "map",
+        "qdm",
+        "oxq",
+        "gelr",
+        "akv",
+        "mfa"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9950-119",
+          "sponsor_id": "B001321",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HRES1512-119",
+          "sponsor_id": "B000740",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HR10456-119",
+          "sponsor_id": "R000606",
+          "similarity_score": 1.0
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicare"
+          ],
+          "Pharmaceuticals": [
+            "drug",
+            "prescription",
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -1206,7 +1255,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.043,
+      "alec_best_similarity": 0.044,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1477,11 +1526,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-25T13:40:36.808359+00:00",
+  "bills_updated": "2026-09-26T13:07:19.891845+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "votes_fail_count": 9,
   "travel": [
