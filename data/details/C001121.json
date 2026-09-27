@@ -936,18 +936,63 @@
       "introduced_date": "2026-09-24",
       "latest_action": "Referred to the House Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10541?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "stream",
+        "endstream",
+        "wms",
+        "xms",
+        "fsn",
+        "vms",
+        "nzf",
+        "ahf",
+        "map",
+        "qdm",
+        "oxq",
+        "gelr",
+        "akv",
+        "mfa"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9950-119",
+          "sponsor_id": "B001321",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HRES1512-119",
+          "sponsor_id": "B000740",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HR10456-119",
+          "sponsor_id": "R000606",
+          "similarity_score": 1.0
+        }
+      ],
+      "cosponsors": [
+        "C001137"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ]
+        }
       }
     },
     {
@@ -1155,7 +1200,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.061,
+      "alec_best_similarity": 0.062,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1388,7 +1433,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.044,
+      "alec_best_similarity": 0.043,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1468,11 +1513,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-26T13:21:48.901272+00:00",
+  "bills_updated": "2026-09-27T14:06:32.976209+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 45.0,
+  "donor_alignment_score": 50.0,
   "alec_match_count": 0,
-  "donor_match_count": 9,
+  "donor_match_count": 10,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
