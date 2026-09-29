@@ -928,6 +928,62 @@
   "last_updated": "2026-09-29T11:10:52.768403",
   "bills": [
     {
+      "bill_id": "HR10636-119",
+      "title": "Medicaid Fraud Prevention Act",
+      "type": "HR",
+      "number": "10636",
+      "congress": 119,
+      "introduced_date": "2026-09-28",
+      "latest_action": "Referred to the House Committee on Energy and Commerce.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/10636?format=json",
+      "keywords": [
+        "fraud",
+        "risk",
+        "assessment",
+        "plan",
+        "respect",
+        "state",
+        "assessments",
+        "medicaid",
+        "program",
+        "secretary",
+        "vulnerabilities",
+        "waiver",
+        "later",
+        "year",
+        "described",
+        "information",
+        "system",
+        "iii",
+        "waste",
+        "abuse"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "alec_best_similarity": 0.078,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "B000668",
+        "C001103",
+        "F000470",
+        "T000490",
+        "B001302"
+      ],
+      "donor_interest": {
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
+      }
+    },
+    {
       "bill_id": "HR8630-119",
       "title": "PEAT Act of 2026",
       "type": "HR",
@@ -1185,9 +1241,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.036,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5478-119",
+          "sponsor_id": "L000577",
+          "similarity_score": 0.927
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
@@ -1416,60 +1478,13 @@
           ]
         }
       }
-    },
-    {
-      "bill_id": "HRES1085-119",
-      "title": "Censuring Representative Al Green of Texas.",
-      "type": "HRES",
-      "number": "1085",
-      "congress": 119,
-      "introduced_date": "2026-02-25",
-      "latest_action": "Referred to the House Committee on Ethics.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/1085?format=json",
-      "keywords": [
-        "representative",
-        "green",
-        "texas",
-        "resolution",
-        "html",
-        "body",
-        "pre",
-        "res",
-        "session",
-        "censuring",
-        "february",
-        "joint",
-        "address",
-        "conduct",
-        "censured",
-        "congressional",
-        "bills",
-        "government",
-        "publishing",
-        "office"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.035,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "C001103",
-        "H001098"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-09-28T15:46:55.202387+00:00",
+  "bills_updated": "2026-09-29T14:28:56.800358+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 10,
   "travel": [

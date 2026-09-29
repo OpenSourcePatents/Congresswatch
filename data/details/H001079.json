@@ -928,6 +928,29 @@
   "last_updated": "2026-09-29T11:49:49.622451",
   "bills": [
     {
+      "bill_id": "SRES914-119",
+      "title": "A resolution designating September 2026 as \"National Cholesterol Education Month\" and September 30, 2026, as \"LDL-C Awareness Day\".",
+      "type": "SRES",
+      "number": "914",
+      "congress": 119,
+      "introduced_date": "2026-09-28",
+      "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+      "url": "https://api.congress.gov/v3/bill/119/sres/914?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "SRES904-119",
       "title": "A resolution designating the week of September 20 through September 27, 2026, as \"Gold Star Families Remembrance Week\".",
       "type": "SRES",
@@ -994,18 +1017,48 @@
       "introduced_date": "2026-09-23",
       "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4958; text: CR S4950-4951)",
       "url": "https://api.congress.gov/v3/bill/119/sres/894?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "ataxia",
+        "awareness",
+        "national",
+        "day",
+        "research",
+        "individuals",
+        "september",
+        "inherited",
+        "patients",
+        "cure",
+        "physical",
+        "many",
+        "genetic",
+        "symptoms",
+        "res",
+        "agreed",
+        "designating",
+        "raising",
+        "search",
+        "mrs"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.031,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "M001169",
+        "C001047"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -1041,14 +1094,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.072,
+      "alec_best_similarity": 0.073,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR7230-119",
           "sponsor_id": "M001210",
-          "similarity_score": 0.87
+          "similarity_score": 0.871
         }
       ],
       "cosponsors": [
@@ -1354,14 +1407,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.03,
+      "alec_best_similarity": 0.031,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HRES1229-119",
           "sponsor_id": "G000604",
-          "similarity_score": 0.835
+          "similarity_score": 0.832
         }
       ],
       "cosponsors": [
@@ -1385,76 +1438,9 @@
           ]
         }
       }
-    },
-    {
-      "bill_id": "S3916-119",
-      "title": "Gun Owner Registration Information Protection Act",
-      "type": "S",
-      "number": "3916",
-      "congress": 119,
-      "introduced_date": "2026-02-25",
-      "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/s/3916?format=json",
-      "keywords": [
-        "state",
-        "firearm",
-        "ownership",
-        "database",
-        "federal",
-        "firearms",
-        "funding",
-        "databases",
-        "individuals",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "prohibit",
-        "purposes",
-        "mrs",
-        "bill",
-        "prohibition",
-        "commonwealth",
-        "islands"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.208,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR7678-119",
-          "sponsor_id": "G000565",
-          "similarity_score": 0.825
-        }
-      ],
-      "cosponsors": [
-        "C001075",
-        "L000571",
-        "J000312",
-        "B001305",
-        "C001056",
-        "R000584",
-        "C000880",
-        "H001061",
-        "H000601",
-        "D000618"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Defense & Military"
-        ],
-        "keyword_hits": {
-          "Defense & Military": [
-            "homeland_security"
-          ]
-        }
-      }
     }
   ],
-  "bills_updated": "2026-09-28T17:35:07.679452+00:00",
+  "bills_updated": "2026-09-29T16:11:17.330862+00:00",
   "bills_count": 10,
   "donor_alignment_score": 40.0,
   "alec_match_count": 0,
