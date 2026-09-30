@@ -939,18 +939,65 @@
       "introduced_date": "2026-09-28",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10621?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wks",
+        "wms",
+        "akk",
+        "soo",
+        "qdb",
+        "nbt",
+        "ggg",
+        "eoh",
+        "zlp",
+        "aqqr",
+        "kzg",
+        "wyg"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5001-119",
+          "sponsor_id": "M001244",
+          "similarity_score": 0.993
+        },
+        {
+          "bill_id": "HR10348-119",
+          "sponsor_id": "S001201",
+          "similarity_score": 0.992
+        },
+        {
+          "bill_id": "HR10592-119",
+          "sponsor_id": "P000620",
+          "similarity_score": 0.99
+        }
+      ],
+      "cosponsors": [
+        "R000619",
+        "B000668",
+        "B001257"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicaid"
+          ]
+        }
       }
     },
     {
@@ -1046,7 +1093,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.067,
+      "alec_best_similarity": 0.071,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1408,11 +1455,11 @@
       }
     }
   ],
-  "bills_updated": "2026-09-29T15:47:22.055975+00:00",
+  "bills_updated": "2026-09-30T15:07:14.688238+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 5.0,
+  "donor_alignment_score": 10.0,
   "alec_match_count": 0,
-  "donor_match_count": 1,
+  "donor_match_count": 2,
   "edgar_status": "verified_auto",
   "travel": [
     {
