@@ -929,25 +929,65 @@
   "bills": [
     {
       "bill_id": "S5492-119",
-      "title": "A bill to reduce crime on public transportation, and for other purposes.",
+      "title": "Safe Transit Act",
       "type": "S",
       "number": "5492",
       "congress": 119,
       "introduced_date": "2026-09-23",
       "latest_action": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/s/5492?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "transportation",
+        "recipient",
+        "transit",
+        "safety",
+        "secretary",
+        "system",
+        "performance",
+        "crime",
+        "inserting",
+        "fare",
+        "striking",
+        "area",
+        "vehicles",
+        "assistance",
+        "set",
+        "national",
+        "personal",
+        "subparagraph",
+        "percent",
+        "less"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.068,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Real Estate": [
+            "housing",
+            "construction"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "surveillance",
+            "software",
+            "hardware"
+          ]
+        }
       }
     },
     {
@@ -983,14 +1023,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.08,
+      "alec_best_similarity": 0.079,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR8283-119",
           "sponsor_id": "H001058",
-          "similarity_score": 0.826
+          "similarity_score": 0.822
         }
       ],
       "cosponsors": [
@@ -1245,11 +1285,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-01T16:36:28.131293+00:00",
+  "bills_updated": "2026-10-02T15:38:44.478502+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 10.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 2,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "trades": [
     {

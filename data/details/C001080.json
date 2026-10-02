@@ -930,6 +930,29 @@
   "last_updated": "2026-10-02T11:10:14.716396",
   "bills": [
     {
+      "bill_id": "HR10651-119",
+      "title": "To amend the Internal Revenue Code of 1986 to treat transfers of appreciated property to certain tax-exempt organizations the same as transfers of appreciated property to political organizations.",
+      "type": "HR",
+      "number": "10651",
+      "congress": 119,
+      "introduced_date": "2026-10-01",
+      "latest_action": "Referred to the House Committee on Ways and Means.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/10651?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "HRES1574-119",
       "title": "Expressing support for the recognition of September 27, 2026, to October 3, 2026, as \"Asian American and Native American Pacific Islander-Serving Institutions Week\".",
       "type": "HRES",
@@ -963,9 +986,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.066,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES911-119",
+          "sponsor_id": "H001042",
+          "similarity_score": 0.958
+        }
+      ],
       "cosponsors": [
         "T000472",
         "M001188",
@@ -1017,7 +1046,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.05,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1485,74 +1514,13 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "HR9400-119",
-      "title": "American Rescuers of the Holocaust Congressional Gold Medal Act of 2026",
-      "type": "HR",
-      "number": "9400",
-      "congress": 119,
-      "introduced_date": "2026-06-23",
-      "latest_action": "Referred to the House Committee on Financial Services.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9400?format=json",
-      "keywords": [
-        "jews",
-        "refugees",
-        "gold",
-        "medal",
-        "medals",
-        "europe",
-        "holocaust",
-        "museum",
-        "award",
-        "nazi",
-        "others",
-        "congressional",
-        "jewish",
-        "aiding",
-        "genocidal",
-        "policy",
-        "every",
-        "thousands",
-        "almost",
-        "certain"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.028,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "C001068",
-        "G000583",
-        "R000606",
-        "S001216",
-        "S001201",
-        "B001278",
-        "C001112",
-        "F000483",
-        "G000599",
-        "N000147"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
-          ]
-        }
-      }
     }
   ],
-  "bills_updated": "2026-10-01T15:22:37.193238+00:00",
+  "bills_updated": "2026-10-02T14:46:02.535467+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 9,
   "top_donors_list": [
