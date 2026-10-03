@@ -938,18 +938,72 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the House Committee on Ways and Means.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10651?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wks",
+        "wms",
+        "wmo",
+        "cvs",
+        "vms",
+        "apw",
+        "rrz",
+        "tcr",
+        "cso",
+        "bwo",
+        "eum",
+        "ofe"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10166-119",
+          "sponsor_id": "L000596",
+          "similarity_score": 0.971
+        },
+        {
+          "bill_id": "HR10418-119",
+          "sponsor_id": "B001321",
+          "similarity_score": 0.967
+        },
+        {
+          "bill_id": "HR9682-119",
+          "sponsor_id": "M001215",
+          "similarity_score": 0.961
+        }
+      ],
+      "cosponsors": [
+        "S001145",
+        "N000147",
+        "G000585",
+        "R000606",
+        "R000617",
+        "D000096",
+        "L000602",
+        "G000586",
+        "T000481",
+        "S001231"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -992,7 +1046,7 @@
         {
           "bill_id": "SRES911-119",
           "sponsor_id": "H001042",
-          "similarity_score": 0.958
+          "similarity_score": 0.956
         }
       ],
       "cosponsors": [
@@ -1099,7 +1153,7 @@
         {
           "bill_id": "SRES714-119",
           "sponsor_id": "H001042",
-          "similarity_score": 0.939
+          "similarity_score": 0.937
         }
       ],
       "cosponsors": [
@@ -1416,13 +1470,13 @@
           "similarity_score": 1.0
         },
         {
-          "bill_id": "HR10586-119",
-          "sponsor_id": "P000613",
-          "similarity_score": 0.984
-        },
-        {
           "bill_id": "HR9822-119",
           "sponsor_id": "W000829",
+          "similarity_score": 0.983
+        },
+        {
+          "bill_id": "HR10586-119",
+          "sponsor_id": "P000613",
           "similarity_score": 0.983
         }
       ],
@@ -1516,11 +1570,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-02T14:46:02.535467+00:00",
+  "bills_updated": "2026-10-03T13:16:55.372572+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 9,
   "top_donors_list": [

@@ -934,7 +934,7 @@
       "number": "948",
       "congress": 119,
       "introduced_date": "2026-09-30",
-      "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+      "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S5299; text: CR S5273-5274)",
       "url": "https://api.congress.gov/v3/bill/119/sres/948?format=json",
       "keywords": [],
       "has_text": false,
@@ -975,25 +975,54 @@
     },
     {
       "bill_id": "S5543-119",
-      "title": "A bill to amend the Omnibus Crime Control and Safe Streets Act of 1968 to reauthorize the residential substance use disorder treatment program, and for other purposes.",
+      "title": "STRONGER Act",
       "type": "S",
       "number": "5543",
       "congress": 119,
       "introduced_date": "2026-09-24",
       "latest_action": "Read twice and referred to the Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/s/5543?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "substance",
+        "treatment",
+        "use",
+        "disorder",
+        "inserting",
+        "medication",
+        "striking",
+        "abuse",
+        "residential",
+        "disorders",
+        "program",
+        "assisted",
+        "type",
+        "federal",
+        "omnibus",
+        "crime",
+        "control",
+        "safe",
+        "streets",
+        "read"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.134,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "W000802"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "provider"
+          ]
+        }
       }
     },
     {
@@ -1036,7 +1065,7 @@
         {
           "bill_id": "HRES1475-119",
           "sponsor_id": "V000129",
-          "similarity_score": 0.94
+          "similarity_score": 0.938
         }
       ],
       "cosponsors": [
@@ -1157,15 +1186,9 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.02,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5241-119",
-          "sponsor_id": "K000367",
-          "similarity_score": 0.821
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001098"
       ],
@@ -1302,14 +1325,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.155,
+      "alec_best_similarity": 0.152,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR9298-119",
           "sponsor_id": "S001228",
-          "similarity_score": 0.935
+          "similarity_score": 0.934
         }
       ],
       "cosponsors": [
@@ -1394,11 +1417,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-02T15:40:16.385448+00:00",
+  "bills_updated": "2026-10-03T14:08:50.879525+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "trades": [
     {

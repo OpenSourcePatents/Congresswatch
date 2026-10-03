@@ -1132,7 +1132,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.101,
+      "alec_best_similarity": 0.1,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1153,25 +1153,58 @@
     },
     {
       "bill_id": "S5399-119",
-      "title": "A bill to prohibit the use of Federal, State, foreign, or private funds to install permanent fencing around the White House complex.",
+      "title": "No New Fencing At the White House Act",
       "type": "S",
       "number": "5399",
       "congress": 119,
       "introduced_date": "2026-09-15",
       "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources.",
       "url": "https://api.congress.gov/v3/bill/119/s/5399?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "white",
+        "complex",
+        "state",
+        "fencing",
+        "around",
+        "federal",
+        "funds",
+        "permanent",
+        "northwest",
+        "use",
+        "foreign",
+        "private",
+        "install",
+        "street",
+        "introduced",
+        "prohibit",
+        "bill",
+        "prohibition",
+        "enactment",
+        "congressional"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.079,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9685-119",
+          "sponsor_id": "N000147",
+          "similarity_score": 0.902
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -1366,11 +1399,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-02T15:33:45.276678+00:00",
+  "bills_updated": "2026-10-03T14:01:15.765403+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
