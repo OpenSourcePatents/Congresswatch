@@ -938,18 +938,62 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10689?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wms",
+        "wks",
+        "vms",
+        "eie",
+        "jiv",
+        "avdy",
+        "ltztpt",
+        "zgo",
+        "yil",
+        "reuvu",
+        "dywk",
+        "yee"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9937-119",
+          "sponsor_id": "S001188",
+          "similarity_score": 0.989
+        },
+        {
+          "bill_id": "HR9737-119",
+          "sponsor_id": "D000623",
+          "similarity_score": 0.988
+        },
+        {
+          "bill_id": "HR10684-119",
+          "sponsor_id": "M001232",
+          "similarity_score": 0.986
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education",
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -1150,7 +1194,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.11,
+      "alec_best_similarity": 0.111,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1289,17 +1333,17 @@
         {
           "bill_id": "HRES1055-119",
           "sponsor_id": "S001214",
-          "similarity_score": 0.869
+          "similarity_score": 0.87
         },
         {
           "bill_id": "HRES1363-119",
           "sponsor_id": "R000606",
-          "similarity_score": 0.864
+          "similarity_score": 0.865
         },
         {
           "bill_id": "HRES1386-119",
           "sponsor_id": "L000596",
-          "similarity_score": 0.857
+          "similarity_score": 0.859
         }
       ],
       "cosponsors": [],
@@ -1508,11 +1552,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-03T13:39:06.369804+00:00",
+  "bills_updated": "2026-10-04T14:31:54.493517+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 40.0,
+  "donor_alignment_score": 45.0,
   "alec_match_count": 0,
-  "donor_match_count": 8,
+  "donor_match_count": 9,
   "edgar_status": "unresolved",
   "travel": [
     {
