@@ -1006,6 +1006,11 @@
       "alec_match": null,
       "similar_member_bills": [
         {
+          "bill_id": "HRES1603-119",
+          "sponsor_id": "R000606",
+          "similarity_score": 0.874
+        },
+        {
           "bill_id": "HRES797-119",
           "sponsor_id": "R000606",
           "similarity_score": 0.85
@@ -1083,9 +1088,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.066,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HJRES218-119",
+          "sponsor_id": "C001068",
+          "similarity_score": 0.98
+        }
+      ],
       "cosponsors": [
         "D000563",
         "W000800"
@@ -1299,25 +1310,81 @@
     },
     {
       "bill_id": "S5482-119",
-      "title": "A bill to amend title 18, United States Code, to establish an Office of Prison Education, and for other purposes.",
+      "title": "PREP Act",
       "type": "S",
       "number": "5482",
       "congress": 119,
       "introduced_date": "2026-09-23",
       "latest_action": "Read twice and referred to the Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/s/5482?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "education",
+        "program",
+        "prison",
+        "eligible",
+        "programs",
+        "federal",
+        "director",
+        "correctional",
+        "students",
+        "educational",
+        "state",
+        "assistant",
+        "incarcerated",
+        "prisons",
+        "assistance",
+        "office",
+        "release",
+        "bureau",
+        "individuals",
+        "quality"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.133,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10543-119",
+          "sponsor_id": "D000631",
+          "similarity_score": 0.99
+        }
+      ],
+      "cosponsors": [
+        "B001277",
+        "B001288",
+        "D000563",
+        "F000479",
+        "K000383",
+        "K000367",
+        "M001176",
+        "P000145",
+        "S001150",
+        "S001203"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "housing",
+            "development"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "credit",
+            "loan"
+          ],
+          "Technology": [
+            "data",
+            "spectrum"
+          ]
+        }
       }
     },
     {
@@ -1386,11 +1453,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-05T17:40:35.953831+00:00",
+  "bills_updated": "2026-10-06T16:40:06.206699+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
