@@ -936,18 +936,64 @@
       "introduced_date": "2026-10-05",
       "latest_action": "Referred to the House Committee on Financial Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10746?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "vms",
+        "wms",
+        "uuid",
+        "nzfzg",
+        "wxkht",
+        "oea",
+        "qho",
+        "jdl",
+        "ommj",
+        "fvn",
+        "lom",
+        "sdq"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.001,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10098-119",
+          "sponsor_id": "M000194",
+          "similarity_score": 0.99
+        },
+        {
+          "bill_id": "HR9695-119",
+          "sponsor_id": "B000668",
+          "similarity_score": 0.983
+        },
+        {
+          "bill_id": "HR9618-119",
+          "sponsor_id": "F000482",
+          "similarity_score": 0.982
+        }
+      ],
+      "cosponsors": [
+        "T000481"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "bank",
+            "financial"
+          ]
+        }
       }
     },
     {
@@ -1231,7 +1277,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.056,
+      "alec_best_similarity": 0.057,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1293,7 +1339,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.088,
+      "alec_best_similarity": 0.087,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1428,7 +1474,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.199,
+      "alec_best_similarity": 0.196,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1496,7 +1542,7 @@
         {
           "bill_id": "S4913-119",
           "sponsor_id": "B001288",
-          "similarity_score": 0.992
+          "similarity_score": 0.991
         }
       ],
       "cosponsors": [
@@ -1530,11 +1576,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-06T15:55:31.488761+00:00",
+  "bills_updated": "2026-10-07T16:10:32.376605+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "travel": [
     {
