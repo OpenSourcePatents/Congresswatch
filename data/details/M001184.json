@@ -936,14 +936,54 @@
       "introduced_date": "2026-10-05",
       "latest_action": "Referred to the House Committee on Agriculture.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10744?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wms",
+        "wks",
+        "mbds",
+        "nax",
+        "fsp",
+        "ihk",
+        "xms",
+        "phn",
+        "ifj",
+        "mwi",
+        "asq",
+        "cyrd"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10371-119",
+          "sponsor_id": "M001229",
+          "similarity_score": 0.971
+        },
+        {
+          "bill_id": "HR9573-119",
+          "sponsor_id": "C001126",
+          "similarity_score": 0.969
+        },
+        {
+          "bill_id": "HR10101-119",
+          "sponsor_id": "O000176",
+          "similarity_score": 0.968
+        }
+      ],
+      "cosponsors": [
+        "P000597",
+        "B001316"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1411,7 +1451,7 @@
         {
           "bill_id": "S5005-119",
           "sponsor_id": "M001176",
-          "similarity_score": 0.937
+          "similarity_score": 0.938
         }
       ],
       "cosponsors": [
@@ -1442,7 +1482,7 @@
       }
     }
   ],
-  "bills_updated": "2026-10-07T16:36:31.910933+00:00",
+  "bills_updated": "2026-10-08T16:06:15.810585+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,
