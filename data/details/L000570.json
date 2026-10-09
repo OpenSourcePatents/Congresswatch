@@ -929,25 +929,66 @@
   "bills": [
     {
       "bill_id": "S5635-119",
-      "title": "A bill to expand arts education, and for other purposes.",
+      "title": "Arts Education for All Act",
       "type": "S",
       "number": "5635",
       "congress": 119,
       "introduced_date": "2026-09-30",
       "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
       "url": "https://api.congress.gov/v3/bill/119/s/5635?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "arts",
+        "education",
+        "subparagraph",
+        "inserting",
+        "development",
+        "state",
+        "end",
+        "courses",
+        "striking",
+        "educational",
+        "local",
+        "use",
+        "redesignating",
+        "programs",
+        "professional",
+        "agency",
+        "teachers",
+        "schools",
+        "organizations",
+        "assessment"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.111,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "H001042"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Education",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "student",
+            "teacher",
+            "grant"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -1103,7 +1144,7 @@
         {
           "bill_id": "HR8540-119",
           "sponsor_id": "D000624",
-          "similarity_score": 0.956
+          "similarity_score": 0.955
         }
       ],
       "cosponsors": [
@@ -1229,7 +1270,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.102,
+      "alec_best_similarity": 0.101,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1276,7 +1317,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.067,
+      "alec_best_similarity": 0.07,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1432,11 +1473,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-08T16:34:01.535018+00:00",
+  "bills_updated": "2026-10-09T16:13:40.539252+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 6,
   "top_donors_list": [

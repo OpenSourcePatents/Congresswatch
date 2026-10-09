@@ -924,25 +924,57 @@
   "bills": [
     {
       "bill_id": "S5650-119",
-      "title": "A bill to align priorities and investments relating to the Strategic Petroleum Reserve, and for other purposes.",
+      "title": "SPR Readiness and Long-Term Modernization Act",
       "type": "S",
       "number": "5650",
       "congress": 119,
       "introduced_date": "2026-09-30",
       "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources.",
       "url": "https://api.congress.gov/v3/bill/119/s/5650?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "energy",
+        "policy",
+        "strategic",
+        "petroleum",
+        "reserve",
+        "conservation",
+        "striking",
+        "inserting",
+        "paragraphs",
+        "redesignating",
+        "respectively",
+        "subsections",
+        "long",
+        "heading",
+        "preceding",
+        "year",
+        "period",
+        "report",
+        "redesignated",
+        "investments"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.062,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Oil & Gas"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
+          "Oil & Gas": [
+            "energy",
+            "petroleum"
+          ]
+        }
       }
     },
     {
@@ -970,21 +1002,57 @@
     },
     {
       "bill_id": "S5675-119",
-      "title": "A bill to require that certain notifications and certifications relating to WIC be available to members of the Armed Forces undergoing a permanent change of station, and for other purposes.",
+      "title": "Nutrition Continuity for Military Families Act of 2026",
       "type": "S",
       "number": "5675",
       "congress": 119,
       "introduced_date": "2026-09-30",
       "latest_action": "Read twice and referred to the Committee on Agriculture, Nutrition, and Forestry.",
       "url": "https://api.congress.gov/v3/bill/119/s/5675?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "member",
+        "armed",
+        "forces",
+        "covered",
+        "permanent",
+        "change",
+        "station",
+        "nutrition",
+        "secretary",
+        "serving",
+        "certification",
+        "wic",
+        "members",
+        "undergoing",
+        "program",
+        "subparagraph",
+        "relating",
+        "military",
+        "notification",
+        "pay"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.079,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10550-119",
+          "sponsor_id": "E000299",
+          "similarity_score": 0.963
+        }
+      ],
+      "cosponsors": [
+        "K000394",
+        "K000384",
+        "G000555",
+        "B001277",
+        "R000608",
+        "B001230",
+        "D000622",
+        "H000273"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1085,7 +1153,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.044,
+      "alec_best_similarity": 0.043,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1223,14 +1291,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.101,
+      "alec_best_similarity": 0.102,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR10402-119",
           "sponsor_id": "T000469",
-          "similarity_score": 0.921
+          "similarity_score": 0.92
         }
       ],
       "cosponsors": [],
@@ -1385,11 +1453,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-08T16:36:06.603635+00:00",
+  "bills_updated": "2026-10-09T16:15:43.564629+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
