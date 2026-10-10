@@ -929,25 +929,60 @@
   "bills": [
     {
       "bill_id": "S5616-119",
-      "title": "A bill to amend the Internal Revenue Code of 1986 to reform the treatment of digital assets.",
+      "title": "ADAPT Act",
       "type": "S",
       "number": "5616",
       "congress": 119,
       "introduced_date": "2026-09-30",
       "latest_action": "Read twice and referred to the Committee on Finance.",
       "url": "https://api.congress.gov/v3/bill/119/s/5616?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "digital",
+        "asset",
+        "assets",
+        "code",
+        "respect",
+        "covered",
+        "inserting",
+        "business",
+        "traded",
+        "general",
+        "apply",
+        "purposes",
+        "transaction",
+        "internal",
+        "revenue",
+        "secretary",
+        "made",
+        "specified",
+        "treatment",
+        "certain"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.06,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "L000571",
+        "M001242",
+        "S001184"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "loan",
+            "interest",
+            "securities",
+            "investment"
+          ]
+        }
       }
     },
     {
@@ -1364,11 +1399,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-09T16:17:06.502663+00:00",
+  "bills_updated": "2026-10-10T15:37:49.143348+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 10.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 2,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "votes_fail_count": 9,
   "trades": [

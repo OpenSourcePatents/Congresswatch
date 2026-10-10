@@ -924,25 +924,67 @@
   "bills": [
     {
       "bill_id": "S5674-119",
-      "title": "A bill to prohibit a person from making a misleading recycled content claim in advertising, marketing, selling, or offering for sale a product to a consumer, and for other purposes.",
+      "title": "Recycled Materials Attribution Act of 2026",
       "type": "S",
       "number": "5674",
       "congress": 119,
       "introduced_date": "2026-09-30",
       "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
       "url": "https://api.congress.gov/v3/bill/119/s/5674?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "recycled",
+        "material",
+        "commission",
+        "content",
+        "consumer",
+        "product",
+        "claim",
+        "federal",
+        "mass",
+        "accounting",
+        "person",
+        "claims",
+        "certification",
+        "balance",
+        "process",
+        "post",
+        "recycling",
+        "materials",
+        "trade",
+        "waste"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.072,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR7502-119",
+          "sponsor_id": "L000600",
+          "similarity_score": 0.872
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Oil & Gas",
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest"
+          ],
+          "Oil & Gas": [
+            "energy"
+          ],
+          "Insurance": [
+            "claim"
+          ]
+        }
       }
     },
     {
@@ -1452,11 +1494,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-09T16:17:15.890707+00:00",
+  "bills_updated": "2026-10-10T15:38:00.668785+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "needs_review",
   "votes_fail_count": 9,
   "top_donors_list": [

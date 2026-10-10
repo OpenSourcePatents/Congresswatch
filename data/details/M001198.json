@@ -926,25 +926,66 @@
   "bills": [
     {
       "bill_id": "S5672-119",
-      "title": "A bill to amend title XVIII of the Social Security Act to modify certain physician payments under the Medicare program.",
+      "title": "Patients First Act of 2026",
       "type": "S",
       "number": "5672",
       "congress": 119,
       "introduced_date": "2026-09-30",
       "latest_action": "Read twice and referred to the Committee on Finance.",
       "url": "https://api.congress.gov/v3/bill/119/s/5672?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "care",
+        "year",
+        "measures",
+        "inserting",
+        "secretary",
+        "respect",
+        "quality",
+        "services",
+        "performance",
+        "measure",
+        "subparagraph",
+        "striking",
+        "payment",
+        "iii",
+        "task",
+        "force",
+        "period",
+        "health",
+        "january",
+        "use"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.101,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9693-119",
+          "sponsor_id": "J000302",
+          "similarity_score": 0.97
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ],
+          "Healthcare": [
+            "insurance",
+            "medicare",
+            "provider",
+            "physician",
+            "nurse"
+          ]
+        }
       }
     },
     {
@@ -1111,7 +1152,7 @@
         {
           "bill_id": "HR8784-119",
           "sponsor_id": "C001039",
-          "similarity_score": 0.884
+          "similarity_score": 0.888
         }
       ],
       "cosponsors": [
@@ -1375,11 +1416,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-09T16:13:16.208328+00:00",
+  "bills_updated": "2026-10-10T15:33:39.463325+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 7,
   "top_donors_list": [
