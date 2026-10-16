@@ -928,6 +928,29 @@
   "last_updated": "2026-10-16T10:18:02.159250",
   "bills": [
     {
+      "bill_id": "SRES950-119",
+      "title": "A resolution designating the week of September 14 through September 18, 2026, as \"National Clean Energy Week\".",
+      "type": "SRES",
+      "number": "950",
+      "congress": 119,
+      "introduced_date": "2026-10-15",
+      "latest_action": "Under authority of the order of the Senate of September 30, 2026, ordered referred to the Committee on the Judiciary.",
+      "url": "https://api.congress.gov/v3/bill/119/sres/950?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "-119",
       "title": "",
       "type": "",
@@ -1006,7 +1029,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.115,
+      "alec_best_similarity": 0.114,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1192,9 +1215,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.105,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10806-119",
+          "sponsor_id": "T000478",
+          "similarity_score": 0.964
+        }
+      ],
       "cosponsors": [
         "B001243"
       ],
@@ -1285,77 +1314,13 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "S4641-119",
-      "title": "Improving Access to Medicare Coverage Act of 2026",
-      "type": "S",
-      "number": "4641",
-      "congress": 119,
-      "introduced_date": "2026-05-21",
-      "latest_action": "Read twice and referred to the Committee on Finance.",
-      "url": "https://api.congress.gov/v3/bill/119/s/4641?format=json",
-      "keywords": [
-        "services",
-        "hospital",
-        "period",
-        "outpatient",
-        "observation",
-        "inpatient",
-        "receipt",
-        "coverage",
-        "medicare",
-        "social",
-        "security",
-        "toward",
-        "day",
-        "requirement",
-        "skilled",
-        "nursing",
-        "facility",
-        "individual",
-        "html",
-        "body"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.048,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR3954-119",
-          "sponsor_id": "C001069",
-          "similarity_score": 0.85
-        }
-      ],
-      "cosponsors": [
-        "W000800",
-        "C001047",
-        "B001319",
-        "W000802",
-        "S001150",
-        "C001088"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "hospital",
-            "medicare"
-          ]
-        }
-      }
     }
   ],
-  "bills_updated": "2026-10-15T15:12:18.380541+00:00",
+  "bills_updated": "2026-10-16T14:15:16.110470+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 15.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 3,
   "edgar_status": "unresolved",
   "trades": [
     {
