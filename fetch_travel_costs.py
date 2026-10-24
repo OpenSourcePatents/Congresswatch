@@ -35,7 +35,7 @@ import re
 import sys
 import time
 import tempfile
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import requests
 import pdfplumber
@@ -69,6 +69,7 @@ DOLLAR_RE = re.compile(r"\$\s?([\d,]+(?:\.\d{1,2})?)")
 # hammer the Clerk for nothing). Transient ones (download_error,
 # ocr_unavailable, pdf_error) are retried on later runs.
 PERMANENT_STATUSES = {"costs_extracted", "no_values"}
+MISSING_DOC_RETRY_DAYS = 30
 
 
 class OcrUnavailable(Exception):
@@ -222,6 +223,14 @@ def collect_candidates(manifest):
                 continue
             if manifest.get(url, {}).get("status") in PERMANENT_STATUSES:
                 continue
+            entry = manifest.get(url, {})
+            if entry.get("status") == "document_missing":
+                try:
+                    retry_after = datetime.fromisoformat(entry["retry_after"])
+                    if retry_after > datetime.now(timezone.utc):
+                        continue
+                except (KeyError, ValueError, TypeError):
+                    pass  # Old/incomplete state should be retried.
             cands.append((path, idx, url))
     return cands
 
@@ -236,12 +245,13 @@ def main():
     cands = collect_candidates(manifest)
     print(f"Travel records missing costs (retryable): {len(cands)}")
     if not cands:
-        print("Backfill complete — nothing to do.")
+        print("No travel documents due for processing.")
         return
 
     batch = cands[:MAX_PDFS_PER_RUN]
     stats = {"extracted_text": 0, "extracted_ocr": 0, "no_values": 0,
-             "ocr_unavailable": 0, "download_error": 0, "pdf_error": 0}
+             "ocr_unavailable": 0, "download_error": 0, "pdf_error": 0,
+             "document_missing": 0}
     now = datetime.now(timezone.utc).isoformat()
 
     for n, (detail_path, idx, url) in enumerate(batch):
@@ -255,6 +265,17 @@ def main():
         tmp = None
         try:
             r = requests.get(url, headers=HEADERS, timeout=90, stream=True)
+            if r.status_code in (404, 410):
+                entry["status"] = "document_missing"
+                entry["http_status"] = r.status_code
+                entry["retry_after"] = (
+                    datetime.now(timezone.utc) + timedelta(days=MISSING_DOC_RETRY_DAYS)
+                ).isoformat()
+                stats["document_missing"] += 1
+                print(f"{tag}: HTTP {r.status_code}; document unavailable, "
+                      f"retry after {entry['retry_after']}")
+                r.close()
+                continue
             if r.status_code != 200:
                 entry["status"] = "download_error"
                 stats["download_error"] += 1
@@ -337,7 +358,7 @@ def main():
 
     # Every single download failing means the Clerk is blocking us or the
     # URL scheme changed — fail the run so CI flags it.
-    attempted = len(batch)
+    attempted = len(batch) - stats["document_missing"]
     if attempted and stats["download_error"] == attempted:
         print("[FATAL] all downloads failed")
         sys.exit(1)

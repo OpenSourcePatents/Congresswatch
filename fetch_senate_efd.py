@@ -20,6 +20,7 @@ Run:
 import json
 import os
 import re
+import random
 import sys
 import time
 import requests
@@ -170,29 +171,24 @@ class SenateEFDClient:
         self.session.headers.update({"User-Agent": USER_AGENT})
         self.agreed = False
 
-    def _request(self, method, url, **kwargs):
-        """Request with retry + exponential backoff on 429/5xx."""
+    def _request(self, method, url, retry_forbidden=False, **kwargs):
+        """Bounded retries for transient failures, with exponential jitter."""
         for attempt in range(MAX_RETRIES):
             try:
                 resp = self.session.request(method, url, timeout=30, **kwargs)
-                if resp.status_code == 429:
-                    wait = BACKOFF_BASE * (2 ** attempt)
-                    print(f"    Rate limited, waiting {wait}s...")
-                    time.sleep(wait)
-                    continue
-                if resp.status_code >= 500:
-                    wait = BACKOFF_BASE * (2 ** attempt)
-                    print(f"    Server error {resp.status_code}, retrying in {wait}s...")
-                    time.sleep(wait)
-                    continue
-                return resp
+                retryable = (resp.status_code == 429 or resp.status_code >= 500
+                             or (retry_forbidden and resp.status_code == 403))
+                if not retryable or attempt == MAX_RETRIES - 1:
+                    return resp
+                reason = f"HTTP {resp.status_code}"
+                resp.close()
             except requests.exceptions.RequestException as e:
-                if attempt < MAX_RETRIES - 1:
-                    wait = BACKOFF_BASE * (2 ** attempt)
-                    print(f"    Request error: {e}, retrying in {wait}s...")
-                    time.sleep(wait)
-                else:
+                if attempt == MAX_RETRIES - 1:
                     raise
+                reason = str(e)
+            wait = BACKOFF_BASE * (2 ** attempt) + random.uniform(0, BACKOFF_BASE)
+            print(f"    {reason}; retry {attempt + 2}/{MAX_RETRIES} in {wait:.1f}s...")
+            time.sleep(wait)
         return None
 
     def accept_agreement(self):
@@ -200,10 +196,14 @@ class SenateEFDClient:
         print("[EFD] Accepting agreement...")
 
         # GET home page to obtain CSRF token
-        resp = self._request("GET", EFD_HOME)
-        if not resp or resp.status_code != 200:
+        try:
+            resp = self._request("GET", EFD_HOME, retry_forbidden=True)
+        except requests.RequestException as e:
+            print(f"[EFD] Failed to load home page after retries: {e}")
+            return False
+        if resp is None or resp.status_code != 200:
             print(f"[EFD] Failed to load home page: "
-                  f"{resp.status_code if resp else 'no response'}")
+                  f"{resp.status_code if resp is not None else 'no response'}")
             return False
 
         # Django CSRF: token in cookie or hidden input
