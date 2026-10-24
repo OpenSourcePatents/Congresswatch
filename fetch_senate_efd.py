@@ -173,21 +173,34 @@ class SenateEFDClient:
 
     def _request(self, method, url, retry_forbidden=False, **kwargs):
         """Bounded retries for transient failures, with exponential jitter."""
+        started = time.monotonic()
         for attempt in range(MAX_RETRIES):
             try:
                 resp = self.session.request(method, url, timeout=30, **kwargs)
+                if resp is None:
+                    # Defensive: requests normally raises on a dropped connection.
+                    raise requests.ConnectionError("no response")
                 retryable = (resp.status_code == 429 or resp.status_code >= 500
                              or (retry_forbidden and resp.status_code == 403))
-                if not retryable or attempt == MAX_RETRIES - 1:
+                if not retryable:
                     return resp
                 reason = f"HTTP {resp.status_code}"
+                if attempt == MAX_RETRIES - 1:
+                    print(f"[EFD] {method} {url}: {reason}; exhausted "
+                          f"{MAX_RETRIES} attempts in {time.monotonic() - started:.1f}s",
+                          flush=True)
+                    return resp
                 resp.close()
             except requests.exceptions.RequestException as e:
+                reason = f"{type(e).__name__}: {e}"
                 if attempt == MAX_RETRIES - 1:
+                    print(f"[EFD] {method} {url}: {reason}; exhausted "
+                          f"{MAX_RETRIES} attempts in {time.monotonic() - started:.1f}s",
+                          flush=True)
                     raise
-                reason = str(e)
             wait = BACKOFF_BASE * (2 ** attempt) + random.uniform(0, BACKOFF_BASE)
-            print(f"    {reason}; retry {attempt + 2}/{MAX_RETRIES} in {wait:.1f}s...")
+            print(f"[EFD] {method} {url}: {reason}; "
+                  f"retry {attempt + 2}/{MAX_RETRIES} in {wait:.1f}s...", flush=True)
             time.sleep(wait)
         return None
 
@@ -220,21 +233,26 @@ class SenateEFDClient:
         time.sleep(REQUEST_DELAY)
 
         # POST agreement acceptance
-        resp = self._request(
-            "POST", EFD_HOME,
-            data={
-                "csrfmiddlewaretoken": csrf_token,
-                "prohibition_agreement": "1",
-            },
-            headers={
-                "Referer": EFD_HOME,
-                "Origin": EFD_BASE,
-            },
-            allow_redirects=True,
-        )
+        try:
+            resp = self._request(
+                "POST", EFD_HOME, retry_forbidden=True,
+                data={
+                    "csrfmiddlewaretoken": csrf_token,
+                    "prohibition_agreement": "1",
+                },
+                headers={
+                    "Referer": EFD_HOME,
+                    "Origin": EFD_BASE,
+                },
+                allow_redirects=True,
+            )
+        except requests.RequestException as e:
+            print(f"[EFD] Agreement POST failed after retries: {type(e).__name__}: {e}")
+            return False
 
-        if not resp:
-            print("[EFD] Agreement POST returned no response")
+        if resp is None or resp.status_code >= 400:
+            print(f"[EFD] Agreement POST failed: "
+                  f"{f'HTTP {resp.status_code}' if resp is not None else 'no response'}")
             return False
 
         # Verify we can actually access the search page — this is the only
