@@ -936,18 +936,71 @@
       "introduced_date": "2026-10-29",
       "latest_action": "Referred to the House Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10941?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "stream",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wms",
+        "kvn",
+        "jiv",
+        "urt",
+        "eta",
+        "mrg",
+        "nof",
+        "onm",
+        "axd",
+        "hzx",
+        "vks",
+        "jfb"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9818-119",
+          "sponsor_id": "S001221",
+          "similarity_score": 0.996
+        },
+        {
+          "bill_id": "HR9773-119",
+          "sponsor_id": "R000614",
+          "similarity_score": 0.994
+        },
+        {
+          "bill_id": "HR9642-119",
+          "sponsor_id": "M001194",
+          "similarity_score": 0.993
+        }
+      ],
+      "cosponsors": [
+        "N000002",
+        "J000288",
+        "B001318",
+        "R000305",
+        "G000586",
+        "K000400",
+        "J000298",
+        "G000599",
+        "L000602"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -1502,11 +1555,11 @@
       }
     }
   ],
-  "bills_updated": "2026-10-30T15:18:22.110994+00:00",
+  "bills_updated": "2026-10-31T14:51:11.721904+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
