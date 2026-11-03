@@ -1026,12 +1026,17 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Pharmaceuticals"
+          "Pharmaceuticals",
+          "Agriculture"
         ],
         "keyword_hits": {
           "Pharmaceuticals": [
             "drug",
             "fda"
+          ],
+          "Agriculture": [
+            "agriculture",
+            "food"
           ]
         }
       }
@@ -1185,11 +1190,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Pharmaceuticals"
+          "Pharmaceuticals",
+          "Agriculture"
         ],
         "keyword_hits": {
           "Pharmaceuticals": [
             "drug"
+          ],
+          "Agriculture": [
+            "food"
           ]
         }
       }
@@ -1302,9 +1311,15 @@
         "R000599"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "conservation"
+          ]
+        }
       }
     },
     {
@@ -1492,11 +1507,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-02T19:01:41.521207+00:00",
+  "bills_updated": "2026-11-03T16:50:06.706957+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "votes_fail_count": 31,
   "top_donors_list": [
