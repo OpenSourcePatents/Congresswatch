@@ -1087,11 +1087,20 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology"
+          "Healthcare",
+          "Technology",
+          "Pharmaceuticals"
         ],
         "keyword_hits": {
+          "Healthcare": [
+            "medicaid",
+            "provider"
+          ],
           "Technology": [
             "data"
+          ],
+          "Pharmaceuticals": [
+            "medicaid"
           ]
         }
       }
@@ -1146,9 +1155,15 @@
         "C001103"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "biologics"
+          ]
+        }
       }
     },
     {
@@ -1244,9 +1259,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Pharmaceuticals": [
+            "drug"
+          ]
+        }
       }
     },
     {
@@ -1315,9 +1336,19 @@
         "T000482"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare",
+          "Pharmaceuticals"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "medicare"
+          ],
+          "Pharmaceuticals": [
+            "medicare"
+          ]
+        }
       }
     },
     {
@@ -1479,21 +1510,22 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Healthcare"
         ],
         "keyword_hits": {
-          "Real Estate": [
-            "construction"
+          "Healthcare": [
+            "affordable_care",
+            "provider"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-11-05T16:34:04.213804+00:00",
+  "bills_updated": "2026-11-06T15:25:12.073102+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "votes_fail_count": 40,
   "travel": [

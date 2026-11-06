@@ -972,15 +972,9 @@
         "D000230"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "interest"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1035,13 +1029,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Healthcare"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "interest",
-            "investment"
+          "Healthcare": [
+            "reimbursement"
           ]
         }
       }
@@ -1093,9 +1085,16 @@
         "K000404"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data"
+          ]
+        }
       }
     },
     {
@@ -1150,14 +1149,17 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Technology",
+          "Healthcare"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit",
-            "loan",
-            "investment"
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Healthcare": [
+            "insurance",
+            "reimbursement"
           ]
         }
       }
@@ -1364,15 +1366,9 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "credit"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1418,24 +1414,27 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Technology",
+          "Healthcare"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit",
-            "loan",
-            "investment"
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Healthcare": [
+            "insurance",
+            "reimbursement"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-11-05T17:19:54.647197+00:00",
+  "bills_updated": "2026-11-06T15:57:37.229144+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 34,
   "top_donors_list": [
