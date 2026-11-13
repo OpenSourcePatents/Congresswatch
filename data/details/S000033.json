@@ -924,25 +924,67 @@
   "bills": [
     {
       "bill_id": "S5692-119",
-      "title": "A bill to prohibit the use of automatic license plate readers by the Federal Government without explicit statutory authorization, to withhold grants awarded by certain agencies from State and local governments that use automatic license plate readers, and to prohibit the use of Federal funds to purchase automatic license plate readers.",
+      "title": "Ban Flock Act",
       "type": "S",
       "number": "5692",
       "congress": 119,
       "introduced_date": "2026-11-09",
       "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/s/5692?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "plate",
+        "federal",
+        "license",
+        "data",
+        "automatic",
+        "captured",
+        "reader",
+        "use",
+        "state",
+        "funds",
+        "government",
+        "readers",
+        "prohibition",
+        "violation",
+        "tolling",
+        "agency",
+        "enforcement",
+        "information",
+        "prohibit",
+        "vehicle"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.077,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10691-119",
+          "sponsor_id": "O000172",
+          "similarity_score": 0.984
+        }
+      ],
+      "cosponsors": [
+        "M001176"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Mining & Natural Resources"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology",
+            "data",
+            "privacy",
+            "software"
+          ],
+          "Mining & Natural Resources": [
+            "lease"
+          ]
+        }
       }
     },
     {
@@ -1362,11 +1404,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-12T18:19:48.062850+00:00",
+  "bills_updated": "2026-11-13T17:33:51.158635+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 39,
   "top_donors_list": [

@@ -929,25 +929,75 @@
   "bills": [
     {
       "bill_id": "HR11003-119",
-      "title": "To provide increased oversight of certain pardons, to clarify the applicability of bribery prohibitions to pardons and commutations, and for other purposes.",
+      "title": "Abuse of the Pardon Prevention Act of 2026",
       "type": "HR",
       "number": "11003",
       "congress": 119,
       "introduced_date": "2026-11-11",
       "latest_action": "Referred to the House Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/hr/11003?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "president",
+        "pardon",
+        "individual",
+        "office",
+        "general",
+        "covered",
+        "report",
+        "offense",
+        "white",
+        "presidential",
+        "gift",
+        "disclosure",
+        "submit",
+        "director",
+        "entity",
+        "investigation",
+        "inspector",
+        "required",
+        "materials",
+        "obtained"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.062,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5256-119",
+          "sponsor_id": "C001113",
+          "similarity_score": 0.983
+        }
+      ],
+      "cosponsors": [
+        "L000601",
+        "B001324",
+        "M001143",
+        "H001068",
+        "A000381",
+        "L000562",
+        "D000617",
+        "B001285",
+        "N000147",
+        "C001059"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial",
+            "interest"
+          ],
+          "Real Estate": [
+            "construction",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -1447,11 +1497,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-12T17:50:09.675312+00:00",
+  "bills_updated": "2026-11-13T17:13:47.389123+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 41,
   "travel": [

@@ -924,25 +924,64 @@
   "bills": [
     {
       "bill_id": "S5697-119",
-      "title": "A bill to ensure that Federal agencies rely on the best reasonably available scientific, technical, demographic, economic, and statistical information and evidence to develop, issue or inform the public of the nature and bases of Federal agency rules and guidance, and for other purposes.",
+      "title": "Information Quality Assurance Act of 2026",
       "type": "S",
       "number": "5697",
       "congress": 119,
       "introduced_date": "2026-11-10",
       "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/s/5697?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "federal",
+        "information",
+        "agency",
+        "guidance",
+        "available",
+        "evidence",
+        "quality",
+        "head",
+        "subparagraph",
+        "rulemaking",
+        "guidelines",
+        "made",
+        "make",
+        "critical",
+        "factual",
+        "material",
+        "general",
+        "administrative",
+        "issue",
+        "inform"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.091,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR6329-119",
+          "sponsor_id": "M001136",
+          "similarity_score": 0.865
+        }
+      ],
+      "cosponsors": [
+        "P000595"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -1417,11 +1456,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-12T18:25:15.646592+00:00",
+  "bills_updated": "2026-11-13T17:38:08.355190+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "votes_fail_count": 39,
   "top_donors_list": [

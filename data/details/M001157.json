@@ -936,18 +936,61 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hres/1600?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "texas",
+        "university",
+        "service",
+        "military",
+        "students",
+        "amc",
+        "corps",
+        "war",
+        "world",
+        "state",
+        "college",
+        "cadets",
+        "former",
+        "aggies",
+        "president",
+        "established",
+        "aggie",
+        "student",
+        "land",
+        "grant"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.082,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES948-119",
+          "sponsor_id": "C001056",
+          "similarity_score": 0.993
+        }
+      ],
+      "cosponsors": [
+        "J000304"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "student",
+            "college",
+            "university"
+          ]
+        }
       }
     },
     {
@@ -1491,11 +1534,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-12T16:56:25.198586+00:00",
+  "bills_updated": "2026-11-13T16:13:49.982847+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "votes_fail_count": 40,
   "travel": [
