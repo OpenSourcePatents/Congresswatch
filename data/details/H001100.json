@@ -1030,7 +1030,7 @@
         {
           "bill_id": "HR8682-119",
           "sponsor_id": "D000634",
-          "similarity_score": 0.865
+          "similarity_score": 0.866
         }
       ],
       "cosponsors": [
@@ -1041,11 +1041,19 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Real Estate",
+          "Insurance",
+          "Mining & Natural Resources"
         ],
         "keyword_hits": {
           "Real Estate": [
             "construction"
+          ],
+          "Insurance": [
+            "risk"
+          ],
+          "Mining & Natural Resources": [
+            "lease"
           ]
         }
       }
@@ -1260,9 +1268,20 @@
         "N000191"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance",
+          "Mining & Natural Resources"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "claim"
+          ],
+          "Mining & Natural Resources": [
+            "mining",
+            "mineral"
+          ]
+        }
       }
     },
     {
@@ -1305,7 +1324,7 @@
         {
           "bill_id": "SRES844-119",
           "sponsor_id": "B001267",
-          "similarity_score": 0.909
+          "similarity_score": 0.908
         }
       ],
       "cosponsors": [
@@ -1321,9 +1340,15 @@
         "P000620"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "risk"
+          ]
+        }
       }
     },
     {
@@ -1371,20 +1396,25 @@
         "match": true,
         "matched_industries": [
           "Real Estate",
+          "Technology",
           "Oil & Gas",
-          "Finance & Banking"
+          "Mining & Natural Resources"
         ],
         "keyword_hits": {
           "Real Estate": [
             "development"
           ],
+          "Technology": [
+            "data"
+          ],
           "Oil & Gas": [
             "energy",
             "drilling"
           ],
-          "Finance & Banking": [
-            "interest",
-            "investment"
+          "Mining & Natural Resources": [
+            "mining",
+            "mineral",
+            "rare_earth"
           ]
         }
       }
@@ -1432,15 +1462,9 @@
         "K000399"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "credit"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1508,11 +1532,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-14T15:36:55.179517+00:00",
+  "bills_updated": "2026-11-15T16:18:11.840992+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {

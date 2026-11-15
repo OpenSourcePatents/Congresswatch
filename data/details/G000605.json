@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.169,
+      "alec_best_similarity": 0.166,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -970,9 +970,19 @@
         "R000603"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ],
+          "Education": [
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -1016,9 +1026,15 @@
         "C001059"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -1065,9 +1081,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Real Estate",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ],
           "Finance & Banking": [
             "bank",
             "financial"
@@ -1160,7 +1180,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.075,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1282,15 +1302,9 @@
         "F000481"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "hospital"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1340,11 +1354,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-14T15:37:15.640691+00:00",
+  "bills_updated": "2026-11-15T16:18:32.763810+00:00",
   "bills_count": 8,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 31.3,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "verified_auto",
   "votes_fail_count": 41,
   "top_donors_list": [
