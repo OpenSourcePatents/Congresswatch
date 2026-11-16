@@ -34,6 +34,7 @@ Run:
 import glob
 import json
 import os
+from datetime import datetime
 
 MEMBERS_FILE = "data/members.json"
 DETAILS_DIR = "data/details"
@@ -88,6 +89,17 @@ def stamp(record, identity):
     return {**record, **identity}
 
 
+def date_sort_key(value):
+    """Sort ISO and historical US-format dates without altering source records."""
+    value = str(value or "").strip()[:10]
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y"):
+        try:
+            return datetime.strptime(value, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            pass
+    return ""
+
+
 def main():
     members = load_json(MEMBERS_FILE, [])
     if not members:
@@ -129,8 +141,8 @@ def main():
 
     # Newest-first so consumers can page without re-sorting. Records with no
     # date (the scanned-PDF placeholders) sort last, not first: "" < any date.
-    trades.sort(key=lambda t: t.get("transaction_date") or "", reverse=True)
-    bills.sort(key=lambda b: b.get("introduced_date") or "", reverse=True)
+    trades.sort(key=lambda t: date_sort_key(t.get("transaction_date")), reverse=True)
+    bills.sort(key=lambda b: date_sort_key(b.get("introduced_date")), reverse=True)
 
     save_json(TRADES_FILE, trades)
     save_json(BILLS_FILE, bills)

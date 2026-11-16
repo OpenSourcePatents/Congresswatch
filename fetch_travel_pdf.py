@@ -78,7 +78,7 @@ DRY_RUN = "--dry-run" in sys.argv
 # ---------------------------------------------------------------------------
 
 def load_json_strict(path, default):
-    """Load JSON. Missing or empty file -> default. An EXISTING, NON-EMPTY
+    """Load JSON. Missing file -> default. An EXISTING
     file that fails to parse ABORTS the run — silently returning a default
     here could wipe fields other pipelines wrote into the same file."""
     if not os.path.exists(path):
@@ -86,7 +86,7 @@ def load_json_strict(path, default):
     with open(path, "r", encoding="utf-8") as f:
         raw = f.read()
     if not raw.strip():
-        return default
+        raise SystemExit(f"ABORT: existing JSON file is empty: {path}")
     try:
         return json.loads(raw)
     except Exception as e:

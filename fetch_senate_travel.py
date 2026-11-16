@@ -64,14 +64,14 @@ DRY_RUN = os.environ.get("DRY_RUN", "").lower() in ("1", "true", "yes")
 # ---------------------------------------------------------------------------
 
 def load_json_strict(path, default):
-    """Missing/empty file -> default. An EXISTING non-empty file that fails
+    """Missing file -> default. An EXISTING file that fails
     to parse ABORTS — returning a default would wipe other pipelines' data."""
     if not os.path.exists(path):
         return default
     with open(path, "r", encoding="utf-8") as f:
         raw = f.read()
     if not raw.strip():
-        return default
+        raise SystemExit(f"ABORT: existing JSON file is empty: {path}")
     try:
         return json.loads(raw)
     except Exception as e:
@@ -218,12 +218,15 @@ def match_senator(first, last, senators):
     cands = [s for s in senators
              if normalize_name(s.get("name", "")).endswith(" " + nlast)
              or normalize_name(s.get("name", "")) == nlast]
-    if len(cands) == 1:
-        return cands[0]
-    if len(cands) > 1 and nfirst:
-        ffirst = nfirst.split()[0]
-        narrowed = [s for s in cands
-                    if normalize_name(s.get("name", "")).startswith(ffirst)]
+    if nfirst:
+        first_parts = [part for part in nfirst.split() if len(part) > 1]
+        narrowed = []
+        for senator in cands:
+            given = normalize_name(senator.get("name", "")).split()[0]
+            if any(part == given or (min(len(part), len(given)) >= 3 and
+                   (part.startswith(given) or given.startswith(part)))
+                   for part in first_parts):
+                narrowed.append(senator)
         if len(narrowed) == 1:
             return narrowed[0]
     return None

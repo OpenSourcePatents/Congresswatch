@@ -851,7 +851,7 @@ function fmtMoney(v) {
 function computeScore(m) {
   // Show a numeric score (including 0) when the member shows any evidence of measurement;
   // otherwise null -> DATA PENDING.
-  const measured = (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
+  const measured = !!m.score_updated || !!m.score_components || (m.score||0) > 0;
   return measured ? (m.score || 0) : null;
 }
 function getNetWorth(m) {
@@ -909,7 +909,7 @@ function updateCoverage() {
   if (!el) return;
   const total = allMembers.length;
   const denom = total || 1;
-  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0).length;
+  const scored = allMembers.filter(m=>m.displayScore!==null).length;
   const withTrades = allMembers.filter(m=>(m.trade_count||0)>0).length;
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   const row = (label, n, c) => `
@@ -920,7 +920,7 @@ function updateCoverage() {
   el.innerHTML =
     row('Members with scores', scored, '#3b82f6') +
     row('Members with trade signals', withTrades, '#f3c25a') +
-    row('Complete data profiles', withData, '#9fe7c8');
+    row('Members with recorded signals', withData, '#9fe7c8');
 }
 
 function loadDemo() {
@@ -931,7 +931,7 @@ function loadDemo() {
 }
 
 function updateStats() {
-  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
+  const scored = allMembers.filter(m=>m.displayScore!==null);
   const high = scored.filter(m=>m.displayScore>=60).length;
   const signals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
@@ -1006,7 +1006,7 @@ function renderGrid() {
     const showDonor = (m.total_raised||0) > 0;
     const showBill = (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
-    const pending = !hasRealData(m);
+    const pending = m.displayScore === null;
     const tag = (label, c) => `<span class="m-tag" style="background:color-mix(in srgb, ${c} 10%, transparent);border:1px solid color-mix(in srgb, ${c} 32%, transparent);color:${c}">${label}</span>`;
     card.innerHTML = `
       <div class="m-card-stripe" style="background:${m.partyC}"></div>
@@ -1111,17 +1111,17 @@ function linkBtnHtml(url, label, caption) {
 /* ── Anomaly score breakdown — the six weighted signals from detail.score_components.
      Track width encodes the signal's weight (max/25 of the row); fill encodes value/max. ── */
 const SCORE_COMPONENTS = [
-  { key:'trade_timing',    label:'Stock trade timing',     max:25 },
-  { key:'wealth_gap',      label:'Wealth gap (fundraising-based proxy)', max:25 },
-  { key:'donor_alignment', label:'Donor-vote alignment',   max:20 },
-  { key:'alec_similarity', label:'Bill authorship / ALEC', max:15 },
-  { key:'foreign_travel',  label:'Foreign travel',         max:10 },
+  { key:'trade_timing',    label:'Disclosed trade activity',     max:25 },
+  { key:'wealth_gap',      label:'Personal wealth (unavailable)', max:25 },
+  { key:'donor_alignment', label:'Bill / donor-industry overlap',   max:20 },
+  { key:'alec_similarity', label:'Model-bill text similarity', max:15 },
+  { key:'foreign_travel',  label:'Disclosed travel',         max:10 },
   { key:'attendance',      label:'Attendance',             max:5 },
 ];
 function scoreBreakdownHtml(m) {
   const comps = m.score_components || null;
   const rows = SCORE_COMPONENTS.map(c => {
-    const has = comps && comps[c.key] !== undefined && comps[c.key] !== null;
+    const has = c.key !== 'wealth_gap' && comps && comps[c.key] !== undefined && comps[c.key] !== null;
     const v = has ? comps[c.key] : 0;
     const pct = has ? Math.max(0, Math.min(100, (v / c.max) * 100)) : 0;
     let color = '#5d7180';
@@ -1134,7 +1134,7 @@ function scoreBreakdownHtml(m) {
   }).join('');
   return `<div class="glass panel-block">
     <div class="panel-head">ANOMALY SCORE BREAKDOWN<span class="panel-head-right">SIX WEIGHTED SIGNALS</span></div>
-    <div class="panel-body">${rows}</div>
+    <div class="panel-body">${rows}<p class="td-sub">Available signals only. Missing data is not evidence of no activity. Campaign receipts are not personal wealth; text overlap does not establish authorship, influence, or wrongdoing.</p></div>
   </div>`;
 }
 
@@ -1209,7 +1209,7 @@ async function openProfile(m) {
   bar.style.boxShadow = `0 0 8px ${band.color}`;
   document.getElementById('pf-score-sub').textContent = `${band.label} · 0–100`;
 
-  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
+  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : null;
   const cumSalary = computeCareerEarnings(m) || 0;
 
   renderOverview(currentMember, s, cumSalary);
@@ -1219,7 +1219,7 @@ async function openProfile(m) {
   fillPatterns(currentMember, s);
   fillDonors(currentMember);
 
-  setTimeout(() => drawSalaryChart('nw-canvas', startYear), 200);
+  setTimeout(() => { if (token === profileToken) drawSalaryChart('nw-canvas', startYear); }, 200);
   window.scrollTo(0, 0);
 
   // ── Fetch vault data: same-origin JSON ──
@@ -1240,6 +1240,7 @@ async function openProfile(m) {
       } catch(e) {
         console.warn('JSON vault fetch failed:', e);
       }
+      if (token !== profileToken) return;
     }
 
     if (deep) {
@@ -1257,9 +1258,9 @@ async function openProfile(m) {
       fillTravel(currentMember);
       fillPatterns(currentMember, s);
       fillDonors(currentMember);
-      setTimeout(() => drawSalaryChart('nw-canvas', startYear), 100);
+      setTimeout(() => { if (token === profileToken) drawSalaryChart('nw-canvas', startYear); }, 100);
     } else {
-      fillVotes(currentMember, s);
+      document.getElementById('pf-votes-content').innerHTML = alertHtml('warn', 'MEMBER DETAILS UNAVAILABLE', 'The detailed record could not be loaded. Return to the member list and reopen this profile to retry. Missing sections do not mean no activity.');
     }
   } else {
     fillVotes(currentMember, s);
@@ -1278,7 +1279,7 @@ function renderOverview(m, s, cumSalary) {
       note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
     { label:'Est. Career Earnings', value: careerEarnings ? fmtMoney(careerEarnings) : '—',
       note: careerEarnings ? 'congressional salary only' : 'pending' },
-    { label:'Total Raised (FEC)', value: m.total_raised ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—'), color:'#f3c25a',
+    { label:'Total Raised (FEC)', value: m.total_raised != null ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—'), color:'#f3c25a',
       note: m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending' },
     { label:'Insider Signals', value: esc(insiderSignals), color: (m.corporate_insider_signals||0) > 10 ? '#ff3b4e' : undefined,
       note: 'SEC EDGAR Form 4' },
@@ -1321,15 +1322,15 @@ function showMembersList() {
 
 function buildFlags(m, s) {
   const flags = [];
-  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.70
+  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.80
   const bills = m.bills || [];
   const alecBills = bills.filter(b => {
     const am = b.alec_match;
     if (!am) return false;
-    return (am.similarity_score || 0) >= 0.70;
+    return (am.similarity_score || 0) >= 0.80;
   });
   if (alecBills.length > 0) flags.push({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
-    body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match known ALEC model legislation above 70% similarity. Source: LegiScan + Congress.gov.`});
+    body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match known ALEC model legislation at or above 80% cosine similarity. Source: LegiScan + Congress.gov.`});
   // INSIDER_TRADING: only if corporate_insider_signals > 0
   const insiderCount = m.corporate_insider_signals || 0;
   if (insiderCount > 0) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
@@ -1345,7 +1346,7 @@ function buildFlags(m, s) {
     }).length;
     const missRatio = missed / votes.length;
     if (missRatio > 0.15) flags.push({type:'warn',title:`HIGH MISSED VOTE RATE — ${(missRatio*100).toFixed(1)}%`,
-      body:`Missed ${missed} of ${votes.length} recorded votes (>${(missRatio*100).toFixed(0)}%). Source: GovTrack.us.`});
+      body:`Missed ${missed} of ${votes.length} recorded votes (${(missRatio*100).toFixed(1)}%). Source: GovTrack.us.`});
   }
   // HIGH_RAISE: only if total_raised > 5000000 (real FEC data)
   if ((m.total_raised||0) > 5000000) flags.push({type:'warn',title:'HIGH FUNDRAISING',
@@ -1364,7 +1365,7 @@ function fillVotes(m, s) {
 
   if (bills.length === 0 && votes.length === 0) {
     container.innerHTML = alertHtml('info', 'VOTING RECORD PENDING',
-      'Voting data loads from the member vault. Run the fetch_votes workflow if this persists.');
+      'No voting records are available in this snapshot. This does not establish attendance or absence.');
     return;
   }
 
@@ -1378,14 +1379,16 @@ function fillVotes(m, s) {
     }]);
   }
 
+  if (m.votes_status === 'fetch_failed') html += alertHtml('warn', 'VOTE REFRESH UNAVAILABLE', 'Showing previously collected votes. The latest refresh failed; these records may be out of date.');
+
   // ── Sponsored Bills section ──
   if (bills.length > 0) {
-    const alecCount = bills.filter(b => b.alec_match).length;
+    const alecCount = bills.filter(b => (b.alec_match?.similarity_score || 0) >= 0.80).length;
     const donorCount = bills.filter(b => b.donor_interest && b.donor_interest.match).length;
 
     if (alecCount > 0) {
       html += alertHtml('warn', 'ALEC MODEL LEGISLATION MATCH',
-        `${alecCount} sponsored bill${alecCount>1?'s':''} share significant language (80%+ cosine similarity) with known ALEC model legislation templates.`);
+        `${alecCount} sponsored bill${alecCount>1?'s':''} meet the 80% cosine-similarity threshold against the stored ALEC model-text corpus. Similarity does not establish authorship or influence.`);
     }
     if (donorCount > 0) {
       html += alertHtml('warn', 'DONOR INTEREST ALIGNMENT',
@@ -1395,7 +1398,7 @@ function fillVotes(m, s) {
     let tbl = `
       <table class="data-table">
         <thead><tr>
-          <th>Bill</th><th>Title</th><th>Introduced</th><th>ALEC Match</th><th>Donor Interest</th><th>Co-Author Links</th>
+          <th>Bill</th><th>Title</th><th>Introduced</th><th>ALEC Match</th><th>Donor Interest</th><th>Similar Bills</th>
         </tr></thead>
         <tbody>`;
 
@@ -1417,7 +1420,7 @@ function fillVotes(m, s) {
       }
       if (alec && (alec.similarity_score||0) > 0) {
         const pct = Math.round((alec.similarity_score||0)*100);
-        const isHighMatch = pct >= 70;
+        const isHighMatch = pct >= 80;
         const matchColor = isHighMatch ? '#ff3b4e' : '#f3c25a';
         alecCell = `${isHighMatch?'<span style="display:inline-block;background:color-mix(in srgb, #ff3b4e 14%, transparent);border:1px solid color-mix(in srgb, #ff3b4e 45%, transparent);color:#ff3b4e;font-family:\'Oxanium\',sans-serif;font-size:8px;font-weight:700;padding:2px 6px;letter-spacing:1px;border-radius:3px;margin-bottom:3px">ALEC MATCH</span><br>':''}
           <span class="td-mono" style="color:${matchColor};font-weight:600">${pct}% match to ALEC model legislation</span>
@@ -1449,7 +1452,7 @@ function fillVotes(m, s) {
     tbl += `</tbody></table>`;
 
     html += tableSectionHtml('SPONSORED BILLS — SIMILARITY ANALYSIS', `${bills.length} BILLS`, tbl,
-      'Source: LegiScan + Congress.gov · TF-IDF cosine similarity');
+      'Source: LegiScan + Congress.gov · TF-IDF cosine similarity measures text overlap, not authorship or influence. Coverage is limited to fetched bills and available text.');
   }
 
   // ── Voting Record section ──
@@ -1484,15 +1487,15 @@ function fillVotes(m, s) {
       `Source: GovTrack.us · ${votes.length} most recent votes`);
   } else {
     html += alertHtml('info', 'VOTING RECORD PENDING',
-      'Voting data loads from the member vault. Run the fetch_votes workflow if this persists.');
+      'No voting records are available in this snapshot. This does not establish attendance or absence.');
   }
 
   container.innerHTML = html;
 }
 
 function fillFinance(m, s, cumSalary) {
-  const pac = m.pac_contributions || 0, total = m.total_raised || 0;
-  const pacRatio = total > 0 ? ((pac/total)*100).toFixed(1) : '—';
+  const pac = m.pac_contributions, total = m.total_raised;
+  const pacRatio = total > 0 && pac != null ? ((pac/total)*100).toFixed(1) : '—';
   const careerEarnings = computeCareerEarnings(m);
   const nw = m.netWorth;
   const hasNW = nw !== null && nw !== undefined;
@@ -1501,7 +1504,7 @@ function fillFinance(m, s, cumSalary) {
     { label:'Est. Career Earnings', value: careerEarnings ? fmtMoney(careerEarnings) : '—', note:'congressional salary only' },
     { label:'Net Worth', value: hasNW ? fmtMoney(nw) : '—', color: hasNW ? '#f3c25a' : '#5d7180',
       note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
-    { label:'PAC Money', value: fmtMoney(pac), color: pac > total*0.3 ? '#ff3b4e' : undefined, note:`${pacRatio}% of total` },
+    { label:'PAC Money', value: fmtMoney(pac), color: pac > total*0.3 ? '#ff3b4e' : undefined, note:total > 0 && pac != null ? `${pacRatio}% of total` : 'FEC coverage unavailable' },
     { label:'Individual Donors', value: fmtMoney(m.individual_contributions), color:'#f3c25a', note:'itemized' },
     { label:'Total Spent', value: fmtMoney(m.total_spent), note:'FEC disbursements' },
     { label:'Cash on Hand', value: fmtMoney(m.cash_on_hand), note:'end of last FEC period' },
@@ -1518,8 +1521,9 @@ function fillFinance(m, s, cumSalary) {
   document.getElementById('pf-finance-content').innerHTML =
     cells + chart + linkBtnHtml(fecLink, 'View full FEC filing at FEC.gov →');
 
-  const startYear = parseInt((m.term_start||'2010').slice(0,4));
-  setTimeout(() => drawSalaryChart('fin-canvas', startYear), 80);
+  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : null;
+  const token = profileToken;
+  setTimeout(() => { if (token === profileToken) drawSalaryChart('fin-canvas', startYear); }, 80);
 }
 
 function fillStocks(m, s) {
@@ -1527,7 +1531,9 @@ function fillStocks(m, s) {
   const edgarStatus = m.edgar_status || 'unresolved';
   const cik = m.edgar_cik;
   const chamber = (m.chamber||'').toLowerCase();
-  const trades = m.trades || [];
+  const tradeRecords = m.trades || [];
+  const scannedFilings = tradeRecords.filter(t => t.scanned_pdf);
+  const trades = tradeRecords.filter(t => !t.scanned_pdf);
   let html = '';
 
   // ── Trade table (from PTR pipeline) ──
@@ -1560,8 +1566,13 @@ function fillStocks(m, s) {
       </tr>`;
     });
     tbl += `</tbody></table>`;
-    const note = (trades.length > 50 ? `Showing 50 of ${trades.length} trades · ` : '') + 'Source: Senate eFD / PTR Disclosures';
+    const note = (trades.length > 50 ? `Showing 50 of ${trades.length} trades · ` : '') + (chamber.includes('house') ? 'Source: House Clerk PTR disclosures' : 'Source: Senate eFD PTR disclosures');
     html += tableSectionHtml('STOCK TRADES (PTR DISCLOSURES)', `${trades.length} TRADES`, tbl, note);
+  }
+
+  if (scannedFilings.length) {
+    html += alertHtml('info', 'SCANNED FILINGS REQUIRE REVIEW', `${scannedFilings.length} scanned filing${scannedFilings.length > 1 ? 's' : ''} are available but transactions have not been extracted. These are not included in the trade count.`);
+    html += scannedFilings.map(t => linkBtnHtml(t.ptr_link, 'View scanned PTR filing →', t.date_received || t.date_recieved || '')).join('');
   }
 
   // ── EDGAR signals ──
@@ -1579,15 +1590,15 @@ function fillStocks(m, s) {
 
   // PTR source links
   const ptrUrl = chamber.includes('house')
-    ? 'https://disclosures.house.gov/public_disc/ptr-pdfs/'
-    : 'https://efts.sec.gov/LATEST/search-index?q=%22periodic+transaction%22&dateRange=custom';
-  const ptrSource = chamber.includes('house') ? 'House Financial Disclosures' : 'Senate eFD / SEC';
+    ? 'https://disclosures-clerk.house.gov/FinancialDisclosure'
+    : 'https://efdsearch.senate.gov/search/';
+  const ptrSource = chamber.includes('house') ? 'House Financial Disclosures' : 'Senate eFD';
   html += alertHtml('info', 'PERIODIC TRANSACTION REPORTS (PTR)',
-    trades.length > 0 ? 'Trade data sourced from Senate PTR disclosures.' : 'Detailed trade history via House/Senate PTR disclosures.',
+    trades.length > 0 ? 'Trade data sourced from House or Senate PTR disclosures. This is not a complete holdings record.' : 'Detailed trade history via House/Senate PTR disclosures.',
     `<a class="alert-link" href="${ptrUrl}" target="_blank" rel="noopener noreferrer">View raw ${ptrSource} disclosures →</a>`);
 
   if (trades.length === 0 && tc === 0) {
-    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals found in current data.</div>`;
+    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals are available in this snapshot. Missing records do not establish that no trades occurred.</div>`;
   }
 
   document.getElementById('pf-stocks-content').innerHTML = html;
@@ -1630,12 +1641,12 @@ function fillTravel(m) {
       </tr>`;
     });
     tbl += `</tbody></table>`;
-    html += tableSectionHtml('FOREIGN TRAVEL DISCLOSURES', `${trips.length} TRIPS`, tbl,
-      `Source: ${chamberLabel} Clerk Foreign Travel Disclosures`);
+    html += tableSectionHtml('DISCLOSED GIFT TRAVEL', `${trips.length} TRIPS`, tbl,
+      `Source: ${isHouse ? 'House Clerk' : 'Secretary of the Senate'} gift-travel disclosures · Includes domestic trips; missing costs or destinations are unknown`);
   } else {
-    html += `<div class="sec-header"><div class="sec-title">FOREIGN TRAVEL DISCLOSURES</div><div class="sec-badge">${chamberLabel.toUpperCase()}</div></div>`;
-    html += alertHtml('info', 'CONGRESSIONAL FOREIGN TRAVEL (CODEL) DISCLOSURES',
-      `Funded trips by foreign-connected entities, privately funded travel, and gifts reported under ${chamberLabel} ethics rules.<br><br>Automated parsing of travel disclosures coming in a future update.`);
+    html += `<div class="sec-header"><div class="sec-title">DISCLOSED GIFT TRAVEL</div><div class="sec-badge">${chamberLabel.toUpperCase()}</div></div>`;
+    html += alertHtml('info', 'GIFT TRAVEL RECORDS UNAVAILABLE',
+      `No gift-travel records are available for this member in the current snapshot. This does not establish that no travel occurred. Source coverage varies by chamber and reporting period.`);
   }
 
   html += linkBtnHtml(travelUrl, `View ${chamberLabel} travel disclosures →`, `${chamberLabel} Travel Disclosure Database`);
@@ -1645,16 +1656,16 @@ function fillTravel(m) {
 
 function fillPatterns(m, s) {
   const patterns = [];
-  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.70
+  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.80
   const bills = m.bills || [];
   const alecBills = bills.filter(b => {
     const am = b.alec_match;
     if (!am) return false;
-    return (am.similarity_score || 0) >= 0.70;
+    return (am.similarity_score || 0) >= 0.80;
   });
   if (alecBills.length > 0) {
     const topSim = Math.max(...alecBills.map(b => b.alec_match.similarity_score || 0));
-    patterns.push({title:'ALEC MODEL LEGISLATION MATCH',body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match ALEC model legislation. Top similarity: <code>${Math.round(topSim*100)}%</code>. Source: LegiScan + Congress.gov.`});
+    patterns.push({title:'ALEC MODEL LEGISLATION MATCH',body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} overlap with stored ALEC model text; this is not proof of authorship. Top similarity: <code>${Math.round(topSim*100)}%</code>. Source: LegiScan + Congress.gov.`});
   }
   // INSIDER_TRADING: only if corporate_insider_signals > 0
   if ((m.corporate_insider_signals||0) > 0) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
@@ -1665,7 +1676,7 @@ function fillPatterns(m, s) {
       const pos = (v.position||'').toLowerCase();
       return pos === 'not voting' || pos === 'absent' || pos === '';
     }).length;
-    if (missed / votes.length > 0.15) patterns.push({title:'HIGH MISSED VOTE RATE',body:`Missed ${missed} of ${votes.length} votes (${(missed/votes.length*100).toFixed(1)}%) while collecting full $174,000 salary. Source: GovTrack.us.`});
+    if (missed / votes.length > 0.15) patterns.push({title:'HIGH MISSED VOTE RATE',body:`Missed ${missed} of ${votes.length} votes (${(missed/votes.length*100).toFixed(1)}%) in the available vote sample. Source: GovTrack.us.`});
   }
   // HIGH_RAISE: only if total_raised > 5000000
   if ((m.total_raised||0) > 5000000) patterns.push({title:'HIGH FUNDRAISING TOTAL',body:`Total raised: ${fmtMoney(m.total_raised)}. Source: FEC.gov.`});
@@ -1684,6 +1695,7 @@ function fillPatterns(m, s) {
 }
 
 function drawSalaryChart(canvasId, startYear, tries) {
+  if (!Number.isInteger(startYear)) return;
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   // A canvas measured while its panel is hidden renders at the 300px default — wait for layout
@@ -1787,7 +1799,8 @@ function fillDonors(m) {
 
   // Draw network only if real donor data exists
   if (topDonors.length > 0) {
-    setTimeout(() => drawNetwork(m), 50);
+    const token = profileToken;
+    setTimeout(() => { if (token === profileToken) drawNetwork(m); }, 50);
   }
 }
 
@@ -1835,14 +1848,14 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
 
 function fillCompare() {
   if (!allMembers.length) return;
-  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
+  const scored = allMembers.filter(m=>m.displayScore!==null);
   const high = scored.filter(m=>m.displayScore>=60).length;
   const totalSignals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   document.getElementById('compare-stats').innerHTML = [
     { label:'Members Scored', value:String(scored.length), note:`of ${allMembers.length} total` },
-    { label:'Data Coverage', value:String(withData), color:'#3b82f6', note:`${allMembers.length>0?Math.round((withData/allMembers.length)*100)+'%':'—'} complete` },
-    { label:'High Anomaly Members', value:String(high>0?high:'—'), color:'#ff3b4e', note: scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending' },
+    { label:'Data Coverage', value:String(withData), color:'#3b82f6', note:`${allMembers.length>0?Math.round((withData/allMembers.length)*100)+'%':'—'} with recorded signals` },
+    { label:'High Anomaly Members', value:scored.length ? String(high) : '—', color:'#ff3b4e', note: scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending' },
     { label:'Corporate Insider Signals', value: totalSignals>0?totalSignals.toLocaleString():'—', color:'#f3c25a', note:'SEC EDGAR Form 4' },
   ].map(c => `
     <div class="stat-cell glass">
@@ -1976,7 +1989,7 @@ function exportMemberCSV() {
   const m = currentMember;
   const rows = [
     ['Name','Party','State','Chamber','Score','Career Earnings','Total Raised','PAC','Corporate Insider Signals'],
-    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised||0, m.pac_contributions||0, m.corporate_insider_signals||0]
+    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised??'', m.pac_contributions??'', m.corporate_insider_signals??'']
   ];
   const csv = rows.map(r => r.map(csvField).join(',')).join('\n');
   const a = document.createElement('a');
@@ -1994,7 +2007,7 @@ function exportMemberJSON() {
 function shareMember() {
   if (!currentMember) return;
   const m = currentMember;
-  const text = `${m.name} has an anomaly score of ${m.displayScore}/100 on CongressWatch. See the data: https://congresswatch.vercel.app`;
+  const text = `${m.name}: ${m.displayScore == null ? 'score unavailable' : `anomaly score ${m.displayScore}/100`} on CongressWatch. See the data: https://congresswatch.vercel.app`;
   if (navigator.share) { navigator.share({title:'CongressWatch',text,url:'https://congresswatch.vercel.app'}); }
   else { navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!')); }
 }

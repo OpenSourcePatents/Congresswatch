@@ -26,7 +26,6 @@ import json
 import os
 import sys
 import time
-import hashlib
 from datetime import datetime, timezone
 
 # ---------------------------------------------------------------------------
@@ -41,7 +40,6 @@ from fetch_bills.utils.api_clients import (
     fetch_congress_text,
     legiscan_search_bill,
     legiscan_get_text_for_bill,
-    legiscan_search_bill,
 )
 from fetch_bills.utils.text_processor import clean_bill_text, text_hash, extract_keywords
 from fetch_bills.utils.similarity import SimilarityEngine
@@ -88,7 +86,9 @@ def load_json(path, default):
     it is regenerable and lives outside git."""
     if os.path.exists(path):
         if os.path.getsize(path) == 0:
-            return default
+            if os.path.abspath(path) == os.path.abspath(BILLS_CACHE):
+                return default
+            raise SystemExit(f"ABORT: {path} is empty; refusing to overwrite it.")
         with open(path, "r") as f:
             try:
                 return json.load(f)
@@ -147,19 +147,23 @@ def fetch_bill_text(bill_stub: dict, legiscan_budget: list) -> str:
     # --- LegiScan fallback ---
     # A full fallback costs up to 3 real API calls (getSearch + getBill +
     # getBillText); budget them honestly or the quota cap is fictional
-    if legiscan_budget[0] < 3:
+    if not os.environ.get("LEGISCAN_API_KEY") or legiscan_budget[0] < 3:
         return ""
 
-    query = title[:80] if title else f"{bill_type}{number}"
+    query = f"{bill_type}{number}"
     legiscan_budget[0] -= 1  # getSearch
     results = legiscan_search_bill(query, state="US", year=2)
     if not results:
         return ""
 
-    # Pick best match by title similarity (simple prefix check)
+    # Require federal identity AND title. A search ranking is not bill identity.
     best = None
-    for r in results[:3]:
-        if r.get("legiscan_id"):
+    import re
+    normalize = lambda value: re.sub(r"[^a-z0-9]", "", str(value).lower())
+    for r in results:
+        if (r.get("legiscan_id") and r.get("state") == "US"
+                and normalize(r.get("bill_number")) == normalize(query)
+                and title and normalize(r.get("title")) == normalize(title)):
             best = r
             break
 
@@ -180,6 +184,9 @@ def main():
     print("CongressWatch Bill Similarity Engine v1")
     print(f"Started: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
+
+    if not os.environ.get("CONGRESS_API_KEY"):
+        raise SystemExit("CONGRESS_API_KEY is required; refusing an empty-data update.")
 
     # Load members
     members = load_json(MEMBERS_PATH, [])
@@ -222,7 +229,7 @@ def main():
 
     # Build similarity engine from existing cache
     engine = SimilarityEngine()
-    engine.load_corpus(bills_cache)
+    # Fit only after fetching, so every analyzed bill uses the same vocabulary.
 
     # Track LegiScan quota
     legiscan_budget = [LEGISCAN_QUERY_BUDGET]
@@ -256,8 +263,17 @@ def main():
 
         # Fetch bill stubs from Congress.gov
         stubs = get_member_sponsored_bills(bid, congress=CURRENT_CONGRESS, limit=MAX_BILLS_PER_MEMBER)
+        if stubs is None:
+            stats["errors"] += 1
+            print(f"    [WARN] Preserving {bid}: sponsored legislation unavailable")
+            detail = load_detail(bid)
+            detail["bills_status"] = "fetch_failed"
+            detail["bills_checked"] = datetime.now(timezone.utc).isoformat()
+            save_detail(bid, detail)
+            continue
         if not stubs:
             member_bills_map[bid] = []
+            stats["members_processed"] += 1
             continue
 
         enriched = []
@@ -268,10 +284,11 @@ def main():
             cached = bills_cache.get(bill_id, {})
             cached_clean = cached.get("cleaned_text", "")
 
-            if not cached_clean:
+            needs_refresh = stub.get("update_date") != cached.get("update_date")
+            if not cached_clean or needs_refresh:
                 # Fetch fresh text
                 raw_text = fetch_bill_text(stub, legiscan_budget)
-                has_text = bool(raw_text)
+                has_text = bool(raw_text or cached_clean)
                 stats["bills_fetched"] += 1
 
                 if raw_text:
@@ -286,18 +303,23 @@ def main():
                         "url":          stub["url"],
                         "introduced_date": stub.get("introduced_date", ""),
                         "latest_action": stub.get("latest_action", ""),
+                        "update_date": stub.get("update_date", ""),
                         "cleaned_text": cleaned,
                         "text_hash":    new_hash,
                         "keywords":     extract_keywords(cleaned),
                         "sponsor_id":   bid,
                         "cached_at":    datetime.now(timezone.utc).isoformat(),
                     }
-                    engine.add_bill(bill_id, cleaned)
+
             else:
                 # Cached bills have cleaned_text by definition
                 has_text = True
                 stats["bills_cached"] += 1
 
+            # Refresh metadata even when a text download fails; retain prior text.
+            if bill_id in bills_cache:
+                for key in ("title", "introduced_date", "latest_action", "url"):
+                    bills_cache[bill_id][key] = stub.get(key, "")
             enriched.append({**stub, "has_text": has_text})
 
         member_bills_map[bid] = enriched
@@ -318,6 +340,8 @@ def main():
     # ---------------------------------------------------------------------------
     print("\n--- Phase 2: Similarity analysis + vault update ---")
 
+    engine.load_corpus(bills_cache)
+
     # Build co-author index: bill_id -> [cosponsor bioguide IDs]
     # (fetch on demand to avoid hammering API for all 538*10 bills)
     cosponsor_cache = {}
@@ -330,10 +354,13 @@ def main():
 
         print(f"  [{i+1}/{len(members)}] Analyzing {name}...")
 
+        if bid not in member_bills_map:
+            continue  # upstream failure: preserve this member
         detail = load_detail(bid)
-        stubs = member_bills_map.get(bid, [])
+        stubs = member_bills_map[bid]
         donor_industries = get_member_donor_industries(detail)
 
+        previous_bills = {b["bill_id"]: b for b in detail.get("bills", []) if b.get("bill_id")}
         analyzed_bills = []
 
         for stub in stubs:
@@ -371,14 +398,17 @@ def main():
 
             # Fetch co-sponsors from Congress.gov (cached)
             cosponsors = []
-            congress = cached.get("congress", CURRENT_CONGRESS)
-            bill_type = cached.get("type", "")
-            number = cached.get("number", "")
+            congress = stub.get("congress", CURRENT_CONGRESS)
+            bill_type = stub.get("type", "")
+            number = stub.get("number", "")
             if congress and bill_type and number:
                 cache_key = f"{congress}_{bill_type}_{number}"
                 if cache_key not in cosponsor_cache:
                     cosponsor_cache[cache_key] = get_bill_cosponsors(congress, bill_type, number)
                 cosponsors = cosponsor_cache[cache_key]
+            cosponsors_available = cosponsors is not None
+            if cosponsors is None:
+                cosponsors = previous_bills.get(bill_id, {}).get("cosponsors", [])
 
             # Build final bill record
             bill_record = {
@@ -392,6 +422,9 @@ def main():
                 "url":              cached.get("url", stub.get("url", "")),
                 "keywords":         cached.get("keywords", []),
                 "has_text":         bool(cleaned_text),
+                "analysis_status":  sim_result["analysis_status"],
+                "text_updated": cached.get("cached_at"),
+                "text_refresh_pending": stub.get("update_date") != cached.get("update_date"),
                 "similarity_score": alec_match["similarity_score"] if alec_match else None,
                 # Raw best ALEC cosine even below the 0.80 match threshold —
                 # feeds the graduated 0.35/0.5/0.65 scoring buckets
@@ -400,6 +433,7 @@ def main():
                 "alec_match":       alec_match,
                 "similar_member_bills": co_author_matches[:3],
                 "cosponsors":       cosponsors[:10],
+                "cosponsors_status": "available" if cosponsors_available else "refresh_failed",
                 "donor_interest":   {
                     "match":              donor_result["match"],
                     "matched_industries": donor_result["matched_industries"],
@@ -414,7 +448,11 @@ def main():
         # Write to vault
         detail["bills"] = analyzed_bills
         detail["bills_updated"] = datetime.now(timezone.utc).isoformat()
+        detail["bills_checked"] = detail["bills_updated"]
+        detail["bills_status"] = "available" if analyzed_bills else "empty"
         detail["bills_count"] = len(analyzed_bills)
+        detail["bills_scope"] = {"congress": CURRENT_CONGRESS, "limit": MAX_BILLS_PER_MEMBER,
+                                 "description": "Latest sampled sponsored legislation, not full history"}
         detail["donor_alignment_score"] = donor_alignment_score
         detail["alec_match_count"] = sum(1 for b in analyzed_bills if b.get("alec_match"))
         detail["donor_match_count"] = sum(1 for b in analyzed_bills if b.get("donor_interest", {}).get("match"))
@@ -437,6 +475,8 @@ def main():
     print(f"Errors:               {stats['errors']}")
     print(f"Bills cache size:     {len(bills_cache)}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
+    if stats["errors"]:
+        raise SystemExit(f"Incomplete: {stats['errors']} member bill requests failed; prior records preserved.")
     print("=" * 60)
 
 

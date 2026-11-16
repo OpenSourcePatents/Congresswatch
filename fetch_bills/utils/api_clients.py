@@ -7,6 +7,7 @@ import time
 import random
 import requests
 import base64
+import io
 
 CONGRESS_API_KEY = os.environ.get("CONGRESS_API_KEY", "")
 LEGISCAN_API_KEY = os.environ.get("LEGISCAN_API_KEY", "")
@@ -73,7 +74,7 @@ def congress_get(path, params=None):
 def get_member_sponsored_bills(bioguide_id, congress=None, limit=20):
     """
     Fetch bills sponsored by a member in the given congress.
-    Returns list of bill stubs: {bill_id, title, type, number, congress, url}
+    Returns bill stubs, or None on upstream failure (distinct from no bills).
     congress=None derives the sitting Congress from the date (new Congress
     each odd-year January) so this default can't silently go stale.
     """
@@ -84,14 +85,16 @@ def get_member_sponsored_bills(bioguide_id, congress=None, limit=20):
         f"member/{bioguide_id}/sponsored-legislation",
         {"congress": congress, "limit": limit}
     )
-    if not data:
-        return []
+    if not isinstance(data, dict) or not isinstance(data.get("sponsoredLegislation"), list):
+        return None  # failure is not evidence of zero sponsored bills
 
     bills = []
     for item in data.get("sponsoredLegislation", []):
         bill_type = (item.get("type") or "").upper()
         number = item.get("number", "")
         cong = item.get("congress", congress)
+        if str(cong) != str(congress) or not bill_type or not number:
+            continue
         bill_id = f"{bill_type}{number}-{cong}"
         bills.append({
             "bill_id":  bill_id,
@@ -102,6 +105,7 @@ def get_member_sponsored_bills(bioguide_id, congress=None, limit=20):
             "url":      item.get("url", ""),
             "introduced_date": item.get("introducedDate", ""),
             "latest_action": (item.get("latestAction") or {}).get("text", ""),
+            "update_date": item.get("updateDate", ""),
         })
     return bills
 
@@ -111,8 +115,8 @@ def get_bill_cosponsors(congress, bill_type, number):
     Returns list of bioguide IDs of co-sponsors for a given bill.
     """
     data = congress_get(f"bill/{congress}/{bill_type.lower()}/{number}/cosponsors")
-    if not data:
-        return []
+    if not isinstance(data, dict) or not isinstance(data.get("cosponsors"), list):
+        return None
     ids = []
     for cs in data.get("cosponsors", []):
         bid = cs.get("bioguideId", "")
@@ -144,7 +148,9 @@ def fetch_congress_text(url):
     r = _get(url, label="congress text")
     if r is None:
         return ""
-    return r.text[:50000]  # cap at 50k chars
+    if r.content.startswith(b"%PDF"):
+        return _decode_document(r.content)
+    return r.text
 
 
 # ---------------------------------------------------------------------------
@@ -217,8 +223,7 @@ def legiscan_get_bill_text(doc_id):
     if not encoded:
         return ""
     try:
-        decoded = base64.b64decode(encoded).decode("utf-8", errors="replace")
-        return decoded[:50000]  # cap at 50k chars
+        return _decode_document(base64.b64decode(encoded, validate=True))
     except Exception as e:
         print(f"    [B64 ERR] doc_id={doc_id}: {e}")
         return ""
@@ -238,3 +243,17 @@ def legiscan_get_text_for_bill(bill_id):
     # Most recent first (highest doc_id)
     texts_sorted = sorted(texts, key=lambda t: t.get("doc_id", 0), reverse=True)
     return legiscan_get_bill_text(texts_sorted[0]["doc_id"])
+
+def _decode_document(content):
+    """Extract actual text, never PDF binary tokens, for similarity analysis."""
+    if content.startswith(b"%PDF"):
+        try:
+            from pypdf import PdfReader
+            return "\n".join(page.extract_text() or "" for page in PdfReader(io.BytesIO(content)).pages)
+        except Exception as exc:
+            print(f"    [PDF ERR] Unable to extract bill text: {type(exc).__name__}")
+            return ""
+    try:
+        return content.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        return ""

@@ -18,8 +18,11 @@ jobs:
           python-version: '3.11'
       - run: pip install requests beautifulsoup4
       - name: Run Senate eFD scraper
+        id: scraper
         run: python fetch_senate_efd.py
       - name: Save data
+        # Keep verified partial progress while the failed scraper stays red.
+        if: ${{ !cancelled() && (steps.scraper.outcome == 'success' || steps.scraper.outcome == 'failure') }}
         run: |
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"

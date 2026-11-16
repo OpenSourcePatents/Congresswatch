@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-CongressWatch is a public accountability tool tracking U.S. Congress members using government APIs. It generates an Anomaly Score (0-100) per member based on six weighted signals: stock trade timing (25%), wealth gap (25%), donor-vote alignment (20%), bill authorship/ALEC similarity (15%), foreign travel (10%), and attendance (5%).
+CongressWatch is a public accountability tool tracking U.S. Congress members using government APIs. It generates an Anomaly Score (0-100) per member based on six weighted signals: stock trade timing (25%), personal wealth (25%, suspended: campaign receipts are not personal wealth), donor-vote alignment (20%), bill text/ALEC similarity (15%), foreign travel (10%), and attendance (5%).
 
 Live site: congresswatch.vercel.app
 
@@ -23,11 +23,11 @@ Live site: congresswatch.vercel.app
 - `fetch_donors.py` (11am) — FEC Schedule A itemized donors (candidate → committee → contributions) + `top_donor_industries` derivation
 - `fetch_senate_travel.py` (11:30am) — Senate Rule 35 gift-rule travel from the Secretary of the Senate's bulk XML (giftrule-disclosure.senate.gov; one GET, no auth). Member filings only; destination/sponsor/cost live in scanned PDFs, so records carry dates + document link. Rolling ~4-year source window — the script only ever ADDS trips
 - `fetch_travel_costs.py` (1pm) — extracts trip costs from House gift-travel filing PDFs (Question 5 of the Sponsor Post-Travel Disclosure Form): pdfplumber text layer first (~14% of packets), tesseract OCR fallback for the rest (typed fills in a ruled table; toolchain is CI-only). `data/travel_cost_manifest.json` tracks per-doc outcomes so settled docs are never re-downloaded; 40 PDFs/run cap. `total_cost` = traveler row only; 0/empty means UNKNOWN, never "free trip"
-- `finalize.yml` (12pm) — runs LAST: `recompute_scores.py` (authoritative rescore from whatever is on disk + promotion of detail-only fields like `alec_match_count`/`missed_votes_pct` to members.json) and `build_aggregates.py` (flattens the vault into `data/trades.json` + `data/bills.json`)
+- `finalize.yml` (3pm) — scheduled after source jobs (actual cron delays may vary): `recompute_scores.py` (authoritative rescore from whatever is on disk + promotion of detail-only fields like `alec_match_count`/`missed_votes_pct` to members.json) and `build_aggregates.py` (flattens the vault into `data/trades.json` + `data/bills.json`)
 
 Each workflow commits updated JSON files back to the repo automatically (commit → `git pull --rebase` → push).
 
-**Pipeline health rule: a green run proves nothing — check for the bot COMMIT.** Several fetchers can exit 0 with no data (site blocked, format changed). If a pipeline's daily commit is missing for more than a couple of days, inspect its run logs (`gh run list --workflow <file>.yml`).
+**Pipeline health rule: a green run or bot commit does not prove fresh coverage — inspect source statuses and logs.** Several fetchers can exit 0 with no data (site blocked, format changed). If a pipeline's daily commit is missing for more than a couple of days, inspect its run logs (`gh run list --workflow <file>.yml`).
 
 **Data storage:** JSON files in `data/`. Two-tier structure:
 - `data/members.json` — lightweight leaderboard (all 535+ members)
@@ -92,6 +92,18 @@ All fetch scripts include built-in rate limiting (0.4-0.7s sleep between request
 
 - `fetch_ptr.py` — old PTR PDF pipeline; no workflow invokes it and `data/ptr_source_manifest.json` is empty. Superseded by `fetch_house_trades.py`
 - `fetch_trades_github_backup.py`, `fetch_travel_xml_backup.py` — dead predecessors kept for reference; both fully OVERWRITE `trades[]`/`travel[]` instead of safe-merging — do not resurrect as-is
+
+## Coverage verification
+
+`python audit_data.py` reads every current member's actual records and reports
+empty sections, source-status failures, unreadable filing placeholders, and
+score consistency. `python recompute_scores.py` then `python build_aggregates.py`
+regenerate derived data without network calls. Neither command fetches missing
+source records. A missing section is not evidence of no activity.
+
+Legacy `wealth_gap` remains a compatibility key with zero points until sourced
+personal financial disclosures support a defensible method. Trade and travel
+components measure activity counts, not legislative timing or foreign influence.
 
 ## Changelog
 

@@ -100,14 +100,23 @@ def main():
             detail["missed_votes_pct"] = pct
             m["missed_votes_pct"] = pct
 
+        else:
+            # A previously populated percentage must not outlive its input.
+            detail["missed_votes_pct"] = None
+            m["missed_votes_pct"] = None
+
         # Safe merge: only touch the score fields, leave every other
         # pipeline's data in the detail file untouched.
         detail["score"] = score
         detail["score_components"] = components
         detail["score_updated"] = now
-        save_json(detail_path, detail)
 
         m["score"] = score
+        m["score_components"] = components
+        m["score_updated"] = now
+        m["score_methodology"] = "activity-v2-no-wealth-proxy"
+        detail["score_methodology"] = m["score_methodology"]
+        save_json(detail_path, detail)
 
     save_json(OUTPUT_FILE, members)
 

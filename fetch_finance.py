@@ -45,11 +45,12 @@ os.makedirs(DETAILS_DIR, exist_ok=True)
 LIGHT_FIELDS = {
     "id","bioguide_id","name","party","state","district","chamber",
     "photo_url","term_start","score","flags",
+    "score_updated","score_components","score_methodology",
     "corporate_insider_signals",
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik"
+    "edgar_status","edgar_cik","finance_status","finance_updated","fec_cycle"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -276,7 +277,7 @@ def fetch_fec_candidate(name,state,office):
 
     try:
         sleep(0.5)
-        r=requests.get(f"{FEC_BASE}/candidates/search/",params=params,headers=HEADERS)
+        r=requests.get(f"{FEC_BASE}/candidates/search/",params=params,headers=HEADERS, timeout=30)
         r.raise_for_status()
         res=r.json().get("results",[])
         # Prefer an exact state match over blind results[0]
@@ -300,7 +301,7 @@ def fetch_fec_totals(cid):
 
     try:
         sleep(0.5)
-        r=requests.get(f"{FEC_BASE}/candidates/totals/",params=params,headers=HEADERS)
+        r=requests.get(f"{FEC_BASE}/candidates/totals/",params=params,headers=HEADERS, timeout=30)
         r.raise_for_status()
 
         res=r.json().get("results",[])
@@ -411,7 +412,7 @@ def compute_score_components(m, detail=None):
         # Scanned-PDF placeholder records have no transaction_date at all;
         # parse_date_any('') -> '' which never clears the cutoff.
         recent = sum(1 for t in trades
-                     if parse_date_any(t.get("transaction_date")) >= cutoff)
+                     if cutoff <= parse_date_any(t.get("transaction_date")) <= datetime.now().strftime("%Y-%m-%d"))
         if recent >= 20:
             trade_score += 15
         elif recent >= 10:
@@ -420,27 +421,10 @@ def compute_score_components(m, detail=None):
             trade_score += 5
     trade_timing = min(trade_score, 25)
 
-    # 2. Wealth gap (25 max) — estimated wealth vs cumulative salary
+    # 2. Personal wealth cannot be inferred from campaign receipts. Keep the
+    # public key for compatibility, but suspend this component until sourced
+    # personal asset/liability disclosures support an explicit methodology.
     wealth_gap = 0
-    total = m.get("total_raised", 0) or 0
-    if total > 0:
-        est_wealth = total * 0.45
-        start_year = m.get("term_start", "2010")[:4]
-        try:
-            start = int(start_year)
-        except (ValueError, TypeError):
-            start = datetime.now().year - 10
-        gap = est_wealth - cumulative_salary(start, datetime.now().year)
-        if gap > 5000000:
-            wealth_gap = 25
-        elif gap > 2000000:
-            wealth_gap = 20
-        elif gap > 500000:
-            wealth_gap = 15
-        elif gap > 100000:
-            wealth_gap = 10
-        elif gap > 0:
-            wealth_gap = 5
 
     # 3. Donor-vote alignment (20 max) — from bills pipeline
     donor_alignment = min(20, round((detail.get("donor_alignment_score", 0) or 0) * 0.2))
@@ -472,7 +456,7 @@ def compute_score_components(m, detail=None):
     if travel:
         cutoff_2y = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
         recent_trips = sum(1 for t in travel
-                           if parse_date_any(t.get("departure_date")) >= cutoff_2y)
+                           if cutoff_2y <= parse_date_any(t.get("departure_date")) <= datetime.now().strftime("%Y-%m-%d"))
         if recent_trips >= 5:
             foreign_travel = 10
         elif recent_trips >= 3:
@@ -494,7 +478,7 @@ def compute_score_components(m, detail=None):
     votes = detail.get("votes", []) or []
     if (not is_non_voting_delegate(m)
             and len(votes) >= MIN_VOTES_FOR_ATTENDANCE):
-        missed = sum(1 for v in votes if (v.get("position", "").lower() in
+        missed = sum(1 for v in votes if ((v.get("position") or "").lower() in
                      ("not voting", "absent", "")))
         missed_pct = missed * 100.0 / len(votes)
         attendance = min(5, round(missed_pct * 5.0 / ATTENDANCE_SATURATION_PCT))
@@ -569,11 +553,15 @@ if __name__=="__main__":
 
         if cand.get("candidate_id"):
             m["fec_candidate_id"]=cand["candidate_id"]
-            m.update(fetch_fec_totals(cand["candidate_id"]))
+            totals = fetch_fec_totals(cand["candidate_id"])
+            m.update(totals)
+            m["finance_status"] = "available" if totals else "fetch_failed"
+            if totals:
+                m["finance_updated"] = datetime.now().isoformat()
         elif detail_data.get("fec_candidate_id"):
             m["fec_candidate_id"]=detail_data["fec_candidate_id"]
         for field in ("total_raised","pac_contributions","individual_contributions"):
-            if not m.get(field) and detail_data.get(field):
+            if field not in m and field in detail_data:
                 m[field]=detail_data[field]
 
         m["data_updated"]=datetime.now().isoformat()
@@ -593,6 +581,11 @@ if __name__=="__main__":
         m["score"]=min(sum(components.values()), 100)
         detail_data["score"]=m["score"]
         detail_data["score_components"]=components
+        m["score_components"] = components
+        m["score_updated"] = m["data_updated"]
+        m["score_methodology"] = "activity-v2-no-wealth-proxy"
+        detail_data["score_updated"] = m["score_updated"]
+        detail_data["score_methodology"] = m["score_methodology"]
 
         update_flags(m)
         detail_data["flags"]=m["flags"]
