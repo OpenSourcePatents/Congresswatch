@@ -19,11 +19,38 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: ${{ github.sha }}
+          fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
       - name: Install scorer import dependency
         run: pip install requests
+      - name: Reconcile pinned House-travel refresh into review only
+        run: |
+          set -eu
+          git config user.name "CongressWatch review bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin 9cf6b1636ce93bdcb0894a136eb0e3483f19a39b
+          git merge --no-commit --no-ff 9cf6b1636ce93bdcb0894a136eb0e3483f19a39b || test -f .git/MERGE_HEAD
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          baseline = "b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7"
+          incoming = "9cf6b1636ce93bdcb0894a136eb0e3483f19a39b"
+          changed = subprocess.check_output(["git", "diff", "--name-only", baseline, incoming], text=True).splitlines()
+          assert len(changed) == 293, "Unexpected source delta"
+          for path in changed:
+              assert path.startswith("data/details/") and path.endswith(".json")
+              old = json.loads(subprocess.check_output(["git", "show", baseline + ":" + path]))
+              new = json.loads(subprocess.check_output(["git", "show", incoming + ":" + path]))
+              ours = json.loads(subprocess.check_output(["git", "show", "HEAD:" + path]))
+              assert {k for k in set(old) | set(new) if old.get(k) != new.get(k)} == {"travel_updated"}, path
+              ours["travel_updated"] = new["travel_updated"]
+              Path(path).write_text(json.dumps(ours, indent=2))
+          subprocess.run(["git", "add", "data/details/"], check=True)
+          assert not subprocess.check_output(["git", "diff", "--name-only", "--diff-filter=U"]).strip(), "Unresolved merge conflict"
+          print("All 293 timestamp-only source changes reconciled; records preserved.")
+          PY
       - name: Regenerate offline and audit all members
         run: |
           python recompute_scores.py
@@ -48,10 +75,10 @@ jobs:
               digest.update(json.dumps(normalize(json.loads(Path(path).read_text())), sort_keys=True, separators=(",", ":")).encode())
               digest.update(b"\n")
           actual = digest.hexdigest()
-          expected = "31b00635476d6a57f85c4c777aaa9a734c671fae0942b4fdcf61914f235a3565"
+          expected = "75b3c8458ede8dca580056d77afcbefafa02728ffe5f786f4a0d5a44f5ed4f95"
           print(f"Verified files: {len(paths)}; normalized SHA256: {actual}")
           assert len(paths) == 543 and actual == expected, "Generated data differs from reviewed local output; refusing publication"
-          Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 543 current-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nThis remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
+          Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 543 current-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nPinned main source refresh 9cf6b1636ce93bdcb0894a136eb0e3483f19a39b is reconciled: 293 travel freshness timestamps, no source records lost. This remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
           log = Path("changelog/2026-11-16-session-1.md")
           text = log.read_text()
           prefix = "> SOURCE-ONLY REVIEW: regenerated data described below is in the full artifact, NOT this branch. See SOURCE_ONLY_REVIEW.md. Do not deploy this branch alone.\n\n"
@@ -71,5 +98,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json SOURCE_ONLY_REVIEW.md changelog/2026-11-16-session-1.md
           git diff --cached --check
-          git commit -m "Regenerate verified review data offline [skip ci]"
+          git commit -m "Reconcile pinned House travel refresh into review [skip ci]"
           git push origin HEAD:refs/heads/overhaul/source-review-2026-11-16
