@@ -1,0 +1,75 @@
+name: One-shot review data regeneration
+on:
+  push:
+    branches: ['overhaul/source-review-2026-11-16']
+    paths: ['.github/workflows/review-regenerate-once.yml']
+permissions:
+  contents: read
+concurrency:
+  group: review-offline-regeneration-2026-11-16
+  cancel-in-progress: false
+jobs:
+  regenerate:
+    if: github.repository == 'OpenSourcePatents/Congresswatch' && github.ref == 'refs/heads/overhaul/source-review-2026-11-16'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install scorer import dependency
+        run: pip install requests
+      - name: Regenerate offline and audit all members
+        run: |
+          python recompute_scores.py
+          python build_aggregates.py
+          python audit_data.py > /tmp/review-data-audit.json
+      - name: Verify exact reviewed data (timestamps excluded)
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          members = json.loads(Path("data/members.json").read_text())
+          paths = sorted(["data/members.json", "data/stats.json", "data/trades.json", "data/bills.json"] + [f"data/details/{m['id']}.json" for m in members])
+          def normalize(value):
+              if isinstance(value, dict):
+                  return {k: normalize(v) for k, v in value.items() if k not in ("score_updated", "last_updated")}
+              if isinstance(value, list):
+                  return [normalize(v) for v in value]
+              return value
+          digest = hashlib.sha256()
+          for path in paths:
+              digest.update((path + "\n").encode())
+              digest.update(json.dumps(normalize(json.loads(Path(path).read_text())), sort_keys=True, separators=(",", ":")).encode())
+              digest.update(b"\n")
+          actual = digest.hexdigest()
+          expected = "31b00635476d6a57f85c4c777aaa9a734c671fae0942b4fdcf61914f235a3565"
+          print(f"Verified files: {len(paths)}; normalized SHA256: {actual}")
+          assert len(paths) == 543 and actual == expected, "Generated data differs from reviewed local output; refusing publication"
+          Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 543 current-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nThis remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
+          log = Path("changelog/2026-11-16-session-1.md")
+          text = log.read_text()
+          prefix = "> SOURCE-ONLY REVIEW: regenerated data described below is in the full artifact, NOT this branch. See SOURCE_ONLY_REVIEW.md. Do not deploy this branch alone.\n\n"
+          if text.startswith(prefix):
+              text = text[len(prefix):]
+          log.write_text("> Offline regenerated data is now included on this review branch and matched the reviewed local digest. No merge or production deployment performed.\n\n" + text)
+          PY
+      - name: Commit only reviewed data to the exact review ref
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          test "$GITHUB_REF" = "refs/heads/overhaul/source-review-2026-11-16"
+          remote_head="$(git ls-remote origin refs/heads/overhaul/source-review-2026-11-16 | cut -f1)"
+          test "$remote_head" = "$EXPECTED_HEAD"
+          git config user.name "CongressWatch review bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json SOURCE_ONLY_REVIEW.md changelog/2026-11-16-session-1.md
+          git diff --cached --check
+          git commit -m "Regenerate verified review data offline [skip ci]"
+          git push origin HEAD:refs/heads/overhaul/source-review-2026-11-16
