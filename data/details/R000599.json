@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412519,
-  "votes_updated": "2026-11-16T08:53:45.343339",
+  "votes_updated": "2026-11-17T10:01:26.615002",
   "votes_status": "fetch_failed",
   "id": "R000599",
   "name": "Raul Ruiz",
@@ -919,8 +919,8 @@
   "edgar_signal_type": "corporate_insider",
   "fec_candidate_id": "H0CA36177",
   "total_raised_display": "$0",
-  "data_updated": "2026-11-16T13:53:32.987880",
-  "last_updated": "2026-11-16T13:53:32.987880",
+  "data_updated": "2026-11-17T14:47:32.930239",
+  "last_updated": "2026-11-17T14:47:32.930239",
   "bills": [
     {
       "bill_id": "HR10985-119",
@@ -931,14 +931,54 @@
       "introduced_date": "2026-11-10",
       "latest_action": "Referred to the House Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10985?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "font",
+        "procset",
+        "text",
+        "stream",
+        "endstream",
+        "wms",
+        "xms",
+        "fsn",
+        "vms",
+        "nzf",
+        "ahf",
+        "map",
+        "qdm",
+        "oxq",
+        "gelr",
+        "akv",
+        "mfa"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9950-119",
+          "sponsor_id": "B001321",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HRES1512-119",
+          "sponsor_id": "B000740",
+          "similarity_score": 1.0
+        },
+        {
+          "bill_id": "HR10456-119",
+          "sponsor_id": "R000606",
+          "similarity_score": 1.0
+        }
+      ],
+      "cosponsors": [
+        "T000478",
+        "B001257"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1161,7 +1201,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.05,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1220,7 +1260,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.016,
+      "alec_best_similarity": 0.015,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1424,13 +1464,13 @@
       }
     }
   ],
-  "bills_updated": "2026-11-16T18:42:19.100808+00:00",
+  "bills_updated": "2026-11-17T18:26:13.312685+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,
   "donor_match_count": 6,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 44,
+  "edgar_status": "query_failed",
+  "votes_fail_count": 45,
   "travel": [
     {
       "destination_country": "France",
@@ -1589,7 +1629,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2025/500032945.pdf"
     }
   ],
-  "travel_updated": "2026-11-16T19:03:33.010704+00:00",
+  "travel_updated": "2026-11-17T17:59:31.558085+00:00",
   "travel_count": 8,
   "top_donors_list": [
     {
@@ -1677,7 +1717,7 @@
     "Real Estate",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-15T17:47:43.720325+00:00",
+  "donors_updated": "2026-11-17T19:47:09.894735+00:00",
   "total_raised": 14044.19,
   "pac_contributions": 0,
   "individual_contributions": 4050.0,
@@ -1690,10 +1730,13 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-16T19:10:40.579164",
+  "score_updated": "2026-11-17T23:14:26.858194",
   "missed_votes_pct": 0.0,
   "total_spent": 6243.65,
   "cash_on_hand": 7800.54,
   "non_voting_delegate": false,
+  "edgar_cik": null,
+  "edgar_data_status": "unavailable",
+  "edgar_checked": "2026-11-17T14:51:23.9422796Z",
   "score_methodology": "activity-v2-no-wealth-proxy"
 }
