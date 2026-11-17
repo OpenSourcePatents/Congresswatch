@@ -124,6 +124,9 @@ def main():
     # reason — rebuild it here rather than leaving fetch_finance's snapshot.
     stats = load_json(STATS_FILE, {})
     stats["total_members"] = len(members)
+    stats["total_insider_signals"] = sum(m.get("corporate_insider_signals") or 0 for m in members)
+    stats["sec_stale_members"] = sum(m.get("edgar_data_status") == "stale" for m in members)
+    stats["sec_unavailable_members"] = sum(m.get("edgar_data_status") == "unavailable" for m in members)
     stats["members_with_scores"] = sum(1 for m in members if (m.get("score") or 0) > 0)
     stats["high_anomaly"] = sum(1 for m in members if (m.get("score") or 0) >= 60)
     stats["last_updated"] = now

@@ -25,43 +25,6 @@ jobs:
           python-version: '3.11'
       - name: Install scorer import dependency
         run: pip install requests
-      - name: Reconcile pinned current source snapshot into review only
-        run: |
-          set -eu
-          git config user.name "CongressWatch review bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin 4e506f241a14427b17273d24e90176ec8d809676
-          git merge --no-commit --no-ff 4e506f241a14427b17273d24e90176ec8d809676 || test -f .git/MERGE_HEAD
-          python - <<'PY'
-          import json, subprocess
-          from pathlib import Path
-          incoming='4e506f241a14427b17273d24e90176ec8d809676'
-          base='ba7ccb7755d9403409bf184de8ec11481ebf43fb'
-          prior='0c55f0b52cbeda1eaadd3de1a0c2ebe6ab3d5ec4'
-          changed=subprocess.check_output(['git','diff','--name-only',base,incoming],text=True).splitlines()
-          assert all(p.startswith('data/') for p in changed), 'Unexpected source/code delta'
-          # Adopt latest source arrays as arrays, never keyed by possibly malformed bill IDs.
-          subprocess.run(['git','checkout',incoming,'--','data/'],check=True)
-          failures={"J000310":"2026-11-17T14:16:22.9754167Z","D000594":"2026-11-17T14:16:22.9761641Z","R000614":"2026-11-17T14:16:22.9771780Z","C001115":"2026-11-17T14:16:22.9773823Z","A000375":"2026-11-17T14:16:22.9776046Z","M001222":"2026-11-17T14:16:22.9800327Z","L000602":"2026-11-17T14:16:22.9802916Z","B001317":"2026-11-17T14:16:22.9808608Z","C001126":"2026-11-17T14:16:22.9811431Z","B001313":"2026-11-17T14:16:22.9813032Z","E000071":"2026-11-17T14:27:42.1675357Z","J000304":"2026-11-17T14:27:42.1679666Z","K000392":"2026-11-17T14:27:42.1694381Z","B001296":"2026-11-17T14:27:42.1699077Z","S001196":"2026-11-17T14:27:42.1700705Z","C000537":"2026-11-17T14:27:42.1714734Z","M001246":"2026-11-17T14:27:42.1717855Z","D000230":"2026-11-17T14:27:42.1735379Z","F000470":"2026-11-17T14:27:42.1741789Z","M001210":"2026-11-17T14:35:03.4221622Z","A000370":"2026-11-17T14:35:03.4238489Z","H001066":"2026-11-17T14:35:03.4240102Z","S001195":"2026-11-17T14:35:03.4242692Z","A000369":"2026-11-17T14:35:03.4244176Z","H001058":"2026-11-17T14:35:03.4245623Z","H001052":"2026-11-17T14:35:03.4247270Z","K000375":"2026-11-17T14:35:03.4248756Z","P000034":"2026-11-17T14:35:03.4252637Z","T000193":"2026-11-17T14:35:03.4254278Z","M000687":"2026-11-17T14:35:03.4256902Z","L000562":"2026-11-17T14:35:03.4259525Z","B001328":"2026-11-17T14:35:03.4262562Z","F000485":"2026-11-17T14:35:03.4264034Z","S001228":"2026-11-17T14:35:03.4266140Z","M001233":"2026-11-17T14:35:03.4267677Z","M001219":"2026-11-17T14:35:03.4272754Z","M001218":"2026-11-17T14:35:03.4275435Z","Y000067":"2026-11-17T14:42:56.6201906Z","C001125":"2026-11-17T14:42:56.6204562Z","L000595":"2026-11-17T14:42:56.6206864Z","S000168":"2026-11-17T14:42:56.6209814Z","M001215":"2026-11-17T14:42:56.6212627Z","F000469":"2026-11-17T14:42:56.6222952Z","C001103":"2026-11-17T14:42:56.6230599Z","C001101":"2026-11-17T14:42:56.6232112Z","B001282":"2026-11-17T14:42:56.6233572Z","W000808":"2026-11-17T14:42:56.6238006Z","K000385":"2026-11-17T14:42:56.6242647Z","B000490":"2026-11-17T14:42:56.6246955Z","T000491":"2026-11-17T14:42:56.6253138Z","S001231":"2026-11-17T14:42:56.6254591Z","R000620":"2026-11-17T14:42:56.6256362Z","M001241":"2026-11-17T14:42:56.6257816Z","C001137":"2026-11-17T14:51:23.9391461Z","K000397":"2026-11-17T14:51:23.9399573Z","F000472":"2026-11-17T14:51:23.9401682Z","N000191":"2026-11-17T14:51:23.9407267Z","G000585":"2026-11-17T14:51:23.9410252Z","D000628":"2026-11-17T14:51:23.9412731Z","T000474":"2026-11-17T14:51:23.9417388Z","L000582":"2026-11-17T14:51:23.9418827Z","R000599":"2026-11-17T14:51:23.9422796Z","C001069":"2026-11-17T14:51:23.9428832Z","H001047":"2026-11-17T14:51:23.9430269Z","C001059":"2026-11-17T14:51:23.9436362Z","S001156":"2026-11-17T14:51:23.9439311Z","G000606":"2026-11-17T14:51:23.9443586Z","H001098":"2026-11-17T14:51:23.9445429Z","R000600":"2026-11-17T14:58:07.8703821Z","P000609":"2026-11-17T14:58:07.8705301Z","H001068":"2026-11-17T14:58:07.8706920Z","S001183":"2026-11-17T14:58:07.8709179Z","Y000064":"2026-11-17T14:58:07.8713597Z","S001203":"2026-11-17T14:58:07.8719276Z","S001227":"2026-11-17T14:58:07.8721266Z","S001194":"2026-11-17T14:58:07.8722861Z","P000595":"2026-11-17T14:58:07.8727093Z","R000584":"2026-11-17T14:58:07.8728324Z","M000934":"2026-11-17T14:58:07.8731449Z","M001111":"2026-11-17T14:58:07.8732760Z","M001153":"2026-11-17T14:58:07.8734020Z","K000394":"2026-11-17T14:58:07.8738615Z","K000383":"2026-11-17T14:58:07.8741181Z","H000273":"2026-11-17T14:58:07.8746360Z","H001089":"2026-11-17T15:01:54.2151867Z","F000463":"2026-11-17T15:01:54.2157166Z","G000555":"2026-11-17T15:01:54.2158484Z","C001095":"2026-11-17T15:01:54.2163314Z","C001088":"2026-11-17T15:01:54.2166845Z","B001319":"2026-11-17T15:01:54.2171402Z","B001236":"2026-11-17T15:01:54.2174919Z","C001047":"2026-11-17T15:01:54.2178124Z","C000127":"2026-11-17T15:01:54.2179549Z","A000383":"2026-11-17T15:01:54.2180810Z","A000382":"2026-11-17T15:01:54.2183138Z"}
-          old_members={m['id']:m for m in json.loads(subprocess.check_output(['git','show',prior+':data/members.json']))}
-          members=json.loads(Path('data/members.json').read_text())
-          assert len(members)==539 and len(failures)==95
-          for m in members:
-              bid=m['id']
-              if bid not in failures: continue
-              old=old_members[bid]
-              fields={'edgar_cik':old.get('edgar_cik'),
-                      'corporate_insider_signals':old.get('corporate_insider_signals'),
-                      'edgar_status':'query_failed',
-                      'edgar_data_status':'stale' if old.get('edgar_cik') and old.get('corporate_insider_signals') is not None else 'unavailable',
-                      'edgar_checked':failures[bid]}
-              m.update(fields)
-              p=Path(f'data/details/{bid}.json');detail=json.loads(p.read_text());detail.update(fields);p.write_text(json.dumps(detail,indent=2))
-          Path('data/members.json').write_text(json.dumps(members,indent=2))
-          subprocess.run(['git','add','data/'],check=True)
-          assert not subprocess.check_output(['git','diff','--name-only','--diff-filter=U']).strip()
-          print('Latest source snapshot adopted without bill-ID normalization; 95 failed SEC refreshes explicitly stale/unavailable.')
-          PY
       - name: Regenerate offline and audit all members
         run: |
           python recompute_scores.py
@@ -86,7 +49,7 @@ jobs:
               digest.update(json.dumps(normalize(json.loads(Path(path).read_text())), sort_keys=True, separators=(",", ":")).encode())
               digest.update(b"\n")
           actual = digest.hexdigest()
-          expected = "939d68597129dcd8287ae4592c068eaa47f84aeee008a0d4d75b8bed82c49047"
+          expected = "8f7b61cc6ac38db70af560823ea530921c42c56baa6eaf46c6793a1b03bdcf28"
           print(f"Verified files: {len(paths)}; normalized SHA256: {actual}")
           assert len(paths) == 543 and actual == expected, "Generated data differs from reviewed local output; refusing publication"
           Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 543 current-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nPinned main through 4e506f241a14427b17273d24e90176ec8d809676 is reconciled. Latest source arrays are preserved verbatim, including malformed bill IDs. The 95 SEC alias failures from finance run267 retain prior paired values marked stale/unavailable, never newly verified. Scores are recomputed with the corrected methodology. This remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
@@ -109,5 +72,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json SOURCE_ONLY_REVIEW.md changelog/2026-11-16-session-1.md
           git diff --cached --check
-          git commit -m "Reconcile latest source data with corrected scores [skip ci]"
+          git commit -m "Synchronize review summary totals with retained SEC data [skip ci]"
           git push origin HEAD:refs/heads/overhaul/source-review-2026-11-16

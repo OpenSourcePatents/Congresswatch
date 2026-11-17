@@ -55,6 +55,12 @@ def main():
                 statuses[f'{field}:{detail[field]}'] += 1
         if gaps:
             missing[bid] = gaps
+    stats_path = root / 'stats.json'
+    if stats_path.exists():
+        stats = json.loads(stats_path.read_text())
+        expected_signals = sum(m.get('corporate_insider_signals') or 0 for m in members)
+        if stats.get('total_insider_signals') != expected_signals:
+            errors.append('stats.json SEC total differs from current member snapshot')
     report = {'members': len(members), 'coverage': dict(coverage),
               'source_statuses': dict(statuses), 'errors': errors,
               'empty_sections_by_member': missing,
