@@ -1002,7 +1002,8 @@ function renderGrid() {
     const dist = m.district ? `${m.state}-${m.district}` : m.state;
     const scoreLabel = s !== null ? s : '--';
     const glow = (s !== null && s >= 60) ? `box-shadow:0 0 14px color-mix(in srgb, ${sc} 30%, transparent);` : '';
-    const showInsider = (m.corporate_insider_signals||0) > 0;
+    const staleSec = m.edgar_status === 'query_failed' || m.edgar_data_status === 'stale';
+    const showInsider = (m.corporate_insider_signals||0) > 0 && !staleSec;
     const showDonor = (m.total_raised||0) > 0;
     const showBill = (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
@@ -1022,6 +1023,7 @@ function renderGrid() {
       <div class="m-card-tags">
         ${showTrades?tag('TRADES','#9fe7c8'):''}
         ${showInsider?tag('INSIDER','#ff3b4e'):''}
+        ${staleSec?tag('SEC STALE','#f3c25a'):''}
         ${showDonor?tag('DONOR','#f3c25a'):''}
         ${showBill?tag('BILL','#3b82f6'):''}
         ${pending?tag('DATA PENDING','#5d7180'):''}
@@ -1333,7 +1335,8 @@ function buildFlags(m, s) {
     body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match known ALEC model legislation at or above 80% cosine similarity. Source: LegiScan + Congress.gov.`});
   // INSIDER_TRADING: only if corporate_insider_signals > 0
   const insiderCount = m.corporate_insider_signals || 0;
-  if (insiderCount > 0) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
+  if (m.edgar_status === 'query_failed' || m.edgar_data_status === 'stale') flags.push({type:'info',title:'SEC DATA NOT REFRESHED',body:'The latest SEC lookup failed. Retained counts are historical and identity matching still requires verification.'});
+  if (insiderCount > 0 && m.edgar_status !== 'query_failed' && m.edgar_data_status !== 'stale') flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
     body:`${insiderCount} Form 4 filing${insiderCount>1?'s':''} found in SEC EDGAR. Source: SEC EDGAR Form 4.`});
   // ATTENDANCE: only if real vote data shows missed > 15%.
   // Delegates are exempt — they cannot cast the votes they'd be flagged for
@@ -1576,7 +1579,12 @@ function fillStocks(m, s) {
   }
 
   // ── EDGAR signals ──
-  if (tc > 0) {
+  const edgarStale = edgarStatus === 'query_failed' || m.edgar_data_status === 'stale';
+  if (edgarStale) {
+    html += alertHtml('info', 'SEC REFRESH FAILED',
+      'The latest SEC lookup failed. Any displayed count and CIK are retained historical data, not a fresh finding or independently verified identity.');
+  }
+  if (tc > 0 && !edgarStale) {
     html += alertHtml('warn', 'CORPORATE INSIDER SIGNALS DETECTED',
       `<code>${tc}</code> Form 4 filing${tc>1?'s':''} detected via SEC EDGAR.`);
   }
@@ -1668,7 +1676,7 @@ function fillPatterns(m, s) {
     patterns.push({title:'ALEC MODEL LEGISLATION MATCH',body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} overlap with stored ALEC model text; this is not proof of authorship. Top similarity: <code>${Math.round(topSim*100)}%</code>. Source: LegiScan + Congress.gov.`});
   }
   // INSIDER_TRADING: only if corporate_insider_signals > 0
-  if ((m.corporate_insider_signals||0) > 0) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
+  if ((m.corporate_insider_signals||0) > 0 && m.edgar_status !== 'query_failed' && m.edgar_data_status !== 'stale') patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
   // ATTENDANCE: real vote data. Delegates exempt (cannot vote on final passage).
   const votes = m.votes || [];
   if (votes.length > 0 && !isNonVotingDelegate(m)) {

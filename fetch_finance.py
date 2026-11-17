@@ -50,7 +50,7 @@ LIGHT_FIELDS = {
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik","finance_status","finance_updated","fec_cycle"
+    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","fec_cycle"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -169,8 +169,12 @@ def sec_search(query, ciks=None):
     sleep(1.2)
     r = requests.get(url,headers=HEADERS,timeout=20)
     r.raise_for_status()
+    payload = r.json()
+    if (not isinstance(payload, dict) or not isinstance(payload.get("hits"), dict)
+            or not isinstance(payload["hits"].get("hits"), list)):
+        raise ValueError("Invalid SEC search response; not a verified empty result")
     SEC_STATS["ok"] += 1
-    return r.json()
+    return payload
 
 def resolve_member_cik(member):
 
@@ -184,12 +188,14 @@ def resolve_member_cik(member):
         }
 
     candidates = defaultdict(int)
+    alias_failed = False
 
     for alias in name_aliases(member["name"]):
         try:
             data = sec_search(f'"{alias}"')
         except Exception as e:
             SEC_STATS["fail"] += 1
+            alias_failed = True
             print(f"    SEC search failed for {alias!r}: {e}")
             continue
 
@@ -204,6 +210,11 @@ def resolve_member_cik(member):
                 cik = str(cik).strip()
                 if cik.isdigit():
                     candidates[cik]+=1
+
+    # A partial alias search cannot establish absence or a reliable identity.
+    # Do not replace a previous CIK/count using incomplete candidate evidence.
+    if alias_failed:
+        return {"status": "query_failed", "cik": None}
 
     if not candidates:
         return {"status":"unresolved","cik":None}
@@ -230,10 +241,16 @@ def fetch_edgar_signals(member):
 
     res = resolve_member_cik(member)
 
+    prior_cik = member.get("edgar_cik")
+    member["edgar_checked"] = datetime.now().isoformat()
     member["edgar_status"] = res["status"]
+    if res["status"] == "query_failed":
+        member["edgar_data_status"] = "stale" if prior_cik and member.get("corporate_insider_signals") is not None else "unavailable"
+        return None
     member["edgar_cik"] = res["cik"]
 
     if not res["cik"]:
+        member["edgar_data_status"] = "unresolved"
         print("    EDGAR:",res["status"])
         return 0
 
@@ -245,6 +262,10 @@ def fetch_edgar_signals(member):
             total = len(payload.get("hits",{}).get("hits",[]))
         count = int(total)
 
+        if count < 0:
+            raise ValueError("Negative SEC filing count")
+        member["edgar_data_status"] = "available"
+        member["edgar_updated"] = member["edgar_checked"]
         print(f"    EDGAR Hit: {count} filings via CIK {res['cik']}")
         return count
 
@@ -253,6 +274,9 @@ def fetch_edgar_signals(member):
         SEC_STATS["fail"] += 1
         print(f"    EDGAR query failed: {e}")
         member["edgar_status"]="query_failed"
+        # Retained counts must remain paired with the identity they came from.
+        member["edgar_cik"] = prior_cik
+        member["edgar_data_status"] = "stale" if prior_cik and member.get("corporate_insider_signals") is not None else "unavailable"
         return None
 
 # ─────────────────────────────────────────────────────────────
@@ -541,10 +565,19 @@ if __name__=="__main__":
         # pipelines, plus last-known finance values for failure fallback)
         detail_data=load_detail(bid)
 
-        # EDGAR — None means "query failed": keep the last-known value
+        # Hydrate historical identity/count as one pair. Never carry a detail
+        # count with an unrelated or missing roster CIK on refresh failure.
+        if (m.get("edgar_cik") is None or m.get("corporate_insider_signals") is None):
+            if detail_data.get("edgar_cik") and detail_data.get("corporate_insider_signals") is not None:
+                for field in ("edgar_cik", "corporate_insider_signals", "edgar_status",
+                              "edgar_data_status", "edgar_updated"):
+                    if field in detail_data:
+                        m[field] = detail_data[field]
+
+        # EDGAR — None means "query failed": keep the last-known paired value
         signals=fetch_edgar_signals(m)
         if signals is None:
-            signals=detail_data.get("corporate_insider_signals", 0) or 0
+            signals=m.get("corporate_insider_signals")
         m["corporate_insider_signals"]=signals
 
         # FEC — on any failure, fall back to last-known totals so the
@@ -634,3 +667,5 @@ if __name__=="__main__":
     save_json("data/stats.json", stats)
 
     print(f"✓ Production v3.5 Complete — {scored}/{len(final_members)} members scored")
+    if SEC_STATS["fail"]:
+        raise SystemExit(f"Incomplete SEC refresh: {SEC_STATS['fail']} failed requests; affected members retain stale values.")
