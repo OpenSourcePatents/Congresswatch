@@ -50,7 +50,7 @@ LIGHT_FIELDS = {
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","fec_cycle"
+    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","finance_checked","roster_updated","fec_cycle"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -582,6 +582,8 @@ if __name__=="__main__":
 
         # FEC — on any failure, fall back to last-known totals so the
         # wealth-gap signal doesn't silently collapse to 0
+        m["finance_checked"] = datetime.now().isoformat()
+        m["finance_status"] = "fetch_failed"
         cand=fetch_fec_candidate(name,state,office)
 
         if cand.get("candidate_id"):
@@ -597,7 +599,7 @@ if __name__=="__main__":
             if field not in m and field in detail_data:
                 m[field]=detail_data[field]
 
-        m["data_updated"]=datetime.now().isoformat()
+        record_updated = datetime.now().isoformat()
 
         # SAFE MERGE (prevents wiping existing pipeline data)
         for k,v in m.items():
@@ -615,7 +617,7 @@ if __name__=="__main__":
         detail_data["score"]=m["score"]
         detail_data["score_components"]=components
         m["score_components"] = components
-        m["score_updated"] = m["data_updated"]
+        m["score_updated"] = record_updated
         m["score_methodology"] = "activity-v2-no-wealth-proxy"
         detail_data["score_updated"] = m["score_updated"]
         detail_data["score_methodology"] = m["score_methodology"]
@@ -623,7 +625,7 @@ if __name__=="__main__":
         update_flags(m)
         detail_data["flags"]=m["flags"]
 
-        detail_data["last_updated"]=m["data_updated"]
+        detail_data["last_updated"] = record_updated
 
         save_detail(bid,detail_data)
 

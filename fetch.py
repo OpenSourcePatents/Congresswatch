@@ -101,6 +101,7 @@ def infer_chamber(m):
 def normalize(m):
     bid = m.get("bioguideId", "")
     chamber, district = infer_chamber(m)
+    updated = datetime.now().isoformat()
     return {
         "id": bid,
         "name": fix_name(m.get("name", "")),
@@ -110,7 +111,8 @@ def normalize(m):
         "chamber": chamber,
         "photo_url": photo_url(bid),
         "term_start": get_term_start(m),
-        "data_updated": datetime.now().isoformat(),
+        "data_updated": updated,
+        "roster_updated": updated,
     }
 
 
@@ -156,7 +158,7 @@ def fetch_all():
     return results, True
 
 
-BASE_FIELDS = {"name", "party", "state", "district", "chamber", "photo_url", "term_start", "data_updated"}
+BASE_FIELDS = {"name", "party", "state", "district", "chamber", "photo_url", "term_start", "data_updated", "roster_updated"}
 
 
 if __name__ == "__main__":

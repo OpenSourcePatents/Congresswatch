@@ -548,7 +548,7 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
         <div class="stat-panel-num" id="stat-coverage" style="color:var(--accent-blue)">&mdash;</div>
       </div>
       <div class="stat-panel glass">
-        <div class="stat-panel-label">Last Updated</div>
+        <div class="stat-panel-label">Scores Updated</div>
         <div class="stat-panel-num mono" id="stat-fresh">&mdash;</div>
       </div>
     </div>
@@ -940,7 +940,7 @@ function updateStats() {
   document.getElementById('stat-total').textContent = allMembers.length > 0 ? allMembers.length : '—';
   document.getElementById('stat-trades').textContent = signals > 0 ? signals.toLocaleString() : '—';
   document.getElementById('stat-coverage').textContent = coveragePct + '%';
-  const dates = allMembers.map(m=>m.data_updated).filter(Boolean).sort();
+  const dates = allMembers.map(m=>m.score_updated).filter(Boolean).sort();
   const freshEl = document.getElementById('stat-fresh');
   if (freshEl && dates.length > 0) {
     const latest = dates[dates.length-1].slice(0,10);
@@ -1190,7 +1190,7 @@ async function openProfile(m) {
     pair('STATE', esc(dist || '—')) +
     pair('SERVING SINCE', m.term_start ? esc(m.term_start.slice(0,4)) : '—') +
     pair('BIOGUIDE ID', esc(bid || '—')) +
-    pair('LAST UPDATED', m.data_updated ? esc(String(m.data_updated).slice(0,10)) : '—') +
+    pair('SCORE UPDATED', m.score_updated ? esc(String(m.score_updated).slice(0,10)) : '—') +
     // missed_votes_pct is already a percentage (0-100) from recompute_scores.py.
     // Null-check, not truthiness, so a legitimate 0.0% still renders.
     // Delegates short-circuit first: their upstream vote data is inconsistent

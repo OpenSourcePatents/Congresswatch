@@ -108,3 +108,17 @@ components measure activity counts, not legislative timing or foreign influence.
 ## Changelog
 
 At the end of every Claude Code session, create `changelog/YYYY-MM-DD-session-N.md` summarizing every file created or modified. This is required.
+
+## Source-specific freshness
+
+`data_updated` is a legacy mixed-writer timestamp, not evidence that every source
+is fresh. New roster refreshes also write `roster_updated`. Finance now writes
+`finance_checked` for an attempt and `finance_updated` only for successful FEC
+totals; it no longer overwrites `data_updated`. SEC has independent
+`edgar_checked`, `edgar_updated`, and `edgar_data_status`. `score_updated` means
+only that derived scores were recalculated. The UI labels it as score freshness,
+not source freshness. Historical mixed timestamps cannot establish last success.
+
+Malformed historical bill IDs are reported by `audit_data.py` and preserved.
+Do not key a source reconciliation by bill ID: duplicate `-119`/`-118` records
+would collapse unrelated bills. Preserve source array order and multiplicity.

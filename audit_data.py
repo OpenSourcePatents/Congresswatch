@@ -5,6 +5,7 @@ Run before publishing: python audit_data.py. Empty arrays are reported as
 coverage gaps, never treated as proof that no activity occurred.
 """
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -40,6 +41,9 @@ def main():
             else:
                 gaps.append(field)
             coverage[f'{field}_records'] += len(records)
+        for bill in detail.get('bills') or []:
+            if isinstance(bill, dict) and not re.fullmatch(r'(?:HR|HRES|HJRES|HCONRES|S|SRES|SJRES|SCONRES)\d+-\d+', str(bill.get('bill_id') or '')):
+                coverage['malformed_bill_ids_preserved'] += 1
         coverage['unparsed_trade_filings'] += sum(bool(t.get('scanned_pdf')) for t in (detail.get('trades') or []) if isinstance(t, dict))
         coverage['trips_without_known_cost'] += sum(not t.get('total_cost') for t in (detail.get('travel') or []) if isinstance(t, dict))
         if detail.get('score_components'):
