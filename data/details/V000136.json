@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 456919,
-  "votes_updated": "2026-11-17T09:56:59.325829",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "V000136",
   "name": "Gabe Vasquez",
@@ -917,7 +917,7 @@
   "updated": "2026-04-04T03:30:28.577574",
   "corporate_insider_signals": 0,
   "edgar_signal_type": "corporate_insider",
-  "data_updated": "2026-11-17T14:25:50.399661",
+  "data_updated": "2026-11-18T13:56:30.705065",
   "last_updated": "2026-11-17T14:25:50.399661",
   "bills": [
     {
@@ -1859,13 +1859,48 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
-  "votes_fail_count": 47,
+  "score_updated": "2026-11-18T19:33:59.210103",
+  "votes_fail_count": 48,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:56:30.705065"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:56:30.705065"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T13:56:30.705065",
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_updated": "2026-11-18T13:56:30.705065",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:56:59.325829",
+    "legacy_source_votes_updated": "2026-11-18T09:31:22.386037",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:31:22.386037"
 }

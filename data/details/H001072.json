@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412609,
-  "votes_updated": "2026-11-17T10:02:17.626686",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "H001072",
   "name": "J. French Hill",
@@ -924,7 +924,7 @@
   "individual_contributions": 2169659.31,
   "cash_on_hand": 1488431.2,
   "total_raised_display": "$3.2M",
-  "data_updated": "2026-11-17T14:51:25.568163",
+  "data_updated": "2026-11-18T14:20:08.596072",
   "last_updated": "2026-11-17T14:51:25.568163",
   "bills": [
     {
@@ -1931,7 +1931,7 @@
   "donor_alignment_score": 20.0,
   "alec_match_count": 0,
   "donor_match_count": 4,
-  "edgar_status": "unverified_auto",
+  "edgar_status": "query_failed",
   "travel": [
     {
       "destination_country": "Japan; South Korea",
@@ -2200,15 +2200,48 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 0.0,
   "edgar_cik": "0001564533",
   "non_voting_delegate": false,
-  "votes_fail_count": 45,
+  "votes_fail_count": 46,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_legacy_status": "verified_auto",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": "0001564533",
+      "corporate_insider_signals": 22,
+      "edgar_status": "unverified_auto"
+    },
+    "observed_roster": {
+      "edgar_cik": "0001564533",
+      "corporate_insider_signals": 22,
+      "edgar_status": "query_failed",
+      "data_updated": "2026-11-18T14:20:08.596072"
+    },
+    "observed_detail": {
+      "edgar_cik": "0001564533",
+      "corporate_insider_signals": 22,
+      "edgar_status": "query_failed",
+      "data_updated": "2026-11-18T14:20:08.596072"
+    },
+    "request_failed": true
+  },
+  "edgar_checked": "2026-11-18T14:28:08.6410169Z",
+  "edgar_data_status": "stale",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T10:02:17.626686",
+    "legacy_source_votes_updated": "2026-11-18T09:36:35.566245",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:36:35.566245"
 }

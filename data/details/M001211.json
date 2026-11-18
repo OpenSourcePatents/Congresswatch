@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 456820,
-  "votes_updated": "2026-11-17T09:59:07.381381",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "M001211",
   "name": "Mary E. Miller",
@@ -915,7 +915,7 @@
   "score": 8,
   "flags": [],
   "updated": "2026-04-04T03:30:28.578019",
-  "corporate_insider_signals": 103,
+  "corporate_insider_signals": 104,
   "edgar_signal_type": "corporate_insider",
   "fec_candidate_id": "H0IL15129",
   "total_raised": 976300.98,
@@ -924,7 +924,7 @@
   "individual_contributions": 273825.99,
   "cash_on_hand": "782403.60",
   "total_raised_display": "$976K",
-  "data_updated": "2026-11-17T14:35:52.364345",
+  "data_updated": "2026-11-18T14:05:31.714722",
   "last_updated": "2026-11-17T14:35:52.364345",
   "bills": [
     {
@@ -1926,7 +1926,7 @@
   "alec_match_count": 0,
   "donor_match_count": 3,
   "edgar_status": "unverified_auto",
-  "votes_fail_count": 45,
+  "votes_fail_count": 46,
   "travel": [
     {
       "destination_country": "Orlando, FL",
@@ -2148,7 +2148,7 @@
     "foreign_travel": 3,
     "attendance": 2
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 12.0,
   "edgar_cik": "0000091440",
   "non_voting_delegate": false,
@@ -2157,5 +2157,39 @@
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": "0000091440",
+      "corporate_insider_signals": 103,
+      "edgar_status": "unverified_auto"
+    },
+    "observed_roster": {
+      "edgar_cik": "0000091440",
+      "corporate_insider_signals": 104,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T14:05:31.714722"
+    },
+    "observed_detail": {
+      "edgar_cik": "0000091440",
+      "corporate_insider_signals": 104,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T14:05:31.714722"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T14:05:31.714722",
+  "edgar_data_status": "available",
+  "edgar_updated": "2026-11-18T14:05:31.714722",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:59:07.381381",
+    "legacy_source_votes_updated": "2026-11-18T09:33:25.272169",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:33:25.272169"
 }

@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412256,
-  "votes_updated": "2026-11-17T09:56:05.999921",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "L000566",
   "name": "Robert E. Latta",
@@ -926,7 +926,7 @@
   "individual_contributions": 677306.0,
   "cash_on_hand": 799134.37,
   "total_raised_display": "$950K",
-  "data_updated": "2026-11-17T14:22:11.963681",
+  "data_updated": "2026-11-18T13:52:57.166605",
   "last_updated": "2026-11-17T14:22:11.963681",
   "bills": [
     {
@@ -2031,7 +2031,7 @@
   "alec_match_count": 0,
   "donor_match_count": 7,
   "edgar_status": "unverified_auto",
-  "votes_fail_count": 44,
+  "votes_fail_count": 45,
   "trades": [
     {
       "transaction_date": "2026-06-04",
@@ -2306,7 +2306,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 0.0,
   "edgar_cik": "0001223581",
   "non_voting_delegate": false,
@@ -2315,5 +2315,39 @@
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": "0001223581",
+      "corporate_insider_signals": 3,
+      "edgar_status": "unverified_auto"
+    },
+    "observed_roster": {
+      "edgar_cik": "0001223581",
+      "corporate_insider_signals": 3,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T13:52:57.166605"
+    },
+    "observed_detail": {
+      "edgar_cik": "0001223581",
+      "corporate_insider_signals": 3,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T13:52:57.166605"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T13:52:57.166605",
+  "edgar_data_status": "available",
+  "edgar_updated": "2026-11-18T13:52:57.166605",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:56:05.999921",
+    "legacy_source_votes_updated": "2026-11-18T09:30:28.928792",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:30:28.928792"
 }

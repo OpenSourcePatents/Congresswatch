@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 300076,
-  "votes_updated": "2026-11-17T10:03:16.716920",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "M001111",
   "name": "Patty Murray",
@@ -919,7 +919,7 @@
   "edgar_signal_type": "corporate_insider",
   "fec_candidate_id": "S2WA00189",
   "total_raised_display": "$0",
-  "data_updated": "2026-11-17T14:56:12.954265",
+  "data_updated": "2026-11-18T14:24:27.161073",
   "last_updated": "2026-11-17T14:56:12.954265",
   "bills": [
     {
@@ -1921,7 +1921,7 @@
   "donor_alignment_score": 35.0,
   "alec_match_count": 0,
   "donor_match_count": 7,
-  "edgar_status": "query_failed",
+  "edgar_status": "unresolved",
   "trades": [
     {
       "transaction_date": "2017-06-15",
@@ -3698,7 +3698,7 @@
   "trades_updated": "2026-04-04T08:49:38.229429",
   "trade_count": 161,
   "latest_trade_date": "2017-06-15",
-  "votes_fail_count": 44,
+  "votes_fail_count": 45,
   "top_donors_list": [
     {
       "name": "RAPPAPORT, ANDREW",
@@ -3863,7 +3863,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 2.0,
   "travel": [
     {
@@ -3887,11 +3887,43 @@
   "cash_on_hand": 2170413.17,
   "non_voting_delegate": false,
   "edgar_cik": null,
-  "edgar_data_status": "unavailable",
-  "edgar_checked": "2026-11-17T14:58:07.8732760Z",
+  "edgar_data_status": "unresolved",
+  "edgar_checked": "2026-11-18T14:24:27.161073",
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "query_failed"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:24:27.161073"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:24:27.161073"
+    },
+    "request_failed": false
+  },
+  "edgar_updated": "2026-11-18T14:24:27.161073",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T10:03:16.716920",
+    "legacy_source_votes_updated": "2026-11-18T09:37:36.894184",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:37:36.894184"
 }

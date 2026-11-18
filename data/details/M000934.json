@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 400284,
-  "votes_updated": "2026-11-17T10:03:15.362341",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "M000934",
   "name": "Jerry Moran",
@@ -919,7 +919,7 @@
   "edgar_signal_type": "corporate_insider",
   "fec_candidate_id": "S0KS00091",
   "total_raised_display": "$0",
-  "data_updated": "2026-11-17T14:56:04.037817",
+  "data_updated": "2026-11-18T14:24:22.585493",
   "last_updated": "2026-11-17T14:56:04.037817",
   "bills": [
     {
@@ -1684,7 +1684,7 @@
   "donor_alignment_score": 10.0,
   "alec_match_count": 0,
   "donor_match_count": 2,
-  "edgar_status": "query_failed",
+  "edgar_status": "unresolved",
   "trades": [
     {
       "transaction_date": "2021-01-27",
@@ -3230,7 +3230,7 @@
   "trades_updated": "2026-08-03T13:24:06.388998+00:00",
   "trade_count": 138,
   "latest_trade_date": "2021-01-27",
-  "votes_fail_count": 44,
+  "votes_fail_count": 45,
   "top_donors_list": [
     {
       "name": "HEMMER, THOMAS",
@@ -3393,17 +3393,49 @@
     "foreign_travel": 0,
     "attendance": 2
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 8.0,
   "total_spent": 782802.52,
   "cash_on_hand": 5960785.54,
   "non_voting_delegate": false,
   "edgar_cik": null,
-  "edgar_data_status": "unavailable",
-  "edgar_checked": "2026-11-17T14:58:07.8731449Z",
+  "edgar_data_status": "unresolved",
+  "edgar_checked": "2026-11-18T14:24:22.585493",
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "query_failed"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:24:22.585493"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:24:22.585493"
+    },
+    "request_failed": false
+  },
+  "edgar_updated": "2026-11-18T14:24:22.585493",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T10:03:15.362341",
+    "legacy_source_votes_updated": "2026-11-18T09:37:35.785598",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:37:35.785598"
 }

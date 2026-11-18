@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 400068,
-  "votes_updated": "2026-11-17T09:54:20.778629",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "C001051",
   "name": "John R. Carter",
@@ -924,7 +924,7 @@
   "individual_contributions": 424525.42,
   "cash_on_hand": 159170.95,
   "total_raised_display": "$1.1M",
-  "data_updated": "2026-11-17T14:12:36.024278",
+  "data_updated": "2026-11-18T13:45:20.946991",
   "last_updated": "2026-11-17T14:12:36.024278",
   "bills": [
     {
@@ -1648,8 +1648,8 @@
   "donor_alignment_score": 15.0,
   "alec_match_count": 0,
   "donor_match_count": 3,
-  "edgar_status": "unverified_auto",
-  "votes_fail_count": 44,
+  "edgar_status": "query_failed",
+  "votes_fail_count": 45,
   "top_donors_list": [
     {
       "name": "OHLINGER, MACK",
@@ -1809,7 +1809,7 @@
     "foreign_travel": 0,
     "attendance": 1
   },
-  "score_updated": "2026-11-18T19:14:33.290149",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 3.0,
   "edgar_cik": "0001771979",
   "non_voting_delegate": false,
@@ -1818,5 +1818,38 @@
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus"
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": "0001771979",
+      "corporate_insider_signals": 5,
+      "edgar_status": "unverified_auto"
+    },
+    "observed_roster": {
+      "edgar_cik": "0001771979",
+      "corporate_insider_signals": 5,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T13:45:20.946991"
+    },
+    "observed_detail": {
+      "edgar_cik": "0001771979",
+      "corporate_insider_signals": 5,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T13:45:20.946991"
+    },
+    "request_failed": true
+  },
+  "edgar_checked": "2026-11-18T13:47:23.6758814Z",
+  "edgar_data_status": "stale",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:54:20.778629",
+    "legacy_source_votes_updated": "2026-11-18T09:28:43.610065",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:28:43.610065"
 }
