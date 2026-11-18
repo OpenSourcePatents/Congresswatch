@@ -90,6 +90,7 @@ def main():
         # Leaderboard promotion: these live in detail files only (bills/votes
         # pipelines never touch members.json), but the frontend grid reads them
         # from members.json — without this they can never render there.
+        m["bills_analysis_status"] = detail.get("bills_analysis_status", "unknown")
         m["alec_match_count"] = detail.get("alec_match_count", 0) or 0
         # Non-voting delegates carry a flag instead of a percentage. Their
         # upstream vote records are inconsistent (some read 0% missed, some
@@ -124,7 +125,7 @@ def main():
         m["score"] = score
         m["score_components"] = components
         m["score_updated"] = now
-        m["score_methodology"] = "activity-v3-verified-sec-only"
+        m["score_methodology"] = "activity-v4-bill-integrity"
         detail["score_methodology"] = m["score_methodology"]
         save_json(detail_path, detail)
 

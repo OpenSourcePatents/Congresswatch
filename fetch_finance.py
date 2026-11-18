@@ -662,7 +662,7 @@ if __name__=="__main__":
         detail_data["score_components"]=components
         m["score_components"] = components
         m["score_updated"] = record_updated
-        m["score_methodology"] = "activity-v3-verified-sec-only"
+        m["score_methodology"] = "activity-v4-bill-integrity"
         detail_data["score_updated"] = m["score_updated"]
         detail_data["score_methodology"] = m["score_methodology"]
 

@@ -43,6 +43,13 @@ def main():
                 gaps.append(field)
             coverage[f'{field}_records'] += len(records)
         for bill in detail.get('bills') or []:
+            if str(bill.get('analysis_status', '')).startswith('quarantined_'):
+                if bill.get('similarity_score') or bill.get('alec_match') or bill.get('alec_best_similarity') or bill.get('similar_member_bills'):
+                    errors.append(f'{bid}: quarantined bill still exposes similarity findings')
+                if not bill.get('analysis_provenance'):
+                    errors.append(f'{bid}: quarantined bill missing original evidence')
+                if bill.get('text_integrity') == 'quarantined' and (bill.get('has_text') or bill.get('keywords') or (bill.get('donor_interest') or {}).get('match')):
+                    errors.append(f'{bid}: polluted bill still exposes text-derived findings')
             if isinstance(bill, dict) and not re.fullmatch(r'(?:HR|HRES|HJRES|HCONRES|S|SRES|SJRES|SCONRES)\d+-\d+', str(bill.get('bill_id') or '')):
                 coverage['malformed_bill_ids_preserved'] += 1
         coverage['unparsed_trade_filings'] += sum(bool(t.get('scanned_pdf')) for t in (detail.get('trades') or []) if isinstance(t, dict))

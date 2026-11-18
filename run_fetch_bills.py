@@ -41,7 +41,8 @@ from fetch_bills.utils.api_clients import (
     legiscan_search_bill,
     legiscan_get_text_for_bill,
 )
-from fetch_bills.utils.text_processor import clean_bill_text, text_hash, extract_keywords
+from fetch_bills.utils.text_processor import (clean_bill_text, text_hash, extract_keywords,
+    cached_text, quarantine_cache_entry, text_contamination_reason)
 from fetch_bills.utils.similarity import SimilarityEngine
 from fetch_bills.utils.donor_matcher import (
     get_member_donor_industries,
@@ -75,6 +76,7 @@ CURRENT_CONGRESS = _current_congress()
 MAX_BILLS_PER_MEMBER = 10   # sponsored bills to analyze per member
 LEGISCAN_QUERY_BUDGET = 200  # max LegiScan text fetches per run (protect quota)
 SIMILARITY_THRESHOLD = 0.80
+ANALYSIS_VERSION = "bill-text-integrity-v1"
 
 # ---------------------------------------------------------------------------
 # Cache helpers
@@ -198,32 +200,10 @@ def main():
     # Load bills cache (incremental — only fetch changed bills)
     bills_cache = load_json(BILLS_CACHE, {})
 
-    # Strip raw_text from cache to keep file size under GitHub limits.
-    # raw_text (often raw PDF bytes) is only needed to generate cleaned_text.
-    # Once cleaned_text exists, raw_text is dead weight.
-    stripped = 0
-    for _bid in bills_cache:
-        if "raw_text" in bills_cache[_bid]:
-            del bills_cache[_bid]["raw_text"]
-            stripped += 1
-    if stripped:
-        print(f"  [CACHE] Stripped raw_text from {stripped} bills (size reduction)")
-
-    # Invalidate cache entries whose cleaned_text still contains HTML-doc
-    # tokens (cleaned before HTML stripping existed). Bounded per run so a
-    # large polluted cache heals gradually without a multi-hour refetch.
-    MAX_RECLEAN_PER_RUN = 300
-    recleaned = 0
-    for _bid, _entry in bills_cache.items():
-        if recleaned >= MAX_RECLEAN_PER_RUN:
-            break
-        _ct = _entry.get("cleaned_text", "")
-        if _ct and ("doctype" in _ct[:200] or "xhtml" in _ct[:500]
-                    or "html public" in _ct[:500]):
-            _entry["cleaned_text"] = ""   # forces a refetch + proper clean
-            recleaned += 1
-    if recleaned:
-        print(f"  [CACHE] Invalidated {recleaned} HTML-polluted entries for re-clean")
+    # Quarantine ALL contaminated entries before fitting, not just a bounded
+    # batch. Keep their original text/metadata as evidence until a real refetch.
+    quarantined = sum(quarantine_cache_entry(entry) for entry in bills_cache.values())
+    print(f"  [CACHE] Quarantined {quarantined} contaminated entries (evidence retained)")
 
     print(f"Bills cache: {len(bills_cache)} existing bills")
 
@@ -282,7 +262,7 @@ def main():
 
             # Check cache — skip if already processed (has cleaned_text)
             cached = bills_cache.get(bill_id, {})
-            cached_clean = cached.get("cleaned_text", "")
+            cached_clean = cached_text(cached)
 
             needs_refresh = stub.get("update_date") != cached.get("update_date")
             if not cached_clean or needs_refresh:
@@ -294,7 +274,29 @@ def main():
                 if raw_text:
                     new_hash = text_hash(raw_text)
                     cleaned = clean_bill_text(raw_text)
+                    if not cleaned:
+                        # Preserve rejected payload and any prior valid text; never
+                        # manufacture prose by subtracting PDF syntax tokens.
+                        rejected = cached.setdefault("rejected_text_evidence", [])
+                        if not any(e.get("text_hash") == new_hash for e in rejected):
+                            rejected.append({
+                                "raw_text": raw_text, "text_hash": new_hash,
+                                "reason": text_contamination_reason(raw_text) or "no_usable_text",
+                            })
+                        if not cached_clean and text_contamination_reason(raw_text):
+                            cached["text_integrity"] = "quarantined"
+                            cached["text_integrity_reason"] = text_contamination_reason(raw_text)
+                        bills_cache[bill_id] = cached
+                        enriched.append({**stub, "has_text": bool(cached_clean)})
+                        continue
+                    evidence = list(cached.get("quarantined_text_evidence", []))
+                    if cached.get("text_integrity") == "quarantined":
+                        evidence.append({k: v for k, v in cached.items()
+                                         if k not in ("quarantined_text_evidence", "rejected_text_evidence")})
                     bills_cache[bill_id] = {
+                        "text_integrity": "usable",
+                        "quarantined_text_evidence": evidence,
+                        "rejected_text_evidence": cached.get("rejected_text_evidence", []),
                         "bill_id":      bill_id,
                         "title":        stub["title"],
                         "type":         stub["type"],
@@ -366,11 +368,13 @@ def main():
         for stub in stubs:
             bill_id = stub["bill_id"]
             cached = bills_cache.get(bill_id, {})
-            cleaned_text = cached.get("cleaned_text", "")
+            cleaned_text = cached_text(cached)
             title = cached.get("title", stub.get("title", ""))
 
             # Run similarity
             sim_result = engine.analyze_bill(bill_id, cleaned_text)
+            if cached.get("text_integrity") == "quarantined":
+                sim_result["analysis_status"] = "text_quarantined"
 
             # Donor interest match
             donor_result = match_donor_interests(cleaned_text, title, donor_industries)
@@ -420,9 +424,10 @@ def main():
                 "introduced_date":  cached.get("introduced_date", stub.get("introduced_date", "")),
                 "latest_action":    cached.get("latest_action", stub.get("latest_action", "")),
                 "url":              cached.get("url", stub.get("url", "")),
-                "keywords":         cached.get("keywords", []),
+                "keywords":         extract_keywords(cleaned_text),
                 "has_text":         bool(cleaned_text),
                 "analysis_status":  sim_result["analysis_status"],
+                "analysis_version": ANALYSIS_VERSION,
                 "text_updated": cached.get("cached_at"),
                 "text_refresh_pending": stub.get("update_date") != cached.get("update_date"),
                 "similarity_score": alec_match["similarity_score"] if alec_match else None,

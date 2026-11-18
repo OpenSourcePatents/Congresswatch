@@ -866,12 +866,26 @@ function attributedSecCount(m) {
 }
 function hasLegacyUnverifiedSecScore(m) {
   return m.corporate_insider_signals > 0 && !eligibleSecSignals(m) &&
-    m.score_methodology !== 'activity-v3-verified-sec-only';
+    !['activity-v3-verified-sec-only', 'activity-v4-bill-integrity'].includes(m.score_methodology);
+}
+// Legacy similarity may have been fitted on binary PDF tokens. A clean-corpus
+// validation marker is required, including when a CDN serves an old snapshot.
+function billSimilarityAvailable(bill) {
+  return bill.analysis_version === 'bill-text-integrity-v1' &&
+    ['analyzed', 'model_matching_unavailable'].includes(bill.analysis_status) && !billTextQuarantined(bill);
+}
+function billTextQuarantined(bill) {
+  return bill.text_integrity === 'quarantined' || ['quarantined_pdf_text', 'text_quarantined'].includes(bill.analysis_status);
+}
+function billAnalysisWarning(m) {
+  return (m.bills || []).some(b => b.analysis_version !== 'bill-text-integrity-v1' || String(b.analysis_status || '').includes('quarantined')) ||
+    m.bills_analysis_status === 'quarantined_legacy_corpus';
 }
 function computeScore(m) {
   // Old totals can contain points from an unrelated SEC candidate. Do not
   // display them while waiting for the identity-gated offline rescore.
   if (hasLegacyUnverifiedSecScore(m)) return null;
+  if (m.score_methodology !== 'activity-v4-bill-integrity') return null;
   // Show a numeric score (including 0) when the member shows any evidence of measurement;
   // otherwise null -> DATA PENDING.
   const measured = !!m.score_updated || !!m.score_components || (m.score||0) > 0;
@@ -1027,7 +1041,7 @@ function renderGrid() {
     const glow = (s !== null && s >= 60) ? `box-shadow:0 0 14px color-mix(in srgb, ${sc} 30%, transparent);` : '';
     const showInsider = attributedSecCount(m) > 0;
     const showDonor = (m.total_raised||0) > 0;
-    const showBill = (m.alec_match_count||0) > 0;
+    const showBill = m.score_methodology === 'activity-v4-bill-integrity' && !String(m.bills_analysis_status || '').startsWith('quarantined') && (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
     const pending = m.displayScore === null;
     const tag = (label, c) => `<span class="m-tag" style="background:color-mix(in srgb, ${c} 10%, transparent);border:1px solid color-mix(in srgb, ${c} 32%, transparent);color:${c}">${label}</span>`;
@@ -1145,7 +1159,7 @@ const SCORE_COMPONENTS = [
 function scoreBreakdownHtml(m) {
   const comps = m.score_components || null;
   const rows = SCORE_COMPONENTS.map(c => {
-    const has = c.key !== 'wealth_gap' && !(c.key === 'trade_timing' && hasLegacyUnverifiedSecScore(m)) && comps && comps[c.key] !== undefined && comps[c.key] !== null;
+    const has = m.score_methodology === 'activity-v4-bill-integrity' && c.key !== 'wealth_gap' && !(c.key === 'alec_similarity' && (m.score_methodology !== 'activity-v4-bill-integrity' || String(m.bills_analysis_status || '').startsWith('quarantined'))) && !(c.key === 'trade_timing' && hasLegacyUnverifiedSecScore(m)) && comps && comps[c.key] !== undefined && comps[c.key] !== null;
     const v = has ? comps[c.key] : 0;
     const pct = has ? Math.max(0, Math.min(100, (v / c.max) * 100)) : 0;
     let color = '#5d7180';
@@ -1319,6 +1333,7 @@ function renderOverview(m, s, cumSalary) {
     : '';
 
   const flags = buildFlags(m, s);
+  if (billAnalysisWarning(m)) flags.push({type:'info', title:'BILL ANALYSIS UNDER REVIEW', body:'Legacy similarity findings are suspended pending clean-text reanalysis. See Bills & Votes for coverage details.'});
   const flagsHtml = `
     <div class="sec-header"><div class="sec-title">ANOMALY FLAGS</div><div class="sec-badge">${flags.length} ACTIVE</div></div>
     ${flags.map(f => alertHtml(f.type === 'info' ? 'info' : 'warn', f.title, f.body)).join('')}`;
@@ -1349,7 +1364,7 @@ function buildFlags(m, s) {
   // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.80
   const bills = m.bills || [];
   const alecBills = bills.filter(b => {
-    const am = b.alec_match;
+    const am = billSimilarityAvailable(b) ? b.alec_match : null;
     if (!am) return false;
     return (am.similarity_score || 0) >= 0.80;
   });
@@ -1394,8 +1409,11 @@ function fillVotes(m, s) {
     return;
   }
 
+  if (billAnalysisWarning(m)) html += alertHtml('warn', 'BILL SIMILARITY SUSPENDED',
+    'Earlier analysis included corrupted PDF text. Legacy similarity results are withheld until the corpus is rebuilt from validated text. Suspended analysis is not a finding of no match. Original calculations are retained for audit, not presented as findings.');
+
   // Optional donor alignment score stat cell
-  if (m.donor_alignment_score > 0) {
+  if (m.score_methodology === 'activity-v4-bill-integrity' && m.donor_alignment_score > 0 && !bills.some(billTextQuarantined)) {
     html += statCellsHtml([{
       label:'Donor Alignment Score',
       value:`${m.donor_alignment_score}/100`,
@@ -1408,8 +1426,8 @@ function fillVotes(m, s) {
 
   // ── Sponsored Bills section ──
   if (bills.length > 0) {
-    const alecCount = bills.filter(b => (b.alec_match?.similarity_score || 0) >= 0.80).length;
-    const donorCount = bills.filter(b => b.donor_interest && b.donor_interest.match).length;
+    const alecCount = bills.filter(b => billSimilarityAvailable(b) && (b.alec_match?.similarity_score || 0) >= 0.80).length;
+    const donorCount = bills.filter(b => !billTextQuarantined(b) && b.donor_interest && b.donor_interest.match).length;
 
     if (alecCount > 0) {
       html += alertHtml('warn', 'ALEC MODEL LEGISLATION MATCH',
@@ -1428,17 +1446,21 @@ function fillVotes(m, s) {
         <tbody>`;
 
     bills.forEach(bill => {
-      const alec = bill.alec_match;
-      const donor = bill.donor_interest || {};
-      const coAuthors = bill.similar_member_bills || [];
+      const similarityAvailable = billSimilarityAvailable(bill);
+      const textQuarantined = billTextQuarantined(bill);
+      const modelAvailable = similarityAvailable && bill.analysis_status === 'analyzed';
+      const alec = modelAvailable ? bill.alec_match : null;
+      const donor = textQuarantined ? {} : (bill.donor_interest || {});
+      const coAuthors = similarityAvailable ? (bill.similar_member_bills || []) : [];
       const billLabel = (bill.bill_id || '').replace(/-\d+$/, '');
       const intro = bill.introduced_date ? bill.introduced_date.slice(0,10) : '—';
       const titleShort = (bill.title||'').slice(0,80) + ((bill.title||'').length>80?'…':'');
 
       // No alec_match (>=80% similarity) is the norm — surface the always-stored
       // closest-model similarity instead of a permanently blank column.
-      let alecCell = '<span style="color:var(--fg-faint)">—</span>';
-      if (!alec && (bill.alec_best_similarity||0) > 0) {
+      let alecCell = `<span style="color:var(--fg-faint)">${similarityAvailable ? 'No match recorded' : (bill.analysis_version === 'bill-text-integrity-v1' && !String(bill.analysis_status || '').includes('quarantined') ? 'Analysis unavailable' : 'Analysis suspended')}</span>`;
+      if (similarityAvailable && !modelAvailable) alecCell = '<span style="color:var(--fg-faint)">Model analysis unavailable</span>';
+      if (modelAvailable && !alec && (bill.alec_best_similarity||0) > 0) {
         const bpct = Math.round(bill.alec_best_similarity*100);
         alecCell = `<span class="td-mono" style="color:var(--fg-dim)">${bpct}% closest model</span>
           <div class="td-sub">below 80% match threshold</div>`;
@@ -1453,12 +1475,12 @@ function fillVotes(m, s) {
           <div class="td-sub"><a href="${esc(safeUrl(alec.source_url))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-dim);text-decoration:none;border-bottom:1px dotted var(--fg-dim)">ALEC ${esc(alec.category||'')}</a></div>`;
       }
 
-      let donorCell = '<span style="color:var(--fg-faint)">—</span>';
+      let donorCell = `<span style="color:var(--fg-faint)">${textQuarantined ? 'Text quarantined' : '—'}</span>`;
       if (donor.match && donor.matched_industries && donor.matched_industries.length > 0) {
         donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${esc(ind)}</span>`).join('');
       }
 
-      let coCell = '<span style="color:var(--fg-faint)">—</span>';
+      let coCell = `<span style="color:var(--fg-faint)">${similarityAvailable ? 'No match recorded' : (bill.analysis_version === 'bill-text-integrity-v1' && !String(bill.analysis_status || '').includes('quarantined') ? 'Analysis unavailable' : 'Analysis suspended')}</span>`;
       if (coAuthors.length > 0) {
         const pct = Math.round((coAuthors[0].similarity_score||0)*100);
         coCell = `<span class="td-mono" style="color:var(--accent-blue)">${pct}% match</span>
@@ -1467,7 +1489,7 @@ function fillVotes(m, s) {
 
       tbl += `<tr>
         <td class="td-mono">${bill.url?`<a href="${esc(safeUrl(bill.url))}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue);text-decoration:none">${esc(billLabel)}</a>`:esc(billLabel)}</td>
-        <td style="max-width:220px;line-height:1.4">${esc(titleShort)}</td>
+        <td style="max-width:220px;line-height:1.4">${esc(titleShort)}${!similarityAvailable ? `<div class="td-sub">${textQuarantined ? 'Corrupted PDF text withheld; re-extraction required.' : (bill.analysis_version === 'bill-text-integrity-v1' ? 'Full-text analysis unavailable in this snapshot.' : 'Similarity awaiting clean-corpus validation; text integrity not verified.')}</div>` : ''}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(intro)}</td>
         <td>${alecCell}</td>
         <td>${donorCell}</td>
@@ -1694,7 +1716,7 @@ function fillPatterns(m, s) {
   // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.80
   const bills = m.bills || [];
   const alecBills = bills.filter(b => {
-    const am = b.alec_match;
+    const am = billSimilarityAvailable(b) ? b.alec_match : null;
     if (!am) return false;
     return (am.similarity_score || 0) >= 0.80;
   });
