@@ -18,6 +18,7 @@ import os
 import json
 import time
 import re
+import math
 from collections import defaultdict
 import requests
 from datetime import datetime
@@ -50,7 +51,7 @@ LIGHT_FIELDS = {
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","finance_checked","roster_updated","fec_cycle"
+    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","finance_checked","roster_updated","fec_cycle","edgar_identity_status","edgar_identity_cik","edgar_identity_evidence","edgar_identity_note","edgar_legacy_status"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -130,6 +131,37 @@ def save_detail(bid,data):
 # CIK RESOLUTION
 # ─────────────────────────────────────────────────────────────
 
+def eligible_sec_signals(member):
+    """Only independently evidenced identity plus successful data may affect scoring.
+
+    Raw candidate counts remain stored for investigation, never identity proof.
+    Keep this contract aligned with OSP-API and index.html.
+    """
+    cik = member.get("edgar_identity_cik")
+    evidence = member.get("edgar_identity_evidence")
+    count = member.get("corporate_insider_signals")
+    if (member.get("edgar_identity_status") == "verified"
+            and isinstance(cik, str) and cik.strip() and cik == member.get("edgar_cik")
+            and isinstance(evidence, list) and evidence
+            and all(isinstance(url, str) and url.startswith("https://") for url in evidence)
+            and member.get("edgar_data_status") == "available"
+            and member.get("edgar_status") != "query_failed"
+            and type(count) in (int, float) and math.isfinite(count) and count >= 0):
+        return count
+    return 0
+
+
+def annotate_sec_identity(member):
+    """Quarantine legacy automatic verification without deleting source evidence."""
+    if member.get("edgar_status") == "verified_auto":
+        member.setdefault("edgar_legacy_status", "verified_auto")
+        member["edgar_status"] = "unverified_auto"
+    member.setdefault("edgar_identity_status", "unverified")
+    member.setdefault("edgar_identity_evidence", [])
+    if member["edgar_identity_status"] != "verified":
+        member["edgar_identity_note"] = "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+
+
 def normalize_name(name):
     name = name.lower().strip()
     name = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b","",name)
@@ -181,11 +213,21 @@ def resolve_member_cik(member):
     manual = load_json(CIK_MAP_FILE,{})
     bid = member.get("id") or member.get("bioguide_id")
 
-    if bid in manual:
-        return {
-            "status":"verified_manual",
-            "cik":manual[bid]["cik"]
-        }
+    entry = manual.get(bid, {})
+    evidence = entry.get("evidence", [])
+    cik = entry.get("cik")
+    if (entry.get("identity_status") == "verified" and isinstance(cik, str)
+            and cik.strip() and isinstance(evidence, list) and evidence
+            and all(isinstance(url, str) and url.startswith("https://") for url in evidence)):
+        member["edgar_identity_status"] = "verified"
+        member["edgar_identity_cik"] = cik
+        member["edgar_identity_evidence"] = evidence
+        member.pop("edgar_identity_note", None)
+        return {"status": "verified_manual", "cik": cik}
+
+    # A legacy manual CIK with no reviewed evidence is not sufficient either.
+    member["edgar_identity_status"] = "unverified"
+    annotate_sec_identity(member)
 
     candidates = defaultdict(int)
     alias_failed = False
@@ -221,15 +263,17 @@ def resolve_member_cik(member):
 
     best = sorted(candidates.items(),key=lambda x:-x[1])[0]
 
-    if best[1] >= 3:
-        return {"status":"verified_auto","cik":best[0]}
-
     review = load_json(CIK_REVIEW_FILE,{})
     review[bid] = {
         "name":member["name"],
-        "candidates":dict(candidates)
+        "candidates":dict(candidates),
+        "method": "Name-search frequency, not independently verified identity",
+        "checked": datetime.now().isoformat()
     }
     save_json(CIK_REVIEW_FILE,review)
+
+    if best[1] >= 3:
+        return {"status":"unverified_auto","cik":best[0]}
 
     return {"status":"needs_review","cik":None}
 
@@ -421,7 +465,7 @@ def compute_score_components(m, detail=None):
 
     # 1. Stock trade timing (25 max) — SEC EDGAR signals + PTR trade frequency
     trade_score = 0
-    signals = m.get("corporate_insider_signals", 0) or 0
+    signals = eligible_sec_signals(m)
     if signals >= 3:
         trade_score += 25
     elif signals == 2:
@@ -525,7 +569,7 @@ def update_flags(m):
 
     flags=[]
 
-    if (m.get("corporate_insider_signals",0) or 0)>5:
+    if eligible_sec_signals(m)>5:
         flags.append("trade")
 
     total=m.get("total_raised",0)
@@ -618,7 +662,7 @@ if __name__=="__main__":
         detail_data["score_components"]=components
         m["score_components"] = components
         m["score_updated"] = record_updated
-        m["score_methodology"] = "activity-v2-no-wealth-proxy"
+        m["score_methodology"] = "activity-v3-verified-sec-only"
         detail_data["score_updated"] = m["score_updated"]
         detail_data["score_methodology"] = m["score_methodology"]
 
@@ -657,13 +701,14 @@ if __name__=="__main__":
 
     scored=sum(1 for m in final_members if (m.get("score") or 0)>0)
     high_anomaly=sum(1 for m in final_members if (m.get("score") or 0)>=60)
-    total_insider=sum(m.get("corporate_insider_signals",0) or 0 for m in final_members)
+    total_insider=sum(eligible_sec_signals(m) for m in final_members)
 
     stats = {
         "total_members": len(final_members),
         "members_with_scores": scored,
         "high_anomaly": high_anomaly,
         "total_insider_signals": total_insider,
+        "raw_sec_candidate_filings": sum(m.get("corporate_insider_signals") or 0 for m in final_members),
         "last_updated": datetime.now().isoformat()
     }
     save_json("data/stats.json", stats)

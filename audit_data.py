@@ -4,6 +4,7 @@
 Run before publishing: python audit_data.py. Empty arrays are reported as
 coverage gaps, never treated as proof that no activity occurred.
 """
+from fetch_finance import eligible_sec_signals, compute_score_components
 import json
 import re
 from collections import Counter
@@ -50,7 +51,11 @@ def main():
             expected = min(sum(detail['score_components'].values()), 100)
             if expected != detail.get('score') or detail.get('score') != member.get('score'):
                 errors.append(f'{bid}: score/component/leaderboard mismatch')
-        for field in ('votes_status', 'bills_status', 'donors_status'):
+        if detail.get('score_components') != compute_score_components(member, detail):
+            errors.append(f'{bid}: score components differ from verified-identity methodology')
+        if not eligible_sec_signals(member) and 'trade' in member.get('flags', []):
+            errors.append(f'{bid}: ineligible SEC candidate retains activity flag')
+        for field in ('votes_status' , 'bills_status', 'donors_status'):
             if detail.get(field):
                 statuses[f'{field}:{detail[field]}'] += 1
         if gaps:
@@ -58,7 +63,7 @@ def main():
     stats_path = root / 'stats.json'
     if stats_path.exists():
         stats = json.loads(stats_path.read_text())
-        expected_signals = sum(m.get('corporate_insider_signals') or 0 for m in members)
+        expected_signals = sum(eligible_sec_signals(m) for m in members)
         if stats.get('total_insider_signals') != expected_signals:
             errors.append('stats.json SEC total differs from current member snapshot')
     report = {'members': len(members), 'coverage': dict(coverage),
