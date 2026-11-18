@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 300027,
-  "votes_updated": "2026-11-18T09:38:35.461757",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "C001056",
   "name": "John Cornyn",
@@ -912,7 +912,7 @@
   "chamber": "Senate",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001056.jpg",
   "term_start": "2002-01-01",
-  "score": 30,
+  "score": 10,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577037",
   "corporate_insider_signals": 0,
@@ -925,7 +925,7 @@
   "cash_on_hand": 496092.37,
   "total_raised_display": "$11.2M",
   "data_updated": "2026-11-18T14:28:33.737197",
-  "last_updated": "2026-11-18T14:28:33.737197",
+  "last_updated": "2026-11-17T15:00:28.689285",
   "bills": [
     {
       "bill_id": "-119",
@@ -948,7 +948,27 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [],
+          "has_text": false,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S5710-119",
@@ -983,7 +1003,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.126,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1021,7 +1041,72 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "school",
+            "health",
+            "mental",
+            "based",
+            "services",
+            "eligible",
+            "educational",
+            "agencies",
+            "local",
+            "high",
+            "need",
+            "agency",
+            "students",
+            "grant",
+            "institution",
+            "providers",
+            "secretary",
+            "state",
+            "served",
+            "schools"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.126,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Oil & Gas",
+              "Healthcare",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "credit"
+              ],
+              "Oil & Gas": [
+                "pipeline",
+                "climate"
+              ],
+              "Healthcare": [
+                "insurance",
+                "medicaid",
+                "provider",
+                "mental_health",
+                "telehealth"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "SRES948-119",
@@ -1056,16 +1141,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.082,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HRES1600-119",
-          "sponsor_id": "M001157",
-          "similarity_score": 0.991
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001098"
       ],
@@ -1083,7 +1162,64 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "texas",
+            "university",
+            "service",
+            "military",
+            "students",
+            "amc",
+            "corps",
+            "war",
+            "world",
+            "state",
+            "college",
+            "cadets",
+            "former",
+            "aggies",
+            "president",
+            "established",
+            "aggie",
+            "student",
+            "land",
+            "grant"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.082,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HRES1600-119",
+              "sponsor_id": "M001157",
+              "similarity_score": 0.991
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Oil & Gas",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Oil & Gas": [
+                "energy"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S5677-119",
@@ -1118,16 +1254,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.104,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9325-119",
-          "sponsor_id": "W000814",
-          "similarity_score": 0.929
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1155,7 +1285,76 @@
             "property"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "partnership",
+            "secretary",
+            "national",
+            "plan",
+            "recreation",
+            "area",
+            "land",
+            "federal",
+            "lands",
+            "sites",
+            "state",
+            "coastal",
+            "associated",
+            "within",
+            "network",
+            "park",
+            "management",
+            "purposes",
+            "lone",
+            "star"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.104,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9325-119",
+              "sponsor_id": "W000814",
+              "similarity_score": 0.929
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Oil & Gas",
+              "Healthcare",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "interest"
+              ],
+              "Oil & Gas": [
+                "energy",
+                "oil_gas"
+              ],
+              "Healthcare": [
+                "reimbursement"
+              ],
+              "Real Estate": [
+                "construction",
+                "development",
+                "property"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S5543-119",
@@ -1190,7 +1389,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.132,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1207,7 +1406,54 @@
             "provider"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "substance",
+            "treatment",
+            "use",
+            "disorder",
+            "inserting",
+            "medication",
+            "striking",
+            "abuse",
+            "residential",
+            "disorders",
+            "program",
+            "assisted",
+            "type",
+            "federal",
+            "omnibus",
+            "crime",
+            "control",
+            "safe",
+            "streets",
+            "read"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.132,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "provider"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "SRES843-119",
@@ -1242,16 +1488,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HRES1475-119",
-          "sponsor_id": "V000129",
-          "similarity_score": 0.935
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "H000273",
         "J000312",
@@ -1277,7 +1517,63 @@
             "mental_health"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "health",
+            "community",
+            "centers",
+            "center",
+            "care",
+            "week",
+            "communities",
+            "national",
+            "people",
+            "access",
+            "first",
+            "august",
+            "local",
+            "important",
+            "nearly",
+            "patients",
+            "support",
+            "designation",
+            "participate",
+            "visiting"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.042,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HRES1475-119",
+              "sponsor_id": "V000129",
+              "similarity_score": 0.935
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "hospital",
+                "physician",
+                "nurse",
+                "mental_health"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S388-119",
@@ -1312,7 +1608,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.076,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1334,7 +1630,59 @@
             "construction"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "assistance",
+            "program",
+            "disaster",
+            "emergency",
+            "administrator",
+            "robert",
+            "stafford",
+            "relief",
+            "pilot",
+            "mitigation",
+            "residential",
+            "codes",
+            "hazard",
+            "retrofits",
+            "respect",
+            "editions",
+            "retrofit",
+            "resilience",
+            "carried",
+            "implementation"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.076,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "loan"
+              ],
+              "Real Estate": [
+                "construction"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S917-119",
@@ -1369,16 +1717,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.02,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5241-119",
-          "sponsor_id": "K000367",
-          "similarity_score": 0.822
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001098"
       ],
@@ -1386,7 +1728,54 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "office",
+            "agent",
+            "raul",
+            "gonzalez",
+            "memorial",
+            "post",
+            "facility",
+            "postal",
+            "service",
+            "located",
+            "east",
+            "pecan",
+            "boulevard",
+            "mcallen",
+            "texas",
+            "introduced",
+            "designate",
+            "bill",
+            "referred",
+            "reference"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.02,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5241-119",
+              "sponsor_id": "K000367",
+              "similarity_score": 0.822
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S3051-119",
@@ -1421,7 +1810,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.028,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1433,7 +1822,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "armed",
+            "transnational",
+            "criminal",
+            "organizations",
+            "committee",
+            "mexico",
+            "counter",
+            "threat",
+            "government",
+            "forces",
+            "posed",
+            "congressional",
+            "capacity",
+            "plan",
+            "appropriate",
+            "foreign",
+            "secretary",
+            "committees",
+            "trafficking",
+            "introduced"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.028,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "S3052-119",
@@ -1468,7 +1898,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.158,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1480,7 +1910,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "access",
+            "recruiter",
+            "secondary",
+            "military",
+            "recruiters",
+            "schools",
+            "read",
+            "provide",
+            "school",
+            "academic",
+            "addresses",
+            "introduced",
+            "promote",
+            "bill",
+            "amending",
+            "follows",
+            "recruiting",
+            "education",
+            "request",
+            "year"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.158,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T18:33:44.240086+00:00",
@@ -1672,13 +2143,13 @@
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
-    "wealth_gap": 20,
+    "wealth_gap": 0,
     "donor_alignment": 6,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 1
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "votes_fail_count": 46,
   "missed_votes_pct": 3.0,
   "travel": [
@@ -1769,5 +2240,45 @@
   ],
   "travel_updated": "2026-08-20T11:49:55.383939+00:00",
   "travel_count": 6,
-  "non_voting_delegate": false
+  "non_voting_delegate": false,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:28:33.737197"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:28:33.737197"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T14:28:33.737197",
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_updated": "2026-11-18T14:28:33.737197",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T10:04:17.274041",
+    "legacy_source_votes_updated": "2026-11-18T09:38:35.461757",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:38:35.461757"
 }

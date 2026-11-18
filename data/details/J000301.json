@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412816,
-  "votes_updated": "2026-11-18T09:29:52.371400",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "J000301",
   "name": "Dusty Johnson",
@@ -918,7 +918,7 @@
   "corporate_insider_signals": 0,
   "edgar_signal_type": "corporate_insider",
   "data_updated": "2026-11-18T13:50:11.733787",
-  "last_updated": "2026-11-18T13:50:11.733787",
+  "last_updated": "2026-11-17T14:18:29.181379",
   "bills": [
     {
       "bill_id": "HR10190-119",
@@ -953,16 +953,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.047,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5359-119",
-          "sponsor_id": "T000250",
-          "similarity_score": 0.984
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -974,7 +968,60 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "county",
+            "land",
+            "secretary",
+            "forest",
+            "pennington",
+            "national",
+            "conveyance",
+            "federal",
+            "south",
+            "dakota",
+            "system",
+            "agriculture",
+            "convey",
+            "boundary",
+            "introduced",
+            "direct",
+            "certain",
+            "bill",
+            "parcel",
+            "black"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.047,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5359-119",
+              "sponsor_id": "T000250",
+              "similarity_score": 0.984
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9785-119",
@@ -985,56 +1032,79 @@
       "introduced_date": "2026-07-20",
       "latest_action": "Referred to the House Committee on Natural Resources.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9785?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "pdf",
-        "stream",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "wks",
-        "wms",
-        "zyp",
-        "vks",
-        "nma",
-        "zzgo",
-        "pjq",
-        "myc",
-        "fkkj",
-        "iae",
-        "byv",
-        "kba"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9628-119",
-          "sponsor_id": "H001091",
-          "similarity_score": 0.97
-        },
-        {
-          "bill_id": "HR9671-119",
-          "sponsor_id": "D000624",
-          "similarity_score": 0.97
-        },
-        {
-          "bill_id": "HR10418-119",
-          "sponsor_id": "B001321",
-          "similarity_score": 0.964
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "pdf",
+            "stream",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "wks",
+            "wms",
+            "zyp",
+            "vks",
+            "nma",
+            "zzgo",
+            "pjq",
+            "myc",
+            "fkkj",
+            "iae",
+            "byv",
+            "kba"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9628-119",
+              "sponsor_id": "H001091",
+              "similarity_score": 0.97
+            },
+            {
+              "bill_id": "HR9671-119",
+              "sponsor_id": "D000624",
+              "similarity_score": 0.97
+            },
+            {
+              "bill_id": "HR10418-119",
+              "sponsor_id": "B001321",
+              "similarity_score": 0.964
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR4679-119",
@@ -1069,7 +1139,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.033,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1081,7 +1151,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "security",
+            "homeland",
+            "survey",
+            "tactical",
+            "infrastructure",
+            "secretary",
+            "southern",
+            "border",
+            "along",
+            "biennial",
+            "conduct",
+            "committee",
+            "technology",
+            "deficiency",
+            "introduced",
+            "direct",
+            "purposes",
+            "bill",
+            "general",
+            "later"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.033,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8104-119",
@@ -1116,16 +1227,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.052,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4152-119",
-          "sponsor_id": "T000250",
-          "similarity_score": 0.976
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001119",
         "F000475",
@@ -1148,7 +1253,60 @@
             "securities"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fertilizer",
+            "secretary",
+            "information",
+            "wholesaler",
+            "reporting",
+            "manufacturer",
+            "cooperative",
+            "prices",
+            "agricultural",
+            "marketing",
+            "general",
+            "products",
+            "marketed",
+            "product",
+            "applicable",
+            "reported",
+            "mandatory",
+            "program",
+            "less",
+            "nitrogen"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.052,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4152-119",
+              "sponsor_id": "T000250",
+              "similarity_score": 0.976
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "securities"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7699-119",
@@ -1183,7 +1341,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.152,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1194,7 +1352,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "indian",
+            "state",
+            "enforcement",
+            "code",
+            "federal",
+            "agencies",
+            "firearms",
+            "tribal",
+            "inserting",
+            "tribe",
+            "defined",
+            "self",
+            "determination",
+            "education",
+            "assistance",
+            "access",
+            "apply",
+            "committee",
+            "department",
+            "amendments"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.152,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7698-119",
@@ -1229,7 +1428,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.122,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1244,7 +1443,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "federally",
+            "government",
+            "tribal",
+            "recognized",
+            "identification",
+            "firearm",
+            "body",
+            "members",
+            "tribes",
+            "use",
+            "documents",
+            "obtaining",
+            "licensed",
+            "firearms",
+            "dealer",
+            "html",
+            "pre",
+            "introduced",
+            "allow",
+            "bill"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.122,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7364-119",
@@ -1279,7 +1519,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.041,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1288,7 +1528,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "manslaughter",
+            "murder",
+            "second",
+            "degree",
+            "voluntary",
+            "non",
+            "capital",
+            "homicide",
+            "offenses",
+            "attempted",
+            "period",
+            "limitations",
+            "certain",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "eliminate",
+            "bill",
+            "code"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.041,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7331-119",
@@ -1323,7 +1604,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.054,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1332,7 +1613,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "dakota",
+            "water",
+            "feasibility",
+            "study",
+            "mainstem",
+            "secretary",
+            "regional",
+            "system",
+            "project",
+            "supply",
+            "south",
+            "reclamation",
+            "standards",
+            "federal",
+            "interior",
+            "determine",
+            "constructing",
+            "municipal",
+            "rural",
+            "industrial"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.054,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1034-119",
@@ -1367,7 +1689,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.091,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1387,7 +1709,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "resolution",
+            "one",
+            "described",
+            "questions",
+            "privilege",
+            "hundred",
+            "nineteenth",
+            "rules",
+            "offered",
+            "announcement",
+            "html",
+            "body",
+            "pre",
+            "res",
+            "relating",
+            "referred",
+            "rule",
+            "leader",
+            "unless",
+            "fifth"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.091,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7288-119",
@@ -1422,7 +1785,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1437,7 +1800,54 @@
             "financial"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "feasibility",
+            "project",
+            "water",
+            "study",
+            "secretary",
+            "supply",
+            "federal",
+            "rural",
+            "dakota",
+            "western",
+            "non",
+            "proposed",
+            "costs",
+            "regional",
+            "entity",
+            "report",
+            "conduct",
+            "system",
+            "construction",
+            "interior"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.036,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T16:57:48.956412+00:00",
@@ -1445,7 +1855,7 @@
   "donor_alignment_score": 15.0,
   "alec_match_count": 0,
   "donor_match_count": 3,
-  "edgar_status": "unresolved",
+  "edgar_status": "query_failed",
   "votes_fail_count": 47,
   "travel": [
     {
@@ -1676,9 +2086,47 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 2.0,
   "total_spent": 5553838.5,
   "cash_on_hand": 1398208.67,
-  "non_voting_delegate": false
+  "non_voting_delegate": false,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:50:11.733787"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:50:11.733787"
+    },
+    "request_failed": true
+  },
+  "edgar_checked": "2026-11-18T13:55:28.8694160Z",
+  "edgar_data_status": "unavailable",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:55:30.411551",
+    "legacy_source_votes_updated": "2026-11-18T09:29:52.371400",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:29:52.371400"
 }

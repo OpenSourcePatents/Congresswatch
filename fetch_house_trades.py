@@ -141,7 +141,7 @@ def load_json(path, default):
     """
     Load JSON from path.
 
-    Missing or empty files return `default`. An EXISTING, NON-EMPTY file
+    Missing files return `default`. An EXISTING file
     that fails to parse ABORTS the run — returning {} and later saving
     would silently wipe data written by other pipelines (votes, finance,
     bills).
@@ -155,7 +155,7 @@ def load_json(path, default):
         print(f"[FATAL] Cannot read {path}: {e}")
         raise SystemExit(1)
     if not content.strip():
-        return default
+        raise SystemExit(f"ABORT: existing JSON file is empty: {path}")
     try:
         return json.loads(content)
     except Exception as e:
@@ -231,7 +231,8 @@ def trade_key(t):
     so a same-day buy and sell of the same asset stay distinct."""
     return (
         t.get("ptr_link", ""),
-        t.get("transaction_date", ""),
+        to_iso_date(t.get("transaction_date", "")) or t.get("transaction_date", ""),
+        t.get("owner", ""),
         normalize_name(re.sub(r"<[^>]+>", "", t.get("asset_description", ""))),
         t.get("ticker", ""),
         t.get("type", ""),
@@ -407,8 +408,8 @@ TXN_LINE_RE = re.compile(
     r"(?P<type>[PSE](?:\s*\(partial\))?)\s+"
     r"(?P<tdate>\d{1,2}/\d{1,2}/\d{4})\s+"
     r"(?P<ndate>\d{1,2}/\d{1,2}/\d{4})\s+"
-    r"(?P<amount>\$[\d,]+(?:\s*-\s*\$[\d,]+)?|\$[\d,]+\s*-|"
-    r"Over\s+\$[\d,]+|\$[\d,]+\s*\+)"
+    r"(?P<amount>\$[\d,]+(?:\.\d{1,2})?(?:\s*-\s*\$[\d,]+(?:\.\d{1,2})?)?|\$[\d,]+(?:\.\d{1,2})?\s*-|"
+    r"Over\s+\$[\d,]+(?:\.\d{1,2})?|\$[\d,]+(?:\.\d{1,2})?\s*\+)"
     # Tolerate a trailing cap-gains checkbox glyph, but never swallow a
     # dangling range dash or amount digits (wrapped ranges end in "-").
     r"(?:\s+[^\s$\d,-]{1,2})?\s*$"
@@ -435,7 +436,7 @@ TICKER_RE = re.compile(r"\(([A-Z][A-Z0-9./\-]{0,11})\)")
 EXCHANGE_TICKER_RE = re.compile(
     r"\b(?:NYSEARCA|NASDAQ|NYSE|BATS|AMEX|OTC)\s*:\s*([A-Z][A-Z0-9./\-]{0,11})")
 ASSET_CODE_RE = re.compile(r"\[([A-Z0-9]{2,3})\]\s*$")
-AMOUNT_TAIL_RE = re.compile(r"^(.*?)\s*(\$[\d,]+)\s*$")
+AMOUNT_TAIL_RE = re.compile(r"^(.*?)\s*(\$[\d,]+(?:\.\d{1,2})?)\s*$")
 
 MAX_COMMENT_LEN = 600
 
@@ -616,15 +617,9 @@ def main():
     # ── Which index years to fetch ──────────────────────────────────
     current_year = datetime.now(timezone.utc).year
     prev_year = current_year - 1
-    prev_marker = f"/ptr-pdfs/{prev_year}/"
-    have_prev = any(prev_marker in link
-                    for links in existing_links.values() for link in links)
-
-    years = [current_year]
-    if not have_prev:
-        years.append(prev_year)
-        print(f"No {prev_year} House trades on record — "
-              f"including {prev_year} index")
+    # Revisit both indexes: finding one prior-year filing does not mean
+    # its backlog is complete. URL dedup avoids downloading settled PDFs.
+    years = [current_year, prev_year]
 
     # ── Fetch FD indexes ────────────────────────────────────────────
     all_filings = []
@@ -817,6 +812,9 @@ def main():
     print(f"Errors:                {stats['errors']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
+
+    if stats["errors"] or stats["parse_empty"]:
+        raise SystemExit("Incomplete House trade fetch; retained available records, retry required")
 
 
 if __name__ == "__main__":

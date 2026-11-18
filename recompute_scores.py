@@ -29,6 +29,8 @@ from datetime import datetime
 
 from fetch_finance import (
     load_json,
+    eligible_sec_signals,
+    annotate_sec_identity,
     save_json,
     compute_score_components,
     is_non_voting_delegate,
@@ -68,6 +70,14 @@ def main():
         # silently rescored to 0 and written back over good data.
         detail = load_json(detail_path, {})
 
+        annotate_sec_identity(m)
+        annotate_sec_identity(detail)
+        # Remove legacy automatic-identity activity flags, retain unrelated flags.
+        for record in (m, detail):
+            record["flags"] = [flag for flag in record.get("flags", []) if flag != "trade"]
+            if eligible_sec_signals(record) > 5:
+                record["flags"].append("trade")
+
         old = detail.get("score")
         components = compute_score_components(m, detail)
         score = min(sum(components.values()), 100)
@@ -80,6 +90,7 @@ def main():
         # Leaderboard promotion: these live in detail files only (bills/votes
         # pipelines never touch members.json), but the frontend grid reads them
         # from members.json — without this they can never render there.
+        m["bills_analysis_status"] = detail.get("bills_analysis_status", "unknown")
         m["alec_match_count"] = detail.get("alec_match_count", 0) or 0
         # Non-voting delegates carry a flag instead of a percentage. Their
         # upstream vote records are inconsistent (some read 0% missed, some
@@ -100,14 +111,23 @@ def main():
             detail["missed_votes_pct"] = pct
             m["missed_votes_pct"] = pct
 
+        else:
+            # A previously populated percentage must not outlive its input.
+            detail["missed_votes_pct"] = None
+            m["missed_votes_pct"] = None
+
         # Safe merge: only touch the score fields, leave every other
         # pipeline's data in the detail file untouched.
         detail["score"] = score
         detail["score_components"] = components
         detail["score_updated"] = now
-        save_json(detail_path, detail)
 
         m["score"] = score
+        m["score_components"] = components
+        m["score_updated"] = now
+        m["score_methodology"] = "activity-v4-bill-integrity"
+        detail["score_methodology"] = m["score_methodology"]
+        save_json(detail_path, detail)
 
     save_json(OUTPUT_FILE, members)
 
@@ -115,6 +135,11 @@ def main():
     # reason — rebuild it here rather than leaving fetch_finance's snapshot.
     stats = load_json(STATS_FILE, {})
     stats["total_members"] = len(members)
+    stats["total_insider_signals"] = sum(eligible_sec_signals(m) for m in members)
+    stats["raw_sec_candidate_filings"] = sum(m.get("corporate_insider_signals") or 0 for m in members)
+    stats["sec_identity_unverified_members"] = sum(bool(m.get("edgar_cik")) and m.get("edgar_identity_status") != "verified" for m in members)
+    stats["sec_stale_members"] = sum(m.get("edgar_data_status") == "stale" for m in members)
+    stats["sec_unavailable_members"] = sum(m.get("edgar_data_status") == "unavailable" for m in members)
     stats["members_with_scores"] = sum(1 for m in members if (m.get("score") or 0) > 0)
     stats["high_anomaly"] = sum(1 for m in members if (m.get("score") or 0) >= 60)
     stats["last_updated"] = now

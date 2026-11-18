@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412709,
-  "votes_updated": "2026-11-18T09:32:09.370317",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "B001301",
   "name": "Jack Bergman",
@@ -918,7 +918,7 @@
   "corporate_insider_signals": 0,
   "edgar_signal_type": "corporate_insider",
   "data_updated": "2026-11-18T13:59:45.912778",
-  "last_updated": "2026-11-18T13:59:45.912778",
+  "last_updated": "2026-11-17T14:29:16.806978",
   "bills": [
     {
       "bill_id": "HR11000-119",
@@ -929,56 +929,79 @@
       "introduced_date": "2026-11-11",
       "latest_action": "Referred to the House Committee on Veterans' Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/hr/11000?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "uuid",
-        "afc",
-        "vms",
-        "enk",
-        "ard",
-        "kyd",
-        "amwx",
-        "vmo",
-        "umo",
-        "mpn",
-        "fhz",
-        "tnp"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.001,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9683-119",
-          "sponsor_id": "M001236",
-          "similarity_score": 0.988
-        },
-        {
-          "bill_id": "HR9834-119",
-          "sponsor_id": "B001322",
-          "similarity_score": 0.988
-        },
-        {
-          "bill_id": "HR9919-119",
-          "sponsor_id": "M001218",
-          "similarity_score": 0.988
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "uuid",
+            "afc",
+            "vms",
+            "enk",
+            "ard",
+            "kyd",
+            "amwx",
+            "vmo",
+            "umo",
+            "mpn",
+            "fhz",
+            "tnp"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.001,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9683-119",
+              "sponsor_id": "M001236",
+              "similarity_score": 0.988
+            },
+            {
+              "bill_id": "HR9834-119",
+              "sponsor_id": "B001322",
+              "similarity_score": 0.988
+            },
+            {
+              "bill_id": "HR9919-119",
+              "sponsor_id": "M001218",
+              "similarity_score": 0.988
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR10919-119",
@@ -1013,7 +1036,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.076,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1033,7 +1056,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "covered",
+            "safety",
+            "net",
+            "outpatient",
+            "drugs",
+            "entity",
+            "health",
+            "service",
+            "drug",
+            "described",
+            "certain",
+            "providers",
+            "ceiling",
+            "price",
+            "purchase",
+            "manufacturer",
+            "iii",
+            "required",
+            "time",
+            "pricing"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.076,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1635-119",
@@ -1068,16 +1132,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.043,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HRES822-119",
-          "sponsor_id": "H001068",
-          "similarity_score": 0.941
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "H001068",
         "M001237",
@@ -1094,7 +1152,54 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "marine",
+            "national",
+            "sanctuaries",
+            "sanctuary",
+            "lakes",
+            "great",
+            "october",
+            "ocean",
+            "waters",
+            "day",
+            "conservation",
+            "cultural",
+            "access",
+            "recreation",
+            "supporting",
+            "designation",
+            "resources",
+            "system",
+            "underwater",
+            "world"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.043,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HRES822-119",
+              "sponsor_id": "H001068",
+              "similarity_score": 0.941
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10751-119",
@@ -1129,7 +1234,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.094,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1141,7 +1246,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "health",
+            "dental",
+            "program",
+            "indian",
+            "therapist",
+            "services",
+            "community",
+            "aide",
+            "certification",
+            "standards",
+            "scope",
+            "care",
+            "improvement",
+            "provision",
+            "committee",
+            "introduced",
+            "remove",
+            "restrictions",
+            "purposes",
+            "bill"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.094,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10510-119",
@@ -1176,7 +1322,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.085,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1185,7 +1331,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "transaction",
+            "conservation",
+            "easement",
+            "secretary",
+            "taxpayer",
+            "qualified",
+            "respect",
+            "covered",
+            "appraisal",
+            "relating",
+            "code",
+            "purposes",
+            "case",
+            "purpose",
+            "settlement",
+            "program",
+            "internal",
+            "revenue",
+            "dispute",
+            "value"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.085,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8782-119",
@@ -1220,7 +1407,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.071,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1233,7 +1420,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "vehicles",
+            "snow",
+            "machinery",
+            "emergency",
+            "clean",
+            "air",
+            "dedicated",
+            "use",
+            "removal",
+            "definition",
+            "covered",
+            "fleet",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "introduced",
+            "include",
+            "municipal",
+            "examples"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.071,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR412-119",
@@ -1268,7 +1496,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.07,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1279,7 +1507,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "tribe",
+            "land",
+            "bay",
+            "mills",
+            "indian",
+            "community",
+            "michigan",
+            "convey",
+            "held",
+            "authorize",
+            "interests",
+            "agent",
+            "instrumentality",
+            "transfer",
+            "lease",
+            "trust",
+            "benefit",
+            "introduced",
+            "state",
+            "owned"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.07,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR411-119",
@@ -1314,7 +1583,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.068,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1323,7 +1592,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "reservation",
+            "community",
+            "lands",
+            "land",
+            "swamp",
+            "canal",
+            "state",
+            "indian",
+            "treaty",
+            "within",
+            "compensation",
+            "secretary",
+            "use",
+            "claims",
+            "boundaries",
+            "referred",
+            "bay",
+            "just",
+            "exterior",
+            "acres"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.068,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1558-119",
@@ -1358,7 +1668,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.117,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1369,7 +1679,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "health",
+            "care",
+            "centers",
+            "safety",
+            "net",
+            "patient",
+            "services",
+            "patients",
+            "drugs",
+            "definition",
+            "prescription",
+            "single",
+            "role",
+            "drug",
+            "federally",
+            "qualified",
+            "provide",
+            "program",
+            "maintain",
+            "continue"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.117,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10419-119",
@@ -1404,7 +1755,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.106,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1421,7 +1772,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "dental",
+            "services",
+            "veterans",
+            "program",
+            "pilot",
+            "community",
+            "secretary",
+            "department",
+            "based",
+            "rural",
+            "providers",
+            "care",
+            "areas",
+            "access",
+            "eligible",
+            "veteran",
+            "outreach",
+            "furnished",
+            "include",
+            "health"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.106,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T17:23:42.119353+00:00",
@@ -1438,8 +1830,48 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 46
+  "votes_fail_count": 46,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:59:45.912778"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:59:45.912778"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T13:59:45.912778",
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_updated": "2026-11-18T13:59:45.912778",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:57:49.167709",
+    "legacy_source_votes_updated": "2026-11-18T09:32:09.370317",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:32:09.370317"
 }

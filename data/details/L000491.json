@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 400247,
-  "votes_updated": "2026-11-18T09:30:44.760125",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "L000491",
   "name": "Frank D. Lucas",
@@ -927,7 +927,7 @@
   "cash_on_hand": 570473.65,
   "total_raised_display": "$472K",
   "data_updated": "2026-11-18T13:54:00.835105",
-  "last_updated": "2026-11-18T13:54:00.835105",
+  "last_updated": "2026-11-17T14:23:14.866679",
   "bills": [
     {
       "bill_id": "HR9153-119",
@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.022,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -971,7 +971,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "defense",
+            "military",
+            "installations",
+            "national",
+            "authorization",
+            "fiscal",
+            "year",
+            "certain",
+            "guidance",
+            "aggregate",
+            "square",
+            "footage",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "exempt",
+            "regarding",
+            "maintenance",
+            "facilities"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.022,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8087-119",
@@ -1006,16 +1047,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.056,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4198-119",
-          "sponsor_id": "H000601",
-          "similarity_score": 0.983
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1034,7 +1069,67 @@
             "insurance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "insurance",
+            "insured",
+            "amount",
+            "deposit",
+            "federal",
+            "transaction",
+            "noninterest",
+            "bearing",
+            "account",
+            "credit",
+            "accounts",
+            "depository",
+            "described",
+            "union",
+            "net",
+            "corporation",
+            "deposits",
+            "institution",
+            "end",
+            "period"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.056,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4198-119",
+              "sponsor_id": "H000601",
+              "similarity_score": 0.983
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "bank",
+                "financial",
+                "credit",
+                "interest"
+              ],
+              "Healthcare": [
+                "insurance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6967-119",
@@ -1069,7 +1164,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1088,7 +1183,56 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "committee",
+            "commission",
+            "advisory",
+            "members",
+            "securities",
+            "company",
+            "companies",
+            "chair",
+            "exchange",
+            "bill",
+            "membership",
+            "union",
+            "within",
+            "issues",
+            "relating",
+            "meetings",
+            "recommendations",
+            "serve",
+            "years",
+            "secretary"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.051,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "securities",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR5089-119",
@@ -1123,7 +1267,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1155,7 +1299,60 @@
             "climate"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "weather",
+            "research",
+            "national",
+            "tsunami",
+            "inserting",
+            "program",
+            "striking",
+            "subparagraph",
+            "data",
+            "warning",
+            "forecasting",
+            "authorized",
+            "system",
+            "innovation",
+            "computing",
+            "secretary",
+            "forecast",
+            "new",
+            "support",
+            "technology"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.074,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Oil & Gas"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "derivative"
+              ],
+              "Oil & Gas": [
+                "energy",
+                "offshore",
+                "climate"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR4459-119",
@@ -1190,7 +1387,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1205,7 +1402,54 @@
             "financial"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "cent",
+            "coin",
+            "one",
+            "composition",
+            "coins",
+            "inserting",
+            "nickel",
+            "striking",
+            "grams",
+            "zinc",
+            "tender",
+            "weighs",
+            "respect",
+            "alloy",
+            "copper",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "permit"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.042,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR3816-119",
@@ -1240,7 +1484,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.067,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1272,7 +1516,60 @@
             "climate"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "weather",
+            "research",
+            "tsunami",
+            "national",
+            "program",
+            "inserting",
+            "subparagraph",
+            "warning",
+            "forecasting",
+            "secretary",
+            "striking",
+            "data",
+            "authorized",
+            "warnings",
+            "information",
+            "system",
+            "support",
+            "technology",
+            "innovation",
+            "hurricane"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.067,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Oil & Gas"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "derivative"
+              ],
+              "Oil & Gas": [
+                "energy",
+                "offshore",
+                "climate"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR3690-119",
@@ -1307,7 +1604,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.043,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1324,7 +1621,56 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "commission",
+            "financial",
+            "technology",
+            "labcftc",
+            "innovation",
+            "report",
+            "information",
+            "exchange",
+            "committee",
+            "emerging",
+            "strategic",
+            "hub",
+            "commodity",
+            "engagement",
+            "securities",
+            "futures",
+            "trading",
+            "finhub",
+            "working",
+            "regulations"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.043,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "securities",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR3244-119",
@@ -1359,7 +1705,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1378,7 +1724,58 @@
             "provider"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "factoring",
+            "small",
+            "agreement",
+            "business",
+            "facility",
+            "transaction",
+            "concern",
+            "provider",
+            "amount",
+            "transactions",
+            "payment",
+            "concerns",
+            "agreements",
+            "respect",
+            "disclosure",
+            "terms",
+            "fees",
+            "claim",
+            "reserve",
+            "receivable"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.074,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "loan"
+              ],
+              "Healthcare": [
+                "provider"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR2563-119",
@@ -1413,7 +1810,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.026,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1424,7 +1821,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "administration",
+            "aviation",
+            "federal",
+            "lapse",
+            "academy",
+            "training",
+            "activities",
+            "government",
+            "ensure",
+            "air",
+            "traffic",
+            "controller",
+            "appropriations",
+            "furlough",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "continuity",
+            "event"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.026,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR1713-119",
@@ -1459,7 +1897,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.033,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1486,7 +1924,55 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "agricultural",
+            "transaction",
+            "agriculture",
+            "land",
+            "committee",
+            "secretary",
+            "foreign",
+            "republic",
+            "respect",
+            "covered",
+            "reportable",
+            "people",
+            "defense",
+            "production",
+            "investment",
+            "subparagraph",
+            "person",
+            "html",
+            "body",
+            "pre"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.033,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T17:09:22.414866+00:00",
@@ -1695,8 +2181,48 @@
     "foreign_travel": 3,
     "attendance": 1
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "missed_votes_pct": 6.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 43
+  "votes_fail_count": 43,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:54:00.835105"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:54:00.835105"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T13:54:00.835105",
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_updated": "2026-11-18T13:54:00.835105",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:56:21.654207",
+    "legacy_source_votes_updated": "2026-11-18T09:30:44.760125",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:30:44.760125"
 }

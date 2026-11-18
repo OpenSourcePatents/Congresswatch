@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 456942,
-  "votes_updated": "2026-11-18T09:29:16.014412",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "L000603",
   "name": "Morgan Luttrell",
@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000603.jpg",
   "term_start": "2023-01-01",
-  "score": 7,
+  "score": 6,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577485",
   "corporate_insider_signals": 0,
@@ -925,7 +925,7 @@
   "cash_on_hand": 349120.4,
   "total_raised_display": "$333K",
   "data_updated": "2026-11-18T13:47:39.157732",
-  "last_updated": "2026-11-18T13:47:39.157732",
+  "last_updated": "2026-11-17T14:15:11.823853",
   "bills": [
     {
       "bill_id": "HR11046-119",
@@ -936,58 +936,81 @@
       "introduced_date": "2026-11-17",
       "latest_action": "Referred to the House Committee on Homeland Security.",
       "url": "https://api.congress.gov/v3/bill/119/hr/11046?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "endstream",
-        "font",
-        "procset",
-        "text",
-        "nrh",
-        "yoa",
-        "usx",
-        "wms",
-        "ekk",
-        "fac",
-        "qjp",
-        "evl",
-        "pqf",
-        "rno",
-        "wmo",
-        "fol"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10340-119",
-          "sponsor_id": "K000398",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10040-119",
-          "sponsor_id": "T000481",
-          "similarity_score": 0.997
-        },
-        {
-          "bill_id": "HR9792-119",
-          "sponsor_id": "P000605",
-          "similarity_score": 0.995
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "T000486"
       ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "endstream",
+            "font",
+            "procset",
+            "text",
+            "nrh",
+            "yoa",
+            "usx",
+            "wms",
+            "ekk",
+            "fac",
+            "qjp",
+            "evl",
+            "pqf",
+            "rno",
+            "wmo",
+            "fol"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10340-119",
+              "sponsor_id": "K000398",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10040-119",
+              "sponsor_id": "T000481",
+              "similarity_score": 0.997
+            },
+            {
+              "bill_id": "HR9792-119",
+              "sponsor_id": "P000605",
+              "similarity_score": 0.995
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR8820-119",
@@ -1022,7 +1045,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1035,7 +1058,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "army",
+            "expeditionary",
+            "combat",
+            "aviation",
+            "brigades",
+            "secretary",
+            "congressional",
+            "aircraft",
+            "enactment",
+            "defense",
+            "committees",
+            "funds",
+            "deactivation",
+            "use",
+            "otherwise",
+            "capabilities",
+            "resources",
+            "personnel",
+            "restore",
+            "plan"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.042,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR2137-119",
@@ -1070,7 +1134,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.076,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1095,7 +1159,54 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "board",
+            "secretary",
+            "veterans",
+            "appeals",
+            "claim",
+            "report",
+            "decision",
+            "affairs",
+            "claims",
+            "benefits",
+            "court",
+            "respect",
+            "administered",
+            "decisions",
+            "remand",
+            "laws",
+            "general",
+            "code",
+            "new",
+            "submit"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.076,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8552-119",
@@ -1130,16 +1241,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.062,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4487-119",
-          "sponsor_id": "M000934",
-          "similarity_score": 0.96
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "M001220",
         "R000622",
@@ -1151,7 +1256,54 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "compensation",
+            "veterans",
+            "amounts",
+            "dollar",
+            "rates",
+            "dependency",
+            "indemnity",
+            "increase",
+            "increased",
+            "december",
+            "affairs",
+            "disability",
+            "secretary",
+            "specified",
+            "determination",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "service"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.062,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4487-119",
+              "sponsor_id": "M000934",
+              "similarity_score": 0.96
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR4697-119",
@@ -1186,7 +1338,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1195,7 +1347,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "code",
+            "aggravating",
+            "death",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "adding",
+            "additional",
+            "factor",
+            "considered",
+            "determining",
+            "whether",
+            "sentence",
+            "warranted",
+            "bill",
+            "illegal",
+            "alien",
+            "kill",
+            "congressional"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.053,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9559-119",
@@ -1230,7 +1423,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.134,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1262,7 +1455,65 @@
             "hhs"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "health",
+            "drug",
+            "priority",
+            "secretary",
+            "national",
+            "general",
+            "eligible",
+            "voucher",
+            "application",
+            "veterans",
+            "investigational",
+            "affairs",
+            "food",
+            "product",
+            "attorney",
+            "controlled",
+            "review",
+            "federal",
+            "emerging",
+            "interventions"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.134,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Agriculture",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Agriculture": [
+                "food"
+              ],
+              "Healthcare": [
+                "insurance",
+                "physician",
+                "mental_health",
+                "hhs"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6456-119",
@@ -1297,7 +1548,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.016,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1309,7 +1560,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "secretary",
+            "veterans",
+            "affairs",
+            "remains",
+            "fernando",
+            "cota",
+            "texas",
+            "fort",
+            "sam",
+            "houston",
+            "national",
+            "cemetery",
+            "disinter",
+            "next",
+            "kin",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "require"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.016,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR4762-119",
@@ -1344,7 +1636,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.041,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1359,7 +1651,54 @@
             "food"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "russian",
+            "federation",
+            "drug",
+            "body",
+            "export",
+            "prohibit",
+            "drugs",
+            "prosthetics",
+            "html",
+            "pre",
+            "introduced",
+            "bill",
+            "medical",
+            "prohibition",
+            "prosthetic",
+            "food",
+            "includes",
+            "component",
+            "military",
+            "ukraine"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.041,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Agriculture"
+            ],
+            "keyword_hits": {
+              "Agriculture": [
+                "food"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES551-119",
@@ -1394,7 +1733,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.027,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1414,7 +1753,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "suicide",
+            "national",
+            "according",
+            "day",
+            "health",
+            "stop",
+            "suisilence",
+            "veterans",
+            "institutes",
+            "death",
+            "die",
+            "someone",
+            "government",
+            "res",
+            "prevention",
+            "lives",
+            "designation",
+            "resolution",
+            "department",
+            "community"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.027,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR3983-119",
@@ -1449,7 +1829,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.073,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1461,7 +1841,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "board",
+            "veterans",
+            "secretary",
+            "appeals",
+            "decisions",
+            "affairs",
+            "claims",
+            "report",
+            "program",
+            "decision",
+            "administered",
+            "claim",
+            "quality",
+            "respect",
+            "benefits",
+            "general",
+            "employee",
+            "remand",
+            "training",
+            "chairman"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.073,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T16:51:53.851159+00:00",
@@ -1693,13 +2114,53 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 4,
+    "donor_alignment": 3,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "votes_fail_count": 50,
   "missed_votes_pct": 2.0,
-  "non_voting_delegate": false
+  "non_voting_delegate": false,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:47:39.157732"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:47:39.157732"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T13:47:39.157732",
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_updated": "2026-11-18T13:47:39.157732",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:54:53.272361",
+    "legacy_source_votes_updated": "2026-11-18T09:29:16.014412",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:29:16.014412"
 }

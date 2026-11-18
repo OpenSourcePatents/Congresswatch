@@ -1,0 +1,79 @@
+name: One-shot review data regeneration
+on:
+  push:
+    branches: ['overhaul/source-review-2026-11-16']
+    paths: ['.github/workflows/review-regenerate-once.yml']
+permissions:
+  contents: read
+concurrency:
+  group: review-offline-regeneration-2026-11-16
+  cancel-in-progress: false
+jobs:
+  regenerate:
+    if: github.repository == 'OpenSourcePatents/Congresswatch' && github.ref == 'refs/heads/overhaul/source-review-2026-11-16'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install scorer import dependency
+        run: pip install requests
+      - name: Regenerate offline and audit all members
+        run: |
+          python reconcile_main_review.py
+          python recompute_scores.py
+          python build_aggregates.py
+          python audit_data.py > /tmp/review-data-audit.json
+      - name: Verify exact reviewed data (timestamps excluded)
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          members = json.loads(Path("data/members.json").read_text())
+          paths = sorted(["data/members.json", "data/stats.json", "data/trades.json", "data/bills.json"] + [str(p) for p in Path("data/details").glob("*.json")])
+          def normalize(value):
+              if isinstance(value, dict):
+                  return {k: normalize(v) for k, v in value.items() if k not in ("score_updated", "last_updated")}
+              if isinstance(value, list):
+                  return [normalize(v) for v in value]
+              return value
+          digest = hashlib.sha256()
+          for path in paths:
+              digest.update((path + "\n").encode())
+              digest.update(json.dumps(normalize(json.loads(Path(path).read_text())), sort_keys=True, separators=(",", ":")).encode())
+              digest.update(b"\n")
+          actual = digest.hexdigest()
+          expected = "c655cf76b190e391e7eee4ca15b94b16d758cedeef2c63c4574375f5755b805e"
+          print(f"Verified files: {len(paths)}; normalized SHA256: {actual}")
+          assert len(paths) == 549 and actual == expected, "Generated data differs from reviewed local output; refusing publication"
+          Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 549 current/former-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nPinned main through 506ac59adf260d987646832cdcff7d8a9b762225 is reconciled with true merge ancestry. See MAIN_RECONCILIATION_REVIEW.md. Latest source arrays are preserved verbatim, including malformed bill IDs. The 77 affected members from finance run268 retain prior paired values marked stale/unavailable; all main observations are archived and no identity is newly verified. Failed vote attempt times are distinguished from unknown successful freshness. Scores use activity-v4-bill-integrity: all unverified SEC candidates are excluded from attribution and scoring, while raw evidence is retained. See SEC_IDENTITY_REVIEW.md and BILL_TEXT_INTEGRITY_REVIEW.md. Pinned Nov18 bill/trade/travel deltas are adopted; legacy similarities are quarantined with original evidence retained pending clean-corpus refit. This remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
+          log = Path("changelog/2026-11-16-session-1.md")
+          text = log.read_text()
+          prefix = "> SOURCE-ONLY REVIEW: regenerated data described below is in the full artifact, NOT this branch. See SOURCE_ONLY_REVIEW.md. Do not deploy this branch alone.\n\n"
+          if text.startswith(prefix):
+              text = text[len(prefix):]
+          log.write_text("> Offline regenerated data is now included on this review branch and matched the reviewed local digest. No merge or production deployment performed.\n\n" + text)
+          PY
+      - name: Commit only reviewed data to the exact review ref
+        env:
+          EXPECTED_HEAD: ${{ github.sha }}
+        run: |
+          set -eu
+          test "$GITHUB_REF" = "refs/heads/overhaul/source-review-2026-11-16"
+          remote_head="$(git ls-remote origin refs/heads/overhaul/source-review-2026-11-16 | cut -f1)"
+          test "$remote_head" = "$EXPECTED_HEAD"
+          main_head="$(git ls-remote origin refs/heads/main | cut -f1)"
+          test "$main_head" = "506ac59adf260d987646832cdcff7d8a9b762225"
+          git config user.name "CongressWatch review bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json SOURCE_ONLY_REVIEW.md changelog/2026-11-16-session-1.md
+          git diff --cached --check
+          git commit -m "Reconcile pinned main source evidence without restoring unsafe findings [skip ci]"
+          git push origin HEAD:refs/heads/overhaul/source-review-2026-11-16

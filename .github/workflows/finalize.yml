@@ -1,5 +1,6 @@
 name: Finalize (rescore + publish aggregates)
-# Runs LAST, after every fetcher has landed its data for the day:
+# Scheduled after the source jobs (15:00 UTC). Cron delays can still reorder
+# execution, so this publishes a consistent snapshot of whatever is on disk:
 #   1am fetch · 2am votes · 5am finance · 7am bills
 #   8am senate-efd · 9am travel · 10am house-trades · 11am donors
 #
@@ -12,7 +13,7 @@ name: Finalize (rescore + publish aggregates)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '0 15 * * *'
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false
@@ -31,6 +32,8 @@ jobs:
         run: python recompute_scores.py
       - name: Build corpus-wide trade + bill aggregates
         run: python build_aggregates.py
+      - name: Audit published member records
+        run: python audit_data.py
       - name: Save data
         run: |
           git config --global user.name "bot"

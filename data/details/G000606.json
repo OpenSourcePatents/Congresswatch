@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 457037,
-  "votes_updated": "2026-11-18T09:36:19.954695",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "G000606",
   "name": "Adelita S. Grijalva",
@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000606.jpg",
   "term_start": "2025-01-01",
-  "score": 22,
+  "score": 5,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577183",
   "corporate_insider_signals": 0,
@@ -925,7 +925,7 @@
   "cash_on_hand": "375540.57",
   "total_raised_display": "$2.0M",
   "data_updated": "2026-11-18T14:19:04.491533",
-  "last_updated": "2026-11-18T14:19:04.491533",
+  "last_updated": "2026-11-17T14:50:02.899333",
   "bills": [
     {
       "bill_id": "HR10672-119",
@@ -936,67 +936,90 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10672?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wks",
-        "wms",
-        "vms",
-        "tob",
-        "pdf",
-        "xhb",
-        "tdo",
-        "tsmc",
-        "xou",
-        "vtjd",
-        "sxp",
-        "dtr",
-        "rzev",
-        "vgw",
-        "yrq",
-        "xeub"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10063-119",
-          "sponsor_id": "O000172",
-          "similarity_score": 0.98
-        },
-        {
-          "bill_id": "HR11040-119",
-          "sponsor_id": "D000635",
-          "similarity_score": 0.98
-        },
-        {
-          "bill_id": "HR10449-119",
-          "sponsor_id": "M001211",
-          "similarity_score": 0.97
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S000185",
         "D000631",
         "L000273"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Education"
-        ],
-        "keyword_hits": {
-          "Education": [
-            "education",
-            "student"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wks",
+            "wms",
+            "vms",
+            "tob",
+            "pdf",
+            "xhb",
+            "tdo",
+            "tsmc",
+            "xou",
+            "vtjd",
+            "sxp",
+            "dtr",
+            "rzev",
+            "vgw",
+            "yrq",
+            "xeub"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10063-119",
+              "sponsor_id": "O000172",
+              "similarity_score": 0.98
+            },
+            {
+              "bill_id": "HR11040-119",
+              "sponsor_id": "D000635",
+              "similarity_score": 0.98
+            },
+            {
+              "bill_id": "HR10449-119",
+              "sponsor_id": "M001211",
+              "similarity_score": 0.97
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "student"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR10557-119",
@@ -1031,16 +1054,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5532-119",
-          "sponsor_id": "W000779",
-          "similarity_score": 0.844
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000557",
         "A000381",
@@ -1057,7 +1074,54 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "social",
+            "security",
+            "administrative",
+            "offset",
+            "railroad",
+            "benefits",
+            "apply",
+            "retirement",
+            "black",
+            "lung",
+            "committee",
+            "case",
+            "provisions",
+            "adding",
+            "end",
+            "subparagraphs",
+            "enactment",
+            "striking",
+            "introduced",
+            "restore"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.053,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5532-119",
+              "sponsor_id": "W000779",
+              "similarity_score": 0.844
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8850-119",
@@ -1092,7 +1156,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1123,7 +1187,59 @@
             "property"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "secretary",
+            "project",
+            "fund",
+            "conservation",
+            "proposal",
+            "assistance",
+            "amounts",
+            "freshwater",
+            "general",
+            "america",
+            "north",
+            "islands",
+            "species",
+            "treasury",
+            "pacific",
+            "desert",
+            "projects",
+            "fish",
+            "mussel",
+            "submitted"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.069,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ],
+              "Real Estate": [
+                "development",
+                "property"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10438-119",
@@ -1158,7 +1274,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.129,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1188,7 +1304,62 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "language",
+            "programs",
+            "program",
+            "children",
+            "dual",
+            "english",
+            "secretary",
+            "immersion",
+            "education",
+            "high",
+            "low",
+            "income",
+            "learners",
+            "entity",
+            "evaluation",
+            "eligible",
+            "students",
+            "school",
+            "development",
+            "quality"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.129,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "school",
+                "student",
+                "teacher",
+                "grant"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10436-119",
@@ -1199,123 +1370,13 @@
       "introduced_date": "2026-09-16",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10436?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wms",
-        "wks",
-        "vks",
-        "cty",
-        "jfb",
-        "tjg",
-        "utp",
-        "ciw",
-        "uuq",
-        "sxf",
-        "pdf",
-        "nha",
-        "xbwj",
-        "tly",
-        "kcyv",
-        "wuq"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10833-119",
-          "sponsor_id": "T000488",
-          "similarity_score": 0.978
-        },
-        {
-          "bill_id": "HR9706-119",
-          "sponsor_id": "G000583",
-          "similarity_score": 0.975
-        },
-        {
-          "bill_id": "HR10434-119",
-          "sponsor_id": "G000581",
-          "similarity_score": 0.973
-        }
-      ],
-      "cosponsors": [
-        "V000130",
-        "N000147",
-        "W000808",
-        "E000297",
-        "S001218",
-        "A000370"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Education"
-        ],
-        "keyword_hits": {
-          "Education": [
-            "education"
-          ]
-        }
-      }
-    },
-    {
-      "bill_id": "HR10437-119",
-      "title": "To improve the English language and literacy skills of English language learners and their families, and for other purposes.",
-      "type": "HR",
-      "number": "10437",
-      "congress": 119,
-      "introduced_date": "2026-09-16",
-      "latest_action": "Referred to the House Committee on Education and Workforce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10437?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wks",
-        "vms",
-        "wms",
-        "vmo",
-        "jbv",
-        "mhb",
-        "wmo",
-        "jnq",
-        "pdf",
-        "cus",
-        "ivc",
-        "ezbnn",
-        "phs",
-        "oprp",
-        "rlh",
-        "eln"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9778-119",
-          "sponsor_id": "G000599",
-          "similarity_score": 0.961
-        },
-        {
-          "bill_id": "HR11036-119",
-          "sponsor_id": "W000831",
-          "similarity_score": 0.958
-        },
-        {
-          "bill_id": "HR10041-119",
-          "sponsor_id": "V000138",
-          "similarity_score": 0.957
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "V000130",
         "N000147",
@@ -1327,8 +1388,164 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wms",
+            "wks",
+            "vks",
+            "cty",
+            "jfb",
+            "tjg",
+            "utp",
+            "ciw",
+            "uuq",
+            "sxf",
+            "pdf",
+            "nha",
+            "xbwj",
+            "tly",
+            "kcyv",
+            "wuq"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10833-119",
+              "sponsor_id": "T000488",
+              "similarity_score": 0.978
+            },
+            {
+              "bill_id": "HR9706-119",
+              "sponsor_id": "G000583",
+              "similarity_score": 0.975
+            },
+            {
+              "bill_id": "HR10434-119",
+              "sponsor_id": "G000581",
+              "similarity_score": 0.973
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
+    },
+    {
+      "bill_id": "HR10437-119",
+      "title": "To improve the English language and literacy skills of English language learners and their families, and for other purposes.",
+      "type": "HR",
+      "number": "10437",
+      "congress": 119,
+      "introduced_date": "2026-09-16",
+      "latest_action": "Referred to the House Committee on Education and Workforce.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/10437?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [
+        "V000130",
+        "N000147",
+        "W000808",
+        "E000297",
+        "S001218",
+        "A000370"
+      ],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wks",
+            "vms",
+            "wms",
+            "vmo",
+            "jbv",
+            "mhb",
+            "wmo",
+            "jnq",
+            "pdf",
+            "cus",
+            "ivc",
+            "ezbnn",
+            "phs",
+            "oprp",
+            "rlh",
+            "eln"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9778-119",
+              "sponsor_id": "G000599",
+              "similarity_score": 0.961
+            },
+            {
+              "bill_id": "HR11036-119",
+              "sponsor_id": "W000831",
+              "similarity_score": 0.958
+            },
+            {
+              "bill_id": "HR10041-119",
+              "sponsor_id": "V000138",
+              "similarity_score": 0.957
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR10273-119",
@@ -1363,16 +1580,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.085,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5304-119",
-          "sponsor_id": "P000145",
-          "similarity_score": 0.954
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "N000147",
         "W000808",
@@ -1395,7 +1606,60 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "january",
+            "hours",
+            "labor",
+            "subparagraph",
+            "fair",
+            "standards",
+            "agricultural",
+            "employer",
+            "specified",
+            "employees",
+            "workers",
+            "respect",
+            "workweek",
+            "beginning",
+            "employed",
+            "follows",
+            "employs",
+            "begin",
+            "employee",
+            "commerce"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.085,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5304-119",
+              "sponsor_id": "P000145",
+              "similarity_score": 0.954
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1385-119",
@@ -1430,16 +1694,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.1,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SRES785-119",
-          "sponsor_id": "H001042",
-          "similarity_score": 0.984
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S001205",
         "T000481",
@@ -1465,7 +1723,63 @@
             "college"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "education",
+            "women",
+            "sex",
+            "girls",
+            "students",
+            "rights",
+            "opportunities",
+            "discrimination",
+            "based",
+            "civil",
+            "sexual",
+            "equal",
+            "educational",
+            "harassment",
+            "department",
+            "office",
+            "amendments",
+            "continue",
+            "administration",
+            "school"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.1,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SRES785-119",
+              "sponsor_id": "H001042",
+              "similarity_score": 0.984
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "school",
+                "student",
+                "college"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8971-119",
@@ -1500,7 +1814,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.037,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1520,7 +1834,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "noncitizen",
+            "veteran",
+            "veterans",
+            "eligible",
+            "removal",
+            "removed",
+            "secretary",
+            "service",
+            "armed",
+            "general",
+            "status",
+            "forces",
+            "immigration",
+            "member",
+            "crime",
+            "admitted",
+            "residence",
+            "proceedings",
+            "nationality",
+            "lawfully"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.037,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1139-119",
@@ -1555,7 +1910,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.106,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1578,14 +1933,67 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "middle",
+            "education",
+            "level",
+            "month",
+            "national",
+            "students",
+            "grade",
+            "school",
+            "young",
+            "adolescents",
+            "goals",
+            "ideals",
+            "march",
+            "schools",
+            "educate",
+            "critical",
+            "nation",
+            "research",
+            "html",
+            "body"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.106,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "school",
+                "college"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T18:17:46.578399+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
@@ -1739,14 +2147,54 @@
   "donors_updated": "2026-11-17T19:48:22.267521+00:00",
   "score_components": {
     "trade_timing": 0,
-    "wealth_gap": 15,
-    "donor_alignment": 7,
+    "wealth_gap": 0,
+    "donor_alignment": 5,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "votes_fail_count": 50,
   "missed_votes_pct": 0.0,
-  "non_voting_delegate": false
+  "non_voting_delegate": false,
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_checked": "2026-11-18T14:19:04.491533",
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "query_failed"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:19:04.491533"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T14:19:04.491533"
+    },
+    "request_failed": false
+  },
+  "edgar_updated": "2026-11-18T14:19:04.491533",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T10:02:02.774058",
+    "legacy_source_votes_updated": "2026-11-18T09:36:19.954695",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:36:19.954695"
 }

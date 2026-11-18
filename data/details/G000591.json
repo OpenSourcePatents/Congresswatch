@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412793,
-  "votes_updated": "2026-11-18T09:31:56.821356",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "G000591",
   "name": "Michael Guest",
@@ -927,7 +927,7 @@
   "cash_on_hand": 780057.84,
   "total_raised_display": "$625K",
   "data_updated": "2026-11-18T13:58:54.739082",
-  "last_updated": "2026-11-18T13:58:54.739082",
+  "last_updated": "2026-11-17T14:28:20.286565",
   "bills": [
     {
       "bill_id": "HRES1653-119",
@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.026,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -982,7 +982,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "veterans",
+            "day",
+            "mrs",
+            "america",
+            "war",
+            "service",
+            "sacrifice",
+            "world",
+            "november",
+            "carter",
+            "georgia",
+            "texas",
+            "armistice",
+            "res",
+            "honoring",
+            "jackson",
+            "illinois",
+            "louisiana",
+            "north",
+            "carolina"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.026,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10739-119",
@@ -993,58 +1034,81 @@
       "introduced_date": "2026-10-05",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10739?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wks",
-        "wms",
-        "wko",
-        "vms",
-        "pdf",
-        "vks",
-        "poo",
-        "zrh",
-        "lvs",
-        "die",
-        "wyp",
-        "khk",
-        "tlfjj",
-        "jyk",
-        "bgj",
-        "yjs"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR11040-119",
-          "sponsor_id": "D000635",
-          "similarity_score": 0.965
-        },
-        {
-          "bill_id": "HR9714-119",
-          "sponsor_id": "S001221",
-          "similarity_score": 0.959
-        },
-        {
-          "bill_id": "HR9782-119",
-          "sponsor_id": "J000305",
-          "similarity_score": 0.959
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001061"
       ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wks",
+            "wms",
+            "wko",
+            "vms",
+            "pdf",
+            "vks",
+            "poo",
+            "zrh",
+            "lvs",
+            "die",
+            "wyp",
+            "khk",
+            "tlfjj",
+            "jyk",
+            "bgj",
+            "yjs"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR11040-119",
+              "sponsor_id": "D000635",
+              "similarity_score": 0.965
+            },
+            {
+              "bill_id": "HR9714-119",
+              "sponsor_id": "S001221",
+              "similarity_score": 0.959
+            },
+            {
+              "bill_id": "HR9782-119",
+              "sponsor_id": "J000305",
+              "similarity_score": 0.959
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1252-119",
@@ -1079,7 +1143,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.013,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1099,7 +1163,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "john",
+            "officers",
+            "james",
+            "charles",
+            "william",
+            "enforcement",
+            "thomas",
+            "robert",
+            "george",
+            "frank",
+            "michael",
+            "joseph",
+            "david",
+            "resolution",
+            "line",
+            "duty",
+            "mark",
+            "dennis",
+            "patrick",
+            "edward"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.013,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1505-119",
@@ -1134,7 +1239,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.019,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1143,7 +1248,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "resolved",
+            "roos",
+            "hector",
+            "res",
+            "found",
+            "contempt",
+            "failure",
+            "comply",
+            "subpoena",
+            "issued",
+            "august",
+            "speaker",
+            "subpoenas",
+            "congressional",
+            "bills",
+            "government",
+            "publishing",
+            "office",
+            "engrossed",
+            "doc"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.019,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1504-119",
@@ -1178,7 +1324,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.019,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1187,7 +1333,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "resolved",
+            "joseph",
+            "september",
+            "michael",
+            "res",
+            "found",
+            "contempt",
+            "failure",
+            "comply",
+            "subpoena",
+            "issued",
+            "speaker",
+            "subpoenas",
+            "congressional",
+            "bills",
+            "government",
+            "publishing",
+            "office",
+            "engrossed",
+            "doc"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.019,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1498-119",
@@ -1222,7 +1409,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.027,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1231,7 +1418,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "representative",
+            "edwards",
+            "calendar",
+            "matter",
+            "allegations",
+            "relating",
+            "chuck",
+            "resolution",
+            "res",
+            "report",
+            "reported",
+            "session",
+            "august",
+            "committee",
+            "ethics",
+            "referred",
+            "ordered",
+            "printed",
+            "censured",
+            "congressional"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.027,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1320-119",
@@ -1266,7 +1494,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.03,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1286,7 +1514,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "day",
+            "memorial",
+            "men",
+            "women",
+            "freedom",
+            "peace",
+            "mrs",
+            "honor",
+            "forces",
+            "died",
+            "pursuit",
+            "carter",
+            "sacrifice",
+            "faith",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "res",
+            "calling"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.03,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6029-119",
@@ -1321,7 +1590,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.025,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1334,7 +1603,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "crime",
+            "stopper",
+            "organizations",
+            "transaction",
+            "exempt",
+            "respect",
+            "cash",
+            "reward",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "bank",
+            "secrecy",
+            "transactions",
+            "payments",
+            "certain",
+            "currency",
+            "reports",
+            "bill"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.025,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES864-119",
@@ -1369,7 +1679,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.024,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1389,7 +1699,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "veterans",
+            "mrs",
+            "day",
+            "america",
+            "war",
+            "service",
+            "sacrifice",
+            "world",
+            "november",
+            "ohio",
+            "texas",
+            "armistice",
+            "html",
+            "body",
+            "pre",
+            "res",
+            "honoring",
+            "new",
+            "florida",
+            "mccormick"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.024,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR4071-119",
@@ -1424,7 +1775,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1436,7 +1787,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "country",
+            "government",
+            "foreign",
+            "security",
+            "operations",
+            "customs",
+            "border",
+            "protection",
+            "support",
+            "homeland",
+            "subparagraph",
+            "committee",
+            "activities",
+            "general",
+            "described",
+            "efforts",
+            "iii",
+            "payment",
+            "claim",
+            "person"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.036,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
   "bills_updated": "2026-11-18T17:21:41.165185+00:00",
@@ -1797,8 +2189,48 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-17T20:07:40.039311",
+  "score_updated": "2026-11-18T19:33:59.210103",
   "votes_fail_count": 46,
   "missed_votes_pct": 0.0,
-  "non_voting_delegate": false
+  "non_voting_delegate": false,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:58:54.739082"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:58:54.739082"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-18T13:58:54.739082",
+  "edgar_cik": null,
+  "edgar_data_status": "unresolved",
+  "edgar_updated": "2026-11-18T13:58:54.739082",
+  "votes_refresh_provenance": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "run": 44276045061,
+    "legacy_review_votes_updated": "2026-11-17T09:57:35.709155",
+    "legacy_source_votes_updated": "2026-11-18T09:31:56.821356",
+    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+  },
+  "votes_checked": "2026-11-18T09:31:56.821356"
 }

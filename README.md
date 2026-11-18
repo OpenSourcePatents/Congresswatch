@@ -1,16 +1,16 @@
 CongressWatch 🔍
 "V1 is now V3, R.I.P v2"
-535 Members. Zero Accountability.
+Public records. Public accountability.
 A free, open-source public accountability tool that tracks U.S. Congress members using 100% public government records. No ads. No sponsors. No political agenda. Just data.
-🌐 Live site: congresswatch.vercel.app
+🌐 Live site: www.congresswatch.us
 🐦 Follow updates: [@opnsorcepatents](https://x.com/opnsorcepatents)
 
 What Is This?
 CongressWatch cross-references public records from multiple government databases to generate an Anomaly Score (0–100) for every sitting member of Congress. The score is a statistical indicator — not a legal judgment — that highlights patterns worth public attention.
-High scores mean the data shows unusual patterns. Low scores mean the data looks typical. Every number links to its source.
+Higher scores reflect more of the implemented signals in the available records. Low scores may reflect missing or stale data, not a clean bill of health. Review source filings and coverage before drawing conclusions.
 
 Data Sources
-All data is 100% public record, legally obtained via official government APIs.
+The active pipelines use public government disclosures, government APIs, GovTrack, and LegiScan. Availability and source coverage vary. A missing record is not evidence of no activity.
 
 
 
@@ -18,27 +18,27 @@ All data is 100% public record, legally obtained via official government APIs.
 |-------------------------------------------|----------------------------------------------------|
 |**[Congress.gov](http://Congress.gov) API**|Member bios, committee assignments, official records|
 |**[FEC.gov](http://FEC.gov) API**          |Campaign finance, PAC donations, individual donors  |
-|**SEC EDGAR**                              |STOCK Act trade disclosures (Form 4)                |
+|**SEC EDGAR**                              |Corporate-insider Form 4 filings (not STOCK Act PTRs)                |
 |**Senate eFD**                             |Senate financial disclosure reports                 |
 |**House eFD**                              |House financial disclosure reports                  |
 |**LegiScan API**                           |Full bill text for NLP similarity analysis          |
 |**[GovTrack.us](http://GovTrack.us)**      |Voting history, ideology scores                     |
-|**OpenSecrets**                            |Career finance totals, industry breakdowns          |
+
 |**BioGuide (Congress)**                    |Official member photos                              |
 
 How The Anomaly Score Works
-Each member receives a score from 0–100 based on six weighted signals:
+The score retains a 0–100 scale with six component slots. The personal-wealth component is disabled (0 points) until sourced personal financial data exists; the other components are not rescaled. Campaign fundraising is not personal wealth. These are heuristic activity indicators, not a validated probability of misconduct:
 
 
 
 |Signal              |Weight|What It Measures                                   |
 |--------------------|------|---------------------------------------------------|
-|Stock trade timing  |25%   |Trades within 30 days of related legislation       |
-|Wealth gap          |25%   |Net worth vs. cumulative congressional salary      |
-|Donor-vote alignment|20%   |Does their voting record match donor interests?    |
-|Bill authorship     |15%   |Are their bills copied from lobbying org templates?|
-|Foreign travel      |10%   |Trips sponsored by foreign-connected entities      |
-|Attendance          |5%    |Missed votes while collecting full salary          |
+|Disclosed trade activity|25%   |Recent disclosed-trade counts and SEC signals       |
+|Personal wealth     |25%   |Unavailable: no sourced personal wealth data      |
+|Bill/donor overlap|20%   |Bill-language overlap with donor industry keywords    |
+|Model-bill similarity|15%   |TF-IDF text overlap with model templates|
+|Disclosed travel    |10%   |Recorded gift trips, including domestic travel      |
+|Attendance          |5%    |Missed votes within the available sample          |
 
 Attendance methodology: scored over the most recent 100 roll-call votes per
 member (GovTrack `vote_voter`, `fetch_votes.VOTE_WINDOW`). A "missed" vote is a
@@ -67,19 +67,20 @@ point, not the same number.
 Important: The anomaly score is a statistical indicator only. It does not imply illegal activity or wrongdoing. All inputs are from public records. Full methodology is open source and auditable in this repository.
 
 The Bill Similarity Engine
-The most unique feature of CongressWatch is the NLP bill similarity engine. Using TF-IDF vectorization and cosine similarity, it compares the text of every bill in Congress to detect when “independently authored” bills share suspiciously similar language — revealing coordinated third-party authorship from lobbying organizations like ALEC, PhRMA, and others.
-This feature does not exist in any other public tool.
+The bill pipeline compares fetched bill text using TF-IDF vectorization and cosine similarity. It reports related bills and overlap with the stored model-legislation corpus at an 0.80 match threshold. Coverage is limited to fetched bills, available full text, and the current template corpus, not every bill in Congress.
+
+Text similarity does not establish who wrote a bill, coordination, lobbying influence, copying, or wrongdoing. Shared language can reflect common legal provisions or related proposals. Matches are research leads requiring independent source review. Keyword overlap with donor industries is not evidence of how a member voted or why.
 
 How To Save As An App On Your Phone
 CongressWatch is a web app, which means you can add it to your home screen and it works exactly like a native app — no App Store required.
 iPhone (Safari):
-	1.	Go to congresswatch.vercel.app in Safari
+	1.	Go to www.congresswatch.us in Safari
 	2.	Tap the Share button (box with arrow pointing up)
 	3.	Scroll down and tap “Add to Home Screen”
 	4.	Tap “Add”
 	5.	CongressWatch now appears on your home screen like any app
 Android (Chrome):
-	1.	Go to congresswatch.vercel.app in Chrome
+	1.	Go to www.congresswatch.us in Chrome
 	2.	Tap the three dots menu (top right)
 	3.	Tap “Add to Home Screen”
 	4.	Tap “Add”
@@ -96,7 +97,7 @@ Roadmap / Coming Soon
 	∙	Full member profile pages — dedicated page per member with complete trade history, donor breakdown, bill list, vote record timeline
 	∙	Live stock trade alerts — push notifications when a member makes a trade
 	∙	Donor network graph — visual map of who funds who
-	∙	Bill similarity explorer — browse clusters of ghost-written legislation
+	∙	Bill similarity explorer — browse clusters of similar bill text
 	∙	Compare mode — side by side comparison of any two members
 	∙	Leaderboards — most trades, biggest wealth gap, most missed votes
 	∙	Download raw data — CSV/JSON export of everything
