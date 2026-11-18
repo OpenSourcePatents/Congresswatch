@@ -1101,9 +1101,17 @@
         "T000490"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data",
+            "privacy",
+            "surveillance"
+          ]
+        }
       }
     },
     {
@@ -1139,7 +1147,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.018,
+      "alec_best_similarity": 0.019,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1263,11 +1271,17 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Real Estate",
+          "Technology"
         ],
         "keyword_hits": {
           "Real Estate": [
             "development"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "spectrum"
           ]
         }
       }
@@ -1362,11 +1376,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Real Estate",
+          "Technology"
         ],
         "keyword_hits": {
           "Real Estate": [
             "construction"
+          ],
+          "Technology": [
+            "social_media"
           ]
         }
       }
@@ -1476,11 +1494,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-17T17:56:23.881742+00:00",
+  "bills_updated": "2026-11-18T17:31:23.286377+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "trades": [
     {

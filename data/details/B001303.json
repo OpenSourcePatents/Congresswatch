@@ -924,25 +924,59 @@
   "bills": [
     {
       "bill_id": "S5718-119",
-      "title": "A bill to amend title 49, United States Code, with respect to restroom access for certain drivers, and for other purposes.",
+      "title": "Trucker Bathroom Access Act",
       "type": "S",
       "number": "5718",
       "congress": 119,
       "introduced_date": "2026-11-12",
       "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
       "url": "https://api.congress.gov/v3/bill/119/s/5718?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "covered",
+        "restroom",
+        "access",
+        "drayage",
+        "truck",
+        "operator",
+        "driver",
+        "establishment",
+        "terminal",
+        "operators",
+        "drivers",
+        "vehicle",
+        "goods",
+        "cargo",
+        "code",
+        "located",
+        "use",
+        "obvious",
+        "risk",
+        "port"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.05,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "F000463"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Insurance",
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Insurance": [
+            "risk"
+          ],
+          "Real Estate": [
+            "construction",
+            "property"
+          ]
+        }
       }
     },
     {
@@ -1356,11 +1390,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-17T18:48:50.307757+00:00",
+  "bills_updated": "2026-11-18T18:34:07.488777+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
