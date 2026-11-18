@@ -27,7 +27,7 @@ jobs:
         run: pip install requests
       - name: Regenerate offline and audit all members
         run: |
-          python reconcile_bill_integrity_review.py
+          python reconcile_main_review.py
           python recompute_scores.py
           python build_aggregates.py
           python audit_data.py > /tmp/review-data-audit.json
@@ -50,10 +50,10 @@ jobs:
               digest.update(json.dumps(normalize(json.loads(Path(path).read_text())), sort_keys=True, separators=(",", ":")).encode())
               digest.update(b"\n")
           actual = digest.hexdigest()
-          expected = "1eb53054b8b30ef10b1d852d70003ef456ca7d1bda20890bfbaa40d77fbd9c36"
+          expected = "c655cf76b190e391e7eee4ca15b94b16d758cedeef2c63c4574375f5755b805e"
           print(f"Verified files: {len(paths)}; normalized SHA256: {actual}")
           assert len(paths) == 549 and actual == expected, "Generated data differs from reviewed local output; refusing publication"
-          Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 549 current/former-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nPinned main through 4e506f241a14427b17273d24e90176ec8d809676 is reconciled. Latest source arrays are preserved verbatim, including malformed bill IDs. The 95 SEC alias failures from finance run267 retain prior paired values marked stale/unavailable, never newly verified. Scores use activity-v4-bill-integrity: all unverified SEC candidates are excluded from attribution and scoring, while raw evidence is retained. See SEC_IDENTITY_REVIEW.md and BILL_TEXT_INTEGRITY_REVIEW.md. Pinned Nov18 bill/trade/travel deltas are adopted; legacy similarities are quarantined with original evidence retained pending clean-corpus refit. This remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
+          Path("SOURCE_ONLY_REVIEW.md").write_text("# Review branch: source and regenerated data\n\nThe initially source-only branch now includes offline regenerated member scores and aggregates. All 549 current/former-member/aggregate JSON documents matched the reviewed local output after excluding only generated score_updated/last_updated timestamps. audit_data.py passed.\n\nPinned main through 506ac59adf260d987646832cdcff7d8a9b762225 is reconciled with true merge ancestry. See MAIN_RECONCILIATION_REVIEW.md. Latest source arrays are preserved verbatim, including malformed bill IDs. The 77 affected members from finance run268 retain prior paired values marked stale/unavailable; all main observations are archived and no identity is newly verified. Failed vote attempt times are distinguished from unknown successful freshness. Scores use activity-v4-bill-integrity: all unverified SEC candidates are excluded from attribution and scoring, while raw evidence is retained. See SEC_IDENTITY_REVIEW.md and BILL_TEXT_INTEGRITY_REVIEW.md. Pinned Nov18 bill/trade/travel deltas are adopted; legacy similarities are quarantined with original evidence retained pending clean-corpus refit. This remains an unmerged review branch, not a production deployment. Coordinate OSP-API scoring compatibility and unresolved source-coverage gaps before deployment. No external source refresh, database migration or deployment was performed.\n\nRollback baseline: b9e5ac11ed0a3bae72353735c234b6fd5a19a3a7 (backup/pre-overhaul-2026-11-16).\n")
           log = Path("changelog/2026-11-16-session-1.md")
           text = log.read_text()
           prefix = "> SOURCE-ONLY REVIEW: regenerated data described below is in the full artifact, NOT this branch. See SOURCE_ONLY_REVIEW.md. Do not deploy this branch alone.\n\n"
@@ -69,9 +69,11 @@ jobs:
           test "$GITHUB_REF" = "refs/heads/overhaul/source-review-2026-11-16"
           remote_head="$(git ls-remote origin refs/heads/overhaul/source-review-2026-11-16 | cut -f1)"
           test "$remote_head" = "$EXPECTED_HEAD"
+          main_head="$(git ls-remote origin refs/heads/main | cut -f1)"
+          test "$main_head" = "506ac59adf260d987646832cdcff7d8a9b762225"
           git config user.name "CongressWatch review bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json SOURCE_ONLY_REVIEW.md changelog/2026-11-16-session-1.md
           git diff --cached --check
-          git commit -m "Quarantine polluted bill analysis and preserve latest source records [skip ci]"
+          git commit -m "Reconcile pinned main source evidence without restoring unsafe findings [skip ci]"
           git push origin HEAD:refs/heads/overhaul/source-review-2026-11-16
