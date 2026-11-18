@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000188.jpg",
   "term_start": "2014-01-01",
-  "score": 17,
+  "score": 16,
   "flags": [
     "donor"
   ],
@@ -938,63 +938,86 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the House Committee on Education and Workforce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10689?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "wms",
-        "wks",
-        "vms",
-        "eie",
-        "jiv",
-        "avdy",
-        "ltztpt",
-        "zgo",
-        "yil",
-        "reuvu",
-        "dywk",
-        "yee"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9937-119",
-          "sponsor_id": "S001188",
-          "similarity_score": 0.989
-        },
-        {
-          "bill_id": "HR9737-119",
-          "sponsor_id": "D000623",
-          "similarity_score": 0.988
-        },
-        {
-          "bill_id": "HR10684-119",
-          "sponsor_id": "M001232",
-          "similarity_score": 0.986
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Education"
-        ],
-        "keyword_hits": {
-          "Education": [
-            "education",
-            "grant"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "wms",
+            "wks",
+            "vms",
+            "eie",
+            "jiv",
+            "avdy",
+            "ltztpt",
+            "zgo",
+            "yil",
+            "reuvu",
+            "dywk",
+            "yee"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9937-119",
+              "sponsor_id": "S001188",
+              "similarity_score": 0.989
+            },
+            {
+              "bill_id": "HR9737-119",
+              "sponsor_id": "D000623",
+              "similarity_score": 0.988
+            },
+            {
+              "bill_id": "HR10684-119",
+              "sponsor_id": "M001232",
+              "similarity_score": 0.986
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "grant"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR10452-119",
@@ -1029,16 +1052,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.13,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4897-119",
-          "sponsor_id": "K000367",
-          "similarity_score": 0.974
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1054,7 +1071,64 @@
             "pell"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "learning",
+            "prior",
+            "credit",
+            "education",
+            "higher",
+            "assessment",
+            "allowance",
+            "costs",
+            "assessments",
+            "adding",
+            "end",
+            "eligible",
+            "institution",
+            "include",
+            "cost",
+            "attendance",
+            "striking",
+            "introduced",
+            "calculation",
+            "bill"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.13,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4897-119",
+              "sponsor_id": "K000367",
+              "similarity_score": 0.974
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "student",
+                "college",
+                "grant",
+                "pell"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10301-119",
@@ -1089,7 +1163,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.038,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1098,7 +1172,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "mcguire",
+            "american",
+            "labor",
+            "medal",
+            "gold",
+            "peter",
+            "movement",
+            "carpenters",
+            "national",
+            "medals",
+            "hour",
+            "workday",
+            "secretary",
+            "congressional",
+            "contributions",
+            "america",
+            "gains",
+            "workers",
+            "appropriate",
+            "struck"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.037,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9790-119",
@@ -1133,16 +1248,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.088,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4941-119",
-          "sponsor_id": "M000133",
-          "similarity_score": 0.946
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000599",
         "T000469",
@@ -1160,7 +1269,60 @@
             "telemedicine"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "methadone",
+            "subparagraph",
+            "opioid",
+            "use",
+            "disorder",
+            "addiction",
+            "board",
+            "treatment",
+            "practitioners",
+            "medicine",
+            "state",
+            "registered",
+            "individual",
+            "access",
+            "pharmacies",
+            "prescribing",
+            "certification",
+            "american",
+            "registration",
+            "care"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.088,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4941-119",
+              "sponsor_id": "M000133",
+              "similarity_score": 0.946
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "telemedicine"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9684-119",
@@ -1195,16 +1357,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.108,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4961-119",
-          "sponsor_id": "H001046",
-          "similarity_score": 0.993
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "F000466",
         "V000138"
@@ -1231,7 +1387,72 @@
             "curriculum"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "apprenticeship",
+            "program",
+            "pre",
+            "registered",
+            "entity",
+            "secretary",
+            "education",
+            "eligible",
+            "programs",
+            "state",
+            "workforce",
+            "training",
+            "grant",
+            "development",
+            "educational",
+            "described",
+            "activities",
+            "individuals",
+            "career",
+            "local"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.108,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4961-119",
+              "sponsor_id": "H001046",
+              "similarity_score": 0.993
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Healthcare",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development"
+              ],
+              "Healthcare": [
+                "provider"
+              ],
+              "Education": [
+                "education",
+                "school",
+                "grant",
+                "curriculum"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1392-119",
@@ -1266,7 +1487,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.05,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1292,7 +1513,58 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "swim",
+            "drowning",
+            "national",
+            "children",
+            "swimming",
+            "water",
+            "learn",
+            "percent",
+            "safety",
+            "among",
+            "lessons",
+            "reduce",
+            "access",
+            "supporting",
+            "designation",
+            "week",
+            "june",
+            "leading",
+            "death",
+            "ages"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.05,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Insurance",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Insurance": [
+                "risk"
+              ],
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1140-119",
@@ -1327,26 +1599,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.024,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HRES1055-119",
-          "sponsor_id": "S001214",
-          "similarity_score": 0.87
-        },
-        {
-          "bill_id": "HRES1363-119",
-          "sponsor_id": "R000606",
-          "similarity_score": 0.865
-        },
-        {
-          "bill_id": "HRES1386-119",
-          "sponsor_id": "L000596",
-          "similarity_score": 0.859
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1358,7 +1614,70 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "bill",
+            "consideration",
+            "accelerate",
+            "workplace",
+            "time",
+            "contract",
+            "national",
+            "labor",
+            "relations",
+            "resolution",
+            "html",
+            "body",
+            "pre",
+            "res",
+            "providing",
+            "committee",
+            "points",
+            "order",
+            "waived",
+            "considered"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.023,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HRES1055-119",
+              "sponsor_id": "S001214",
+              "similarity_score": 0.87
+            },
+            {
+              "bill_id": "HRES1363-119",
+              "sponsor_id": "R000606",
+              "similarity_score": 0.865
+            },
+            {
+              "bill_id": "HRES1386-119",
+              "sponsor_id": "L000596",
+              "similarity_score": 0.859
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7471-119",
@@ -1393,7 +1712,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.083,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1415,7 +1734,54 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "wage",
+            "beginning",
+            "labor",
+            "effect",
+            "fair",
+            "hour",
+            "standards",
+            "year",
+            "minimum",
+            "years",
+            "amount",
+            "determined",
+            "special",
+            "america",
+            "increase",
+            "period",
+            "employees",
+            "rate",
+            "give",
+            "raise"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.083,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7116-119",
@@ -1450,7 +1816,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.054,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1484,7 +1850,65 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "sepsis",
+            "health",
+            "director",
+            "programs",
+            "hospitals",
+            "hospital",
+            "program",
+            "pediatric",
+            "data",
+            "committee",
+            "research",
+            "national",
+            "human",
+            "disease",
+            "prevention",
+            "centers",
+            "core",
+            "elements",
+            "services",
+            "establish"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.054,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Healthcare",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Healthcare": [
+                "healthcare",
+                "hospital",
+                "medicaid",
+                "medicare"
+              ],
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR5970-119",
@@ -1519,7 +1943,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.032,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1550,14 +1974,67 @@
             "grant"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "program",
+            "historic",
+            "secretary",
+            "military",
+            "vessel",
+            "grant",
+            "department",
+            "preservation",
+            "vessels",
+            "covered",
+            "site",
+            "support",
+            "ships",
+            "naval",
+            "ship",
+            "maritime",
+            "eligible",
+            "service",
+            "guard",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.032,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development"
+              ],
+              "Education": [
+                "education",
+                "grant"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:51:00.301138+00:00",
+  "bills_updated": "2026-11-18T17:25:44.693322+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 45.0,
+  "donor_alignment_score": 40.0,
   "alec_match_count": 0,
-  "donor_match_count": 9,
+  "donor_match_count": 8,
   "edgar_status": "unresolved",
   "travel": [
     {
@@ -1694,7 +2171,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600009604.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.472978+00:00",
+  "travel_updated": "2026-11-18T17:40:54.532242+00:00",
   "travel_count": 9,
   "top_donors_list": [
     {
@@ -1852,17 +2329,18 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 9,
+    "donor_alignment": 8,
     "alec_similarity": 0,
     "foreign_travel": 7,
     "attendance": 1
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 3.0,
   "non_voting_delegate": false,
   "votes_fail_count": 42,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

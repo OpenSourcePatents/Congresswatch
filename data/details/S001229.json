@@ -936,64 +936,87 @@
       "introduced_date": "2026-10-15",
       "latest_action": "Referred to the House Committee on Financial Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10830?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "uuid",
-        "vms",
-        "lvh",
-        "uqp",
-        "qkj",
-        "vbb",
-        "fsj",
-        "hrh",
-        "jvrgi",
-        "pjx",
-        "fdp",
-        "jjd"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.001,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9683-119",
-          "sponsor_id": "M001236",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10036-119",
-          "sponsor_id": "P000620",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10665-119",
-          "sponsor_id": "D000624",
-          "similarity_score": 0.996
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "G000604"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Real Estate": [
-            "development"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "uuid",
+            "vms",
+            "lvh",
+            "uqp",
+            "qkj",
+            "vbb",
+            "fsj",
+            "hrh",
+            "jvrgi",
+            "pjx",
+            "fdp",
+            "jjd"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.001,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9683-119",
+              "sponsor_id": "M001236",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10036-119",
+              "sponsor_id": "P000620",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10665-119",
+              "sponsor_id": "D000624",
+              "similarity_score": 0.996
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR10705-119",
@@ -1004,50 +1027,13 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10705?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "enr",
-        "type",
-        "oht",
-        "dfjq",
-        "tmuyk",
-        "avq",
-        "zes",
-        "woj",
-        "fjc",
-        "cyn",
-        "ccl",
-        "gjr"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10401-119",
-          "sponsor_id": "T000488",
-          "similarity_score": 0.978
-        },
-        {
-          "bill_id": "HR10502-119",
-          "sponsor_id": "M001240",
-          "similarity_score": 0.974
-        },
-        {
-          "bill_id": "HR9636-119",
-          "sponsor_id": "O000177",
-          "similarity_score": 0.969
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S001230",
         "M001226",
@@ -1057,8 +1043,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "enr",
+            "type",
+            "oht",
+            "dfjq",
+            "tmuyk",
+            "avq",
+            "zes",
+            "woj",
+            "fjc",
+            "cyn",
+            "ccl",
+            "gjr"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10401-119",
+              "sponsor_id": "T000488",
+              "similarity_score": 0.978
+            },
+            {
+              "bill_id": "HR10502-119",
+              "sponsor_id": "M001240",
+              "similarity_score": 0.974
+            },
+            {
+              "bill_id": "HR9636-119",
+              "sponsor_id": "O000177",
+              "similarity_score": 0.969
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR8635-119",
@@ -1093,7 +1139,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1101,10 +1147,67 @@
         "T000490"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data",
+            "privacy",
+            "surveillance"
+          ]
+        }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "program",
+            "save",
+            "verification",
+            "secretary",
+            "data",
+            "accuracy",
+            "immigration",
+            "privacy",
+            "purposes",
+            "general",
+            "agencies",
+            "federal",
+            "timeliness",
+            "security",
+            "automated",
+            "applicable",
+            "status",
+            "information",
+            "enactment",
+            "eligibility"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.051,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "data",
+                "privacy",
+                "surveillance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8527-119",
@@ -1139,7 +1242,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.018,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1161,7 +1264,59 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "animal",
+            "community",
+            "essential",
+            "rural",
+            "consolidated",
+            "farm",
+            "development",
+            "shelters",
+            "facilities",
+            "direct",
+            "shelter",
+            "facility",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "designate",
+            "eligible",
+            "loans",
+            "grants"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.019,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "loan",
+                "investment"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1449-119",
@@ -1196,7 +1351,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.039,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1215,7 +1370,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "indycar",
+            "freedom",
+            "grand",
+            "prix",
+            "american",
+            "racing",
+            "district",
+            "columbia",
+            "august",
+            "held",
+            "sporting",
+            "race",
+            "national",
+            "government",
+            "res",
+            "expressing",
+            "support",
+            "mrs",
+            "resolution",
+            "motor"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.039,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9880-119",
@@ -1250,7 +1446,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.048,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1263,14 +1459,73 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Real Estate",
+          "Technology"
         ],
         "keyword_hits": {
           "Real Estate": [
             "development"
+          ],
+          "Technology": [
+            "technology",
+            "data",
+            "spectrum"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "gps",
+            "system",
+            "positioning",
+            "infrastructure",
+            "global",
+            "modernization",
+            "satellites",
+            "transportation",
+            "defense",
+            "timing",
+            "systems",
+            "enterprise",
+            "control",
+            "security",
+            "committee",
+            "constellation",
+            "navigation",
+            "required",
+            "accelerate",
+            "deployment"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.048,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Technology": [
+                "technology",
+                "data",
+                "spectrum"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9020-119",
@@ -1305,7 +1560,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1316,7 +1571,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "nations",
+            "funding",
+            "interim",
+            "force",
+            "lebanon",
+            "unifil",
+            "beginning",
+            "october",
+            "committee",
+            "mandate",
+            "department",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "introduced",
+            "prohibit",
+            "purposes",
+            "bill",
+            "referred"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.053,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7633-119",
@@ -1351,7 +1647,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.035,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1362,14 +1658,69 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Real Estate",
+          "Technology"
         ],
         "keyword_hits": {
           "Real Estate": [
             "construction"
+          ],
+          "Technology": [
+            "social_media"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "foreign",
+            "assistance",
+            "flag",
+            "displayed",
+            "secretary",
+            "state",
+            "necessary",
+            "requirement",
+            "branding",
+            "visual",
+            "element",
+            "determines",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "introduced",
+            "require",
+            "bill",
+            "display"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.035,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction"
+              ],
+              "Technology": [
+                "social_media"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7236-119",
@@ -1404,7 +1755,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.041,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1415,7 +1766,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "list",
+            "child",
+            "placement",
+            "state",
+            "licensed",
+            "agencies",
+            "secretary",
+            "national",
+            "end",
+            "agency",
+            "private",
+            "fiscal",
+            "year",
+            "maintain",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "provide",
+            "health"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.041,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7121-119",
@@ -1450,7 +1842,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1473,10 +1865,61 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "government",
+            "application",
+            "covered",
+            "federal",
+            "agency",
+            "use",
+            "chinese",
+            "device",
+            "applications",
+            "days",
+            "office",
+            "head",
+            "controlled",
+            "cybersecurity",
+            "secretary",
+            "executive",
+            "entity",
+            "people",
+            "republic",
+            "china"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.042,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:56:23.881742+00:00",
+  "bills_updated": "2026-11-18T17:31:23.286377+00:00",
   "bills_count": 10,
   "donor_alignment_score": 25.0,
   "alec_match_count": 0,
@@ -1730,7 +2173,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.829248+00:00",
+  "travel_updated": "2026-11-18T17:40:54.725182+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -1892,12 +2335,13 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 49,
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

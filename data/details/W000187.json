@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.076,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -996,7 +996,62 @@
             "mental_health"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "health",
+            "state",
+            "urban",
+            "administrator",
+            "fiscal",
+            "year",
+            "care",
+            "amounts",
+            "services",
+            "defined",
+            "program",
+            "application",
+            "allotment",
+            "appropriated",
+            "funds",
+            "allotted",
+            "area",
+            "approved",
+            "use",
+            "transformation"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.076,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial"
+              ],
+              "Healthcare": [
+                "hospital",
+                "medicaid",
+                "medicare",
+                "provider",
+                "mental_health"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8777-119",
@@ -1031,7 +1086,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.025,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1050,7 +1105,58 @@
             "lending"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "rule",
+            "relating",
+            "fed",
+            "reg",
+            "consumer",
+            "financial",
+            "protection",
+            "bureau",
+            "submitted",
+            "withdrawal",
+            "circular",
+            "practices",
+            "credit",
+            "reporting",
+            "guidance",
+            "collection",
+            "bulletin",
+            "certain",
+            "fair",
+            "debt"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.025,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "credit",
+                "loan",
+                "interest",
+                "lending"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HJRES179-119",
@@ -1085,26 +1191,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.016,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SJRES164-119",
-          "sponsor_id": "R000608",
-          "similarity_score": 0.965
-        },
-        {
-          "bill_id": "HJRES181-119",
-          "sponsor_id": "G000587",
-          "similarity_score": 0.962
-        },
-        {
-          "bill_id": "HJRES160-119",
-          "sponsor_id": "G000553",
-          "similarity_score": 0.96
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1116,7 +1206,70 @@
             "financial"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "consumer",
+            "protection",
+            "rule",
+            "financial",
+            "relating",
+            "submitted",
+            "congressional",
+            "bureau",
+            "withdrawal",
+            "circular",
+            "insufficient",
+            "data",
+            "security",
+            "sensitive",
+            "information",
+            "html",
+            "body",
+            "pre",
+            "res",
+            "providing"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.016,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SJRES164-119",
+              "sponsor_id": "R000608",
+              "similarity_score": 0.965
+            },
+            {
+              "bill_id": "HJRES181-119",
+              "sponsor_id": "G000587",
+              "similarity_score": 0.962
+            },
+            {
+              "bill_id": "HJRES160-119",
+              "sponsor_id": "G000553",
+              "similarity_score": 0.96
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HJRES170-119",
@@ -1151,26 +1304,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.018,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SJRES129-119",
-          "sponsor_id": "C001113",
-          "similarity_score": 0.961
-        },
-        {
-          "bill_id": "HJRES184-119",
-          "sponsor_id": "L000562",
-          "similarity_score": 0.959
-        },
-        {
-          "bill_id": "HJRES177-119",
-          "sponsor_id": "F000454",
-          "similarity_score": 0.953
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1183,7 +1320,71 @@
             "credit"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "rule",
+            "relating",
+            "submitted",
+            "financial",
+            "congressional",
+            "bureau",
+            "consumer",
+            "protection",
+            "withdrawal",
+            "fair",
+            "credit",
+            "reporting",
+            "limited",
+            "preemption",
+            "state",
+            "laws",
+            "html",
+            "body",
+            "pre",
+            "res"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.018,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SJRES129-119",
+              "sponsor_id": "C001113",
+              "similarity_score": 0.961
+            },
+            {
+              "bill_id": "HJRES184-119",
+              "sponsor_id": "L000562",
+              "similarity_score": 0.959
+            },
+            {
+              "bill_id": "HJRES177-119",
+              "sponsor_id": "F000454",
+              "similarity_score": 0.953
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "credit"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10325-119",
@@ -1218,7 +1419,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.122,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1236,7 +1437,57 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "contribution",
+            "federal",
+            "home",
+            "loan",
+            "banks",
+            "affordable",
+            "housing",
+            "program",
+            "introduced",
+            "increase",
+            "mandatory",
+            "amount",
+            "purposes",
+            "bill",
+            "subsequent",
+            "years",
+            "year",
+            "congressional",
+            "bills",
+            "government"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.122,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "bank",
+                "financial",
+                "loan",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8030-119",
@@ -1271,7 +1522,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.039,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1288,7 +1539,56 @@
             "securities"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fraud",
+            "entity",
+            "defense",
+            "interest",
+            "production",
+            "covered",
+            "assistance",
+            "risk",
+            "eligibility",
+            "management",
+            "committee",
+            "end",
+            "individual",
+            "striking",
+            "inserting",
+            "monetary",
+            "penalties",
+            "establish",
+            "processes",
+            "significant"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.039,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "interest",
+                "securities"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7886-119",
@@ -1323,7 +1623,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.027,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1346,7 +1646,62 @@
             "insurance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "financial",
+            "institution",
+            "subparagraph",
+            "federal",
+            "depository",
+            "inserting",
+            "insured",
+            "striking",
+            "executive",
+            "authority",
+            "compensation",
+            "caused",
+            "loss",
+            "corporation",
+            "bank",
+            "deposit",
+            "insurance",
+            "paragraphs",
+            "clawback",
+            "failed"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.027,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "bank",
+                "financial",
+                "credit",
+                "securities",
+                "dodd"
+              ],
+              "Healthcare": [
+                "insurance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7888-119",
@@ -1381,7 +1736,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.03,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1397,7 +1752,55 @@
             "financial"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "bank",
+            "holding",
+            "company",
+            "financial",
+            "apply",
+            "enhanced",
+            "prudential",
+            "standards",
+            "banks",
+            "stability",
+            "supervision",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "applicable",
+            "respect",
+            "companies",
+            "large",
+            "purposes"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.03,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "bank",
+                "financial"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7887-119",
@@ -1432,7 +1835,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.029,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1453,7 +1856,60 @@
             "insurance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "banking",
+            "institution",
+            "stock",
+            "bank",
+            "federal",
+            "covered",
+            "prohibit",
+            "sale",
+            "prohibition",
+            "rating",
+            "appropriate",
+            "agency",
+            "sales",
+            "senior",
+            "authority",
+            "securities",
+            "insured",
+            "depository",
+            "received",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.029,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "bank",
+                "financial",
+                "securities"
+              ],
+              "Healthcare": [
+                "insurance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1109-119",
@@ -1488,7 +1944,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.029,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1518,10 +1974,61 @@
             "healthcare"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "hiv",
+            "women",
+            "girls",
+            "aids",
+            "new",
+            "percent",
+            "infections",
+            "among",
+            "epidemic",
+            "related",
+            "globally",
+            "access",
+            "national",
+            "awareness",
+            "people",
+            "prevention",
+            "care",
+            "efforts",
+            "sexual",
+            "pre"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.029,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "investment"
+              ],
+              "Healthcare": [
+                "healthcare"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:31:18.181158+00:00",
+  "bills_updated": "2026-11-18T18:15:27.883751+00:00",
   "bills_count": 10,
   "donor_alignment_score": 50.0,
   "alec_match_count": 0,
@@ -1541,7 +2048,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2024/500027926.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.888769+00:00",
+  "travel_updated": "2026-11-18T17:40:54.437055+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -1702,12 +2209,13 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
   "votes_fail_count": 41,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

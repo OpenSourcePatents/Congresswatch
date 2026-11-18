@@ -938,50 +938,13 @@
       "introduced_date": "2026-10-09",
       "latest_action": "Referred to the House Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10772?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wms",
-        "wks",
-        "qrh",
-        "wkw",
-        "pdf",
-        "hck",
-        "paw",
-        "gxh",
-        "kin",
-        "sle",
-        "vtmkw",
-        "huu",
-        "htf",
-        "nfyb",
-        "gyfr",
-        "aif"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10364-119",
-          "sponsor_id": "I000056",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR9656-119",
-          "sponsor_id": "R000614",
-          "similarity_score": 0.971
-        },
-        {
-          "bill_id": "HR10376-119",
-          "sponsor_id": "W000831",
-          "similarity_score": 0.962
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "B001298",
         "B001324",
@@ -991,8 +954,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wms",
+            "wks",
+            "qrh",
+            "wkw",
+            "pdf",
+            "hck",
+            "paw",
+            "gxh",
+            "kin",
+            "sle",
+            "vtmkw",
+            "huu",
+            "htf",
+            "nfyb",
+            "gyfr",
+            "aif"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10364-119",
+              "sponsor_id": "I000056",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR11050-119",
+              "sponsor_id": "P000617",
+              "similarity_score": 0.979
+            },
+            {
+              "bill_id": "HR9656-119",
+              "sponsor_id": "R000614",
+              "similarity_score": 0.971
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1611-119",
@@ -1027,16 +1050,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.151,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SRES936-119",
-          "sponsor_id": "B001277",
-          "similarity_score": 0.905
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000557",
         "T000469",
@@ -1057,7 +1074,60 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "hydrogen",
+            "fuel",
+            "cell",
+            "vehicles",
+            "technologies",
+            "cells",
+            "national",
+            "energy",
+            "power",
+            "support",
+            "designation",
+            "october",
+            "day",
+            "stationary",
+            "use",
+            "government",
+            "res",
+            "expressing",
+            "resolution",
+            "abundant"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.151,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SRES936-119",
+              "sponsor_id": "B001277",
+              "similarity_score": 0.905
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1190-119",
@@ -1092,7 +1162,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1112,7 +1182,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "crime",
+            "victims",
+            "rights",
+            "survivors",
+            "april",
+            "national",
+            "week",
+            "services",
+            "supporting",
+            "laws",
+            "support",
+            "victim",
+            "programs",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "res",
+            "designation",
+            "mrs"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.066,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1356-119",
@@ -1147,7 +1258,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.025,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1161,7 +1272,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "portugal",
+            "portuguese",
+            "day",
+            "camoes",
+            "communities",
+            "resolution",
+            "june",
+            "html",
+            "body",
+            "pre",
+            "res",
+            "commemorating",
+            "purposes",
+            "luis",
+            "vaz",
+            "one",
+            "language",
+            "tenth",
+            "honors",
+            "known"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.025,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7609-119",
@@ -1196,7 +1348,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.059,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1228,7 +1380,66 @@
             "telemedicine"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "rural",
+            "inserting",
+            "striking",
+            "development",
+            "consolidated",
+            "farm",
+            "iii",
+            "population",
+            "subparagraphs",
+            "area",
+            "water",
+            "subparagraph",
+            "islands",
+            "threshold",
+            "populations",
+            "described",
+            "agriculture",
+            "territory",
+            "communities",
+            "programs"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.059,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Agriculture",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing",
+                "development"
+              ],
+              "Agriculture": [
+                "agriculture",
+                "farm",
+                "food",
+                "rural"
+              ],
+              "Healthcare": [
+                "telemedicine"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES894-119",
@@ -1263,7 +1474,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.084,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1274,7 +1485,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "nation",
+            "founding",
+            "ideals",
+            "independence",
+            "history",
+            "citizens",
+            "education",
+            "civics",
+            "declaration",
+            "american",
+            "helped",
+            "students",
+            "strong",
+            "essential",
+            "anniversary",
+            "self",
+            "washington",
+            "historic",
+            "work",
+            "civic"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.084,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR5875-119",
@@ -1309,7 +1561,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1337,7 +1589,62 @@
             "livestock"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "management",
+            "manure",
+            "alternative",
+            "practices",
+            "secretary",
+            "practice",
+            "inserting",
+            "composting",
+            "food",
+            "security",
+            "end",
+            "applications",
+            "emissions",
+            "payments",
+            "conservation",
+            "greenhouse",
+            "compost",
+            "carbon",
+            "striking",
+            "redesignating"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.05,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Agriculture"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Agriculture": [
+                "agriculture",
+                "farm",
+                "food",
+                "organic",
+                "livestock"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES844-119",
@@ -1372,7 +1679,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.08,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1403,7 +1710,59 @@
             "mental_health"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "crime",
+            "prevention",
+            "support",
+            "month",
+            "october",
+            "federal",
+            "communities",
+            "national",
+            "based",
+            "violence",
+            "designation",
+            "health",
+            "safety",
+            "bureau",
+            "violent",
+            "community",
+            "intervention",
+            "enforcement",
+            "success",
+            "evidence"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.08,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing",
+                "property"
+              ],
+              "Healthcare": [
+                "mental_health"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR5796-119",
@@ -1438,7 +1797,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1461,7 +1820,59 @@
             "healthcare"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "grant",
+            "higher",
+            "education",
+            "institution",
+            "secretary",
+            "community",
+            "income",
+            "located",
+            "median",
+            "family",
+            "project",
+            "funds",
+            "plan",
+            "implementation",
+            "recipient",
+            "institutions",
+            "distressed",
+            "establish",
+            "academy",
+            "economic"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.074,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing",
+                "development"
+              ],
+              "Healthcare": [
+                "healthcare"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR5747-119",
@@ -1496,16 +1907,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.065,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4227-119",
-          "sponsor_id": "C001113",
-          "similarity_score": 0.958
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "V000129",
         "K000401",
@@ -1529,10 +1934,68 @@
             "agriculture"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "secretary",
+            "health",
+            "agent",
+            "laboratories",
+            "federal",
+            "pathogenic",
+            "high",
+            "containment",
+            "highly",
+            "logbook",
+            "distributor",
+            "entity",
+            "national",
+            "covered",
+            "biosafety",
+            "purchaser",
+            "identified",
+            "list",
+            "information",
+            "state"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.065,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4227-119",
+              "sponsor_id": "C001113",
+              "similarity_score": 0.958
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Agriculture"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development"
+              ],
+              "Agriculture": [
+                "agriculture"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:31:41.907485+00:00",
+  "bills_updated": "2026-11-18T18:15:56.723683+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,
@@ -1678,7 +2141,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600009714.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.653638+00:00",
+  "travel_updated": "2026-11-18T17:40:54.426856+00:00",
   "travel_count": 10,
   "top_donors_list": [
     {
@@ -1840,14 +2303,15 @@
     "foreign_travel": 7,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "edgar_cik": null,
   "edgar_data_status": "unavailable",
   "edgar_checked": "2026-11-17T14:51:23.9436362Z",
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

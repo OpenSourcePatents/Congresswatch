@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001224.jpg",
   "term_start": "2023-01-01",
-  "score": 13,
+  "score": 11,
   "flags": [
     "donor"
   ],
@@ -938,50 +938,13 @@
       "introduced_date": "2026-09-24",
       "latest_action": "Referred to the House Committee on Ways and Means.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10582?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "wks",
-        "wms",
-        "rva",
-        "xms",
-        "vks",
-        "ocb",
-        "qwr",
-        "ygse",
-        "wui",
-        "dxx",
-        "dnr",
-        "fcc"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10267-119",
-          "sponsor_id": "G000559",
-          "similarity_score": 0.979
-        },
-        {
-          "bill_id": "HR9737-119",
-          "sponsor_id": "D000623",
-          "similarity_score": 0.974
-        },
-        {
-          "bill_id": "HR9817-119",
-          "sponsor_id": "P000617",
-          "similarity_score": 0.971
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S001156",
         "J000311",
@@ -995,16 +958,76 @@
         "M001213"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "credit"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "wks",
+            "wms",
+            "rva",
+            "xms",
+            "vks",
+            "ocb",
+            "qwr",
+            "ygse",
+            "wui",
+            "dxx",
+            "dnr",
+            "fcc"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10267-119",
+              "sponsor_id": "G000559",
+              "similarity_score": 0.979
+            },
+            {
+              "bill_id": "HR9737-119",
+              "sponsor_id": "D000623",
+              "similarity_score": 0.974
+            },
+            {
+              "bill_id": "HR9817-119",
+              "sponsor_id": "P000617",
+              "similarity_score": 0.971
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "credit"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR8797-119",
@@ -1039,16 +1062,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.046,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4521-119",
-          "sponsor_id": "C001098",
-          "similarity_score": 0.994
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "F000246"
       ],
@@ -1073,7 +1090,71 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "army",
+            "mineral",
+            "industrial",
+            "extraction",
+            "facilities",
+            "cooperative",
+            "operations",
+            "minerals",
+            "organic",
+            "base",
+            "non",
+            "entity",
+            "consideration",
+            "secretary",
+            "facility",
+            "environmental",
+            "capital",
+            "fund",
+            "partnerships",
+            "support"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.046,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4521-119",
+              "sponsor_id": "C001098",
+              "similarity_score": 0.994
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Oil & Gas",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "property"
+              ],
+              "Oil & Gas": [
+                "energy",
+                "drilling"
+              ],
+              "Finance & Banking": [
+                "financial",
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8624-119",
@@ -1108,7 +1189,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.083,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1132,7 +1213,63 @@
             "credit"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "apprenticeship",
+            "registered",
+            "program",
+            "wages",
+            "employer",
+            "credit",
+            "expenses",
+            "qualified",
+            "paid",
+            "eligible",
+            "respect",
+            "employee",
+            "general",
+            "calendar",
+            "apprentice",
+            "code",
+            "quarter",
+            "period",
+            "secretary",
+            "taxes"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.081,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Oil & Gas",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development"
+              ],
+              "Oil & Gas": [
+                "energy"
+              ],
+              "Finance & Banking": [
+                "credit"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR445-119",
@@ -1167,7 +1304,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.082,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1192,7 +1329,56 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fund",
+            "border",
+            "security",
+            "transfer",
+            "amount",
+            "treasury",
+            "fiscal",
+            "year",
+            "reimbursement",
+            "remittance",
+            "general",
+            "secretary",
+            "amounts",
+            "trust",
+            "relating",
+            "interest",
+            "funds",
+            "fees",
+            "state",
+            "immediately"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.082,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "interest",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9921-119",
@@ -1203,67 +1389,92 @@
       "introduced_date": "2026-07-23",
       "latest_action": "Referred to the House Committee on Ways and Means.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9921?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wks",
-        "wms",
-        "pdf",
-        "bhw",
-        "font",
-        "type",
-        "zbsihm",
-        "vow",
-        "pzf",
-        "jxw",
-        "fla",
-        "vxs",
-        "rdsro",
-        "svs",
-        "szj",
-        "rmnk"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9911-119",
-          "sponsor_id": "K000376",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10169-119",
-          "sponsor_id": "M001211",
-          "similarity_score": 0.949
-        },
-        {
-          "bill_id": "HR10801-119",
-          "sponsor_id": "M000194",
-          "similarity_score": 0.942
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "K000376",
         "B001296",
         "G000601",
-        "B001307"
+        "B001307",
+        "L000595",
+        "G000581"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Real Estate": [
-            "construction"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wks",
+            "wms",
+            "pdf",
+            "bhw",
+            "font",
+            "type",
+            "zbsihm",
+            "vow",
+            "pzf",
+            "jxw",
+            "fla",
+            "vxs",
+            "rdsro",
+            "svs",
+            "szj",
+            "rmnk"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9911-119",
+              "sponsor_id": "K000376",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10169-119",
+              "sponsor_id": "M001211",
+              "similarity_score": 0.949
+            },
+            {
+              "bill_id": "HR10801-119",
+              "sponsor_id": "M000194",
+              "similarity_score": 0.942
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HJRES110-119",
@@ -1298,7 +1509,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.077,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1307,7 +1518,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "expenditures",
+            "constitution",
+            "balanced",
+            "receipts",
+            "html",
+            "body",
+            "pre",
+            "res",
+            "proposing",
+            "budget",
+            "joint",
+            "resolution",
+            "two",
+            "thirds",
+            "within",
+            "years",
+            "ratification",
+            "include",
+            "except",
+            "congressional"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.077,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9644-119",
@@ -1318,56 +1570,79 @@
       "introduced_date": "2026-07-13",
       "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9644?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "xms",
-        "xmw",
-        "wks",
-        "tzl",
-        "pdf",
-        "dch",
-        "rpm",
-        "ugb",
-        "ylho",
-        "viue",
-        "ydm",
-        "zqu",
-        "hplcx",
-        "bod",
-        "vgq",
-        "blr"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9589-119",
-          "sponsor_id": "V000139",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR9680-119",
-          "sponsor_id": "L000599",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR9734-119",
-          "sponsor_id": "C001136",
-          "similarity_score": 1.0
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "xms",
+            "xmw",
+            "wks",
+            "tzl",
+            "pdf",
+            "dch",
+            "rpm",
+            "ugb",
+            "ylho",
+            "viue",
+            "ydm",
+            "zqu",
+            "hplcx",
+            "bod",
+            "vgq",
+            "blr"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9589-119",
+              "sponsor_id": "V000139",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR9680-119",
+              "sponsor_id": "L000599",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR9734-119",
+              "sponsor_id": "C001136",
+              "similarity_score": 1.0
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9477-119",
@@ -1378,50 +1653,13 @@
       "introduced_date": "2026-06-25",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9477?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "type",
-        "font",
-        "filter",
-        "flatedecode",
-        "length",
-        "stream",
-        "parent",
-        "pdf",
-        "endstream",
-        "extgstate",
-        "contents",
-        "resources",
-        "page",
-        "procset",
-        "text",
-        "fontdescriptor",
-        "subtype",
-        "basefont"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.002,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR8252-119",
-          "sponsor_id": "K000401",
-          "similarity_score": 0.996
-        },
-        {
-          "bill_id": "S4275-119",
-          "sponsor_id": "S001181",
-          "similarity_score": 0.996
-        },
-        {
-          "bill_id": "S4211-119",
-          "sponsor_id": "M000934",
-          "similarity_score": 0.996
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "W000830",
         "J000305",
@@ -1430,8 +1668,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "type",
+            "font",
+            "filter",
+            "flatedecode",
+            "length",
+            "stream",
+            "parent",
+            "pdf",
+            "endstream",
+            "extgstate",
+            "contents",
+            "resources",
+            "page",
+            "procset",
+            "text",
+            "fontdescriptor",
+            "subtype",
+            "basefont"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.002,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR8252-119",
+              "sponsor_id": "K000401",
+              "similarity_score": 0.996
+            },
+            {
+              "bill_id": "S4275-119",
+              "sponsor_id": "S001181",
+              "similarity_score": 0.996
+            },
+            {
+              "bill_id": "S4211-119",
+              "sponsor_id": "M000934",
+              "similarity_score": 0.996
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR7800-119",
@@ -1466,7 +1764,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.068,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1488,7 +1786,59 @@
             "energy"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "council",
+            "fathers",
+            "sons",
+            "secretary",
+            "president",
+            "federal",
+            "director",
+            "white",
+            "office",
+            "men",
+            "agencies",
+            "policy",
+            "importance",
+            "problems",
+            "women",
+            "agency",
+            "programs",
+            "economic",
+            "special",
+            "determines"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.068,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Oil & Gas"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing",
+                "development"
+              ],
+              "Oil & Gas": [
+                "energy"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7799-119",
@@ -1523,7 +1873,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.074,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1532,14 +1882,55 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fiscal",
+            "organization",
+            "sponsorship",
+            "liability",
+            "purposes",
+            "funds",
+            "force",
+            "internal",
+            "revenue",
+            "code",
+            "organizations",
+            "sponsor",
+            "tax",
+            "described",
+            "donor",
+            "covered",
+            "activity",
+            "international",
+            "terrorism",
+            "committed"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.074,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:19:58.324902+00:00",
+  "bills_updated": "2026-11-18T16:51:16.426763+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 49,
   "travel": [
@@ -1609,7 +2000,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.731632+00:00",
+  "travel_updated": "2026-11-18T17:40:54.680931+00:00",
   "travel_count": 3,
   "top_donors_list": [
     {
@@ -1766,16 +2157,17 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 6,
+    "donor_alignment": 4,
     "alec_similarity": 0,
     "foreign_travel": 7,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

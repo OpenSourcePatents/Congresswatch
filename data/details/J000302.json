@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000302.jpg",
   "term_start": "2019-01-01",
-  "score": 9,
+  "score": 8,
   "flags": [
     "donor"
   ],
@@ -938,50 +938,13 @@
       "introduced_date": "2026-09-28",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10625?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wms",
-        "wks",
-        "wmo",
-        "rgv",
-        "pdf",
-        "ziu",
-        "eur",
-        "qjya",
-        "xriu",
-        "ejo",
-        "zcjg",
-        "ymt",
-        "owt",
-        "mxij",
-        "eixj",
-        "psl"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10072-119",
-          "sponsor_id": "F000470",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10615-119",
-          "sponsor_id": "B001306",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10503-119",
-          "sponsor_id": "O000173",
-          "similarity_score": 0.966
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "B001257",
         "P000048",
@@ -990,16 +953,76 @@
         "B001306"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "medicaid"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wms",
+            "wks",
+            "wmo",
+            "rgv",
+            "pdf",
+            "ziu",
+            "eur",
+            "qjya",
+            "xriu",
+            "ejo",
+            "zcjg",
+            "ymt",
+            "owt",
+            "mxij",
+            "eixj",
+            "psl"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10072-119",
+              "sponsor_id": "F000470",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10615-119",
+              "sponsor_id": "B001306",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10503-119",
+              "sponsor_id": "O000173",
+              "similarity_score": 0.966
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "medicaid"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR8413-119",
@@ -1034,7 +1057,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.092,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1054,7 +1077,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "data",
+            "consumer",
+            "controller",
+            "personal",
+            "conduct",
+            "processor",
+            "code",
+            "secretary",
+            "privacy",
+            "described",
+            "requirements",
+            "processing",
+            "request",
+            "right",
+            "application",
+            "security",
+            "rights",
+            "relevant",
+            "international",
+            "independent"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.092,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8414-119",
@@ -1089,7 +1153,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.042,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1109,7 +1173,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "food",
+            "dairy",
+            "enforcement",
+            "product",
+            "federal",
+            "guidance",
+            "described",
+            "drug",
+            "cosmetic",
+            "subparagraph",
+            "secretary",
+            "commissioner",
+            "drugs",
+            "enactment",
+            "report",
+            "introduced",
+            "misbranded",
+            "milk",
+            "commerce",
+            "name"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.042,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8375-119",
@@ -1144,16 +1249,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.061,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4384-119",
-          "sponsor_id": "M001198",
-          "similarity_score": 0.989
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S001216",
         "M001210",
@@ -1180,7 +1279,64 @@
             "physician"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "compliance",
+            "medicare",
+            "advantage",
+            "organization",
+            "plan",
+            "subparagraph",
+            "specified",
+            "respect",
+            "secretary",
+            "authorization",
+            "service",
+            "described",
+            "iii",
+            "item",
+            "program",
+            "period",
+            "services",
+            "january",
+            "coverage",
+            "individual"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.061,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4384-119",
+              "sponsor_id": "M001198",
+              "similarity_score": 0.989
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "hospital",
+                "medicaid",
+                "medicare",
+                "provider",
+                "physician"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9984-119",
@@ -1215,16 +1371,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.116,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4624-119",
-          "sponsor_id": "B001236",
-          "similarity_score": 0.84
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "T000460"
       ],
@@ -1242,7 +1392,64 @@
             "nurse"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "radiologist",
+            "services",
+            "assistant",
+            "payment",
+            "assistants",
+            "defined",
+            "social",
+            "security",
+            "setting",
+            "end",
+            "furnished",
+            "made",
+            "covered",
+            "facility",
+            "medicare",
+            "case",
+            "supervision",
+            "perform",
+            "supervising",
+            "amount"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.116,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4624-119",
+              "sponsor_id": "B001236",
+              "similarity_score": 0.839
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "hospital",
+                "medicare",
+                "provider",
+                "physician",
+                "nurse"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HJRES205-119",
@@ -1277,21 +1484,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.086,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SJRES207-119",
-          "sponsor_id": "R000618",
-          "similarity_score": 0.959
-        },
-        {
-          "bill_id": "HJRES212-119",
-          "sponsor_id": "P000048",
-          "similarity_score": 0.803
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "P000605"
       ],
@@ -1299,7 +1495,59 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "california",
+            "vehicle",
+            "clean",
+            "rule",
+            "submitted",
+            "congressional",
+            "environmental",
+            "protection",
+            "agency",
+            "relating",
+            "state",
+            "motor",
+            "pollution",
+            "control",
+            "standards",
+            "notice",
+            "decision",
+            "granting",
+            "waiver",
+            "air"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.086,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SJRES207-119",
+              "sponsor_id": "R000618",
+              "similarity_score": 0.959
+            },
+            {
+              "bill_id": "HJRES212-119",
+              "sponsor_id": "P000048",
+              "similarity_score": 0.803
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR4681-119",
@@ -1334,7 +1582,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.091,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1356,7 +1604,55 @@
             "physician"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "specialty",
+            "physician",
+            "health",
+            "care",
+            "medicine",
+            "non",
+            "loan",
+            "service",
+            "provider",
+            "physicians",
+            "providers",
+            "program",
+            "rural",
+            "secretary",
+            "year",
+            "agreement",
+            "repayment",
+            "shortage",
+            "federal",
+            "experiencing"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.091,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "provider",
+                "physician"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9693-119",
@@ -1391,16 +1687,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.098,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5672-119",
-          "sponsor_id": "M001198",
-          "similarity_score": 0.97
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S001216",
         "M001210",
@@ -1427,7 +1717,64 @@
             "nurse"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "care",
+            "measures",
+            "year",
+            "secretary",
+            "respect",
+            "inserting",
+            "measure",
+            "performance",
+            "quality",
+            "services",
+            "subparagraph",
+            "period",
+            "striking",
+            "iii",
+            "task",
+            "force",
+            "health",
+            "january",
+            "professional",
+            "general"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.098,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5672-119",
+              "sponsor_id": "M001198",
+              "similarity_score": 0.97
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "insurance",
+                "medicare",
+                "provider",
+                "physician",
+                "nurse"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7905-119",
@@ -1462,16 +1809,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.059,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4070-119",
-          "sponsor_id": "Y000064",
-          "similarity_score": 0.912
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "D000197",
         "R000619",
@@ -1496,7 +1837,62 @@
             "physician"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "shoes",
+            "state",
+            "social",
+            "security",
+            "foot",
+            "individual",
+            "session",
+            "services",
+            "requirements",
+            "physician",
+            "diabetes",
+            "plan",
+            "inserts",
+            "pre",
+            "xix",
+            "podiatric",
+            "physicians",
+            "access",
+            "medicaid",
+            "care"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.058,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4070-119",
+              "sponsor_id": "Y000064",
+              "similarity_score": 0.913
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "medicaid",
+                "medicare",
+                "physician"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6997-119",
@@ -1531,16 +1927,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S3733-119",
-          "sponsor_id": "F000479",
-          "similarity_score": 0.878
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "D000631",
         "F000466",
@@ -1557,14 +1947,61 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "passport",
+            "state",
+            "library",
+            "execution",
+            "secretary",
+            "acceptance",
+            "collect",
+            "retain",
+            "fee",
+            "application",
+            "authorize",
+            "libraries",
+            "service",
+            "government",
+            "june",
+            "certain",
+            "facility",
+            "compliance",
+            "enactment",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.036,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S3733-119",
+              "sponsor_id": "F000479",
+              "similarity_score": 0.878
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:27:06.088235+00:00",
+  "bills_updated": "2026-11-18T16:58:31.400423+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 5,
   "edgar_status": "needs_review",
   "travel": [
     {
@@ -1656,7 +2093,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2025/500031242.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.586885+00:00",
+  "travel_updated": "2026-11-18T17:40:54.479957+00:00",
   "travel_count": 5,
   "top_donors_list": [
     {
@@ -1813,17 +2250,18 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 6,
+    "donor_alignment": 5,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 46,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

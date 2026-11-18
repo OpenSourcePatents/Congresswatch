@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -995,7 +995,61 @@
             "medication"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "prep",
+            "hiv",
+            "access",
+            "individuals",
+            "exposure",
+            "pre",
+            "prophylaxis",
+            "national",
+            "risk",
+            "services",
+            "health",
+            "prevention",
+            "designation",
+            "october",
+            "day",
+            "new",
+            "preventive",
+            "cost",
+            "res",
+            "recognizing"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.066,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Pharmaceuticals"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ],
+              "Pharmaceuticals": [
+                "drug",
+                "generic",
+                "clinical",
+                "medication"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10595-119",
@@ -1006,50 +1060,13 @@
       "introduced_date": "2026-09-24",
       "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Financial Services, the Judiciary, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10595?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wks",
-        "wms",
-        "wmw",
-        "pdf",
-        "ngibs",
-        "aln",
-        "rvb",
-        "nuw",
-        "aza",
-        "pdk",
-        "upeu",
-        "nkk",
-        "rgm",
-        "ley",
-        "iwrb",
-        "cgv"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9704-119",
-          "sponsor_id": "F000481",
-          "similarity_score": 0.972
-        },
-        {
-          "bill_id": "HR11020-119",
-          "sponsor_id": "L000599",
-          "similarity_score": 0.969
-        },
-        {
-          "bill_id": "HR10081-119",
-          "sponsor_id": "V000138",
-          "similarity_score": 0.966
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "J000298",
         "L000601",
@@ -1065,8 +1082,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wks",
+            "wms",
+            "wmw",
+            "pdf",
+            "ngibs",
+            "aln",
+            "rvb",
+            "nuw",
+            "aza",
+            "pdk",
+            "upeu",
+            "nkk",
+            "rgm",
+            "ley",
+            "iwrb",
+            "cgv"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9704-119",
+              "sponsor_id": "F000481",
+              "similarity_score": 0.972
+            },
+            {
+              "bill_id": "HR11020-119",
+              "sponsor_id": "L000599",
+              "similarity_score": 0.969
+            },
+            {
+              "bill_id": "HR10081-119",
+              "sponsor_id": "V000138",
+              "similarity_score": 0.966
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1223-119",
@@ -1101,7 +1178,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1126,7 +1203,58 @@
             "clinical"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "undiagnosed",
+            "diseases",
+            "udn",
+            "diagnostic",
+            "awareness",
+            "rare",
+            "medical",
+            "access",
+            "nih",
+            "support",
+            "month",
+            "referred",
+            "clinical",
+            "research",
+            "diagnosis",
+            "april",
+            "americans",
+            "living",
+            "patients",
+            "network"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.04,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Pharmaceuticals"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ],
+              "Pharmaceuticals": [
+                "clinical"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10455-119",
@@ -1161,7 +1289,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.181,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1196,7 +1324,63 @@
             "health_insurance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "state",
+            "grant",
+            "institution",
+            "education",
+            "partnership",
+            "higher",
+            "students",
+            "federal",
+            "year",
+            "eligible",
+            "funds",
+            "secretary",
+            "student",
+            "institutions",
+            "debt",
+            "support",
+            "fiscal",
+            "free",
+            "program",
+            "general"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.181,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Pharmaceuticals"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "school",
+                "student",
+                "college",
+                "university"
+              ],
+              "Pharmaceuticals": [
+                "medicaid",
+                "health_insurance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9414-119",
@@ -1231,16 +1415,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.1,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR4862-119",
-          "sponsor_id": "S000185",
-          "similarity_score": 0.856
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S000185",
         "B001300",
@@ -1267,7 +1445,64 @@
             "loan"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "student",
+            "institution",
+            "academic",
+            "grant",
+            "progress",
+            "federal",
+            "pell",
+            "students",
+            "aid",
+            "satisfactory",
+            "year",
+            "period",
+            "eligibility",
+            "award",
+            "education",
+            "assistance",
+            "financial",
+            "subparagraph",
+            "program",
+            "payment"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.1,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR4862-119",
+              "sponsor_id": "S000185",
+              "similarity_score": 0.856
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "school",
+                "student",
+                "college",
+                "loan"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9075-119",
@@ -1302,7 +1537,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.066,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1311,7 +1546,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fund",
+            "settlement",
+            "tax",
+            "qualified",
+            "payments",
+            "internal",
+            "revenue",
+            "received",
+            "taxpayer",
+            "taxable",
+            "year",
+            "code",
+            "payment",
+            "established",
+            "result",
+            "civil",
+            "action",
+            "filed",
+            "president",
+            "service"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.066,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7803-119",
@@ -1346,7 +1622,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.037,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1374,7 +1650,56 @@
             "medicare"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "program",
+            "plan",
+            "medicare",
+            "health",
+            "reference",
+            "xviii",
+            "social",
+            "security",
+            "alternative",
+            "private",
+            "transition",
+            "advantage",
+            "penalty",
+            "committee",
+            "provisions",
+            "seq",
+            "deemed",
+            "civil",
+            "money",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.037,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Pharmaceuticals"
+            ],
+            "keyword_hits": {
+              "Pharmaceuticals": [
+                "drug",
+                "prescription",
+                "medicare"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1084-119",
@@ -1409,7 +1734,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1435,7 +1760,54 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "hiv",
+            "people",
+            "laws",
+            "living",
+            "criminalization",
+            "awareness",
+            "day",
+            "crime",
+            "communities",
+            "support",
+            "transmission",
+            "impacted",
+            "based",
+            "status",
+            "treatment",
+            "education",
+            "supports",
+            "february",
+            "resolution",
+            "prevention"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.051,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7555-119",
@@ -1470,7 +1842,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.039,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1490,7 +1862,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "department",
+            "defense",
+            "audit",
+            "reduction",
+            "financial",
+            "fiscal",
+            "year",
+            "amount",
+            "committee",
+            "account",
+            "agency",
+            "element",
+            "opinion",
+            "armed",
+            "budget",
+            "accounts",
+            "reductions",
+            "made",
+            "body",
+            "ensure"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.039,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7189-119",
@@ -1525,7 +1938,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.05,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1553,10 +1966,59 @@
             "medication"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "services",
+            "pharmacist",
+            "prevention",
+            "subparagraph",
+            "hiv",
+            "inserting",
+            "social",
+            "security",
+            "furnished",
+            "end",
+            "practitioner",
+            "new",
+            "nnn",
+            "pre",
+            "coverage",
+            "medicare",
+            "mrs",
+            "committee",
+            "semicolon",
+            "adding"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.05,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Pharmaceuticals"
+            ],
+            "keyword_hits": {
+              "Pharmaceuticals": [
+                "medicare",
+                "clinical",
+                "medication"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:12:33.859040+00:00",
+  "bills_updated": "2026-11-18T16:42:58.212845+00:00",
   "bills_count": 10,
   "donor_alignment_score": 35.0,
   "alec_match_count": 0,
@@ -1642,7 +2104,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.648222+00:00",
+  "travel_updated": "2026-11-18T17:40:54.663094+00:00",
   "travel_count": 3,
   "top_donors_list": [
     {
@@ -1803,12 +2265,13 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 44,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

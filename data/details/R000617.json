@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000617.jpg",
   "term_start": "2023-01-01",
-  "score": 16,
+  "score": 15,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577604",
   "corporate_insider_signals": 0,
@@ -936,62 +936,85 @@
       "introduced_date": "2026-11-11",
       "latest_action": "Referred to the House Committee on Veterans' Affairs.",
       "url": "https://api.congress.gov/v3/bill/119/hr/11007?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "wms",
-        "wks",
-        "ebb",
-        "fef",
-        "qyk",
-        "fjd",
-        "eat",
-        "zra",
-        "pxq",
-        "iga",
-        "zaaz",
-        "ghi"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10020-119",
-          "sponsor_id": "D000624",
-          "similarity_score": 0.993
-        },
-        {
-          "bill_id": "HR9667-119",
-          "sponsor_id": "F000485",
-          "similarity_score": 0.99
-        },
-        {
-          "bill_id": "HR10085-119",
-          "sponsor_id": "D000230",
-          "similarity_score": 0.99
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "interest"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "wms",
+            "wks",
+            "ebb",
+            "fef",
+            "qyk",
+            "fjd",
+            "eat",
+            "zra",
+            "pxq",
+            "iga",
+            "zaaz",
+            "ghi"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10020-119",
+              "sponsor_id": "D000624",
+              "similarity_score": 0.993
+            },
+            {
+              "bill_id": "HR9667-119",
+              "sponsor_id": "F000485",
+              "similarity_score": 0.99
+            },
+            {
+              "bill_id": "HR10085-119",
+              "sponsor_id": "D000230",
+              "similarity_score": 0.99
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1627-119",
@@ -1026,7 +1049,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.049,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1052,7 +1075,54 @@
             "surveillance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "immigration",
+            "system",
+            "pathways",
+            "communities",
+            "family",
+            "barriers",
+            "nation",
+            "access",
+            "people",
+            "commitment",
+            "citizenship",
+            "residents",
+            "status",
+            "legal",
+            "unity",
+            "protections",
+            "res",
+            "reaffirming",
+            "preserve",
+            "expand"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.049,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "surveillance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10803-119",
@@ -1063,50 +1133,13 @@
       "introduced_date": "2026-10-13",
       "latest_action": "Referred to the Committee on Homeland Security, and in addition to the Committees on Oversight and Government Reform, the Judiciary, Transportation and Infrastructure, Rules, Foreign Affairs, Financial Services, Armed Services, Intelligence (Permanent Select), Education and Workforce, Appropriations, Ways and Means, and Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10803?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "vms",
-        "wms",
-        "vks",
-        "uklt",
-        "zvp",
-        "swm",
-        "srbl",
-        "tpj",
-        "bkt",
-        "muft",
-        "pjy",
-        "iyv"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10348-119",
-          "sponsor_id": "S001201",
-          "similarity_score": 0.995
-        },
-        {
-          "bill_id": "HR10645-119",
-          "sponsor_id": "B001306",
-          "similarity_score": 0.995
-        },
-        {
-          "bill_id": "HR9892-119",
-          "sponsor_id": "G000601",
-          "similarity_score": 0.991
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "T000481",
         "G000606",
@@ -1117,8 +1150,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "vms",
+            "wms",
+            "vks",
+            "uklt",
+            "zvp",
+            "swm",
+            "srbl",
+            "tpj",
+            "bkt",
+            "muft",
+            "pjy",
+            "iyv"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10348-119",
+              "sponsor_id": "S001201",
+              "similarity_score": 0.995
+            },
+            {
+              "bill_id": "HR10645-119",
+              "sponsor_id": "B001306",
+              "similarity_score": 0.995
+            },
+            {
+              "bill_id": "HR9892-119",
+              "sponsor_id": "G000601",
+              "similarity_score": 0.991
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1277-119",
@@ -1153,7 +1246,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1195,7 +1288,75 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "global",
+            "rights",
+            "people",
+            "majority",
+            "human",
+            "percent",
+            "care",
+            "health",
+            "security",
+            "right",
+            "women",
+            "world",
+            "violence",
+            "policies",
+            "free",
+            "communities",
+            "gender",
+            "economic",
+            "access",
+            "democratic"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.069,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Technology",
+              "Finance & Banking",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "insurance",
+                "medicaid",
+                "affordable_care"
+              ],
+              "Technology": [
+                "technology",
+                "platform",
+                "social_media",
+                "artificial_intelligence",
+                "digital"
+              ],
+              "Finance & Banking": [
+                "financial",
+                "interest",
+                "securities",
+                "investment"
+              ],
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8555-119",
@@ -1230,7 +1391,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.071,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1260,7 +1421,58 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "wage",
+            "beginning",
+            "minimum",
+            "hour",
+            "effect",
+            "labor",
+            "employee",
+            "year",
+            "living",
+            "per",
+            "january",
+            "standards",
+            "rate",
+            "period",
+            "median",
+            "hourly",
+            "fair",
+            "employer",
+            "national",
+            "fee"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.07,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "data"
+              ],
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1198-119",
@@ -1295,7 +1507,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.035,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1325,7 +1537,58 @@
             "financial"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "housing",
+            "families",
+            "status",
+            "immigration",
+            "mixed",
+            "family",
+            "stable",
+            "hud",
+            "homelessness",
+            "crisis",
+            "together",
+            "new",
+            "safe",
+            "living",
+            "trump",
+            "administration",
+            "rule",
+            "york",
+            "affordable",
+            "address"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.035,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "mental_health"
+              ],
+              "Finance & Banking": [
+                "financial"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1409-119",
@@ -1360,16 +1623,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.048,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SRES796-119",
-          "sponsor_id": "M000133",
-          "similarity_score": 0.948
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "V000130",
         "N000147",
@@ -1392,7 +1649,60 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "communities",
+            "commitment",
+            "nation",
+            "founding",
+            "ideals",
+            "immigrant",
+            "opportunity",
+            "services",
+            "social",
+            "anniversary",
+            "liberty",
+            "life",
+            "economic",
+            "civic",
+            "government",
+            "america",
+            "people",
+            "justice",
+            "dignity",
+            "rights"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.047,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SRES796-119",
+              "sponsor_id": "M000133",
+              "similarity_score": 0.948
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7948-119",
@@ -1427,7 +1737,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.05,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1436,7 +1746,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "employee",
+            "veterans",
+            "certain",
+            "affairs",
+            "employees",
+            "department",
+            "purposes",
+            "family",
+            "leave",
+            "covered",
+            "determining",
+            "entitlement",
+            "medical",
+            "committee",
+            "code",
+            "parent",
+            "html",
+            "body",
+            "pre",
+            "government"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.05,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7709-119",
@@ -1471,7 +1822,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.037,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1497,7 +1848,54 @@
             "nurse"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "body",
+            "full",
+            "homeland",
+            "security",
+            "restraints",
+            "individual",
+            "utilization",
+            "department",
+            "respect",
+            "secretary",
+            "federal",
+            "committee",
+            "restraint",
+            "prohibition",
+            "employee",
+            "prohibitions",
+            "officer",
+            "relating",
+            "whether",
+            "funds"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.037,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "nurse"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7556-119",
@@ -1532,7 +1930,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.165,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1562,14 +1960,65 @@
             "education"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "covered",
+            "employer",
+            "employed",
+            "federal",
+            "self",
+            "individual",
+            "amount",
+            "non",
+            "inserting",
+            "retirement",
+            "employee",
+            "code",
+            "contributions",
+            "subparagraph",
+            "program",
+            "employees",
+            "striking",
+            "secretary",
+            "service",
+            "case"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.165,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Education"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "credit"
+              ],
+              "Education": [
+                "education"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:57:33.599650+00:00",
+  "bills_updated": "2026-11-18T17:32:30.389366+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 40.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 8,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "votes_fail_count": 50,
   "travel": [
@@ -1714,7 +2163,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.672585+00:00",
+  "travel_updated": "2026-11-18T17:40:54.481154+00:00",
   "travel_count": 8,
   "top_donors_list": [
     {
@@ -1871,16 +2320,17 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 8,
+    "donor_alignment": 7,
     "alec_similarity": 0,
     "foreign_travel": 7,
     "attendance": 1
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 4.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

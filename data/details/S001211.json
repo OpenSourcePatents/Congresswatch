@@ -960,7 +960,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.045,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -973,7 +973,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "custody",
+            "holding",
+            "facility",
+            "immigration",
+            "customs",
+            "enforcement",
+            "short",
+            "homeland",
+            "security",
+            "facilities",
+            "circumstances",
+            "detainee",
+            "exceptional",
+            "secretary",
+            "purposes",
+            "detention",
+            "ensure",
+            "held",
+            "long",
+            "hours"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.045,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8287-119",
@@ -1008,7 +1049,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1031,7 +1072,55 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "control",
+            "controls",
+            "prc",
+            "impact",
+            "semiconductor",
+            "export",
+            "intelligence",
+            "secretary",
+            "report",
+            "assistant",
+            "effectiveness",
+            "foreign",
+            "advanced",
+            "whether",
+            "research",
+            "national",
+            "security",
+            "industry",
+            "congressional",
+            "state"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.039,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing",
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9659-119",
@@ -1042,50 +1131,13 @@
       "introduced_date": "2026-07-13",
       "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committees on Education and Workforce, and Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9659?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wms",
-        "wks",
-        "pdf",
-        "vms",
-        "pjm",
-        "hom",
-        "zkni",
-        "uaa",
-        "phvg",
-        "hwefs",
-        "nxs",
-        "qdv",
-        "askh",
-        "hyk",
-        "tqk",
-        "hdal"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9582-119",
-          "sponsor_id": "K000399",
-          "similarity_score": 0.957
-        },
-        {
-          "bill_id": "HR11034-119",
-          "sponsor_id": "F000468",
-          "similarity_score": 0.957
-        },
-        {
-          "bill_id": "HR9704-119",
-          "sponsor_id": "F000481",
-          "similarity_score": 0.955
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "A000381",
         "G000606"
@@ -1093,8 +1145,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wms",
+            "wks",
+            "pdf",
+            "vms",
+            "pjm",
+            "hom",
+            "zkni",
+            "uaa",
+            "phvg",
+            "hwefs",
+            "nxs",
+            "qdv",
+            "askh",
+            "hyk",
+            "tqk",
+            "hdal"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9582-119",
+              "sponsor_id": "K000399",
+              "similarity_score": 0.957
+            },
+            {
+              "bill_id": "HR11034-119",
+              "sponsor_id": "F000468",
+              "similarity_score": 0.957
+            },
+            {
+              "bill_id": "HR11038-119",
+              "sponsor_id": "B001324",
+              "similarity_score": 0.957
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9301-119",
@@ -1105,50 +1217,13 @@
       "introduced_date": "2026-06-11",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9301?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "filter",
-        "flatedecode",
-        "length",
-        "stream",
-        "endstream",
-        "contents",
-        "parent",
-        "resources",
-        "type",
-        "page",
-        "wks",
-        "ekg",
-        "wpk",
-        "qtb",
-        "wms",
-        "btw",
-        "xks",
-        "pdf"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR8830-119",
-          "sponsor_id": "Q000023",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR9566-119",
-          "sponsor_id": "S001183",
-          "similarity_score": 0.995
-        },
-        {
-          "bill_id": "S4330-119",
-          "sponsor_id": "W000779",
-          "similarity_score": 0.994
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000599",
         "F000466"
@@ -1156,8 +1231,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "filter",
+            "flatedecode",
+            "length",
+            "stream",
+            "endstream",
+            "contents",
+            "parent",
+            "resources",
+            "type",
+            "page",
+            "wks",
+            "ekg",
+            "wpk",
+            "qtb",
+            "wms",
+            "btw",
+            "xks",
+            "pdf"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR8830-119",
+              "sponsor_id": "Q000023",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR9566-119",
+              "sponsor_id": "S001183",
+              "similarity_score": 0.995
+            },
+            {
+              "bill_id": "S4330-119",
+              "sponsor_id": "W000779",
+              "similarity_score": 0.994
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR8188-119",
@@ -1192,7 +1327,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.049,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1211,7 +1346,58 @@
             "healthcare"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "tribal",
+            "road",
+            "grading",
+            "transportation",
+            "study",
+            "secretary",
+            "respect",
+            "removal",
+            "ttp",
+            "impacts",
+            "committee",
+            "roads",
+            "access",
+            "percent",
+            "code",
+            "indian",
+            "facility",
+            "html",
+            "body",
+            "pre"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.049,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Healthcare": [
+                "healthcare"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7714-119",
@@ -1246,26 +1432,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.025,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR5947-119",
-          "sponsor_id": "F000474",
-          "similarity_score": 0.956
-        },
-        {
-          "bill_id": "HR5588-119",
-          "sponsor_id": "L000598",
-          "similarity_score": 0.934
-        },
-        {
-          "bill_id": "HR4982-119",
-          "sponsor_id": "I000056",
-          "similarity_score": 0.915
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "A000381",
         "C001133",
@@ -1280,7 +1450,64 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "office",
+            "mayor",
+            "coy",
+            "payne",
+            "memorial",
+            "post",
+            "building",
+            "facility",
+            "postal",
+            "service",
+            "located",
+            "north",
+            "colorado",
+            "street",
+            "chandler",
+            "arizona",
+            "html",
+            "body",
+            "pre",
+            "government"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.025,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR5947-119",
+              "sponsor_id": "F000474",
+              "similarity_score": 0.956
+            },
+            {
+              "bill_id": "HR5588-119",
+              "sponsor_id": "L000598",
+              "similarity_score": 0.934
+            },
+            {
+              "bill_id": "HR4982-119",
+              "sponsor_id": "I000056",
+              "similarity_score": 0.915
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6992-119",
@@ -1315,7 +1542,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.07,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1345,7 +1572,60 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "committee",
+            "advisory",
+            "regional",
+            "center",
+            "program",
+            "member",
+            "director",
+            "members",
+            "subcommittees",
+            "immigration",
+            "homeland",
+            "security",
+            "recommendations",
+            "secretary",
+            "report",
+            "least",
+            "citizenship",
+            "services",
+            "general",
+            "area"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.07,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Finance & Banking": [
+                "financial",
+                "securities",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6701-119",
@@ -1380,7 +1660,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.04,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1391,7 +1671,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "heat",
+            "extreme",
+            "transportation",
+            "infrastructure",
+            "emergency",
+            "secretary",
+            "study",
+            "code",
+            "relief",
+            "waves",
+            "research",
+            "bridge",
+            "bridges",
+            "systems",
+            "report",
+            "provide",
+            "committee",
+            "particularly",
+            "high",
+            "required"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.04,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6481-119",
@@ -1426,7 +1747,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.061,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1437,7 +1758,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "federal",
+            "building",
+            "general",
+            "guidance",
+            "services",
+            "buildings",
+            "security",
+            "administrator",
+            "protective",
+            "service",
+            "safety",
+            "events",
+            "emergency",
+            "protocols",
+            "life",
+            "practices",
+            "html",
+            "body",
+            "pre",
+            "referred"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.061,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6480-119",
@@ -1472,7 +1834,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.045,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1497,10 +1859,65 @@
             "financial"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "general",
+            "services",
+            "real",
+            "report",
+            "estate",
+            "portfolio",
+            "building",
+            "number",
+            "leased",
+            "square",
+            "space",
+            "administration",
+            "committee",
+            "state",
+            "service",
+            "amount",
+            "html",
+            "body",
+            "pre",
+            "office"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.045,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "rent",
+                "tenant",
+                "construction",
+                "property",
+                "real_estate"
+              ],
+              "Finance & Banking": [
+                "financial"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:34:50.411455+00:00",
+  "bills_updated": "2026-11-18T18:19:51.004852+00:00",
   "bills_count": 10,
   "donor_alignment_score": 20.0,
   "alec_match_count": 0,
@@ -1572,7 +1989,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600009605.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.869146+00:00",
+  "travel_updated": "2026-11-18T17:40:54.565250+00:00",
   "travel_count": 3,
   "top_donors_list": [
     {
@@ -1734,11 +2151,12 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

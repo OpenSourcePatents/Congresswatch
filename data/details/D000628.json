@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -982,7 +982,57 @@
             "reimbursement"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "health",
+            "specialty",
+            "pharmacy",
+            "plan",
+            "group",
+            "insurance",
+            "issuer",
+            "coverage",
+            "pharmacies",
+            "affiliated",
+            "state",
+            "drug",
+            "choice",
+            "offering",
+            "enrollee",
+            "care",
+            "network",
+            "respect",
+            "limiting",
+            "self"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.078,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "insurance",
+                "medicare",
+                "provider",
+                "reimbursement"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8890-119",
@@ -1017,7 +1067,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.085,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1039,7 +1089,61 @@
             "software"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "laboratory",
+            "test",
+            "developed",
+            "information",
+            "third",
+            "clinical",
+            "subparagraph",
+            "party",
+            "applicable",
+            "standard",
+            "use",
+            "secretary",
+            "approved",
+            "within",
+            "supplemental",
+            "affirmation",
+            "days",
+            "clia",
+            "iii",
+            "tests"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.085,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "medicaid",
+                "medicare"
+              ],
+              "Technology": [
+                "data",
+                "digital",
+                "software"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8500-119",
@@ -1074,16 +1178,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.084,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5475-119",
-          "sponsor_id": "L000570",
-          "similarity_score": 0.879
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "B001300",
         "T000478",
@@ -1105,7 +1203,66 @@
             "internet"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "determination",
+            "request",
+            "contractor",
+            "coverage",
+            "medicare",
+            "respect",
+            "local",
+            "subparagraph",
+            "administrative",
+            "formal",
+            "days",
+            "requests",
+            "reconsideration",
+            "draft",
+            "complete",
+            "specified",
+            "later",
+            "described",
+            "iii",
+            "defined"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.084,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5475-119",
+              "sponsor_id": "L000570",
+              "similarity_score": 0.879
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "medicaid",
+                "medicare",
+                "provider"
+              ],
+              "Technology": [
+                "internet"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7386-119",
@@ -1140,7 +1297,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.117,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1159,7 +1316,56 @@
             "spectrum"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "network",
+            "authority",
+            "first",
+            "responder",
+            "middle",
+            "class",
+            "tax",
+            "relief",
+            "job",
+            "creation",
+            "ntia",
+            "safety",
+            "firstnet",
+            "broadband",
+            "outage",
+            "enactment",
+            "nationwide",
+            "inserting",
+            "approval",
+            "annual"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.117,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "data",
+                "broadband",
+                "spectrum"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9847-119",
@@ -1194,7 +1400,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.077,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1218,7 +1424,57 @@
             "telehealth"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "service",
+            "services",
+            "health",
+            "day",
+            "furnished",
+            "physician",
+            "care",
+            "mental",
+            "substance",
+            "use",
+            "disorder",
+            "primary",
+            "practitioner",
+            "office",
+            "individual",
+            "social",
+            "security",
+            "qualifying",
+            "via",
+            "telehealth"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.078,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "medicaid",
+                "physician",
+                "mental_health",
+                "telehealth"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8032-119",
@@ -1253,7 +1509,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.052,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1280,7 +1536,59 @@
             "data"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "payment",
+            "treatment",
+            "specified",
+            "cancer",
+            "year",
+            "separate",
+            "subparagraph",
+            "medicare",
+            "treatments",
+            "outpatient",
+            "secretary",
+            "covered",
+            "cost",
+            "iii",
+            "amount",
+            "social",
+            "security",
+            "ensure",
+            "access",
+            "hospital"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.052,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "hospital",
+                "medicare"
+              ],
+              "Technology": [
+                "data"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7175-119",
@@ -1315,7 +1623,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.024,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1333,7 +1641,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "siller",
+            "gold",
+            "frank",
+            "medals",
+            "medal",
+            "serve",
+            "congressional",
+            "secretary",
+            "lost",
+            "support",
+            "struck",
+            "fund",
+            "amounts",
+            "recognition",
+            "contributions",
+            "memorialize",
+            "lives",
+            "tragic",
+            "events",
+            "efforts"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.024,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6994-119",
@@ -1368,7 +1717,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.159,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1395,7 +1744,62 @@
             "internet"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "telehealth",
+            "entity",
+            "state",
+            "health",
+            "psychiatrist",
+            "patient",
+            "practice",
+            "covered",
+            "services",
+            "controlled",
+            "care",
+            "mental",
+            "prescription",
+            "affiliate",
+            "practitioner",
+            "least",
+            "medical",
+            "individual",
+            "primary",
+            "substances"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.159,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "hospital",
+                "insurance",
+                "provider",
+                "physician",
+                "nurse"
+              ],
+              "Technology": [
+                "internet"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES959-119",
@@ -1430,7 +1834,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.08,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1442,7 +1846,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fentanyl",
+            "illicit",
+            "related",
+            "substances",
+            "mass",
+            "destruction",
+            "weapon",
+            "president",
+            "substance",
+            "group",
+            "monocycle",
+            "sense",
+            "crisis",
+            "committee",
+            "code",
+            "federal",
+            "replacement",
+            "according",
+            "html",
+            "body"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.08,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6257-119",
@@ -1477,7 +1922,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.057,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1502,10 +1947,65 @@
             "surveillance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "user",
+            "social",
+            "messaging",
+            "media",
+            "platform",
+            "direct",
+            "covered",
+            "parental",
+            "parent",
+            "feature",
+            "controls",
+            "action",
+            "communication",
+            "general",
+            "commission",
+            "provider",
+            "state",
+            "app",
+            "ephemeral",
+            "federal"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.057,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "provider"
+              ],
+              "Technology": [
+                "data",
+                "privacy",
+                "platform",
+                "social_media",
+                "surveillance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:23:27.700738+00:00",
+  "bills_updated": "2026-11-18T18:06:55.779291+00:00",
   "bills_count": 10,
   "donor_alignment_score": 40.0,
   "alec_match_count": 0,
@@ -1620,7 +2120,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.786026+00:00",
+  "travel_updated": "2026-11-18T17:40:54.537935+00:00",
   "travel_count": 3,
   "top_donors_list": [
     {
@@ -1781,15 +2281,16 @@
     "foreign_travel": 3,
     "attendance": 5
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 45,
   "missed_votes_pct": 47.0,
   "non_voting_delegate": false,
   "edgar_cik": null,
   "edgar_data_status": "unavailable",
   "edgar_checked": "2026-11-17T14:51:23.9412731Z",
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

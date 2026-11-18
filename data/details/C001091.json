@@ -936,50 +936,13 @@
       "introduced_date": "2026-10-01",
       "latest_action": "Referred to the Committee on Foreign Affairs, and in addition to the Committees on the Judiciary, Financial Services, and Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10642?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "endstream",
-        "wko",
-        "wmo",
-        "cll",
-        "dnh",
-        "xweq",
-        "uup",
-        "xnr",
-        "krx",
-        "tus",
-        "btg",
-        "ojm",
-        "tkg"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10632-119",
-          "sponsor_id": "M001215",
-          "similarity_score": 0.963
-        },
-        {
-          "bill_id": "HR10677-119",
-          "sponsor_id": "K000400",
-          "similarity_score": 0.963
-        },
-        {
-          "bill_id": "HR10647-119",
-          "sponsor_id": "B000668",
-          "similarity_score": 0.963
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "D000631",
         "B001292",
@@ -995,8 +958,68 @@
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "endstream",
+            "wko",
+            "wmo",
+            "cll",
+            "dnh",
+            "xweq",
+            "uup",
+            "xnr",
+            "krx",
+            "tus",
+            "btg",
+            "ojm",
+            "tkg"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10632-119",
+              "sponsor_id": "M001215",
+              "similarity_score": 0.963
+            },
+            {
+              "bill_id": "HR10677-119",
+              "sponsor_id": "K000400",
+              "similarity_score": 0.963
+            },
+            {
+              "bill_id": "HR10647-119",
+              "sponsor_id": "B000668",
+              "similarity_score": 0.963
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1573-119",
@@ -1031,16 +1054,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.031,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SRES889-119",
-          "sponsor_id": "L000570",
-          "similarity_score": 0.996
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1057,7 +1074,65 @@
             "digital"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "music",
+            "latin",
+            "cultural",
+            "musical",
+            "mexican",
+            "artists",
+            "grammy",
+            "latino",
+            "new",
+            "hispanic",
+            "cuban",
+            "heritage",
+            "world",
+            "genre",
+            "first",
+            "contributions",
+            "puerto",
+            "rhythms",
+            "caribbean",
+            "spanish"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.03,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SRES889-119",
+              "sponsor_id": "L000570",
+              "similarity_score": 0.996
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development"
+              ],
+              "Technology": [
+                "digital"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1559-119",
@@ -1092,7 +1167,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.054,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1118,7 +1193,54 @@
             "technology"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "hispanic",
+            "institutions",
+            "serving",
+            "week",
+            "mrs",
+            "percent",
+            "students",
+            "support",
+            "national",
+            "education",
+            "designation",
+            "september",
+            "texas",
+            "garcia",
+            "california",
+            "undergraduate",
+            "higher",
+            "res",
+            "expressing",
+            "beginning"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.054,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "technology"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9698-119",
@@ -1153,16 +1275,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.151,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4988-119",
-          "sponsor_id": "B001288",
-          "similarity_score": 0.995
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000562",
         "T000481",
@@ -1186,7 +1302,65 @@
             "data"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "students",
+            "educational",
+            "advanced",
+            "agency",
+            "local",
+            "grant",
+            "programs",
+            "state",
+            "status",
+            "enrollment",
+            "courses",
+            "coursework",
+            "year",
+            "performance",
+            "school",
+            "program",
+            "education",
+            "secretary",
+            "agencies",
+            "described"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.151,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4988-119",
+              "sponsor_id": "B001288",
+              "similarity_score": 0.995
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Technology": [
+                "technology",
+                "data"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7675-119",
@@ -1221,7 +1395,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.035,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1245,7 +1419,58 @@
             "technology"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "foreign",
+            "investment",
+            "screening",
+            "country",
+            "secretary",
+            "initiative",
+            "security",
+            "countries",
+            "partner",
+            "national",
+            "congressional",
+            "risks",
+            "mechanisms",
+            "appropriate",
+            "state",
+            "establish",
+            "committee",
+            "supply",
+            "establishment",
+            "assistance"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.035,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Technology": [
+                "technology"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1012-119",
@@ -1280,7 +1505,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.079,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1291,7 +1516,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "rodriguez",
+            "yale",
+            "school",
+            "cristina",
+            "dean",
+            "legal",
+            "leadership",
+            "historic",
+            "appointment",
+            "professor",
+            "distinguished",
+            "first",
+            "html",
+            "body",
+            "pre",
+            "office",
+            "res",
+            "recognizing",
+            "honoring",
+            "texas"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.079,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7059-119",
@@ -1326,26 +1592,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.022,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR6915-119",
-          "sponsor_id": "M001196",
-          "similarity_score": 0.91
-        },
-        {
-          "bill_id": "HR8103-119",
-          "sponsor_id": "J000298",
-          "similarity_score": 0.871
-        },
-        {
-          "bill_id": "HR8707-119",
-          "sponsor_id": "R000579",
-          "similarity_score": 0.87
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "J000305",
         "S001211"
@@ -1354,7 +1604,64 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "use",
+            "force",
+            "mexico",
+            "military",
+            "war",
+            "funds",
+            "committee",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "introduced",
+            "prohibit",
+            "purposes",
+            "bill",
+            "period",
+            "prohibition",
+            "enactment",
+            "powers",
+            "resolution"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.022,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR6915-119",
+              "sponsor_id": "M001196",
+              "similarity_score": 0.91
+            },
+            {
+              "bill_id": "HR8103-119",
+              "sponsor_id": "J000298",
+              "similarity_score": 0.871
+            },
+            {
+              "bill_id": "HR8707-119",
+              "sponsor_id": "R000579",
+              "similarity_score": 0.87
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES969-119",
@@ -1389,7 +1696,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.049,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1415,7 +1722,54 @@
             "technology"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "hispanic",
+            "institutions",
+            "serving",
+            "week",
+            "percent",
+            "students",
+            "mrs",
+            "support",
+            "national",
+            "california",
+            "education",
+            "designation",
+            "texas",
+            "garcia",
+            "illinois",
+            "undergraduate",
+            "higher",
+            "html",
+            "body",
+            "pre"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.049,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "technology"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6910-119",
@@ -1450,7 +1804,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1465,7 +1819,54 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "development",
+            "corporation",
+            "international",
+            "chief",
+            "officer",
+            "inserting",
+            "subparagraph",
+            "striking",
+            "executive",
+            "federal",
+            "departments",
+            "agencies",
+            "finance",
+            "policy",
+            "redesignated",
+            "relevant",
+            "projects",
+            "interests",
+            "coordination",
+            "country"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.036,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR6736-119",
@@ -1500,7 +1901,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.104,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1532,10 +1933,63 @@
             "data"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "covered",
+            "secretary",
+            "firearms",
+            "state",
+            "countries",
+            "export",
+            "munitions",
+            "country",
+            "commerce",
+            "trafficking",
+            "department",
+            "control",
+            "security",
+            "information",
+            "caribbean",
+            "program",
+            "federal",
+            "designated",
+            "agencies",
+            "firearm"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.104,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing",
+                "construction",
+                "development"
+              ],
+              "Technology": [
+                "data"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:13:26.756097+00:00",
+  "bills_updated": "2026-11-18T16:43:52.557013+00:00",
   "bills_count": 10,
   "donor_alignment_score": 35.0,
   "alec_match_count": 0,
@@ -1605,7 +2059,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.629734+00:00",
+  "travel_updated": "2026-11-18T17:40:54.561770+00:00",
   "travel_count": 4,
   "top_donors_list": [
     {
@@ -1766,12 +2220,13 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 44,
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

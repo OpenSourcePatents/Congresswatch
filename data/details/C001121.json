@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001121.jpg",
   "term_start": "2019-01-01",
-  "score": 11,
+  "score": 10,
   "flags": [],
   "updated": "2026-04-04T03:30:28.578260",
   "corporate_insider_signals": 0,
@@ -960,7 +960,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.027,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -973,7 +973,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "veterans",
+            "business",
+            "small",
+            "week",
+            "november",
+            "national",
+            "businesses",
+            "administration",
+            "supporting",
+            "goals",
+            "ideals",
+            "owned",
+            "res",
+            "resolution",
+            "individuals",
+            "women",
+            "service",
+            "spouses",
+            "celebrating",
+            "entrepreneurship"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.027,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1596-119",
@@ -1008,7 +1049,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.018,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1019,7 +1060,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "bill",
+            "afghanistan",
+            "consideration",
+            "designate",
+            "immigration",
+            "nationality",
+            "permit",
+            "nationals",
+            "eligible",
+            "temporary",
+            "protected",
+            "status",
+            "purposes",
+            "resolution",
+            "res",
+            "providing",
+            "committee",
+            "points",
+            "order",
+            "waived"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.018,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10541-119",
@@ -1030,64 +1112,87 @@
       "introduced_date": "2026-09-24",
       "latest_action": "Referred to the House Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10541?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "pdf",
-        "font",
-        "procset",
-        "text",
-        "stream",
-        "endstream",
-        "wms",
-        "xms",
-        "fsn",
-        "vms",
-        "nzf",
-        "ahf",
-        "map",
-        "qdm",
-        "oxq",
-        "gelr",
-        "akv",
-        "mfa"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9950-119",
-          "sponsor_id": "B001321",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HRES1512-119",
-          "sponsor_id": "B000740",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10456-119",
-          "sponsor_id": "R000606",
-          "similarity_score": 1.0
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001137"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Education"
-        ],
-        "keyword_hits": {
-          "Education": [
-            "education"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "pdf",
+            "font",
+            "procset",
+            "text",
+            "stream",
+            "endstream",
+            "wms",
+            "xms",
+            "fsn",
+            "vms",
+            "nzf",
+            "ahf",
+            "map",
+            "qdm",
+            "oxq",
+            "gelr",
+            "akv",
+            "mfa"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9950-119",
+              "sponsor_id": "B001321",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HRES1512-119",
+              "sponsor_id": "B000740",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10456-119",
+              "sponsor_id": "R000606",
+              "similarity_score": 1.0
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR8886-119",
@@ -1122,7 +1227,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.038,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1137,7 +1242,54 @@
             "school"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "mental",
+            "health",
+            "individuals",
+            "community",
+            "enforcement",
+            "officers",
+            "crisis",
+            "services",
+            "policing",
+            "provide",
+            "experiencing",
+            "team",
+            "program",
+            "professionals",
+            "paramedics",
+            "behavioral",
+            "omnibus",
+            "crime",
+            "control",
+            "safe"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.038,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "school"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1191-119",
@@ -1172,7 +1324,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.045,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1193,7 +1345,56 @@
             "teacher"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "columbine",
+            "service",
+            "day",
+            "community",
+            "victims",
+            "april",
+            "lives",
+            "anniversary",
+            "tragedy",
+            "memories",
+            "survivors",
+            "families",
+            "individuals",
+            "students",
+            "shooting",
+            "members",
+            "continue",
+            "remember",
+            "whose",
+            "communities"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.045,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education",
+                "school",
+                "teacher"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9899-119",
@@ -1228,16 +1429,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5308-119",
-          "sponsor_id": "C001088",
-          "similarity_score": 0.985
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000607",
         "S000168",
@@ -1260,7 +1455,60 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "status",
+            "temporary",
+            "protected",
+            "afghanistan",
+            "alien",
+            "immigration",
+            "nationality",
+            "security",
+            "designation",
+            "secretary",
+            "homeland",
+            "eligible",
+            "purposes",
+            "application",
+            "permit",
+            "nationals",
+            "committee",
+            "judiciary",
+            "period",
+            "adjudication"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.053,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5308-119",
+              "sponsor_id": "C001088",
+              "similarity_score": 0.985
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1373-119",
@@ -1295,7 +1543,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.062,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1322,7 +1570,55 @@
             "student"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "ask",
+            "national",
+            "home",
+            "day",
+            "asking",
+            "children",
+            "gun",
+            "storage",
+            "guns",
+            "june",
+            "campaign",
+            "kids",
+            "promote",
+            "secure",
+            "family",
+            "designation",
+            "saves",
+            "health",
+            "death",
+            "percent"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.062,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "school",
+                "student"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9239-119",
@@ -1357,7 +1653,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.022,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1377,7 +1673,54 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "compromise",
+            "judgments",
+            "awards",
+            "settlements",
+            "code",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "provide",
+            "limitations",
+            "bill",
+            "president",
+            "congressional",
+            "bills",
+            "government",
+            "publishing",
+            "office",
+            "doc",
+            "session"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.022,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9051-119",
@@ -1412,7 +1755,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.063,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1434,7 +1777,59 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "business",
+            "small",
+            "succession",
+            "plan",
+            "concerns",
+            "administrator",
+            "taxpayer",
+            "administration",
+            "credit",
+            "year",
+            "concern",
+            "committee",
+            "taxable",
+            "described",
+            "plans",
+            "program",
+            "toolkit",
+            "resource",
+            "end",
+            "substantially"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.063,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "credit",
+                "interest"
+              ],
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9052-119",
@@ -1469,7 +1864,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.024,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1493,14 +1888,66 @@
             "property"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "small",
+            "business",
+            "apprenticeship",
+            "subparagraph",
+            "relating",
+            "assistance",
+            "end",
+            "pre",
+            "program",
+            "development",
+            "striking",
+            "programs",
+            "html",
+            "body",
+            "introduced",
+            "include",
+            "requirements",
+            "centers",
+            "purposes",
+            "bill"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.024,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Education",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Education": [
+                "education"
+              ],
+              "Real Estate": [
+                "development",
+                "property"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:21:31.232789+00:00",
+  "bills_updated": "2026-11-18T18:03:51.377362+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 40.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 8,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
@@ -1658,12 +2105,12 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 8,
+    "donor_alignment": 7,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 44,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
@@ -1681,10 +2128,11 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600009854.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.951066+00:00",
+  "travel_updated": "2026-11-18T17:40:54.768586+00:00",
   "travel_count": 1,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

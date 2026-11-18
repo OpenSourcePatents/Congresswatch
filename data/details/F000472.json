@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000472.jpg",
   "term_start": "2021-01-01",
-  "score": 21,
+  "score": 25,
   "flags": [
     "donor"
   ],
@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.091,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -997,7 +997,63 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "board",
+            "administrator",
+            "committee",
+            "scientific",
+            "investigative",
+            "panel",
+            "activity",
+            "science",
+            "member",
+            "research",
+            "advisory",
+            "case",
+            "environmental",
+            "appointee",
+            "new",
+            "direct",
+            "financial",
+            "interest",
+            "report",
+            "respect"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.091,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Technology": [
+                "technology"
+              ],
+              "Finance & Banking": [
+                "financial",
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8407-119",
@@ -1032,7 +1088,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.084,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1072,7 +1128,73 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "hazard",
+            "risk",
+            "assessment",
+            "tools",
+            "standards",
+            "commission",
+            "models",
+            "secretary",
+            "federal",
+            "commerce",
+            "technology",
+            "natural",
+            "specifications",
+            "agencies",
+            "data",
+            "interest",
+            "departments",
+            "described",
+            "hazards",
+            "agency"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.084,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology",
+              "Defense & Military",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development",
+                "property",
+                "real_estate"
+              ],
+              "Technology": [
+                "technology",
+                "data",
+                "artificial_intelligence"
+              ],
+              "Defense & Military": [
+                "procurement",
+                "intelligence"
+              ],
+              "Finance & Banking": [
+                "financial",
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9094-119",
@@ -1107,16 +1229,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.033,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4663-119",
-          "sponsor_id": "S001217",
-          "similarity_score": 0.868
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001039",
         "P000622",
@@ -1133,7 +1249,54 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "florida",
+            "secretary",
+            "agriculture",
+            "losses",
+            "cold",
+            "weather",
+            "assistance",
+            "appropriate",
+            "sums",
+            "provide",
+            "block",
+            "grants",
+            "revenue",
+            "consequence",
+            "conditions",
+            "committee",
+            "freeze",
+            "available",
+            "crops",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.034,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4663-119",
+              "sponsor_id": "S001217",
+              "similarity_score": 0.868
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8199-119",
@@ -1168,7 +1331,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.039,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1193,7 +1356,55 @@
             "data"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "department",
+            "standard",
+            "care",
+            "secretary",
+            "veterans",
+            "report",
+            "affairs",
+            "referrals",
+            "facility",
+            "community",
+            "comprehensive",
+            "appointment",
+            "timing",
+            "respect",
+            "scheduling",
+            "establish",
+            "submit",
+            "health",
+            "required",
+            "number"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.039,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "internet",
+                "data"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7734-119",
@@ -1228,16 +1439,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.012,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4067-119",
-          "sponsor_id": "O000174",
-          "similarity_score": 0.943
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "B000490",
         "C001066"
@@ -1256,7 +1461,64 @@
             "intelligence"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "research",
+            "extension",
+            "grants",
+            "agricultural",
+            "agriculture",
+            "made",
+            "purpose",
+            "emphasis",
+            "food",
+            "conservation",
+            "trade",
+            "additional",
+            "priorities",
+            "land",
+            "grant",
+            "artificial",
+            "intelligence",
+            "species",
+            "methods",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.012,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4067-119",
+              "sponsor_id": "O000174",
+              "similarity_score": 0.943
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology",
+              "Defense & Military"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "artificial_intelligence"
+              ],
+              "Defense & Military": [
+                "intelligence"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7464-119",
@@ -1291,16 +1553,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.011,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S3843-119",
-          "sponsor_id": "M001244",
-          "similarity_score": 0.923
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "C001112",
         "S001200",
@@ -1323,7 +1579,60 @@
             "development"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "insurance",
+            "research",
+            "development",
+            "crop",
+            "weather",
+            "federal",
+            "frost",
+            "cold",
+            "corporation",
+            "florida",
+            "committee",
+            "agriculture",
+            "policy",
+            "loss",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "direct",
+            "conduct"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.011,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S3843-119",
+              "sponsor_id": "M001244",
+              "similarity_score": 0.923
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR5908-119",
@@ -1358,7 +1667,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.05,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1383,7 +1692,55 @@
             "homeland_security"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "executive",
+            "agency",
+            "covered",
+            "period",
+            "congressional",
+            "employees",
+            "report",
+            "committee",
+            "respect",
+            "appropriate",
+            "submit",
+            "lapse",
+            "employee",
+            "appropriations",
+            "total",
+            "government",
+            "office",
+            "furloughed",
+            "committees",
+            "ends"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.05,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Defense & Military"
+            ],
+            "keyword_hits": {
+              "Defense & Military": [
+                "appropriation",
+                "homeland_security"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR3185-119",
@@ -1418,7 +1775,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.06,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1429,7 +1786,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "personnel",
+            "employee",
+            "investigation",
+            "notation",
+            "covered",
+            "department",
+            "record",
+            "file",
+            "veterans",
+            "secretary",
+            "eligible",
+            "appeal",
+            "affairs",
+            "employment",
+            "later",
+            "certain",
+            "days",
+            "official",
+            "adverse",
+            "board"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.06,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR2770-119",
@@ -1464,7 +1862,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1498,7 +1896,73 @@
             "investment"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "weather",
+            "secretary",
+            "artificial",
+            "intelligence",
+            "data",
+            "models",
+            "national",
+            "forecasting",
+            "model",
+            "science",
+            "based",
+            "numerical",
+            "use",
+            "information",
+            "develop",
+            "administration",
+            "system",
+            "space",
+            "earth",
+            "general"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.036,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology",
+              "Defense & Military",
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "construction",
+                "development",
+                "property"
+              ],
+              "Technology": [
+                "technology",
+                "data",
+                "artificial_intelligence"
+              ],
+              "Defense & Military": [
+                "national_security",
+                "intelligence",
+                "homeland_security"
+              ],
+              "Finance & Banking": [
+                "financial",
+                "investment"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR2297-119",
@@ -1533,7 +1997,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.206,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1561,10 +2025,70 @@
             "health_insurance"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "agency",
+            "labor",
+            "total",
+            "time",
+            "organization",
+            "official",
+            "collective",
+            "bargaining",
+            "amount",
+            "authorized",
+            "employee",
+            "report",
+            "agreement",
+            "cost",
+            "respect",
+            "paid",
+            "annual",
+            "year",
+            "described",
+            "regarding"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.202,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Technology",
+              "Finance & Banking",
+              "Pharmaceuticals"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "property",
+                "real_estate"
+              ],
+              "Technology": [
+                "technology"
+              ],
+              "Finance & Banking": [
+                "financial"
+              ],
+              "Pharmaceuticals": [
+                "health_insurance"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:20:09.539560+00:00",
+  "bills_updated": "2026-11-18T17:57:38.304774+00:00",
   "bills_count": 10,
   "donor_alignment_score": 40.0,
   "alec_match_count": 0,
@@ -1665,10 +2189,22 @@
         "n_fields": 1,
         "extracted_at": "2026-08-10T14:19:45.462126+00:00"
       }
+    },
+    {
+      "destination_country": "Italy",
+      "departure_date": "2026-11-04",
+      "return_date": "2026-11-09",
+      "sponsor": "Ripon Society and the Franklin Center for Global Policy Exchange",
+      "traveler": "Scott Franklin",
+      "filer_type": "member",
+      "total_cost": 0.0,
+      "currency": "USD",
+      "doc_id": "600010069",
+      "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600010069.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.812385+00:00",
-  "travel_count": 4,
+  "travel_updated": "2026-11-18T17:40:54.484640+00:00",
+  "travel_count": 5,
   "top_donors_list": [
     {
       "name": "FANCELLI, GREGORY",
@@ -1943,18 +2479,19 @@
     "wealth_gap": 0,
     "donor_alignment": 8,
     "alec_similarity": 0,
-    "foreign_travel": 3,
+    "foreign_travel": 7,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 48,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "edgar_cik": null,
   "edgar_data_status": "unavailable",
   "edgar_checked": "2026-11-17T14:51:23.9401682Z",
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

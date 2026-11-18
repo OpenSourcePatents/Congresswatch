@@ -936,56 +936,79 @@
       "introduced_date": "2026-11-09",
       "latest_action": "Referred to the House Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10963?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wms",
-        "wks",
-        "yfb",
-        "kbh",
-        "wmo",
-        "pdf",
-        "vks",
-        "isz",
-        "sfx",
-        "gib",
-        "rju",
-        "nod",
-        "baf",
-        "omzz",
-        "vkw",
-        "def"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR10376-119",
-          "sponsor_id": "W000831",
-          "similarity_score": 0.976
-        },
-        {
-          "bill_id": "HR9858-119",
-          "sponsor_id": "K000397",
-          "similarity_score": 0.973
-        },
-        {
-          "bill_id": "HR9652-119",
-          "sponsor_id": "K000404",
-          "similarity_score": 0.971
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wms",
+            "wks",
+            "yfb",
+            "kbh",
+            "wmo",
+            "pdf",
+            "vks",
+            "isz",
+            "sfx",
+            "gib",
+            "rju",
+            "nod",
+            "baf",
+            "omzz",
+            "vkw",
+            "def"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR10376-119",
+              "sponsor_id": "W000831",
+              "similarity_score": 0.976
+            },
+            {
+              "bill_id": "HR9858-119",
+              "sponsor_id": "K000397",
+              "similarity_score": 0.973
+            },
+            {
+              "bill_id": "HR9652-119",
+              "sponsor_id": "K000404",
+              "similarity_score": 0.971
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HRES1577-119",
@@ -1020,16 +1043,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.029,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "SRES940-119",
-          "sponsor_id": "S001184",
-          "similarity_score": 0.974
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "D000628"
       ],
@@ -1044,7 +1061,61 @@
             "medicare"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "cell",
+            "sickle",
+            "disease",
+            "scd",
+            "awareness",
+            "treatments",
+            "programs",
+            "complications",
+            "month",
+            "anemia",
+            "gene",
+            "september",
+            "preventative",
+            "care",
+            "conditions",
+            "related",
+            "individuals",
+            "trait",
+            "years",
+            "therapies"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.029,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "SRES940-119",
+              "sponsor_id": "S001184",
+              "similarity_score": 0.974
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "medicaid",
+                "medicare"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8887-119",
@@ -1079,7 +1150,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.077,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1110,7 +1181,62 @@
             "reimbursement"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "rosenwald",
+            "park",
+            "secretary",
+            "national",
+            "schools",
+            "julius",
+            "school",
+            "network",
+            "purposes",
+            "map",
+            "boundary",
+            "service",
+            "within",
+            "appropriate",
+            "historical",
+            "general",
+            "federal",
+            "cooperative",
+            "sears",
+            "south"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.077,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Real Estate",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ],
+              "Real Estate": [
+                "property"
+              ],
+              "Healthcare": [
+                "reimbursement"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7529-119",
@@ -1145,7 +1271,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.073,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1164,7 +1290,54 @@
             "housing"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "state",
+            "legal",
+            "session",
+            "foster",
+            "issues",
+            "youth",
+            "access",
+            "services",
+            "affecting",
+            "case",
+            "planning",
+            "funds",
+            "john",
+            "chafee",
+            "care",
+            "program",
+            "successful",
+            "transition",
+            "adulthood",
+            "counseling"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.072,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "housing"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10429-119",
@@ -1199,38 +1372,80 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5416-119",
-          "sponsor_id": "D000622",
-          "similarity_score": 0.923
-        },
-        {
-          "bill_id": "HR9570-119",
-          "sponsor_id": "B001321",
-          "similarity_score": 0.847
-        },
-        {
-          "bill_id": "HR10141-119",
-          "sponsor_id": "G000601",
-          "similarity_score": 0.818
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "S001190",
         "S001225",
         "J000309",
         "C001117",
-        "F000454"
+        "F000454",
+        "L000585"
       ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "office",
+            "illinois",
+            "detective",
+            "allan",
+            "reddins",
+            "post",
+            "building",
+            "facility",
+            "postal",
+            "service",
+            "located",
+            "lake",
+            "street",
+            "oak",
+            "park",
+            "government",
+            "introduced",
+            "designate",
+            "bill",
+            "referred"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.034,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5416-119",
+              "sponsor_id": "D000622",
+              "similarity_score": 0.923
+            },
+            {
+              "bill_id": "HR9570-119",
+              "sponsor_id": "B001321",
+              "similarity_score": 0.847
+            },
+            {
+              "bill_id": "HR10141-119",
+              "sponsor_id": "G000601",
+              "similarity_score": 0.818
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1432-119",
@@ -1265,7 +1480,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.025,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1295,7 +1510,58 @@
             "hhs"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "services",
+            "hhs",
+            "illinois",
+            "president",
+            "secretary",
+            "office",
+            "health",
+            "human",
+            "freeze",
+            "families",
+            "california",
+            "new",
+            "york",
+            "communication",
+            "payment",
+            "regarding",
+            "transmit",
+            "documents",
+            "based",
+            "temporary"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.026,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Real Estate",
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Real Estate": [
+                "development"
+              ],
+              "Healthcare": [
+                "hhs"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1371-119",
@@ -1330,7 +1596,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1349,7 +1615,56 @@
             "medicare"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "scd",
+            "cell",
+            "sickle",
+            "world",
+            "health",
+            "awareness",
+            "disease",
+            "individuals",
+            "treatments",
+            "day",
+            "global",
+            "research",
+            "cure",
+            "programs",
+            "respect",
+            "sct",
+            "care",
+            "complications",
+            "relating",
+            "therapies"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.034,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Healthcare"
+            ],
+            "keyword_hits": {
+              "Healthcare": [
+                "healthcare",
+                "medicaid",
+                "medicare"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7689-119",
@@ -1384,7 +1699,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.172,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1403,7 +1718,58 @@
             "housing"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "student",
+            "assistance",
+            "grants",
+            "supplemental",
+            "emergency",
+            "year",
+            "funds",
+            "grant",
+            "academic",
+            "basic",
+            "living",
+            "expenses",
+            "support",
+            "students",
+            "amount",
+            "services",
+            "program",
+            "education",
+            "end",
+            "recipient"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.172,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Real Estate"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial"
+              ],
+              "Real Estate": [
+                "housing"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7690-119",
@@ -1438,7 +1804,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1447,7 +1813,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "fiscal",
+            "year",
+            "maximum",
+            "per",
+            "month",
+            "amounts",
+            "project",
+            "assisted",
+            "stipend",
+            "respect",
+            "education",
+            "increase",
+            "stipends",
+            "percentage",
+            "higher",
+            "upward",
+            "bound",
+            "succeeding",
+            "determined",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.078,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR7639-119",
@@ -1482,35 +1889,76 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR5418-119",
-          "sponsor_id": "M001196",
-          "similarity_score": 0.967
-        },
-        {
-          "bill_id": "HR6073-119",
-          "sponsor_id": "M001196",
-          "similarity_score": 0.966
-        },
-        {
-          "bill_id": "HR7339-119",
-          "sponsor_id": "H001052",
-          "similarity_score": 0.955
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "carlos",
+            "lopez",
+            "roberto",
+            "status",
+            "immigrant",
+            "immigration",
+            "permanent",
+            "nationality",
+            "adjustment",
+            "visa",
+            "application",
+            "removal",
+            "visas",
+            "eligible",
+            "issuance",
+            "residence",
+            "enactment",
+            "denial",
+            "admission",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.034,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR5418-119",
+              "sponsor_id": "M001196",
+              "similarity_score": 0.967
+            },
+            {
+              "bill_id": "HR6073-119",
+              "sponsor_id": "M001196",
+              "similarity_score": 0.966
+            },
+            {
+              "bill_id": "HR7339-119",
+              "sponsor_id": "H001052",
+              "similarity_score": 0.955
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:12:03.804975+00:00",
+  "bills_updated": "2026-11-18T17:47:11.778577+00:00",
   "bills_count": 10,
   "donor_alignment_score": 30.0,
   "alec_match_count": 0,
@@ -1530,7 +1978,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2025/500030871.pdf"
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.721171+00:00",
+  "travel_updated": "2026-11-18T17:40:54.679854+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -1693,12 +2141,13 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
   "votes_fail_count": 42,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

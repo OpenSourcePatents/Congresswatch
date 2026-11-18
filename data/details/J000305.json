@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000305.jpg",
   "term_start": "2021-01-01",
-  "score": 8,
+  "score": 7,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577889",
   "corporate_insider_signals": 0,
@@ -960,32 +960,73 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.019,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HCONRES102-119",
-          "sponsor_id": "R000621",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HCONRES91-119",
-          "sponsor_id": "D000635",
-          "similarity_score": 0.999
-        },
-        {
-          "bill_id": "HCONRES92-119",
-          "sponsor_id": "G000559",
-          "similarity_score": 0.999
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "resolution",
+            "forces",
+            "armed",
+            "iran",
+            "war",
+            "use",
+            "force",
+            "intelligence",
+            "president",
+            "powers",
+            "hostilities",
+            "military",
+            "government",
+            "remove",
+            "concurrent",
+            "rule",
+            "construction",
+            "nothing",
+            "construed",
+            "relating"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.019,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HCONRES102-119",
+              "sponsor_id": "R000621",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HCONRES91-119",
+              "sponsor_id": "D000635",
+              "similarity_score": 0.999
+            },
+            {
+              "bill_id": "HCONRES92-119",
+              "sponsor_id": "G000559",
+              "similarity_score": 0.999
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8412-119",
@@ -1020,7 +1061,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.08,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1029,7 +1070,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "regulations",
+            "beverage",
+            "secretary",
+            "beverages",
+            "months",
+            "infant",
+            "children",
+            "food",
+            "use",
+            "based",
+            "consumption",
+            "age",
+            "common",
+            "usual",
+            "name",
+            "added",
+            "sugars",
+            "proposed",
+            "final",
+            "health"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.08,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10189-119",
@@ -1064,7 +1146,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.043,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1083,7 +1165,55 @@
             "artificial_intelligence"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "incident",
+            "secretary",
+            "vulnerability",
+            "reporting",
+            "program",
+            "covered",
+            "artificial",
+            "intelligence",
+            "official",
+            "defense",
+            "report",
+            "department",
+            "safety",
+            "operational",
+            "system",
+            "establish",
+            "vulnerabilities",
+            "systems",
+            "risks",
+            "response"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.043,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "data",
+                "artificial_intelligence"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10188-119",
@@ -1118,16 +1248,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.052,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5288-119",
-          "sponsor_id": "S001194",
-          "similarity_score": 0.981
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "B001298"
       ],
@@ -1141,7 +1265,60 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "pentagon",
+            "press",
+            "access",
+            "defense",
+            "department",
+            "secretary",
+            "journalists",
+            "credentialed",
+            "reporters",
+            "reporting",
+            "policy",
+            "armed",
+            "security",
+            "information",
+            "government",
+            "first",
+            "work",
+            "restore",
+            "services",
+            "national"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.052,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5288-119",
+              "sponsor_id": "S001194",
+              "similarity_score": 0.981
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9782-119",
@@ -1152,56 +1329,79 @@
       "introduced_date": "2026-07-20",
       "latest_action": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9782?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wms",
-        "wks",
-        "vms",
-        "wko",
-        "pdf",
-        "mzb",
-        "sph",
-        "vigw",
-        "dsd",
-        "jle",
-        "bcfux",
-        "rno",
-        "iqh",
-        "ixa",
-        "aeys",
-        "nji"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9714-119",
-          "sponsor_id": "S001221",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR10748-119",
-          "sponsor_id": "T000486",
-          "similarity_score": 0.971
-        },
-        {
-          "bill_id": "HR10063-119",
-          "sponsor_id": "O000172",
-          "similarity_score": 0.962
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wms",
+            "wks",
+            "vms",
+            "wko",
+            "pdf",
+            "mzb",
+            "sph",
+            "vigw",
+            "dsd",
+            "jle",
+            "bcfux",
+            "rno",
+            "iqh",
+            "ixa",
+            "aeys",
+            "nji"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9714-119",
+              "sponsor_id": "S001221",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR10748-119",
+              "sponsor_id": "T000486",
+              "similarity_score": 0.971
+            },
+            {
+              "bill_id": "HR11040-119",
+              "sponsor_id": "D000635",
+              "similarity_score": 0.97
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9470-119",
@@ -1212,64 +1412,87 @@
       "introduced_date": "2026-06-25",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9470?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "filter",
-        "flatedecode",
-        "length",
-        "stream",
-        "endstream",
-        "contents",
-        "parent",
-        "resources",
-        "type",
-        "page",
-        "wms",
-        "wks",
-        "rwr",
-        "tsv",
-        "wkw",
-        "vms",
-        "pdf",
-        "wtf"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4209-119",
-          "sponsor_id": "S001198",
-          "similarity_score": 0.997
-        },
-        {
-          "bill_id": "S4277-119",
-          "sponsor_id": "S001227",
-          "similarity_score": 0.995
-        },
-        {
-          "bill_id": "HR9249-119",
-          "sponsor_id": "M001194",
-          "similarity_score": 0.993
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "M001227"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "privacy"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "filter",
+            "flatedecode",
+            "length",
+            "stream",
+            "endstream",
+            "contents",
+            "parent",
+            "resources",
+            "type",
+            "page",
+            "wms",
+            "wks",
+            "rwr",
+            "tsv",
+            "wkw",
+            "vms",
+            "pdf",
+            "wtf"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4209-119",
+              "sponsor_id": "S001198",
+              "similarity_score": 0.997
+            },
+            {
+              "bill_id": "S4277-119",
+              "sponsor_id": "S001227",
+              "similarity_score": 0.995
+            },
+            {
+              "bill_id": "HR9249-119",
+              "sponsor_id": "M001194",
+              "similarity_score": 0.993
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "privacy"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9220-119",
@@ -1280,56 +1503,79 @@
       "introduced_date": "2026-06-09",
       "latest_action": "Referred to the House Committee on Armed Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9220?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "type",
-        "rdf",
-        "pdf",
-        "length",
-        "stream",
-        "endstream",
-        "filter",
-        "flatedecode",
-        "font",
-        "parent",
-        "xmp",
-        "contents",
-        "cropbox",
-        "mediabox",
-        "resources",
-        "rotate",
-        "page",
-        "extgstate"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.01,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9210-119",
-          "sponsor_id": "R000606",
-          "similarity_score": 0.997
-        },
-        {
-          "bill_id": "HR9240-119",
-          "sponsor_id": "D000032",
-          "similarity_score": 0.992
-        },
-        {
-          "bill_id": "HR9549-119",
-          "sponsor_id": "J000298",
-          "similarity_score": 0.987
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "type",
+            "rdf",
+            "pdf",
+            "length",
+            "stream",
+            "endstream",
+            "filter",
+            "flatedecode",
+            "font",
+            "parent",
+            "xmp",
+            "contents",
+            "cropbox",
+            "mediabox",
+            "resources",
+            "rotate",
+            "page",
+            "extgstate"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.01,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9210-119",
+              "sponsor_id": "R000606",
+              "similarity_score": 0.997
+            },
+            {
+              "bill_id": "HR9240-119",
+              "sponsor_id": "D000032",
+              "similarity_score": 0.992
+            },
+            {
+              "bill_id": "HR9549-119",
+              "sponsor_id": "J000298",
+              "similarity_score": 0.987
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9125-119",
@@ -1364,7 +1610,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.127,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1388,7 +1634,58 @@
             "hardware"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "agency",
+            "rulemaking",
+            "making",
+            "decision",
+            "algorithmic",
+            "federal",
+            "rule",
+            "head",
+            "system",
+            "violations",
+            "enforce",
+            "authority",
+            "authorized",
+            "use",
+            "proposed",
+            "office",
+            "systems",
+            "materially",
+            "contribute",
+            "agencies"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.127,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "technology",
+                "data",
+                "artificial_intelligence",
+                "software",
+                "hardware"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HRES1312-119",
@@ -1423,7 +1720,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.021,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1440,7 +1737,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "san",
+            "diego",
+            "islamic",
+            "center",
+            "shooting",
+            "victims",
+            "muslim",
+            "california",
+            "gunmen",
+            "html",
+            "body",
+            "pre",
+            "government",
+            "res",
+            "honoring",
+            "resolution",
+            "took",
+            "place",
+            "violence",
+            "hatred"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.021,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR8161-119",
@@ -1475,7 +1813,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.044,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1492,14 +1830,61 @@
             "technology"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "diplomacy",
+            "team",
+            "tiger",
+            "expeditionary",
+            "department",
+            "state",
+            "report",
+            "foreign",
+            "secretary",
+            "appropriate",
+            "security",
+            "recommendations",
+            "required",
+            "service",
+            "challenges",
+            "include",
+            "plan",
+            "implementation",
+            "congressional",
+            "practice"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.044,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Technology"
+            ],
+            "keyword_hits": {
+              "Technology": [
+                "technology"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T18:19:56.338297+00:00",
+  "bills_updated": "2026-11-18T17:57:16.892871+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {
@@ -1640,7 +2025,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.511864+00:00",
+  "travel_updated": "2026-11-18T17:40:54.533391+00:00",
   "travel_count": 5,
   "top_donors_list": [
     {
@@ -1798,17 +2183,18 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 5,
+    "donor_alignment": 4,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "votes_fail_count": 45,
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }

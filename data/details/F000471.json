@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000471.jpg",
   "term_start": "2021-01-01",
-  "score": 7,
+  "score": 5,
   "flags": [
     "donor"
   ],
@@ -962,7 +962,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.02,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -985,7 +985,58 @@
             "defense"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "money",
+            "transactions",
+            "cyber",
+            "financial",
+            "laundering",
+            "inserting",
+            "government",
+            "office",
+            "secret",
+            "service",
+            "crimes",
+            "structured",
+            "institutions",
+            "committee",
+            "striking",
+            "html",
+            "body",
+            "pre",
+            "introduced",
+            "strengthen"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.02,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Defense & Military"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial"
+              ],
+              "Defense & Military": [
+                "defense"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR427-119",
@@ -1020,7 +1071,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1033,7 +1084,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "solicitation",
+            "orders",
+            "end",
+            "introduced",
+            "expand",
+            "prohibition",
+            "state",
+            "taxation",
+            "relating",
+            "certain",
+            "bill",
+            "striking",
+            "business",
+            "activity",
+            "congressional",
+            "bills",
+            "government",
+            "publishing",
+            "office",
+            "doc"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.051,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR10390-119",
@@ -1044,56 +1136,79 @@
       "introduced_date": "2026-09-15",
       "latest_action": "Referred to the House Committee on the Judiciary.",
       "url": "https://api.congress.gov/v3/bill/119/hr/10390?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "stream",
-        "endstream",
-        "wks",
-        "wms",
-        "vks",
-        "fvi",
-        "pdf",
-        "ilg",
-        "lhs",
-        "lfla",
-        "ruk",
-        "xuw",
-        "xtf",
-        "xzx",
-        "vms",
-        "zdi",
-        "jxm",
-        "zcgo"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9588-119",
-          "sponsor_id": "S001212",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "HR9688-119",
-          "sponsor_id": "R000606",
-          "similarity_score": 0.981
-        },
-        {
-          "bill_id": "HR10875-119",
-          "sponsor_id": "J000298",
-          "similarity_score": 0.971
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
-        "keyword_hits": {}
-      }
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "stream",
+            "endstream",
+            "wks",
+            "wms",
+            "vks",
+            "fvi",
+            "pdf",
+            "ilg",
+            "lhs",
+            "lfla",
+            "ruk",
+            "xuw",
+            "xtf",
+            "xzx",
+            "vms",
+            "zdi",
+            "jxm",
+            "zcgo"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9588-119",
+              "sponsor_id": "S001212",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "HR9688-119",
+              "sponsor_id": "R000606",
+              "similarity_score": 0.981
+            },
+            {
+              "bill_id": "HR10875-119",
+              "sponsor_id": "J000298",
+              "similarity_score": 0.971
+            }
+          ],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR4658-119",
@@ -1128,7 +1243,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.149,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1148,7 +1263,48 @@
         "match": false,
         "matched_industries": [],
         "keyword_hits": {}
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "corporation",
+            "state",
+            "local",
+            "nea",
+            "membership",
+            "members",
+            "national",
+            "affiliates",
+            "education",
+            "government",
+            "code",
+            "race",
+            "employee",
+            "dues",
+            "requirements",
+            "association",
+            "labor",
+            "schools",
+            "fees",
+            "color"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.149,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": false,
+            "matched_industries": [],
+            "keyword_hits": {}
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9460-119",
@@ -1159,63 +1315,86 @@
       "introduced_date": "2026-06-25",
       "latest_action": "Referred to the House Committee on Financial Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9460?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "type",
-        "font",
-        "parent",
-        "pdf",
-        "filter",
-        "flatedecode",
-        "length",
-        "stream",
-        "extgstate",
-        "endstream",
-        "contents",
-        "resources",
-        "page",
-        "procset",
-        "text",
-        "fontdescriptor",
-        "subtype",
-        "basefont"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.002,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S4328-119",
-          "sponsor_id": "M001244",
-          "similarity_score": 0.996
-        },
-        {
-          "bill_id": "HR9478-119",
-          "sponsor_id": "M001225",
-          "similarity_score": 0.996
-        },
-        {
-          "bill_id": "HR9309-119",
-          "sponsor_id": "W000788",
-          "similarity_score": 0.994
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "loan",
-            "mortgage"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "type",
+            "font",
+            "parent",
+            "pdf",
+            "filter",
+            "flatedecode",
+            "length",
+            "stream",
+            "extgstate",
+            "endstream",
+            "contents",
+            "resources",
+            "page",
+            "procset",
+            "text",
+            "fontdescriptor",
+            "subtype",
+            "basefont"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.002,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S4328-119",
+              "sponsor_id": "M001244",
+              "similarity_score": 0.996
+            },
+            {
+              "bill_id": "HR9478-119",
+              "sponsor_id": "M001225",
+              "similarity_score": 0.996
+            },
+            {
+              "bill_id": "HR9309-119",
+              "sponsor_id": "W000788",
+              "similarity_score": 0.994
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "loan",
+                "mortgage"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9461-119",
@@ -1226,65 +1405,88 @@
       "introduced_date": "2026-06-25",
       "latest_action": "Referred to the House Committee on Financial Services.",
       "url": "https://api.congress.gov/v3/bill/119/hr/9461?format=json",
-      "keywords": [
-        "obj",
-        "endobj",
-        "filter",
-        "flatedecode",
-        "length",
-        "stream",
-        "endstream",
-        "contents",
-        "parent",
-        "resources",
-        "type",
-        "page",
-        "wks",
-        "wms",
-        "vks",
-        "amh",
-        "pdf",
-        "hbb",
-        "ljv",
-        "prbw"
-      ],
-      "has_text": true,
+      "keywords": [],
+      "has_text": false,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": "member_bill",
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HR9569-119",
-          "sponsor_id": "W000797",
-          "similarity_score": 1.0
-        },
-        {
-          "bill_id": "S4318-119",
-          "sponsor_id": "R000608",
-          "similarity_score": 0.993
-        },
-        {
-          "bill_id": "HR9566-119",
-          "sponsor_id": "S001183",
-          "similarity_score": 0.993
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "L000599"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "loan",
-            "mortgage"
-          ]
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {},
+        "analysis_status": "quarantined_pdf_text"
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "obj",
+            "endobj",
+            "filter",
+            "flatedecode",
+            "length",
+            "stream",
+            "endstream",
+            "contents",
+            "parent",
+            "resources",
+            "type",
+            "page",
+            "wks",
+            "wms",
+            "vks",
+            "amh",
+            "pdf",
+            "hbb",
+            "ljv",
+            "prbw"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.0,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "HR9569-119",
+              "sponsor_id": "W000797",
+              "similarity_score": 1.0
+            },
+            {
+              "bill_id": "S4318-119",
+              "sponsor_id": "R000608",
+              "similarity_score": 0.993
+            },
+            {
+              "bill_id": "HR9566-119",
+              "sponsor_id": "S001183",
+              "similarity_score": 0.993
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "loan",
+                "mortgage"
+              ]
+            }
+          }
         }
-      }
+      },
+      "analysis_status": "quarantined_pdf_text",
+      "text_integrity": "quarantined",
+      "text_integrity_reason": "pdf_structure"
     },
     {
       "bill_id": "HR9459-119",
@@ -1319,7 +1521,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.101,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1338,7 +1540,58 @@
             "lending"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "violation",
+            "rate",
+            "loan",
+            "period",
+            "described",
+            "federal",
+            "creditor",
+            "consumer",
+            "disclosure",
+            "percentage",
+            "regulations",
+            "requirements",
+            "mortgage",
+            "closing",
+            "code",
+            "restitution",
+            "truth",
+            "lending",
+            "waiting",
+            "annual"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.101,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "loan",
+                "mortgage",
+                "interest",
+                "lending"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9385-119",
@@ -1373,7 +1626,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.087,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1392,7 +1645,58 @@
             "liability"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "foreign",
+            "sustainability",
+            "due",
+            "diligence",
+            "entity",
+            "regulation",
+            "national",
+            "interests",
+            "president",
+            "petition",
+            "integral",
+            "action",
+            "adverse",
+            "directive",
+            "european",
+            "union",
+            "adopted",
+            "business",
+            "general",
+            "subparagraph"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.087,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Insurance"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest"
+              ],
+              "Insurance": [
+                "liability"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9143-119",
@@ -1427,7 +1731,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.017,
+      "alec_best_similarity": 0.0,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1443,7 +1747,55 @@
             "interest"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "patent",
+            "foreign",
+            "republic",
+            "people",
+            "director",
+            "disclosures",
+            "china",
+            "adversary",
+            "application",
+            "require",
+            "regarding",
+            "ties",
+            "adversaries",
+            "disclosure",
+            "applications",
+            "office",
+            "code",
+            "true",
+            "applicant",
+            "html"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.017,
+          "match_type": null,
+          "alec_match": null,
+          "similar_member_bills": [],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "financial",
+                "interest"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     },
     {
       "bill_id": "HR9142-119",
@@ -1478,16 +1830,10 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.03,
-      "match_type": "member_bill",
+      "alec_best_similarity": 0.0,
+      "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "S5610-119",
-          "sponsor_id": "M001244",
-          "similarity_score": 0.834
-        }
-      ],
+      "similar_member_bills": [],
       "cosponsors": [
         "M001194",
         "I000056",
@@ -1510,14 +1856,74 @@
             "national_security"
           ]
         }
-      }
+      },
+      "analysis_provenance": {
+        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+        "original_fields": {
+          "keywords": [
+            "person",
+            "security",
+            "patent",
+            "national",
+            "ability",
+            "threat",
+            "patents",
+            "application",
+            "persons",
+            "pose",
+            "receive",
+            "enforce",
+            "prohibition",
+            "code",
+            "list",
+            "described",
+            "president",
+            "activity",
+            "committee",
+            "judiciary"
+          ],
+          "has_text": true,
+          "similarity_score": null,
+          "alec_best_similarity": 0.03,
+          "match_type": "member_bill",
+          "alec_match": null,
+          "similar_member_bills": [
+            {
+              "bill_id": "S5610-119",
+              "sponsor_id": "M001244",
+              "similarity_score": 0.834
+            }
+          ],
+          "donor_interest": {
+            "match": true,
+            "matched_industries": [
+              "Finance & Banking",
+              "Defense & Military"
+            ],
+            "keyword_hits": {
+              "Finance & Banking": [
+                "interest",
+                "securities"
+              ],
+              "Defense & Military": [
+                "defense",
+                "military",
+                "national_security"
+              ]
+            }
+          }
+        }
+      },
+      "analysis_status": "quarantined_legacy_corpus"
     }
   ],
-  "bills_updated": "2026-11-17T17:08:55.587422+00:00",
+  "bills_updated": "2026-11-18T16:39:13.770143+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 7,
+  "donor_match_count": 5,
   "edgar_status": "unverified_auto",
   "votes_fail_count": 45,
   "travel": [
@@ -1547,7 +1953,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-17T17:59:31.906375+00:00",
+  "travel_updated": "2026-11-18T17:40:54.506096+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -1704,18 +2110,19 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 7,
+    "donor_alignment": 5,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T16:17:28.221822",
+  "score_updated": "2026-11-18T19:14:33.290149",
   "missed_votes_pct": 0.0,
   "edgar_cik": "0002063059",
   "non_voting_delegate": false,
-  "score_methodology": "activity-v3-verified-sec-only",
+  "score_methodology": "activity-v4-bill-integrity",
   "edgar_legacy_status": "verified_auto",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
-  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "quarantined_legacy_corpus"
 }
