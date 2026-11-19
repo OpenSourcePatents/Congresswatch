@@ -1133,9 +1133,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "insurance"
+          ]
+        }
       }
     },
     {
@@ -1179,9 +1185,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Healthcare",
           "Finance & Banking"
         ],
         "keyword_hits": {
+          "Healthcare": [
+            "insurance"
+          ],
           "Finance & Banking": [
             "financial",
             "credit",
@@ -1247,15 +1257,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Agriculture",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Agriculture"
         ],
         "keyword_hits": {
-          "Agriculture": [
-            "commodity"
-          ],
           "Finance & Banking": [
             "credit"
+          ],
+          "Agriculture": [
+            "commodity"
           ]
         }
       }
@@ -1486,11 +1496,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-18T17:39:33.157725+00:00",
+  "bills_updated": "2026-11-19T19:18:55.826707+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "travel": [
     {
