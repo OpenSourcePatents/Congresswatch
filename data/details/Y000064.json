@@ -923,6 +923,29 @@
   "total_raised_display": "$0",
   "bills": [
     {
+      "bill_id": "S5780-119",
+      "title": "A bill to designate the facility of the United States Postal Service located at 501 West Memorial Drive in Muncie, Indiana, as the \"Officer Blake A. Reynolds Post Office Building\".",
+      "type": "S",
+      "number": "5780",
+      "congress": 119,
+      "introduced_date": "2026-11-19",
+      "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+      "url": "https://api.congress.gov/v3/bill/119/s/5780?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "S5707-119",
       "title": "A bill to amend the Internal Revenue Code of 1986 to establish that employers may offer employees a choice among tax-favored employer contributions.",
       "type": "S",
@@ -1008,7 +1031,7 @@
         {
           "bill_id": "HR10568-119",
           "sponsor_id": "K000389",
-          "similarity_score": 0.979
+          "similarity_score": 0.98
         }
       ],
       "cosponsors": [
@@ -1285,9 +1308,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.057,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR8866-119",
+          "sponsor_id": "S001215",
+          "similarity_score": 0.8
+        }
+      ],
       "cosponsors": [
         "C001088"
       ],
@@ -1343,7 +1372,7 @@
         {
           "bill_id": "HR7539-119",
           "sponsor_id": "H001096",
-          "similarity_score": 0.849
+          "similarity_score": 0.851
         }
       ],
       "cosponsors": [
@@ -1411,32 +1440,9 @@
           ]
         }
       }
-    },
-    {
-      "bill_id": "-119",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2026-07-13",
-      "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/6664?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-11-19T19:50:57.339736+00:00",
+  "bills_updated": "2026-11-20T18:29:32.923036+00:00",
   "bills_count": 10,
   "donor_alignment_score": 25.0,
   "alec_match_count": 0,

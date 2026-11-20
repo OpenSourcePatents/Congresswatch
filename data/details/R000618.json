@@ -928,6 +928,29 @@
   "last_updated": "2026-11-20T14:33:39.165290",
   "bills": [
     {
+      "bill_id": "SRES962-119",
+      "title": "A resolution designating the week of November 27 through December 3, 2026, as \"National Electronic Transactions Week\".",
+      "type": "SRES",
+      "number": "962",
+      "congress": 119,
+      "introduced_date": "2026-11-19",
+      "latest_action": "Referred to the Committee on the Judiciary. (text: CR S5817)",
+      "url": "https://api.congress.gov/v3/bill/119/sres/962?format=json",
+      "keywords": [],
+      "has_text": false,
+      "similarity_score": null,
+      "alec_best_similarity": 0.0,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
+      }
+    },
+    {
       "bill_id": "S5760-119",
       "title": "A bill to modify the prohibition on reverse mortgage originators from engaging with financial or insurance activities, and for other purposes.",
       "type": "S",
@@ -989,9 +1012,19 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture",
+            "farm",
+            "crop",
+            "livestock",
+            "commodity"
+          ]
+        }
       }
     },
     {
@@ -1027,7 +1060,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.103,
+      "alec_best_similarity": 0.104,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1136,13 +1169,22 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Real Estate",
+          "Finance & Banking",
+          "Agriculture"
         ],
         "keyword_hits": {
           "Real Estate": [
             "housing",
             "development",
             "property"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "investment"
+          ],
+          "Agriculture": [
+            "food"
           ]
         }
       }
@@ -1186,9 +1228,15 @@
       "similar_member_bills": [],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Agriculture"
+        ],
+        "keyword_hits": {
+          "Agriculture": [
+            "agriculture"
+          ]
+        }
       }
     },
     {
@@ -1343,36 +1391,13 @@
         "matched_industries": [],
         "keyword_hits": {}
       }
-    },
-    {
-      "bill_id": "-119",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2026-06-24",
-      "latest_action": "",
-      "url": "https://api.congress.gov/v3/amendment/119/samdt/6428?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
     }
   ],
-  "bills_updated": "2026-11-19T19:53:52.363482+00:00",
+  "bills_updated": "2026-11-20T18:33:59.759015+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 10.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 2,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "votes_fail_count": 46,
   "top_donors_list": [
