@@ -2359,7 +2359,7 @@
     "Education",
     "Technology"
   ],
-  "donors_updated": "2026-11-20T19:02:14.299381+00:00",
+  "donors_updated": "2026-11-21T17:56:26.766929+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2369,7 +2369,7 @@
     "foreign_travel": 0,
     "attendance": 3
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 13.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2421,13 +2421,13 @@
   },
   "votes_checked": "2026-11-21T09:01:29.580089",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:05:46.599587"
+      "data_updated": "2026-11-21T13:31:27.682002",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -3316,9 +3316,10 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "HR10911-119",
@@ -3363,9 +3364,15 @@
               "M001215"
             ],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
             }
           },
           {
@@ -3462,15 +3469,9 @@
               "H001068"
             ],
             "donor_interest": {
-              "match": true,
-              "matched_industries": [
-                "Finance & Banking"
-              ],
-              "keyword_hits": {
-                "Finance & Banking": [
-                  "interest"
-                ]
-              }
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
             }
           },
           {
@@ -3519,9 +3520,15 @@
               "D000624"
             ],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
             }
           },
           {
@@ -3711,15 +3718,9 @@
             "similar_member_bills": [],
             "cosponsors": [],
             "donor_interest": {
-              "match": true,
-              "matched_industries": [
-                "Finance & Banking"
-              ],
-              "keyword_hits": {
-                "Finance & Banking": [
-                  "interest"
-                ]
-              }
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
             }
           },
           {
@@ -3811,11 +3812,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T17:09:16.540011+00:00",
         "bills_count": 10,
+        "bills_updated": "2026-11-21T16:15:04.926388+00:00",
         "donor_alignment_score": 10.0,
-        "donor_match_count": 2,
-        "alec_match_count": 0
+        "donor_match_count": 2
       }
     }
   ],

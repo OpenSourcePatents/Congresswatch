@@ -3927,7 +3927,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-20T17:25:37.849249+00:00",
+  "travel_updated": "2026-11-21T16:30:16.645390+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -4081,7 +4081,7 @@
     "Agriculture",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-20T19:10:22.703347+00:00",
+  "donors_updated": "2026-11-21T18:04:55.049578+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -4091,7 +4091,7 @@
     "foreign_travel": 3,
     "attendance": 3
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "votes_fail_count": 51,
   "missed_votes_pct": 13.0,
   "non_voting_delegate": false,
@@ -4142,13 +4142,13 @@
   },
   "votes_checked": "2026-11-21T09:05:30.056537",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:24:04.002543"
+      "data_updated": "2026-11-21T13:51:22.059574",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -5110,9 +5110,10 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "HJRES222-119",
@@ -5354,15 +5355,9 @@
               "G000603"
             ],
             "donor_interest": {
-              "match": true,
-              "matched_industries": [
-                "Finance & Banking"
-              ],
-              "keyword_hits": {
-                "Finance & Banking": [
-                  "financial"
-                ]
-              }
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
             }
           },
           {
@@ -5551,9 +5546,9 @@
                 "similarity_score": 0.971
               },
               {
-                "bill_id": "HR9682-119",
-                "sponsor_id": "M001215",
-                "similarity_score": 0.963
+                "bill_id": "HR11096-119",
+                "sponsor_id": "F000478",
+                "similarity_score": 0.969
               }
             ],
             "cosponsors": [
@@ -5648,11 +5643,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T18:06:51.090817+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 15.0,
-        "donor_match_count": 3,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T17:00:06.499993+00:00",
+        "donor_alignment_score": 10.0,
+        "donor_match_count": 2
       }
     }
   ],

@@ -3530,7 +3530,7 @@
     "Real Estate",
     "Mining & Natural Resources"
   ],
-  "donors_updated": "2026-11-20T19:27:50.452357+00:00",
+  "donors_updated": "2026-11-21T18:18:24.006961+00:00",
   "total_raised": 6885246.9,
   "pac_contributions": 1354100.0,
   "individual_contributions": 3273451.33,
@@ -3543,7 +3543,7 @@
     "foreign_travel": 0,
     "attendance": 1
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 5.0,
   "travel": [
     {
@@ -3630,13 +3630,13 @@
   },
   "votes_checked": "2026-11-21T09:08:52.782502",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:38:26.048183"
+      "data_updated": "2026-11-21T14:06:34.694828",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -4423,31 +4423,59 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "S5751-119",
-            "title": "A bill to establish the National Office for Scam and Fraud Prevention.",
+            "title": "National Office for Scam and Fraud Prevention Act",
             "type": "S",
             "number": "5751",
             "congress": 119,
             "introduced_date": "2026-11-18",
             "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
             "url": "https://api.congress.gov/v3/bill/119/s/5751?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "office",
+              "fraud",
+              "scam",
+              "prevention",
+              "president",
+              "national",
+              "director",
+              "strategy",
+              "scams",
+              "responsibilities",
+              "appropriate",
+              "federal",
+              "agencies",
+              "develop",
+              "sharing",
+              "committee",
+              "response",
+              "considers",
+              "facilitate",
+              "intelligence"
+            ],
+            "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.0,
+            "alec_best_similarity": 0.07,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
             "cosponsors": [],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ]
+              }
             }
           },
           {
@@ -4695,7 +4723,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.087,
+            "alec_best_similarity": 0.089,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
@@ -4750,7 +4778,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.042,
+            "alec_best_similarity": 0.043,
             "match_type": "member_bill",
             "alec_match": null,
             "similar_member_bills": [
@@ -4851,11 +4879,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T18:42:15.123864+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 15.0,
-        "donor_match_count": 3,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T17:36:17.528511+00:00",
+        "donor_alignment_score": 20.0,
+        "donor_match_count": 4
       }
     }
   ],

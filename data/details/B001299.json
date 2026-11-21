@@ -8948,7 +8948,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "votes_fail_count": 47,
@@ -8999,13 +8999,13 @@
   },
   "votes_checked": "2026-11-21T08:57:58.266255",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T13:50:25.309942"
+      "data_updated": "2026-11-21T13:15:24.226687",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -9887,9 +9887,10 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "S5748-119",
@@ -9953,20 +9954,57 @@
           },
           {
             "bill_id": "S5745-119",
-            "title": "A bill to transfer Department of Education functions relating to family engagement.",
+            "title": "Less Bureaucracy, Better Family Engagement Act",
             "type": "S",
             "number": "5745",
             "congress": 119,
             "introduced_date": "2026-11-18",
             "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
             "url": "https://api.congress.gov/v3/bill/119/s/5745?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "education",
+              "functions",
+              "transferred",
+              "health",
+              "department",
+              "secretary",
+              "services",
+              "human",
+              "function",
+              "authorized",
+              "transfer",
+              "director",
+              "effect",
+              "office",
+              "relating",
+              "except",
+              "enactment",
+              "official",
+              "family",
+              "engagement"
+            ],
+            "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.0,
-            "match_type": null,
+            "alec_best_similarity": 0.067,
+            "match_type": "member_bill",
             "alec_match": null,
-            "similar_member_bills": [],
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9608-119",
+                "sponsor_id": "M001211",
+                "similarity_score": 0.984
+              },
+              {
+                "bill_id": "S5738-119",
+                "sponsor_id": "L000577",
+                "similarity_score": 0.917
+              },
+              {
+                "bill_id": "HR9605-119",
+                "sponsor_id": "G000576",
+                "similarity_score": 0.909
+              }
+            ],
             "cosponsors": [],
             "donor_interest": {
               "match": false,
@@ -10346,11 +10384,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T16:20:19.804909+00:00",
         "bills_count": 10,
+        "bills_updated": "2026-11-21T15:33:13.932816+00:00",
         "donor_alignment_score": 0.0,
-        "donor_match_count": 0,
-        "alec_match_count": 0
+        "donor_match_count": 0
       }
     }
   ],

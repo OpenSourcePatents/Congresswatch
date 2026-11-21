@@ -3048,7 +3048,7 @@
     "foreign_travel": 3,
     "attendance": 1
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "trades": [
     {
       "transaction_date": "2026-06-24",
@@ -3200,13 +3200,13 @@
   },
   "votes_checked": "2026-11-21T09:08:30.257899",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:36:51.165251"
+      "data_updated": "2026-11-21T14:05:04.218637",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -3753,10 +3753,34 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
+          {
+            "bill_id": "SRES968-119",
+            "title": "A resolution congratulating the Gannon University men's basketball team on their victory in the 69th National Collegiate Athletic Association Division II men's basketball national championship.",
+            "type": "SRES",
+            "number": "968",
+            "congress": 119,
+            "introduced_date": "2026-11-20",
+            "latest_action": "Referred to the Committee on Commerce, Science, and Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/sres/968?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
           {
             "bill_id": "S1540-119",
             "title": "Fairness for Victims of SNAP Skimming Act of 2025",
@@ -4019,36 +4043,12 @@
               "matched_industries": [],
               "keyword_hits": {}
             }
-          },
-          {
-            "bill_id": "-119",
-            "title": "",
-            "type": "",
-            "number": "",
-            "congress": 119,
-            "introduced_date": "2026-06-16",
-            "latest_action": "",
-            "url": "https://api.congress.gov/v3/amendment/119/samdt/5822?format=json",
-            "keywords": [],
-            "has_text": false,
-            "similarity_score": null,
-            "alec_best_similarity": 0.0,
-            "match_type": null,
-            "alec_match": null,
-            "similar_member_bills": [],
-            "cosponsors": [],
-            "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
-            }
           }
         ],
-        "bills_updated": "2026-11-20T18:38:16.996646+00:00",
         "bills_count": 10,
+        "bills_updated": "2026-11-21T17:33:35.331459+00:00",
         "donor_alignment_score": 0.0,
-        "donor_match_count": 0,
-        "alec_match_count": 0
+        "donor_match_count": 0
       }
     }
   ],

@@ -7873,7 +7873,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2025/500029728.pdf"
     }
   ],
-  "travel_updated": "2026-11-20T17:25:38.121527+00:00",
+  "travel_updated": "2026-11-21T16:30:16.260634+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -8027,7 +8027,7 @@
     "Healthcare",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-20T18:58:37.184958+00:00",
+  "donors_updated": "2026-11-21T17:53:46.101575+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -8037,7 +8037,7 @@
     "foreign_travel": 3,
     "attendance": 5
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "votes_fail_count": 48,
   "missed_votes_pct": 30.0,
   "non_voting_delegate": false,
@@ -8090,13 +8090,13 @@
   },
   "votes_checked": "2026-11-21T09:00:16.232438",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:00:24.021737"
+      "data_updated": "2026-11-21T13:25:53.599879",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -8949,9 +8949,10 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "HR11105-119",
@@ -8962,13 +8963,50 @@
             "introduced_date": "2026-11-19",
             "latest_action": "Referred to the House Committee on Agriculture.",
             "url": "https://api.congress.gov/v3/bill/119/hr/11105?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wks",
+              "wms",
+              "pdf",
+              "gcb",
+              "zdi",
+              "zml",
+              "yyb",
+              "sbc",
+              "vgu",
+              "egk",
+              "dpqd",
+              "ivje",
+              "qli",
+              "qrf",
+              "uqw",
+              "wav"
+            ],
+            "has_text": true,
             "similarity_score": null,
             "alec_best_similarity": 0.0,
-            "match_type": null,
+            "match_type": "member_bill",
             "alec_match": null,
-            "similar_member_bills": [],
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10087-119",
+                "sponsor_id": "D000623",
+                "similarity_score": 0.986
+              },
+              {
+                "bill_id": "HR10397-119",
+                "sponsor_id": "P000617",
+                "similarity_score": 0.986
+              },
+              {
+                "bill_id": "HR11050-119",
+                "sponsor_id": "P000617",
+                "similarity_score": 0.981
+              }
+            ],
             "cosponsors": [],
             "donor_interest": {
               "match": false,
@@ -9124,7 +9162,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.057,
+            "alec_best_similarity": 0.058,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
@@ -9183,8 +9221,8 @@
                 "similarity_score": 0.99
               },
               {
-                "bill_id": "HR9117-119",
-                "sponsor_id": "L000600",
+                "bill_id": "HR10793-119",
+                "sponsor_id": "S001228",
                 "similarity_score": 0.987
               }
             ],
@@ -9348,7 +9386,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.076,
+            "alec_best_similarity": 0.075,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
@@ -9475,11 +9513,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T16:49:28.129684+00:00",
         "bills_count": 10,
+        "bills_updated": "2026-11-21T15:59:27.715420+00:00",
         "donor_alignment_score": 0.0,
-        "donor_match_count": 0,
-        "alec_match_count": 0
+        "donor_match_count": 0
       }
     }
   ],

@@ -5565,7 +5565,7 @@
     "Finance & Banking",
     "Agriculture"
   ],
-  "donors_updated": "2026-11-20T19:14:51.369463+00:00",
+  "donors_updated": "2026-11-21T18:09:49.958150+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -5575,7 +5575,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -5627,13 +5627,13 @@
   },
   "votes_checked": "2026-11-21T09:07:47.857956",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:33:39.165290"
+      "data_updated": "2026-11-21T14:01:53.708078",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -6454,9 +6454,10 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "SRES962-119",
@@ -6465,20 +6466,48 @@
             "number": "962",
             "congress": 119,
             "introduced_date": "2026-11-19",
-            "latest_action": "Referred to the Committee on the Judiciary. (text: CR S5817)",
+            "latest_action": "Referred to the Committee on the Judiciary.",
             "url": "https://api.congress.gov/v3/bill/119/sres/962?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "transactions",
+              "electronic",
+              "week",
+              "people",
+              "businesses",
+              "holiday",
+              "consumers",
+              "small",
+              "november",
+              "commerce",
+              "season",
+              "thanksgiving",
+              "givingtuesday",
+              "charitable",
+              "december",
+              "national",
+              "cyber",
+              "online",
+              "organizations",
+              "communities"
+            ],
+            "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.0,
+            "alec_best_similarity": 0.036,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
             "cosponsors": [],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "investment"
+                ]
+              }
             }
           },
           {
@@ -6684,14 +6713,14 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.062,
+            "alec_best_similarity": 0.053,
             "match_type": "member_bill",
             "alec_match": null,
             "similar_member_bills": [
               {
                 "bill_id": "HR9102-119",
                 "sponsor_id": "M001194",
-                "similarity_score": 0.823
+                "similarity_score": 0.822
               }
             ],
             "cosponsors": [
@@ -6924,11 +6953,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T18:33:59.759015+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 20.0,
-        "donor_match_count": 4,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T17:27:33.883765+00:00",
+        "donor_alignment_score": 25.0,
+        "donor_match_count": 5
       }
     }
   ],

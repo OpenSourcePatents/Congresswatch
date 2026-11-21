@@ -7105,7 +7105,7 @@
     "Education",
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-19T19:32:52.681555+00:00",
+  "donors_updated": "2026-11-21T18:09:57.705834+00:00",
   "total_raised": 1799602.24,
   "pac_contributions": 263500.0,
   "individual_contributions": 719848.72,
@@ -7118,7 +7118,7 @@
     "foreign_travel": 0,
     "attendance": 1
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 3.0,
   "total_spent": 2326120.44,
   "cash_on_hand": 1253577.6,
@@ -7172,13 +7172,13 @@
   },
   "votes_checked": "2026-11-21T09:07:50.558327",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:33:48.828088"
+      "data_updated": "2026-11-21T14:02:03.283454",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -8115,10 +8115,34 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
+          {
+            "bill_id": "SRES973-119",
+            "title": "A resolution designating November 2026 as \"National Hospice and Palliative Care Month\".",
+            "type": "SRES",
+            "number": "973",
+            "congress": 119,
+            "introduced_date": "2026-11-20",
+            "latest_action": "Referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/sres/973?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
           {
             "bill_id": "S5790-119",
             "title": "A bill to establish ethics, transparency, and accountability requirements relating to equity interests held by Federal agencies, and for other purposes.",
@@ -8149,20 +8173,58 @@
             "number": "961",
             "congress": 119,
             "introduced_date": "2026-11-19",
-            "latest_action": "Referred to the Committee on Homeland Security and Governmental Affairs. (text: CR S5816-5817)",
+            "latest_action": "Referred to the Committee on Homeland Security and Governmental Affairs.",
             "url": "https://api.congress.gov/v3/bill/119/sres/961?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "federal",
+              "disaster",
+              "emergency",
+              "recovery",
+              "assistance",
+              "fema",
+              "catastrophic",
+              "management",
+              "government",
+              "response",
+              "natural",
+              "disasters",
+              "state",
+              "agency",
+              "wildfires",
+              "seq",
+              "statutory",
+              "robust",
+              "facing",
+              "western"
+            ],
+            "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.0,
+            "alec_best_similarity": 0.088,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
-            "cosponsors": [],
+            "cosponsors": [
+              "A000382",
+              "B001277",
+              "D000563",
+              "K000383",
+              "L000570",
+              "P000145",
+              "S001150",
+              "V000128",
+              "W000800",
+              "B001267"
+            ],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
             }
           },
           {
@@ -8221,7 +8283,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.062,
+            "alec_best_similarity": 0.063,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
@@ -8482,7 +8544,7 @@
               {
                 "bill_id": "HR6358-119",
                 "sponsor_id": "F000462",
-                "similarity_score": 0.843
+                "similarity_score": 0.842
               }
             ],
             "cosponsors": [
@@ -8506,36 +8568,12 @@
                 ]
               }
             }
-          },
-          {
-            "bill_id": "-119",
-            "title": "",
-            "type": "",
-            "number": "",
-            "congress": 119,
-            "introduced_date": "2026-09-24",
-            "latest_action": "Referred to the Committee on Homeland Security and Governmental Affairs.",
-            "url": "https://api.congress.gov/v3/amendment/119/samdt/6832?format=json",
-            "keywords": [],
-            "has_text": false,
-            "similarity_score": null,
-            "alec_best_similarity": 0.0,
-            "match_type": null,
-            "alec_match": null,
-            "similar_member_bills": [],
-            "cosponsors": [],
-            "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
-            }
           }
         ],
-        "bills_updated": "2026-11-20T18:34:12.003806+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 25.0,
-        "donor_match_count": 5,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T17:27:52.632548+00:00",
+        "donor_alignment_score": 30.0,
+        "donor_match_count": 6
       }
     }
   ],

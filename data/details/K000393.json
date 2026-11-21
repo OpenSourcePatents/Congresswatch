@@ -7283,7 +7283,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 1.0,
   "edgar_cik": "0001852313",
   "total_spent": 17887373.77,
@@ -7339,14 +7339,14 @@
   },
   "votes_checked": "2026-11-21T09:08:11.322932",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_cik": "0001852313",
-      "edgar_status": "verified_auto",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 11,
-      "data_updated": "2026-11-20T14:35:17.113522"
+      "data_updated": "2026-11-21T14:03:42.765476",
+      "edgar_cik": "0001852313",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "verified_auto"
     }
   },
   "bill_history": [
@@ -7988,19 +7988,20 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
-            "bill_id": "S5724-119",
-            "title": "A bill to amend title XVIII of the Social Security Act to establish requirements with respect to the use of prior authorization and claims denial under Medicare Advantage plans.",
+            "bill_id": "S5820-119",
+            "title": "A bill to establish Governmentwide requirements for pre-payment fraud prevention actions, to provide the U.S. Treasury appropriate data resources, to facilitate participation in Governmentwide anti-fraud data sharing, and for other purposes.",
             "type": "S",
-            "number": "5724",
+            "number": "5820",
             "congress": 119,
-            "introduced_date": "2026-11-17",
-            "latest_action": "Read twice and referred to the Committee on Finance.",
-            "url": "https://api.congress.gov/v3/bill/119/s/5724?format=json",
+            "introduced_date": "2026-11-20",
+            "latest_action": "Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5820?format=json",
             "keywords": [],
             "has_text": false,
             "similarity_score": null,
@@ -8009,6 +8010,52 @@
             "alec_match": null,
             "similar_member_bills": [],
             "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5724-119",
+            "title": "Protecting Approved Care Act",
+            "type": "S",
+            "number": "5724",
+            "congress": 119,
+            "introduced_date": "2026-11-17",
+            "latest_action": "Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5724?format=json",
+            "keywords": [
+              "item",
+              "service",
+              "authorization",
+              "respect",
+              "organization",
+              "described",
+              "plan",
+              "individual",
+              "specified",
+              "prior",
+              "claims",
+              "denial",
+              "medicare",
+              "advantage",
+              "actions",
+              "subparagraph",
+              "coverage",
+              "payment",
+              "social",
+              "security"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.093,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000377"
+            ],
             "donor_interest": {
               "match": false,
               "matched_industries": [],
@@ -8124,7 +8171,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.086,
+            "alec_best_similarity": 0.085,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
@@ -8300,36 +8347,12 @@
               "matched_industries": [],
               "keyword_hits": {}
             }
-          },
-          {
-            "bill_id": "-119",
-            "title": "",
-            "type": "",
-            "number": "",
-            "congress": 119,
-            "introduced_date": "2026-08-07",
-            "latest_action": "Under the order of 9/28/26, amendment SA 6760, not having achieved 60 votes in the affirmative, not agreed to in Senate by Yea-Nay Vote. 42 - 54. Record Vote Number: 247.",
-            "url": "https://api.congress.gov/v3/amendment/119/samdt/6760?format=json",
-            "keywords": [],
-            "has_text": false,
-            "similarity_score": null,
-            "alec_best_similarity": 0.0,
-            "match_type": null,
-            "alec_match": null,
-            "similar_member_bills": [],
-            "cosponsors": [],
-            "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
-            }
           }
         ],
-        "bills_updated": "2026-11-20T18:36:16.043016+00:00",
         "bills_count": 10,
+        "bills_updated": "2026-11-21T17:29:51.443672+00:00",
         "donor_alignment_score": 5.0,
-        "donor_match_count": 1,
-        "alec_match_count": 0
+        "donor_match_count": 1
       }
     }
   ],

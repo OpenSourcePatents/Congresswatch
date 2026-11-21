@@ -5405,7 +5405,7 @@
   "top_donor_industries": [
     "Healthcare"
   ],
-  "donors_updated": "2026-11-20T19:28:49.995571+00:00",
+  "donors_updated": "2026-11-21T18:19:02.628113+00:00",
   "total_raised": 1844877.79,
   "pac_contributions": 427749.33,
   "individual_contributions": 474976.06,
@@ -5418,7 +5418,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 0.0,
   "travel": [
     {
@@ -5491,13 +5491,13 @@
   },
   "votes_checked": "2026-11-21T09:09:02.029318",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:39:03.078805"
+      "data_updated": "2026-11-21T14:07:09.474946",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -6244,9 +6244,10 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "SRES966-119",
@@ -6255,20 +6256,64 @@
             "number": "966",
             "congress": 119,
             "introduced_date": "2026-11-19",
-            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S5796; text: CR S5819)",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
             "url": "https://api.congress.gov/v3/bill/119/sres/966?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "rural",
+              "health",
+              "care",
+              "national",
+              "day",
+              "november",
+              "providers",
+              "mrs",
+              "individuals",
+              "communities",
+              "patients",
+              "face",
+              "facilities",
+              "challenges",
+              "areas",
+              "systemic",
+              "res",
+              "agreed",
+              "designating",
+              "resolution"
+            ],
+            "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.0,
-            "match_type": null,
+            "alec_best_similarity": 0.049,
+            "match_type": "member_bill",
             "alec_match": null,
-            "similar_member_bills": [],
-            "cosponsors": [],
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES1673-119",
+                "sponsor_id": "T000487",
+                "similarity_score": 0.856
+              }
+            ],
+            "cosponsors": [
+              "B001267",
+              "J000312",
+              "W000790",
+              "H000601",
+              "R000584",
+              "C001047",
+              "H001061",
+              "B001243",
+              "H001079",
+              "W000779"
+            ],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "hospital"
+                ]
+              }
             }
           },
           {
@@ -6351,7 +6396,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.038,
+            "alec_best_similarity": 0.039,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
@@ -6607,11 +6652,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T18:44:02.345821+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 0.0,
-        "donor_match_count": 0,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T17:37:03.102166+00:00",
+        "donor_alignment_score": 5.0,
+        "donor_match_count": 1
       }
     }
   ],

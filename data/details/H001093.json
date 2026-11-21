@@ -4938,7 +4938,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-20T17:25:37.895296+00:00",
+  "travel_updated": "2026-11-21T16:30:16.489103+00:00",
   "travel_count": 4,
   "top_donors_list": [
     {
@@ -5091,7 +5091,7 @@
     "Technology",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-20T19:06:12.683190+00:00",
+  "donors_updated": "2026-11-21T18:00:17.818043+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -5101,7 +5101,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -5153,13 +5153,13 @@
   },
   "votes_checked": "2026-11-21T09:03:45.741786",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:16:35.751413"
+      "data_updated": "2026-11-21T13:43:26.467638",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -6185,31 +6185,68 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
           {
             "bill_id": "HR11058-119",
-            "title": "To require a school that receives support under the E-Rate program of the Federal Communications Commission to allow parents of students attending that school to opt-out of screen-based instruction, and for other purposes.",
+            "title": "FOCUS Act",
             "type": "HR",
             "number": "11058",
             "congress": 119,
             "introduced_date": "2026-11-18",
             "latest_action": "Referred to the House Committee on Energy and Commerce.",
             "url": "https://api.congress.gov/v3/bill/119/hr/11058?format=json",
-            "keywords": [],
-            "has_text": false,
+            "keywords": [
+              "school",
+              "instruction",
+              "screen",
+              "student",
+              "based",
+              "covered",
+              "program",
+              "commission",
+              "use",
+              "federal",
+              "children",
+              "parents",
+              "option",
+              "requirements",
+              "support",
+              "students",
+              "device",
+              "time",
+              "receives",
+              "communications"
+            ],
+            "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.0,
+            "alec_best_similarity": 0.117,
             "match_type": null,
             "alec_match": null,
             "similar_member_bills": [],
             "cosponsors": [],
             "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ],
+                "Technology": [
+                  "technology",
+                  "digital"
+                ],
+                "Healthcare": [
+                  "mental_health"
+                ]
+              }
             }
           },
           {
@@ -6723,11 +6760,10 @@
             }
           }
         ],
-        "bills_updated": "2026-11-20T17:40:47.001140+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 30.0,
-        "donor_match_count": 6,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T16:40:46.291912+00:00",
+        "donor_alignment_score": 35.0,
+        "donor_match_count": 7
       }
     }
   ],

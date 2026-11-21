@@ -2303,7 +2303,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2025/500031776.pdf"
     }
   ],
-  "travel_updated": "2026-11-20T17:25:37.852825+00:00",
+  "travel_updated": "2026-11-21T16:30:16.534300+00:00",
   "travel_count": 4,
   "top_donors_list": [
     {
@@ -2455,7 +2455,7 @@
     "Finance & Banking",
     "Agriculture"
   ],
-  "donors_updated": "2026-11-20T19:12:18.683462+00:00",
+  "donors_updated": "2026-11-21T18:07:39.165461+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2465,7 +2465,7 @@
     "foreign_travel": 3,
     "attendance": 5
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 31.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2517,13 +2517,13 @@
   },
   "votes_checked": "2026-11-21T09:06:22.487111",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:27:31.861401"
+      "data_updated": "2026-11-21T13:55:04.097218",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -3601,10 +3601,63 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
+          {
+            "bill_id": "HR11130-119",
+            "title": "To authorize certain death-related commemorative uses of the Peace Corps seal, emblem, logo, and name.",
+            "type": "HR",
+            "number": "11130",
+            "congress": 119,
+            "introduced_date": "2026-11-20",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/11130?format=json",
+            "keywords": [
+              "emblem",
+              "peace",
+              "corps",
+              "logo",
+              "death",
+              "seal",
+              "name",
+              "related",
+              "commemorative",
+              "uses",
+              "introduced",
+              "authorize",
+              "certain",
+              "bill",
+              "use",
+              "official",
+              "except",
+              "striking",
+              "inserting",
+              "whoever"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.036,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5691-119",
+                "sponsor_id": "S001203",
+                "similarity_score": 0.946
+              }
+            ],
+            "cosponsors": [
+              "R000600"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
           {
             "bill_id": "HCONRES119-119",
             "title": "Celebrating the 65th anniversary of the establishment of the Peace Corps, and commending its volunteers and contributions to global peace, friendship, and development.",
@@ -3773,7 +3826,7 @@
             ],
             "has_text": true,
             "similarity_score": null,
-            "alec_best_similarity": 0.019,
+            "alec_best_similarity": 0.02,
             "match_type": "member_bill",
             "alec_match": null,
             "similar_member_bills": [
@@ -3969,7 +4022,7 @@
               {
                 "bill_id": "HR10790-119",
                 "sponsor_id": "G000600",
-                "similarity_score": 0.946
+                "similarity_score": 0.945
               },
               {
                 "bill_id": "HR10501-119",
@@ -4165,78 +4218,12 @@
                 ]
               }
             }
-          },
-          {
-            "bill_id": "HR4170-119",
-            "title": "Bridge Corrosion Prevention and Repair Act of 2025",
-            "type": "HR",
-            "number": "4170",
-            "congress": 119,
-            "introduced_date": "2025-06-26",
-            "latest_action": "Referred to the Subcommittee on Highways and Transit.",
-            "url": "https://api.congress.gov/v3/bill/119/hr/4170?format=json",
-            "keywords": [
-              "bridge",
-              "project",
-              "applicable",
-              "corrosion",
-              "certified",
-              "steel",
-              "aspects",
-              "contractor",
-              "training",
-              "projects",
-              "transportation",
-              "bridges",
-              "code",
-              "program",
-              "weathering",
-              "carrying",
-              "described",
-              "committee",
-              "prevention",
-              "federal"
-            ],
-            "has_text": true,
-            "similarity_score": null,
-            "alec_best_similarity": 0.056,
-            "match_type": null,
-            "alec_match": null,
-            "similar_member_bills": [],
-            "cosponsors": [
-              "B001295",
-              "D000530",
-              "F000466",
-              "B001285",
-              "K000391",
-              "G000583",
-              "E000301",
-              "L000606",
-              "P000621",
-              "R000622"
-            ],
-            "donor_interest": {
-              "match": true,
-              "matched_industries": [
-                "Real Estate",
-                "Finance & Banking"
-              ],
-              "keyword_hits": {
-                "Real Estate": [
-                  "construction"
-                ],
-                "Finance & Banking": [
-                  "financial"
-                ]
-              }
-            }
           }
         ],
-        "bills_updated": "2026-11-20T18:17:35.315574+00:00",
         "bills_count": 10,
-        "donor_alignment_score": 40.0,
-        "donor_match_count": 8,
-        "alec_match_count": 0
+        "bills_updated": "2026-11-21T17:12:45.189438+00:00",
+        "donor_alignment_score": 35.0,
+        "donor_match_count": 7
       }
     }
   ],

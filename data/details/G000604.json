@@ -2422,7 +2422,7 @@
     "Technology",
     "Education"
   ],
-  "donors_updated": "2026-11-20T19:02:33.959769+00:00",
+  "donors_updated": "2026-11-21T17:56:43.245338+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2432,7 +2432,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T08:31:03.414432",
+  "score_updated": "2026-11-21T14:08:44.512745",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2484,13 +2484,13 @@
   },
   "votes_checked": "2026-11-21T09:01:47.324006",
   "upstream_sec_observation": {
-    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
     "candidate_only": true,
     "fields": {
-      "edgar_status": "unresolved",
-      "edgar_signal_type": "corporate_insider",
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-20T14:07:01.851363"
+      "data_updated": "2026-11-21T13:33:55.090270",
+      "edgar_signal_type": "corporate_insider",
+      "edgar_status": "unresolved"
     }
   },
   "bill_history": [
@@ -3417,10 +3417,34 @@
       }
     },
     {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
       "publication_status": "legacy_archive_only",
       "original_fields": {
+        "alec_match_count": 0,
         "bills": [
+          {
+            "bill_id": "HR11133-119",
+            "title": "To require the Secretary of Veterans Affairs to conduct an epidemiological study of certain health effects that have been experienced by women veterans, and for other purposes.",
+            "type": "HR",
+            "number": "11133",
+            "congress": 119,
+            "introduced_date": "2026-11-20",
+            "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/11133?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
           {
             "bill_id": "HR11044-119",
             "title": "To amend chapter 88 of title 10, United States Code, to direct the Secretary of Defense to establish an internship program for military child and youth programs, and for other purposes.",
@@ -3919,71 +3943,12 @@
               "matched_industries": [],
               "keyword_hits": {}
             }
-          },
-          {
-            "bill_id": "HRES1229-119",
-            "title": "Supporting the designation of April 2026 as \"National Native Plant Month\".",
-            "type": "HRES",
-            "number": "1229",
-            "congress": 119,
-            "introduced_date": "2026-04-29",
-            "latest_action": "Referred to the House Committee on Natural Resources.",
-            "url": "https://api.congress.gov/v3/bill/119/hres/1229?format=json",
-            "keywords": [
-              "native",
-              "plants",
-              "plant",
-              "species",
-              "designation",
-              "april",
-              "national",
-              "month",
-              "html",
-              "body",
-              "pre",
-              "res",
-              "supporting",
-              "resolution",
-              "natural",
-              "wildlife",
-              "habitat",
-              "trees",
-              "essential",
-              "ecosystems"
-            ],
-            "has_text": true,
-            "similarity_score": null,
-            "alec_best_similarity": 0.019,
-            "match_type": "member_bill",
-            "alec_match": null,
-            "similar_member_bills": [
-              {
-                "bill_id": "SRES665-119",
-                "sponsor_id": "H001079",
-                "similarity_score": 0.823
-              }
-            ],
-            "cosponsors": [
-              "J000295",
-              "C001125",
-              "M001219",
-              "N000191",
-              "T000487",
-              "T000463",
-              "C001055"
-            ],
-            "donor_interest": {
-              "match": false,
-              "matched_industries": [],
-              "keyword_hits": {}
-            }
           }
         ],
-        "bills_updated": "2026-11-20T17:13:03.434380+00:00",
         "bills_count": 10,
+        "bills_updated": "2026-11-21T16:18:06.310128+00:00",
         "donor_alignment_score": 10.0,
-        "donor_match_count": 2,
-        "alec_match_count": 0
+        "donor_match_count": 2
       }
     }
   ],
