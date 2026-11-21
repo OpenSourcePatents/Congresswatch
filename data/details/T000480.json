@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000480.jpg",
   "term_start": "2019-01-01",
-  "score": 5,
+  "score": 0,
   "flags": [
     "donor"
   ],
@@ -930,42 +930,671 @@
   "last_updated": "2026-11-17T14:18:35.155167",
   "bills": [
     {
+      "bill_id": "HR10219-119",
+      "type": "HR",
+      "number": "10219",
+      "congress": 119,
+      "title": "SNAP Fraud Accountability Act",
+      "introduced_date": "2026-09-01",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/10219",
+      "latest_action": "Referred to the Committee on Agriculture, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "latest_action_date": "2026-09-01",
+      "cosponsors": [],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr10219.xml",
+      "metadata_source_sha256": "b64d56366c3e5232fc06b86841a1bc7275f6cd80a77b9e7205722c82d9aac580",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR10219-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10219ih/xml/BILLS-119hr10219ih.xml",
+        "source_sha256": "ba2e465d67acb8abb69f0839b3c5fdeb8ac21fa9aece2d69c3b4148e5d659373",
+        "text_sha256": "6cfe1da15e851dba65f183c61943fa11951fc4b12db90ff61892a2c9559ffdaf",
+        "version_date": "2026-09-01T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr10219ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HJRES199-119",
+      "type": "HJRES",
+      "number": "199",
+      "congress": 119,
+      "title": "Proposing an amendment to the Constitution of the United States to temporarily fill vacancies in the House of Representatives to further the continuity of Congress.",
+      "introduced_date": "2026-07-02",
+      "url": "https://www.congress.gov/bill/119th-congress/house-joint-resolution/199",
+      "latest_action": "Referred to the House Committee on the Judiciary.",
+      "latest_action_date": "2026-07-02",
+      "cosponsors": [
+        "C001061"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hjres/BILLSTATUS-119hjres199.xml",
+      "metadata_source_sha256": "0897f1cb97d63d4379d7eabc244aa336a474946c9eec1d9fcd21d679faa0a9c6",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HJRES28-119",
+          "bill_title": "Proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices.",
+          "member_id": "J000301",
+          "same_sponsor": false,
+          "similarity_score": 0.34504252672195435,
+          "evidence": {
+            "longest_passage_words": 53,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 53,
+            "target_passage": "That the following article is proposed as an amendment to the Constitution of the United States, which shall be valid to all intents and purposes as part of the Constitution when ratified by the legislatures of three-fourths of the several States within seven years after the date of its submission for ratification",
+            "matched_passage": "That the following article is proposed as an amendment to the Constitution of the United States, which shall be valid to all intents and purposes as part of the Constitution when ratified by the legislatures of three-fourths of the several States within seven years after the date of its submission for ratification",
+            "target_shingle_coverage": 0.13680781758957655,
+            "matched_shingle_coverage": 0.7636363636363637,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres199ih/xml/BILLS-119hjres199ih.xml",
+            "target_source_sha256": "8aa74aa6276a26041b134daa9abb0a96ffa43cee1a11ded531330160f183e601",
+            "target_text_sha256": "3fadc3c9ea2e5f41520a1115452c5ea2fd6fcdd662ce00121b69cca149a16a49",
+            "target_version_code": "ih",
+            "target_version_date": "2026-07-02T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres28ih/xml/BILLS-119hjres28ih.xml",
+            "matched_source_sha256": "4136e2d03ceac40188b978ed12d115f41c369a0bfaad821ff1126c04145e6d10",
+            "matched_text_sha256": "c4fd08d8796927ec8f2428d6f62a8e541d5deccb8b817b1c5f8fe0bff84e0261",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-01-22T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "SJRES16-119",
+          "bill_title": "A joint resolution proposing an amendment to the Constitution of the United States to require that the Supreme Court of the United States be composed of nine justices.",
+          "member_id": "C001098",
+          "same_sponsor": false,
+          "similarity_score": 0.34504252672195435,
+          "evidence": {
+            "longest_passage_words": 53,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 53,
+            "target_passage": "That the following article is proposed as an amendment to the Constitution of the United States, which shall be valid to all intents and purposes as part of the Constitution when ratified by the legislatures of three-fourths of the several States within seven years after the date of its submission for ratification",
+            "matched_passage": "That the following article is proposed as an amendment to the Constitution of the United States, which shall be valid to all intents and purposes as part of the Constitution when ratified by the legislatures of three-fourths of the several States within seven years after the date of its submission for ratification",
+            "target_shingle_coverage": 0.13680781758957655,
+            "matched_shingle_coverage": 0.7636363636363637,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres199ih/xml/BILLS-119hjres199ih.xml",
+            "target_source_sha256": "8aa74aa6276a26041b134daa9abb0a96ffa43cee1a11ded531330160f183e601",
+            "target_text_sha256": "3fadc3c9ea2e5f41520a1115452c5ea2fd6fcdd662ce00121b69cca149a16a49",
+            "target_version_code": "ih",
+            "target_version_date": "2026-07-02T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119sjres16is/xml/BILLS-119sjres16is.xml",
+            "matched_source_sha256": "2214d8a4936bbf12130cc554ed99c73e0b5b6f9ccd073588f78e2c89a2cf9094",
+            "matched_text_sha256": "c4fd08d8796927ec8f2428d6f62a8e541d5deccb8b817b1c5f8fe0bff84e0261",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-02-06T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HJRES101-119",
+          "bill_title": "Proposing an amendment to the Constitution of the United States giving Congress power to prohibit the physical desecration of the flag of the United States.",
+          "member_id": "W000809",
+          "same_sponsor": false,
+          "similarity_score": 0.3285444676876068,
+          "evidence": {
+            "longest_passage_words": 53,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 53,
+            "target_passage": "That the following article is proposed as an amendment to the Constitution of the United States, which shall be valid to all intents and purposes as part of the Constitution when ratified by the legislatures of three-fourths of the several States within seven years after the date of its submission for ratification",
+            "matched_passage": "That the following article is proposed as an amendment to the Constitution of the United States, which shall be valid to all intents and purposes as part of the Constitution when ratified by the legislatures of three-fourths of the several States within seven years after the date of its submission for ratification",
+            "target_shingle_coverage": 0.13680781758957655,
+            "matched_shingle_coverage": 0.711864406779661,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres199ih/xml/BILLS-119hjres199ih.xml",
+            "target_source_sha256": "8aa74aa6276a26041b134daa9abb0a96ffa43cee1a11ded531330160f183e601",
+            "target_text_sha256": "3fadc3c9ea2e5f41520a1115452c5ea2fd6fcdd662ce00121b69cca149a16a49",
+            "target_version_code": "ih",
+            "target_version_date": "2026-07-02T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres101ih/xml/BILLS-119hjres101ih.xml",
+            "matched_source_sha256": "27f25df729693cc27278eb2d95f104deb20a8bf1f549973581deb3d3405fed51",
+            "matched_text_sha256": "ef35e4cb77601b556c1fcd709a2a4c2123c3274a67c747aa59e8703dc65c92bf",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-06-13T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HJRES199-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres199ih/xml/BILLS-119hjres199ih.xml",
+        "source_sha256": "8aa74aa6276a26041b134daa9abb0a96ffa43cee1a11ded531330160f183e601",
+        "text_sha256": "3fadc3c9ea2e5f41520a1115452c5ea2fd6fcdd662ce00121b69cca149a16a49",
+        "version_date": "2026-07-02T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hjres199ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR7274-119",
+      "type": "HR",
+      "number": "7274",
+      "congress": 119,
+      "title": "Federal Acquisition Security Council Improvement Act of 2026",
+      "introduced_date": "2026-01-30",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/7274",
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 1.",
+      "latest_action_date": "2026-02-04",
+      "cosponsors": [
+        "S001230",
+        "M001194",
+        "K000391"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr7274.xml",
+      "metadata_source_sha256": "9c6e34559f325a12a393a49bbd4f66eec2cca40841c120c5522f5dc7a2e10678",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR7274-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7274ih/xml/BILLS-119hr7274ih.xml",
+        "source_sha256": "d5f0431af6e49af782a745621e61c923f3fb997b470f78b7dc8ea7a8c88f9ff5",
+        "text_sha256": "1f5aceeb28b53f113c83db6e80edf1706653e1b7fbe8f74a2bee0a8bc57b8834",
+        "version_date": "2026-01-30T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr7274ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR6544-119",
+      "type": "HR",
+      "number": "6544",
+      "congress": 119,
+      "title": "REVIEW Act of 2025",
+      "introduced_date": "2025-12-09",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6544",
+      "latest_action": "Placed on the Union Calendar, Calendar No. 452.",
+      "latest_action_date": "2026-02-25",
+      "cosponsors": [],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr6544.xml",
+      "metadata_source_sha256": "d1e2b756ff474d4808e2d020461bb5b5f2ad20989bc640317ecf89bbd7afebe4",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR6544-119",
+        "version_code": "rh",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6544rh/xml/BILLS-119hr6544rh.xml",
+        "source_sha256": "a8e60d3e1e0cb7a1077eefadb23aac748306218331f538a55392be108c9e6dac",
+        "text_sha256": "e0e3d07fdce100c5066e90bd3a9a5ef5a5e2306422670ea67b1fcd02b9832815",
+        "version_date": "2026-02-25T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr6544rh"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR5810-119",
+      "type": "HR",
+      "number": "5810",
+      "congress": 119,
+      "title": "Federal Supervisor Education Act",
+      "introduced_date": "2025-10-21",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5810",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+      "latest_action_date": "2025-12-16",
+      "cosponsors": [],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5810.xml",
+      "metadata_source_sha256": "d460328113b32e6e9599065d49339fbdc052911bf6edb4166a1cc178d1dd87b2",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR5810-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5810rfs/xml/BILLS-119hr5810rfs.xml",
+        "source_sha256": "cce0fb93b1ae55711c9216085e4eced0c42e7e115c1404446efd5bf81861072c",
+        "text_sha256": "8d6b48637e89e0aaf2c32086631b8435fb5e6816612c0a02be8d2d1b6a83598c",
+        "version_date": "2025-12-16T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr5810rfs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR5163-119",
+      "type": "HR",
+      "number": "5163",
+      "congress": 119,
+      "title": "Clean and Managed Public Spaces Act",
+      "introduced_date": "2025-09-04",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5163",
+      "latest_action": "Placed on the Union Calendar, Calendar No. 294.",
+      "latest_action_date": "2025-10-14",
+      "cosponsors": [],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5163.xml",
+      "metadata_source_sha256": "089fa24a2ff70d796ebd95056e064579a9923c89d7ee0032c257dfcc6ba44997",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR5163-119",
+        "version_code": "rh",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5163rh/xml/BILLS-119hr5163rh.xml",
+        "source_sha256": "9cd92e3638d11eaf8c028071607256161b4c799bf04cac8a20ba0d5fa8c8e4ab",
+        "text_sha256": "e2e6dd33a57d5efae0a7f1bfd8726b9aed09305222cdd8b9f7d2f5677f5bbc11",
+        "version_date": "2025-10-14T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr5163rh"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR4536-119",
+      "type": "HR",
+      "number": "4536",
+      "congress": 119,
+      "title": "Fit for Duty Act",
+      "introduced_date": "2025-07-17",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4536",
+      "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "latest_action_date": "2025-07-17",
+      "cosponsors": [],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr4536.xml",
+      "metadata_source_sha256": "61b0cb8dbaaeb3c3be76ec83b7618da6be5ac25d948089715d70592e53dbf9fa",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR4536-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4536ih/xml/BILLS-119hr4536ih.xml",
+        "source_sha256": "f682b9bfa4bccb4062d6ecd4eaf75daceeb888011b3886f964e5781dd2f0b3a7",
+        "text_sha256": "72a8112494dfa8618c72a59318facb2724c55d178aedf118e458462c4cfff8d6",
+        "version_date": "2025-07-17T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr4536ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR4437-119",
+      "type": "HR",
+      "number": "4437",
+      "congress": 119,
+      "title": "SMART Act of 2025",
+      "introduced_date": "2025-07-16",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4437",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+      "latest_action_date": "2026-05-13",
+      "cosponsors": [
+        "F000454"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr4437.xml",
+      "metadata_source_sha256": "7a43f68f21958aa715779f954ad5e9b2fa01814913107dc0feea571d0d89219a",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR6955-119",
+          "bill_title": "Main Street Capital Access Act",
+          "member_id": "H001072",
+          "same_sponsor": false,
+          "similarity_score": 0.36117663979530334,
+          "evidence": {
+            "longest_passage_words": 346,
+            "target_word_offset": 609,
+            "matched_word_offset": 11134,
+            "displayed_passage_words": 120,
+            "target_passage": "The following shall apply to a well managed and well capitalized insured credit union with $6,000,000,000 or less in consolidated assets: Alternating limited-scope examinations After an insured credit union receives a full-scope, on-site examination from the National Credit Union Administration, the next examination of the insured credit union by the National Credit Union Administration shall be a limited-scope examination, as determined by the National Credit Union Administration. Combined examinations If an insured credit union is otherwise subject to separate safety and soundness examinations, consumer compliance examinations, and information technology and cybersecurity examinations, the National Credit Union Administration shall, upon request of the insured credit union, combine two or three such examinations, as specified",
+            "matched_passage": "the following shall apply to a well managed and well capitalized insured credit union with $6,000,000,000 or less in consolidated assets: Alternating limited-scope examinations After an insured credit union receives a full-scope, on-site examination from the National Credit Union Administration, the next examination of the insured credit union by the National Credit Union Administration shall be a limited-scope examination, as determined by the National Credit Union Administration. Combined examinations If an insured credit union is otherwise subject to separate safety and soundness examinations, consumer compliance examinations, and information technology and cybersecurity examinations, the National Credit Union Administration shall, upon request of the insured credit union, combine two or three such examinations, as specified",
+            "target_shingle_coverage": 0.923896499238965,
+            "matched_shingle_coverage": 0.06422261016769824,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4437rfs/xml/BILLS-119hr4437rfs.xml",
+            "target_source_sha256": "63c797caef09405d99463db9b56778007d06879b3bd426e53d88790a33fc3c52",
+            "target_text_sha256": "d9e0f5df9de95528273071059b3405d4d64129100c45d066c9b04d22551d6cc1",
+            "target_version_code": "rfs",
+            "target_version_date": "2026-05-13T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6955rfs/xml/BILLS-119hr6955rfs.xml",
+            "matched_source_sha256": "e23d6dc54c9d6a0804130250725a15480a16fc7bf946d78f3b05ada42f0335d4",
+            "matched_text_sha256": "5cdd263c41ad0604b8aa9c6bd4cc1cc31cc2c2c9f414126e421350ec09237fdd",
+            "matched_version_code": "rfs",
+            "matched_version_date": "2026-07-22T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR4437-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4437rfs/xml/BILLS-119hr4437rfs.xml",
+        "source_sha256": "63c797caef09405d99463db9b56778007d06879b3bd426e53d88790a33fc3c52",
+        "text_sha256": "d9e0f5df9de95528273071059b3405d4d64129100c45d066c9b04d22551d6cc1",
+        "version_date": "2026-05-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr4437rfs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR4431-119",
+      "type": "HR",
+      "number": "4431",
+      "congress": 119,
+      "title": "Improving Capital Allocation for Newcomers Act of 2025",
+      "introduced_date": "2025-07-16",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4431",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+      "latest_action_date": "2025-12-02",
+      "cosponsors": [
+        "P000620"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr4431.xml",
+      "metadata_source_sha256": "3351a9dfb2a3b5079d2ce1ee6264cd895a0753b76124776bdfe36377e745a1d6",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR3383-119",
+          "bill_title": "Incentivizing New Ventures and Economic Strength Through Capital Formation Act of 2025",
+          "member_id": "W000812",
+          "same_sponsor": false,
+          "similarity_score": 0.3281755745410919,
+          "evidence": {
+            "longest_passage_words": 131,
+            "target_word_offset": 447,
+            "matched_word_offset": 2463,
+            "displayed_passage_words": 120,
+            "target_passage": "have had a demonstrable effect on increasing the geographic distribution of capital to portfolio companies, increasing the variety of the socio-economic characteristics of founders or controlling persons, or increasing the number of founders or controlling persons who are veterans, issue rules to\u2014 increase or decrease the 500 person threshold described in the matter preceding subparagraph (A) of section 3(c)(1) of the Investment Company Act of 1940, but such threshold may not exceed 750 persons or be reduced below 250 persons; and increase or decrease the $50,000,000 dollar figure in section 3(c)(1)(C)(i) of the Investment Company Act of 1940, but such dollar figure may not exceed $100,000,000 or be reduced",
+            "matched_passage": "have had a demonstrable effect on increasing the geographic distribution of capital to portfolio companies, increasing the variety of the socio-economic characteristics of founders or controlling persons, or increasing the number of founders or controlling persons who are veterans, issue rules to\u2014 increase or decrease the 500 person threshold described in the matter preceding subparagraph (A) of section 3(c)(1) of the Investment Company Act of 1940, but such threshold may not exceed 750 persons or be reduced below 250 persons; and increase or decrease the $50,000,000 dollar figure in section 3(c)(1)(C)(i) of the Investment Company Act of 1940, but such dollar figure may not exceed $100,000,000 or be reduced",
+            "target_shingle_coverage": 0.7560975609756098,
+            "matched_shingle_coverage": 0.053344805334480536,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4431rfs/xml/BILLS-119hr4431rfs.xml",
+            "target_source_sha256": "be7fc85024c953d8f069ef5bc8a96d99aa9e55ebba543302c1f13d993e9e97f2",
+            "target_text_sha256": "67916ee822484ff6b8fec267290e79de60823ca984275c4849fc02878062b0c2",
+            "target_version_code": "rfs",
+            "target_version_date": "2025-12-02T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3383rfs/xml/BILLS-119hr3383rfs.xml",
+            "matched_source_sha256": "3506e76b71630968aa96ae6b2c32eaaa896bad57f8c0198fe961469e9448b9e4",
+            "matched_text_sha256": "48231c2d6e62641a9193689302e0675f3c34c5f8a138836c03259c40db374c55",
+            "matched_version_code": "rfs",
+            "matched_version_date": "2025-12-15T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR4431-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4431rfs/xml/BILLS-119hr4431rfs.xml",
+        "source_sha256": "be7fc85024c953d8f069ef5bc8a96d99aa9e55ebba543302c1f13d993e9e97f2",
+        "text_sha256": "67916ee822484ff6b8fec267290e79de60823ca984275c4849fc02878062b0c2",
+        "version_date": "2025-12-02T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr4431rfs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HRES408-119",
+      "type": "HRES",
+      "number": "408",
+      "congress": 119,
+      "title": "Censuring Representative LaMonica McIver of New Jersey.",
+      "introduced_date": "2025-05-13",
+      "url": null,
+      "latest_action": "Referred to the House Committee on Ethics.",
+      "latest_action_date": "2025-05-13",
+      "cosponsors": [
+        "B001302",
+        "H001101",
+        "T000478"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres408.xml",
+      "metadata_source_sha256": "02dc505041ef0e8cc56dd32bcec23118ac8d2be0ec082f5a2775ee8a2d48a4bc",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES408-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres408ih/xml/BILLS-119hres408ih.xml",
+        "source_sha256": "a2cd103fe7303af67885f30dbbdf5337df14fe67a269ba42259d27518a03553e",
+        "text_sha256": "8a4f2933fdd58a1b48854cc2cc3a93e72c67976c9149cdf9a587682d4664fc16",
+        "version_date": "2025-05-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres408ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HCONRES32-119",
+      "type": "HCONRES",
+      "number": "32",
+      "congress": 119,
+      "title": "Congressional Evidence-Based Policymaking Resolution",
+      "introduced_date": "2025-05-13",
+      "url": "https://www.congress.gov/bill/119th-congress/house-concurrent-resolution/32",
+      "latest_action": "Referred to the Committee on House Administration, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "latest_action_date": "2025-05-13",
+      "cosponsors": [
+        "L000601",
+        "P000620",
+        "B001298",
+        "Y000067",
+        "M001213",
+        "J000310"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hconres/BILLSTATUS-119hconres32.xml",
+      "metadata_source_sha256": "ca6447683c6730e3e0e39ba87f4bc3dc7e9ef4e3a792bf0a2afc536ae14cf270",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HCONRES32-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hconres32ih/xml/BILLS-119hconres32ih.xml",
+        "source_sha256": "39b5936a5a99a5bf6b6f578f787008385f1dd28775bda6aa9aa1a44e57876eb8",
+        "text_sha256": "6359a75189d639d2fb81b4dcd618c428e44bf027c93314a1d586a7a104c750af",
+        "version_date": "2025-05-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hconres32ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR1755-119",
+      "type": "HR",
+      "number": "1755",
+      "congress": 119,
+      "title": "Timely and Accurate Benefits Act",
+      "introduced_date": "2025-02-27",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1755",
+      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 0.",
+      "latest_action_date": "2026-04-29",
+      "cosponsors": [
+        "G000596",
+        "F000246",
+        "B001309",
+        "G000603",
+        "S001196",
+        "F000476"
+      ],
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr1755.xml",
+      "metadata_source_sha256": "48b25f8031df3c6c2c81869ef9ee65c3ac7704089255cb0a222b43a0d43d138d",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1807-119",
+          "bill_title": "Timely and Accurate Benefits Act",
+          "member_id": "B001299",
+          "same_sponsor": false,
+          "similarity_score": 0.9339877367019653,
+          "evidence": {
+            "longest_passage_words": 116,
+            "target_word_offset": 271,
+            "matched_word_offset": 319,
+            "displayed_passage_words": 116,
+            "target_passage": "Verification Platform means\u2014 services incorporating automated, real-time data matching and analytics to proactively identify and verify potential instances of unreported or underreported enhanced gross income, inconsistent income reporting, or other indicators of potential ineligibility or improper payments; receiving and analyzing applicant-permissioned deposit account transactional data that identifies and verifies sources of enhanced gross income not currently obtained through existing data sources that provide for payroll, new-hire and latent State and Federal tax data, with the option for the claimant to review and attest to the accuracy of the data; and the ability to identify and consolidate overlapping data to avoid double-counting of financial records. State The term State means each of the",
+            "matched_passage": "Verification Platform means\u2014 services incorporating automated, real-time data matching and analytics to proactively identify and verify potential instances of unreported or underreported enhanced gross income, inconsistent income reporting, or other indicators of potential ineligibility or improper payments; receiving and analyzing applicant-permissioned deposit account transactional data that identifies and verifies sources of enhanced gross income not currently obtained through existing data sources that provide for payroll, new-hire and latent State and Federal tax data, with the option for the claimant to review and attest to the accuracy of the data; and the ability to identify and consolidate overlapping data to avoid double-counting of financial records. State The term State means each of the",
+            "target_shingle_coverage": 0.8056265984654731,
+            "matched_shingle_coverage": 0.7175398633257403,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1755ih/xml/BILLS-119hr1755ih.xml",
+            "target_source_sha256": "2778334ab1d0dc3288f1e07c9165b98dfdf1402e2e1fe37b209642e1491c8404",
+            "target_text_sha256": "30a4a742c766b79070469258edef03c1d471d4fadedbf172645679781a9e59a8",
+            "target_version_code": "ih",
+            "target_version_date": "2025-02-27T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1807is/xml/BILLS-119s1807is.xml",
+            "matched_source_sha256": "56ef8831baefe3a97d9eba1408e8f94341c096b4e70a5de325892c637848cb9f",
+            "matched_text_sha256": "245cf91f907c3453b635bdc821257d53b3cf35c7f7d26e15475cfb1e36a055a4",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-05-19T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR1755-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1755ih/xml/BILLS-119hr1755ih.xml",
+        "source_sha256": "2778334ab1d0dc3288f1e07c9165b98dfdf1402e2e1fe37b209642e1491c8404",
+        "text_sha256": "30a4a742c766b79070469258edef03c1d471d4fadedbf172645679781a9e59a8",
+        "version_date": "2025-02-27T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr1755ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
       "bill_id": "HR465-119",
-      "title": "Old Glory Only Act",
       "type": "HR",
       "number": "465",
       "congress": 119,
+      "title": "Old Glory Only Act",
       "introduced_date": "2025-01-15",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/465",
       "latest_action": "Referred to the House Committee on Foreign Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/465?format=json",
-      "keywords": [
-        "flag",
-        "diplomatic",
-        "consular",
-        "flying",
-        "posts",
-        "introduced",
-        "prohibit",
-        "purposes",
-        "bill",
-        "post",
-        "congressional",
-        "bills",
-        "government",
-        "publishing",
-        "office",
-        "doc",
-        "session",
-        "january",
-        "timmons",
-        "massie"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-01-15",
       "cosponsors": [
         "M001184",
         "F000478",
@@ -976,914 +1605,103 @@
         "E000235",
         "B001302",
         "C001129",
-        "G000603"
+        "G000603",
+        "B001282",
+        "D000634",
+        "P000609",
+        "S001214",
+        "R000603",
+        "H001096",
+        "D000594",
+        "M001240",
+        "A000055",
+        "D000626",
+        "E000246",
+        "R000612",
+        "F000472",
+        "F000474",
+        "L000596",
+        "Y000067",
+        "B001314",
+        "V000133",
+        "G000558",
+        "F000475",
+        "M001236",
+        "B000740",
+        "M001212",
+        "M001222"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "flag",
-            "diplomatic",
-            "consular",
-            "flying",
-            "posts",
-            "introduced",
-            "prohibit",
-            "purposes",
-            "bill",
-            "post",
-            "congressional",
-            "bills",
-            "government",
-            "publishing",
-            "office",
-            "doc",
-            "session",
-            "january",
-            "timmons",
-            "massie"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.013,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR10219-119",
-      "title": "To amend the Food and Nutrition Act of 2008 to lower the threshold for which criminal penalties apply to a violation of that Act.",
-      "type": "HR",
-      "number": "10219",
-      "congress": 119,
-      "introduced_date": "2026-09-01",
-      "latest_action": "Referred to the Committee on Agriculture, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10219?format=json",
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr465.xml",
+      "metadata_source_sha256": "6f0c14969bfd38b2461fbdbd583d94a1d5de4f9eaa76b86f58776c05cbac55e5",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
       "keywords": [],
-      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR465-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr465ih/xml/BILLS-119hr465ih.xml",
+        "source_sha256": "9cc0ce4cdaab072bf7129c939c1e0d49f3ad1bb54697ee806cff47c9c72d382e",
+        "text_sha256": "c98f9ec97d639264fab9e84d6af0792d6c2098eb37a1e8701771f42c4fe5ee2b",
+        "version_date": "2025-01-15T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr465ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR324-119",
+      "type": "HR",
+      "number": "324",
+      "congress": 119,
+      "title": "PPP Shell Company Discovery Act",
+      "introduced_date": "2025-01-09",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/324",
+      "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Small Business, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "latest_action_date": "2025-01-09",
       "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {},
-        "analysis_status": "quarantined_pdf_text"
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "obj",
-            "endobj",
-            "pdf",
-            "font",
-            "procset",
-            "text",
-            "stream",
-            "endstream",
-            "wfg",
-            "tio",
-            "yqp",
-            "tah",
-            "zch",
-            "sde",
-            "fuq",
-            "rte",
-            "opi",
-            "xuf",
-            "wih",
-            "vgb"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.0,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HRES1434-119",
-              "sponsor_id": "F000485",
-              "similarity_score": 1.0
-            },
-            {
-              "bill_id": "HR9795-119",
-              "sponsor_id": "G000602",
-              "similarity_score": 1.0
-            },
-            {
-              "bill_id": "HR10075-119",
-              "sponsor_id": "L000585",
-              "similarity_score": 1.0
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_pdf_text",
-      "text_integrity": "quarantined",
-      "text_integrity_reason": "pdf_structure"
-    },
-    {
-      "bill_id": "HJRES199-119",
-      "title": "Proposing an amendment to the Constitution of the United States to temporarily fill vacancies in the House of Representatives to further the continuity of Congress.",
-      "type": "HJRES",
-      "number": "199",
-      "congress": 119,
-      "introduced_date": "2026-07-02",
-      "latest_action": "Referred to the House Committee on the Judiciary.",
-      "url": "https://api.congress.gov/v3/bill/119/hjres/199?format=json",
-      "keywords": [
-        "individual",
-        "representative",
-        "fill",
-        "constitution",
-        "list",
-        "designees",
-        "office",
-        "purposes",
-        "immediately",
-        "event",
-        "death",
-        "vacancy",
-        "designated",
-        "res",
-        "proposing",
-        "temporarily",
-        "vacancies",
-        "continuity",
-        "joint",
-        "resolution"
-      ],
-      "has_text": true,
+      "sponsor_id": "T000480",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr324.xml",
+      "metadata_source_sha256": "e78bf8402fafd8896d3024902e37ec5d17d072b7317c9bbd78474e2918c6618b",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "C001061"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR324-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr324ih/xml/BILLS-119hr324ih.xml",
+        "source_sha256": "9378214f056d460f4f5409dc9a66c946fbc9ed402a119dbe755f7a8da48891dc",
+        "text_sha256": "d1033ad47a4dac1418d4359ad9520adabce75fc406bab5b004c603926d006a49",
+        "version_date": "2025-01-09T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr324ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "individual",
-            "representative",
-            "fill",
-            "constitution",
-            "list",
-            "designees",
-            "office",
-            "purposes",
-            "immediately",
-            "event",
-            "death",
-            "vacancy",
-            "designated",
-            "res",
-            "proposing",
-            "temporarily",
-            "vacancies",
-            "continuity",
-            "joint",
-            "resolution"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.063,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR7274-119",
-      "title": "Federal Acquisition Security Council Improvement Act of 2026",
-      "type": "HR",
-      "number": "7274",
-      "congress": 119,
-      "introduced_date": "2026-01-30",
-      "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 1.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7274?format=json",
-      "keywords": [
-        "order",
-        "council",
-        "covered",
-        "inserting",
-        "source",
-        "subparagraph",
-        "security",
-        "concern",
-        "striking",
-        "iii",
-        "acquisition",
-        "designated",
-        "national",
-        "office",
-        "officials",
-        "agency",
-        "information",
-        "orders",
-        "official",
-        "described"
-      ],
       "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "S001230",
-        "M001194",
-        "K000391"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "order",
-            "council",
-            "covered",
-            "inserting",
-            "source",
-            "subparagraph",
-            "security",
-            "concern",
-            "striking",
-            "iii",
-            "acquisition",
-            "designated",
-            "national",
-            "office",
-            "officials",
-            "agency",
-            "information",
-            "orders",
-            "official",
-            "described"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.058,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR9597-118",
-              "sponsor_id": "C001108",
-              "similarity_score": 0.98
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR6544-119",
-      "title": "REVIEW Act of 2025",
-      "type": "HR",
-      "number": "6544",
-      "congress": 119,
-      "introduced_date": "2025-12-09",
-      "latest_action": "Placed on the Union Calendar, Calendar No. 452.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/6544?format=json",
-      "keywords": [
-        "financial",
-        "regulatory",
-        "federal",
-        "institutions",
-        "regulations",
-        "agencies",
-        "review",
-        "agency",
-        "striking",
-        "impact",
-        "inserting",
-        "cumulative",
-        "bill",
-        "internal",
-        "union",
-        "issued",
-        "every",
-        "years",
-        "assesses",
-        "reported"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "financial",
-            "regulatory",
-            "federal",
-            "institutions",
-            "regulations",
-            "agencies",
-            "review",
-            "agency",
-            "striking",
-            "impact",
-            "inserting",
-            "cumulative",
-            "bill",
-            "internal",
-            "union",
-            "issued",
-            "every",
-            "years",
-            "assesses",
-            "reported"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.086,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Finance & Banking"
-            ],
-            "keyword_hits": {
-              "Finance & Banking": [
-                "financial",
-                "credit"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR5810-119",
-      "title": "Federal Supervisor Education Act",
-      "type": "HR",
-      "number": "5810",
-      "congress": 119,
-      "introduced_date": "2025-10-21",
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/5810?format=json",
-      "keywords": [
-        "supervisor",
-        "training",
-        "agency",
-        "management",
-        "office",
-        "program",
-        "personnel",
-        "performance",
-        "supervisors",
-        "employees",
-        "competencies",
-        "employee",
-        "code",
-        "director",
-        "individual",
-        "established",
-        "goals",
-        "regulations",
-        "provide",
-        "year"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "credit"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "supervisor",
-            "training",
-            "agency",
-            "management",
-            "office",
-            "program",
-            "personnel",
-            "performance",
-            "supervisors",
-            "employees",
-            "competencies",
-            "employee",
-            "code",
-            "director",
-            "individual",
-            "established",
-            "goals",
-            "regulations",
-            "provide",
-            "year"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.061,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Finance & Banking"
-            ],
-            "keyword_hits": {
-              "Finance & Banking": [
-                "credit"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR5163-119",
-      "title": "Clean and Managed Public Spaces Act",
-      "type": "HR",
-      "number": "5163",
-      "congress": 119,
-      "introduced_date": "2025-09-04",
-      "latest_action": "Placed on the Union Calendar, Calendar No. 294.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/5163?format=json",
-      "keywords": [
-        "camping",
-        "district",
-        "columbia",
-        "property",
-        "bill",
-        "union",
-        "reported",
-        "prohibit",
-        "introduced",
-        "committee",
-        "printed",
-        "sleeping",
-        "html",
-        "body",
-        "pre",
-        "government",
-        "calendar",
-        "session",
-        "report",
-        "september"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "camping",
-            "district",
-            "columbia",
-            "property",
-            "bill",
-            "union",
-            "reported",
-            "prohibit",
-            "introduced",
-            "committee",
-            "printed",
-            "sleeping",
-            "html",
-            "body",
-            "pre",
-            "government",
-            "calendar",
-            "session",
-            "report",
-            "september"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.028,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR4536-119",
-      "title": "Fit for Duty Act",
-      "type": "HR",
-      "number": "4536",
-      "congress": 119,
-      "introduced_date": "2025-07-17",
-      "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/4536?format=json",
-      "keywords": [
-        "fitness",
-        "armed",
-        "forces",
-        "physical",
-        "concerned",
-        "bonus",
-        "military",
-        "secretary",
-        "members",
-        "readiness",
-        "test",
-        "percent",
-        "score",
-        "among",
-        "awarded",
-        "duty",
-        "health",
-        "pay",
-        "higher",
-        "member"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "healthcare"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "fitness",
-            "armed",
-            "forces",
-            "physical",
-            "concerned",
-            "bonus",
-            "military",
-            "secretary",
-            "members",
-            "readiness",
-            "test",
-            "percent",
-            "score",
-            "among",
-            "awarded",
-            "duty",
-            "health",
-            "pay",
-            "higher",
-            "member"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.058,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Healthcare"
-            ],
-            "keyword_hits": {
-              "Healthcare": [
-                "healthcare"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR4431-119",
-      "title": "Improving Capital Allocation for Newcomers Act of 2025",
-      "type": "HR",
-      "number": "4431",
-      "congress": 119,
-      "introduced_date": "2025-07-16",
-      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/4431?format=json",
-      "keywords": [
-        "capital",
-        "commission",
-        "persons",
-        "advocate",
-        "study",
-        "report",
-        "investment",
-        "company",
-        "beginning",
-        "made",
-        "small",
-        "business",
-        "formation",
-        "rulemaking",
-        "required",
-        "effect",
-        "founders",
-        "controlling",
-        "referred",
-        "respect"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "P000620"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "securities",
-            "investment"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "capital",
-            "commission",
-            "persons",
-            "advocate",
-            "study",
-            "report",
-            "investment",
-            "company",
-            "beginning",
-            "made",
-            "small",
-            "business",
-            "formation",
-            "rulemaking",
-            "required",
-            "effect",
-            "founders",
-            "controlling",
-            "referred",
-            "respect"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.046,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Finance & Banking"
-            ],
-            "keyword_hits": {
-              "Finance & Banking": [
-                "securities",
-                "investment"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR4437-119",
-      "title": "SMART Act of 2025",
-      "type": "HR",
-      "number": "4437",
-      "congress": 119,
-      "introduced_date": "2025-07-16",
-      "latest_action": "Placed on the Union Calendar, Calendar No. 206.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/4437?format=json",
-      "keywords": [
-        "insured",
-        "credit",
-        "union",
-        "examination",
-        "well",
-        "examinations",
-        "depository",
-        "federal",
-        "institution",
-        "managed",
-        "banking",
-        "agency",
-        "administration",
-        "site",
-        "capitalized",
-        "institutions",
-        "compliance",
-        "financial",
-        "scope",
-        "national"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "F000454"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit"
-          ],
-          "Healthcare": [
-            "insurance"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "insured",
-            "credit",
-            "union",
-            "examination",
-            "well",
-            "examinations",
-            "depository",
-            "federal",
-            "institution",
-            "managed",
-            "banking",
-            "agency",
-            "administration",
-            "site",
-            "capitalized",
-            "institutions",
-            "compliance",
-            "financial",
-            "scope",
-            "national"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.049,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Finance & Banking",
-              "Healthcare"
-            ],
-            "keyword_hits": {
-              "Finance & Banking": [
-                "financial",
-                "credit"
-              ],
-              "Healthcare": [
-                "insurance"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-18T16:58:00.749299+00:00",
-  "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "bills_updated": null,
+  "bills_count": 14,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 0,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
@@ -2034,17 +1852,17 @@
     "Finance & Banking",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-17T19:33:27.736837+00:00",
+  "donors_updated": "2026-11-20T18:59:54.637403+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 5,
+    "donor_alignment": 0,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:33:59.210103",
+  "score_updated": "2026-11-21T08:31:03.414432",
   "trades": [
     {
       "transaction_date": "2026-06-15",
@@ -2072,14 +1890,14 @@
   "trades_updated": "2026-07-21T11:41:12.495370+00:00",
   "trade_count": 2,
   "latest_trade_date": "2026-06-15",
-  "votes_fail_count": 45,
+  "votes_fail_count": 48,
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus",
+  "bills_analysis_status": "analyzed",
   "edgar_reconciliation": {
     "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
     "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
@@ -2108,11 +1926,1532 @@
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:50:18.647336",
   "votes_refresh_provenance": {
-    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-    "run": 44276045061,
-    "legacy_review_votes_updated": "2026-11-17T09:55:31.484575",
-    "legacy_source_votes_updated": "2026-11-18T09:29:53.659747",
-    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T09:55:31.484575",
+      "legacy_source_votes_updated": "2026-11-18T09:29:53.659747",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "checked": "2026-11-21T09:00:31.185100",
+      "failed_attempt_count": 48,
+      "status": "fetch_failed"
+    }
   },
-  "votes_checked": "2026-11-18T09:29:53.659747"
+  "votes_checked": "2026-11-21T09:00:31.185100",
+  "upstream_sec_observation": {
+    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "candidate_only": true,
+    "fields": {
+      "edgar_status": "unresolved",
+      "edgar_signal_type": "corporate_insider",
+      "corporate_insider_signals": 0,
+      "data_updated": "2026-11-20T14:01:30.416965"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR465-119",
+            "title": "Old Glory Only Act",
+            "type": "HR",
+            "number": "465",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/465?format=json",
+            "keywords": [
+              "flag",
+              "diplomatic",
+              "consular",
+              "flying",
+              "posts",
+              "introduced",
+              "prohibit",
+              "purposes",
+              "bill",
+              "post",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc",
+              "session",
+              "january",
+              "timmons",
+              "massie"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001184",
+              "F000478",
+              "B001309",
+              "O000175",
+              "H001086",
+              "B001295",
+              "E000235",
+              "B001302",
+              "C001129",
+              "G000603"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "flag",
+                  "diplomatic",
+                  "consular",
+                  "flying",
+                  "posts",
+                  "introduced",
+                  "prohibit",
+                  "purposes",
+                  "bill",
+                  "post",
+                  "congressional",
+                  "bills",
+                  "government",
+                  "publishing",
+                  "office",
+                  "doc",
+                  "session",
+                  "january",
+                  "timmons",
+                  "massie"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.013,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR10219-119",
+            "title": "To amend the Food and Nutrition Act of 2008 to lower the threshold for which criminal penalties apply to a violation of that Act.",
+            "type": "HR",
+            "number": "10219",
+            "congress": 119,
+            "introduced_date": "2026-09-01",
+            "latest_action": "Referred to the Committee on Agriculture, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10219?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {},
+              "analysis_status": "quarantined_pdf_text"
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "obj",
+                  "endobj",
+                  "pdf",
+                  "font",
+                  "procset",
+                  "text",
+                  "stream",
+                  "endstream",
+                  "wfg",
+                  "tio",
+                  "yqp",
+                  "tah",
+                  "zch",
+                  "sde",
+                  "fuq",
+                  "rte",
+                  "opi",
+                  "xuf",
+                  "wih",
+                  "vgb"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.0,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HRES1434-119",
+                    "sponsor_id": "F000485",
+                    "similarity_score": 1.0
+                  },
+                  {
+                    "bill_id": "HR9795-119",
+                    "sponsor_id": "G000602",
+                    "similarity_score": 1.0
+                  },
+                  {
+                    "bill_id": "HR10075-119",
+                    "sponsor_id": "L000585",
+                    "similarity_score": 1.0
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_pdf_text",
+            "text_integrity": "quarantined",
+            "text_integrity_reason": "pdf_structure"
+          },
+          {
+            "bill_id": "HJRES199-119",
+            "title": "Proposing an amendment to the Constitution of the United States to temporarily fill vacancies in the House of Representatives to further the continuity of Congress.",
+            "type": "HJRES",
+            "number": "199",
+            "congress": 119,
+            "introduced_date": "2026-07-02",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/199?format=json",
+            "keywords": [
+              "individual",
+              "representative",
+              "fill",
+              "constitution",
+              "list",
+              "designees",
+              "office",
+              "purposes",
+              "immediately",
+              "event",
+              "death",
+              "vacancy",
+              "designated",
+              "res",
+              "proposing",
+              "temporarily",
+              "vacancies",
+              "continuity",
+              "joint",
+              "resolution"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001061"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "individual",
+                  "representative",
+                  "fill",
+                  "constitution",
+                  "list",
+                  "designees",
+                  "office",
+                  "purposes",
+                  "immediately",
+                  "event",
+                  "death",
+                  "vacancy",
+                  "designated",
+                  "res",
+                  "proposing",
+                  "temporarily",
+                  "vacancies",
+                  "continuity",
+                  "joint",
+                  "resolution"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.063,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR7274-119",
+            "title": "Federal Acquisition Security Council Improvement Act of 2026",
+            "type": "HR",
+            "number": "7274",
+            "congress": 119,
+            "introduced_date": "2026-01-30",
+            "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 1.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7274?format=json",
+            "keywords": [
+              "order",
+              "council",
+              "covered",
+              "inserting",
+              "source",
+              "subparagraph",
+              "security",
+              "concern",
+              "striking",
+              "iii",
+              "acquisition",
+              "designated",
+              "national",
+              "office",
+              "officials",
+              "agency",
+              "information",
+              "orders",
+              "official",
+              "described"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001230",
+              "M001194",
+              "K000391"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "order",
+                  "council",
+                  "covered",
+                  "inserting",
+                  "source",
+                  "subparagraph",
+                  "security",
+                  "concern",
+                  "striking",
+                  "iii",
+                  "acquisition",
+                  "designated",
+                  "national",
+                  "office",
+                  "officials",
+                  "agency",
+                  "information",
+                  "orders",
+                  "official",
+                  "described"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.058,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR9597-118",
+                    "sponsor_id": "C001108",
+                    "similarity_score": 0.98
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR6544-119",
+            "title": "REVIEW Act of 2025",
+            "type": "HR",
+            "number": "6544",
+            "congress": 119,
+            "introduced_date": "2025-12-09",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 452.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6544?format=json",
+            "keywords": [
+              "financial",
+              "regulatory",
+              "federal",
+              "institutions",
+              "regulations",
+              "agencies",
+              "review",
+              "agency",
+              "striking",
+              "impact",
+              "inserting",
+              "cumulative",
+              "bill",
+              "internal",
+              "union",
+              "issued",
+              "every",
+              "years",
+              "assesses",
+              "reported"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "financial",
+                  "regulatory",
+                  "federal",
+                  "institutions",
+                  "regulations",
+                  "agencies",
+                  "review",
+                  "agency",
+                  "striking",
+                  "impact",
+                  "inserting",
+                  "cumulative",
+                  "bill",
+                  "internal",
+                  "union",
+                  "issued",
+                  "every",
+                  "years",
+                  "assesses",
+                  "reported"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.086,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "financial",
+                      "credit"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR5810-119",
+            "title": "Federal Supervisor Education Act",
+            "type": "HR",
+            "number": "5810",
+            "congress": 119,
+            "introduced_date": "2025-10-21",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5810?format=json",
+            "keywords": [
+              "supervisor",
+              "training",
+              "agency",
+              "management",
+              "office",
+              "program",
+              "personnel",
+              "performance",
+              "supervisors",
+              "employees",
+              "competencies",
+              "employee",
+              "code",
+              "director",
+              "individual",
+              "established",
+              "goals",
+              "regulations",
+              "provide",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "supervisor",
+                  "training",
+                  "agency",
+                  "management",
+                  "office",
+                  "program",
+                  "personnel",
+                  "performance",
+                  "supervisors",
+                  "employees",
+                  "competencies",
+                  "employee",
+                  "code",
+                  "director",
+                  "individual",
+                  "established",
+                  "goals",
+                  "regulations",
+                  "provide",
+                  "year"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.061,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "credit"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR5163-119",
+            "title": "Clean and Managed Public Spaces Act",
+            "type": "HR",
+            "number": "5163",
+            "congress": 119,
+            "introduced_date": "2025-09-04",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 294.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5163?format=json",
+            "keywords": [
+              "camping",
+              "district",
+              "columbia",
+              "property",
+              "bill",
+              "union",
+              "reported",
+              "prohibit",
+              "introduced",
+              "committee",
+              "printed",
+              "sleeping",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "calendar",
+              "session",
+              "report",
+              "september"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "camping",
+                  "district",
+                  "columbia",
+                  "property",
+                  "bill",
+                  "union",
+                  "reported",
+                  "prohibit",
+                  "introduced",
+                  "committee",
+                  "printed",
+                  "sleeping",
+                  "html",
+                  "body",
+                  "pre",
+                  "government",
+                  "calendar",
+                  "session",
+                  "report",
+                  "september"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.028,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR4536-119",
+            "title": "Fit for Duty Act",
+            "type": "HR",
+            "number": "4536",
+            "congress": 119,
+            "introduced_date": "2025-07-17",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4536?format=json",
+            "keywords": [
+              "fitness",
+              "armed",
+              "forces",
+              "physical",
+              "concerned",
+              "bonus",
+              "military",
+              "secretary",
+              "members",
+              "readiness",
+              "test",
+              "percent",
+              "score",
+              "among",
+              "awarded",
+              "duty",
+              "health",
+              "pay",
+              "higher",
+              "member"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "healthcare"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "fitness",
+                  "armed",
+                  "forces",
+                  "physical",
+                  "concerned",
+                  "bonus",
+                  "military",
+                  "secretary",
+                  "members",
+                  "readiness",
+                  "test",
+                  "percent",
+                  "score",
+                  "among",
+                  "awarded",
+                  "duty",
+                  "health",
+                  "pay",
+                  "higher",
+                  "member"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.058,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Healthcare": [
+                      "healthcare"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR4431-119",
+            "title": "Improving Capital Allocation for Newcomers Act of 2025",
+            "type": "HR",
+            "number": "4431",
+            "congress": 119,
+            "introduced_date": "2025-07-16",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4431?format=json",
+            "keywords": [
+              "capital",
+              "commission",
+              "persons",
+              "advocate",
+              "study",
+              "report",
+              "investment",
+              "company",
+              "beginning",
+              "made",
+              "small",
+              "business",
+              "formation",
+              "rulemaking",
+              "required",
+              "effect",
+              "founders",
+              "controlling",
+              "referred",
+              "respect"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000620"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "securities",
+                  "investment"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "capital",
+                  "commission",
+                  "persons",
+                  "advocate",
+                  "study",
+                  "report",
+                  "investment",
+                  "company",
+                  "beginning",
+                  "made",
+                  "small",
+                  "business",
+                  "formation",
+                  "rulemaking",
+                  "required",
+                  "effect",
+                  "founders",
+                  "controlling",
+                  "referred",
+                  "respect"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.046,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "securities",
+                      "investment"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR4437-119",
+            "title": "SMART Act of 2025",
+            "type": "HR",
+            "number": "4437",
+            "congress": 119,
+            "introduced_date": "2025-07-16",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 206.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4437?format=json",
+            "keywords": [
+              "insured",
+              "credit",
+              "union",
+              "examination",
+              "well",
+              "examinations",
+              "depository",
+              "federal",
+              "institution",
+              "managed",
+              "banking",
+              "agency",
+              "administration",
+              "site",
+              "capitalized",
+              "institutions",
+              "compliance",
+              "financial",
+              "scope",
+              "national"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000454"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "insured",
+                  "credit",
+                  "union",
+                  "examination",
+                  "well",
+                  "examinations",
+                  "depository",
+                  "federal",
+                  "institution",
+                  "managed",
+                  "banking",
+                  "agency",
+                  "administration",
+                  "site",
+                  "capitalized",
+                  "institutions",
+                  "compliance",
+                  "financial",
+                  "scope",
+                  "national"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.049,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "financial",
+                      "credit"
+                    ],
+                    "Healthcare": [
+                      "insurance"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          }
+        ],
+        "bills_updated": "2026-11-18T16:58:00.749299+00:00",
+        "bills_count": 10,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 25.0,
+        "donor_match_count": 5,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR465-119",
+            "title": "Old Glory Only Act",
+            "type": "HR",
+            "number": "465",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/465?format=json",
+            "keywords": [
+              "flag",
+              "diplomatic",
+              "consular",
+              "flying",
+              "posts",
+              "introduced",
+              "prohibit",
+              "purposes",
+              "bill",
+              "post",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc",
+              "session",
+              "january",
+              "timmons",
+              "massie"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.013,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001184",
+              "F000478",
+              "B001309",
+              "O000175",
+              "H001086",
+              "B001295",
+              "E000235",
+              "B001302",
+              "C001129",
+              "G000603"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10219-119",
+            "title": "To amend the Food and Nutrition Act of 2008 to lower the threshold for which criminal penalties apply to a violation of that Act.",
+            "type": "HR",
+            "number": "10219",
+            "congress": 119,
+            "introduced_date": "2026-09-01",
+            "latest_action": "Referred to the Committee on Agriculture, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10219?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "stream",
+              "endstream",
+              "wfg",
+              "tio",
+              "yqp",
+              "tah",
+              "zch",
+              "sde",
+              "fuq",
+              "rte",
+              "opi",
+              "xuf",
+              "wih",
+              "vgb"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES1434-119",
+                "sponsor_id": "F000485",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR9795-119",
+                "sponsor_id": "G000602",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10075-119",
+                "sponsor_id": "L000585",
+                "similarity_score": 1.0
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HJRES199-119",
+            "title": "Proposing an amendment to the Constitution of the United States to temporarily fill vacancies in the House of Representatives to further the continuity of Congress.",
+            "type": "HJRES",
+            "number": "199",
+            "congress": 119,
+            "introduced_date": "2026-07-02",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/199?format=json",
+            "keywords": [
+              "individual",
+              "representative",
+              "fill",
+              "constitution",
+              "list",
+              "designees",
+              "office",
+              "purposes",
+              "immediately",
+              "event",
+              "death",
+              "vacancy",
+              "designated",
+              "res",
+              "proposing",
+              "temporarily",
+              "vacancies",
+              "continuity",
+              "joint",
+              "resolution"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.063,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001061"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7274-119",
+            "title": "Federal Acquisition Security Council Improvement Act of 2026",
+            "type": "HR",
+            "number": "7274",
+            "congress": 119,
+            "introduced_date": "2026-01-30",
+            "latest_action": "Ordered to be Reported (Amended) by the Yeas and Nays: 40 - 1.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7274?format=json",
+            "keywords": [
+              "order",
+              "council",
+              "covered",
+              "inserting",
+              "source",
+              "subparagraph",
+              "security",
+              "concern",
+              "striking",
+              "iii",
+              "acquisition",
+              "designated",
+              "national",
+              "office",
+              "officials",
+              "agency",
+              "information",
+              "orders",
+              "official",
+              "described"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.058,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9597-118",
+                "sponsor_id": "C001108",
+                "similarity_score": 0.98
+              }
+            ],
+            "cosponsors": [
+              "S001230",
+              "M001194",
+              "K000391"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR6544-119",
+            "title": "REVIEW Act of 2025",
+            "type": "HR",
+            "number": "6544",
+            "congress": 119,
+            "introduced_date": "2025-12-09",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 452.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6544?format=json",
+            "keywords": [
+              "financial",
+              "regulatory",
+              "federal",
+              "institutions",
+              "regulations",
+              "agencies",
+              "review",
+              "agency",
+              "striking",
+              "impact",
+              "inserting",
+              "cumulative",
+              "bill",
+              "internal",
+              "union",
+              "issued",
+              "every",
+              "years",
+              "assesses",
+              "reported"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.086,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5810-119",
+            "title": "Federal Supervisor Education Act",
+            "type": "HR",
+            "number": "5810",
+            "congress": 119,
+            "introduced_date": "2025-10-21",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5810?format=json",
+            "keywords": [
+              "supervisor",
+              "training",
+              "agency",
+              "management",
+              "office",
+              "program",
+              "personnel",
+              "performance",
+              "supervisors",
+              "employees",
+              "competencies",
+              "employee",
+              "code",
+              "director",
+              "individual",
+              "established",
+              "goals",
+              "regulations",
+              "provide",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5163-119",
+            "title": "Clean and Managed Public Spaces Act",
+            "type": "HR",
+            "number": "5163",
+            "congress": 119,
+            "introduced_date": "2025-09-04",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 294.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5163?format=json",
+            "keywords": [
+              "camping",
+              "district",
+              "columbia",
+              "property",
+              "bill",
+              "union",
+              "reported",
+              "prohibit",
+              "introduced",
+              "committee",
+              "printed",
+              "sleeping",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "calendar",
+              "session",
+              "report",
+              "september"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.028,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR4536-119",
+            "title": "Fit for Duty Act",
+            "type": "HR",
+            "number": "4536",
+            "congress": 119,
+            "introduced_date": "2025-07-17",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4536?format=json",
+            "keywords": [
+              "fitness",
+              "armed",
+              "forces",
+              "physical",
+              "concerned",
+              "bonus",
+              "military",
+              "secretary",
+              "members",
+              "readiness",
+              "test",
+              "percent",
+              "score",
+              "among",
+              "awarded",
+              "duty",
+              "health",
+              "pay",
+              "higher",
+              "member"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.058,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "healthcare"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4431-119",
+            "title": "Improving Capital Allocation for Newcomers Act of 2025",
+            "type": "HR",
+            "number": "4431",
+            "congress": 119,
+            "introduced_date": "2025-07-16",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4431?format=json",
+            "keywords": [
+              "capital",
+              "commission",
+              "persons",
+              "advocate",
+              "study",
+              "report",
+              "investment",
+              "company",
+              "beginning",
+              "made",
+              "small",
+              "business",
+              "formation",
+              "rulemaking",
+              "required",
+              "effect",
+              "founders",
+              "controlling",
+              "referred",
+              "respect"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.046,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000620"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "securities",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4437-119",
+            "title": "SMART Act of 2025",
+            "type": "HR",
+            "number": "4437",
+            "congress": 119,
+            "introduced_date": "2025-07-16",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 206.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4437?format=json",
+            "keywords": [
+              "insured",
+              "credit",
+              "union",
+              "examination",
+              "well",
+              "examinations",
+              "depository",
+              "federal",
+              "institution",
+              "managed",
+              "banking",
+              "agency",
+              "administration",
+              "site",
+              "capitalized",
+              "institutions",
+              "compliance",
+              "financial",
+              "scope",
+              "national"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.049,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000454"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-20T16:52:53.337461+00:00",
+        "bills_count": 10,
+        "donor_alignment_score": 25.0,
+        "donor_match_count": 5,
+        "alec_match_count": 0
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "available",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
 }

@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000601.jpg",
   "term_start": "2025-01-01",
-  "score": 8,
+  "score": 3,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577308",
   "corporate_insider_signals": 0,
@@ -929,126 +929,81 @@
   "bills": [
     {
       "bill_id": "HR10271-119",
-      "title": "Mobile Workforce State Income Tax Simplification Act of 2026",
       "type": "HR",
       "number": "10271",
       "congress": 119,
+      "title": "Mobile Workforce State Income Tax Simplification Act of 2026",
       "introduced_date": "2026-09-03",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/10271",
       "latest_action": "Referred to the House Committee on the Judiciary.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10271?format=json",
-      "keywords": [
-        "employee",
-        "state",
-        "duties",
-        "wages",
-        "remuneration",
-        "employment",
-        "tax",
-        "employer",
-        "income",
-        "professional",
-        "performs",
-        "performed",
-        "day",
-        "qualified",
-        "production",
-        "person",
-        "services",
-        "system",
-        "certain",
-        "withholding"
+      "latest_action_date": "2026-09-03",
+      "cosponsors": [],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr10271.xml",
+      "metadata_source_sha256": "60e2de5bc86fb69d8aa0b29dc786c8b37e24e3bbf8376350ec0a11805e636023",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1443-119",
+          "bill_title": "Mobile Workforce State Income Tax Simplification Act of 2025",
+          "member_id": "T000250",
+          "same_sponsor": false,
+          "similarity_score": 0.9982958436012268,
+          "evidence": {
+            "longest_passage_words": 935,
+            "target_word_offset": 18,
+            "matched_word_offset": 18,
+            "displayed_passage_words": 120,
+            "target_passage": "Limitations on State withholding and taxation of employee income In general No part of the wages or other remuneration earned by an employee who performs employment duties in more than one State shall be subject to income tax in any State other than\u2014 the State of the employee\u2019s residence; and the State within which the employee is present and performing employment duties for more than 30 days during the calendar year in which the wages or other remuneration is earned. Wages or other remuneration Wages or other remuneration earned in any calendar year shall not be subject to State income tax withholding and reporting requirements unless the employee is subject to income tax in such State under subsection (a). Income",
+            "matched_passage": "Limitations on State withholding and taxation of employee income In general No part of the wages or other remuneration earned by an employee who performs employment duties in more than one State shall be subject to income tax in any State other than\u2014 the State of the employee\u2019s residence; and the State within which the employee is present and performing employment duties for more than 30 days during the calendar year in which the wages or other remuneration is earned. Wages or other remuneration Wages or other remuneration earned in any calendar year shall not be subject to State income tax withholding and reporting requirements unless the employee is subject to income tax in such State under subsection (a). Income",
+            "target_shingle_coverage": 0.9869281045751634,
+            "matched_shingle_coverage": 0.9869281045751634,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10271ih/xml/BILLS-119hr10271ih.xml",
+            "target_source_sha256": "8d15099bf1bdded426325c3a1fd70241d0026b3517903c30189bf3caa703c0ad",
+            "target_text_sha256": "2922b55ee41382420897f781ae9f0acccb8dc6a69cce99835020eb0cb6e5ba7e",
+            "target_version_code": "ih",
+            "target_version_date": "2026-09-03T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1443is/xml/BILLS-119s1443is.xml",
+            "matched_source_sha256": "02610748eb17ef22fa77ca97c8b46a39f160f405c4d4aed8a40c9c5dcf562572",
+            "matched_text_sha256": "a4e650c1599e2b13fa45e54ca007b2cecff38e882049ac755f2ad14c019a66f0",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-04-10T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR10271-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10271ih/xml/BILLS-119hr10271ih.xml",
+        "source_sha256": "8d15099bf1bdded426325c3a1fd70241d0026b3517903c30189bf3caa703c0ad",
+        "text_sha256": "2922b55ee41382420897f781ae9f0acccb8dc6a69cce99835020eb0cb6e5ba7e",
+        "version_date": "2026-09-03T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr10271ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "employee",
-            "state",
-            "duties",
-            "wages",
-            "remuneration",
-            "employment",
-            "tax",
-            "employer",
-            "income",
-            "professional",
-            "performs",
-            "performed",
-            "day",
-            "qualified",
-            "production",
-            "person",
-            "services",
-            "system",
-            "certain",
-            "withholding"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.112,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR10141-119",
-      "title": "To designate the facility of the United States Postal Service located at 4450 Oak Park Lane in Fort Worth, Texas, as the \"United States Representative Kay Granger Post Office Building\".",
       "type": "HR",
       "number": "10141",
       "congress": 119,
+      "title": "To designate the facility of the United States Postal Service located at 4450 Oak Park Lane in Fort Worth, Texas, as the \"United States Representative Kay Granger Post Office Building\".",
       "introduced_date": "2026-08-24",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/10141",
       "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10141?format=json",
-      "keywords": [
-        "office",
-        "representative",
-        "kay",
-        "granger",
-        "post",
-        "building",
-        "facility",
-        "texas",
-        "postal",
-        "service",
-        "located",
-        "oak",
-        "park",
-        "lane",
-        "fort",
-        "worth",
-        "government",
-        "introduced",
-        "designate",
-        "bill"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-08-24",
       "cosponsors": [
         "V000131",
         "M001224",
@@ -1059,108 +1014,131 @@
         "C001130",
         "G000581",
         "C001063",
-        "J000310"
+        "J000310",
+        "G000553"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "office",
-            "representative",
-            "kay",
-            "granger",
-            "post",
-            "building",
-            "facility",
-            "texas",
-            "postal",
-            "service",
-            "located",
-            "oak",
-            "park",
-            "lane",
-            "fort",
-            "worth",
-            "government",
-            "introduced",
-            "designate",
-            "bill"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.035,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR10296-119",
-              "sponsor_id": "V000131",
-              "similarity_score": 0.881
-            },
-            {
-              "bill_id": "HR4677-119",
-              "sponsor_id": "J000304",
-              "similarity_score": 0.856
-            },
-            {
-              "bill_id": "HR10114-119",
-              "sponsor_id": "M001241",
-              "similarity_score": 0.829
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr10141.xml",
+      "metadata_source_sha256": "1f46767e242f271dfb0419a5756abff4e65e974dc51a3ce7e45df84f82c6ef6b",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10296-119",
+          "bill_title": "To designate the facility of the United States Postal Service located at 4650 East Rosedale Street in Fort Worth, Texas, as the \"Dionne Phillips Bagsby Post Office Building\".",
+          "member_id": "V000131",
+          "same_sponsor": false,
+          "similarity_score": 0.664925754070282,
+          "evidence": {
+            "longest_passage_words": 37,
+            "target_word_offset": 39,
+            "matched_word_offset": 35,
+            "displayed_passage_words": 37,
+            "target_passage": "Post Office Building . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "matched_passage": "Post Office Building . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "target_shingle_coverage": 0.3972602739726027,
+            "matched_shingle_coverage": 0.43283582089552236,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10141ih/xml/BILLS-119hr10141ih.xml",
+            "target_source_sha256": "c10d1fbb7b67e8637cf4b7ad0876937e966a4ce81c2513f6979051f3f8e981ee",
+            "target_text_sha256": "9a051452ce4f1e52aa41aea7dc22c68c82b7bb1a9b914e75ca886fb54d8760e4",
+            "target_version_code": "ih",
+            "target_version_date": "2026-08-24T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10296ih/xml/BILLS-119hr10296ih.xml",
+            "matched_source_sha256": "110f7effded30c38b8550e9408f33ce865d0ae5c9e05279df034508233fdaf4c",
+            "matched_text_sha256": "6800d9c6b99e4ae6b05ff3bafa63b6f40946c757c6e5d14926a907a72c107d14",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-09-03T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR5642-119",
+          "bill_title": "To designate the facility of the United States Postal Service located at 47 Echo Avenue in Miller Place, New York, as the \"Christopher Pendergast Post Office Building\".",
+          "member_id": "L000598",
+          "same_sponsor": false,
+          "similarity_score": 0.5660629868507385,
+          "evidence": {
+            "longest_passage_words": 37,
+            "target_word_offset": 39,
+            "matched_word_offset": 33,
+            "displayed_passage_words": 37,
+            "target_passage": "Post Office Building . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "matched_passage": "Post Office Building . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "target_shingle_coverage": 0.3972602739726027,
+            "matched_shingle_coverage": 0.453125,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10141ih/xml/BILLS-119hr10141ih.xml",
+            "target_source_sha256": "c10d1fbb7b67e8637cf4b7ad0876937e966a4ce81c2513f6979051f3f8e981ee",
+            "target_text_sha256": "9a051452ce4f1e52aa41aea7dc22c68c82b7bb1a9b914e75ca886fb54d8760e4",
+            "target_version_code": "ih",
+            "target_version_date": "2026-08-24T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5642ih/xml/BILLS-119hr5642ih.xml",
+            "matched_source_sha256": "8b527b6907d76d6cee350f2e5363beaa42b65983e774edb2d4352c1279501f55",
+            "matched_text_sha256": "ed3adb4b974ec6d7989b7b182de5e6a6d445943aa166f3fd63a16dee1b6a3b5b",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-09-30T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR7299-119",
+          "bill_title": "To designate the facility of the United States Postal Service located at 2600 Michigan Avenue in Kissimmee, Florida, as the \"Robert Guevara Post Office Building\".",
+          "member_id": "S001200",
+          "same_sponsor": false,
+          "similarity_score": 0.5573738813400269,
+          "evidence": {
+            "longest_passage_words": 37,
+            "target_word_offset": 39,
+            "matched_word_offset": 31,
+            "displayed_passage_words": 37,
+            "target_passage": "Post Office Building . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "matched_passage": "Post Office Building . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "target_shingle_coverage": 0.3972602739726027,
+            "matched_shingle_coverage": 0.46774193548387094,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10141ih/xml/BILLS-119hr10141ih.xml",
+            "target_source_sha256": "c10d1fbb7b67e8637cf4b7ad0876937e966a4ce81c2513f6979051f3f8e981ee",
+            "target_text_sha256": "9a051452ce4f1e52aa41aea7dc22c68c82b7bb1a9b914e75ca886fb54d8760e4",
+            "target_version_code": "ih",
+            "target_version_date": "2026-08-24T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7299ih/xml/BILLS-119hr7299ih.xml",
+            "matched_source_sha256": "e12fc46e5efb1cad7875661e9ed9b2412b9814034da7fe8d6ad783f163702f9c",
+            "matched_text_sha256": "2c3a6732bf679e264e00d9fd66904fdd6e65f605f131503d39fc0f5923cfca76",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-01-30T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR10141-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10141ih/xml/BILLS-119hr10141ih.xml",
+        "source_sha256": "c10d1fbb7b67e8637cf4b7ad0876937e966a4ce81c2513f6979051f3f8e981ee",
+        "text_sha256": "9a051452ce4f1e52aa41aea7dc22c68c82b7bb1a9b914e75ca886fb54d8760e4",
+        "version_date": "2026-08-24T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr10141ih"
       },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HRES1481-119",
-      "title": "Honoring the life and legacy of the Honorable Kay Granger, a Representative from the State of Texas.",
       "type": "HRES",
       "number": "1481",
       "congress": 119,
+      "title": "Honoring the life and legacy of the Honorable Kay Granger, a Representative from the State of Texas.",
       "introduced_date": "2026-08-13",
+      "url": "https://www.congress.gov/bill/119th-congress/house-resolution/1481",
       "latest_action": "Referred to the House Committee on House Administration.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/1481?format=json",
-      "keywords": [
-        "granger",
-        "kay",
-        "texas",
-        "fort",
-        "worth",
-        "committee",
-        "first",
-        "woman",
-        "state",
-        "mrs",
-        "chair",
-        "republican",
-        "served",
-        "women",
-        "congressional",
-        "service",
-        "appropriations",
-        "life",
-        "legacy",
-        "honorable"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-08-13",
       "cosponsors": [
         "V000131",
         "M001224",
@@ -1171,71 +1149,99 @@
         "E000071",
         "F000468",
         "L000603",
-        "G000553"
+        "G000553",
+        "M001157",
+        "P000048",
+        "J000304",
+        "W000814",
+        "D000594",
+        "E000299",
+        "S000250",
+        "M001245",
+        "A000375",
+        "C001091",
+        "R000614",
+        "N000026",
+        "V000134",
+        "W000816",
+        "G000603",
+        "C001115",
+        "C001063",
+        "G000587",
+        "C001130",
+        "C001051",
+        "J000310",
+        "G000581",
+        "C001131",
+        "B001291",
+        "D000399",
+        "H001095",
+        "C001053",
+        "N000189",
+        "W000809",
+        "A000379",
+        "F000459",
+        "B000740",
+        "D000600",
+        "A000055",
+        "M001143",
+        "W000822",
+        "H001091",
+        "A000369",
+        "F000472",
+        "R000575",
+        "C001103",
+        "M001194",
+        "L000598",
+        "T000474",
+        "H001067",
+        "M001215",
+        "L000595",
+        "R000395",
+        "C000059",
+        "S001172",
+        "J000295",
+        "F000450",
+        "S001189",
+        "S001229"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres1481.xml",
+      "metadata_source_sha256": "19620575559b6ba9ef500d143ff012d34978445289ae76c4bccc48f99e3e4c9d",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES1481-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres1481ih/xml/BILLS-119hres1481ih.xml",
+        "source_sha256": "e0dacd8693c19ae58fcd76983d01c45249b00e98196be52f511e3a66ba3896cc",
+        "text_sha256": "4591d461d549c20f30277de16b505dc8e7d6deccd1226748d4341e13fad447c7",
+        "version_date": "2026-08-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres1481ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "granger",
-            "kay",
-            "texas",
-            "fort",
-            "worth",
-            "committee",
-            "first",
-            "woman",
-            "state",
-            "mrs",
-            "chair",
-            "republican",
-            "served",
-            "women",
-            "congressional",
-            "service",
-            "appropriations",
-            "life",
-            "legacy",
-            "honorable"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.043,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9892-119",
-      "title": "To require the United States Trade Representative to initiate an investigation under section 301 of the Trade Act of 1974 with respect to the European Union, and for other purposes.",
       "type": "HR",
       "number": "9892",
       "congress": 119,
+      "title": "Stop EU Overreach Act",
       "introduced_date": "2026-07-23",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9892",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9892?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-07-23",
       "cosponsors": [
         "A000375",
         "S001214",
@@ -1246,111 +1252,47 @@
         "D000626",
         "S000250",
         "W000816",
-        "L000599"
+        "L000599",
+        "F000485",
+        "G000591"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {},
-        "analysis_status": "quarantined_pdf_text"
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9892.xml",
+      "metadata_source_sha256": "4fb6940c682c89ec84f9a352a6e061354424ad874e5f06a8f2cab3b45dd0d61e",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9892-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9892ih/xml/BILLS-119hr9892ih.xml",
+        "source_sha256": "5b999ae1b249bfe0f933b03cacbb28694dc5310de243afdb6216e81cfb6e7327",
+        "text_sha256": "fff26fe5d2a1b751c9489997f635dba97b176c96e544b02f49a7969057bdfcf6",
+        "version_date": "2026-07-23T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9892ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "obj",
-            "endobj",
-            "stream",
-            "pdf",
-            "font",
-            "procset",
-            "text",
-            "endstream",
-            "wms",
-            "ygr",
-            "lge",
-            "yzge",
-            "ytc",
-            "pwg",
-            "rtv",
-            "gaj",
-            "jhf",
-            "qcr",
-            "eun",
-            "iebku"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.0,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR10803-119",
-              "sponsor_id": "R000617",
-              "similarity_score": 0.991
-            },
-            {
-              "bill_id": "HR10348-119",
-              "sponsor_id": "S001201",
-              "similarity_score": 0.99
-            },
-            {
-              "bill_id": "HR10645-119",
-              "sponsor_id": "B001306",
-              "similarity_score": 0.99
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_pdf_text",
-      "text_integrity": "quarantined",
-      "text_integrity_reason": "pdf_structure"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9396-119",
-      "title": "Prior Authorization Accountability Act",
       "type": "HR",
       "number": "9396",
       "congress": 119,
+      "title": "Prior Authorization Accountability Act",
       "introduced_date": "2026-06-23",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9396",
       "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9396?format=json",
-      "keywords": [
-        "plan",
-        "prior",
-        "authorization",
-        "health",
-        "issuer",
-        "year",
-        "requests",
-        "service",
-        "item",
-        "percentage",
-        "number",
-        "technology",
-        "group",
-        "insurance",
-        "secretary",
-        "submitted",
-        "coverage",
-        "specified",
-        "determination",
-        "respect"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-06-25",
       "cosponsors": [
         "P000048",
         "W000804",
@@ -1359,313 +1301,126 @@
         "P000613",
         "B001327"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9396.xml",
+      "metadata_source_sha256": "ebf899d036494f3e00e96721d90a4958518cea849856e837a1057d991037df07",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9396-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9396ih/xml/BILLS-119hr9396ih.xml",
+        "source_sha256": "1a5a0fbef551513c13db09fe83d1f6f27d5d62c4d97d2fca8d4da6030b8b3190",
+        "text_sha256": "e0f5eee2cc801a2c1478d6ead11f65000ff273f8a9649de3bc5e2d1a08cea9f1",
+        "version_date": "2026-06-23T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9396ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "plan",
-            "prior",
-            "authorization",
-            "health",
-            "issuer",
-            "year",
-            "requests",
-            "service",
-            "item",
-            "percentage",
-            "number",
-            "technology",
-            "group",
-            "insurance",
-            "secretary",
-            "submitted",
-            "coverage",
-            "specified",
-            "determination",
-            "respect"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.054,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9336-119",
-      "title": "Better Care, Better Cost Act",
       "type": "HR",
       "number": "9336",
       "congress": 119,
+      "title": "Better Care, Better Cost Act",
       "introduced_date": "2026-06-18",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9336",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9336?format=json",
-      "keywords": [
-        "performance",
-        "care",
-        "state",
-        "individuals",
-        "managed",
-        "entities",
-        "account",
-        "plan",
-        "entity",
-        "social",
-        "security",
-        "subparagraph",
-        "system",
-        "scores",
-        "measures",
-        "xix",
-        "take",
-        "assigning",
-        "medicaid",
-        "program"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-06-18",
       "cosponsors": [
         "P000048",
         "P000613",
         "N000188"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9336.xml",
+      "metadata_source_sha256": "674dbb604449686fde36aecdee6d685991a84a7b9b2b9950487282b90a114b20",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9336-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9336ih/xml/BILLS-119hr9336ih.xml",
+        "source_sha256": "00f9b79a2d54faded9e3acbf725b78eb73faaf245f07b79974d5638e87818462",
+        "text_sha256": "0268cc1f9fc3a45974318ae060e02db8cc20793ddfbe6f95fab16fae69689802",
+        "version_date": "2026-06-18T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9336ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "performance",
-            "care",
-            "state",
-            "individuals",
-            "managed",
-            "entities",
-            "account",
-            "plan",
-            "entity",
-            "social",
-            "security",
-            "subparagraph",
-            "system",
-            "scores",
-            "measures",
-            "xix",
-            "take",
-            "assigning",
-            "medicaid",
-            "program"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.068,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9335-119",
-      "title": "Advanced Transmission Technology to Reduce Rates Act",
       "type": "HR",
       "number": "9335",
       "congress": 119,
+      "title": "Advanced Transmission Technology to Reduce Rates Act",
       "introduced_date": "2026-06-18",
-      "latest_action": "Forwarded by Subcommittee to Full Committee (Amended) by Voice Vote.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9335?format=json",
-      "keywords": [
-        "transmission",
-        "advanced",
-        "electric",
-        "technology",
-        "energy",
-        "power",
-        "secretary",
-        "organization",
-        "utility",
-        "regulatory",
-        "federal",
-        "assistance",
-        "state",
-        "clearinghouse",
-        "meaning",
-        "given",
-        "technical",
-        "deployment",
-        "practices",
-        "authority"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9335",
+      "latest_action": "Ordered to be Reported by the Yeas and Nays: 39 - 10.",
+      "latest_action_date": "2026-07-21",
       "cosponsors": [
         "E000300",
         "V000138"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas",
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ],
-          "Finance & Banking": [
-            "financial",
-            "loan"
-          ]
-        }
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9335.xml",
+      "metadata_source_sha256": "d28029e053e4c5b353d3589c60dc096469c9ab73debd9d93b654b7203533c4d9",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9335-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9335ih/xml/BILLS-119hr9335ih.xml",
+        "source_sha256": "26b0aac345d807a1852120ea35235eeaf03596435a078971ebf5d66bea6d16dd",
+        "text_sha256": "eff3b66fbc83685f2c577597cf5d53553955ecae2393ec57c01555e89cc33849",
+        "version_date": "2026-06-18T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9335ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "transmission",
-            "advanced",
-            "electric",
-            "technology",
-            "energy",
-            "power",
-            "secretary",
-            "organization",
-            "utility",
-            "regulatory",
-            "federal",
-            "assistance",
-            "state",
-            "clearinghouse",
-            "meaning",
-            "given",
-            "technical",
-            "deployment",
-            "practices",
-            "authority"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.045,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas",
-              "Finance & Banking"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ],
-              "Finance & Banking": [
-                "financial",
-                "loan"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9147-119",
-      "title": "Abraham Accords Expansion Act of 2026",
       "type": "HR",
       "number": "9147",
       "congress": 119,
+      "title": "Abraham Accords Expansion Act of 2026",
       "introduced_date": "2026-06-04",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9147",
       "latest_action": "Referred to the House Committee on Foreign Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9147?format=json",
-      "keywords": [
-        "envoy",
-        "special",
-        "abraham",
-        "accords",
-        "normalization",
-        "central",
-        "asia",
-        "caucasus",
-        "authorities",
-        "state",
-        "department",
-        "basic",
-        "presidential",
-        "negev",
-        "forum",
-        "related",
-        "agreements",
-        "regions",
-        "economic",
-        "interests"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-06-04",
       "cosponsors": [
         "W000812",
         "W000797",
@@ -1676,104 +1431,61 @@
         "N000189",
         "S000168",
         "Y000067",
-        "D000230"
+        "D000230",
+        "W000814",
+        "M001240",
+        "G000583",
+        "B001257",
+        "F000466",
+        "P000613",
+        "T000478",
+        "I000056",
+        "M001233",
+        "M001217",
+        "V000135",
+        "L000599",
+        "G000599",
+        "F000462",
+        "S001212",
+        "G000597"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9147.xml",
+      "metadata_source_sha256": "c7b1bdd0e76c2df232b99ea513846b00cfb8ab5c49db4b509db9f51558e318b1",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9147-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9147ih/xml/BILLS-119hr9147ih.xml",
+        "source_sha256": "a546245eef26d83d3fc6235bcf8437f81ff6c841d626dcd60f6d37834a722078",
+        "text_sha256": "271596603e5c075ab6f45709fe0aa64fc9bdb82f47659308115238c2fa776524",
+        "version_date": "2026-06-04T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9147ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "envoy",
-            "special",
-            "abraham",
-            "accords",
-            "normalization",
-            "central",
-            "asia",
-            "caucasus",
-            "authorities",
-            "state",
-            "department",
-            "basic",
-            "presidential",
-            "negev",
-            "forum",
-            "related",
-            "agreements",
-            "regions",
-            "economic",
-            "interests"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.037,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR7592-119",
-      "title": "Zero-Based Regulatory Budgeting to Unleash American Energy Act of 2026",
       "type": "HR",
       "number": "7592",
       "congress": 119,
+      "title": "Zero-Based Regulatory Budgeting to Unleash American Energy Act of 2026",
       "introduced_date": "2026-02-17",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/7592",
       "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7592?format=json",
-      "keywords": [
-        "covered",
-        "regulation",
-        "agency",
-        "energy",
-        "seq",
-        "head",
-        "expiration",
-        "bureau",
-        "respect",
-        "promulgated",
-        "management",
-        "department",
-        "enforcement",
-        "federal",
-        "policy",
-        "effect",
-        "office",
-        "regulations",
-        "iii",
-        "mining"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-02-17",
       "cosponsors": [
         "C001120",
         "P000048",
@@ -1784,104 +1496,72 @@
         "H001101",
         "G000603"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy",
-            "natural gas"
-          ]
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr7592.xml",
+      "metadata_source_sha256": "6cc1f1b673910d3dc22b16688e2b9ea849c4c14ec97bbd37aa3aa3afcf8f4985",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S2427-119",
+          "bill_title": "Zero-Based Regulatory Budgeting to Unleash American Energy Act of 2025",
+          "member_id": "R000584",
+          "same_sponsor": false,
+          "similarity_score": 0.9990040063858032,
+          "evidence": {
+            "longest_passage_words": 1156,
+            "target_word_offset": 20,
+            "matched_word_offset": 20,
+            "displayed_passage_words": 120,
+            "target_passage": "Definitions; statutory identification In this Act: Covered agency The term covered agency means each of the following: The Department of Energy. Each of the following offices within the Department of the Interior: The Bureau of Land Management. The Bureau of Ocean Energy Management. The Bureau of Safety and Environmental Enforcement. The Office of Surface Mining Reclamation and Enforcement. The Federal Energy Regulatory Commission. Covered regulation The term covered regulation means\u2014 with respect to the Department of Energy, any regulation promulgated by the Department of Energy under or pursuant to\u2014 the Atomic Energy Act of 1954 ( 42 U.S.C. 2011 et seq. ); the Energy Independence and Security Act of 2007 ( 42 U.S.C. 17001 et seq. ); the Energy Policy",
+            "matched_passage": "Definitions; statutory identification In this Act: Covered agency The term covered agency means each of the following: The Department of Energy. Each of the following offices within the Department of the Interior: The Bureau of Land Management. The Bureau of Ocean Energy Management. The Bureau of Safety and Environmental Enforcement. The Office of Surface Mining Reclamation and Enforcement. The Federal Energy Regulatory Commission. Covered regulation The term covered regulation means\u2014 with respect to the Department of Energy, any regulation promulgated by the Department of Energy under or pursuant to\u2014 the Atomic Energy Act of 1954 ( 42 U.S.C. 2011 et seq. ); the Energy Independence and Security Act of 2007 ( 42 U.S.C. 17001 et seq. ); the Energy Policy",
+            "target_shingle_coverage": 0.9895561357702349,
+            "matched_shingle_coverage": 0.9895561357702349,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7592ih/xml/BILLS-119hr7592ih.xml",
+            "target_source_sha256": "b4c0e9ebc0c17188e9f7df6864086c38a83145a9c754b1f7a333f6f715b25d31",
+            "target_text_sha256": "6d64a3a40566b1a64e0bdaba9e03dd4ecb6be3044a4e63fd13e842cf3e49d037",
+            "target_version_code": "ih",
+            "target_version_date": "2026-02-17T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s2427is/xml/BILLS-119s2427is.xml",
+            "matched_source_sha256": "2e38de972bf7c0c4bba65159480f896ffef18ff08535198a3bc6bf481a1e33d6",
+            "matched_text_sha256": "63199b76e20b2eb11b8360e8806a803fe212a22d096affe992d8c89ecf10e906",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-07-24T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR7592-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7592ih/xml/BILLS-119hr7592ih.xml",
+        "source_sha256": "b4c0e9ebc0c17188e9f7df6864086c38a83145a9c754b1f7a333f6f715b25d31",
+        "text_sha256": "6d64a3a40566b1a64e0bdaba9e03dd4ecb6be3044a4e63fd13e842cf3e49d037",
+        "version_date": "2026-02-17T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr7592ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "covered",
-            "regulation",
-            "agency",
-            "energy",
-            "seq",
-            "head",
-            "expiration",
-            "bureau",
-            "respect",
-            "promulgated",
-            "management",
-            "department",
-            "enforcement",
-            "federal",
-            "policy",
-            "effect",
-            "office",
-            "regulations",
-            "iii",
-            "mining"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.111,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy",
-                "natural gas"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR7034-119",
-      "title": "To amend the Internal Revenue Code of 1986 to eliminate the dollar limitations on the exclusion of gain from sales of principal residences, and for other purposes.",
       "type": "HR",
       "number": "7034",
       "congress": 119,
+      "title": "To amend the Internal Revenue Code of 1986 to eliminate the dollar limitations on the exclusion of gain from sales of principal residences, and for other purposes.",
       "introduced_date": "2026-01-13",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/7034",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7034?format=json",
-      "keywords": [
-        "code",
-        "sales",
-        "internal",
-        "revenue",
-        "dollar",
-        "limitations",
-        "exclusion",
-        "gain",
-        "principal",
-        "residences",
-        "striking",
-        "paragraphs",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "eliminate",
-        "purposes",
-        "bill",
-        "amendments"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-01-13",
       "cosponsors": [
         "H001099",
         "B001302",
@@ -1890,67 +1570,558 @@
         "J000304",
         "H001100"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "code",
-            "sales",
-            "internal",
-            "revenue",
-            "dollar",
-            "limitations",
-            "exclusion",
-            "gain",
-            "principal",
-            "residences",
-            "striking",
-            "paragraphs",
-            "html",
-            "body",
-            "pre",
-            "introduced",
-            "eliminate",
-            "purposes",
-            "bill",
-            "amendments"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.043,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR7131-119",
-              "sponsor_id": "F000471",
-              "similarity_score": 0.974
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr7034.xml",
+      "metadata_source_sha256": "757be38c46f730637f5e9570d4a5ea48991b11587c818d587d3f0d5819c65179",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR7131-119",
+          "bill_title": "Middle Class Home Tax Elimination Act",
+          "member_id": "F000471",
+          "same_sponsor": false,
+          "similarity_score": 0.9451751112937927,
+          "evidence": {
+            "longest_passage_words": 121,
+            "target_word_offset": 0,
+            "matched_word_offset": 15,
+            "displayed_passage_words": 120,
+            "target_passage": "Elimination of dollar limitations on exclusion of gain from sales of principal residences In general Section 121(b) of the Internal Revenue Code of 1986 is amended\u2014 by striking paragraphs (1), (2), and (4), and by redesignating paragraphs (3) and (5) as paragraphs (1) and (2), respectively. Conforming amendments Section 121(c) of such Code is amended\u2014 in paragraph (1), by striking , and subsection (b)(3) and all that follows through 2 years and inserting , and subsection (b)(1), shall not apply , and in paragraph (2)(A)(ii), by striking subsection (b)(3) and inserting subsection (b)(1) . Effective date The amendments made by this section shall apply to sales and exchanges after the date of the enactment of this",
+            "matched_passage": "Elimination of dollar limitations on exclusion of gain from sales of principal residences In general Section 121(b) of the Internal Revenue Code of 1986 is amended\u2014 by striking paragraphs (1), (2), and (4), and by redesignating paragraphs (3) and (5) as paragraphs (1) and (2), respectively. Conforming amendments Section 121(c) of such Code is amended\u2014 in paragraph (1), by striking , and subsection (b)(3) and all that follows through 2 years and inserting , and subsection (b)(1), shall not apply , and in paragraph (2)(A)(ii), by striking subsection (b)(3) and inserting subsection (b)(1) . Effective date The amendments made by this section shall apply to sales and exchanges after the date of the enactment of this",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 0.88,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7034ih/xml/BILLS-119hr7034ih.xml",
+            "target_source_sha256": "75757d6427c053cb661cf9253a9d1b9baceed665a6e92fb8e30cb56985d67469",
+            "target_text_sha256": "720010c6d0c6b5c8aad69d0aed87475a54f1122f24dd0116a067dc1672c61f60",
+            "target_version_code": "ih",
+            "target_version_date": "2026-01-13T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7131ih/xml/BILLS-119hr7131ih.xml",
+            "matched_source_sha256": "420e477ee6bcafac2d09ccd2297078268cb1da5f311243ec74f5ad02315390d4",
+            "matched_text_sha256": "6437dd33092a23c7dc8956631716cd49e935810480cedf2da4717461182c38f1",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-01-16T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR4327-119",
+          "bill_title": "No Tax on Home Sales Act",
+          "member_id": "G000596",
+          "same_sponsor": false,
+          "similarity_score": 0.9380112290382385,
+          "evidence": {
+            "longest_passage_words": 121,
+            "target_word_offset": 0,
+            "matched_word_offset": 15,
+            "displayed_passage_words": 120,
+            "target_passage": "Elimination of dollar limitations on exclusion of gain from sales of principal residences In general Section 121(b) of the Internal Revenue Code of 1986 is amended\u2014 by striking paragraphs (1), (2), and (4), and by redesignating paragraphs (3) and (5) as paragraphs (1) and (2), respectively. Conforming amendments Section 121(c) of such Code is amended\u2014 in paragraph (1), by striking , and subsection (b)(3) and all that follows through 2 years and inserting , and subsection (b)(1), shall not apply , and in paragraph (2)(A)(ii), by striking subsection (b)(3) and inserting subsection (b)(1) . Effective date The amendments made by this section shall apply to sales and exchanges after the date of the enactment of this",
+            "matched_passage": "Elimination of dollar limitations on exclusion of gain from sales of principal residences In general Section 121(b) of the Internal Revenue Code of 1986 is amended\u2014 by striking paragraphs (1), (2), and (4), and by redesignating paragraphs (3) and (5) as paragraphs (1) and (2), respectively. Conforming amendments Section 121(c) of such Code is amended\u2014 in paragraph (1), by striking , and subsection (b)(3) and all that follows through 2 years and inserting , and subsection (b)(1), shall not apply , and in paragraph (2)(A)(ii), by striking subsection (b)(3) and inserting subsection (b)(1) . Effective date The amendments made by this section shall apply to sales and exchanges after the date of the enactment of this",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 0.88,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7034ih/xml/BILLS-119hr7034ih.xml",
+            "target_source_sha256": "75757d6427c053cb661cf9253a9d1b9baceed665a6e92fb8e30cb56985d67469",
+            "target_text_sha256": "720010c6d0c6b5c8aad69d0aed87475a54f1122f24dd0116a067dc1672c61f60",
+            "target_version_code": "ih",
+            "target_version_date": "2026-01-13T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4327ih/xml/BILLS-119hr4327ih.xml",
+            "matched_source_sha256": "e0349d67415542abafbd09f5edb9dceeab20d269eb1fe74712fa9c9d73f74481",
+            "matched_text_sha256": "dd4839b88f18c9889c855aa4a715a92a237cfefcb5b2bfb06a4134a1789f22ec",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-07-10T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR7400-119",
+          "bill_title": "Making Homeownership Affordable Again Act",
+          "member_id": "M000194",
+          "same_sponsor": false,
+          "similarity_score": 0.5592325925827026,
+          "evidence": {
+            "longest_passage_words": 85,
+            "target_word_offset": 13,
+            "matched_word_offset": 38,
+            "displayed_passage_words": 85,
+            "target_passage": "In general Section 121(b) of the Internal Revenue Code of 1986 is amended\u2014 by striking paragraphs (1), (2), and (4), and by redesignating paragraphs (3) and (5) as paragraphs (1) and (2), respectively. Conforming amendments Section 121(c) of such Code is amended\u2014 in paragraph (1), by striking , and subsection (b)(3) and all that follows through 2 years and inserting , and subsection (b)(1), shall not apply , and in paragraph (2)(A)(ii), by striking subsection (b)(3) and inserting subsection (b)(1",
+            "matched_passage": "In general Section 121(b) of the Internal Revenue Code of 1986 is amended\u2014 by striking paragraphs (1), (2), and (4), and by redesignating paragraphs (3) and (5) as paragraphs (1) and (2), respectively. Conforming amendments Section 121(c) of such Code is amended\u2014 in paragraph (1), by striking , and subsection (b)(3) and all that follows through 2 years and inserting , and subsection (b)(1), shall not apply , and in paragraph (2)(A)(ii), by striking subsection (b)(3) and inserting subsection (b)(1",
+            "target_shingle_coverage": 0.7,
+            "matched_shingle_coverage": 0.2398753894080997,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7034ih/xml/BILLS-119hr7034ih.xml",
+            "target_source_sha256": "75757d6427c053cb661cf9253a9d1b9baceed665a6e92fb8e30cb56985d67469",
+            "target_text_sha256": "720010c6d0c6b5c8aad69d0aed87475a54f1122f24dd0116a067dc1672c61f60",
+            "target_version_code": "ih",
+            "target_version_date": "2026-01-13T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7400ih/xml/BILLS-119hr7400ih.xml",
+            "matched_source_sha256": "26110789a309ef7be7232282b97fe576a4347476db3a02f788c547a06f4ce499",
+            "matched_text_sha256": "5b22c6ca8489483c4362e502e72d58733890088c3fe92c1eb4ebc0f0b3d2c64d",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-02-05T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR7034-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7034ih/xml/BILLS-119hr7034ih.xml",
+        "source_sha256": "75757d6427c053cb661cf9253a9d1b9baceed665a6e92fb8e30cb56985d67469",
+        "text_sha256": "720010c6d0c6b5c8aad69d0aed87475a54f1122f24dd0116a067dc1672c61f60",
+        "version_date": "2026-01-13T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr7034ih"
       },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HRES882-119",
+      "type": "HRES",
+      "number": "882",
+      "congress": 119,
+      "title": "Supporting the Republic of Kazakhstan's accession to the Abraham Accords, and for other purposes.",
+      "introduced_date": "2025-11-17",
+      "url": "https://www.congress.gov/bill/119th-congress/house-resolution/882",
+      "latest_action": "Referred to the House Committee on Foreign Affairs.",
+      "latest_action_date": "2025-11-17",
+      "cosponsors": [
+        "W000812",
+        "L000599",
+        "H001058",
+        "W000795",
+        "G000583",
+        "T000478",
+        "B001298",
+        "S001229"
+      ],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres882.xml",
+      "metadata_source_sha256": "0ee942e2eda9da4d02017c880e9e350c329c45e43eed8fffe6c2251c0e775074",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES882-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres882ih/xml/BILLS-119hres882ih.xml",
+        "source_sha256": "a1f9d08013c916135c9cb21fe0a69652c7b4673b455a1df5e222a8be1dbabf9e",
+        "text_sha256": "fef3aa7bfd8d4e3623860355005bc7c055ca41405c76a7c7d150b8c07aecb650",
+        "version_date": "2025-11-17T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres882ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR5264-119",
+      "type": "HR",
+      "number": "5264",
+      "congress": 119,
+      "title": "SPEED for Broadband Infrastructure Act of 2025",
+      "introduced_date": "2025-09-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5264",
+      "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+      "latest_action_date": "2025-09-10",
+      "cosponsors": [],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5264.xml",
+      "metadata_source_sha256": "f1eb16a3c1ba4a40419751d9117b960813b1b86f15fecca5bb74799644740be1",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR6503-119",
+          "bill_title": "Broadband for Americans through Responsible Streamlining (BARS) Act",
+          "member_id": "F000469",
+          "same_sponsor": false,
+          "similarity_score": 0.6078646779060364,
+          "evidence": {
+            "longest_passage_words": 90,
+            "target_word_offset": 618,
+            "matched_word_offset": 1503,
+            "displayed_passage_words": 90,
+            "target_passage": "the existing communications facility that such new communications facility is replacing; such new facility is a type of communications facility that\u2014 is described in section 6409(d)(1)(B) of the Middle Class Tax Relief and Job Creation Act of 2012 ( 47 U.S.C. 1455(d)(1)(B) ); and meets the size limitation of a small antenna established by the Commission; or the placement and installation of such new facility involves the expansion of the site of an existing communications facility not more than 30 feet in any direction",
+            "matched_passage": "the existing communications facility that such new communications facility is replacing; such new facility is a type of communications facility that\u2014 is described in section 6409(d)(1)(B) of the Middle Class Tax Relief and Job Creation Act of 2012 ( 47 U.S.C. 1455(d)(1)(B) ); and meets the size limitation of a small antenna established by the Commission; or the placement and installation of such new facility involves the expansion of the site of an existing communications facility not more than 30 feet in any direction",
+            "target_shingle_coverage": 0.573394495412844,
+            "matched_shingle_coverage": 0.24307243558580457,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5264ih/xml/BILLS-119hr5264ih.xml",
+            "target_source_sha256": "e2a6417272b8e70ad61ef26cc7d7a7f191d467c688f1eceb89943e7f7ba038ee",
+            "target_text_sha256": "38234260568e78b5c7ce399b10e83f3bf2c5749d3691b8ce22529a30f918a72d",
+            "target_version_code": "ih",
+            "target_version_date": "2025-09-10T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6503ih/xml/BILLS-119hr6503ih.xml",
+            "matched_source_sha256": "860888720e1b33f80916a33cb37482aa23ba27526d3cf739085390141cad1ea9",
+            "matched_text_sha256": "a243f76c862d50803ee324a9cfdb87685168f9dcebf967eecd03e9e5b16dba23",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-12-09T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR2817-119",
+          "bill_title": "Coastal Broadband Deployment Act",
+          "member_id": "B001257",
+          "same_sponsor": false,
+          "similarity_score": 0.45705413818359375,
+          "evidence": {
+            "longest_passage_words": 62,
+            "target_word_offset": 72,
+            "matched_word_offset": 20,
+            "displayed_passage_words": 62,
+            "target_passage": "NEPA exemption A Federal authorization with respect to a covered project may not be considered a major Federal action under section 102(2)(C) of the National Environmental Policy Act of 1969 ( 42 U.S.C. 4332(2)(C) ). National Historic Preservation Act exemption A covered project may not be considered an undertaking under section 300320 of title 54, United States Code",
+            "matched_passage": "NEPA exemption A Federal authorization with respect to a covered project may not be considered a major Federal action under section 102(2)(C) of the National Environmental Policy Act of 1969 ( 42 U.S.C. 4332(2)(C) ). National Historic Preservation Act exemption A covered project may not be considered an undertaking under section 300320 of title 54, United States Code",
+            "target_shingle_coverage": 0.11123853211009174,
+            "matched_shingle_coverage": 0.40082644628099173,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5264ih/xml/BILLS-119hr5264ih.xml",
+            "target_source_sha256": "e2a6417272b8e70ad61ef26cc7d7a7f191d467c688f1eceb89943e7f7ba038ee",
+            "target_text_sha256": "38234260568e78b5c7ce399b10e83f3bf2c5749d3691b8ce22529a30f918a72d",
+            "target_version_code": "ih",
+            "target_version_date": "2025-09-10T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2817ih/xml/BILLS-119hr2817ih.xml",
+            "matched_source_sha256": "ce340cb78ee9d7d986c64a7edbf1f669a95d79a48620f4778042727db693b161",
+            "matched_text_sha256": "06a1944b6ed47e75142ef174c1964702a749f9b62c15f70de77053ce7c622daf",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-04-10T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR4211-119",
+          "bill_title": "Brownfields Broadband Deployment Act",
+          "member_id": "W000798",
+          "same_sponsor": false,
+          "similarity_score": 0.45028799772262573,
+          "evidence": {
+            "longest_passage_words": 62,
+            "target_word_offset": 72,
+            "matched_word_offset": 20,
+            "displayed_passage_words": 62,
+            "target_passage": "NEPA exemption A Federal authorization with respect to a covered project may not be considered a major Federal action under section 102(2)(C) of the National Environmental Policy Act of 1969 ( 42 U.S.C. 4332(2)(C) ). National Historic Preservation Act exemption A covered project may not be considered an undertaking under section 300320 of title 54, United States Code",
+            "matched_passage": "NEPA exemption A Federal authorization with respect to a covered project may not be considered a major Federal action under section 102(2)(C) of the National Environmental Policy Act of 1969 ( 42 U.S.C. 4332(2)(C) ). National Historic Preservation Act exemption A covered project may not be considered an undertaking under section 300320 of title 54, United States Code",
+            "target_shingle_coverage": 0.11123853211009174,
+            "matched_shingle_coverage": 0.40585774058577406,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5264ih/xml/BILLS-119hr5264ih.xml",
+            "target_source_sha256": "e2a6417272b8e70ad61ef26cc7d7a7f191d467c688f1eceb89943e7f7ba038ee",
+            "target_text_sha256": "38234260568e78b5c7ce399b10e83f3bf2c5749d3691b8ce22529a30f918a72d",
+            "target_version_code": "ih",
+            "target_version_date": "2025-09-10T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4211ih/xml/BILLS-119hr4211ih.xml",
+            "matched_source_sha256": "88a68e702348f5876850e9c1adb633ae09af10e050ddf2c496c1448a599b3eb1",
+            "matched_text_sha256": "f9f98bd447c68bf9c16a232c11d5050c110ece8a278428e9bec6d4773113d179",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-06-26T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR5264-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5264ih/xml/BILLS-119hr5264ih.xml",
+        "source_sha256": "e2a6417272b8e70ad61ef26cc7d7a7f191d467c688f1eceb89943e7f7ba038ee",
+        "text_sha256": "38234260568e78b5c7ce399b10e83f3bf2c5749d3691b8ce22529a30f918a72d",
+        "version_date": "2025-09-10T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr5264ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR4758-119",
+      "type": "HR",
+      "number": "4758",
+      "congress": 119,
+      "title": "Homeowner Energy Freedom Act",
+      "introduced_date": "2025-07-25",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/4758",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+      "latest_action_date": "2026-02-25",
+      "cosponsors": [
+        "E000071",
+        "C001120"
+      ],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr4758.xml",
+      "metadata_source_sha256": "be4688bb62e31f3aeb93150f8baf401dcd331f805d96868e6d854f23d8eeccb9",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S333-119",
+          "bill_title": "Homeowner Energy Freedom Act",
+          "member_id": "S001232",
+          "same_sponsor": false,
+          "similarity_score": 0.8064839243888855,
+          "evidence": {
+            "longest_passage_words": 34,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 34,
+            "target_passage": "Short title This Act may be cited as the Homeowner Energy Freedom Act . Homeowner energy freedom In general The following are repealed: Section 50122 of Public Law 117\u2013169 ( 42 U.S.C. 18795a",
+            "matched_passage": "Short title This Act may be cited as the Homeowner Energy Freedom Act . Homeowner energy freedom In general The following are repealed: Section 50122 of Public Law 117\u2013169 ( 42 U.S.C. 18795a",
+            "target_shingle_coverage": 0.36875,
+            "matched_shingle_coverage": 0.3782051282051282,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4758eh/xml/BILLS-119hr4758eh.xml",
+            "target_source_sha256": "b92be3a51b23d9b61c20152918d400ebf03a7a1ee1fa609e43a21bfc11ddcf99",
+            "target_text_sha256": "ea6e0e75cd388c617454af9c29a0fe3111b65e610c7d10d9866e20f288dd0c27",
+            "target_version_code": "eh",
+            "target_version_date": "2026-02-25T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s333is/xml/BILLS-119s333is.xml",
+            "matched_source_sha256": "e0ccaa63c92e6d672d5871aac18cea662d8c378627fcebb77926f08098c3e39b",
+            "matched_text_sha256": "150f11db72d335c5e88a9d985cde96de80223393e0fa9dc303e1d679f94a36e8",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-01-30T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR4758-119",
+        "version_code": "eh",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4758eh/xml/BILLS-119hr4758eh.xml",
+        "source_sha256": "b92be3a51b23d9b61c20152918d400ebf03a7a1ee1fa609e43a21bfc11ddcf99",
+        "text_sha256": "ea6e0e75cd388c617454af9c29a0fe3111b65e610c7d10d9866e20f288dd0c27",
+        "version_date": "2026-02-25T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr4758eh"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR3875-119",
+      "type": "HR",
+      "number": "3875",
+      "congress": 119,
+      "title": "TERMS Act",
+      "introduced_date": "2025-06-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3875",
+      "latest_action": "Referred to the House Committee on Energy and Commerce.",
+      "latest_action_date": "2025-06-10",
+      "cosponsors": [
+        "W000814"
+      ],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3875.xml",
+      "metadata_source_sha256": "ca84307a599a59990bb8852b24d1d20f0b2b0c5df1eb1c582aa2ec9956d35bef",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S2010-119",
+          "bill_title": "TERMS Act",
+          "member_id": "C001098",
+          "same_sponsor": false,
+          "similarity_score": 0.9994585514068604,
+          "evidence": {
+            "longest_passage_words": 1107,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "Short title This Act may be cited as the Transparency in Enforcement, Restricting, and Monitoring of Services Act or the TERMS Act . Purpose The purpose of this Act is to ensure that consumers, businesses, and organizations seeking to use the products or services of an online service provider have sufficient information regarding the online service provider\u2019s commercial business standards, processes, and policies with respect to the unilateral termination, suspension, or cancellation of user accounts or ability to use the online service provider\u2019s products or services. Such information allows consumers to make informed choices regarding their decision to use or purchase the services or products of an online service provider and promotes a competitive marketplace for such products or services. Definitions",
+            "matched_passage": "Short title This Act may be cited as the Transparency in Enforcement, Restricting, and Monitoring of Services Act or the TERMS Act . Purpose The purpose of this Act is to ensure that consumers, businesses, and organizations seeking to use the products or services of an online service provider have sufficient information regarding the online service provider\u2019s commercial business standards, processes, and policies with respect to the unilateral termination, suspension, or cancellation of user accounts or ability to use the online service provider\u2019s products or services. Such information allows consumers to make informed choices regarding their decision to use or purchase the services or products of an online service provider and promotes a competitive marketplace for such products or services. Definitions",
+            "target_shingle_coverage": 0.9944247339077547,
+            "matched_shingle_coverage": 0.992412746585736,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3875ih/xml/BILLS-119hr3875ih.xml",
+            "target_source_sha256": "e70f9a1dd6510aa6bc9970219ab9eb9647da4fd4712f21c2c681045bd3969680",
+            "target_text_sha256": "55b0c6f7185f5c096fb438c1b7573135cb42486d8fac084b11dc7fc1ed2ebdbc",
+            "target_version_code": "ih",
+            "target_version_date": "2025-06-10T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s2010is/xml/BILLS-119s2010is.xml",
+            "matched_source_sha256": "884b76369d0317fc5d1d3a7e63d7f9fbcb5e2953d587302c65beb886f8e0e592",
+            "matched_text_sha256": "4157b0f4ab3e12b7441b8936b47bb259fe522ceb6f832d730df909680236bff9",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-06-10T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3875-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3875ih/xml/BILLS-119hr3875ih.xml",
+        "source_sha256": "e70f9a1dd6510aa6bc9970219ab9eb9647da4fd4712f21c2c681045bd3969680",
+        "text_sha256": "55b0c6f7185f5c096fb438c1b7573135cb42486d8fac084b11dc7fc1ed2ebdbc",
+        "version_date": "2025-06-10T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3875ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR3341-119",
+      "type": "HR",
+      "number": "3341",
+      "congress": 119,
+      "title": "LIT Act of 2025",
+      "introduced_date": "2025-05-13",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3341",
+      "latest_action": "Referred to the House Committee on Energy and Commerce.",
+      "latest_action_date": "2025-05-13",
+      "cosponsors": [
+        "R000619",
+        "O000177",
+        "H001096"
+      ],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3341.xml",
+      "metadata_source_sha256": "adc18d9f7210f55b38323a28da4384cfa096851d76217005549d7dd3a5d936cf",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1568-119",
+          "bill_title": "LIT Act of 2025",
+          "member_id": "L000577",
+          "same_sponsor": false,
+          "similarity_score": 1.0,
+          "evidence": {
+            "longest_passage_words": 616,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "Short title This Act may be cited as the Liberating Incandescent Technology Act of 2025 or the LIT Act of 2025 . General services lamps Covered products In general Section 322(a) of the Energy Policy and Conservation Act ( 42 U.S.C. 6292(a) ) is amended\u2014 by striking paragraph (14); and by redesignating paragraphs (15) through (20) as paragraphs (14) through (19), respectively. Conforming amendments Section 321(6)(B) of the Energy Policy and Conservation Act ( 42 U.S.C. 6291(6)(B) ) is amended by striking (15), (16), (17), and (20) and inserting (14), (15), (16), and (19) . Section 324 of the Energy Policy and Conservation Act ( 42 U.S.C. 6294 ) is amended\u2014 in subsection (a)(2)(C",
+            "matched_passage": "Short title This Act may be cited as the Liberating Incandescent Technology Act of 2025 or the LIT Act of 2025 . General services lamps Covered products In general Section 322(a) of the Energy Policy and Conservation Act ( 42 U.S.C. 6292(a) ) is amended\u2014 by striking paragraph (14); and by redesignating paragraphs (15) through (20) as paragraphs (14) through (19), respectively. Conforming amendments Section 321(6)(B) of the Energy Policy and Conservation Act ( 42 U.S.C. 6291(6)(B) ) is amended by striking (15), (16), (17), and (20) and inserting (14), (15), (16), and (19) . Section 324 of the Energy Policy and Conservation Act ( 42 U.S.C. 6294 ) is amended\u2014 in subsection (a)(2)(C",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3341ih/xml/BILLS-119hr3341ih.xml",
+            "target_source_sha256": "6f3e9eec2d6e2b0f9720a64c45080ca7ceba433a84bedaf5387e7b292f0a9bcf",
+            "target_text_sha256": "8f0abf586eaf0b00fdf25db399a5d566676ecb2948b94cc22d337e5803930b3e",
+            "target_version_code": "ih",
+            "target_version_date": "2025-05-13T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1568is/xml/BILLS-119s1568is.xml",
+            "matched_source_sha256": "55f60623b00631726f84b61631febc461efc473c006acf1b57ef40217dae4a87",
+            "matched_text_sha256": "8f0abf586eaf0b00fdf25db399a5d566676ecb2948b94cc22d337e5803930b3e",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-05-01T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3341-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3341ih/xml/BILLS-119hr3341ih.xml",
+        "source_sha256": "6f3e9eec2d6e2b0f9720a64c45080ca7ceba433a84bedaf5387e7b292f0a9bcf",
+        "text_sha256": "8f0abf586eaf0b00fdf25db399a5d566676ecb2948b94cc22d337e5803930b3e",
+        "version_date": "2025-05-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3341ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HJRES75-119",
+      "type": "HJRES",
+      "number": "75",
+      "congress": 119,
+      "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Office of Energy Efficiency and Renewable Energy, Department of Energy relating to \"Energy Conservation Program: Energy Conservation Standards for Commercial Refrigerators, Freezers, and Refrigerator-Freezers\".",
+      "introduced_date": "2025-03-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-joint-resolution/75",
+      "latest_action": "Became Public Law No: 119-9.",
+      "latest_action_date": "2025-05-09",
+      "cosponsors": [
+        "D000628",
+        "P000609",
+        "H001093",
+        "B001306",
+        "N000189",
+        "C001103",
+        "L000599",
+        "M001233",
+        "M001235",
+        "G000603",
+        "P000605",
+        "C001120",
+        "T000478"
+      ],
+      "sponsor_id": "G000601",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hjres/BILLSTATUS-119hjres75.xml",
+      "metadata_source_sha256": "c41337a52be0ecc9783cf534bf4c56fb6073d63d2f7748d1b91586e639113f81",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HJRES75-119",
+        "version_code": "enr",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres75enr/xml/BILLS-119hjres75enr.xml",
+        "source_sha256": "dcd08f88e3850f1f5ed8d4897e5fb1674a26c263802342b8447c56f5611a4932",
+        "text_sha256": "42279d8d47494e9036840ba9171b5621f5e7e1058b21b24054244e79161dcf8f",
+        "version_date": "",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hjres75enr"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-18T16:48:51.029566+00:00",
-  "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "bills_updated": null,
+  "bills_count": 16,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 0,
   "edgar_status": "unresolved",
-  "votes_fail_count": 49,
+  "votes_fail_count": 52,
   "travel": [
     {
       "destination_country": "Israel",
@@ -1965,7 +2136,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2025/500031749.pdf"
     }
   ],
-  "travel_updated": "2026-11-18T17:40:54.720957+00:00",
+  "travel_updated": "2026-11-20T17:25:38.309166+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -2116,23 +2287,23 @@
     "Oil & Gas",
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-17T19:31:34.903355+00:00",
+  "donors_updated": "2026-11-20T18:57:34.830083+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 5,
+    "donor_alignment": 0,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:33:59.210103",
+  "score_updated": "2026-11-21T08:31:03.414432",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus",
+  "bills_analysis_status": "analyzed",
   "edgar_reconciliation": {
     "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
     "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
@@ -2161,11 +2332,1667 @@
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:46:25.061359",
   "votes_refresh_provenance": {
-    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-    "run": 44276045061,
-    "legacy_review_votes_updated": "2026-11-17T09:54:35.353351",
-    "legacy_source_votes_updated": "2026-11-18T09:28:57.718544",
-    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T09:54:35.353351",
+      "legacy_source_votes_updated": "2026-11-18T09:28:57.718544",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "checked": "2026-11-21T08:59:36.354494",
+      "failed_attempt_count": 52,
+      "status": "fetch_failed"
+    }
   },
-  "votes_checked": "2026-11-18T09:28:57.718544"
+  "votes_checked": "2026-11-21T08:59:36.354494",
+  "upstream_sec_observation": {
+    "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+    "candidate_only": true,
+    "fields": {
+      "edgar_status": "unresolved",
+      "edgar_signal_type": "corporate_insider",
+      "corporate_insider_signals": 0,
+      "data_updated": "2026-11-20T13:57:38.044719"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10271-119",
+            "title": "Mobile Workforce State Income Tax Simplification Act of 2026",
+            "type": "HR",
+            "number": "10271",
+            "congress": 119,
+            "introduced_date": "2026-09-03",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10271?format=json",
+            "keywords": [
+              "employee",
+              "state",
+              "duties",
+              "wages",
+              "remuneration",
+              "employment",
+              "tax",
+              "employer",
+              "income",
+              "professional",
+              "performs",
+              "performed",
+              "day",
+              "qualified",
+              "production",
+              "person",
+              "services",
+              "system",
+              "certain",
+              "withholding"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "employee",
+                  "state",
+                  "duties",
+                  "wages",
+                  "remuneration",
+                  "employment",
+                  "tax",
+                  "employer",
+                  "income",
+                  "professional",
+                  "performs",
+                  "performed",
+                  "day",
+                  "qualified",
+                  "production",
+                  "person",
+                  "services",
+                  "system",
+                  "certain",
+                  "withholding"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.112,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR10141-119",
+            "title": "To designate the facility of the United States Postal Service located at 4450 Oak Park Lane in Fort Worth, Texas, as the \"United States Representative Kay Granger Post Office Building\".",
+            "type": "HR",
+            "number": "10141",
+            "congress": 119,
+            "introduced_date": "2026-08-24",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10141?format=json",
+            "keywords": [
+              "office",
+              "representative",
+              "kay",
+              "granger",
+              "post",
+              "building",
+              "facility",
+              "texas",
+              "postal",
+              "service",
+              "located",
+              "oak",
+              "park",
+              "lane",
+              "fort",
+              "worth",
+              "government",
+              "introduced",
+              "designate",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "V000131",
+              "M001224",
+              "E000071",
+              "P000048",
+              "C001051",
+              "A000375",
+              "C001130",
+              "G000581",
+              "C001063",
+              "J000310"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "office",
+                  "representative",
+                  "kay",
+                  "granger",
+                  "post",
+                  "building",
+                  "facility",
+                  "texas",
+                  "postal",
+                  "service",
+                  "located",
+                  "oak",
+                  "park",
+                  "lane",
+                  "fort",
+                  "worth",
+                  "government",
+                  "introduced",
+                  "designate",
+                  "bill"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.035,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR10296-119",
+                    "sponsor_id": "V000131",
+                    "similarity_score": 0.881
+                  },
+                  {
+                    "bill_id": "HR4677-119",
+                    "sponsor_id": "J000304",
+                    "similarity_score": 0.856
+                  },
+                  {
+                    "bill_id": "HR10114-119",
+                    "sponsor_id": "M001241",
+                    "similarity_score": 0.829
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HRES1481-119",
+            "title": "Honoring the life and legacy of the Honorable Kay Granger, a Representative from the State of Texas.",
+            "type": "HRES",
+            "number": "1481",
+            "congress": 119,
+            "introduced_date": "2026-08-13",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1481?format=json",
+            "keywords": [
+              "granger",
+              "kay",
+              "texas",
+              "fort",
+              "worth",
+              "committee",
+              "first",
+              "woman",
+              "state",
+              "mrs",
+              "chair",
+              "republican",
+              "served",
+              "women",
+              "congressional",
+              "service",
+              "appropriations",
+              "life",
+              "legacy",
+              "honorable"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "V000131",
+              "M001224",
+              "C001120",
+              "S001224",
+              "F000246",
+              "G000589",
+              "E000071",
+              "F000468",
+              "L000603",
+              "G000553"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "granger",
+                  "kay",
+                  "texas",
+                  "fort",
+                  "worth",
+                  "committee",
+                  "first",
+                  "woman",
+                  "state",
+                  "mrs",
+                  "chair",
+                  "republican",
+                  "served",
+                  "women",
+                  "congressional",
+                  "service",
+                  "appropriations",
+                  "life",
+                  "legacy",
+                  "honorable"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.043,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR9892-119",
+            "title": "To require the United States Trade Representative to initiate an investigation under section 301 of the Trade Act of 1974 with respect to the European Union, and for other purposes.",
+            "type": "HR",
+            "number": "9892",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9892?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000375",
+              "S001214",
+              "B001257",
+              "W000814",
+              "C001103",
+              "P000048",
+              "D000626",
+              "S000250",
+              "W000816",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {},
+              "analysis_status": "quarantined_pdf_text"
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "obj",
+                  "endobj",
+                  "stream",
+                  "pdf",
+                  "font",
+                  "procset",
+                  "text",
+                  "endstream",
+                  "wms",
+                  "ygr",
+                  "lge",
+                  "yzge",
+                  "ytc",
+                  "pwg",
+                  "rtv",
+                  "gaj",
+                  "jhf",
+                  "qcr",
+                  "eun",
+                  "iebku"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.0,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR10803-119",
+                    "sponsor_id": "R000617",
+                    "similarity_score": 0.991
+                  },
+                  {
+                    "bill_id": "HR10348-119",
+                    "sponsor_id": "S001201",
+                    "similarity_score": 0.99
+                  },
+                  {
+                    "bill_id": "HR10645-119",
+                    "sponsor_id": "B001306",
+                    "similarity_score": 0.99
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_pdf_text",
+            "text_integrity": "quarantined",
+            "text_integrity_reason": "pdf_structure"
+          },
+          {
+            "bill_id": "HR9396-119",
+            "title": "Prior Authorization Accountability Act",
+            "type": "HR",
+            "number": "9396",
+            "congress": 119,
+            "introduced_date": "2026-06-23",
+            "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9396?format=json",
+            "keywords": [
+              "plan",
+              "prior",
+              "authorization",
+              "health",
+              "issuer",
+              "year",
+              "requests",
+              "service",
+              "item",
+              "percentage",
+              "number",
+              "technology",
+              "group",
+              "insurance",
+              "secretary",
+              "submitted",
+              "coverage",
+              "specified",
+              "determination",
+              "respect"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000048",
+              "W000804",
+              "S001216",
+              "N000188",
+              "P000613",
+              "B001327"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "plan",
+                  "prior",
+                  "authorization",
+                  "health",
+                  "issuer",
+                  "year",
+                  "requests",
+                  "service",
+                  "item",
+                  "percentage",
+                  "number",
+                  "technology",
+                  "group",
+                  "insurance",
+                  "secretary",
+                  "submitted",
+                  "coverage",
+                  "specified",
+                  "determination",
+                  "respect"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.054,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR9336-119",
+            "title": "Better Care, Better Cost Act",
+            "type": "HR",
+            "number": "9336",
+            "congress": 119,
+            "introduced_date": "2026-06-18",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9336?format=json",
+            "keywords": [
+              "performance",
+              "care",
+              "state",
+              "individuals",
+              "managed",
+              "entities",
+              "account",
+              "plan",
+              "entity",
+              "social",
+              "security",
+              "subparagraph",
+              "system",
+              "scores",
+              "measures",
+              "xix",
+              "take",
+              "assigning",
+              "medicaid",
+              "program"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000048",
+              "P000613",
+              "N000188"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "performance",
+                  "care",
+                  "state",
+                  "individuals",
+                  "managed",
+                  "entities",
+                  "account",
+                  "plan",
+                  "entity",
+                  "social",
+                  "security",
+                  "subparagraph",
+                  "system",
+                  "scores",
+                  "measures",
+                  "xix",
+                  "take",
+                  "assigning",
+                  "medicaid",
+                  "program"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.068,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR9335-119",
+            "title": "Advanced Transmission Technology to Reduce Rates Act",
+            "type": "HR",
+            "number": "9335",
+            "congress": 119,
+            "introduced_date": "2026-06-18",
+            "latest_action": "Forwarded by Subcommittee to Full Committee (Amended) by Voice Vote.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9335?format=json",
+            "keywords": [
+              "transmission",
+              "advanced",
+              "electric",
+              "technology",
+              "energy",
+              "power",
+              "secretary",
+              "organization",
+              "utility",
+              "regulatory",
+              "federal",
+              "assistance",
+              "state",
+              "clearinghouse",
+              "meaning",
+              "given",
+              "technical",
+              "deployment",
+              "practices",
+              "authority"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000300",
+              "V000138"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Finance & Banking": [
+                  "financial",
+                  "loan"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "transmission",
+                  "advanced",
+                  "electric",
+                  "technology",
+                  "energy",
+                  "power",
+                  "secretary",
+                  "organization",
+                  "utility",
+                  "regulatory",
+                  "federal",
+                  "assistance",
+                  "state",
+                  "clearinghouse",
+                  "meaning",
+                  "given",
+                  "technical",
+                  "deployment",
+                  "practices",
+                  "authority"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.045,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas",
+                    "Finance & Banking"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ],
+                    "Finance & Banking": [
+                      "financial",
+                      "loan"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR9147-119",
+            "title": "Abraham Accords Expansion Act of 2026",
+            "type": "HR",
+            "number": "9147",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9147?format=json",
+            "keywords": [
+              "envoy",
+              "special",
+              "abraham",
+              "accords",
+              "normalization",
+              "central",
+              "asia",
+              "caucasus",
+              "authorities",
+              "state",
+              "department",
+              "basic",
+              "presidential",
+              "negev",
+              "forum",
+              "related",
+              "agreements",
+              "regions",
+              "economic",
+              "interests"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000812",
+              "W000797",
+              "S001190",
+              "W000795",
+              "C001103",
+              "B001298",
+              "N000189",
+              "S000168",
+              "Y000067",
+              "D000230"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "envoy",
+                  "special",
+                  "abraham",
+                  "accords",
+                  "normalization",
+                  "central",
+                  "asia",
+                  "caucasus",
+                  "authorities",
+                  "state",
+                  "department",
+                  "basic",
+                  "presidential",
+                  "negev",
+                  "forum",
+                  "related",
+                  "agreements",
+                  "regions",
+                  "economic",
+                  "interests"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.037,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR7592-119",
+            "title": "Zero-Based Regulatory Budgeting to Unleash American Energy Act of 2026",
+            "type": "HR",
+            "number": "7592",
+            "congress": 119,
+            "introduced_date": "2026-02-17",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7592?format=json",
+            "keywords": [
+              "covered",
+              "regulation",
+              "agency",
+              "energy",
+              "seq",
+              "head",
+              "expiration",
+              "bureau",
+              "respect",
+              "promulgated",
+              "management",
+              "department",
+              "enforcement",
+              "federal",
+              "policy",
+              "effect",
+              "office",
+              "regulations",
+              "iii",
+              "mining"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001120",
+              "P000048",
+              "W000814",
+              "V000134",
+              "L000596",
+              "M001212",
+              "H001101",
+              "G000603"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "natural gas"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "covered",
+                  "regulation",
+                  "agency",
+                  "energy",
+                  "seq",
+                  "head",
+                  "expiration",
+                  "bureau",
+                  "respect",
+                  "promulgated",
+                  "management",
+                  "department",
+                  "enforcement",
+                  "federal",
+                  "policy",
+                  "effect",
+                  "office",
+                  "regulations",
+                  "iii",
+                  "mining"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.111,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy",
+                      "natural gas"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR7034-119",
+            "title": "To amend the Internal Revenue Code of 1986 to eliminate the dollar limitations on the exclusion of gain from sales of principal residences, and for other purposes.",
+            "type": "HR",
+            "number": "7034",
+            "congress": 119,
+            "introduced_date": "2026-01-13",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7034?format=json",
+            "keywords": [
+              "code",
+              "sales",
+              "internal",
+              "revenue",
+              "dollar",
+              "limitations",
+              "exclusion",
+              "gain",
+              "principal",
+              "residences",
+              "striking",
+              "paragraphs",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "eliminate",
+              "purposes",
+              "bill",
+              "amendments"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001099",
+              "B001302",
+              "E000300",
+              "W000816",
+              "J000304",
+              "H001100"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "code",
+                  "sales",
+                  "internal",
+                  "revenue",
+                  "dollar",
+                  "limitations",
+                  "exclusion",
+                  "gain",
+                  "principal",
+                  "residences",
+                  "striking",
+                  "paragraphs",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "eliminate",
+                  "purposes",
+                  "bill",
+                  "amendments"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.043,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR7131-119",
+                    "sponsor_id": "F000471",
+                    "similarity_score": 0.974
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          }
+        ],
+        "bills_updated": "2026-11-18T16:48:51.029566+00:00",
+        "bills_count": 10,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 25.0,
+        "donor_match_count": 5,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10271-119",
+            "title": "Mobile Workforce State Income Tax Simplification Act of 2026",
+            "type": "HR",
+            "number": "10271",
+            "congress": 119,
+            "introduced_date": "2026-09-03",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10271?format=json",
+            "keywords": [
+              "employee",
+              "state",
+              "duties",
+              "wages",
+              "remuneration",
+              "employment",
+              "tax",
+              "employer",
+              "income",
+              "professional",
+              "performs",
+              "performed",
+              "day",
+              "qualified",
+              "production",
+              "person",
+              "services",
+              "system",
+              "certain",
+              "withholding"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.112,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10141-119",
+            "title": "To designate the facility of the United States Postal Service located at 4450 Oak Park Lane in Fort Worth, Texas, as the \"United States Representative Kay Granger Post Office Building\".",
+            "type": "HR",
+            "number": "10141",
+            "congress": 119,
+            "introduced_date": "2026-08-24",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10141?format=json",
+            "keywords": [
+              "office",
+              "representative",
+              "kay",
+              "granger",
+              "post",
+              "building",
+              "facility",
+              "texas",
+              "postal",
+              "service",
+              "located",
+              "oak",
+              "park",
+              "lane",
+              "fort",
+              "worth",
+              "government",
+              "introduced",
+              "designate",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.035,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10296-119",
+                "sponsor_id": "V000131",
+                "similarity_score": 0.881
+              },
+              {
+                "bill_id": "HR4677-119",
+                "sponsor_id": "J000304",
+                "similarity_score": 0.856
+              },
+              {
+                "bill_id": "HR10114-119",
+                "sponsor_id": "M001241",
+                "similarity_score": 0.83
+              }
+            ],
+            "cosponsors": [
+              "V000131",
+              "M001224",
+              "E000071",
+              "P000048",
+              "C001051",
+              "A000375",
+              "C001130",
+              "G000581",
+              "C001063",
+              "J000310"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1481-119",
+            "title": "Honoring the life and legacy of the Honorable Kay Granger, a Representative from the State of Texas.",
+            "type": "HRES",
+            "number": "1481",
+            "congress": 119,
+            "introduced_date": "2026-08-13",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1481?format=json",
+            "keywords": [
+              "granger",
+              "kay",
+              "texas",
+              "fort",
+              "worth",
+              "committee",
+              "first",
+              "woman",
+              "state",
+              "mrs",
+              "chair",
+              "republican",
+              "served",
+              "women",
+              "congressional",
+              "service",
+              "appropriations",
+              "life",
+              "legacy",
+              "honorable"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.043,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "V000131",
+              "M001224",
+              "C001120",
+              "S001224",
+              "F000246",
+              "G000589",
+              "E000071",
+              "F000468",
+              "L000603",
+              "G000553"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9892-119",
+            "title": "To require the United States Trade Representative to initiate an investigation under section 301 of the Trade Act of 1974 with respect to the European Union, and for other purposes.",
+            "type": "HR",
+            "number": "9892",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9892?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wms",
+              "ygr",
+              "lge",
+              "yzge",
+              "ytc",
+              "pwg",
+              "rtv",
+              "gaj",
+              "jhf",
+              "qcr",
+              "eun",
+              "iebku"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10803-119",
+                "sponsor_id": "R000617",
+                "similarity_score": 0.991
+              },
+              {
+                "bill_id": "HR10348-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.99
+              },
+              {
+                "bill_id": "HR10645-119",
+                "sponsor_id": "B001306",
+                "similarity_score": 0.99
+              }
+            ],
+            "cosponsors": [
+              "A000375",
+              "S001214",
+              "B001257",
+              "W000814",
+              "C001103",
+              "P000048",
+              "D000626",
+              "S000250",
+              "W000816",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9396-119",
+            "title": "Prior Authorization Accountability Act",
+            "type": "HR",
+            "number": "9396",
+            "congress": 119,
+            "introduced_date": "2026-06-23",
+            "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9396?format=json",
+            "keywords": [
+              "plan",
+              "prior",
+              "authorization",
+              "health",
+              "issuer",
+              "year",
+              "requests",
+              "service",
+              "item",
+              "percentage",
+              "number",
+              "technology",
+              "group",
+              "insurance",
+              "secretary",
+              "submitted",
+              "coverage",
+              "specified",
+              "determination",
+              "respect"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000048",
+              "W000804",
+              "S001216",
+              "N000188",
+              "P000613",
+              "B001327"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9336-119",
+            "title": "Better Care, Better Cost Act",
+            "type": "HR",
+            "number": "9336",
+            "congress": 119,
+            "introduced_date": "2026-06-18",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9336?format=json",
+            "keywords": [
+              "performance",
+              "care",
+              "state",
+              "individuals",
+              "managed",
+              "entities",
+              "account",
+              "plan",
+              "entity",
+              "social",
+              "security",
+              "subparagraph",
+              "system",
+              "scores",
+              "measures",
+              "xix",
+              "take",
+              "assigning",
+              "medicaid",
+              "program"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000048",
+              "P000613",
+              "N000188"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9335-119",
+            "title": "Advanced Transmission Technology to Reduce Rates Act",
+            "type": "HR",
+            "number": "9335",
+            "congress": 119,
+            "introduced_date": "2026-06-18",
+            "latest_action": "Forwarded by Subcommittee to Full Committee (Amended) by Voice Vote.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9335?format=json",
+            "keywords": [
+              "transmission",
+              "advanced",
+              "electric",
+              "technology",
+              "energy",
+              "power",
+              "secretary",
+              "organization",
+              "utility",
+              "regulatory",
+              "federal",
+              "assistance",
+              "state",
+              "clearinghouse",
+              "meaning",
+              "given",
+              "technical",
+              "deployment",
+              "practices",
+              "authority"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.045,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000300",
+              "V000138"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Finance & Banking": [
+                  "financial",
+                  "loan"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9147-119",
+            "title": "Abraham Accords Expansion Act of 2026",
+            "type": "HR",
+            "number": "9147",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9147?format=json",
+            "keywords": [
+              "envoy",
+              "special",
+              "abraham",
+              "accords",
+              "normalization",
+              "central",
+              "asia",
+              "caucasus",
+              "authorities",
+              "state",
+              "department",
+              "basic",
+              "presidential",
+              "negev",
+              "forum",
+              "related",
+              "agreements",
+              "regions",
+              "economic",
+              "interests"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000812",
+              "W000797",
+              "S001190",
+              "W000795",
+              "C001103",
+              "B001298",
+              "N000189",
+              "S000168",
+              "Y000067",
+              "D000230"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7592-119",
+            "title": "Zero-Based Regulatory Budgeting to Unleash American Energy Act of 2026",
+            "type": "HR",
+            "number": "7592",
+            "congress": 119,
+            "introduced_date": "2026-02-17",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7592?format=json",
+            "keywords": [
+              "covered",
+              "regulation",
+              "agency",
+              "energy",
+              "seq",
+              "head",
+              "expiration",
+              "bureau",
+              "respect",
+              "promulgated",
+              "management",
+              "department",
+              "enforcement",
+              "federal",
+              "policy",
+              "effect",
+              "office",
+              "regulations",
+              "iii",
+              "mining"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.111,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001120",
+              "P000048",
+              "W000814",
+              "V000134",
+              "L000596",
+              "M001212",
+              "H001101",
+              "G000603"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "natural gas"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7034-119",
+            "title": "To amend the Internal Revenue Code of 1986 to eliminate the dollar limitations on the exclusion of gain from sales of principal residences, and for other purposes.",
+            "type": "HR",
+            "number": "7034",
+            "congress": 119,
+            "introduced_date": "2026-01-13",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7034?format=json",
+            "keywords": [
+              "code",
+              "sales",
+              "internal",
+              "revenue",
+              "dollar",
+              "limitations",
+              "exclusion",
+              "gain",
+              "principal",
+              "residences",
+              "striking",
+              "paragraphs",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "eliminate",
+              "purposes",
+              "bill",
+              "amendments"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.043,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR7131-119",
+                "sponsor_id": "F000471",
+                "similarity_score": 0.974
+              }
+            ],
+            "cosponsors": [
+              "H001099",
+              "B001302",
+              "E000300",
+              "W000816",
+              "J000304",
+              "H001100"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_updated": "2026-11-20T16:40:59.898574+00:00",
+        "bills_count": 10,
+        "donor_alignment_score": 25.0,
+        "donor_match_count": 5,
+        "alec_match_count": 0
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "available",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
 }
