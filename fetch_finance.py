@@ -23,6 +23,8 @@ from collections import defaultdict
 import requests
 from datetime import datetime
 
+from travel_attribution import is_member_travel
+
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
 
 HEADERS = {
@@ -524,7 +526,8 @@ def compute_score_components(m, detail=None):
     if travel:
         cutoff_2y = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
         recent_trips = sum(1 for t in travel
-                           if cutoff_2y <= parse_date_any(t.get("departure_date")) <= datetime.now().strftime("%Y-%m-%d"))
+                           if is_member_travel(t)
+                           and cutoff_2y <= parse_date_any(t.get("departure_date")) <= datetime.now().strftime("%Y-%m-%d"))
         if recent_trips >= 5:
             foreign_travel = 10
         elif recent_trips >= 3:

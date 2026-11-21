@@ -1703,11 +1703,14 @@ function fillTravel(m) {
       // Senate gift-rule records have no machine-readable sponsor — the linked
       // scanned filing is the substance, so label the link accordingly.
       const sponsorLabel = t.sponsor || (t.source_doc ? 'View filing (PDF)' : '—');
+      const role = t.filer_type === 'staff' ? 'Staff travel' :
+        t.filer_type === 'unverified' ? 'Traveler not verified' : '';
+      const traveler = t.traveler || 'Traveler not listed';
       const sponsor = t.source_doc
         ? `<a href="${esc(safeUrl(t.source_doc))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-muted);text-decoration:none;border-bottom:1px dotted var(--accent-blue)">${esc(sponsorLabel)}</a>`
         : esc(sponsorLabel);
       tbl += `<tr>
-        <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}</td>
+        <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}<div class="td-sub">${esc(traveler)}${role ? ' · ' + esc(role) : ''}</div></td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.departure_date||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.return_date||'—')}</td>
         <td>${sponsor}</td>${hasCost ? `
@@ -1715,8 +1718,8 @@ function fillTravel(m) {
       </tr>`;
     });
     tbl += `</tbody></table>`;
-    html += tableSectionHtml('DISCLOSED GIFT TRAVEL', `${trips.length} TRIPS`, tbl,
-      `Source: ${isHouse ? 'House Clerk' : 'Secretary of the Senate'} gift-travel disclosures · Includes domestic trips; missing costs or destinations are unknown`);
+    html += tableSectionHtml('DISCLOSED GIFT TRAVEL', `${trips.length} RECORDS`, tbl,
+      `Source: ${isHouse ? 'House Clerk' : 'Secretary of the Senate'} gift-travel disclosures · Includes domestic trips. Staff and unverified travel do not count toward the member’s score. Missing costs or destinations are unknown`);
   } else {
     html += `<div class="sec-header"><div class="sec-title">DISCLOSED GIFT TRAVEL</div><div class="sec-badge">${chamberLabel.toUpperCase()}</div></div>`;
     html += alertHtml('info', 'GIFT TRAVEL RECORDS UNAVAILABLE',

@@ -11,7 +11,7 @@ Source of truth (verified live 2026-07):
   Member Name ("Last, First"), Filer Name, Destination(s), Travel Dates
   (with a machine-sortable data-sort attribute), Sponsor, and a link to the
   underlying disclosure document (gtimages/{MT|ST}/{year}/{doc_id}.pdf).
-  MT = the member is the traveler; ST = a staffer in the member's office.
+  MT/ST are filing categories, not proof of the traveler's identity.
   Server-side filtering via TravelDateFrom (MM/DD/YYYY) is supported.
 
 Why PDFs are no longer parsed:
@@ -25,8 +25,11 @@ Why PDFs are no longer parsed:
   cache is required.
 
 Attribution rules:
-  - Only MT (member-travel) filings are attributed to members. ST (staff)
-    filings are counted in stats and skipped.
+  - The Clerk's traveler and member names must agree before an apparent
+    MT filing counts as the member's trip. Disagreements are kept apart
+    and flagged as unverified unless the original form was reviewed.
+  - ST filings remain out of the member pipeline, except reviewed staff
+    records previously misfiled as member travel.
   - Member matching uses the index's "Last, First" column against House
     members in members.json. Ambiguous or unmatched names are SKIPPED and
     counted — never guessed.
@@ -48,10 +51,13 @@ import re
 import sys
 import time
 import tempfile
+import unicodedata
 import requests
 from datetime import datetime, timezone
 from urllib.parse import urljoin
 from bs4 import BeautifulSoup
+
+from travel_attribution import SHIN_EMPLOYEE_FILING, apply_reviewed_traveler
 
 
 # ---------------------------------------------------------------------------
@@ -123,6 +129,17 @@ def normalize_name(name):
     name = re.sub(r"\b(jr|sr|ii|iii|iv|v|hon|rep|mr|ms|mrs|dr)\b\.?", "", name)
     name = re.sub(r"[^a-z\s]", " ", name)
     return re.sub(r"\s+", " ", name).strip()
+
+
+def traveler_name_matches(member_name, filer_name):
+    """Compare names as printed in the same Clerk index, not the site roster."""
+    def key(value):
+        folded = unicodedata.normalize("NFKD", value or "")
+        folded = "".join(ch for ch in folded if not unicodedata.combining(ch))
+        return sorted(part for part in normalize_name(folded).split() if len(part) > 1)
+
+    member = key(member_name)
+    return len(member) >= 2 and member == key(filer_name)
 
 
 def parse_date(s):
@@ -217,12 +234,9 @@ def parse_filings(html):
                 filer_type = "staff"
 
         filer_name = filer_td.get_text(" ", strip=True)
-        if not filer_type:
-            # No MT/ST hint in the URL: infer from filer vs member name.
-            m_norm = normalize_name(member_name).split()
-            f_norm = normalize_name(filer_name).split()
-            filer_type = ("member" if m_norm and f_norm and
-                          set(m_norm) == set(f_norm) else "staff")
+        if filer_type != "staff":
+            filer_type = ("member" if traveler_name_matches(member_name, filer_name)
+                          else "unverified")
 
         destination = dest_td.get_text("; ", strip=True)
         destination = re.sub(r"\s*;\s*", "; ", destination).strip("; ").strip()
@@ -391,6 +405,7 @@ def main():
         "rows_parsed": len(filings),
         "member_filings": 0,
         "staff_filings_skipped": 0,
+        "unverified_filings_retained": 0,
         "matched": 0,
         "unmatched_skipped": 0,
         "ambiguous_skipped": 0,
@@ -403,10 +418,13 @@ def main():
     skipped_names = {}
 
     for f in filings:
-        if f["filer_type"] != "member":
+        if f["filer_type"] == "staff" and f["doc_url"] != SHIN_EMPLOYEE_FILING:
             stats["staff_filings_skipped"] += 1
             continue
-        stats["member_filings"] += 1
+        if f["filer_type"] == "member":
+            stats["member_filings"] += 1
+        elif f["filer_type"] == "unverified":
+            stats["unverified_filings_retained"] += 1
 
         bid, status = match_member(f["member_name"], by_last, house)
         if status != "matched":
@@ -421,13 +439,14 @@ def main():
             "return_date": f["return_date"],
             "sponsor": f["sponsor"],
             "traveler": f["traveler"],
-            "filer_type": "member",
+            "filer_type": f["filer_type"],
             # Costs are only on scanned (image) PDFs — not machine-readable.
             "total_cost": 0.0,
             "currency": "USD",
             "doc_id": f["doc_id"],
             "source_doc": f["doc_url"],
         }
+        apply_reviewed_traveler(trip)
         # Keep raw date strings only when parsing failed, for auditability.
         if not f["departure_date"] and f["departure_date_raw"]:
             trip["departure_date_raw"] = f["departure_date_raw"]
@@ -480,6 +499,8 @@ def main():
             seen.update(keys)
 
         all_travel = existing + added
+        for trip in all_travel:
+            apply_reviewed_traveler(trip)
         detail["travel"] = all_travel
         detail["travel_updated"] = datetime.now(timezone.utc).isoformat()
         detail["travel_count"] = len(all_travel)
@@ -505,7 +526,8 @@ def _print_summary(stats):
     print("=" * 60)
     print(f"Filing rows parsed:      {stats['rows_parsed']}")
     print(f"Member filings:          {stats['member_filings']}")
-    print(f"Staff filings skipped:   {stats['staff_filings_skipped']}")
+    print(f"Staff filings skipped:    {stats['staff_filings_skipped']}")
+    print(f"Unverified rows seen:    {stats['unverified_filings_retained']}")
     print(f"Matched to members:      {stats['matched']}")
     print(f"Unmatched (skipped):     {stats['unmatched_skipped']}")
     print(f"Ambiguous (skipped):     {stats['ambiguous_skipped']}")
