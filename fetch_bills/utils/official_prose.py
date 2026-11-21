@@ -12,7 +12,6 @@ HEAD = re.compile(r'(?:(\d+)\s+)?([A-Z. ]+?)\s*(\d+)\s+([A-Z0-9]+)\s*:', re.I)
 WORD = re.compile(r"[^\W_]+(?:['’][^\W_]+)*", re.UNICODE)
 SKIP = {'deleted', 'strike', 'stricken', 'struck', 'strike-through', 'toc',
         'table-of-contents', 'metadata', 'enum', 'footnote', 'endorsement', 'attestation'}
-AMENDMENT_ONLY = {'ath', 'ats', 'ash', 'ass'}
 EXTRACTION_VERSION = 'govinfo-legislative-body-v2'
 ANALYSIS_VERSION = 'official-prose-overlap-v2'
 
@@ -75,7 +74,7 @@ def read_body(package, raw):
     root_name = tag(root)
     if root_name not in ('bill','resolution','joint-resolution','concurrent-resolution','amendment-doc'):
         raise ValueError(f'{package}: unexpected document root {root_name}')
-    form = next((n for n in root if tag(n) in ('form', 'amendment-form')), None)
+    form = next((n for n in root if tag(n) in ('form', 'amendment-form', 'engrossed-amendment-form')), None)
     form_congress = next(((n.text or '').strip().lower()
                           for n in form.iter() if tag(n) == 'congress'), '') if form is not None else ''
     numeric = re.match(r'\d+', form_congress)
@@ -95,7 +94,8 @@ def read_body(package, raw):
         if not heading:
             raise ValueError(f'{package}: no amendment-instruction identity')
         congress, kind, number, actual_code = heading.groups()
-        label = re.sub(r'[^A-Z]', '', kind.upper()) + number
+        kind = re.sub(r'[^A-Z]', '', kind.upper())
+        label = {'HCON':'HCONRES','SCON':'SCONRES','HJ':'HJRES','SJ':'SJRES'}.get(kind, kind) + number
         if actual_code.lower() != code:
             raise ValueError(f'{package}: amendment-instruction version mismatch')
     if f'{label}-{congress}' != bill_id:
@@ -139,12 +139,23 @@ def read_status(package, raw):
                 if other_id != bill_id:
                     raise ValueError(f'{package}: text version lists wrong bill')
                 versions[code] = item.findtext('date')
+    identical = []
+    for relation in bill.findall('relatedBills/item'):
+        if any(item.findtext('identifiedBy') == 'CRS'
+               and (item.findtext('type') or '').strip().casefold() in ('identical bill', 'identical')
+               for item in relation.findall('relationshipDetails/item')):
+            other = (relation.findtext('type') or '').upper() + (relation.findtext('number') or '')
+            other_congress = relation.findtext('congress')
+            if re.fullmatch(KINDS + r'[1-9]\d*', other, re.I) and other_congress is not None:
+                identical.append(f'{other}-{other_congress}')
     return {
         'bill_id': bill_id, 'congress': int(congress), 'title': bill.findtext('title') or '',
         'sponsor_ids': sponsors, 'introduced_date': bill.findtext('introducedDate'),
+        'legislation_url': bill.findtext('legislationUrl'),
         'latest_action': bill.findtext('latestAction/text'),
         'latest_action_date': bill.findtext('latestAction/actionDate'),
         'cosponsor_ids': [n.text for n in bill.findall('cosponsors/item/bioguideId') if n.text],
+        'crs_identical_bills': sorted(set(identical)),
         'versions': versions, 'source_sha256': sha(raw),
         'source_url': f'https://www.govinfo.gov/bulkdata/BILLSTATUS/{congress}/{kind}/{package}.xml',
     }

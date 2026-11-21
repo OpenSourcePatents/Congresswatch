@@ -63,7 +63,7 @@ def prepare_partition(base, spec, refresh):
         fetch(url, index)
 
 
-def read_partition(base, spec, errors):
+def read_partition(base, spec, errors, refresh):
     name, url, read = spec
     path, index = base / (name + '.zip'), base / (name + '.index.html')
     indexed = set(INDEXED.findall(index.read_text()))
@@ -84,7 +84,7 @@ def read_partition(base, spec, errors):
                     content = archive.read(filename)
                 else:
                     fallback = base / 'fallback' / filename
-                    if not fallback.is_file():
+                    if refresh or not fallback.is_file():
                         fetch(f'{url}/{filename}', fallback)
                     content = fallback.read_bytes()
                     partition['fallback'].append(filename)
@@ -114,7 +114,7 @@ def main():
         list(pool.map(lambda spec: prepare_partition(base, spec, opts.refresh), specs))
     documents, status, manifests, errors, packages = {}, {}, [], [], {}
     for spec in specs:
-        rows, manifest = read_partition(base, spec, errors)
+        rows, manifest = read_partition(base, spec, errors, opts.refresh)
         manifests.append(manifest)
         for filename, record in rows.items():
             if spec[2] is read_status:
