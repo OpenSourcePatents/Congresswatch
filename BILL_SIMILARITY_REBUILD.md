@@ -73,3 +73,15 @@ Before full use, reconcile the latest authorised draft and main source fields,
 preserve superseded and manual history, verify all member data, actual browser
 rendering, exact route schemas and 539-member repo/API parity, and keep both
 merges on hold for owner review.
+
+## Local assembly (not publication)
+
+After the full-roster bill stage and evidence audit, `assemble_local_official_review.py`
+can join it to an explicitly pinned review and upstream commit, in a new output
+directory. This copies newer known nonbill source fields, keeps disabled SEC
+identity hypotheses separate from verified inputs, keeps unchanged vote records
+and records the failed check separately from collection, and archives both
+the manually maintained review bill records and raw latest upstream bill records.
+The output is intentionally marked unfinalized: it has no fresh score or aggregate
+regeneration and cannot be treated as production-ready. A roster change, held
+vote data change or stage digest mismatch halts the assembly rather than guessing.
