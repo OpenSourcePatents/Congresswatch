@@ -85,3 +85,30 @@ the manually maintained review bill records and raw latest upstream bill records
 The output is intentionally marked unfinalized: it has no fresh score or aggregate
 regeneration and cannot be treated as production-ready. A roster change, held
 vote data change or stage digest mismatch halts the assembly rather than guessing.
+
+A local assembler run can be rescored in its isolated root using the existing
+`recompute_scores.py` then run `build_aggregates.py`. Detailed records retain
+each full displayed excerpt. The flat bill aggregate stores match identities,
+provenance and coverage with an explicit detail path, not duplicate passage
+text; the aggregate has a fail-closed publication size check. Current consumer
+compatibility should still be verified before deployment.
+
+## Release gates
+
+- Recheck maintainer authorization and exact branch heads; retain a rollback
+  commit. Reconcile any new upstream inputs in a new pinned snapshot.
+- Run the full staged-evidence and source-preservation audits, rebuild local
+  scores and aggregates and verify roster/detail/stats parity and OSP-API
+  parity. Do not treat unverified SEC name matches as member activity. Keep
+  the GovTrack collection failure and ambiguous archived source values explicit.
+- Validate desktop and narrow mobile on a real hosted preview, with the exact
+  artifacts served. Confirm browser interactions, source links and API response
+  contracts on the same immutable dataset; account for URL-scoped API/CDN caches.
+- Wire and independently exercise a scheduled regeneration path that rejects a
+  partial GovInfo snapshot, preserves other pipelines' inputs, and never
+  publishes stale derived data over an advancing main. This checkpoint does
+  not change the scheduled production workflow.
+- After explicit authorization, prefer a normal authenticated Git push to the
+  existing draft branch (not main, never force); verify the exact remote head
+  and hosted checks. Keep both merges blocked until the coordinated release
+  and rollback order has been reviewed.
