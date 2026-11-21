@@ -3,6 +3,7 @@
 import argparse
 from collections import Counter, defaultdict
 import json
+import re
 from pathlib import Path
 
 from fetch_bills.utils.official_prose import ANALYSIS_VERSION, sha
@@ -29,13 +30,19 @@ def inputs(cache):
 
 
 def bill_record(source, bill_id, corpus, engine, matches, sponsor):
-    record = {'bill_id': bill_id, 'title': source['title'], 'introduced_date': source['introduced_date'],
+    match = re.fullmatch(r'([A-Z]+)([1-9]\d*)-(\d+)', bill_id)
+    if not match or int(match[3]) != source['congress']:
+        raise ValueError(f'{bill_id}: official metadata does not match identity')
+    record = {'bill_id': bill_id, 'type': match[1], 'number': match[2], 'congress': int(match[3]),
+              'title': source['title'], 'introduced_date': source['introduced_date'],
               'url': source.get('legislation_url'), 'latest_action': source['latest_action'],
               'latest_action_date': source['latest_action_date'], 'cosponsors': source['cosponsor_ids'],
               'sponsor_id': sponsor, 'sponsor_verification': 'official_bioguide_match',
               'metadata_source_url': source['source_url'], 'metadata_source_sha256': source['source_sha256'],
               'analysis_version': ANALYSIS_VERSION, 'model_analysis_status': MODEL_UNAVAILABLE,
-              'similar_member_bills': []}
+              'similar_member_bills': [], 'keywords': [], 'similarity_score': None,
+              'alec_best_similarity': None, 'match_type': None, 'alec_match': None,
+              'donor_interest': None}
     if bill_id in corpus:
         record['text_source'] = corpus[bill_id]['source']
         record['has_text'] = True

@@ -870,6 +870,59 @@ function hasLegacyUnverifiedSecScore(m) {
 }
 // Legacy similarity may have been fitted on binary PDF tokens. A clean-corpus
 // validation marker is required, including when a CDN serves an old snapshot.
+const OFFICIAL_BILL_ANALYSIS = 'official-prose-overlap-v2';
+function isOfficialBillAnalysis(b) { return b?.analysis_version === OFFICIAL_BILL_ANALYSIS; }
+function officialBillSource(id, code, url, rawHash, textHash) {
+  const bill = /^([A-Z]+)(\d+)-(\d+)$/.exec(id || '');
+  if (!bill || !/^[a-z0-9]{2,8}$/.test(code || '') ||
+      ![rawHash, textHash].every(h => typeof h === 'string' && /^[a-f0-9]{64}$/.test(h)) ||
+      typeof url !== 'string') return false;
+  const pkg = `BILLS-${bill[3]}${bill[1].toLowerCase()}${bill[2]}${code}`;
+  return url === `https://www.govinfo.gov/content/pkg/${pkg}/xml/${pkg}.xml` || [1, 2].some(session =>
+    url === `https://www.govinfo.gov/bulkdata/BILLS/${bill[3]}/${session}/${bill[1].toLowerCase()}/${pkg}.xml`);
+}
+function officialBillMatch(bill, match) {
+  const s = bill.text_source, e = match?.evidence;
+  if (!e || !s || match.bill_id === bill.bill_id || match.analysis_version !== OFFICIAL_BILL_ANALYSIS ||
+      !Number.isFinite(match.similarity_score) || match.similarity_score < .3 || match.similarity_score > 1 ||
+      !officialBillSource(match.bill_id, e.matched_version_code, e.matched_source_url, e.matched_source_sha256, e.matched_text_sha256)) return false;
+  if (!['source_url','source_sha256','text_sha256','version_code','version_date'].every(k => e['target_' + k] === s[k])) return false;
+  if (!['target','matched'].every(p => typeof e[p + '_passage'] === 'string' && e[p + '_passage'].trim() &&
+      Number.isInteger(e[p + '_word_offset']) && e[p + '_word_offset'] >= 0 &&
+      Number.isFinite(e[p + '_shingle_coverage']) && e[p + '_shingle_coverage'] >= 0 && e[p + '_shingle_coverage'] <= 1)) return false;
+  return Number.isInteger(e.longest_passage_words) && e.longest_passage_words >= 32 &&
+    Number.isInteger(e.displayed_passage_words) && e.displayed_passage_words >= 32 &&
+    e.displayed_passage_words <= Math.min(120, e.longest_passage_words) &&
+    Math.max(e.target_shingle_coverage, e.matched_shingle_coverage) >= .2;
+}
+function officialBillEvidenceHtml(bill) {
+  const state = {
+    text_not_yet_published: 'Official text not yet published',
+    text_source_unavailable: 'Official text unavailable',
+    insufficient_text_for_overlap: 'Not enough text to compare',
+  };
+  const label = msg => `<span class="td-sub">${esc(msg)}</span>`;
+  if (bill.analysis_status !== 'analyzed') return label(state[bill.analysis_status] || 'Analysis unavailable');
+  const s = bill.text_source;
+  if (bill.has_text !== true || s?.bill_id !== bill.bill_id ||
+      s?.source_format !== 'govinfo_official_bill_xml' || s?.extraction_version !== 'govinfo-legislative-body-v2' ||
+      !officialBillSource(bill.bill_id, s.version_code, s.source_url, s.source_sha256, s.text_sha256) ||
+      !Array.isArray(bill.similar_member_bills)) return label('Verified comparison unavailable');
+  const matches = bill.similar_member_bills.filter(m => officialBillMatch(bill, m));
+  if (!matches.length) return label(bill.similar_member_bills.length ? 'Verified comparison unavailable' : 'No verified overlap found');
+  return matches.slice(0, 3).map(m => {
+    const e = m.evidence;
+    const passage = (p, id) => `<div class="td-sub" style="white-space:normal;overflow-wrap:anywhere;margin:.5em 0">
+      <a href="${esc(e[p+'_source_url'])}" target="_blank" rel="noopener noreferrer">${esc(id)} · ${esc(e[p+'_version_code'].toUpperCase())}${/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)?$/.test(e[p+'_version_date'] || '') ? ' · ' + esc(e[p+'_version_date'].slice(0,10)) : ''} · GovInfo XML</a>
+      <div>${esc(e[p+'_passage'])}${e.displayed_passage_words < e.longest_passage_words ? '…' : ''}</div></div>`;
+    return `<details class="td-sub" style="white-space:normal;overflow-wrap:anywhere">
+      <summary>${esc(m.bill_id)} · Shared wording</summary>
+      <div>${esc(typeof m.bill_title === 'string' ? m.bill_title : '')}</div>
+      <div>${e.longest_passage_words} consecutive words overlap after normalization. Showing ${e.displayed_passage_words} from each selected version. This is passage overlap, not a whole-bill equivalence finding. A shared passage does not mean the bills are identical or have the same effect.</div>
+      ${passage('target', bill.bill_id)}${passage('matched', m.bill_id)}
+    </details>`;
+  }).join('');
+}
 function billSimilarityAvailable(bill) {
   return bill.analysis_version === 'bill-text-integrity-v1' &&
     ['analyzed', 'model_matching_unavailable'].includes(bill.analysis_status) && !billTextQuarantined(bill);
@@ -878,7 +931,7 @@ function billTextQuarantined(bill) {
   return bill.text_integrity === 'quarantined' || ['quarantined_pdf_text', 'text_quarantined'].includes(bill.analysis_status);
 }
 function billAnalysisWarning(m) {
-  return (m.bills || []).some(b => b.analysis_version !== 'bill-text-integrity-v1' || String(b.analysis_status || '').includes('quarantined')) ||
+  return (m.bills || []).some(b => (!isOfficialBillAnalysis(b) && b.analysis_version !== 'bill-text-integrity-v1') || billTextQuarantined(b)) ||
     m.bills_analysis_status === 'quarantined_legacy_corpus';
 }
 function computeScore(m) {
@@ -1361,15 +1414,6 @@ function showMembersList() {
 
 function buildFlags(m, s) {
   const flags = [];
-  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.80
-  const bills = m.bills || [];
-  const alecBills = bills.filter(b => {
-    const am = billSimilarityAvailable(b) ? b.alec_match : null;
-    if (!am) return false;
-    return (am.similarity_score || 0) >= 0.80;
-  });
-  if (alecBills.length > 0) flags.push({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
-    body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match known ALEC model legislation at or above 80% cosine similarity. Source: LegiScan + Congress.gov.`});
   // INSIDER_TRADING: only if corporate_insider_signals > 0
   const insiderCount = attributedSecCount(m);
   if (m.edgar_status === 'query_failed' || m.edgar_data_status === 'stale') flags.push({type:'info',title:'SEC DATA NOT REFRESHED',body:'The latest SEC lookup failed. Retained counts are historical and identity matching still requires verification.'});
@@ -1413,7 +1457,7 @@ function fillVotes(m, s) {
     'Earlier analysis included corrupted PDF text. Legacy similarity results are withheld until the corpus is rebuilt from validated text. Suspended analysis is not a finding of no match. Original calculations are retained for audit, not presented as findings.');
 
   // Optional donor alignment score stat cell
-  if (m.score_methodology === 'activity-v4-bill-integrity' && m.donor_alignment_score > 0 && !bills.some(billTextQuarantined)) {
+  if (m.score_methodology === 'activity-v4-bill-integrity' && m.donor_alignment_score > 0 && !bills.some(b => isOfficialBillAnalysis(b) || billTextQuarantined(b))) {
     html += statCellsHtml([{
       label:'Donor Alignment Score',
       value:`${m.donor_alignment_score}/100`,
@@ -1426,13 +1470,7 @@ function fillVotes(m, s) {
 
   // ── Sponsored Bills section ──
   if (bills.length > 0) {
-    const alecCount = bills.filter(b => billSimilarityAvailable(b) && (b.alec_match?.similarity_score || 0) >= 0.80).length;
-    const donorCount = bills.filter(b => !billTextQuarantined(b) && b.donor_interest && b.donor_interest.match).length;
-
-    if (alecCount > 0) {
-      html += alertHtml('warn', 'ALEC MODEL LEGISLATION MATCH',
-        `${alecCount} sponsored bill${alecCount>1?'s':''} meet the 80% cosine-similarity threshold against the stored ALEC model-text corpus. Similarity does not establish authorship or influence.`);
-    }
+    const donorCount = bills.filter(b => !isOfficialBillAnalysis(b) && !billTextQuarantined(b) && b.donor_interest && b.donor_interest.match).length;
     if (donorCount > 0) {
       html += alertHtml('warn', 'DONOR INTEREST ALIGNMENT',
         `${donorCount} sponsored bill${donorCount>1?'s':''} contain language aligned with this member's top donor industries.`);
@@ -1446,50 +1484,29 @@ function fillVotes(m, s) {
         <tbody>`;
 
     bills.forEach(bill => {
+      const isOfficial = isOfficialBillAnalysis(bill);
       const similarityAvailable = billSimilarityAvailable(bill);
       const textQuarantined = billTextQuarantined(bill);
-      const modelAvailable = similarityAvailable && bill.analysis_status === 'analyzed';
-      const alec = modelAvailable ? bill.alec_match : null;
-      const donor = textQuarantined ? {} : (bill.donor_interest || {});
-      const coAuthors = similarityAvailable ? (bill.similar_member_bills || []) : [];
+      const donor = textQuarantined || isOfficial ? {} : (bill.donor_interest || {});
+
       const billLabel = (bill.bill_id || '').replace(/-\d+$/, '');
       const intro = bill.introduced_date ? bill.introduced_date.slice(0,10) : '—';
       const titleShort = (bill.title||'').slice(0,80) + ((bill.title||'').length>80?'…':'');
 
-      // No alec_match (>=80% similarity) is the norm — surface the always-stored
-      // closest-model similarity instead of a permanently blank column.
-      let alecCell = `<span style="color:var(--fg-faint)">${similarityAvailable ? 'No match recorded' : (bill.analysis_version === 'bill-text-integrity-v1' && !String(bill.analysis_status || '').includes('quarantined') ? 'Analysis unavailable' : 'Analysis suspended')}</span>`;
-      if (similarityAvailable && !modelAvailable) alecCell = '<span style="color:var(--fg-faint)">Model analysis unavailable</span>';
-      if (modelAvailable && !alec && (bill.alec_best_similarity||0) > 0) {
-        const bpct = Math.round(bill.alec_best_similarity*100);
-        alecCell = `<span class="td-mono" style="color:var(--fg-dim)">${bpct}% closest model</span>
-          <div class="td-sub">below 80% match threshold</div>`;
-      }
-      if (alec && (alec.similarity_score||0) > 0) {
-        const pct = Math.round((alec.similarity_score||0)*100);
-        const isHighMatch = pct >= 80;
-        const matchColor = isHighMatch ? '#ff3b4e' : '#f3c25a';
-        alecCell = `${isHighMatch?'<span style="display:inline-block;background:color-mix(in srgb, #ff3b4e 14%, transparent);border:1px solid color-mix(in srgb, #ff3b4e 45%, transparent);color:#ff3b4e;font-family:\'Oxanium\',sans-serif;font-size:8px;font-weight:700;padding:2px 6px;letter-spacing:1px;border-radius:3px;margin-bottom:3px">ALEC MATCH</span><br>':''}
-          <span class="td-mono" style="color:${matchColor};font-weight:600">${pct}% match to ALEC model legislation</span>
-          <div class="td-sub">${esc(alec.matched_model||'')}</div>
-          <div class="td-sub"><a href="${esc(safeUrl(alec.source_url))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-dim);text-decoration:none;border-bottom:1px dotted var(--fg-dim)">ALEC ${esc(alec.category||'')}</a></div>`;
-      }
+      const alecCell = '<span class="td-sub">Model analysis unavailable</span>';
 
-      let donorCell = `<span style="color:var(--fg-faint)">${textQuarantined ? 'Text quarantined' : '—'}</span>`;
+      let donorCell = `<span style="color:var(--fg-faint)">${textQuarantined ? 'Text quarantined' : isOfficial ? 'Donor analysis unavailable' : '—'}</span>`;
       if (donor.match && donor.matched_industries && donor.matched_industries.length > 0) {
         donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${esc(ind)}</span>`).join('');
       }
 
-      let coCell = `<span style="color:var(--fg-faint)">${similarityAvailable ? 'No match recorded' : (bill.analysis_version === 'bill-text-integrity-v1' && !String(bill.analysis_status || '').includes('quarantined') ? 'Analysis unavailable' : 'Analysis suspended')}</span>`;
-      if (coAuthors.length > 0) {
-        const pct = Math.round((coAuthors[0].similarity_score||0)*100);
-        coCell = `<span class="td-mono" style="color:var(--accent-blue)">${pct}% match</span>
-          <div class="td-sub">${coAuthors.length} member bill${coAuthors.length>1?'s':''}</div>`;
-      }
+      let coCell = '<span class="td-sub">Verified comparison unavailable</span>';
+      if (isOfficial) coCell = officialBillEvidenceHtml(bill);
+
 
       tbl += `<tr>
         <td class="td-mono">${bill.url?`<a href="${esc(safeUrl(bill.url))}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue);text-decoration:none">${esc(billLabel)}</a>`:esc(billLabel)}</td>
-        <td style="max-width:220px;line-height:1.4">${esc(titleShort)}${!similarityAvailable ? `<div class="td-sub">${textQuarantined ? 'Corrupted PDF text withheld; re-extraction required.' : (bill.analysis_version === 'bill-text-integrity-v1' ? 'Full-text analysis unavailable in this snapshot.' : 'Similarity awaiting clean-corpus validation; text integrity not verified.')}</div>` : ''}</td>
+        <td style="max-width:220px;line-height:1.4">${esc(titleShort)}${!similarityAvailable && !isOfficial ? `<div class="td-sub">${textQuarantined ? 'Corrupted PDF text withheld; re-extraction required.' : (bill.analysis_version === 'bill-text-integrity-v1' ? 'Full-text analysis unavailable in this snapshot.' : 'Similarity awaiting clean-corpus validation; text integrity not verified.')}</div>` : ''}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(intro)}</td>
         <td>${alecCell}</td>
         <td>${donorCell}</td>
@@ -1499,7 +1516,7 @@ function fillVotes(m, s) {
     tbl += `</tbody></table>`;
 
     html += tableSectionHtml('SPONSORED BILLS — SIMILARITY ANALYSIS', `${bills.length} BILLS`, tbl,
-      'Source: LegiScan + Congress.gov · TF-IDF cosine similarity measures text overlap, not authorship or influence. Coverage is limited to fetched bills and available text.');
+      'Verified federal comparisons use selected official GovInfo full bill versions. The excerpts show shared wording, not identical policy, authorship or influence. Results are limited to available text and the comparisons evaluated.');
   }
 
   // ── Voting Record section ──
@@ -1713,17 +1730,6 @@ function fillTravel(m) {
 
 function fillPatterns(m, s) {
   const patterns = [];
-  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.80
-  const bills = m.bills || [];
-  const alecBills = bills.filter(b => {
-    const am = billSimilarityAvailable(b) ? b.alec_match : null;
-    if (!am) return false;
-    return (am.similarity_score || 0) >= 0.80;
-  });
-  if (alecBills.length > 0) {
-    const topSim = Math.max(...alecBills.map(b => b.alec_match.similarity_score || 0));
-    patterns.push({title:'ALEC MODEL LEGISLATION MATCH',body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} overlap with stored ALEC model text; this is not proof of authorship. Top similarity: <code>${Math.round(topSim*100)}%</code>. Source: LegiScan + Congress.gov.`});
-  }
   // INSIDER_TRADING: only if corporate_insider_signals > 0
   if (attributedSecCount(m) > 0) patterns.push({title:'IDENTITY-VERIFIED SEC FILINGS',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
   // ATTENDANCE: real vote data. Delegates exempt (cannot vote on final passage).

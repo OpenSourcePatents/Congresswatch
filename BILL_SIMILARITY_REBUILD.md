@@ -4,6 +4,14 @@ This is a review-only reconstruction. Nothing in this checkpoint changes live
 data, the website, route outputs, cached historical findings, or Actions. Do not
 merge or run a production write just to generate this evidence.
 
+On the reconstructed snapshot, 189/200 frozen-by-hash CRS Identical pairs were
+in the top three for the selected test direction. Of the 11 misses, five
+qualified but were outside the top three, five shared fewer than 32 contiguous
+words, and one had insufficient relative shingle coverage. The source versions
+and per-pair results are retained in the compressed replay result. This
+measures recall on known linked positive pairs, not overall precision. It is
+not a like-for-like comparison with earlier datasets or parameterizations.
+
 ## Reproduce
 
 Use Python 3.12 or newer and install the versions in
@@ -14,6 +22,7 @@ python rebuild_official_corpus.py --refresh
 python benchmarks/bill_similarity/official_controls.py
 python benchmarks/bill_similarity/official_retrieval_eval.py .cache/current-crs-replay.json
 python stage_official_bill_findings.py --member B001260 --output .cache/staged-buchanan
+python audit_staged_official_bills.py .cache/staged-buchanan
 ```
 
 Without `--refresh`, the corpus command reuses the local, ignored archives and
