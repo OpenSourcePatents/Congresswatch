@@ -72,22 +72,35 @@ class BillDocument:
 def read_body(package, raw):
     bill_id, code = package_id(package)
     root = parse(raw)
-    if tag(root) not in ('bill','resolution','joint-resolution','concurrent-resolution'):
-        raise ValueError(f'{package}: unexpected document root {tag(root)}')
-    titles = [t.text or '' for t in root.iter() if tag(t) == 'title']
-    heading = next((m for title in titles if (m := HEAD.match(title.strip()))), None)
-    if not heading:
-        raise ValueError(f'{package}: no verified metadata identity')
-    congress, kind, number, actual_code = heading.groups()
+    root_name = tag(root)
+    if root_name not in ('bill','resolution','joint-resolution','concurrent-resolution','amendment-doc'):
+        raise ValueError(f'{package}: unexpected document root {root_name}')
+    form = next((n for n in root if tag(n) in ('form', 'amendment-form')), None)
     form_congress = next(((n.text or '').strip().lower()
-                          for n in root.iter() if tag(n) == 'congress'), '')
-    if not congress:
-        numeric = re.match(r'\d+', form_congress)
-        congress = numeric[0] if numeric else (
-            '119' if re.match(r'one hundred nineteenth congress\b', form_congress) else None)
-    if (f'{re.sub(r"[^A-Z]", "", kind.upper())}{number}-{congress}', actual_code.lower()) != (bill_id, code):
-        raise ValueError(f'{package}: XML identity mismatch')
-    if code in AMENDMENT_ONLY:
+                          for n in form.iter() if tag(n) == 'congress'), '') if form is not None else ''
+    numeric = re.match(r'\d+', form_congress)
+    congress = numeric[0] if numeric else (
+        '119' if re.match(r'one hundred nineteenth congress\b', form_congress) else None)
+    form_id = next((''.join(n.itertext()).strip() for n in form.iter()
+                    if tag(n) == 'legis-num'), '') if form is not None else ''
+    label = re.sub(r'[^A-Z0-9]', '', form_id.upper())
+    if not label or not congress:
+        # Certain amendment instructions omit a full legislative form.
+        # Unlike bills, these are never used as consolidated body text.
+        if root_name != 'amendment-doc':
+            raise ValueError(f'{package}: no legislative form identity')
+        metadata = next((n for n in root if tag(n) == 'metadata'), None)
+        heading = next((m for n in metadata.iter() if tag(n) == 'title'
+                        and (m := HEAD.match((n.text or '').strip()))), None) if metadata is not None else None
+        if not heading:
+            raise ValueError(f'{package}: no amendment-instruction identity')
+        congress, kind, number, actual_code = heading.groups()
+        label = re.sub(r'[^A-Z]', '', kind.upper()) + number
+        if actual_code.lower() != code:
+            raise ValueError(f'{package}: amendment-instruction version mismatch')
+    if f'{label}-{congress}' != bill_id:
+        raise ValueError(f'{package}: XML identity mismatch ({label}-{congress})')
+    if root_name == 'amendment-doc':
         return None
     # Only the published legislative body, not digest/form/front matter.
     bodies = [n for n in root if tag(n) in ('legis-body', 'resolution-body')]
