@@ -55,11 +55,12 @@ def main():
     cli.add_argument('--roster', type=Path, default=Path('data/members.json'))
     cli.add_argument('--output', type=Path, required=True)
     cli.add_argument('--member', action='append', default=[], help='optional subset; does not claim full coverage')
+    cli.add_argument('--resume', action='store_true', help='resume verified per-member checkpoints')
     opts = cli.parse_args()
     if opts.output.resolve().is_relative_to(Path('data').resolve()):
         raise SystemExit('Output must not be the repository data directory')
-    if opts.output.exists():
-        raise SystemExit('Use a new output path; do not overwrite previous evidence')
+    if opts.output.exists() != opts.resume:
+        raise SystemExit('New output path required unless explicitly resuming a checkpoint')
     roster = json.loads(opts.roster.read_text())
     roster_ids = {m['id'] for m in roster}
     members = set(opts.member) if opts.member else roster_ids
@@ -70,32 +71,56 @@ def main():
     for key, row in metadata.items():
         for sponsor in set(row['sponsor_ids']) & members:
             authored[sponsor].append(key)
-    print(f'Indexing {len(corpus)} selected published bill bodies for {len(members)} members', flush=True)
-    engine = OfficialRetrieval(corpus, metadata)
-    all_ids = sorted({k for keys in authored.values() for k in keys} & corpus.keys())
-    print(f'Verifying bounded candidates for {len(all_ids)} sponsored bill bodies', flush=True)
-    matches = {}
-    for n, (idx, ranked) in enumerate(engine.candidates([engine.indices[k] for k in all_ids]), 1):
-        matches[engine.keys[idx]] = engine.evidence(idx, ranked)
-        if n % 1000 == 0:
-            print(f'{n}/{len(all_ids)} verified', flush=True)
-    opts.output.mkdir()
+    files = ('stage_official_bill_findings.py', 'fetch_bills/utils/official_prose.py',
+             'fetch_bills/utils/official_passages.py', 'fetch_bills/utils/official_retrieval.py')
+    import numpy, scipy, sklearn
+    checkpoint = opts.output / 'progress.json'
+    run = {'analysis_version': ANALYSIS_VERSION, 'scope': 'sample' if opts.member else 'full_roster',
+        'member_ids': sorted(members),
+        'roster_sha256': sha_file(opts.roster), 'official_manifest_sha256':sha_file(opts.cache / 'manifest.json'),
+        'corpus_sha256': manifest['corpus_sha256'],
+        'software': {p:sha_file(Path(p)) for p in files},
+        'versions': {m.__name__:m.__version__ for m in (numpy, scipy, sklearn)}}
+    completed = {}
+    if opts.resume:
+        previous = json.loads(checkpoint.read_text())
+        if previous.get('run') != run:
+            raise SystemExit('Checkpoint inputs changed; start a new staging directory')
+        completed = previous['completed']
+        if not set(completed) <= members or any(
+                sha_file(opts.output / (bid + '.json')) != digest for bid,digest in completed.items()):
+            raise SystemExit('Checkpoint output hashes differ')
+    else:
+        opts.output.mkdir()
+        write_json({'run':run,'completed':completed}, checkpoint)
+
+    if set(completed) < members:
+        print(f'Indexing {len(corpus)} bodies; {len(completed)}/{len(members)} member checkpoints verified', flush=True)
+        engine = OfficialRetrieval(corpus, metadata)
+        for member in sorted(members - set(completed)):
+            keys = sorted(authored[member], key=lambda k: (metadata[k]['introduced_date'] or '',k), reverse=True)
+            queries = [engine.indices[key] for key in keys if key in engine.indices]
+            matches = {engine.keys[idx]:engine.evidence(idx,ranked)
+                       for idx,ranked in engine.candidates(queries)}
+            rows = [bill_record(metadata[k],k,corpus,engine,matches,member) for k in keys]
+            target = opts.output / (member + '.json')
+            write_json({'id': member, 'bills': rows, 'bills_count': len(rows),
+                'bills_analysis_version': ANALYSIS_VERSION, 'bills_status':'available' if rows else 'empty',
+                'bills_analysis_status':'analyzed' if rows else 'empty', 'model_analysis_status': MODEL_UNAVAILABLE,
+                'donor_alignment_status': 'unavailable'}, target)
+            completed[member] = sha_file(target)
+            write_json({'run':run,'completed':completed}, checkpoint)
+            print(f'{len(completed)}/{len(members)}: {member} ({len(rows)} records)', flush=True)
+
     counts = Counter()
     total_matches = 0
     for member in sorted(members):
-        keys = sorted(authored[member], key=lambda k: (metadata[k]['introduced_date'] or '',k), reverse=True)
-        rows = [bill_record(metadata[k],k,corpus,engine,matches,member) for k in keys]
+        rows = json.loads((opts.output / (member + '.json')).read_text())['bills']
         counts.update(row['analysis_status'] for row in rows)
         total_matches += sum(len(row['similar_member_bills']) for row in rows)
-        write_json({'id': member, 'bills': rows, 'bills_count': len(rows),
-            'bills_analysis_version': ANALYSIS_VERSION, 'bills_status':'available' if rows else 'empty',
-            'bills_analysis_status':'analyzed' if rows else 'empty', 'model_analysis_status': MODEL_UNAVAILABLE,
-            'donor_alignment_status': 'unavailable'},
-            opts.output / (member + '.json'))
-    result = {'analysis_version': ANALYSIS_VERSION, 'scope': 'sample' if opts.member else 'full_roster',
-        'roster_sha256': sha_file(opts.roster), 'official_manifest_sha256':sha_file(opts.cache / 'manifest.json'),
-        'corpus_sha256': manifest['corpus_sha256'], 'members': len(members),
-        'records': dict(counts), 'matches': total_matches}
+    result = {k:v for k,v in run.items() if k != 'member_ids'}
+    result.update(members=len(members), records=dict(counts), matches=total_matches,
+                  member_sha256=completed)
     write_json(result, opts.output / 'manifest.json')
     print(json.dumps(result, indent=2))
 

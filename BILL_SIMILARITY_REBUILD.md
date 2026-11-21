@@ -21,10 +21,21 @@ indexes. The run inspects 24 GovInfo bulk partitions. It does not publish from
 a subset or silently replace an incomplete corpus. Missing archive members
 must be on the official index and recover individually; unexpected archive
 names, missing records, unreadable XML or identity conflicts block evaluation.
+Checkpoint progress can be resumed with the same arguments plus `--resume`,
+provided the corpus, roster, code, dependency versions and staged hashes still
+match. The final output manifest is written only after all chosen members finish.
+
 The corpus preserves SHA-256 for raw XML and extracted text, exact official
 version, date when recorded, and URLs. Raw parsed bodies and archives are not
 included in the source patch. Re-fetch and compare the manifest to regenerate;
 updated official indexes may produce a new snapshot.
+
+The 2026-11-21 local audited snapshot has 20,193 metadata identities and 23,530
+full-text versions across 20,032 bills. It excluded 24 unconsolidated amendment
+documents and used two individually recovered index-listed records. See
+`benchmarks/bill_similarity/rebuild_source_manifest.json` for the input SHA-256
+fingerprints and partition-level counts. All source audits completed without
+errors. That is a snapshot, not a completeness guarantee about future data.
 
 Version policy is enrolled full text first; otherwise the newest dated full
 body, with an explicit deterministic tie-break for same-day versions. An
