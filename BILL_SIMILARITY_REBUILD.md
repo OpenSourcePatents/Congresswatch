@@ -104,11 +104,45 @@ compatibility should still be verified before deployment.
 - Validate desktop and narrow mobile on a real hosted preview, with the exact
   artifacts served. Confirm browser interactions, source links and API response
   contracts on the same immutable dataset; account for URL-scoped API/CDN caches.
-- Wire and independently exercise a scheduled regeneration path that rejects a
-  partial GovInfo snapshot, preserves other pipelines' inputs, and never
-  publishes stale derived data over an advancing main. This checkpoint does
-  not change the scheduled production workflow.
+- Validate the local scheduled-regeneration update in hosted Actions before
+  enabling production use; it has not been dispatched from this checkpoint.
 - After explicit authorization, prefer a normal authenticated Git push to the
   existing draft branch (not main, never force); verify the exact remote head
   and hosted checks. Keep both merges blocked until the coordinated release
   and rollback order has been reviewed.
+
+## Scheduled refresh implementation (local, not deployed)
+
+The existing 07:00 UTC GitHub Actions bill job is still the only scheduled bill
+writer. It also accepts manual runs on main, never on a draft ref. The old
+LegiScan/Congress.gov CLI is retained only as source history and refuses to run.
+The bill job is capped at 90 minutes so a stalled run cannot hold Finalize
+indefinitely. The local numerical stage took roughly 8–9 minutes; hosted timing
+needs measurement. The bill job shares a concurrency group with Finalize; both refuse to rebase
+derived results across an advancing main. A normal explicit fast-forward push
+is required after an unchanged remote-head check; concurrent unrelated writes
+fail rather than overwriting their inputs.
+
+The refresh builds in an isolated directory from the pinned Git tree. It
+compares all 24 indexed partitions to the reviewed minimum and the last
+successful snapshot, checks previously accepted bill identities remain present,
+and independently audits all quoted passages, the roster, nonbill source
+records, scores and aggregates. Retired similarity claims on inactive profiles
+are preserved as references but excluded from refreshed public findings. An incomplete source, temporarily absent
+expected text, a smaller catalog, or a branch race retains last good data.
+The runner installs only hash-sealed allowlisted data, and never installs
+offline replay results. The 119th-only schedule conservatively stops starting
+2027-01-01 UTC rather than reporting 119th freshness near the transition.
+A separately reviewed new-Congress baseline and code check, or review of any
+genuine source withdrawal, is required before resuming. Other collectors'
+403 issues are outside this workflow.
+
+For the offline run use the exact saved cache, stage and input commit; the
+output is explicitly restricted to testing. Example:
+```sh
+python refresh_official_bills.py --expected-head "$(git rev-parse HEAD)" \
+  --saved-input 598849e5e7e845eaa6359fe7c74c4b4af335d989 \
+  --saved-cache .cache/govinfo --saved-stage .cache/staged-contract-598849e \
+  --out .cache/verified-offline
+``` Hosted Actions and actual Git
+publication were not exercised.

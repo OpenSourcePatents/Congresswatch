@@ -14,13 +14,12 @@ Output:
   - data/bills/all_bills.json     — central bill cache (text + hashes + vectors)
   - data/details/{bid}.json       — updated with bills[] array per member
 
-Run:
-  python fetch_bills.py
-
-Env vars required:
-  CONGRESS_API_KEY
-  LEGISCAN_API_KEY
+Retired historical reference. Active data is built by refresh_official_bills.py.
+The former pipeline required CONGRESS_API_KEY and LEGISCAN_API_KEY.
 """
+
+if __name__ == "__main__":
+    raise SystemExit("Legacy matcher retired; use refresh_official_bills.py. No records were changed.")
 
 import json
 import os
@@ -181,7 +180,8 @@ def fetch_bill_text(bill_stub: dict, legiscan_budget: list) -> str:
 # Main pipeline
 # ---------------------------------------------------------------------------
 
-def main():
+def legacy_reference():
+    raise RuntimeError("Legacy reference cannot write active records")
     print("=" * 60)
     print("CongressWatch Bill Similarity Engine v1")
     print(f"Started: {datetime.now(timezone.utc).isoformat()}")
@@ -483,7 +483,3 @@ def main():
     if stats["errors"]:
         raise SystemExit(f"Incomplete: {stats['errors']} member bill requests failed; prior records preserved.")
     print("=" * 60)
-
-
-if __name__ == "__main__":
-    main()
