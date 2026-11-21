@@ -977,9 +977,15 @@
         "S001226"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ]
+        }
       }
     },
     {
@@ -1034,11 +1040,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology"
+          "Technology",
+          "Healthcare"
         ],
         "keyword_hits": {
           "Technology": [
             "digital"
+          ],
+          "Healthcare": [
+            "hospital",
+            "reimbursement"
           ]
         }
       }
@@ -1076,7 +1087,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.076,
+      "alec_best_similarity": 0.075,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1349,7 +1360,7 @@
         {
           "bill_id": "HR6099-119",
           "sponsor_id": "M001231",
-          "similarity_score": 0.865
+          "similarity_score": 0.866
         }
       ],
       "cosponsors": [
@@ -1481,7 +1492,7 @@
         {
           "bill_id": "HR7410-119",
           "sponsor_id": "T000478",
-          "similarity_score": 0.949
+          "similarity_score": 0.947
         }
       ],
       "cosponsors": [
@@ -1503,11 +1514,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-20T17:17:06.902189+00:00",
+  "bills_updated": "2026-11-21T16:20:52.478165+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "travel": [
     {

@@ -938,14 +938,54 @@
       "introduced_date": "2026-11-19",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
       "url": "https://api.congress.gov/v3/bill/119/hr/11096?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "obj",
+        "endobj",
+        "pdf",
+        "stream",
+        "font",
+        "procset",
+        "text",
+        "endstream",
+        "wks",
+        "wmo",
+        "fnd",
+        "orv",
+        "ecssl",
+        "uip",
+        "baqe",
+        "iok",
+        "rkl",
+        "waw",
+        "mvy",
+        "amz"
+      ],
+      "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.0,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10651-119",
+          "sponsor_id": "C001080",
+          "similarity_score": 0.979
+        },
+        {
+          "bill_id": "HR10902-119",
+          "sponsor_id": "V000133",
+          "similarity_score": 0.976
+        },
+        {
+          "bill_id": "HR10166-119",
+          "sponsor_id": "L000596",
+          "similarity_score": 0.969
+        }
+      ],
+      "cosponsors": [
+        "C001125",
+        "H001085"
+      ],
       "donor_interest": {
         "match": false,
         "matched_industries": [],
@@ -1437,7 +1477,7 @@
       }
     }
   ],
-  "bills_updated": "2026-11-20T16:47:11.657391+00:00",
+  "bills_updated": "2026-11-21T15:56:48.830336+00:00",
   "bills_count": 10,
   "donor_alignment_score": 20.0,
   "alec_match_count": 0,

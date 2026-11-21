@@ -929,20 +929,64 @@
       "number": "966",
       "congress": 119,
       "introduced_date": "2026-11-19",
-      "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S5796; text: CR S5819)",
+      "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
       "url": "https://api.congress.gov/v3/bill/119/sres/966?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "rural",
+        "health",
+        "care",
+        "national",
+        "day",
+        "november",
+        "providers",
+        "mrs",
+        "individuals",
+        "communities",
+        "patients",
+        "face",
+        "facilities",
+        "challenges",
+        "areas",
+        "systemic",
+        "res",
+        "agreed",
+        "designating",
+        "resolution"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.049,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES1673-119",
+          "sponsor_id": "T000487",
+          "similarity_score": 0.856
+        }
+      ],
+      "cosponsors": [
+        "B001267",
+        "J000312",
+        "W000790",
+        "H000601",
+        "R000584",
+        "C001047",
+        "H001061",
+        "B001243",
+        "H001079",
+        "W000779"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Healthcare"
+        ],
+        "keyword_hits": {
+          "Healthcare": [
+            "hospital"
+          ]
+        }
       }
     },
     {
@@ -1025,7 +1069,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.038,
+      "alec_best_similarity": 0.039,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1281,11 +1325,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-20T18:44:02.345821+00:00",
+  "bills_updated": "2026-11-21T17:37:03.102166+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": 5.0,
   "alec_match_count": 0,
-  "donor_match_count": 0,
+  "donor_match_count": 1,
   "edgar_status": "unresolved",
   "trades": [
     {
