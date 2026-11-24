@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000015.jpg",
   "term_start": "1989-01-01",
-  "score": 8,
+  "score": 2,
   "flags": [
     "donor"
   ],
@@ -931,41 +931,14 @@
   "bills": [
     {
       "bill_id": "HR10060-119",
-      "title": "Presidential Tax Accountability and Audit Integrity Act",
       "type": "HR",
       "number": "10060",
       "congress": 119,
+      "title": "Presidential Tax Accountability and Audit Integrity Act",
       "introduced_date": "2026-08-06",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/10060",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10060?format=json",
-      "keywords": [
-        "covered",
-        "instrument",
-        "code",
-        "internal",
-        "revenue",
-        "tax",
-        "made",
-        "described",
-        "person",
-        "purposes",
-        "president",
-        "related",
-        "relating",
-        "general",
-        "individual",
-        "entered",
-        "granted",
-        "applicable",
-        "orders",
-        "agreements"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-08-06",
       "cosponsors": [
         "D000399",
         "T000460",
@@ -976,189 +949,149 @@
         "D000617",
         "C001080",
         "M001160",
-        "B001296"
+        "B001296",
+        "B001292",
+        "E000296",
+        "S001190",
+        "P000613",
+        "G000585",
+        "H001066",
+        "P000610",
+        "S001201"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "covered",
-            "instrument",
-            "code",
-            "internal",
-            "revenue",
-            "tax",
-            "made",
-            "described",
-            "person",
-            "purposes",
-            "president",
-            "related",
-            "relating",
-            "general",
-            "individual",
-            "entered",
-            "granted",
-            "applicable",
-            "orders",
-            "agreements"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.088,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "S5275-119",
-              "sponsor_id": "W000779",
-              "similarity_score": 0.963
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
+      "sponsor_id": "N000015",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr10060.xml",
+      "metadata_source_sha256": "1f4d97409e792898e57e2d9320c94b3f16a6d69ef1cb5f130fb41df7c1fcd4b8",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S5275-119",
+          "bill_title": "Presidential Tax Accountability and Audit Integrity Act",
+          "member_id": "W000779",
+          "same_sponsor": false,
+          "similarity_score": 1.0,
+          "evidence": {
+            "longest_passage_words": 998,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "Short title This Act may be cited as the Presidential Tax Accountability and Audit Integrity Act . Prohibition on orders or agreements relating to release of tax claims by the President and related persons Prohibition In general Chapter 74 of the Internal Revenue Code of 1986 is amended by redesignating section 7124 as section 7125 and by inserting after section 7123 the following new section: Prohibited orders and agreements General rule The Secretary\u2014 is not authorized to enter into, grant, or make any covered instrument after the date of the enactment of this section, and shall give no effect to any covered instrument in administering and enforcing the internal revenue laws. Covered instrument For purposes of this section, the term covered",
+            "matched_passage": "Short title This Act may be cited as the Presidential Tax Accountability and Audit Integrity Act . Prohibition on orders or agreements relating to release of tax claims by the President and related persons Prohibition In general Chapter 74 of the Internal Revenue Code of 1986 is amended by redesignating section 7124 as section 7125 and by inserting after section 7123 the following new section: Prohibited orders and agreements General rule The Secretary\u2014 is not authorized to enter into, grant, or make any covered instrument after the date of the enactment of this section, and shall give no effect to any covered instrument in administering and enforcing the internal revenue laws. Covered instrument For purposes of this section, the term covered",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10060ih/xml/BILLS-119hr10060ih.xml",
+            "target_source_sha256": "d52c103d5027d54457c5052e773219b4c251955abc045eef917573cbc96c8a93",
+            "target_text_sha256": "95e9c94b9d8f4b18375974d4c81f8d403ecaacab54aa125fce7296ea111a7a18",
+            "target_version_code": "ih",
+            "target_version_date": "2026-08-06T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5275is/xml/BILLS-119s5275is.xml",
+            "matched_source_sha256": "3ab79b1c0148454b76dceed39fcb41fe5720ef86c1a851abb9bf8c224b2a84d7",
+            "matched_text_sha256": "95e9c94b9d8f4b18375974d4c81f8d403ecaacab54aa125fce7296ea111a7a18",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-08-06T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR10060-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10060ih/xml/BILLS-119hr10060ih.xml",
+        "source_sha256": "d52c103d5027d54457c5052e773219b4c251955abc045eef917573cbc96c8a93",
+        "text_sha256": "95e9c94b9d8f4b18375974d4c81f8d403ecaacab54aa125fce7296ea111a7a18",
+        "version_date": "2026-08-06T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr10060ih"
       },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9813-119",
-      "title": "To amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
       "type": "HR",
       "number": "9813",
       "congress": 119,
+      "title": "To amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
       "introduced_date": "2026-07-21",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9813",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9813?format=json",
-      "keywords": [
-        "year",
-        "applicable",
-        "taxable",
-        "amount",
-        "retirement",
-        "plan",
-        "distributions",
-        "distribution",
-        "individual",
-        "plans",
-        "required",
-        "account",
-        "excess",
-        "contributions",
-        "determined",
-        "employee",
-        "code",
-        "minimum",
-        "contribution",
-        "case"
+      "latest_action_date": "2026-07-21",
+      "cosponsors": [],
+      "sponsor_id": "N000015",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9813.xml",
+      "metadata_source_sha256": "9c6cfd321c5cd66a946aee30863108d7a8f014cb60c088ab1a40abcdcb8d1a8a",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S5040-119",
+          "bill_title": "A bill to amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
+          "member_id": "W000779",
+          "same_sponsor": false,
+          "similarity_score": 0.9999999403953552,
+          "evidence": {
+            "longest_passage_words": 2828,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "Contribution limit for individual retirement plans of high-income taxpayers with large account balances Contribution limit In general Subpart A of part I of subchapter D of chapter 1 of the Internal Revenue Code of 1986 is amended by adding at the end the following: Contribution limit on individual retirement plans of high-income taxpayers with large account balances General rule Notwithstanding any other provision of this title, in the case of an individual who is an applicable taxpayer for any taxable year, no applicable annual contributions for such taxable year shall be made by, or on behalf of, such individual to any individual retirement plan to the extent such applicable annual contributions exceed the excess (if any) of\u2014 the",
+            "matched_passage": "Contribution limit for individual retirement plans of high-income taxpayers with large account balances Contribution limit In general Subpart A of part I of subchapter D of chapter 1 of the Internal Revenue Code of 1986 is amended by adding at the end the following: Contribution limit on individual retirement plans of high-income taxpayers with large account balances General rule Notwithstanding any other provision of this title, in the case of an individual who is an applicable taxpayer for any taxable year, no applicable annual contributions for such taxable year shall be made by, or on behalf of, such individual to any individual retirement plan to the extent such applicable annual contributions exceed the excess (if any) of\u2014 the",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9813ih/xml/BILLS-119hr9813ih.xml",
+            "target_source_sha256": "e87eced062c86e6024b6fbf4d6ab62012ede40881b6626606bfbf670896a61c1",
+            "target_text_sha256": "6db29d0064ccd04f51f34b39135ea897d34f41a24e57fdd76410729bcf29cb92",
+            "target_version_code": "ih",
+            "target_version_date": "2026-07-21T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5040is/xml/BILLS-119s5040is.xml",
+            "matched_source_sha256": "a26da503cf6e66c3ef2d9fcb7223b3f77a522c1e1d1321d642e659e1f6054c59",
+            "matched_text_sha256": "1cf0aa1806387d52962e6b602f549229131e8efbaae8951470862ac6462f5f82",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-07-21T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9813-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9813ih/xml/BILLS-119hr9813ih.xml",
+        "source_sha256": "e87eced062c86e6024b6fbf4d6ab62012ede40881b6626606bfbf670896a61c1",
+        "text_sha256": "6db29d0064ccd04f51f34b39135ea897d34f41a24e57fdd76410729bcf29cb92",
+        "version_date": "2026-07-21T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9813ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "year",
-            "applicable",
-            "taxable",
-            "amount",
-            "retirement",
-            "plan",
-            "distributions",
-            "distribution",
-            "individual",
-            "plans",
-            "required",
-            "account",
-            "excess",
-            "contributions",
-            "determined",
-            "employee",
-            "code",
-            "minimum",
-            "contribution",
-            "case"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.178,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "S5040-119",
-              "sponsor_id": "W000779",
-              "similarity_score": 0.996
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR8060-119",
-      "title": "Elder Justice Reauthorization and Modernization Act of 2026",
       "type": "HR",
       "number": "8060",
       "congress": 119,
+      "title": "Elder Justice Reauthorization and Modernization Act of 2026",
       "introduced_date": "2026-03-24",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/8060",
       "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Energy and Commerce, Education and Workforce, and the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/8060?format=json",
-      "keywords": [
-        "state",
-        "secretary",
-        "amount",
-        "social",
-        "fiscal",
-        "eligible",
-        "organization",
-        "services",
-        "tribal",
-        "inserting",
-        "grants",
-        "year",
-        "years",
-        "community",
-        "indian",
-        "organizations",
-        "appropriated",
-        "programs",
-        "health",
-        "based"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-03-24",
       "cosponsors": [
         "B001278",
         "C001080",
@@ -1166,206 +1099,143 @@
         "W000788",
         "G000581"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Insurance": [
-            "risk"
-          ]
+      "sponsor_id": "N000015",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr8060.xml",
+      "metadata_source_sha256": "940953cd966cd4e8cbcc1c3a6456344837f1220e6cb16416e94bcb5f584aa0f1",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR6728-119",
+          "bill_title": "Linking Seniors to Needed Legal Services Act of 2025",
+          "member_id": "V000138",
+          "same_sponsor": false,
+          "similarity_score": 0.5271520614624023,
+          "evidence": {
+            "longest_passage_words": 211,
+            "target_word_offset": 2520,
+            "matched_word_offset": 149,
+            "displayed_passage_words": 120,
+            "target_passage": "including through the following: Medical-legal partnerships The establishment and support of medical-legal partnerships, the incorporation of the partnerships in the elder justice framework and health and human services safety net, and the implementation and operation of such a partnership by an eligible grantee\u2014 at the option of a State, in conjunction with an area agency on aging; in a solo provider practice in a health professional shortage area (as defined in section 332(a) of the Public Health Service Act), a medically underserved community (as defined in section 399V of such Act), or a rural area (as defined in section 330J of such Act); in a minority-serving institution of higher learning with health, law, and social services",
+            "matched_passage": "including through the following: Medical-legal partnerships The establishment and support of medical-legal partnerships, the incorporation of the partnerships in the elder justice framework and health and human services safety net, and the implementation and operation of such a partnership by an eligible grantee\u2014 at the option of a State, in conjunction with an area agency on aging; in a solo provider practice in a health professional shortage area (as defined in section 332(a) of the Public Health Service Act), a medically underserved community (as defined in section 399V of such Act), or a rural area (as defined in section 330J of such Act); in a minority-serving institution of higher learning with health, law, and social services",
+            "target_shingle_coverage": 0.1779835390946502,
+            "matched_shingle_coverage": 0.802784222737819,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8060ih/xml/BILLS-119hr8060ih.xml",
+            "target_source_sha256": "6b411610ccbc02ec23e171d1d0dced7e2914e96e6d321bc635aded01354706b2",
+            "target_text_sha256": "2db442b7125ccc18f4dcbdddd108eb26c76178466c1b92bc8fd38fb5b734e577",
+            "target_version_code": "ih",
+            "target_version_date": "2026-03-24T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6728ih/xml/BILLS-119hr6728ih.xml",
+            "matched_source_sha256": "8a56b5230f424f1e50c342e5679b843beb781d5b22a221bd2de2644fa08f45f7",
+            "matched_text_sha256": "00e4f0c461823f8d28988c23f80a8d2763f5adac431ff6d8c67514bb241b738a",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-12-15T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "S4816-119",
+          "bill_title": "Addressing SILO Act of 2026",
+          "member_id": "M001169",
+          "same_sponsor": false,
+          "similarity_score": 0.4410111904144287,
+          "evidence": {
+            "longest_passage_words": 84,
+            "target_word_offset": 3423,
+            "matched_word_offset": 528,
+            "displayed_passage_words": 84,
+            "target_passage": "Community-based organization The term community-based organization includes, except as otherwise provided by the Secretary, a nonprofit community-based organization, a consortium of nonprofit community-based organizations, a national nonprofit organization acting as an intermediary for a community-based organization, or a community-based organization that has a fiscal sponsor that allows the organization to function as an organization described in section 501(c)(3) of the Internal Revenue Code of 1986 and exempt from taxation under section 501(a) of such Code",
+            "matched_passage": "Community-based organization The term community-based organization includes, except as otherwise provided by the Secretary, a nonprofit community-based organization, a consortium of nonprofit community-based organizations, a national nonprofit organization acting as an intermediary for a community-based organization, or a community-based organization that has a fiscal sponsor that allows the organization to function as an organization described in section 501(c)(3) of the Internal Revenue Code of 1986 and exempt from taxation under section 501(a) of such Code",
+            "target_shingle_coverage": 0.06867283950617284,
+            "matched_shingle_coverage": 0.3914956011730205,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8060ih/xml/BILLS-119hr8060ih.xml",
+            "target_source_sha256": "6b411610ccbc02ec23e171d1d0dced7e2914e96e6d321bc635aded01354706b2",
+            "target_text_sha256": "2db442b7125ccc18f4dcbdddd108eb26c76178466c1b92bc8fd38fb5b734e577",
+            "target_version_code": "ih",
+            "target_version_date": "2026-03-24T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s4816is/xml/BILLS-119s4816is.xml",
+            "matched_source_sha256": "e3f07c6e3f8bf0fa3d8a99e6ae16c7e2dbbbd082188efc55a6aecf6145dddfa9",
+            "matched_text_sha256": "08776793d46b75bc47b575753640206ebcbe2ee849b6a95832c484cf956fce99",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-06-17T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR8060-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8060ih/xml/BILLS-119hr8060ih.xml",
+        "source_sha256": "6b411610ccbc02ec23e171d1d0dced7e2914e96e6d321bc635aded01354706b2",
+        "text_sha256": "2db442b7125ccc18f4dcbdddd108eb26c76178466c1b92bc8fd38fb5b734e577",
+        "version_date": "2026-03-24T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr8060ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "state",
-            "secretary",
-            "amount",
-            "social",
-            "fiscal",
-            "eligible",
-            "organization",
-            "services",
-            "tribal",
-            "inserting",
-            "grants",
-            "year",
-            "years",
-            "community",
-            "indian",
-            "organizations",
-            "appropriated",
-            "programs",
-            "health",
-            "based"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.059,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Insurance"
-            ],
-            "keyword_hits": {
-              "Insurance": [
-                "risk"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR6722-119",
-      "title": "Automatic IRA Act of 2025",
       "type": "HR",
       "number": "6722",
       "congress": 119,
+      "title": "Automatic IRA Act of 2025",
       "introduced_date": "2025-12-15",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6722",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/6722?format=json",
-      "keywords": [
-        "employer",
-        "arrangement",
-        "automatic",
-        "ira",
-        "plan",
-        "requirements",
-        "employee",
-        "year",
-        "treated",
-        "individual",
-        "described",
-        "retirement",
-        "respect",
-        "general",
-        "subparagraph",
-        "contributions",
-        "contribution",
-        "arrangements",
-        "purposes",
-        "employees"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-12-15",
       "cosponsors": [
         "D000096",
         "S001156",
         "V000138",
         "M001231"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Insurance": [
-            "liability",
-            "deductible"
-          ]
-        }
+      "sponsor_id": "N000015",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr6722.xml",
+      "metadata_source_sha256": "ce75db3c9e1fff41f33ccc4abc934a5eff28ddb632cfc468c0da51e9352208bc",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR6722-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6722ih/xml/BILLS-119hr6722ih.xml",
+        "source_sha256": "18d5444b9f765505d4249eb3ac21c6a56e1552071e98a7afa64794ae1ded241a",
+        "text_sha256": "f165dfd18ff2ca6fe8a3623fcab324221608a045ed977ec8577aff19c413437e",
+        "version_date": "2025-12-15T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr6722ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "employer",
-            "arrangement",
-            "automatic",
-            "ira",
-            "plan",
-            "requirements",
-            "employee",
-            "year",
-            "treated",
-            "individual",
-            "described",
-            "retirement",
-            "respect",
-            "general",
-            "subparagraph",
-            "contributions",
-            "contribution",
-            "arrangements",
-            "purposes",
-            "employees"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.144,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Insurance"
-            ],
-            "keyword_hits": {
-              "Insurance": [
-                "liability",
-                "deductible"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR1337-119",
-      "title": "To add Ireland to the E3 nonimmigrant visa program.",
       "type": "HR",
       "number": "1337",
       "congress": 119,
+      "title": "To add Ireland to the E3 nonimmigrant visa program.",
       "introduced_date": "2025-02-13",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1337",
       "latest_action": "Referred to the House Committee on the Judiciary.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/1337?format=json",
-      "keywords": [
-        "ireland",
-        "nationals",
-        "iii",
-        "immigration",
-        "described",
-        "aliens",
-        "program",
-        "nationality",
-        "national",
-        "australia",
-        "fiscal",
-        "year",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "add",
-        "nonimmigrant",
-        "visa",
-        "bill"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-02-13",
       "cosponsors": [
         "K000376",
         "M001225",
@@ -1378,588 +1248,70 @@
         "L000599",
         "F000466"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "ireland",
-            "nationals",
-            "iii",
-            "immigration",
-            "described",
-            "aliens",
-            "program",
-            "nationality",
-            "national",
-            "australia",
-            "fiscal",
-            "year",
-            "html",
-            "body",
-            "pre",
-            "introduced",
-            "add",
-            "nonimmigrant",
-            "visa",
-            "bill"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.068,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR5534-119",
-              "sponsor_id": "S001201",
-              "similarity_score": 0.906
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
+      "sponsor_id": "N000015",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr1337.xml",
+      "metadata_source_sha256": "6c119c19464c29ad1b2e0b3ad0eb88f9d75c6abe846b0a6cd2f7d623e27f1e80",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR5534-119",
+          "bill_title": "To add the Republic of Korea to the E-3 nonimmigrant visa program.",
+          "member_id": "S001201",
+          "same_sponsor": false,
+          "similarity_score": 0.9260972738265991,
+          "evidence": {
+            "longest_passage_words": 107,
+            "target_word_offset": 158,
+            "matched_word_offset": 173,
+            "displayed_passage_words": 107,
+            "target_passage": "national, a participant in good standing in the E-Verify program described in section 403(a) of the Illegal Immigration Reform and Immigrant Responsibility Act of 1996 ( 8 U.S.C. 1324a note). . Application allocation Paragraph (11) of section 214(g) of the Immigration and Nationality Act ( 8 U.S.C. 1184(g)(11) ) is amended to read as follows: The Secretary of State may approve initial applications submitted for aliens described in section 101(a)(15)(E)(iii) only as follows: For applicants who are nationals of the Commonwealth of Australia, not more than 10,500 for a fiscal year. For applicants who are nationals of",
+            "matched_passage": "national, a participant in good standing in the E-Verify program described in section 403(a) of the Illegal Immigration Reform and Immigrant Responsibility Act of 1996 ( 8 U.S.C. 1324a note). . Application allocation Paragraph (11) of section 214(g) of the Immigration and Nationality Act ( 8 U.S.C. 1184(g)(11) ) is amended to read as follows: The Secretary of State may approve initial applications submitted for aliens described in section 101(a)(15)(E)(iii) only as follows: For applicants who are nationals of the Commonwealth of Australia, not more than 10,500 for a fiscal year. For applicants who are nationals of",
+            "target_shingle_coverage": 0.8136094674556213,
+            "matched_shingle_coverage": 0.7275132275132276,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1337ih/xml/BILLS-119hr1337ih.xml",
+            "target_source_sha256": "84c3d0cc0fbbb73e9cf38facf7f7e56303ea0ad190f1408d009bc80e7d42cab7",
+            "target_text_sha256": "6c2c7d86b1dd8a27df9657d47e7d6026ef53aa5e6989b3a0de6539f167b88c2a",
+            "target_version_code": "ih",
+            "target_version_date": "2025-02-13T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5534ih/xml/BILLS-119hr5534ih.xml",
+            "matched_source_sha256": "31c7091408fcbb7f0c48fadc3f7fe2fd18cc57cddcd8072257a39cdc59e9b9f2",
+            "matched_text_sha256": "550bd9f9ea91a084c3f4199825b752c18fbcd0d855ef38281c64f94dd7203608",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-09-19T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HRES1345-118",
-      "title": "Recognizing the 100th anniversary of the establishment of diplomatic relations between the United States and Ireland.",
-      "type": "HRES",
-      "number": "1345",
-      "congress": 118,
-      "introduced_date": "2024-07-09",
-      "latest_action": "Referred to the House Committee on Foreign Affairs.",
-      "url": "https://api.congress.gov/v3/bill/118/hres/1345?format=json",
-      "keywords": [
-        "ireland",
-        "diplomatic",
-        "relations",
-        "establishment",
-        "irish",
-        "people",
-        "peace",
-        "relationship",
-        "anniversary",
-        "pennsylvania",
-        "island",
-        "html",
-        "body",
-        "pre",
-        "congressional",
-        "res",
-        "recognizing",
-        "mrs",
-        "resolution",
-        "foreign"
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "K000376",
-        "F000471",
-        "K000375",
-        "Q000023",
-        "F000466",
-        "M000312",
-        "S000522",
-        "L000562",
-        "C001090",
-        "M001225"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Insurance": [
-            "claim"
-          ]
-        }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR1337-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1337ih/xml/BILLS-119hr1337ih.xml",
+        "source_sha256": "84c3d0cc0fbbb73e9cf38facf7f7e56303ea0ad190f1408d009bc80e7d42cab7",
+        "text_sha256": "6c2c7d86b1dd8a27df9657d47e7d6026ef53aa5e6989b3a0de6539f167b88c2a",
+        "version_date": "2025-02-13T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr1337ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "ireland",
-            "diplomatic",
-            "relations",
-            "establishment",
-            "irish",
-            "people",
-            "peace",
-            "relationship",
-            "anniversary",
-            "pennsylvania",
-            "island",
-            "html",
-            "body",
-            "pre",
-            "congressional",
-            "res",
-            "recognizing",
-            "mrs",
-            "resolution",
-            "foreign"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.035,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Insurance"
-            ],
-            "keyword_hits": {
-              "Insurance": [
-                "claim"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR8392-118",
-      "title": "To add Ireland to the E3 nonimmigrant visa program.",
-      "type": "HR",
-      "number": "8392",
-      "congress": 118,
-      "introduced_date": "2024-05-14",
-      "latest_action": "Referred to the House Committee on the Judiciary.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/8392?format=json",
-      "keywords": [
-        "ireland",
-        "nationals",
-        "iii",
-        "immigration",
-        "described",
-        "aliens",
-        "program",
-        "nationality",
-        "national",
-        "australia",
-        "fiscal",
-        "year",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "add",
-        "nonimmigrant",
-        "visa",
-        "bill"
-      ],
       "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "K000376"
-      ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "ireland",
-            "nationals",
-            "iii",
-            "immigration",
-            "described",
-            "aliens",
-            "program",
-            "nationality",
-            "national",
-            "australia",
-            "fiscal",
-            "year",
-            "html",
-            "body",
-            "pre",
-            "introduced",
-            "add",
-            "nonimmigrant",
-            "visa",
-            "bill"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.068,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR5534-119",
-              "sponsor_id": "S001201",
-              "similarity_score": 0.908
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR7293-118",
-      "title": "Automatic IRA Act of 2024",
-      "type": "HR",
-      "number": "7293",
-      "congress": 118,
-      "introduced_date": "2024-02-07",
-      "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/7293?format=json",
-      "keywords": [
-        "arrangement",
-        "employer",
-        "automatic",
-        "ira",
-        "plan",
-        "requirements",
-        "employee",
-        "year",
-        "individual",
-        "described",
-        "treated",
-        "retirement",
-        "contributions",
-        "arrangements",
-        "general",
-        "contribution",
-        "employees",
-        "made",
-        "respect",
-        "subparagraph"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "D000096",
-        "N000188"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Insurance": [
-            "liability",
-            "deductible"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "arrangement",
-            "employer",
-            "automatic",
-            "ira",
-            "plan",
-            "requirements",
-            "employee",
-            "year",
-            "individual",
-            "described",
-            "treated",
-            "retirement",
-            "contributions",
-            "arrangements",
-            "general",
-            "contribution",
-            "employees",
-            "made",
-            "respect",
-            "subparagraph"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.146,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Insurance"
-            ],
-            "keyword_hits": {
-              "Insurance": [
-                "liability",
-                "deductible"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR4260-118",
-      "title": "Public Servants Protection and Fairness Act of 2023",
-      "type": "HR",
-      "number": "4260",
-      "congress": 118,
-      "introduced_date": "2023-06-21",
-      "latest_action": "Referred to the Subcommittee on Social Security.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/4260?format=json",
-      "keywords": [
-        "individual",
-        "amount",
-        "insurance",
-        "earnings",
-        "noncovered",
-        "month",
-        "monthly",
-        "security",
-        "primary",
-        "social",
-        "computed",
-        "service",
-        "eligible",
-        "benefit",
-        "commissioner",
-        "payment",
-        "subparagraph",
-        "recomputed",
-        "year",
-        "defined"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "A000376",
-        "A000148",
-        "B001300",
-        "B001281",
-        "B001292",
-        "B000574",
-        "B001303",
-        "B001278",
-        "B001296",
-        "B001285"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Insurance": [
-            "insurance",
-            "actuary"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "individual",
-            "amount",
-            "insurance",
-            "earnings",
-            "noncovered",
-            "month",
-            "monthly",
-            "security",
-            "primary",
-            "social",
-            "computed",
-            "service",
-            "eligible",
-            "benefit",
-            "commissioner",
-            "payment",
-            "subparagraph",
-            "recomputed",
-            "year",
-            "defined"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.079,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Insurance"
-            ],
-            "keyword_hits": {
-              "Insurance": [
-                "insurance",
-                "actuary"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
-    },
-    {
-      "bill_id": "HR2718-118",
-      "title": "Elder Justice Reauthorization and Modernization Act of 2023",
-      "type": "HR",
-      "number": "2718",
-      "congress": 118,
-      "introduced_date": "2023-04-19",
-      "latest_action": "Referred to the Subcommittee on Work and Welfare.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/2718?format=json",
-      "keywords": [
-        "state",
-        "secretary",
-        "amount",
-        "social",
-        "fiscal",
-        "eligible",
-        "organization",
-        "tribal",
-        "services",
-        "inserting",
-        "grants",
-        "years",
-        "indian",
-        "community",
-        "appropriated",
-        "year",
-        "organizations",
-        "health",
-        "programs",
-        "based"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "B001278",
-        "D000096",
-        "P000096",
-        "C001127",
-        "M001206",
-        "S001185",
-        "B001300",
-        "E000296",
-        "S001156",
-        "C001080"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Insurance"
-        ],
-        "keyword_hits": {
-          "Insurance": [
-            "risk"
-          ]
-        }
-      },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "state",
-            "secretary",
-            "amount",
-            "social",
-            "fiscal",
-            "eligible",
-            "organization",
-            "tribal",
-            "services",
-            "inserting",
-            "grants",
-            "years",
-            "indian",
-            "community",
-            "appropriated",
-            "year",
-            "organizations",
-            "health",
-            "programs",
-            "based"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.06,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Insurance"
-            ],
-            "keyword_hits": {
-              "Insurance": [
-                "risk"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-18T17:47:55.726349+00:00",
-  "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "bills_updated": "2026-11-24T00:21:39.136155+00:00",
+  "bills_count": 5,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
-  "donor_match_count": 6,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 43,
+  "donor_match_count": 0,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 48,
   "top_donors_list": [
     {
       "name": "GRINSPOON, HAROLD",
@@ -2108,24 +1460,24 @@
   "top_donor_industries": [
     "Insurance"
   ],
-  "donors_updated": "2026-11-17T19:43:43.314318+00:00",
+  "donors_updated": "2026-11-23T22:34:06.871030+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 6,
+    "donor_alignment": 0,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 2
   },
-  "score_updated": "2026-11-18T19:33:59.210103",
+  "score_updated": "2026-11-23T19:34:30.660979",
   "missed_votes_pct": 10.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus",
+  "bills_analysis_status": "analyzed",
   "edgar_reconciliation": {
     "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
     "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
@@ -2149,16 +1501,2844 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:10:17.991563",
+  "edgar_checked": "2026-11-23T16:13:28.846559",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:10:17.991563",
   "votes_refresh_provenance": {
-    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-    "run": 44276045061,
-    "legacy_review_votes_updated": "2026-11-17T10:00:07.804133",
-    "legacy_source_votes_updated": "2026-11-18T09:34:24.566545",
-    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T10:00:07.804133",
+      "legacy_source_votes_updated": "2026-11-18T09:34:24.566545",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "checked": "2026-11-21T09:04:58.027885",
+      "failed_attempt_count": 46,
+      "status": "fetch_failed"
+    }
   },
-  "votes_checked": "2026-11-18T09:34:24.566545"
+  "votes_checked": "2026-11-23T10:05:59.620719",
+  "upstream_sec_observation": {
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+    "candidate_only": true,
+    "fields": {
+      "corporate_insider_signals": 0,
+      "data_updated": "2026-11-23T16:13:28.846559",
+      "edgar_cik": null,
+      "edgar_status": "unresolved"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10060-119",
+            "title": "Presidential Tax Accountability and Audit Integrity Act",
+            "type": "HR",
+            "number": "10060",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10060?format=json",
+            "keywords": [
+              "covered",
+              "instrument",
+              "code",
+              "internal",
+              "revenue",
+              "tax",
+              "made",
+              "described",
+              "person",
+              "purposes",
+              "president",
+              "related",
+              "relating",
+              "general",
+              "individual",
+              "entered",
+              "granted",
+              "applicable",
+              "orders",
+              "agreements"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000399",
+              "T000460",
+              "L000557",
+              "D000096",
+              "S001156",
+              "S001185",
+              "D000617",
+              "C001080",
+              "M001160",
+              "B001296"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "covered",
+                  "instrument",
+                  "code",
+                  "internal",
+                  "revenue",
+                  "tax",
+                  "made",
+                  "described",
+                  "person",
+                  "purposes",
+                  "president",
+                  "related",
+                  "relating",
+                  "general",
+                  "individual",
+                  "entered",
+                  "granted",
+                  "applicable",
+                  "orders",
+                  "agreements"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.088,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "S5275-119",
+                    "sponsor_id": "W000779",
+                    "similarity_score": 0.963
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR9813-119",
+            "title": "To amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
+            "type": "HR",
+            "number": "9813",
+            "congress": 119,
+            "introduced_date": "2026-07-21",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9813?format=json",
+            "keywords": [
+              "year",
+              "applicable",
+              "taxable",
+              "amount",
+              "retirement",
+              "plan",
+              "distributions",
+              "distribution",
+              "individual",
+              "plans",
+              "required",
+              "account",
+              "excess",
+              "contributions",
+              "determined",
+              "employee",
+              "code",
+              "minimum",
+              "contribution",
+              "case"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "year",
+                  "applicable",
+                  "taxable",
+                  "amount",
+                  "retirement",
+                  "plan",
+                  "distributions",
+                  "distribution",
+                  "individual",
+                  "plans",
+                  "required",
+                  "account",
+                  "excess",
+                  "contributions",
+                  "determined",
+                  "employee",
+                  "code",
+                  "minimum",
+                  "contribution",
+                  "case"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.178,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "S5040-119",
+                    "sponsor_id": "W000779",
+                    "similarity_score": 0.996
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR8060-119",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2026",
+            "type": "HR",
+            "number": "8060",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Energy and Commerce, Education and Workforce, and the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8060?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "services",
+              "tribal",
+              "inserting",
+              "grants",
+              "year",
+              "years",
+              "community",
+              "indian",
+              "organizations",
+              "appropriated",
+              "programs",
+              "health",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "C001080",
+              "N000147",
+              "W000788",
+              "G000581"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "state",
+                  "secretary",
+                  "amount",
+                  "social",
+                  "fiscal",
+                  "eligible",
+                  "organization",
+                  "services",
+                  "tribal",
+                  "inserting",
+                  "grants",
+                  "year",
+                  "years",
+                  "community",
+                  "indian",
+                  "organizations",
+                  "appropriated",
+                  "programs",
+                  "health",
+                  "based"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.059,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Insurance"
+                  ],
+                  "keyword_hits": {
+                    "Insurance": [
+                      "risk"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR6722-119",
+            "title": "Automatic IRA Act of 2025",
+            "type": "HR",
+            "number": "6722",
+            "congress": 119,
+            "introduced_date": "2025-12-15",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6722?format=json",
+            "keywords": [
+              "employer",
+              "arrangement",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "treated",
+              "individual",
+              "described",
+              "retirement",
+              "respect",
+              "general",
+              "subparagraph",
+              "contributions",
+              "contribution",
+              "arrangements",
+              "purposes",
+              "employees"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "S001156",
+              "V000138",
+              "M001231"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "employer",
+                  "arrangement",
+                  "automatic",
+                  "ira",
+                  "plan",
+                  "requirements",
+                  "employee",
+                  "year",
+                  "treated",
+                  "individual",
+                  "described",
+                  "retirement",
+                  "respect",
+                  "general",
+                  "subparagraph",
+                  "contributions",
+                  "contribution",
+                  "arrangements",
+                  "purposes",
+                  "employees"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.144,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Insurance"
+                  ],
+                  "keyword_hits": {
+                    "Insurance": [
+                      "liability",
+                      "deductible"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR1337-119",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "1337",
+            "congress": 119,
+            "introduced_date": "2025-02-13",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1337?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000376",
+              "M001225",
+              "M000312",
+              "B001296",
+              "S001205",
+              "K000402",
+              "M001210",
+              "M001238",
+              "L000599",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "ireland",
+                  "nationals",
+                  "iii",
+                  "immigration",
+                  "described",
+                  "aliens",
+                  "program",
+                  "nationality",
+                  "national",
+                  "australia",
+                  "fiscal",
+                  "year",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "add",
+                  "nonimmigrant",
+                  "visa",
+                  "bill"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.068,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR5534-119",
+                    "sponsor_id": "S001201",
+                    "similarity_score": 0.906
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HRES1345-118",
+            "title": "Recognizing the 100th anniversary of the establishment of diplomatic relations between the United States and Ireland.",
+            "type": "HRES",
+            "number": "1345",
+            "congress": 118,
+            "introduced_date": "2024-07-09",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/118/hres/1345?format=json",
+            "keywords": [
+              "ireland",
+              "diplomatic",
+              "relations",
+              "establishment",
+              "irish",
+              "people",
+              "peace",
+              "relationship",
+              "anniversary",
+              "pennsylvania",
+              "island",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "recognizing",
+              "mrs",
+              "resolution",
+              "foreign"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000376",
+              "F000471",
+              "K000375",
+              "Q000023",
+              "F000466",
+              "M000312",
+              "S000522",
+              "L000562",
+              "C001090",
+              "M001225"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "claim"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "ireland",
+                  "diplomatic",
+                  "relations",
+                  "establishment",
+                  "irish",
+                  "people",
+                  "peace",
+                  "relationship",
+                  "anniversary",
+                  "pennsylvania",
+                  "island",
+                  "html",
+                  "body",
+                  "pre",
+                  "congressional",
+                  "res",
+                  "recognizing",
+                  "mrs",
+                  "resolution",
+                  "foreign"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.035,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Insurance"
+                  ],
+                  "keyword_hits": {
+                    "Insurance": [
+                      "claim"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR8392-118",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "8392",
+            "congress": 118,
+            "introduced_date": "2024-05-14",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8392?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000376"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "ireland",
+                  "nationals",
+                  "iii",
+                  "immigration",
+                  "described",
+                  "aliens",
+                  "program",
+                  "nationality",
+                  "national",
+                  "australia",
+                  "fiscal",
+                  "year",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "add",
+                  "nonimmigrant",
+                  "visa",
+                  "bill"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.068,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR5534-119",
+                    "sponsor_id": "S001201",
+                    "similarity_score": 0.908
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR7293-118",
+            "title": "Automatic IRA Act of 2024",
+            "type": "HR",
+            "number": "7293",
+            "congress": 118,
+            "introduced_date": "2024-02-07",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/7293?format=json",
+            "keywords": [
+              "arrangement",
+              "employer",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "individual",
+              "described",
+              "treated",
+              "retirement",
+              "contributions",
+              "arrangements",
+              "general",
+              "contribution",
+              "employees",
+              "made",
+              "respect",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "N000188"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "arrangement",
+                  "employer",
+                  "automatic",
+                  "ira",
+                  "plan",
+                  "requirements",
+                  "employee",
+                  "year",
+                  "individual",
+                  "described",
+                  "treated",
+                  "retirement",
+                  "contributions",
+                  "arrangements",
+                  "general",
+                  "contribution",
+                  "employees",
+                  "made",
+                  "respect",
+                  "subparagraph"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.146,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Insurance"
+                  ],
+                  "keyword_hits": {
+                    "Insurance": [
+                      "liability",
+                      "deductible"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR4260-118",
+            "title": "Public Servants Protection and Fairness Act of 2023",
+            "type": "HR",
+            "number": "4260",
+            "congress": 118,
+            "introduced_date": "2023-06-21",
+            "latest_action": "Referred to the Subcommittee on Social Security.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/4260?format=json",
+            "keywords": [
+              "individual",
+              "amount",
+              "insurance",
+              "earnings",
+              "noncovered",
+              "month",
+              "monthly",
+              "security",
+              "primary",
+              "social",
+              "computed",
+              "service",
+              "eligible",
+              "benefit",
+              "commissioner",
+              "payment",
+              "subparagraph",
+              "recomputed",
+              "year",
+              "defined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000376",
+              "A000148",
+              "B001300",
+              "B001281",
+              "B001292",
+              "B000574",
+              "B001303",
+              "B001278",
+              "B001296",
+              "B001285"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "insurance",
+                  "actuary"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "individual",
+                  "amount",
+                  "insurance",
+                  "earnings",
+                  "noncovered",
+                  "month",
+                  "monthly",
+                  "security",
+                  "primary",
+                  "social",
+                  "computed",
+                  "service",
+                  "eligible",
+                  "benefit",
+                  "commissioner",
+                  "payment",
+                  "subparagraph",
+                  "recomputed",
+                  "year",
+                  "defined"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.079,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Insurance"
+                  ],
+                  "keyword_hits": {
+                    "Insurance": [
+                      "insurance",
+                      "actuary"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR2718-118",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2023",
+            "type": "HR",
+            "number": "2718",
+            "congress": 118,
+            "introduced_date": "2023-04-19",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/2718?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "tribal",
+              "services",
+              "inserting",
+              "grants",
+              "years",
+              "indian",
+              "community",
+              "appropriated",
+              "year",
+              "organizations",
+              "health",
+              "programs",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "D000096",
+              "P000096",
+              "C001127",
+              "M001206",
+              "S001185",
+              "B001300",
+              "E000296",
+              "S001156",
+              "C001080"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "state",
+                  "secretary",
+                  "amount",
+                  "social",
+                  "fiscal",
+                  "eligible",
+                  "organization",
+                  "tribal",
+                  "services",
+                  "inserting",
+                  "grants",
+                  "years",
+                  "indian",
+                  "community",
+                  "appropriated",
+                  "year",
+                  "organizations",
+                  "health",
+                  "programs",
+                  "based"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.06,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Insurance"
+                  ],
+                  "keyword_hits": {
+                    "Insurance": [
+                      "risk"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          }
+        ],
+        "bills_updated": "2026-11-18T17:47:55.726349+00:00",
+        "bills_count": 10,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 30.0,
+        "donor_match_count": 6,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "alec_match_count": 0,
+        "bills": [
+          {
+            "bill_id": "HR10060-119",
+            "title": "Presidential Tax Accountability and Audit Integrity Act",
+            "type": "HR",
+            "number": "10060",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10060?format=json",
+            "keywords": [
+              "covered",
+              "instrument",
+              "code",
+              "internal",
+              "revenue",
+              "tax",
+              "made",
+              "described",
+              "person",
+              "purposes",
+              "president",
+              "related",
+              "relating",
+              "general",
+              "individual",
+              "entered",
+              "granted",
+              "applicable",
+              "orders",
+              "agreements"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.088,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5275-119",
+                "sponsor_id": "W000779",
+                "similarity_score": 0.963
+              }
+            ],
+            "cosponsors": [
+              "D000399",
+              "T000460",
+              "L000557",
+              "D000096",
+              "S001156",
+              "S001185",
+              "D000617",
+              "C001080",
+              "M001160",
+              "B001296"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9813-119",
+            "title": "To amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
+            "type": "HR",
+            "number": "9813",
+            "congress": 119,
+            "introduced_date": "2026-07-21",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9813?format=json",
+            "keywords": [
+              "year",
+              "applicable",
+              "taxable",
+              "amount",
+              "retirement",
+              "plan",
+              "distributions",
+              "distribution",
+              "individual",
+              "plans",
+              "required",
+              "account",
+              "excess",
+              "contributions",
+              "determined",
+              "employee",
+              "code",
+              "minimum",
+              "contribution",
+              "case"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.178,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5040-119",
+                "sponsor_id": "W000779",
+                "similarity_score": 0.996
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8060-119",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2026",
+            "type": "HR",
+            "number": "8060",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Energy and Commerce, Education and Workforce, and the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8060?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "services",
+              "tribal",
+              "inserting",
+              "grants",
+              "year",
+              "years",
+              "community",
+              "indian",
+              "organizations",
+              "appropriated",
+              "programs",
+              "health",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "C001080",
+              "N000147",
+              "W000788",
+              "G000581"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6722-119",
+            "title": "Automatic IRA Act of 2025",
+            "type": "HR",
+            "number": "6722",
+            "congress": 119,
+            "introduced_date": "2025-12-15",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6722?format=json",
+            "keywords": [
+              "employer",
+              "arrangement",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "treated",
+              "individual",
+              "described",
+              "retirement",
+              "respect",
+              "general",
+              "subparagraph",
+              "contributions",
+              "contribution",
+              "arrangements",
+              "purposes",
+              "employees"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.144,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "S001156",
+              "V000138",
+              "M001231"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR1337-119",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "1337",
+            "congress": 119,
+            "introduced_date": "2025-02-13",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1337?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5534-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.906
+              }
+            ],
+            "cosponsors": [
+              "K000376",
+              "M001225",
+              "M000312",
+              "B001296",
+              "S001205",
+              "K000402",
+              "M001210",
+              "M001238",
+              "L000599",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1345-118",
+            "title": "Recognizing the 100th anniversary of the establishment of diplomatic relations between the United States and Ireland.",
+            "type": "HRES",
+            "number": "1345",
+            "congress": 118,
+            "introduced_date": "2024-07-09",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/118/hres/1345?format=json",
+            "keywords": [
+              "ireland",
+              "diplomatic",
+              "relations",
+              "establishment",
+              "irish",
+              "people",
+              "peace",
+              "relationship",
+              "anniversary",
+              "pennsylvania",
+              "island",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "recognizing",
+              "mrs",
+              "resolution",
+              "foreign"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.035,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000376",
+              "F000471",
+              "K000375",
+              "Q000023",
+              "F000466",
+              "M000312",
+              "S000522",
+              "L000562",
+              "C001090",
+              "M001225"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "claim"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8392-118",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "8392",
+            "congress": 118,
+            "introduced_date": "2024-05-14",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8392?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5534-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.908
+              }
+            ],
+            "cosponsors": [
+              "K000376"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7293-118",
+            "title": "Automatic IRA Act of 2024",
+            "type": "HR",
+            "number": "7293",
+            "congress": 118,
+            "introduced_date": "2024-02-07",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/7293?format=json",
+            "keywords": [
+              "arrangement",
+              "employer",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "individual",
+              "described",
+              "treated",
+              "retirement",
+              "contributions",
+              "arrangements",
+              "general",
+              "contribution",
+              "employees",
+              "made",
+              "respect",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.146,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "N000188"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4260-118",
+            "title": "Public Servants Protection and Fairness Act of 2023",
+            "type": "HR",
+            "number": "4260",
+            "congress": 118,
+            "introduced_date": "2023-06-21",
+            "latest_action": "Referred to the Subcommittee on Social Security.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/4260?format=json",
+            "keywords": [
+              "individual",
+              "amount",
+              "insurance",
+              "earnings",
+              "noncovered",
+              "month",
+              "monthly",
+              "security",
+              "primary",
+              "social",
+              "computed",
+              "service",
+              "eligible",
+              "benefit",
+              "commissioner",
+              "payment",
+              "subparagraph",
+              "recomputed",
+              "year",
+              "defined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.079,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000376",
+              "A000148",
+              "B001300",
+              "B001281",
+              "B001292",
+              "B000574",
+              "B001303",
+              "B001278",
+              "B001296",
+              "B001285"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "insurance",
+                  "actuary"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR2718-118",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2023",
+            "type": "HR",
+            "number": "2718",
+            "congress": 118,
+            "introduced_date": "2023-04-19",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/2718?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "tribal",
+              "services",
+              "inserting",
+              "grants",
+              "years",
+              "indian",
+              "community",
+              "appropriated",
+              "year",
+              "organizations",
+              "health",
+              "programs",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "D000096",
+              "P000096",
+              "C001127",
+              "M001206",
+              "S001185",
+              "B001300",
+              "E000296",
+              "S001156",
+              "C001080"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_count": 10,
+        "bills_updated": "2026-11-21T16:54:50.094946+00:00",
+        "donor_alignment_score": 30.0,
+        "donor_match_count": 6
+      }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10060-119",
+            "title": "Presidential Tax Accountability and Audit Integrity Act",
+            "type": "HR",
+            "number": "10060",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10060?format=json",
+            "keywords": [
+              "covered",
+              "instrument",
+              "code",
+              "internal",
+              "revenue",
+              "tax",
+              "made",
+              "described",
+              "person",
+              "purposes",
+              "president",
+              "related",
+              "relating",
+              "general",
+              "individual",
+              "entered",
+              "granted",
+              "applicable",
+              "orders",
+              "agreements"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.088,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5275-119",
+                "sponsor_id": "W000779",
+                "similarity_score": 0.965
+              }
+            ],
+            "cosponsors": [
+              "D000399",
+              "T000460",
+              "L000557",
+              "D000096",
+              "S001156",
+              "S001185",
+              "D000617",
+              "C001080",
+              "M001160",
+              "B001296"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9813-119",
+            "title": "To amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
+            "type": "HR",
+            "number": "9813",
+            "congress": 119,
+            "introduced_date": "2026-07-21",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9813?format=json",
+            "keywords": [
+              "year",
+              "applicable",
+              "taxable",
+              "amount",
+              "retirement",
+              "plan",
+              "distributions",
+              "distribution",
+              "individual",
+              "plans",
+              "required",
+              "account",
+              "excess",
+              "contributions",
+              "determined",
+              "employee",
+              "code",
+              "minimum",
+              "contribution",
+              "case"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.178,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5040-119",
+                "sponsor_id": "W000779",
+                "similarity_score": 0.996
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8060-119",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2026",
+            "type": "HR",
+            "number": "8060",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Energy and Commerce, Education and Workforce, and the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8060?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "services",
+              "tribal",
+              "inserting",
+              "grants",
+              "year",
+              "years",
+              "community",
+              "indian",
+              "organizations",
+              "appropriated",
+              "programs",
+              "health",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "C001080",
+              "N000147",
+              "W000788",
+              "G000581"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6722-119",
+            "title": "Automatic IRA Act of 2025",
+            "type": "HR",
+            "number": "6722",
+            "congress": 119,
+            "introduced_date": "2025-12-15",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6722?format=json",
+            "keywords": [
+              "employer",
+              "arrangement",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "treated",
+              "individual",
+              "described",
+              "retirement",
+              "respect",
+              "general",
+              "subparagraph",
+              "contributions",
+              "contribution",
+              "arrangements",
+              "purposes",
+              "employees"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.143,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "S001156",
+              "V000138",
+              "M001231"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR1337-119",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "1337",
+            "congress": 119,
+            "introduced_date": "2025-02-13",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1337?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5534-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.906
+              }
+            ],
+            "cosponsors": [
+              "K000376",
+              "M001225",
+              "M000312",
+              "B001296",
+              "S001205",
+              "K000402",
+              "M001210",
+              "M001238",
+              "L000599",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1345-118",
+            "title": "Recognizing the 100th anniversary of the establishment of diplomatic relations between the United States and Ireland.",
+            "type": "HRES",
+            "number": "1345",
+            "congress": 118,
+            "introduced_date": "2024-07-09",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/118/hres/1345?format=json",
+            "keywords": [
+              "ireland",
+              "diplomatic",
+              "relations",
+              "establishment",
+              "irish",
+              "people",
+              "peace",
+              "relationship",
+              "anniversary",
+              "pennsylvania",
+              "island",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "recognizing",
+              "mrs",
+              "resolution",
+              "foreign"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.035,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000376",
+              "F000471",
+              "K000375",
+              "Q000023",
+              "F000466",
+              "M000312",
+              "S000522",
+              "L000562",
+              "C001090",
+              "M001225"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "claim"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8392-118",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "8392",
+            "congress": 118,
+            "introduced_date": "2024-05-14",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8392?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5534-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.908
+              }
+            ],
+            "cosponsors": [
+              "K000376"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7293-118",
+            "title": "Automatic IRA Act of 2024",
+            "type": "HR",
+            "number": "7293",
+            "congress": 118,
+            "introduced_date": "2024-02-07",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/7293?format=json",
+            "keywords": [
+              "arrangement",
+              "employer",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "individual",
+              "described",
+              "treated",
+              "retirement",
+              "contributions",
+              "arrangements",
+              "general",
+              "contribution",
+              "employees",
+              "made",
+              "respect",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.146,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "N000188"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4260-118",
+            "title": "Public Servants Protection and Fairness Act of 2023",
+            "type": "HR",
+            "number": "4260",
+            "congress": 118,
+            "introduced_date": "2023-06-21",
+            "latest_action": "Referred to the Subcommittee on Social Security.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/4260?format=json",
+            "keywords": [
+              "individual",
+              "amount",
+              "insurance",
+              "earnings",
+              "noncovered",
+              "month",
+              "monthly",
+              "security",
+              "primary",
+              "social",
+              "computed",
+              "service",
+              "eligible",
+              "benefit",
+              "commissioner",
+              "payment",
+              "subparagraph",
+              "recomputed",
+              "year",
+              "defined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.079,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000376",
+              "A000148",
+              "B001300",
+              "B001281",
+              "B001292",
+              "B000574",
+              "B001303",
+              "B001278",
+              "B001296",
+              "B001285"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "insurance",
+                  "actuary"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR2718-118",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2023",
+            "type": "HR",
+            "number": "2718",
+            "congress": 118,
+            "introduced_date": "2023-04-19",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/2718?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "tribal",
+              "services",
+              "inserting",
+              "grants",
+              "years",
+              "indian",
+              "community",
+              "appropriated",
+              "year",
+              "organizations",
+              "health",
+              "programs",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "D000096",
+              "P000096",
+              "C001127",
+              "M001206",
+              "S001185",
+              "B001300",
+              "E000296",
+              "S001156",
+              "C001080"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:51:59.377749+00:00"
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "available",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "b355d5401680fd0a183b731b4e64e9acf6d8bdf23059895eb6a8d0a5bf8e2d67",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10060-119",
+            "title": "Presidential Tax Accountability and Audit Integrity Act",
+            "type": "HR",
+            "number": "10060",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10060?format=json",
+            "keywords": [
+              "covered",
+              "instrument",
+              "code",
+              "internal",
+              "revenue",
+              "tax",
+              "made",
+              "described",
+              "person",
+              "purposes",
+              "president",
+              "related",
+              "relating",
+              "general",
+              "individual",
+              "entered",
+              "granted",
+              "applicable",
+              "orders",
+              "agreements"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.088,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5275-119",
+                "sponsor_id": "W000779",
+                "similarity_score": 0.965
+              }
+            ],
+            "cosponsors": [
+              "D000399",
+              "T000460",
+              "L000557",
+              "D000096",
+              "S001156",
+              "S001185",
+              "D000617",
+              "C001080",
+              "M001160",
+              "B001296"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9813-119",
+            "title": "To amend the Internal Revenue Code of 1986 to impose limitations on high-income taxpayers with large retirement account balances.",
+            "type": "HR",
+            "number": "9813",
+            "congress": 119,
+            "introduced_date": "2026-07-21",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9813?format=json",
+            "keywords": [
+              "year",
+              "applicable",
+              "taxable",
+              "amount",
+              "retirement",
+              "plan",
+              "distributions",
+              "distribution",
+              "individual",
+              "plans",
+              "required",
+              "account",
+              "excess",
+              "contributions",
+              "determined",
+              "employee",
+              "code",
+              "minimum",
+              "contribution",
+              "case"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.178,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5040-119",
+                "sponsor_id": "W000779",
+                "similarity_score": 0.996
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8060-119",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2026",
+            "type": "HR",
+            "number": "8060",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committees on Energy and Commerce, Education and Workforce, and the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8060?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "services",
+              "tribal",
+              "inserting",
+              "grants",
+              "year",
+              "years",
+              "community",
+              "indian",
+              "organizations",
+              "appropriated",
+              "programs",
+              "health",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "C001080",
+              "N000147",
+              "W000788",
+              "G000581"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6722-119",
+            "title": "Automatic IRA Act of 2025",
+            "type": "HR",
+            "number": "6722",
+            "congress": 119,
+            "introduced_date": "2025-12-15",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6722?format=json",
+            "keywords": [
+              "employer",
+              "arrangement",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "treated",
+              "individual",
+              "described",
+              "retirement",
+              "respect",
+              "general",
+              "subparagraph",
+              "contributions",
+              "contribution",
+              "arrangements",
+              "purposes",
+              "employees"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.143,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "S001156",
+              "V000138",
+              "M001231"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR1337-119",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "1337",
+            "congress": 119,
+            "introduced_date": "2025-02-13",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1337?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5534-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.906
+              }
+            ],
+            "cosponsors": [
+              "K000376",
+              "M001225",
+              "M000312",
+              "B001296",
+              "S001205",
+              "K000402",
+              "M001210",
+              "M001238",
+              "L000599",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1345-118",
+            "title": "Recognizing the 100th anniversary of the establishment of diplomatic relations between the United States and Ireland.",
+            "type": "HRES",
+            "number": "1345",
+            "congress": 118,
+            "introduced_date": "2024-07-09",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/118/hres/1345?format=json",
+            "keywords": [
+              "ireland",
+              "diplomatic",
+              "relations",
+              "establishment",
+              "irish",
+              "people",
+              "peace",
+              "relationship",
+              "anniversary",
+              "pennsylvania",
+              "island",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "recognizing",
+              "mrs",
+              "resolution",
+              "foreign"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.035,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000376",
+              "F000471",
+              "K000375",
+              "Q000023",
+              "F000466",
+              "M000312",
+              "S000522",
+              "L000562",
+              "C001090",
+              "M001225"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "claim"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8392-118",
+            "title": "To add Ireland to the E3 nonimmigrant visa program.",
+            "type": "HR",
+            "number": "8392",
+            "congress": 118,
+            "introduced_date": "2024-05-14",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8392?format=json",
+            "keywords": [
+              "ireland",
+              "nationals",
+              "iii",
+              "immigration",
+              "described",
+              "aliens",
+              "program",
+              "nationality",
+              "national",
+              "australia",
+              "fiscal",
+              "year",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "add",
+              "nonimmigrant",
+              "visa",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5534-119",
+                "sponsor_id": "S001201",
+                "similarity_score": 0.908
+              }
+            ],
+            "cosponsors": [
+              "K000376"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7293-118",
+            "title": "Automatic IRA Act of 2024",
+            "type": "HR",
+            "number": "7293",
+            "congress": 118,
+            "introduced_date": "2024-02-07",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/7293?format=json",
+            "keywords": [
+              "arrangement",
+              "employer",
+              "automatic",
+              "ira",
+              "plan",
+              "requirements",
+              "employee",
+              "year",
+              "individual",
+              "described",
+              "treated",
+              "retirement",
+              "contributions",
+              "arrangements",
+              "general",
+              "contribution",
+              "employees",
+              "made",
+              "respect",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.146,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000096",
+              "N000188"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "liability",
+                  "deductible"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4260-118",
+            "title": "Public Servants Protection and Fairness Act of 2023",
+            "type": "HR",
+            "number": "4260",
+            "congress": 118,
+            "introduced_date": "2023-06-21",
+            "latest_action": "Referred to the Subcommittee on Social Security.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/4260?format=json",
+            "keywords": [
+              "individual",
+              "amount",
+              "insurance",
+              "earnings",
+              "noncovered",
+              "month",
+              "monthly",
+              "security",
+              "primary",
+              "social",
+              "computed",
+              "service",
+              "eligible",
+              "benefit",
+              "commissioner",
+              "payment",
+              "subparagraph",
+              "recomputed",
+              "year",
+              "defined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.079,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000376",
+              "A000148",
+              "B001300",
+              "B001281",
+              "B001292",
+              "B000574",
+              "B001303",
+              "B001278",
+              "B001296",
+              "B001285"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "insurance",
+                  "actuary"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR2718-118",
+            "title": "Elder Justice Reauthorization and Modernization Act of 2023",
+            "type": "HR",
+            "number": "2718",
+            "congress": 118,
+            "introduced_date": "2023-04-19",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/2718?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "amount",
+              "social",
+              "fiscal",
+              "eligible",
+              "organization",
+              "tribal",
+              "services",
+              "inserting",
+              "grants",
+              "years",
+              "indian",
+              "community",
+              "appropriated",
+              "year",
+              "organizations",
+              "health",
+              "programs",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "D000096",
+              "P000096",
+              "C001127",
+              "M001206",
+              "S001185",
+              "B001300",
+              "E000296",
+              "S001156",
+              "C001080"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T20:51:59.377749+00:00",
+        "data_updated": "2026-11-23T16:13:28.846559",
+        "donors_updated": "2026-11-23T22:34:06.871030+00:00",
+        "last_updated": "2026-11-23T16:13:28.846559",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 48,
+        "votes_updated": "2026-11-23T10:05:59.620719"
+      }
+    }
+  ],
+  "bills_checked": "2026-11-24T00:21:39.136155+00:00"
 }

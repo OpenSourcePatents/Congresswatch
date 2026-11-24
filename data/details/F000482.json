@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000482.jpg",
   "term_start": "2025-01-01",
-  "score": 10,
+  "score": 3,
   "flags": [
     "donor"
   ],
@@ -924,103 +924,81 @@
   "bills": [
     {
       "bill_id": "HR10666-119",
-      "title": "To extend the Frontier Community Health Integration Project Demonstration.",
       "type": "HR",
       "number": "10666",
       "congress": 119,
+      "title": "FCHIP Extension Act",
       "introduced_date": "2026-10-01",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/10666",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10666?format=json",
+      "latest_action_date": "2026-10-01",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr10666.xml",
+      "metadata_source_sha256": "228f4a8bf433c76c78d6b3e24fc8bad43899bb1f19dd2484cf1c236a730eb254",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S5462-119",
+          "bill_title": "FCHIP Extension Act",
+          "member_id": "H001061",
+          "same_sponsor": false,
+          "similarity_score": 1.0,
+          "evidence": {
+            "longest_passage_words": 82,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 82,
+            "target_passage": "Short title This Act may be cited as the Frontier Community Health Integration Project Extension Act or the FCHIP Extension Act . Extension of frontier community health integration project demonstration In general Subsection (f)(1) of section 123 of the Medicare Improvements for Patients and Providers Act of 2008 ( 42 U.S.C. 1395i\u20134 note) is amended by striking 5-year period and inserting 10-year period . Effective date The amendment made by this section shall take effect on December 31, 2026",
+            "matched_passage": "Short title This Act may be cited as the Frontier Community Health Integration Project Extension Act or the FCHIP Extension Act . Extension of Frontier Community Health Integration Project Demonstration In general Subsection (f)(1) of section 123 of the Medicare Improvements for Patients and Providers Act of 2008 ( 42 U.S.C. 1395i\u20134 note) is amended by striking 5-year period and inserting 10-year period . Effective date The amendment made by this section shall take effect on December 31, 2026",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10666ih/xml/BILLS-119hr10666ih.xml",
+            "target_source_sha256": "a20fc2ae015bcfa7e37a566a123759ecf472f287d0063b8c4dfba3addd9b342c",
+            "target_text_sha256": "1b12c7dc588ccfdd82dea55bfd375379eca81aec507355650534a2b74d4b0e1b",
+            "target_version_code": "ih",
+            "target_version_date": "2026-10-01T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5462is/xml/BILLS-119s5462is.xml",
+            "matched_source_sha256": "0398b8af0b28e4b57c2278cde6a84f462b619c3ca426a51d98fb0741a6a82721",
+            "matched_text_sha256": "bdfc61f3ffa56c25385a9fa72c9c8b055229cc1115098e2450a72d95b51af493",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-09-23T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
       "keywords": [],
-      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {},
-        "analysis_status": "quarantined_pdf_text"
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR10666-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10666ih/xml/BILLS-119hr10666ih.xml",
+        "source_sha256": "a20fc2ae015bcfa7e37a566a123759ecf472f287d0063b8c4dfba3addd9b342c",
+        "text_sha256": "1b12c7dc588ccfdd82dea55bfd375379eca81aec507355650534a2b74d4b0e1b",
+        "version_date": "2026-10-01T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr10666ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "obj",
-            "endobj",
-            "stream",
-            "endstream",
-            "pdf",
-            "font",
-            "procset",
-            "text",
-            "poxko",
-            "oacv",
-            "pbu",
-            "fjl",
-            "hjp",
-            "sis",
-            "uat",
-            "smo",
-            "arq",
-            "wwq",
-            "umq",
-            "mwe"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.0,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR9623-119",
-              "sponsor_id": "B001296",
-              "similarity_score": 1.0
-            },
-            {
-              "bill_id": "HR10505-119",
-              "sponsor_id": "S000168",
-              "similarity_score": 1.0
-            },
-            {
-              "bill_id": "HR10799-119",
-              "sponsor_id": "G000576",
-              "similarity_score": 1.0
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_pdf_text",
-      "text_integrity": "quarantined",
-      "text_integrity_reason": "pdf_structure"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9618-119",
-      "title": "DEF Act",
       "type": "HR",
       "number": "9618",
       "congress": 119,
+      "title": "DEF Act",
       "introduced_date": "2026-07-09",
-      "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9618?format=json",
-      "keywords": [],
-      "has_text": false,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9618",
+      "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+      "latest_action_date": "2026-07-14",
       "cosponsors": [
         "D000230",
         "F000475",
@@ -1030,550 +1008,262 @@
         "G000568",
         "R000619"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {},
-        "analysis_status": "quarantined_pdf_text"
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9618.xml",
+      "metadata_source_sha256": "44bf29e7f36af112e73d88288a398ae04818f42393f7c0f3b64c0b9416ddc963",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9618-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9618ih/xml/BILLS-119hr9618ih.xml",
+        "source_sha256": "40b14e105f8cc1901a218c6950ab519c53a0db5a65aa1ccf15ac77dfe5fb4a51",
+        "text_sha256": "9d1c147f07815e5dad2b6566fabed66ee6a4b9c140339c2493e80b6f169a90c4",
+        "version_date": "2026-07-09T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9618ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "obj",
-            "endobj",
-            "stream",
-            "pdf",
-            "endstream",
-            "font",
-            "procset",
-            "text",
-            "itext",
-            "uuid",
-            "qcz",
-            "hht",
-            "ibc",
-            "vms",
-            "gjr",
-            "vmo",
-            "jlq",
-            "rjjx",
-            "rde",
-            "euf"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.001,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "HR10098-119",
-              "sponsor_id": "M000194",
-              "similarity_score": 0.993
-            },
-            {
-              "bill_id": "HR9683-119",
-              "sponsor_id": "M001236",
-              "similarity_score": 0.989
-            },
-            {
-              "bill_id": "HR9695-119",
-              "sponsor_id": "B000668",
-              "similarity_score": 0.989
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_pdf_text",
-      "text_integrity": "quarantined",
-      "text_integrity_reason": "pdf_structure"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9141-119",
-      "title": "SAVE America Through REAL ID Act",
       "type": "HR",
       "number": "9141",
       "congress": 119,
+      "title": "SAVE America Through REAL ID Act",
       "introduced_date": "2026-06-04",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9141",
       "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9141?format=json",
-      "keywords": [
-        "state",
-        "secretary",
-        "identification",
-        "grant",
-        "federal",
-        "income",
-        "individuals",
-        "funds",
-        "program",
-        "compliant",
-        "low",
-        "real",
-        "application",
-        "cost",
-        "eligible",
-        "establish",
-        "assist",
-        "cards",
-        "standards",
-        "individual"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-06-04",
       "cosponsors": [
         "L000597"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Technology"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
-          ],
-          "Technology": [
-            "data",
-            "privacy"
-          ]
-        }
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9141.xml",
+      "metadata_source_sha256": "ee0e49065031e49747ef9d47b3f8760d30dfed55f161759506e0c58cce47ec27",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9141-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9141ih/xml/BILLS-119hr9141ih.xml",
+        "source_sha256": "a303cafddb3db329e85886e4bf974ca0affa73ec3016d70d5fc7c6c1b5240430",
+        "text_sha256": "6d3cc798d96e1d12230ec25a2cad67ebf1d3d0040e7cef77ffa5db3702cc787c",
+        "version_date": "2026-06-04T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9141ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "state",
-            "secretary",
-            "identification",
-            "grant",
-            "federal",
-            "income",
-            "individuals",
-            "funds",
-            "program",
-            "compliant",
-            "low",
-            "real",
-            "application",
-            "cost",
-            "eligible",
-            "establish",
-            "assist",
-            "cards",
-            "standards",
-            "individual"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.128,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Finance & Banking",
-              "Technology"
-            ],
-            "keyword_hits": {
-              "Finance & Banking": [
-                "financial"
-              ],
-              "Technology": [
-                "data",
-                "privacy"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR8006-119",
-      "title": "Dakota Water Resources Act Amendments of 2026",
       "type": "HR",
       "number": "8006",
       "congress": 119,
+      "title": "Dakota Water Resources Act Amendments of 2026",
       "introduced_date": "2026-03-19",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/8006",
       "latest_action": "Referred to the House Committee on Natural Resources.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/8006?format=json",
-      "keywords": [
-        "water",
-        "rural",
-        "indexed",
-        "complete",
-        "dakota",
-        "amounts",
-        "available",
-        "made",
-        "secretary",
-        "north",
-        "construction",
-        "described",
-        "resources",
-        "subparagraph",
-        "authorized",
-        "project",
-        "engineering",
-        "necessary",
-        "system",
-        "final"
+      "latest_action_date": "2026-03-19",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr8006.xml",
+      "metadata_source_sha256": "4cee79579628b615f33decdff1202ebf98460b352a253d8829095beb46405733",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S4040-119",
+          "bill_title": "Dakota Water Resources Act Amendments of 2026",
+          "member_id": "H001061",
+          "same_sponsor": false,
+          "similarity_score": 0.9999997019767761,
+          "evidence": {
+            "longest_passage_words": 1128,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "Short title This Act may be cited as the Dakota Water Resources Act Amendments of 2026 . Authorization of appropriations for State and Tribal, municipal, rural, and industrial water service Section 10 of Public Law 89\u2013108 (79 Stat. 433; 100 Stat. 424; 106 Stat. 4669; 114 Stat. 2763A\u2013291; 140 Stat. 74) is amended\u2014 in subsection (b)\u2014 in paragraph (1)\u2014 by redesignating subparagraph (D) as subparagraph (E); and by inserting after subparagraph (C) the following: Additional amounts for certain projects In general Subject to clauses (ii) through (iv), in addition to the amounts made available under subparagraphs (A), (B), and (C), there are authorized to be appropriated to carry out section 7(a)\u2014 $120,000,000, as indexed, to complete",
+            "matched_passage": "Short title This Act may be cited as the Dakota Water Resources Act Amendments of 2026 . Authorization of appropriations for State and Tribal, municipal, rural, and industrial water service Section 10 of Public Law 89\u2013108 (79 Stat. 433; 100 Stat. 424; 106 Stat. 4669; 114 Stat. 2763A\u2013291; 140 Stat. 74) is amended\u2014 in subsection (b)\u2014 in paragraph (1)\u2014 by redesignating subparagraph (D) as subparagraph (E); and by inserting after subparagraph (C) the following: Additional amounts for certain projects In general Subject to clauses (ii) through (iv), in addition to the amounts made available under subparagraphs (A), (B), and (C), there are authorized to be appropriated to carry out section 7(a)\u2014 $120,000,000, as indexed, to complete",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8006ih/xml/BILLS-119hr8006ih.xml",
+            "target_source_sha256": "95eac1efdaf95cc6079a1b8bec9a1b2ae3437724bd4ae9e4227331c081befd4a",
+            "target_text_sha256": "c846d1638895c12f2f2993cdcf9cb69dd29ce4e23c0e64741d932c5f97957cd9",
+            "target_version_code": "ih",
+            "target_version_date": "2026-03-19T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s4040rs/xml/BILLS-119s4040rs.xml",
+            "matched_source_sha256": "2a2d00a5cc57207ebad8b89a45dd83805151fa78e3a2fb041d74dc81a25373be",
+            "matched_text_sha256": "c846d1638895c12f2f2993cdcf9cb69dd29ce4e23c0e64741d932c5f97957cd9",
+            "matched_version_code": "rs",
+            "matched_version_date": "2026-09-17T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas",
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy",
-            "pipeline"
-          ],
-          "Real Estate": [
-            "construction",
-            "development"
-          ]
-        }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR8006-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8006ih/xml/BILLS-119hr8006ih.xml",
+        "source_sha256": "95eac1efdaf95cc6079a1b8bec9a1b2ae3437724bd4ae9e4227331c081befd4a",
+        "text_sha256": "c846d1638895c12f2f2993cdcf9cb69dd29ce4e23c0e64741d932c5f97957cd9",
+        "version_date": "2026-03-19T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr8006ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "water",
-            "rural",
-            "indexed",
-            "complete",
-            "dakota",
-            "amounts",
-            "available",
-            "made",
-            "secretary",
-            "north",
-            "construction",
-            "described",
-            "resources",
-            "subparagraph",
-            "authorized",
-            "project",
-            "engineering",
-            "necessary",
-            "system",
-            "final"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.051,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "S4040-119",
-              "sponsor_id": "H001061",
-              "similarity_score": 0.985
-            }
-          ],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas",
-              "Real Estate"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy",
-                "pipeline"
-              ],
-              "Real Estate": [
-                "construction",
-                "development"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR7956-119",
-      "title": "State Offices of Rural Health Program Reauthorization Act of 2026",
       "type": "HR",
       "number": "7956",
       "congress": 119,
+      "title": "State Offices of Rural Health Program Reauthorization Act of 2026",
       "introduced_date": "2026-03-17",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/7956",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/7956?format=json",
-      "keywords": [
-        "health",
-        "state",
-        "offices",
-        "rural",
-        "service",
-        "program",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "reauthorize",
-        "bill",
-        "fiscal",
-        "years",
-        "congressional",
-        "bills",
-        "government",
-        "publishing",
-        "office",
-        "doc"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2026-03-17",
       "cosponsors": [
         "C001125"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ]
-        }
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr7956.xml",
+      "metadata_source_sha256": "171acf580b308e9a6210fe53a7778cd380bc5fc163fa420a9c2b583154053c40",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR7956-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr7956ih/xml/BILLS-119hr7956ih.xml",
+        "source_sha256": "4acfbb533f50760e8e388b26a4aeb3bf28f61f6625bd88043da6616f3db0878d",
+        "text_sha256": "3f4e825c55f50f9a1b9dd2d6f6257e0c8f0b65949551f1e589298041cabf1a25",
+        "version_date": "2026-03-17T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr7956ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "health",
-            "state",
-            "offices",
-            "rural",
-            "service",
-            "program",
-            "html",
-            "body",
-            "pre",
-            "introduced",
-            "reauthorize",
-            "bill",
-            "fiscal",
-            "years",
-            "congressional",
-            "bills",
-            "government",
-            "publishing",
-            "office",
-            "doc"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.021,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR6633-119",
-      "title": "High-Capacity Grid Act",
       "type": "HR",
       "number": "6633",
       "congress": 119,
+      "title": "High-Capacity Grid Act",
       "introduced_date": "2025-12-11",
-      "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/6633?format=json",
-      "keywords": [
-        "transmission",
-        "conductor",
-        "available",
-        "best",
-        "commission",
-        "cost",
-        "covered",
-        "standard",
-        "conductors",
-        "project",
-        "establish",
-        "projects",
-        "federal",
-        "power",
-        "provide",
-        "recovery",
-        "capacity",
-        "subject",
-        "jurisdiction",
-        "whether"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6633",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+      "latest_action_date": "2026-09-16",
       "cosponsors": [
         "H001098",
         "C001120",
         "S001229",
         "W000804"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas",
-          "Technology",
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ],
-          "Technology": [
-            "technology"
-          ],
-          "Real Estate": [
-            "construction"
-          ]
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr6633.xml",
+      "metadata_source_sha256": "6d411ac3b41ee9f11ba6f10f5e8887c2c84be507810f7bd150a30276afecf67f",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S5733-119",
+          "bill_title": "High-Capacity Grid Act",
+          "member_id": "C001113",
+          "same_sponsor": false,
+          "similarity_score": 0.9999983906745911,
+          "evidence": {
+            "longest_passage_words": 543,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "Short title This Act may be cited as the High-Capacity Grid Act . Best-available transmission conductor class The Federal Power Act is amended by inserting after section 223 ( 16 U.S.C. 824w ) the following: Use of best-available transmission conductors Use of best-available transmission conductors In exercising its authority under sections 205 and 206, the Commission shall require that public utilities use transmission conductors that are designated as part of the best-available transmission conductor class when carrying out covered projects. Regulations In general Not later than 1 year after the date of enactment of this section, the Commission shall issue regulations to carry out this section. Inclusions In issuing regulations under paragraph (1), the Commission shall",
+            "matched_passage": "Short title This Act may be cited as the High-Capacity Grid Act . Best-available transmission conductor class The Federal Power Act is amended by inserting after section 223 ( 16 U.S.C. 824w ) the following: Use of best-available transmission conductors Use of best-Available transmission conductors In exercising its authority under sections 205 and 206, the Commission shall require that public utilities use transmission conductors that are designated as part of the best-available transmission conductor class when carrying out covered projects. Regulations In general Not later than 1 year after the date of enactment of this section, the Commission shall issue regulations to carry out this section. Inclusions In issuing regulations under paragraph (1), the Commission shall",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6633rfs/xml/BILLS-119hr6633rfs.xml",
+            "target_source_sha256": "8496f64e24c1547239e5f1b02a6018ca1c13d4857379868bd318d006c051f014",
+            "target_text_sha256": "3475eb101fc34ffaef8699cc148971ca42bc0aed3471e9d5f30f15562195ff34",
+            "target_version_code": "rfs",
+            "target_version_date": "2026-09-16T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5733is/xml/BILLS-119s5733is.xml",
+            "matched_source_sha256": "c5097f6ea302b71ad55587e0a150873bef5e8ca6c87b623025b1cde01d247a7a",
+            "matched_text_sha256": "9667946f910d80c7cbf014fc39ea4a1650acad1a3328f13203a4f6345069b679",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-11-17T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR6633-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6633rfs/xml/BILLS-119hr6633rfs.xml",
+        "source_sha256": "8496f64e24c1547239e5f1b02a6018ca1c13d4857379868bd318d006c051f014",
+        "text_sha256": "3475eb101fc34ffaef8699cc148971ca42bc0aed3471e9d5f30f15562195ff34",
+        "version_date": "2026-09-16T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr6633rfs"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "transmission",
-            "conductor",
-            "available",
-            "best",
-            "commission",
-            "cost",
-            "covered",
-            "standard",
-            "conductors",
-            "project",
-            "establish",
-            "projects",
-            "federal",
-            "power",
-            "provide",
-            "recovery",
-            "capacity",
-            "subject",
-            "jurisdiction",
-            "whether"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.095,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas",
-              "Technology",
-              "Real Estate"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ],
-              "Technology": [
-                "technology"
-              ],
-              "Real Estate": [
-                "construction"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR6336-119",
-      "title": "Fair Allocation of Interstate Rates Act",
       "type": "HR",
       "number": "6336",
       "congress": 119,
+      "title": "Fair Allocation of Interstate Rates Act",
       "introduced_date": "2025-12-01",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6336",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/6336?format=json",
-      "keywords": [
-        "transmission",
-        "covered",
-        "facility",
-        "state",
-        "policy",
-        "consumer",
-        "costs",
-        "allocation",
-        "consumers",
-        "purposes",
-        "expressly",
-        "provider",
-        "electric",
-        "basis",
-        "whole",
-        "implement",
-        "cost",
-        "subparagraph",
-        "html",
-        "body"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-12-01",
       "cosponsors": [
         "W000814",
         "D000634",
@@ -1583,324 +1273,206 @@
         "B001282",
         "B000740"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas",
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ],
-          "Real Estate": [
-            "construction"
-          ]
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr6336.xml",
+      "metadata_source_sha256": "76e72a895e75875e6f2197c8c3626e9f49d30abe5dfc48271b786fc5ad71b545",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S3287-119",
+          "bill_title": "Fair Allocation of Interstate Rates Act",
+          "member_id": "C001096",
+          "same_sponsor": false,
+          "similarity_score": 0.8701443672180176,
+          "evidence": {
+            "longest_passage_words": 42,
+            "target_word_offset": 321,
+            "matched_word_offset": 71,
+            "displayed_passage_words": 42,
+            "target_passage": "State. Covered transmission facility The term covered transmission facility means any facility, line, equipment, or system used for the transmission of electric energy in interstate commerce that is planned, constructed, or operated in whole or in part to implement a covered policy",
+            "matched_passage": "State. Covered transmission facility The term covered transmission facility means any facility, line, equipment, or system used for the transmission of electric energy in interstate commerce that is planned, constructed, or operated in whole or in part to implement a covered policy",
+            "target_shingle_coverage": 0.35964912280701755,
+            "matched_shingle_coverage": 0.3416666666666667,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6336ih/xml/BILLS-119hr6336ih.xml",
+            "target_source_sha256": "f16c558f232742489ae60d932841310e8527a5c12b62070ab0e182654c06b03a",
+            "target_text_sha256": "f934450ff903819d025d55184feca1090b57f0c16b423a768c9ddfbfa39731f3",
+            "target_version_code": "ih",
+            "target_version_date": "2025-12-01T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s3287is/xml/BILLS-119s3287is.xml",
+            "matched_source_sha256": "f29cc2a08ac9e42445ea7fb3097e50832d6a9e32c173359957c43065e3c3d7a7",
+            "matched_text_sha256": "03f7ffbed8f1a59acea559a95c90b7d8e3adac3a7c301efbb8b25e368000498c",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-12-01T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR6336-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6336ih/xml/BILLS-119hr6336ih.xml",
+        "source_sha256": "f16c558f232742489ae60d932841310e8527a5c12b62070ab0e182654c06b03a",
+        "text_sha256": "f934450ff903819d025d55184feca1090b57f0c16b423a768c9ddfbfa39731f3",
+        "version_date": "2025-12-01T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr6336ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "transmission",
-            "covered",
-            "facility",
-            "state",
-            "policy",
-            "consumer",
-            "costs",
-            "allocation",
-            "consumers",
-            "purposes",
-            "expressly",
-            "provider",
-            "electric",
-            "basis",
-            "whole",
-            "implement",
-            "cost",
-            "subparagraph",
-            "html",
-            "body"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.094,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "S3287-119",
-              "sponsor_id": "C001096",
-              "similarity_score": 0.886
-            }
-          ],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas",
-              "Real Estate"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ],
-              "Real Estate": [
-                "construction"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR5311-119",
-      "title": "CABLE Expansion Act",
       "type": "HR",
       "number": "5311",
       "congress": 119,
+      "title": "CABLE Expansion Act",
       "introduced_date": "2025-09-11",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5311",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/5311?format=json",
-      "keywords": [
-        "request",
-        "authority",
-        "franchising",
-        "facility",
-        "complete",
-        "cable",
-        "covered",
-        "submitted",
-        "place",
-        "construct",
-        "modify",
-        "authorization",
-        "considered",
-        "received",
-        "infrastructure",
-        "service",
-        "purposes",
-        "placement",
-        "construction",
-        "modification"
+      "latest_action_date": "2025-09-11",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5311.xml",
+      "metadata_source_sha256": "a0730c1092331ecb526a39aa0dd59e0fd15348a792b119b4930d8ceccde1501d",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR5170-119",
+          "bill_title": "CABLE Leadership Act",
+          "member_id": "B001306",
+          "same_sponsor": false,
+          "similarity_score": 0.6011641025543213,
+          "evidence": {
+            "longest_passage_words": 44,
+            "target_word_offset": 451,
+            "matched_word_offset": 325,
+            "displayed_passage_words": 44,
+            "target_passage": "days after the date on which the request is received by the franchising authority\u2014 stating that all the information (including any form or other document) required by the franchising authority to be submitted for the request to be considered complete has not been submitted",
+            "matched_passage": "days after the date on which the request is received by the franchising authority\u2014 stating that all the information (including any form or other document) required by the franchising authority to be submitted for the request to be considered complete, has not been submitted",
+            "target_shingle_coverage": 0.17704011065006917,
+            "matched_shingle_coverage": 0.21227197346600332,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5311ih/xml/BILLS-119hr5311ih.xml",
+            "target_source_sha256": "56553275bbd054bcf7fb7b35246e6b36fd26a98a55e85af2f0c33148814df8c8",
+            "target_text_sha256": "3f3312549d7150d6c77a5606681122e1063a679b978ed35fada36eff1d063f36",
+            "target_version_code": "ih",
+            "target_version_date": "2025-09-11T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5170ih/xml/BILLS-119hr5170ih.xml",
+            "matched_source_sha256": "35e1b3a9ee92d7fd827acd4ec2765ecbca91d5751a27e7fbbaaec7fabcc18b62",
+            "matched_text_sha256": "3f46983a5a9d44bbd1dd09b5cac47528f2082cbc5ffd8f1657a949fd41181068",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-09-08T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Oil & Gas",
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Oil & Gas": [
-            "energy"
-          ],
-          "Real Estate": [
-            "housing",
-            "construction"
-          ]
-        }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR5311-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5311ih/xml/BILLS-119hr5311ih.xml",
+        "source_sha256": "56553275bbd054bcf7fb7b35246e6b36fd26a98a55e85af2f0c33148814df8c8",
+        "text_sha256": "3f3312549d7150d6c77a5606681122e1063a679b978ed35fada36eff1d063f36",
+        "version_date": "2025-09-11T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr5311ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "request",
-            "authority",
-            "franchising",
-            "facility",
-            "complete",
-            "cable",
-            "covered",
-            "submitted",
-            "place",
-            "construct",
-            "modify",
-            "authorization",
-            "considered",
-            "received",
-            "infrastructure",
-            "service",
-            "purposes",
-            "placement",
-            "construction",
-            "modification"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.12,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Oil & Gas",
-              "Real Estate"
-            ],
-            "keyword_hits": {
-              "Oil & Gas": [
-                "energy"
-              ],
-              "Real Estate": [
-                "housing",
-                "construction"
-              ]
-            }
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HJRES105-119",
-      "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
       "type": "HJRES",
       "number": "105",
       "congress": 119,
+      "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
       "introduced_date": "2025-07-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-joint-resolution/105",
       "latest_action": "Became Public Law No: 119-49.",
-      "url": "https://api.congress.gov/v3/bill/119/hjres/105?format=json",
-      "keywords": [
-        "management",
-        "record",
-        "congressional",
-        "office",
-        "rule",
-        "decision",
-        "approved",
-        "resource",
-        "plan",
-        "html",
-        "body",
-        "pre",
-        "government",
-        "res",
-        "america",
-        "january",
-        "submitted",
-        "bureau",
-        "land",
-        "relating"
+      "latest_action_date": "2025-12-11",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hjres/BILLSTATUS-119hjres105.xml",
+      "metadata_source_sha256": "ad5e49433423bafd700a5f366adcc0121f0d5b7d00b459c64e91d136d3082ab7",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "SJRES62-119",
+          "bill_title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
+          "member_id": "C001096",
+          "same_sponsor": false,
+          "similarity_score": 1.0,
+          "evidence": {
+            "longest_passage_words": 95,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 95,
+            "target_passage": "That Congress disapproves the rule submitted by the Bureau of Land Management relating to North Dakota Field Office Record of Decision and Approved Resource Management Plan (issued January 14, 2025, as a record of decision and approved resource management plan, and a letter of opinion from the Government Accountability Office dated June 25, 2025, printed in the Congressional Record on June 26, 2025, on pages S3556\u2013S3558, concluding that such record of decision and approved resource management plan is a rule under the Congressional Review Act), and such rule shall have no force or effect",
+            "matched_passage": "That Congress disapproves the rule submitted by the Bureau of Land Management relating to North Dakota Field Office Record of Decision and Approved Resource Management Plan (issued January 14, 2025, as a record of decision and approved resource management plan, and a letter of opinion from the Government Accountability Office dated June 25, 2025, printed in the Congressional Record on June 26, 2025, on pages S3556\u2013S3558, concluding that such record of decision and approved resource management plan is a rule under the Congressional Review Act), and such rule shall have no force or effect",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres105enr/xml/BILLS-119hjres105enr.xml",
+            "target_source_sha256": "6ec30c3c8eaeed8bba58b7ea9c200977efac3a296a91908f4b1426b3ff3bb446",
+            "target_text_sha256": "f2e32c6a082fef63d9a8d46eff7a9d71959a2482f8bb742bdbf8c7ddaf7c1645",
+            "target_version_code": "enr",
+            "target_version_date": "",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119sjres62pcs/xml/BILLS-119sjres62pcs.xml",
+            "matched_source_sha256": "7da50f3d7eebd0a0ad591b8bcb024b2b333d9f00a783849bf2c943ac8e8b5e6d",
+            "matched_text_sha256": "f2e32c6a082fef63d9a8d46eff7a9d71959a2482f8bb742bdbf8c7ddaf7c1645",
+            "matched_version_code": "pcs",
+            "matched_version_date": "2025-10-07T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HJRES105-119",
+        "version_code": "enr",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres105enr/xml/BILLS-119hjres105enr.xml",
+        "source_sha256": "6ec30c3c8eaeed8bba58b7ea9c200977efac3a296a91908f4b1426b3ff3bb446",
+        "text_sha256": "f2e32c6a082fef63d9a8d46eff7a9d71959a2482f8bb742bdbf8c7ddaf7c1645",
+        "version_date": "",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hjres105enr"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "management",
-            "record",
-            "congressional",
-            "office",
-            "rule",
-            "decision",
-            "approved",
-            "resource",
-            "plan",
-            "html",
-            "body",
-            "pre",
-            "government",
-            "res",
-            "america",
-            "january",
-            "submitted",
-            "bureau",
-            "land",
-            "relating"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.047,
-          "match_type": "member_bill",
-          "alec_match": null,
-          "similar_member_bills": [
-            {
-              "bill_id": "SJRES109-119",
-              "sponsor_id": "L000577",
-              "similarity_score": 0.859
-            },
-            {
-              "bill_id": "HJRES151-119",
-              "sponsor_id": "M001228",
-              "similarity_score": 0.858
-            },
-            {
-              "bill_id": "HJRES131-119",
-              "sponsor_id": "B001323",
-              "similarity_score": 0.81
-            }
-          ],
-          "donor_interest": {
-            "match": false,
-            "matched_industries": [],
-            "keyword_hits": {}
-          }
-        }
-      },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR3843-119",
-      "title": "Baseload Reliability Protection Act",
       "type": "HR",
       "number": "3843",
       "congress": 119,
+      "title": "Baseload Reliability Protection Act",
       "introduced_date": "2025-06-09",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3843",
       "latest_action": "Referred to the House Committee on Energy and Commerce.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/3843?format=json",
-      "keywords": [
-        "electric",
-        "generating",
-        "covered",
-        "unit",
-        "operator",
-        "petition",
-        "owner",
-        "reliability",
-        "risk",
-        "commission",
-        "exemption",
-        "system",
-        "power",
-        "prohibition",
-        "energy",
-        "operation",
-        "secretary",
-        "organization",
-        "final",
-        "determination"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-06-09",
       "cosponsors": [
         "W000814",
         "G000601",
@@ -1911,101 +1483,568 @@
         "D000634",
         "S001229",
         "H001072",
-        "L000599"
+        "L000599",
+        "M001211",
+        "L000597",
+        "B001322",
+        "H001099",
+        "E000300",
+        "H001093",
+        "H001101",
+        "G000568",
+        "M001240",
+        "O000177",
+        "J000301",
+        "M001239",
+        "H001098",
+        "B001282",
+        "A000372",
+        "B000740"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Oil & Gas",
-          "Real Estate"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "loan",
-            "interest",
-            "investment"
-          ],
-          "Oil & Gas": [
-            "energy",
-            "emissions",
-            "greenhouse"
-          ],
-          "Real Estate": [
-            "construction"
-          ]
-        }
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3843.xml",
+      "metadata_source_sha256": "7d30fca37f9ea05b54181e0ca10e4b40808fed656417f50231f122093ed5c69b",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3843-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3843ih/xml/BILLS-119hr3843ih.xml",
+        "source_sha256": "9c8e8dd7d5df90d3d1b9b4558428e9343ebb9a9324cb4e6f20cc3e8520a78ead",
+        "text_sha256": "4ef08699ea2c5c2acd81c1a7bc8d0773a57555934c3948272ae85bc5f4bc7a2c",
+        "version_date": "2025-06-09T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3843ih"
       },
-      "analysis_provenance": {
-        "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-        "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
-        "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
-        "original_fields": {
-          "keywords": [
-            "electric",
-            "generating",
-            "covered",
-            "unit",
-            "operator",
-            "petition",
-            "owner",
-            "reliability",
-            "risk",
-            "commission",
-            "exemption",
-            "system",
-            "power",
-            "prohibition",
-            "energy",
-            "operation",
-            "secretary",
-            "organization",
-            "final",
-            "determination"
-          ],
-          "has_text": true,
-          "similarity_score": null,
-          "alec_best_similarity": 0.062,
-          "match_type": null,
-          "alec_match": null,
-          "similar_member_bills": [],
-          "donor_interest": {
-            "match": true,
-            "matched_industries": [
-              "Finance & Banking",
-              "Oil & Gas",
-              "Real Estate"
-            ],
-            "keyword_hits": {
-              "Finance & Banking": [
-                "financial",
-                "loan",
-                "interest",
-                "investment"
-              ],
-              "Oil & Gas": [
-                "energy",
-                "emissions",
-                "greenhouse"
-              ],
-              "Real Estate": [
-                "construction"
-              ]
-            }
-          }
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR3062-119",
+      "type": "HR",
+      "number": "3062",
+      "congress": 119,
+      "title": "Promoting Cross-border Energy Infrastructure Act",
+      "introduced_date": "2025-04-29",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3062",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+      "latest_action_date": "2025-09-19",
+      "cosponsors": [
+        "D000628",
+        "J000302"
+      ],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3062.xml",
+      "metadata_source_sha256": "dc73918b87dd031f44d5a3ec621f609c583d054bab1e02d655262aca6dfb1a89",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1485-119",
+          "bill_title": "North American Energy Act",
+          "member_id": "H001061",
+          "same_sponsor": false,
+          "similarity_score": 0.8828942179679871,
+          "evidence": {
+            "longest_passage_words": 214,
+            "target_word_offset": 187,
+            "matched_word_offset": 457,
+            "displayed_passage_words": 120,
+            "target_passage": "of the border-crossing facility is not in the public interest of the United States. Relevant official or agency The relevant official or agency referred to in subparagraph (A) is\u2014 the Federal Energy Regulatory Commission with respect to border-crossing facilities consisting of oil or natural gas pipelines; and the Secretary of Energy with respect to border-crossing facilities consisting of electric transmission facilities. Additional requirement for electric transmission facilities In the case of a request for a certificate of crossing for a border-crossing facility consisting of an electric transmission facility, the Secretary of Energy shall require, as a condition of issuing the certificate of crossing under subparagraph (A), that the border-crossing facility be constructed, connected, operated, or",
+            "matched_passage": "of the border-crossing facility is not in the public interest of the United States. Relevant official or agency The relevant official or agency referred to in subparagraph (A) is\u2014 the Federal Energy Regulatory Commission with respect to border-crossing facilities consisting of oil or natural gas pipelines; and the Secretary of Energy with respect to border-crossing facilities consisting of electric transmission facilities. Additional requirement for electric transmission facilities In the case of a request for a certificate of crossing for a border-crossing facility consisting of an electric transmission facility, the Secretary of Energy shall require, as a condition of issuing the certificate of crossing under subparagraph (A), that the border-crossing facility be constructed, connected, operated, or",
+            "target_shingle_coverage": 0.6357758620689655,
+            "matched_shingle_coverage": 0.5845442536327609,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3062rfs/xml/BILLS-119hr3062rfs.xml",
+            "target_source_sha256": "95b7024aa51fd89735a1ee2cad4d62ccef0b1e28407cb00bb0c5f6fd39f61105",
+            "target_text_sha256": "63d558a5f1008bd486d2431a7c2973540cfea7aa36deba90f25ee27b8a4218e0",
+            "target_version_code": "rfs",
+            "target_version_date": "2025-09-19T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1485is/xml/BILLS-119s1485is.xml",
+            "matched_source_sha256": "c3f667ad7de0b31659ea3721bc75b9ce9b41d14de13446f1837017d904da5e6e",
+            "matched_text_sha256": "f7823f2a28cd16e4b3713a01c2ce9900d237fcb427526ac03a44ec3faad3daa6",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-04-10T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR1587-119",
+          "bill_title": "Protecting International Pipelines for Energy Security Act",
+          "member_id": "W000798",
+          "same_sponsor": false,
+          "similarity_score": 0.5037677884101868,
+          "evidence": {
+            "longest_passage_words": 39,
+            "target_word_offset": 1086,
+            "matched_word_offset": 83,
+            "displayed_passage_words": 39,
+            "target_passage": "or any other Executive order for the construction, connection, operation, or maintenance of an oil or natural gas pipeline or electric transmission facility, or any border-crossing facility thereof, unless such revocation is authorized by an Act of Congress",
+            "matched_passage": "or any other Executive order for the construction, connection, operation, or maintenance of an oil or natural gas pipeline or electric transmission facility, or any border-crossing facility thereof, unless such revocation is authorized by an Act of Congress",
+            "target_shingle_coverage": 0.05675287356321839,
+            "matched_shingle_coverage": 0.43169398907103823,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3062rfs/xml/BILLS-119hr3062rfs.xml",
+            "target_source_sha256": "95b7024aa51fd89735a1ee2cad4d62ccef0b1e28407cb00bb0c5f6fd39f61105",
+            "target_text_sha256": "63d558a5f1008bd486d2431a7c2973540cfea7aa36deba90f25ee27b8a4218e0",
+            "target_version_code": "rfs",
+            "target_version_date": "2025-09-19T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1587ih/xml/BILLS-119hr1587ih.xml",
+            "matched_source_sha256": "399a33a28a5e4082104f0a8e6746bb5e25dd7413fcc45f70ff2c2d11832561ea",
+            "matched_text_sha256": "4ff19d2a8fc6a3f09407b7ca15078972f007c131ea31e4924a702f94e3d35e99",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-02-25T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3062-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3062rfs/xml/BILLS-119hr3062rfs.xml",
+        "source_sha256": "95b7024aa51fd89735a1ee2cad4d62ccef0b1e28407cb00bb0c5f6fd39f61105",
+        "text_sha256": "63d558a5f1008bd486d2431a7c2973540cfea7aa36deba90f25ee27b8a4218e0",
+        "version_date": "2025-09-19T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3062rfs"
       },
-      "analysis_status": "quarantined_legacy_corpus"
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR2838-119",
+      "type": "HR",
+      "number": "2838",
+      "congress": 119,
+      "title": "Ending Intermittent Energy Subsidies Act of 2025",
+      "introduced_date": "2025-04-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2838",
+      "latest_action": "Referred to the House Committee on Ways and Means.",
+      "latest_action_date": "2025-04-10",
+      "cosponsors": [
+        "G000601",
+        "P000609",
+        "W000814",
+        "P000048"
+      ],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr2838.xml",
+      "metadata_source_sha256": "f29f234dbbff01d1a5e950c517560610278e56df605cc9fbed57adb7bceba797",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR2838-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2838ih/xml/BILLS-119hr2838ih.xml",
+        "source_sha256": "c344ee28636ef44a1b57d85d605c482f5ab7ef31b5fd3049161802a2e7323bc4",
+        "text_sha256": "f2b3e05b221e7e8d8a035d55a1d09799a9cd347df5f8039339c22b45b38012b5",
+        "version_date": "2025-04-10T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr2838ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HRES290-119",
+      "type": "HRES",
+      "number": "290",
+      "congress": 119,
+      "title": "Recognizing that the retirement of nonintermittent electric generation facilities, before facilities with equal or greater reliability attributes are available, is a threat to the reliability of the United States electric grid.",
+      "introduced_date": "2025-04-02",
+      "url": null,
+      "latest_action": "Referred to the House Committee on Energy and Commerce.",
+      "latest_action_date": "2025-04-02",
+      "cosponsors": [
+        "L000597"
+      ],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres290.xml",
+      "metadata_source_sha256": "31e24b79dcfe024c4d1c677f113cccbe7e73c0ca220c925dac474ab2b7a1a33e",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES290-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres290ih/xml/BILLS-119hres290ih.xml",
+        "source_sha256": "aeb817810624b4d119d3cc14def9340b1bc7a5576eb3476dd06ae3748a31412e",
+        "text_sha256": "1f70c70d6cd931f0e88c10f12f57ef2fa100962341009ef1c252d3094483c4d7",
+        "version_date": "2025-04-02T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres290ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HJRES79-119",
+      "type": "HJRES",
+      "number": "79",
+      "congress": 119,
+      "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protection Agency relating to \"Review of Final Rule Reclassification of Major Sources as Area Sources Under Section 112 of the Clean Air Act\".",
+      "introduced_date": "2025-03-24",
+      "url": "https://www.congress.gov/bill/119th-congress/house-joint-resolution/79",
+      "latest_action": "Sponsor introductory remarks on measure. (CR H1328-1329)",
+      "latest_action_date": "2025-03-27",
+      "cosponsors": [
+        "B001306",
+        "A000372",
+        "B000668"
+      ],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hjres/BILLSTATUS-119hjres79.xml",
+      "metadata_source_sha256": "de202b4b217cced40e053372e0e06cc8045c40142e58227b8152b1084f8fe1a2",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "SJRES31-119",
+          "bill_title": "A joint resolution providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protection Agency relating to \"Review of Final Rule Reclassification of Major Sources as Area Sources Under Section 112 of the Clean Air Act\".",
+          "member_id": "C001114",
+          "same_sponsor": false,
+          "similarity_score": 0.9879807829856873,
+          "evidence": {
+            "longest_passage_words": 44,
+            "target_word_offset": 5,
+            "matched_word_offset": 4,
+            "displayed_passage_words": 44,
+            "target_passage": "rule submitted by the Environmental Protection Agency relating to Review of Final Rule Reclassification of Major Sources as Area Sources Under Section 112 of the Clean Air Act (89 Fed. Reg. 73293 (September 10, 2024)), and such rule shall have no force or effect",
+            "matched_passage": "rule submitted by the Environmental Protection Agency relating to Review of Final Rule Reclassification of Major Sources as Area Sources Under Section 112 of the Clean Air Act (89 Fed. Reg. 73293 (September 10, 2024)), and such rule shall have no force or effect",
+            "target_shingle_coverage": 0.868421052631579,
+            "matched_shingle_coverage": 0.8918918918918919,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres79ih/xml/BILLS-119hjres79ih.xml",
+            "target_source_sha256": "fdded207899fbb80fd64b5edb56fa514b488e592b46c29da8bd18a52f314dd28",
+            "target_text_sha256": "e8beca23474bab7ba02ddcc8988beb1d94ac986d5ecdf8c2bd5a882ef4604390",
+            "target_version_code": "ih",
+            "target_version_date": "2025-03-24T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119sjres31enr/xml/BILLS-119sjres31enr.xml",
+            "matched_source_sha256": "d4c26ad32e23d4f6a922a71699adc7bfb5305bf419833784258ea0f92f501009",
+            "matched_text_sha256": "67b89ed248d996a24e84e9c218008065cd8dbb3b124df4fb084ac005489c8b2e",
+            "matched_version_code": "enr",
+            "matched_version_date": ""
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HJRES79-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hjres79ih/xml/BILLS-119hjres79ih.xml",
+        "source_sha256": "fdded207899fbb80fd64b5edb56fa514b488e592b46c29da8bd18a52f314dd28",
+        "text_sha256": "e8beca23474bab7ba02ddcc8988beb1d94ac986d5ecdf8c2bd5a882ef4604390",
+        "version_date": "2025-03-24T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hjres79ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR2252-119",
+      "type": "HR",
+      "number": "2252",
+      "congress": 119,
+      "title": "North Dakota Trust Lands Completion Act of 2026",
+      "introduced_date": "2025-03-21",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2252",
+      "latest_action": "Received in the Senate and Read twice and referred to the Committee on Energy and Natural Resources.",
+      "latest_action_date": "2026-05-20",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr2252.xml",
+      "metadata_source_sha256": "38cba4bf1113d930254aa510dfa5ca8160fe664d58740e562a92ae8da721c0c1",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1084-119",
+          "bill_title": "North Dakota Trust Lands Completion Act of 2025",
+          "member_id": "H001061",
+          "same_sponsor": false,
+          "similarity_score": 0.9731122255325317,
+          "evidence": {
+            "longest_passage_words": 732,
+            "target_word_offset": 1260,
+            "matched_word_offset": 1132,
+            "displayed_passage_words": 120,
+            "target_passage": "or the State withdraws the selection. Valuation Equal value With respect to a State land grant parcel conveyed under this Act in consideration for a parcel of unappropriated Federal land selected in accordance with this Act\u2014 the overall value of the State land grant parcel and the overall value of the parcel of unappropriated Federal land shall be substantially equal; or subject to subsection (c), if the overall value of the parcels is not equal, the party conveying the parcel of lesser value shall\u2014 equalize the value by the payment of funds to the other party; or enter the imbalance in value on a ledger account in accordance with subsection (e). Appraisal required In general Except as provided in subsection",
+            "matched_passage": "or the State withdraws the selection. Valuation Equal value With respect to a State land grant parcel conveyed under this Act in consideration for a parcel of unappropriated Federal land selected in accordance with this Act\u2014 the overall value of the State land grant parcel and the overall value of the parcel of unappropriated Federal land shall be substantially equal; or subject to subsection (c), if the overall value of the parcels is not equal, the party conveying the parcel of lesser value shall\u2014 equalize the value by the payment of funds to the other party; or enter the imbalance in value on a ledger account in accordance with subsection (e). Appraisal required In general Except as provided in subsection",
+            "target_shingle_coverage": 0.8688783570300158,
+            "matched_shingle_coverage": 0.9590235396687009,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2252rfs/xml/BILLS-119hr2252rfs.xml",
+            "target_source_sha256": "6e1b8b506db66b74de0f0e374f172da50f30aa2c8a0827c822e715f5813d5318",
+            "target_text_sha256": "f74d2908864115b5b2c8cc9ed4d216be4f7f2a5da4f91a2c006d12ea69cf89cd",
+            "target_version_code": "rfs",
+            "target_version_date": "2026-05-20T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1084is/xml/BILLS-119s1084is.xml",
+            "matched_source_sha256": "b65eb3d4ce3ba57accb00c493aea61f7edf687e61d01e39e344ead6ef8fba2b6",
+            "matched_text_sha256": "9fb686351d65bcc8d527eaa876e25f3e3fb30f6189dd500fb0b69ee5481ccd22",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-03-14T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR2252-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2252rfs/xml/BILLS-119hr2252rfs.xml",
+        "source_sha256": "6e1b8b506db66b74de0f0e374f172da50f30aa2c8a0827c822e715f5813d5318",
+        "text_sha256": "f74d2908864115b5b2c8cc9ed4d216be4f7f2a5da4f91a2c006d12ea69cf89cd",
+        "version_date": "2026-05-20T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr2252rfs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HR1830-119",
+      "type": "HR",
+      "number": "1830",
+      "congress": 119,
+      "title": "To designate the facility of the United States Postal Service located at 840 Front Street in Casselton, North Dakota, as the \"Commander Delbert Austin Olson Post Office\".",
+      "introduced_date": "2025-03-04",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1830",
+      "latest_action": "Placed on Senate Legislative Calendar under General Orders. Calendar No. 597.",
+      "latest_action_date": "2026-09-14",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr1830.xml",
+      "metadata_source_sha256": "6912d2b6530ef221c0975a019bebe24b34a78c4cb562647974b39adcbb24cc98",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S829-119",
+          "bill_title": "A bill to designate the facility of the United States Postal Service located at 840 Front Street in Casselton, North Dakota, as the \"Commander Delbert Austin Olson Post Office\".",
+          "member_id": "C001096",
+          "same_sponsor": false,
+          "similarity_score": 0.9999998211860657,
+          "evidence": {
+            "longest_passage_words": 77,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 77,
+            "target_passage": "Commander Delbert Austin Olson Post Office Designation The facility of the United States Postal Service located at 840 Front Street in Casselton, North Dakota, shall be known and designated as the Commander Delbert Austin Olson Post Office . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the Commander Delbert Austin Olson Post Office",
+            "matched_passage": "Commander Delbert Austin Olson Post Office Designation The facility of the United States Postal Service located at 840 Front Street in Casselton, North Dakota, shall be known and designated as the Commander Delbert Austin Olson Post Office . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the Commander Delbert Austin Olson Post Office",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1830rs/xml/BILLS-119hr1830rs.xml",
+            "target_source_sha256": "852f28cb94a8cb39c0213119a2a233dfbc8bd5277c00a822b93062c0e77e73ae",
+            "target_text_sha256": "9efbf3cfa26bef57042b25274e328c94eec1e42c127b62d565221c922e15f321",
+            "target_version_code": "rs",
+            "target_version_date": "2026-09-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s829rs/xml/BILLS-119s829rs.xml",
+            "matched_source_sha256": "e3ef55697ceb7f9545c853643e99756522a77876cb76bb097176eebdc3f6ea76",
+            "matched_text_sha256": "9efbf3cfa26bef57042b25274e328c94eec1e42c127b62d565221c922e15f321",
+            "matched_version_code": "rs",
+            "matched_version_date": "2026-09-14T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR4919-119",
+          "bill_title": "To designate the facility of the United States Postal Service located at 765 West Old Route 66 in Ash Fork, Arizona, as the \"Fayrene Hume Post Office\".",
+          "member_id": "C001132",
+          "same_sponsor": false,
+          "similarity_score": 0.4232839345932007,
+          "evidence": {
+            "longest_passage_words": 36,
+            "target_word_offset": 35,
+            "matched_word_offset": 33,
+            "displayed_passage_words": 36,
+            "target_passage": "Post Office . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "matched_passage": "Post Office . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "target_shingle_coverage": 0.4090909090909091,
+            "matched_shingle_coverage": 0.43548387096774194,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1830rs/xml/BILLS-119hr1830rs.xml",
+            "target_source_sha256": "852f28cb94a8cb39c0213119a2a233dfbc8bd5277c00a822b93062c0e77e73ae",
+            "target_text_sha256": "9efbf3cfa26bef57042b25274e328c94eec1e42c127b62d565221c922e15f321",
+            "target_version_code": "rs",
+            "target_version_date": "2026-09-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr4919ih/xml/BILLS-119hr4919ih.xml",
+            "matched_source_sha256": "606d40de2221d609969b8b3409b7598326294b5ea07b61ddcc95339e91ab1117",
+            "matched_text_sha256": "684a39904067369f1f6b7357b9ae9a5e62ccbd8380375e3587e839ed63061fab",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-08-08T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR10299-119",
+          "bill_title": "To designate the facility of the United States Postal Service located at 83 East Park Street in Alamo, Tennessee, as the \"Kenneth Nolen Davis Post Office\".",
+          "member_id": "K000392",
+          "same_sponsor": false,
+          "similarity_score": 0.42171111702919006,
+          "evidence": {
+            "longest_passage_words": 36,
+            "target_word_offset": 35,
+            "matched_word_offset": 33,
+            "displayed_passage_words": 36,
+            "target_passage": "Post Office . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "matched_passage": "Post Office . References Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the",
+            "target_shingle_coverage": 0.4090909090909091,
+            "matched_shingle_coverage": 0.42857142857142855,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1830rs/xml/BILLS-119hr1830rs.xml",
+            "target_source_sha256": "852f28cb94a8cb39c0213119a2a233dfbc8bd5277c00a822b93062c0e77e73ae",
+            "target_text_sha256": "9efbf3cfa26bef57042b25274e328c94eec1e42c127b62d565221c922e15f321",
+            "target_version_code": "rs",
+            "target_version_date": "2026-09-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10299ih/xml/BILLS-119hr10299ih.xml",
+            "matched_source_sha256": "1c8bde392239db4529d4d528577e12b29eab51fadd676c138dac355f9708ab2c",
+            "matched_text_sha256": "d40d2dbe6be5efff4afb5eda24fc66760b4351bbf2f4d5322844f6199a5c178e",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-09-04T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR1830-119",
+        "version_code": "rs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1830rs/xml/BILLS-119hr1830rs.xml",
+        "source_sha256": "852f28cb94a8cb39c0213119a2a233dfbc8bd5277c00a822b93062c0e77e73ae",
+        "text_sha256": "9efbf3cfa26bef57042b25274e328c94eec1e42c127b62d565221c922e15f321",
+        "version_date": "2026-09-14T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr1830rs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
+    },
+    {
+      "bill_id": "HRES32-119",
+      "type": "HRES",
+      "number": "32",
+      "congress": 119,
+      "title": "Congratulating the North Dakota State University Bison football team for winning the 2024 National Collegiate Athletic Association Division I Football Championship Subdivision title.",
+      "introduced_date": "2025-01-13",
+      "url": "https://www.congress.gov/bill/119th-congress/house-resolution/32",
+      "latest_action": "Referred to the House Committee on Education and Workforce.",
+      "latest_action_date": "2025-01-13",
+      "cosponsors": [],
+      "sponsor_id": "F000482",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres32.xml",
+      "metadata_source_sha256": "adf14f1256c1afdde35c34cfda4b1da77246dd3b43161dbaa61584d081c48d3b",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "SRES27-119",
+          "bill_title": "A resolution congratulating the North Dakota State University Bison football team for winning the 2024 National Collegiate Athletic Association Division I Football Championship Subdivision title.",
+          "member_id": "H001061",
+          "same_sponsor": false,
+          "similarity_score": 0.9948905110359192,
+          "evidence": {
+            "longest_passage_words": 141,
+            "target_word_offset": 5,
+            "matched_word_offset": 3,
+            "displayed_passage_words": 120,
+            "target_passage": "congratulates the North Dakota State University Bison football team for winning the 2024 National Collegiate Athletic Association (NCAA) Division I Football Championship Subdivision (FCS) title; commends the players, coaches, and staff of the North Dakota State University Bison football team for\u2014 their tireless work and dedication; and fostering a continued tradition of excellence; congratulates the North Dakota State University President David Cook, North Dakota State University Athletic Director Matt Larsen, and all the faculty and staff of North Dakota State University for creating an environment that emphasizes excellence in both academics and athletics; and recognizes the students, alumni, and fans of North Dakota State University and all of Bison Nation for supporting the North Dakota State University Bison football team",
+            "matched_passage": "congratulates the North Dakota State University Bison football team for winning the 2024 National Collegiate Athletic Association (NCAA) Division I Football Championship Subdivision (FCS) title; commends the players, coaches, and staff of the North Dakota State University Bison football team for\u2014 their tireless work and dedication; and fostering a continued tradition of excellence; congratulates the North Dakota State University President David Cook, North Dakota State University Athletic Director Matt Larsen, and all the faculty and staff of North Dakota State University for creating an environment that emphasizes excellence in both academics and athletics; and recognizes the students, alumni, and fans of North Dakota State University and all of Bison Nation for supporting the North Dakota State University Bison football team",
+            "target_shingle_coverage": 0.9629629629629629,
+            "matched_shingle_coverage": 0.9774436090225563,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres32ih/xml/BILLS-119hres32ih.xml",
+            "target_source_sha256": "86eb687bb8d8076230fac919087ea7292b72472b2ca6d888badd356c511c50e5",
+            "target_text_sha256": "e403ce1bfe124fd71821305fd4e1db829c64b3d1b71a471d9f4fb43101113bbf",
+            "target_version_code": "ih",
+            "target_version_date": "2025-01-13T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119sres27ats/xml/BILLS-119sres27ats.xml",
+            "matched_source_sha256": "d51324f7b7821c744ad1376e26de6bce47a1daa873ee3762f55e890745e09e23",
+            "matched_text_sha256": "1826656be2a50dc23c3ef5d6b33684fbbe1f97653f3bde2afa83214d510073ea",
+            "matched_version_code": "ats",
+            "matched_version_date": "2025-01-15T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES32-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres32ih/xml/BILLS-119hres32ih.xml",
+        "source_sha256": "86eb687bb8d8076230fac919087ea7292b72472b2ca6d888badd356c511c50e5",
+        "text_sha256": "e403ce1bfe124fd71821305fd4e1db829c64b3d1b71a471d9f4fb43101113bbf",
+        "version_date": "2025-01-13T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres32ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-18T17:13:58.001339+00:00",
-  "bills_count": 10,
-  "donor_alignment_score": 35.0,
+  "bills_updated": "2026-11-24T00:21:39.136155+00:00",
+  "bills_count": 17,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
-  "donor_match_count": 7,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 51,
+  "donor_match_count": 0,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 56,
   "travel": [
     {
       "destination_country": "Israel",
@@ -2034,7 +2073,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-18T17:40:54.728537+00:00",
+  "travel_updated": "2026-11-23T20:43:20.964459+00:00",
   "travel_count": 1,
   "fec_candidate_id": "H4ND00061",
   "total_raised": 2107166.08,
@@ -2193,16 +2232,16 @@
     "Real Estate",
     "Mining & Natural Resources"
   ],
-  "donors_updated": "2026-11-17T19:35:31.974725+00:00",
+  "donors_updated": "2026-11-23T22:27:19.915037+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 7,
+    "donor_alignment": 0,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-18T19:33:59.210103",
+  "score_updated": "2026-11-23T19:34:30.660979",
   "missed_votes_pct": 1.0,
   "total_spent": 1661648.29,
   "cash_on_hand": 774845.73,
@@ -2211,7 +2250,7 @@
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus",
+  "bills_analysis_status": "analyzed",
   "edgar_reconciliation": {
     "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
     "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
@@ -2235,16 +2274,3033 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:55:56.713918",
+  "edgar_checked": "2026-11-23T15:58:55.670880",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:55:56.713918",
   "votes_refresh_provenance": {
-    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-    "run": 44276045061,
-    "legacy_review_votes_updated": "2026-11-17T09:56:50.482587",
-    "legacy_source_votes_updated": "2026-11-18T09:31:13.722797",
-    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T09:56:50.482587",
+      "legacy_source_votes_updated": "2026-11-18T09:31:13.722797",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "checked": "2026-11-21T09:01:48.570386",
+      "failed_attempt_count": 54,
+      "status": "fetch_failed"
+    }
   },
-  "votes_checked": "2026-11-18T09:31:13.722797"
+  "votes_checked": "2026-11-23T10:02:48.307574",
+  "upstream_sec_observation": {
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+    "candidate_only": true,
+    "fields": {
+      "corporate_insider_signals": 0,
+      "data_updated": "2026-11-23T15:58:55.670880",
+      "edgar_cik": null,
+      "edgar_status": "unresolved"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10666-119",
+            "title": "To extend the Frontier Community Health Integration Project Demonstration.",
+            "type": "HR",
+            "number": "10666",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10666?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {},
+              "analysis_status": "quarantined_pdf_text"
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "obj",
+                  "endobj",
+                  "stream",
+                  "endstream",
+                  "pdf",
+                  "font",
+                  "procset",
+                  "text",
+                  "poxko",
+                  "oacv",
+                  "pbu",
+                  "fjl",
+                  "hjp",
+                  "sis",
+                  "uat",
+                  "smo",
+                  "arq",
+                  "wwq",
+                  "umq",
+                  "mwe"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.0,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR9623-119",
+                    "sponsor_id": "B001296",
+                    "similarity_score": 1.0
+                  },
+                  {
+                    "bill_id": "HR10505-119",
+                    "sponsor_id": "S000168",
+                    "similarity_score": 1.0
+                  },
+                  {
+                    "bill_id": "HR10799-119",
+                    "sponsor_id": "G000576",
+                    "similarity_score": 1.0
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_pdf_text",
+            "text_integrity": "quarantined",
+            "text_integrity_reason": "pdf_structure"
+          },
+          {
+            "bill_id": "HR9618-119",
+            "title": "DEF Act",
+            "type": "HR",
+            "number": "9618",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9618?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000230",
+              "F000475",
+              "B001301",
+              "F000470",
+              "B001295",
+              "G000568",
+              "R000619"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {},
+              "analysis_status": "quarantined_pdf_text"
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "obj",
+                  "endobj",
+                  "stream",
+                  "pdf",
+                  "endstream",
+                  "font",
+                  "procset",
+                  "text",
+                  "itext",
+                  "uuid",
+                  "qcz",
+                  "hht",
+                  "ibc",
+                  "vms",
+                  "gjr",
+                  "vmo",
+                  "jlq",
+                  "rjjx",
+                  "rde",
+                  "euf"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.001,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HR10098-119",
+                    "sponsor_id": "M000194",
+                    "similarity_score": 0.993
+                  },
+                  {
+                    "bill_id": "HR9683-119",
+                    "sponsor_id": "M001236",
+                    "similarity_score": 0.989
+                  },
+                  {
+                    "bill_id": "HR9695-119",
+                    "sponsor_id": "B000668",
+                    "similarity_score": 0.989
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_pdf_text",
+            "text_integrity": "quarantined",
+            "text_integrity_reason": "pdf_structure"
+          },
+          {
+            "bill_id": "HR9141-119",
+            "title": "SAVE America Through REAL ID Act",
+            "type": "HR",
+            "number": "9141",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9141?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "identification",
+              "grant",
+              "federal",
+              "income",
+              "individuals",
+              "funds",
+              "program",
+              "compliant",
+              "low",
+              "real",
+              "application",
+              "cost",
+              "eligible",
+              "establish",
+              "assist",
+              "cards",
+              "standards",
+              "individual"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000597"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Technology": [
+                  "data",
+                  "privacy"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "state",
+                  "secretary",
+                  "identification",
+                  "grant",
+                  "federal",
+                  "income",
+                  "individuals",
+                  "funds",
+                  "program",
+                  "compliant",
+                  "low",
+                  "real",
+                  "application",
+                  "cost",
+                  "eligible",
+                  "establish",
+                  "assist",
+                  "cards",
+                  "standards",
+                  "individual"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.128,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Technology"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "financial"
+                    ],
+                    "Technology": [
+                      "data",
+                      "privacy"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR8006-119",
+            "title": "Dakota Water Resources Act Amendments of 2026",
+            "type": "HR",
+            "number": "8006",
+            "congress": 119,
+            "introduced_date": "2026-03-19",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8006?format=json",
+            "keywords": [
+              "water",
+              "rural",
+              "indexed",
+              "complete",
+              "dakota",
+              "amounts",
+              "available",
+              "made",
+              "secretary",
+              "north",
+              "construction",
+              "described",
+              "resources",
+              "subparagraph",
+              "authorized",
+              "project",
+              "engineering",
+              "necessary",
+              "system",
+              "final"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "pipeline"
+                ],
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "water",
+                  "rural",
+                  "indexed",
+                  "complete",
+                  "dakota",
+                  "amounts",
+                  "available",
+                  "made",
+                  "secretary",
+                  "north",
+                  "construction",
+                  "described",
+                  "resources",
+                  "subparagraph",
+                  "authorized",
+                  "project",
+                  "engineering",
+                  "necessary",
+                  "system",
+                  "final"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.051,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "S4040-119",
+                    "sponsor_id": "H001061",
+                    "similarity_score": 0.985
+                  }
+                ],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas",
+                    "Real Estate"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy",
+                      "pipeline"
+                    ],
+                    "Real Estate": [
+                      "construction",
+                      "development"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR7956-119",
+            "title": "State Offices of Rural Health Program Reauthorization Act of 2026",
+            "type": "HR",
+            "number": "7956",
+            "congress": 119,
+            "introduced_date": "2026-03-17",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7956?format=json",
+            "keywords": [
+              "health",
+              "state",
+              "offices",
+              "rural",
+              "service",
+              "program",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "reauthorize",
+              "bill",
+              "fiscal",
+              "years",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001125"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "health",
+                  "state",
+                  "offices",
+                  "rural",
+                  "service",
+                  "program",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "reauthorize",
+                  "bill",
+                  "fiscal",
+                  "years",
+                  "congressional",
+                  "bills",
+                  "government",
+                  "publishing",
+                  "office",
+                  "doc"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.021,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR6633-119",
+            "title": "High-Capacity Grid Act",
+            "type": "HR",
+            "number": "6633",
+            "congress": 119,
+            "introduced_date": "2025-12-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6633?format=json",
+            "keywords": [
+              "transmission",
+              "conductor",
+              "available",
+              "best",
+              "commission",
+              "cost",
+              "covered",
+              "standard",
+              "conductors",
+              "project",
+              "establish",
+              "projects",
+              "federal",
+              "power",
+              "provide",
+              "recovery",
+              "capacity",
+              "subject",
+              "jurisdiction",
+              "whether"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098",
+              "C001120",
+              "S001229",
+              "W000804"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Technology",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Technology": [
+                  "technology"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "transmission",
+                  "conductor",
+                  "available",
+                  "best",
+                  "commission",
+                  "cost",
+                  "covered",
+                  "standard",
+                  "conductors",
+                  "project",
+                  "establish",
+                  "projects",
+                  "federal",
+                  "power",
+                  "provide",
+                  "recovery",
+                  "capacity",
+                  "subject",
+                  "jurisdiction",
+                  "whether"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.095,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas",
+                    "Technology",
+                    "Real Estate"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ],
+                    "Technology": [
+                      "technology"
+                    ],
+                    "Real Estate": [
+                      "construction"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR6336-119",
+            "title": "Fair Allocation of Interstate Rates Act",
+            "type": "HR",
+            "number": "6336",
+            "congress": 119,
+            "introduced_date": "2025-12-01",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6336?format=json",
+            "keywords": [
+              "transmission",
+              "covered",
+              "facility",
+              "state",
+              "policy",
+              "consumer",
+              "costs",
+              "allocation",
+              "consumers",
+              "purposes",
+              "expressly",
+              "provider",
+              "electric",
+              "basis",
+              "whole",
+              "implement",
+              "cost",
+              "subparagraph",
+              "html",
+              "body"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000814",
+              "D000634",
+              "H001052",
+              "H001098",
+              "C001120",
+              "B001282",
+              "B000740"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "transmission",
+                  "covered",
+                  "facility",
+                  "state",
+                  "policy",
+                  "consumer",
+                  "costs",
+                  "allocation",
+                  "consumers",
+                  "purposes",
+                  "expressly",
+                  "provider",
+                  "electric",
+                  "basis",
+                  "whole",
+                  "implement",
+                  "cost",
+                  "subparagraph",
+                  "html",
+                  "body"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.094,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "S3287-119",
+                    "sponsor_id": "C001096",
+                    "similarity_score": 0.886
+                  }
+                ],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas",
+                    "Real Estate"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ],
+                    "Real Estate": [
+                      "construction"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR5311-119",
+            "title": "CABLE Expansion Act",
+            "type": "HR",
+            "number": "5311",
+            "congress": 119,
+            "introduced_date": "2025-09-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5311?format=json",
+            "keywords": [
+              "request",
+              "authority",
+              "franchising",
+              "facility",
+              "complete",
+              "cable",
+              "covered",
+              "submitted",
+              "place",
+              "construct",
+              "modify",
+              "authorization",
+              "considered",
+              "received",
+              "infrastructure",
+              "service",
+              "purposes",
+              "placement",
+              "construction",
+              "modification"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "construction"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "request",
+                  "authority",
+                  "franchising",
+                  "facility",
+                  "complete",
+                  "cable",
+                  "covered",
+                  "submitted",
+                  "place",
+                  "construct",
+                  "modify",
+                  "authorization",
+                  "considered",
+                  "received",
+                  "infrastructure",
+                  "service",
+                  "purposes",
+                  "placement",
+                  "construction",
+                  "modification"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.12,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Oil & Gas",
+                    "Real Estate"
+                  ],
+                  "keyword_hits": {
+                    "Oil & Gas": [
+                      "energy"
+                    ],
+                    "Real Estate": [
+                      "housing",
+                      "construction"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HJRES105-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
+            "type": "HJRES",
+            "number": "105",
+            "congress": 119,
+            "introduced_date": "2025-07-10",
+            "latest_action": "Became Public Law No: 119-49.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/105?format=json",
+            "keywords": [
+              "management",
+              "record",
+              "congressional",
+              "office",
+              "rule",
+              "decision",
+              "approved",
+              "resource",
+              "plan",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "res",
+              "america",
+              "january",
+              "submitted",
+              "bureau",
+              "land",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "management",
+                  "record",
+                  "congressional",
+                  "office",
+                  "rule",
+                  "decision",
+                  "approved",
+                  "resource",
+                  "plan",
+                  "html",
+                  "body",
+                  "pre",
+                  "government",
+                  "res",
+                  "america",
+                  "january",
+                  "submitted",
+                  "bureau",
+                  "land",
+                  "relating"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.047,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "SJRES109-119",
+                    "sponsor_id": "L000577",
+                    "similarity_score": 0.859
+                  },
+                  {
+                    "bill_id": "HJRES151-119",
+                    "sponsor_id": "M001228",
+                    "similarity_score": 0.858
+                  },
+                  {
+                    "bill_id": "HJRES131-119",
+                    "sponsor_id": "B001323",
+                    "similarity_score": 0.81
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR3843-119",
+            "title": "Baseload Reliability Protection Act",
+            "type": "HR",
+            "number": "3843",
+            "congress": 119,
+            "introduced_date": "2025-06-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3843?format=json",
+            "keywords": [
+              "electric",
+              "generating",
+              "covered",
+              "unit",
+              "operator",
+              "petition",
+              "owner",
+              "reliability",
+              "risk",
+              "commission",
+              "exemption",
+              "system",
+              "power",
+              "prohibition",
+              "energy",
+              "operation",
+              "secretary",
+              "organization",
+              "final",
+              "determination"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000814",
+              "G000601",
+              "P000048",
+              "R000619",
+              "M001205",
+              "B001306",
+              "D000634",
+              "S001229",
+              "H001072",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "investment"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "emissions",
+                  "greenhouse"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "electric",
+                  "generating",
+                  "covered",
+                  "unit",
+                  "operator",
+                  "petition",
+                  "owner",
+                  "reliability",
+                  "risk",
+                  "commission",
+                  "exemption",
+                  "system",
+                  "power",
+                  "prohibition",
+                  "energy",
+                  "operation",
+                  "secretary",
+                  "organization",
+                  "final",
+                  "determination"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.062,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Oil & Gas",
+                    "Real Estate"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "financial",
+                      "loan",
+                      "interest",
+                      "investment"
+                    ],
+                    "Oil & Gas": [
+                      "energy",
+                      "emissions",
+                      "greenhouse"
+                    ],
+                    "Real Estate": [
+                      "construction"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          }
+        ],
+        "bills_updated": "2026-11-18T17:13:58.001339+00:00",
+        "bills_count": 10,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 35.0,
+        "donor_match_count": 7,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "alec_match_count": 0,
+        "bills": [
+          {
+            "bill_id": "HR10666-119",
+            "title": "To extend the Frontier Community Health Integration Project Demonstration.",
+            "type": "HR",
+            "number": "10666",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10666?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "poxko",
+              "oacv",
+              "pbu",
+              "fjl",
+              "hjp",
+              "sis",
+              "uat",
+              "smo",
+              "arq",
+              "wwq",
+              "umq",
+              "mwe"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9623-119",
+                "sponsor_id": "B001296",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10505-119",
+                "sponsor_id": "S000168",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10799-119",
+                "sponsor_id": "G000576",
+                "similarity_score": 1.0
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9618-119",
+            "title": "DEF Act",
+            "type": "HR",
+            "number": "9618",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9618?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "endstream",
+              "font",
+              "procset",
+              "text",
+              "itext",
+              "uuid",
+              "qcz",
+              "hht",
+              "ibc",
+              "vms",
+              "gjr",
+              "vmo",
+              "jlq",
+              "rjjx",
+              "rde",
+              "euf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.001,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10098-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR9683-119",
+                "sponsor_id": "M001236",
+                "similarity_score": 0.989
+              },
+              {
+                "bill_id": "HR9695-119",
+                "sponsor_id": "B000668",
+                "similarity_score": 0.989
+              }
+            ],
+            "cosponsors": [
+              "D000230",
+              "F000475",
+              "B001301",
+              "F000470",
+              "B001295",
+              "G000568",
+              "R000619"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9141-119",
+            "title": "SAVE America Through REAL ID Act",
+            "type": "HR",
+            "number": "9141",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9141?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "identification",
+              "grant",
+              "federal",
+              "income",
+              "individuals",
+              "funds",
+              "program",
+              "compliant",
+              "low",
+              "real",
+              "application",
+              "cost",
+              "eligible",
+              "establish",
+              "assist",
+              "cards",
+              "standards",
+              "individual"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.129,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000597"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Technology": [
+                  "data",
+                  "privacy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8006-119",
+            "title": "Dakota Water Resources Act Amendments of 2026",
+            "type": "HR",
+            "number": "8006",
+            "congress": 119,
+            "introduced_date": "2026-03-19",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8006?format=json",
+            "keywords": [
+              "water",
+              "rural",
+              "indexed",
+              "complete",
+              "dakota",
+              "amounts",
+              "available",
+              "made",
+              "secretary",
+              "north",
+              "construction",
+              "described",
+              "resources",
+              "subparagraph",
+              "authorized",
+              "project",
+              "engineering",
+              "necessary",
+              "system",
+              "final"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.051,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4040-119",
+                "sponsor_id": "H001061",
+                "similarity_score": 0.985
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "pipeline"
+                ],
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7956-119",
+            "title": "State Offices of Rural Health Program Reauthorization Act of 2026",
+            "type": "HR",
+            "number": "7956",
+            "congress": 119,
+            "introduced_date": "2026-03-17",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7956?format=json",
+            "keywords": [
+              "health",
+              "state",
+              "offices",
+              "rural",
+              "service",
+              "program",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "reauthorize",
+              "bill",
+              "fiscal",
+              "years",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001125"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6633-119",
+            "title": "High-Capacity Grid Act",
+            "type": "HR",
+            "number": "6633",
+            "congress": 119,
+            "introduced_date": "2025-12-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6633?format=json",
+            "keywords": [
+              "transmission",
+              "conductor",
+              "available",
+              "best",
+              "commission",
+              "cost",
+              "covered",
+              "standard",
+              "conductors",
+              "project",
+              "establish",
+              "projects",
+              "federal",
+              "power",
+              "provide",
+              "recovery",
+              "capacity",
+              "subject",
+              "jurisdiction",
+              "whether"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.095,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098",
+              "C001120",
+              "S001229",
+              "W000804"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Technology",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Technology": [
+                  "technology"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6336-119",
+            "title": "Fair Allocation of Interstate Rates Act",
+            "type": "HR",
+            "number": "6336",
+            "congress": 119,
+            "introduced_date": "2025-12-01",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6336?format=json",
+            "keywords": [
+              "transmission",
+              "covered",
+              "facility",
+              "state",
+              "policy",
+              "consumer",
+              "costs",
+              "allocation",
+              "consumers",
+              "purposes",
+              "expressly",
+              "provider",
+              "electric",
+              "basis",
+              "whole",
+              "implement",
+              "cost",
+              "subparagraph",
+              "html",
+              "body"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.094,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3287-119",
+                "sponsor_id": "C001096",
+                "similarity_score": 0.886
+              }
+            ],
+            "cosponsors": [
+              "W000814",
+              "D000634",
+              "H001052",
+              "H001098",
+              "C001120",
+              "B001282",
+              "B000740"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5311-119",
+            "title": "CABLE Expansion Act",
+            "type": "HR",
+            "number": "5311",
+            "congress": 119,
+            "introduced_date": "2025-09-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5311?format=json",
+            "keywords": [
+              "request",
+              "authority",
+              "franchising",
+              "facility",
+              "complete",
+              "cable",
+              "covered",
+              "submitted",
+              "place",
+              "construct",
+              "modify",
+              "authorization",
+              "considered",
+              "received",
+              "infrastructure",
+              "service",
+              "purposes",
+              "placement",
+              "construction",
+              "modification"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.12,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HJRES105-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
+            "type": "HJRES",
+            "number": "105",
+            "congress": 119,
+            "introduced_date": "2025-07-10",
+            "latest_action": "Became Public Law No: 119-49.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/105?format=json",
+            "keywords": [
+              "management",
+              "record",
+              "congressional",
+              "office",
+              "rule",
+              "decision",
+              "approved",
+              "resource",
+              "plan",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "res",
+              "america",
+              "january",
+              "submitted",
+              "bureau",
+              "land",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.047,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES109-119",
+                "sponsor_id": "L000577",
+                "similarity_score": 0.859
+              },
+              {
+                "bill_id": "HJRES151-119",
+                "sponsor_id": "M001228",
+                "similarity_score": 0.858
+              },
+              {
+                "bill_id": "HJRES131-119",
+                "sponsor_id": "B001323",
+                "similarity_score": 0.81
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3843-119",
+            "title": "Baseload Reliability Protection Act",
+            "type": "HR",
+            "number": "3843",
+            "congress": 119,
+            "introduced_date": "2025-06-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3843?format=json",
+            "keywords": [
+              "electric",
+              "generating",
+              "covered",
+              "unit",
+              "operator",
+              "petition",
+              "owner",
+              "reliability",
+              "risk",
+              "commission",
+              "exemption",
+              "system",
+              "power",
+              "prohibition",
+              "energy",
+              "operation",
+              "secretary",
+              "organization",
+              "final",
+              "determination"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.062,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000814",
+              "G000601",
+              "P000048",
+              "R000619",
+              "M001205",
+              "B001306",
+              "D000634",
+              "S001229",
+              "H001072",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "investment"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "emissions",
+                  "greenhouse"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_count": 10,
+        "bills_updated": "2026-11-21T16:18:20.885599+00:00",
+        "donor_alignment_score": 35.0,
+        "donor_match_count": 7
+      }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10666-119",
+            "title": "To extend the Frontier Community Health Integration Project Demonstration.",
+            "type": "HR",
+            "number": "10666",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10666?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "poxko",
+              "oacv",
+              "pbu",
+              "fjl",
+              "hjp",
+              "sis",
+              "uat",
+              "smo",
+              "arq",
+              "wwq",
+              "umq",
+              "mwe"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9623-119",
+                "sponsor_id": "B001296",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10505-119",
+                "sponsor_id": "S000168",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10799-119",
+                "sponsor_id": "G000576",
+                "similarity_score": 1.0
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9618-119",
+            "title": "DEF Act",
+            "type": "HR",
+            "number": "9618",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9618?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "endstream",
+              "font",
+              "procset",
+              "text",
+              "itext",
+              "uuid",
+              "qcz",
+              "hht",
+              "ibc",
+              "vms",
+              "gjr",
+              "vmo",
+              "jlq",
+              "rjjx",
+              "rde",
+              "euf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.001,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10098-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR9683-119",
+                "sponsor_id": "M001236",
+                "similarity_score": 0.989
+              },
+              {
+                "bill_id": "HR9695-119",
+                "sponsor_id": "B000668",
+                "similarity_score": 0.989
+              }
+            ],
+            "cosponsors": [
+              "D000230",
+              "F000475",
+              "B001301",
+              "F000470",
+              "B001295",
+              "G000568",
+              "R000619"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9141-119",
+            "title": "SAVE America Through REAL ID Act",
+            "type": "HR",
+            "number": "9141",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9141?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "identification",
+              "grant",
+              "federal",
+              "income",
+              "individuals",
+              "funds",
+              "program",
+              "compliant",
+              "low",
+              "real",
+              "application",
+              "cost",
+              "eligible",
+              "establish",
+              "assist",
+              "cards",
+              "standards",
+              "individual"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.128,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000597"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Technology": [
+                  "data",
+                  "privacy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8006-119",
+            "title": "Dakota Water Resources Act Amendments of 2026",
+            "type": "HR",
+            "number": "8006",
+            "congress": 119,
+            "introduced_date": "2026-03-19",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8006?format=json",
+            "keywords": [
+              "water",
+              "rural",
+              "indexed",
+              "complete",
+              "dakota",
+              "amounts",
+              "available",
+              "made",
+              "secretary",
+              "north",
+              "construction",
+              "described",
+              "resources",
+              "subparagraph",
+              "authorized",
+              "project",
+              "engineering",
+              "necessary",
+              "system",
+              "final"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.051,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4040-119",
+                "sponsor_id": "H001061",
+                "similarity_score": 0.985
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "pipeline"
+                ],
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7956-119",
+            "title": "State Offices of Rural Health Program Reauthorization Act of 2026",
+            "type": "HR",
+            "number": "7956",
+            "congress": 119,
+            "introduced_date": "2026-03-17",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7956?format=json",
+            "keywords": [
+              "health",
+              "state",
+              "offices",
+              "rural",
+              "service",
+              "program",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "reauthorize",
+              "bill",
+              "fiscal",
+              "years",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001125"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6633-119",
+            "title": "High-Capacity Grid Act",
+            "type": "HR",
+            "number": "6633",
+            "congress": 119,
+            "introduced_date": "2025-12-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6633?format=json",
+            "keywords": [
+              "transmission",
+              "conductor",
+              "available",
+              "best",
+              "commission",
+              "cost",
+              "covered",
+              "standard",
+              "conductors",
+              "project",
+              "establish",
+              "projects",
+              "federal",
+              "power",
+              "provide",
+              "recovery",
+              "capacity",
+              "subject",
+              "jurisdiction",
+              "whether"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.092,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098",
+              "C001120",
+              "S001229",
+              "W000804"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Technology",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Technology": [
+                  "technology"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6336-119",
+            "title": "Fair Allocation of Interstate Rates Act",
+            "type": "HR",
+            "number": "6336",
+            "congress": 119,
+            "introduced_date": "2025-12-01",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6336?format=json",
+            "keywords": [
+              "transmission",
+              "covered",
+              "facility",
+              "state",
+              "policy",
+              "consumer",
+              "costs",
+              "allocation",
+              "consumers",
+              "purposes",
+              "expressly",
+              "provider",
+              "electric",
+              "basis",
+              "whole",
+              "implement",
+              "cost",
+              "subparagraph",
+              "html",
+              "body"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.094,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3287-119",
+                "sponsor_id": "C001096",
+                "similarity_score": 0.886
+              }
+            ],
+            "cosponsors": [
+              "W000814",
+              "D000634",
+              "H001052",
+              "H001098",
+              "C001120",
+              "B001282",
+              "B000740"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5311-119",
+            "title": "CABLE Expansion Act",
+            "type": "HR",
+            "number": "5311",
+            "congress": 119,
+            "introduced_date": "2025-09-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5311?format=json",
+            "keywords": [
+              "request",
+              "authority",
+              "franchising",
+              "facility",
+              "complete",
+              "cable",
+              "covered",
+              "submitted",
+              "place",
+              "construct",
+              "modify",
+              "authorization",
+              "considered",
+              "received",
+              "infrastructure",
+              "service",
+              "purposes",
+              "placement",
+              "construction",
+              "modification"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.12,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HJRES105-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
+            "type": "HJRES",
+            "number": "105",
+            "congress": 119,
+            "introduced_date": "2025-07-10",
+            "latest_action": "Became Public Law No: 119-49.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/105?format=json",
+            "keywords": [
+              "management",
+              "record",
+              "congressional",
+              "office",
+              "rule",
+              "decision",
+              "approved",
+              "resource",
+              "plan",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "res",
+              "america",
+              "january",
+              "submitted",
+              "bureau",
+              "land",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.047,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES109-119",
+                "sponsor_id": "L000577",
+                "similarity_score": 0.859
+              },
+              {
+                "bill_id": "HJRES151-119",
+                "sponsor_id": "M001228",
+                "similarity_score": 0.858
+              },
+              {
+                "bill_id": "HJRES131-119",
+                "sponsor_id": "B001323",
+                "similarity_score": 0.81
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3843-119",
+            "title": "Baseload Reliability Protection Act",
+            "type": "HR",
+            "number": "3843",
+            "congress": 119,
+            "introduced_date": "2025-06-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3843?format=json",
+            "keywords": [
+              "electric",
+              "generating",
+              "covered",
+              "unit",
+              "operator",
+              "petition",
+              "owner",
+              "reliability",
+              "risk",
+              "commission",
+              "exemption",
+              "system",
+              "power",
+              "prohibition",
+              "energy",
+              "operation",
+              "secretary",
+              "organization",
+              "final",
+              "determination"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.062,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000814",
+              "G000601",
+              "P000048",
+              "R000619",
+              "M001205",
+              "B001306",
+              "D000634",
+              "S001229",
+              "H001072",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "investment"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "emissions",
+                  "greenhouse"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:15:13.917206+00:00"
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "available",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "b355d5401680fd0a183b731b4e64e9acf6d8bdf23059895eb6a8d0a5bf8e2d67",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10666-119",
+            "title": "To extend the Frontier Community Health Integration Project Demonstration.",
+            "type": "HR",
+            "number": "10666",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10666?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "poxko",
+              "oacv",
+              "pbu",
+              "fjl",
+              "hjp",
+              "sis",
+              "uat",
+              "smo",
+              "arq",
+              "wwq",
+              "umq",
+              "mwe"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9623-119",
+                "sponsor_id": "B001296",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10505-119",
+                "sponsor_id": "S000168",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10799-119",
+                "sponsor_id": "G000576",
+                "similarity_score": 1.0
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9618-119",
+            "title": "DEF Act",
+            "type": "HR",
+            "number": "9618",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9618?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "endstream",
+              "font",
+              "procset",
+              "text",
+              "itext",
+              "uuid",
+              "qcz",
+              "hht",
+              "ibc",
+              "vms",
+              "gjr",
+              "vmo",
+              "jlq",
+              "rjjx",
+              "rde",
+              "euf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.001,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10098-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR9683-119",
+                "sponsor_id": "M001236",
+                "similarity_score": 0.989
+              },
+              {
+                "bill_id": "HR9695-119",
+                "sponsor_id": "B000668",
+                "similarity_score": 0.989
+              }
+            ],
+            "cosponsors": [
+              "D000230",
+              "F000475",
+              "B001301",
+              "F000470",
+              "B001295",
+              "G000568",
+              "R000619"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9141-119",
+            "title": "SAVE America Through REAL ID Act",
+            "type": "HR",
+            "number": "9141",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9141?format=json",
+            "keywords": [
+              "state",
+              "secretary",
+              "identification",
+              "grant",
+              "federal",
+              "income",
+              "individuals",
+              "funds",
+              "program",
+              "compliant",
+              "low",
+              "real",
+              "application",
+              "cost",
+              "eligible",
+              "establish",
+              "assist",
+              "cards",
+              "standards",
+              "individual"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.128,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000597"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Technology": [
+                  "data",
+                  "privacy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8006-119",
+            "title": "Dakota Water Resources Act Amendments of 2026",
+            "type": "HR",
+            "number": "8006",
+            "congress": 119,
+            "introduced_date": "2026-03-19",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8006?format=json",
+            "keywords": [
+              "water",
+              "rural",
+              "indexed",
+              "complete",
+              "dakota",
+              "amounts",
+              "available",
+              "made",
+              "secretary",
+              "north",
+              "construction",
+              "described",
+              "resources",
+              "subparagraph",
+              "authorized",
+              "project",
+              "engineering",
+              "necessary",
+              "system",
+              "final"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.051,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4040-119",
+                "sponsor_id": "H001061",
+                "similarity_score": 0.985
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "pipeline"
+                ],
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7956-119",
+            "title": "State Offices of Rural Health Program Reauthorization Act of 2026",
+            "type": "HR",
+            "number": "7956",
+            "congress": 119,
+            "introduced_date": "2026-03-17",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7956?format=json",
+            "keywords": [
+              "health",
+              "state",
+              "offices",
+              "rural",
+              "service",
+              "program",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "reauthorize",
+              "bill",
+              "fiscal",
+              "years",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001125"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6633-119",
+            "title": "High-Capacity Grid Act",
+            "type": "HR",
+            "number": "6633",
+            "congress": 119,
+            "introduced_date": "2025-12-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6633?format=json",
+            "keywords": [
+              "transmission",
+              "conductor",
+              "available",
+              "best",
+              "commission",
+              "cost",
+              "covered",
+              "standard",
+              "conductors",
+              "project",
+              "establish",
+              "projects",
+              "federal",
+              "power",
+              "provide",
+              "recovery",
+              "capacity",
+              "subject",
+              "jurisdiction",
+              "whether"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.092,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098",
+              "C001120",
+              "S001229",
+              "W000804"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Technology",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Technology": [
+                  "technology"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6336-119",
+            "title": "Fair Allocation of Interstate Rates Act",
+            "type": "HR",
+            "number": "6336",
+            "congress": 119,
+            "introduced_date": "2025-12-01",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6336?format=json",
+            "keywords": [
+              "transmission",
+              "covered",
+              "facility",
+              "state",
+              "policy",
+              "consumer",
+              "costs",
+              "allocation",
+              "consumers",
+              "purposes",
+              "expressly",
+              "provider",
+              "electric",
+              "basis",
+              "whole",
+              "implement",
+              "cost",
+              "subparagraph",
+              "html",
+              "body"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.094,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3287-119",
+                "sponsor_id": "C001096",
+                "similarity_score": 0.886
+              }
+            ],
+            "cosponsors": [
+              "W000814",
+              "D000634",
+              "H001052",
+              "H001098",
+              "C001120",
+              "B001282",
+              "B000740"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5311-119",
+            "title": "CABLE Expansion Act",
+            "type": "HR",
+            "number": "5311",
+            "congress": 119,
+            "introduced_date": "2025-09-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5311?format=json",
+            "keywords": [
+              "request",
+              "authority",
+              "franchising",
+              "facility",
+              "complete",
+              "cable",
+              "covered",
+              "submitted",
+              "place",
+              "construct",
+              "modify",
+              "authorization",
+              "considered",
+              "received",
+              "infrastructure",
+              "service",
+              "purposes",
+              "placement",
+              "construction",
+              "modification"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.12,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HJRES105-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Land Management relating to \"North Dakota Field Office Record of Decision and Approved Resource Management Plan\".",
+            "type": "HJRES",
+            "number": "105",
+            "congress": 119,
+            "introduced_date": "2025-07-10",
+            "latest_action": "Became Public Law No: 119-49.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/105?format=json",
+            "keywords": [
+              "management",
+              "record",
+              "congressional",
+              "office",
+              "rule",
+              "decision",
+              "approved",
+              "resource",
+              "plan",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "res",
+              "america",
+              "january",
+              "submitted",
+              "bureau",
+              "land",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.047,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES109-119",
+                "sponsor_id": "L000577",
+                "similarity_score": 0.859
+              },
+              {
+                "bill_id": "HJRES151-119",
+                "sponsor_id": "M001228",
+                "similarity_score": 0.858
+              },
+              {
+                "bill_id": "HJRES131-119",
+                "sponsor_id": "B001323",
+                "similarity_score": 0.81
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3843-119",
+            "title": "Baseload Reliability Protection Act",
+            "type": "HR",
+            "number": "3843",
+            "congress": 119,
+            "introduced_date": "2025-06-09",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3843?format=json",
+            "keywords": [
+              "electric",
+              "generating",
+              "covered",
+              "unit",
+              "operator",
+              "petition",
+              "owner",
+              "reliability",
+              "risk",
+              "commission",
+              "exemption",
+              "system",
+              "power",
+              "prohibition",
+              "energy",
+              "operation",
+              "secretary",
+              "organization",
+              "final",
+              "determination"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.062,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000814",
+              "G000601",
+              "P000048",
+              "R000619",
+              "M001205",
+              "B001306",
+              "D000634",
+              "S001229",
+              "H001072",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Oil & Gas",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "investment"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "emissions",
+                  "greenhouse"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T20:15:13.917206+00:00",
+        "data_updated": "2026-11-23T15:58:55.670880",
+        "donors_updated": "2026-11-23T22:27:19.915037+00:00",
+        "last_updated": "2026-11-23T15:58:55.670880",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.964459+00:00",
+        "votes_fail_count": 56,
+        "votes_updated": "2026-11-23T10:02:48.307574"
+      }
+    }
+  ],
+  "bills_checked": "2026-11-24T00:21:39.136155+00:00"
 }

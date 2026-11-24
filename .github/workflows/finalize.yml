@@ -15,15 +15,20 @@ on:
   schedule:
     - cron: '0 15 * * *'
 concurrency:
-  group: ${{ github.workflow }}
+  group: congresswatch-bill-and-finalize-${{ github.ref }}
   cancel-in-progress: false
 jobs:
   finalize:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      BASE: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
@@ -36,9 +41,10 @@ jobs:
         run: python audit_data.py
       - name: Save data
         run: |
+          git fetch --no-tags --depth 1 origin refs/heads/main
+          test "$(git rev-parse FETCH_HEAD)" = "$BASE"
           git config --global user.name "bot"
           git config --global user.email "bot@bot.com"
           git add data/details/ data/members.json data/stats.json data/trades.json data/bills.json
           git diff --staged --quiet || git commit -m "Rescore + rebuild aggregates [$(date +%Y-%m-%d)]"
-          git pull --rebase --autostash origin main
-          git push
+          git push origin HEAD:refs/heads/main

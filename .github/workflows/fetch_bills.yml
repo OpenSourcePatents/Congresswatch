@@ -5,49 +5,46 @@ on:
   schedule:
     - cron: '0 7 * * *'
 
+# Share the writer lock with finalize; all other main changes are handled
+# by the pin check and the server-side normal fast-forward push.
 concurrency:
-  group: ${{ github.workflow }}
+  group: congresswatch-bill-and-finalize-${{ github.ref }}
   cancel-in-progress: false
+
 jobs:
   fetch:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     permissions:
       contents: write
+    env:
+      BASE: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v5
-
+        with:
+          ref: ${{ github.sha }}
       - uses: actions/setup-python@v6
         with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install requests scikit-learn numpy pypdf
-
-      - name: Restore bills cache
-        uses: actions/cache@v4
-        with:
-          path: data/bills/all_bills.json
-          key: bills-cache-${{ github.run_number }}
-          restore-keys: |
-            bills-cache-
-
-      - name: Run bill similarity engine
-        id: bills
-        continue-on-error: true
-        env:
-          CONGRESS_API_KEY: ${{ secrets.CONGRESS_API_KEY }}
-          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
-        run: python run_fetch_bills.py
-
-      - name: Save data
+          python-version: '3.12'
+      - name: Confirm checkout still matches main
         run: |
-          git config --global user.name "bot"
-          git config --global user.email "bot@bot.com"
-          git add data/details/
-          git diff --staged --quiet || git commit -m "Update bill similarity data"
-          git pull --rebase --autostash origin main
-          git push
-
-      - name: Report source failure after preserving partial results
-        if: steps.bills.outcome == 'failure'
-        run: exit 1
+          git fetch --no-tags --depth 1 origin refs/heads/main
+          test "$(git rev-parse FETCH_HEAD)" = "$BASE"
+      - name: Install dependencies
+        run: python -m pip install -r requirements-official-prose.txt
+      - name: Build and audit the complete source and member snapshot
+        run: python refresh_official_bills.py --expected-head "$BASE" --out "$RUNNER_TEMP/official-bill-refresh"
+      - name: Publish only the verified fast-forward snapshot
+        run: |
+          git fetch --no-tags --depth 1 origin refs/heads/main
+          test "$(git rev-parse FETCH_HEAD)" = "$BASE"
+          python refresh_official_bills.py --expected-head "$BASE" --out "$RUNNER_TEMP/official-bill-refresh" --install
+          git add -- data/details/ data/members.json data/stats.json data/trades.json data/bills.json data/bill_refresh_manifest.json data/bill_refresh_catalog.json
+          if git diff --staged --quiet; then
+            exit 0
+          fi
+          git -c user.name="Congresswatch bot" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -m "Refresh verified official bill similarity data"
+          # No pull, rebase, force or alternate destination. Concurrent writes
+          # after the pin check are rejected by Git; do not publish stale data.
+          git push origin HEAD:refs/heads/main

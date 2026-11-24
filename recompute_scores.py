@@ -27,6 +27,8 @@ Run:
 import os
 from datetime import datetime
 
+from travel_attribution import apply_reviewed_traveler
+
 from fetch_finance import (
     load_json,
     eligible_sec_signals,
@@ -77,6 +79,9 @@ def main():
             record["flags"] = [flag for flag in record.get("flags", []) if flag != "trade"]
             if eligible_sec_signals(record) > 5:
                 record["flags"].append("trade")
+
+        for trip in detail.get("travel") or []:
+            apply_reviewed_traveler(trip)
 
         old = detail.get("score")
         components = compute_score_components(m, detail)

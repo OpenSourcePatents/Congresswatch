@@ -211,7 +211,7 @@
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000832.jpg",
   "term_start": "2026-01-01",
   "data_updated": "2026-11-18T14:10:51.295416",
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "corporate_insider_signals": 0,
   "fec_candidate_id": "H0CA15213",
   "total_raised": 1214546.85,
@@ -232,9 +232,9 @@
   "flags": [],
   "last_updated": "2026-11-17T14:41:22.870228",
   "bills": [],
-  "bills_updated": "2026-11-18T17:49:07.114865+00:00",
+  "bills_updated": "2026-11-24T00:21:39.136155+00:00",
   "bills_count": 0,
-  "donor_alignment_score": 0.0,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
   "top_donors_list": [
@@ -387,16 +387,16 @@
     "Healthcare",
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-17T19:44:00.896377+00:00",
+  "donors_updated": "2026-11-23T22:34:16.214585+00:00",
   "non_voting_delegate": false,
   "missed_votes_pct": 0.0,
-  "score_updated": "2026-11-18T19:33:59.210103",
-  "votes_fail_count": 46,
+  "score_updated": "2026-11-23T19:34:30.660979",
+  "votes_fail_count": 51,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
   "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
-  "bills_analysis_status": "quarantined_legacy_corpus",
+  "bills_analysis_status": "empty",
   "edgar_reconciliation": {
     "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
     "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
@@ -420,16 +420,94 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:10:51.295416",
+  "edgar_checked": "2026-11-23T16:13:56.514502",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:10:51.295416",
   "votes_refresh_provenance": {
-    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
-    "run": 44276045061,
-    "legacy_review_votes_updated": "2026-11-17T10:00:13.964373",
-    "legacy_source_votes_updated": "2026-11-18T09:34:30.948284",
-    "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T10:00:13.964373",
+      "legacy_source_votes_updated": "2026-11-18T09:34:30.948284",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "checked": "2026-11-21T09:05:04.858675",
+      "failed_attempt_count": 49,
+      "status": "fetch_failed"
+    }
   },
-  "votes_checked": "2026-11-18T09:34:30.948284"
+  "votes_checked": "2026-11-23T10:06:06.057591",
+  "upstream_sec_observation": {
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+    "candidate_only": true,
+    "fields": {
+      "corporate_insider_signals": 0,
+      "data_updated": "2026-11-23T16:13:56.514502",
+      "edgar_cik": null,
+      "edgar_status": "unresolved"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [],
+        "bills_updated": "2026-11-18T17:49:07.114865+00:00",
+        "bills_count": 0,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 0.0,
+        "donor_match_count": 0,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [],
+        "bills_updated": "2026-11-20T17:59:24.191843+00:00",
+        "bills_count": 0,
+        "donor_alignment_score": 0.0,
+        "donor_match_count": 0,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [],
+        "bills_analysis_status": null,
+        "bills_count": 0,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:52:49.539486+00:00"
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "empty",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "b355d5401680fd0a183b731b4e64e9acf6d8bdf23059895eb6a8d0a5bf8e2d67",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:52:49.539486+00:00",
+        "data_updated": "2026-11-23T16:13:56.514502",
+        "donors_updated": "2026-11-23T22:34:16.214585+00:00",
+        "last_updated": "2026-11-23T16:13:56.514502",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 51,
+        "votes_updated": "2026-11-23T10:06:06.057591"
+      }
+    }
+  ],
+  "bills_checked": "2026-11-24T00:21:39.136155+00:00"
 }

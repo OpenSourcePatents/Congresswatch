@@ -1,0 +1,88 @@
+name: Review validation (no publication)
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [overhaul/source-review-2026-11-16]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: review-validation-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Install validation dependencies
+        run: |
+          python -m pip install -r requirements-official-prose.txt beautifulsoup4 pdfplumber pypdf ruff==0.14.6 playwright==1.56.0
+          npm ci
+          python -m playwright install --with-deps chromium
+      - name: Lint and static build
+        run: |
+          npm run lint
+          npm run build
+          git diff --check
+      - name: Offline regression and exact snapshot checks
+        run: |
+          python -m unittest -v test_official_prose test_official_refresh test_pipeline_recovery test_senate_agreement test_sec_identity
+          python test_delegates.py
+          python audit_data.py > audit.json
+          python validation/verify_generation.py > generation.json
+          python validation/fetch_api_reference.py
+          node validation/check_api_reference.mjs
+      - name: Real desktop and mobile browser checks
+        run: python validation/browser_review.py
+      - name: Require exact API parity before release
+        run: node validation/check_api_reference.mjs --enforce-parity
+      - name: Retain validation reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: review-validation-${{ github.sha }}
+          path: |
+            audit.json
+            generation.json
+            benchmarks/nov24-api-contract.json
+            .cache/browser-review/report.json
+            .cache/browser-review/*.png
+          if-no-files-found: warn
+  official-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install official-source dependencies
+        run: python -m pip install -r requirements-official-prose.txt
+      - name: Exercise scheduled generation without installing or publishing
+        run: python refresh_official_bills.py --expected-head "$(git rev-parse HEAD)" --out "$RUNNER_TEMP/official-review"
+      - name: Retain source audit only
+        uses: actions/upload-artifact@v4
+        with:
+          name: official-source-validation-${{ github.sha }}
+          path: |
+            ${{ runner.temp }}/official-review/verified.json
+            ${{ runner.temp }}/official-review/data/bill_refresh_manifest.json
+          if-no-files-found: error

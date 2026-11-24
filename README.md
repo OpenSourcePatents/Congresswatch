@@ -10,7 +10,7 @@ CongressWatch cross-references public records from multiple government databases
 Higher scores reflect more of the implemented signals in the available records. Low scores may reflect missing or stale data, not a clean bill of health. Review source filings and coverage before drawing conclusions.
 
 Data Sources
-The active pipelines use public government disclosures, government APIs, GovTrack, and LegiScan. Availability and source coverage vary. A missing record is not evidence of no activity.
+The active pipelines use public government disclosures, government APIs, GovTrack, and official GovInfo bulk XML. Availability and source coverage vary. A missing record is not evidence of no activity.
 
 
 
@@ -21,7 +21,7 @@ The active pipelines use public government disclosures, government APIs, GovTrac
 |**SEC EDGAR**                              |Corporate-insider Form 4 filings (not STOCK Act PTRs)                |
 |**Senate eFD**                             |Senate financial disclosure reports                 |
 |**House eFD**                              |House financial disclosure reports                  |
-|**LegiScan API**                           |Full bill text for NLP similarity analysis          |
+|**GovInfo official bulk XML**              |Bill Status metadata and versioned legislative prose |
 |**[GovTrack.us](http://GovTrack.us)**      |Voting history, ideology scores                     |
 
 |**BioGuide (Congress)**                    |Official member photos                              |
@@ -35,8 +35,8 @@ The score retains a 0–100 scale with six component slots. The personal-wealth 
 |--------------------|------|---------------------------------------------------|
 |Disclosed trade activity|25%   |Recent disclosed-trade counts and SEC signals       |
 |Personal wealth     |25%   |Unavailable: no sourced personal wealth data      |
-|Bill/donor overlap|20%   |Bill-language overlap with donor industry keywords    |
-|Model-bill similarity|15%   |TF-IDF text overlap with model templates|
+|Bill/donor overlap|20%   |Unavailable; unsupported legacy method suspended |
+|Model-bill similarity|15%   |Unavailable; no verified primary model corpus |
 |Disclosed travel    |10%   |Recorded gift trips, including domestic travel      |
 |Attendance          |5%    |Missed votes within the available sample          |
 
@@ -66,10 +66,40 @@ point, not the same number.
 
 Important: The anomaly score is a statistical indicator only. It does not imply illegal activity or wrongdoing. All inputs are from public records. Full methodology is open source and auditable in this repository.
 
-The Bill Similarity Engine
-The bill pipeline compares fetched bill text using TF-IDF vectorization and cosine similarity. It reports related bills and overlap with the stored model-legislation corpus at an 0.80 match threshold. Coverage is limited to fetched bills, available full text, and the current template corpus, not every bill in Congress.
+SEC identity, source retrieval and campaign finances
+SEC company/name-search results are candidate observations, not verified congressional activity. A company CIK, a name match, or the old `verified_auto` resolver label is never enough. Raw CIKs, counts, source failures and historical observations remain available for audit; they do not independently create points, activity flags or attributed SEC totals.
 
-Text similarity does not establish who wrote a bill, coordination, lobbying influence, copying, or wrongdoing. Shared language can reflect common legal provisions or related proposals. Matches are research leads requiring independent source review. Keyword overlap with donor industries is not evidence of how a member voted or why.
+An SEC count becomes eligible only when all of these checks pass:
+- An explicit reviewed `identity_status: verified` entry supplies a CIK and HTTPS evidence in `data/manual_cik_map.json`.
+- `edgar_identity_cik` exactly matches the CIK associated with the count in `edgar_cik`.
+- Every declared evidence URL is retrievable over HTTPS. The finance collector records a receipt containing the exact URL, resolved HTTPS URL, CIK, UTC check time, response byte count and SHA-256 of the nonempty response. Redirects are bounded; non-200, empty, oversized or failed responses remain unavailable. A 403 is not bypassed or retried by this evidence fetch.
+- Receipts in `edgar_identity_evidence_checks` match the evidence list and CIK. Successful retrieval establishes availability only: the separate manual identity review remains necessary.
+- SEC data retrieval succeeded (`edgar_data_status: available`, not `query_failed`) and its count is finite, numeric and nonnegative.
+
+Missing or failed evidence excludes the count from scoring and SEC-derived flags. A failed refresh retains paired raw CIK/count provenance as stale evidence; it does not make the retained count current. A failed manual evidence fetch is marked `verification_unavailable`, while the original reviewed declaration is retained in `edgar_identity_assertion`. The frontend uses the same receipt/identity gate. Evidence links alone are not proof that a member owns a company or performed a trade.
+
+The SEC and campaign-finance paths are independent in `fetch_finance.py` and the finance Actions workflow: EDGAR supplies raw filing candidates; FEC supplies campaign fundraising and contribution fields. Campaign receipts, PAC/committee contributions and individual contributions remain visible as separate campaign facts. They never become personal net worth, never enter the salary estimate and never increase the wealth component.
+
+The compatibility key `wealth_gap` remains numeric zero with its original 25-point maximum. Zero here means **suspended/unavailable**, not zero wealth and not a verified absence of a wealth discrepancy. Other components are not reweighted to fill missing points. The base-pay schedule and estimated cumulative congressional salary remain separate; that estimate is not actual take-home pay, personal assets or net worth. Unsourced personal net worth displays unavailable.
+
+The Bill Similarity Engine
+The replacement engine joins official GovInfo Bill Status sponsor Bioguide IDs to official legislative XML across all 24 119th-Congress bulk partitions. It extracts legislative prose, excludes deleted text, tables of contents and unconsolidated amendment instructions, and records source/version URLs and raw/text SHA-256 hashes. It prefers enrolled full text, otherwise the newest dated complete body with a deterministic tie-break.
+
+Bounded TF-IDF candidates use cosine >= 0.30, with at most 40 candidates per bill. A published comparison additionally requires at least 32 contiguous normalized words and 20% distinct 12-word-shingle coverage on at least one side. Up to three qualifying matches retain the exact excerpts. These thresholds define shared wording, not a copying percentage, policy equivalence, authorship, lobbying influence or wrongdoing.
+
+Donor alignment and ALEC/model matching are unavailable: the current corpus has neither a validated donor method nor a verified primary model corpus. Their legacy component slots remain zero without reweighting. Old polluted PDF-derived claims and manual history remain archive-only. Bills whose official text has not been published are visible with that coverage status, not a successful non-match.
+
+The scheduled bill job builds in an isolated snapshot and audits all members, source partitions, quoted passages and aggregate identities before installation. Missing/shrinking source coverage, source errors or a moving main head prevent publication and retain the last good snapshot. Bill refresh and Finalize share a writer lock. The reviewed 119th-only pipeline stops at January 1, 2027 until the Congress transition receives explicit review. `review-validation.yml` exercises the same generator with read-only repository permissions and never installs, pushes, merges or deploys.
+
+Current coverage and downstream compatibility
+Coverage is reported explicitly in `audit_data.py`, the member panels and the source manifests. The Nov. 24 source ingest contains 20,197 official metadata identities and 23,533 full-text versions across 20,035 bills, with zero ingestion errors. This is a dated snapshot, not a promise of complete future coverage. The stored vote refresh still reports failure for all 539 current members. Scanned trade placeholders and unknown travel costs remain visible; blank fields do not prove no activity or a free trip. Staff/unverified travel is retained as raw provenance but excluded from the member travel score.
+
+OSP-API remains a separate, unmodified repository. Its immutable draft `bc828aefa681b043c63a05fb1c7530ed2332d303` is tested against these files through actual route/scoring code in an isolated harness, with auth/HTTP transport stubbed and no database access. Routes, envelopes, field types and missing/unavailable input behavior are checked. The observed API differences remain release blockers: staff travel is still scored there, and its SEC guard does not require evidence retrieval receipts. API alignment and Charlie's manual review must precede coordinated rollout.
+
+The review branch is excluded from automatic Vercel builds using its [documented ignored-build command](https://vercel.com/docs/project-configuration/vercel-json#ignorecommand). CI-only npm tooling does not change the static hosting build.
+
+Local verification
+Use Python 3.12 and Node 24. Install `requirements-official-prose.txt`, the legacy collector test dependencies (`beautifulsoup4 pdfplumber pypdf`), `ruff==0.14.6`, and Playwright; run `npm ci`. Then run `npm run lint`, `npm run build`, the offline unittest modules listed in `review-validation.yml`, `python test_delegates.py`, `python audit_data.py`, `python validation/verify_generation.py`, and `python validation/browser_review.py`. API checks fetch exact Git blobs using `validation/fetch_api_reference.py`, then execute `node validation/check_api_reference.mjs`; the report explicitly lists parity blockers.
 
 How To Save As An App On Your Phone
 CongressWatch is a web app, which means you can add it to your home screen and it works exactly like a native app — no App Store required.
@@ -113,5 +143,5 @@ Contributing
 This is open source. Pull requests welcome. If you’re a journalist, researcher, or developer who wants API access or wants to collaborate, reach out on X: @opensourcepatents
 
 Legal
-All data sourced from public government records under open government principles. Bill text data licensed under CC BY 4.0 via LegiScan. This tool is for public interest research and journalism.
+All data sourced from public government records under open government principles. Current bill analysis uses official federal legislative XML from GovInfo; legacy source records retain their original provenance. This tool is for public interest research and journalism.
 CongressWatch is not a lawyer and this is not legal advice. Anomaly scores are statistical indicators only.

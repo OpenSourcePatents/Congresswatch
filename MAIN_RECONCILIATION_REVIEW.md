@@ -35,3 +35,42 @@ If main moves concurrently it aborts publication rather than overwriting or
 silently claiming current reconciliation. Subsequent main updates still require
 inspection; this is not permission to merge/deploy. The draft remains blocked
 on the documented clean-corpus/coverage/identity limitations.
+
+## 2026-11-21 local official-prose integration candidate
+
+- Existing draft head: `cd73a42e0d8982869fce11d25b0eed46ae77e6e0`.
+- Verified implementation parent: `ceedc6c3837d1ecbbb4099fb2ff7cf90b4e09672`.
+- Pinned current main (second parent): `598849e5e7e845eaa6359fe7c74c4b4af335d989`.
+- Common ancestor: `506ac59adf260d987646832cdcff7d8a9b762225`.
+- GovInfo corpus SHA-256: `e155135e3741949d1083fe4f4790faa62682aeff277a289fa839693ce4800b8a`.
+- Verified staged 539-profile manifest SHA-256:
+  `3f451e4d031b3dbe28070b8efd6738a69668714246e235faaf206baca88743d9`.
+
+The merge uses the audited assembled data, not an ours strategy. Main changed
+only data in 545 paths; all 542 merge conflicts were resolved explicitly
+against the validated snapshot. All known newer audited trade, travel, donor
+and financial fields were preserved. All 53,681 vote rows were unchanged;
+new failed attempt metadata is stored separately, not relabeled collection.
+Latest SEC candidate observations and timestamps remain raw and unverified,
+with no candidate-only signals or trade flags promoted. Main's unresolved
+candidate file and travel cost manifest are retained byte-for-byte.
+Two known ambiguous travel OCR costs remain preserved as upstream raw
+observations, not corrections in the bill-similarity scope.
+
+The two original active bill record streams are preserved in member history
+(1,078 per-source archives); six former profiles and their historical rows are
+retained. Archived vote, bill and SEC fields are not given new evidential
+meaning. Superseded flags, derived scores and aggregates remain available
+in both exact Git parents, not reintroduced as findings. Legacy
+`last_updated` on main equals its raw `data_updated` for all 539 members;
+it remains retrievable in the archived raw observation rather than replacing
+the source-specific active timestamps.
+
+Local validation: complete official evidence replay, 539 member audits,
+19,947 sponsored bill rows, 17,130 matched passage records, exact roster and
+score checks, 20,007 compact flat bill rows, and 8,821 aggregate trades.
+The flat bill aggregate omits duplicated passage strings; every excerpt is
+in its linked member detail. The catalog/coverage files seed the guarded
+scheduled refresh from the verified official snapshot, not an install of
+the explicitly offline-only test seal. Nothing here was pushed, deployed,
+merged in GitHub, or exercised in hosted Actions.
