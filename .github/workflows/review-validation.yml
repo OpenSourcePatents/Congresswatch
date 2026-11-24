@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
@@ -55,16 +55,17 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: review-validation-${{ github.sha }}
+          name: review-validation-${{ github.event.pull_request.head.sha || github.sha }}
           path: |
             audit.json
             generation.json
             benchmarks/nov24-api-contract.json
             .cache/browser-review/report.json
             .cache/browser-review/*.png
+          include-hidden-files: true
           if-no-files-found: warn
   official-refresh:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v5
@@ -81,7 +82,7 @@ jobs:
       - name: Retain source audit only
         uses: actions/upload-artifact@v4
         with:
-          name: official-source-validation-${{ github.sha }}
+          name: official-source-validation-${{ github.event.pull_request.head.sha || github.sha }}
           path: |
             ${{ runner.temp }}/official-review/verified.json
             ${{ runner.temp }}/official-review/data/bill_refresh_manifest.json
