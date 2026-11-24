@@ -24,6 +24,7 @@ import requests
 from datetime import datetime
 
 from travel_attribution import is_member_travel
+from sec_identity import evidence_available, retrieve_identity_evidence
 
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
 
@@ -53,7 +54,7 @@ LIGHT_FIELDS = {
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","finance_checked","roster_updated","fec_cycle","edgar_identity_status","edgar_identity_cik","edgar_identity_evidence","edgar_identity_note","edgar_legacy_status"
+    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","finance_checked","roster_updated","fec_cycle","edgar_identity_status","edgar_identity_cik","edgar_identity_evidence","edgar_identity_note","edgar_legacy_status","edgar_identity_evidence_checks","edgar_identity_assertion"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -146,6 +147,7 @@ def eligible_sec_signals(member):
             and isinstance(cik, str) and cik.strip() and cik == member.get("edgar_cik")
             and isinstance(evidence, list) and evidence
             and all(isinstance(url, str) and url.startswith("https://") for url in evidence)
+            and evidence_available(member)
             and member.get("edgar_data_status") == "available"
             and member.get("edgar_status") != "query_failed"
             and type(count) in (int, float) and math.isfinite(count) and count >= 0):
@@ -224,6 +226,12 @@ def resolve_member_cik(member):
         member["edgar_identity_status"] = "verified"
         member["edgar_identity_cik"] = cik
         member["edgar_identity_evidence"] = evidence
+        member["edgar_identity_assertion"] = dict(entry)
+        member["edgar_identity_evidence_checks"] = retrieve_identity_evidence(cik, evidence, HEADERS)
+        if not evidence_available(member):
+            member["edgar_identity_status"] = "verification_unavailable"
+            member["edgar_identity_note"] = "Declared identity evidence could not be retrieved; excluded from scoring and flags."
+            return {"status": "identity_evidence_unavailable", "cik": cik}
         member.pop("edgar_identity_note", None)
         return {"status": "verified_manual", "cik": cik}
 
@@ -496,29 +504,11 @@ def compute_score_components(m, detail=None):
     # personal asset/liability disclosures support an explicit methodology.
     wealth_gap = 0
 
-    # 3. Donor-vote alignment (20 max) — from bills pipeline
-    donor_alignment = min(20, round((detail.get("donor_alignment_score", 0) or 0) * 0.2))
-
-    # 4. Bill authorship / ALEC similarity (15 max) — from bills pipeline
-    max_alec_sim = 0
-    for bill in (detail.get("bills", []) or []):
-        alec = bill.get("alec_match")
-        if alec and alec.get("similarity_score", 0) > max_alec_sim:
-            max_alec_sim = alec["similarity_score"]
-        # raw best similarity (also stored below the 0.80 match threshold)
-        raw_sim = bill.get("alec_best_similarity", 0) or 0
-        if raw_sim > max_alec_sim:
-            max_alec_sim = raw_sim
-    if max_alec_sim >= 0.8:
-        alec_similarity = 15
-    elif max_alec_sim >= 0.65:
-        alec_similarity = 11
-    elif max_alec_sim >= 0.5:
-        alec_similarity = 8
-    elif max_alec_sim >= 0.35:
-        alec_similarity = 4
-    else:
-        alec_similarity = 0
+    # The official federal-prose corpus publishes neither a validated
+    # donor-alignment method nor a primary model corpus. Legacy fields may
+    # contain contaminated PDF features; never score them as findings.
+    donor_alignment = 0
+    alec_similarity = 0
 
     # 5. Foreign travel (10 max) — from travel pipeline
     foreign_travel = 0
