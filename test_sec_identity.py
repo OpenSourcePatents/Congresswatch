@@ -87,6 +87,36 @@ class IdentityAcceptance(unittest.TestCase):
         self.assertEqual(record["edgar_identity_assertion"], load.return_value["M001169"])
         self.assertEqual(eligible_sec_signals(record), 0)
 
+    def test_finalizer_gates_flags_and_preserves_raw_provenance(self):
+        import json
+        from pathlib import Path
+        import subprocess
+        import sys
+        import tempfile
+        root = Path(__file__).resolve().parent
+        with tempfile.TemporaryDirectory() as temp:
+            work = Path(temp)
+            (work / "data/details").mkdir(parents=True)
+            positive = dict(self.member, id="A000001", flags=["trade"])
+            missing = dict(self.member, id="A000002", flags=["trade"],
+                           edgar_identity_evidence_checks=[])
+            failed = dict(self.member, id="A000003", flags=["trade"],
+                          edgar_status="query_failed", edgar_data_status="stale")
+            rows = [positive, missing, failed]
+            (work / "data/members.json").write_text(json.dumps(rows))
+            for row in rows:
+                (work / f"data/details/{row['id']}.json").write_text(json.dumps(row))
+            subprocess.run([sys.executable, str(root / "recompute_scores.py")],
+                           cwd=work, check=True, stdout=subprocess.DEVNULL)
+            result = json.loads((work / "data/members.json").read_text())
+            self.assertEqual([r["score_components"]["trade_timing"] for r in result], [25, 0, 0])
+            self.assertEqual(["trade" in r["flags"] for r in result], [True, False, False])
+            self.assertEqual([r["corporate_insider_signals"] for r in result], [6, 6, 6])
+            self.assertEqual([r["edgar_cik"] for r in result], ["0000000001"] * 3)
+            for row in result:
+                detail = json.loads((work / f"data/details/{row['id']}.json").read_text())
+                self.assertEqual(detail["flags"], row["flags"])
+
     def test_campaign_money_never_becomes_wealth_or_reweights_other_components(self):
         base = dict(self.member, edgar_identity_status="unverified")
         expected = compute_score_components(base)

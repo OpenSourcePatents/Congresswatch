@@ -11,7 +11,7 @@ from collections import Counter
 from pathlib import Path
 
 BASE = "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30"
-REVIEW = "b8b07ec2"  # resolved and recorded as a full SHA before mutation
+REVIEW = "b8b07ec2147b2bf6ae0dc4a1f028302bfef9e753"
 UPSTREAM = "a3a41f05624ba3b2571289ad653c1f204f3295ce"
 RAW = {
     "name", "party", "state", "district", "chamber", "photo_url", "term_start",

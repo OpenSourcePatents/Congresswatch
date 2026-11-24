@@ -1104,6 +1104,7 @@ function renderGrid() {
     const scoreLabel = s !== null ? s : '--';
     const glow = (s !== null && s >= 60) ? `box-shadow:0 0 14px color-mix(in srgb, ${sc} 30%, transparent);` : '';
     const showInsider = attributedSecCount(m) > 0;
+    const staleSec = m.edgar_status === 'query_failed' || m.edgar_data_status === 'stale';
     const showDonor = (m.total_raised||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
     const pending = m.displayScore === null;
@@ -1710,12 +1711,12 @@ function fillTravel(m) {
         <td class="td-mono" style="white-space:nowrap">${esc(t.departure_date||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.return_date||'—')}</td>
         <td>${sponsor}</td>${hasCost ? `
-        <td class="td-mono">${t.total_cost ? '$'+Number(t.total_cost).toLocaleString(undefined,{maximumFractionDigits:0}) : '—'}</td>` : ''}
+        <td class="td-mono">${t.total_cost ? '$'+Number(t.total_cost).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}) : '—'}${t.cost_extraction?.method === 'source_review' ? '<div class="td-sub">Source-reviewed traveler row</div>' : ''}</td>` : ''}
       </tr>`;
     });
     tbl += `</tbody></table>`;
     html += tableSectionHtml('DISCLOSED GIFT TRAVEL', `${trips.length} RECORDS`, tbl,
-      `Source: ${isHouse ? 'House Clerk' : 'Secretary of the Senate'} gift-travel disclosures · Includes domestic trips. Staff and unverified travel do not count toward the member’s score. Missing costs or destinations are unknown`);
+      `Source: ${isHouse ? 'House Clerk' : 'Secretary of the Senate'} gift-travel disclosures · Includes domestic trips. Staff and unverified travel do not count toward the member’s score. Missing costs or destinations are unknown. Costs are sponsor-reported expenses; automatic transcriptions are unverified unless marked source-reviewed`);
   } else {
     html += `<div class="sec-header"><div class="sec-title">DISCLOSED GIFT TRAVEL</div><div class="sec-badge">${chamberLabel.toUpperCase()}</div></div>`;
     html += alertHtml('info', 'GIFT TRAVEL RECORDS UNAVAILABLE',
