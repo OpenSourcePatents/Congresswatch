@@ -4093,7 +4093,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "top_donors_list": [
     {
       "name": "WEISS, ANTONIO",
@@ -4243,7 +4243,7 @@
     "Education",
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-21T17:56:10.692461+00:00",
+  "donors_updated": "2026-11-23T22:26:47.547174+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -4253,7 +4253,7 @@
     "foreign_travel": 0,
     "attendance": 4
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "travel": [
     {
       "destination_country": "Brazil,; Chile,; Colombia",
@@ -4272,7 +4272,7 @@
   "travel_count": 1,
   "missed_votes_pct": 18.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 45,
+  "votes_fail_count": 47,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -4301,7 +4301,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:53:48.493839",
+  "edgar_checked": "2026-11-23T15:56:47.508204",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:53:48.493839",
@@ -4320,14 +4320,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:18.341520",
+  "votes_checked": "2026-11-23T10:02:18.048531",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:30:33.762331",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:56:47.508204",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -6021,11 +6021,1223 @@
         "donor_alignment_score": 40.0,
         "donor_match_count": 8
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HCONRES122-119",
+            "title": "Expressing support for the recognition of September 26, 2026, as \"World Contraception Day\" and expressing the sense of the House of Representatives regarding global and domestic access to contraception.",
+            "type": "HCONRES",
+            "number": "122",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/122?format=json",
+            "keywords": [
+              "contraception",
+              "access",
+              "health",
+              "women",
+              "contraceptive",
+              "reproductive",
+              "administration",
+              "control",
+              "care",
+              "methods",
+              "trump",
+              "birth",
+              "services",
+              "emergency",
+              "children",
+              "family",
+              "planning",
+              "education",
+              "support",
+              "sexual"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000606"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "teacher",
+                  "college"
+                ],
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HCONRES99-119",
+            "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
+            "type": "HCONRES",
+            "number": "99",
+            "congress": 119,
+            "introduced_date": "2026-05-12",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/99?format=json",
+            "keywords": [
+              "resolution",
+              "forces",
+              "armed",
+              "iran",
+              "war",
+              "use",
+              "force",
+              "intelligence",
+              "president",
+              "powers",
+              "hostilities",
+              "military",
+              "government",
+              "remove",
+              "concurrent",
+              "rule",
+              "construction",
+              "nothing",
+              "construed",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HCONRES101-119",
+                "sponsor_id": "J000305",
+                "similarity_score": 0.998
+              },
+              {
+                "bill_id": "HCONRES102-119",
+                "sponsor_id": "R000621",
+                "similarity_score": 0.998
+              },
+              {
+                "bill_id": "HCONRES91-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.997
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HJRES169-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Consumer Financial Protection relating to the withdrawal of the rule relating to \"Consumer Financial Protection Circular 2024-05: Improper Overdraft Opt-In Practices\".",
+            "type": "HJRES",
+            "number": "169",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/169?format=json",
+            "keywords": [
+              "rule",
+              "financial",
+              "consumer",
+              "protection",
+              "relating",
+              "submitted",
+              "congressional",
+              "bureau",
+              "withdrawal",
+              "circular",
+              "improper",
+              "overdraft",
+              "opt",
+              "practices",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "providing",
+              "disapproval"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.014,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES130-119",
+                "sponsor_id": "V000128",
+                "similarity_score": 0.961
+              },
+              {
+                "bill_id": "HJRES181-119",
+                "sponsor_id": "G000587",
+                "similarity_score": 0.96
+              },
+              {
+                "bill_id": "HJRES160-119",
+                "sponsor_id": "G000553",
+                "similarity_score": 0.958
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8563-119",
+            "title": "Investing in the American Dream Act",
+            "type": "HR",
+            "number": "8563",
+            "congress": 119,
+            "introduced_date": "2026-04-28",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8563?format=json",
+            "keywords": [
+              "business",
+              "small",
+              "loan",
+              "alien",
+              "concern",
+              "covered",
+              "eligible",
+              "eligibility",
+              "admitted",
+              "individuals",
+              "loans",
+              "individual",
+              "lawfully",
+              "residence",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "clarify",
+              "purposes"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.034,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4411-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.945
+              }
+            ],
+            "cosponsors": [
+              "O000176",
+              "E000297",
+              "M001188",
+              "M001241",
+              "C001080",
+              "S001231",
+              "C001067",
+              "K000391",
+              "C001123",
+              "L000606"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "loan"
+                ],
+                "Finance & Banking": [
+                  "loan",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8534-119",
+            "title": "Small Business Territories Support Act",
+            "type": "HR",
+            "number": "8534",
+            "congress": 119,
+            "introduced_date": "2026-04-27",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8534?format=json",
+            "keywords": [
+              "business",
+              "small",
+              "office",
+              "territories",
+              "administration",
+              "concerns",
+              "assistant",
+              "administrator",
+              "affairs",
+              "assistance",
+              "territorial",
+              "development",
+              "located",
+              "programs",
+              "administered",
+              "resource",
+              "establish",
+              "committee",
+              "entrepreneurial",
+              "contracting"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.034,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000404"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "lending"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8282-119",
+            "title": "Rabbi Michoel Ber Weissmandl Congressional Gold Medal Act of 2026",
+            "type": "HR",
+            "number": "8282",
+            "congress": 119,
+            "introduced_date": "2026-04-14",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8282?format=json",
+            "keywords": [
+              "weissmandl",
+              "medal",
+              "gold",
+              "rabbi",
+              "michoel",
+              "ber",
+              "people",
+              "presentation",
+              "congressional",
+              "referred",
+              "first",
+              "secretary",
+              "jewish",
+              "yeshiva",
+              "holocaust",
+              "working",
+              "group",
+              "medals",
+              "recognition",
+              "valor"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.031,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR468-119",
+            "title": "Mel\u2019s Law",
+            "type": "HR",
+            "number": "468",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/468?format=json",
+            "keywords": [
+              "education",
+              "higher",
+              "posthumous",
+              "degrees",
+              "institution",
+              "award",
+              "deceased",
+              "students",
+              "policy",
+              "program",
+              "introduced",
+              "require",
+              "institutions",
+              "condition",
+              "participation",
+              "programs",
+              "establish",
+              "certain",
+              "purposes",
+              "mrs"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.086,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M000317",
+              "E000297",
+              "T000469",
+              "C001127",
+              "M001229",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "accreditation"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10471-119",
+            "title": "CLAIM Act",
+            "type": "HR",
+            "number": "10471",
+            "congress": 119,
+            "introduced_date": "2026-09-16",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10471?format=json",
+            "keywords": [
+              "cannabis",
+              "business",
+              "related",
+              "legitimate",
+              "insurance",
+              "state",
+              "insurer",
+              "indian",
+              "owner",
+              "operator",
+              "connection",
+              "service",
+              "financial",
+              "federal",
+              "code",
+              "solely",
+              "engaging",
+              "meaning",
+              "given",
+              "political"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.083,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5049-119",
+                "sponsor_id": "C001096",
+                "similarity_score": 0.977
+              }
+            ],
+            "cosponsors": [
+              "D000626"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "financial",
+                  "credit",
+                  "dodd",
+                  "frank"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10375-119",
+            "title": "504 Modernization and Small Manufacturer Enhancement Act of 2026",
+            "type": "HR",
+            "number": "10375",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10375?format=json",
+            "keywords": [
+              "small",
+              "business",
+              "company",
+              "loan",
+              "project",
+              "administrator",
+              "development",
+              "concern",
+              "respect",
+              "percent",
+              "certified",
+              "subparagraph",
+              "made",
+              "closing",
+              "designated",
+              "permanently",
+              "investment",
+              "attorney",
+              "program",
+              "inserting"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.096,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000816",
+              "T000491",
+              "C001123"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "loan"
+                ],
+                "Finance & Banking": [
+                  "credit",
+                  "loan",
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HJRES207-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Small Business Administration relating to \"Citizenship and Residency Requirements and Recission of Procedural Notice 5000-872050\" and \"Revised Applicant Ownership, Citizenship, and Residency Requirements for 7(a) and 504 Loans\".",
+            "type": "HJRES",
+            "number": "207",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/207?format=json",
+            "keywords": [
+              "citizenship",
+              "residency",
+              "requirements",
+              "rule",
+              "congressional",
+              "submitted",
+              "small",
+              "business",
+              "administration",
+              "relating",
+              "recission",
+              "procedural",
+              "notice",
+              "revised",
+              "applicant",
+              "ownership",
+              "loans",
+              "july",
+              "government",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.042,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES202-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.979
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:09:37.180725+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HCONRES122-119",
+            "title": "Expressing support for the recognition of September 26, 2026, as \"World Contraception Day\" and expressing the sense of the House of Representatives regarding global and domestic access to contraception.",
+            "type": "HCONRES",
+            "number": "122",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/122?format=json",
+            "keywords": [
+              "contraception",
+              "access",
+              "health",
+              "women",
+              "contraceptive",
+              "reproductive",
+              "administration",
+              "control",
+              "care",
+              "methods",
+              "trump",
+              "birth",
+              "services",
+              "emergency",
+              "children",
+              "family",
+              "planning",
+              "education",
+              "support",
+              "sexual"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000606"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "teacher",
+                  "college"
+                ],
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HCONRES99-119",
+            "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
+            "type": "HCONRES",
+            "number": "99",
+            "congress": 119,
+            "introduced_date": "2026-05-12",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/99?format=json",
+            "keywords": [
+              "resolution",
+              "forces",
+              "armed",
+              "iran",
+              "war",
+              "use",
+              "force",
+              "intelligence",
+              "president",
+              "powers",
+              "hostilities",
+              "military",
+              "government",
+              "remove",
+              "concurrent",
+              "rule",
+              "construction",
+              "nothing",
+              "construed",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HCONRES101-119",
+                "sponsor_id": "J000305",
+                "similarity_score": 0.998
+              },
+              {
+                "bill_id": "HCONRES102-119",
+                "sponsor_id": "R000621",
+                "similarity_score": 0.998
+              },
+              {
+                "bill_id": "HCONRES91-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.997
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HJRES169-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Consumer Financial Protection relating to the withdrawal of the rule relating to \"Consumer Financial Protection Circular 2024-05: Improper Overdraft Opt-In Practices\".",
+            "type": "HJRES",
+            "number": "169",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/169?format=json",
+            "keywords": [
+              "rule",
+              "financial",
+              "consumer",
+              "protection",
+              "relating",
+              "submitted",
+              "congressional",
+              "bureau",
+              "withdrawal",
+              "circular",
+              "improper",
+              "overdraft",
+              "opt",
+              "practices",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "providing",
+              "disapproval"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.014,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES130-119",
+                "sponsor_id": "V000128",
+                "similarity_score": 0.961
+              },
+              {
+                "bill_id": "HJRES181-119",
+                "sponsor_id": "G000587",
+                "similarity_score": 0.96
+              },
+              {
+                "bill_id": "HJRES160-119",
+                "sponsor_id": "G000553",
+                "similarity_score": 0.958
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8563-119",
+            "title": "Investing in the American Dream Act",
+            "type": "HR",
+            "number": "8563",
+            "congress": 119,
+            "introduced_date": "2026-04-28",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8563?format=json",
+            "keywords": [
+              "business",
+              "small",
+              "loan",
+              "alien",
+              "concern",
+              "covered",
+              "eligible",
+              "eligibility",
+              "admitted",
+              "individuals",
+              "loans",
+              "individual",
+              "lawfully",
+              "residence",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "clarify",
+              "purposes"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.034,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4411-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.945
+              }
+            ],
+            "cosponsors": [
+              "O000176",
+              "E000297",
+              "M001188",
+              "M001241",
+              "C001080",
+              "S001231",
+              "C001067",
+              "K000391",
+              "C001123",
+              "L000606"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "loan"
+                ],
+                "Finance & Banking": [
+                  "loan",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8534-119",
+            "title": "Small Business Territories Support Act",
+            "type": "HR",
+            "number": "8534",
+            "congress": 119,
+            "introduced_date": "2026-04-27",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8534?format=json",
+            "keywords": [
+              "business",
+              "small",
+              "office",
+              "territories",
+              "administration",
+              "concerns",
+              "assistant",
+              "administrator",
+              "affairs",
+              "assistance",
+              "territorial",
+              "development",
+              "located",
+              "programs",
+              "administered",
+              "resource",
+              "establish",
+              "committee",
+              "entrepreneurial",
+              "contracting"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.034,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000404"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "lending"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8282-119",
+            "title": "Rabbi Michoel Ber Weissmandl Congressional Gold Medal Act of 2026",
+            "type": "HR",
+            "number": "8282",
+            "congress": 119,
+            "introduced_date": "2026-04-14",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8282?format=json",
+            "keywords": [
+              "weissmandl",
+              "medal",
+              "gold",
+              "rabbi",
+              "michoel",
+              "ber",
+              "people",
+              "presentation",
+              "congressional",
+              "referred",
+              "first",
+              "secretary",
+              "jewish",
+              "yeshiva",
+              "holocaust",
+              "working",
+              "group",
+              "medals",
+              "recognition",
+              "valor"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.031,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR468-119",
+            "title": "Mel\u2019s Law",
+            "type": "HR",
+            "number": "468",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/468?format=json",
+            "keywords": [
+              "education",
+              "higher",
+              "posthumous",
+              "degrees",
+              "institution",
+              "award",
+              "deceased",
+              "students",
+              "policy",
+              "program",
+              "introduced",
+              "require",
+              "institutions",
+              "condition",
+              "participation",
+              "programs",
+              "establish",
+              "certain",
+              "purposes",
+              "mrs"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.086,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M000317",
+              "E000297",
+              "T000469",
+              "C001127",
+              "M001229",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "accreditation"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10471-119",
+            "title": "CLAIM Act",
+            "type": "HR",
+            "number": "10471",
+            "congress": 119,
+            "introduced_date": "2026-09-16",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10471?format=json",
+            "keywords": [
+              "cannabis",
+              "business",
+              "related",
+              "legitimate",
+              "insurance",
+              "state",
+              "insurer",
+              "indian",
+              "owner",
+              "operator",
+              "connection",
+              "service",
+              "financial",
+              "federal",
+              "code",
+              "solely",
+              "engaging",
+              "meaning",
+              "given",
+              "political"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.083,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5049-119",
+                "sponsor_id": "C001096",
+                "similarity_score": 0.977
+              }
+            ],
+            "cosponsors": [
+              "D000626"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "financial",
+                  "credit",
+                  "dodd",
+                  "frank"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10375-119",
+            "title": "504 Modernization and Small Manufacturer Enhancement Act of 2026",
+            "type": "HR",
+            "number": "10375",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Ordered to be Reported by the Yeas and Nays: 23 - 0.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10375?format=json",
+            "keywords": [
+              "small",
+              "business",
+              "company",
+              "loan",
+              "project",
+              "administrator",
+              "development",
+              "concern",
+              "respect",
+              "percent",
+              "certified",
+              "subparagraph",
+              "made",
+              "closing",
+              "designated",
+              "permanently",
+              "investment",
+              "attorney",
+              "program",
+              "inserting"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.096,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000816",
+              "T000491",
+              "C001123"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "loan"
+                ],
+                "Finance & Banking": [
+                  "credit",
+                  "loan",
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HJRES207-119",
+            "title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Small Business Administration relating to \"Citizenship and Residency Requirements and Recission of Procedural Notice 5000-872050\" and \"Revised Applicant Ownership, Citizenship, and Residency Requirements for 7(a) and 504 Loans\".",
+            "type": "HJRES",
+            "number": "207",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/207?format=json",
+            "keywords": [
+              "citizenship",
+              "residency",
+              "requirements",
+              "rule",
+              "congressional",
+              "submitted",
+              "small",
+              "business",
+              "administration",
+              "relating",
+              "recission",
+              "procedural",
+              "notice",
+              "revised",
+              "applicant",
+              "ownership",
+              "loans",
+              "july",
+              "government",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.042,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SJRES202-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.979
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T20:09:37.180725+00:00",
+        "data_updated": "2026-11-23T15:56:47.508204",
+        "donors_updated": "2026-11-23T22:26:47.547174+00:00",
+        "last_updated": "2026-11-23T15:56:47.508204",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 47,
+        "votes_updated": "2026-11-23T10:02:18.048531"
+      }
+    }
+  ]
 }

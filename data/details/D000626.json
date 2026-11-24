@@ -3600,7 +3600,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "trades": [
     {
       "transaction_date": "2026-03-23",
@@ -3657,7 +3657,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2024/500027476.pdf"
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.742904+00:00",
+  "travel_updated": "2026-11-23T20:43:20.639901+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -3808,7 +3808,7 @@
     "Finance & Banking",
     "Insurance"
   ],
-  "donors_updated": "2026-11-21T17:55:18.246614+00:00",
+  "donors_updated": "2026-11-23T22:25:32.756649+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -3818,10 +3818,10 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 48,
+  "votes_fail_count": 50,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -3850,7 +3850,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:51:52.942143",
+  "edgar_checked": "2026-11-23T15:54:50.926672",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:51:52.942143",
@@ -3869,14 +3869,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:00:54.527700",
+  "votes_checked": "2026-11-23T10:01:53.710300",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:28:39.682682",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:54:50.926672",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -5506,11 +5506,1208 @@
         "donor_alignment_score": 30.0,
         "donor_match_count": 6
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR7901-119",
+            "title": "Government Surveillance Reform Act of 2026",
+            "type": "HR",
+            "number": "7901",
+            "congress": 119,
+            "introduced_date": "2026-03-12",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Intelligence (Permanent Select), for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7901?format=json",
+            "keywords": [
+              "intelligence",
+              "surveillance",
+              "foreign",
+              "court",
+              "information",
+              "covered",
+              "persons",
+              "striking",
+              "inserting",
+              "person",
+              "query",
+              "subparagraph",
+              "acquisition",
+              "established",
+              "communication",
+              "located",
+              "review",
+              "communications",
+              "data",
+              "general"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000397",
+              "J000298",
+              "J000305",
+              "N000002",
+              "R000619"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7866-119",
+            "title": "American Lending Fairness Act of 2026",
+            "type": "HR",
+            "number": "7866",
+            "congress": 119,
+            "introduced_date": "2026-03-09",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7866?format=json",
+            "keywords": [
+              "state",
+              "made",
+              "institutions",
+              "chartered",
+              "loans",
+              "respect",
+              "apply",
+              "federal",
+              "interest",
+              "rate",
+              "depository",
+              "adopted",
+              "certification",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "restore",
+              "clarify",
+              "intent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.073,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3889-119",
+                "sponsor_id": "M001242",
+                "similarity_score": 0.901
+              }
+            ],
+            "cosponsors": [
+              "B001282",
+              "H001066",
+              "M001238",
+              "G000581",
+              "K000397",
+              "G000583",
+              "F000471"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit",
+                  "loan",
+                  "interest",
+                  "lending"
+                ],
+                "Insurance": [
+                  "insurance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7688-119",
+            "title": "DPA Modernization Act of 2026",
+            "type": "HR",
+            "number": "7688",
+            "congress": 119,
+            "introduced_date": "2026-02-25",
+            "latest_action": "Ordered to be Reported by the Yeas and Nays: 41 - 0.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7688?format=json",
+            "keywords": [
+              "striking",
+              "inserting",
+              "defense",
+              "production",
+              "president",
+              "fund",
+              "committee",
+              "redesignated",
+              "iii",
+              "end",
+              "described",
+              "critical",
+              "subparagraph",
+              "manager",
+              "entity",
+              "agency",
+              "director",
+              "sections",
+              "period",
+              "adding"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.045,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001281",
+              "H001058",
+              "V000130",
+              "N000193"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Insurance": [
+                  "liability"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR425-119",
+            "title": "Repealing Big Brother Overreach Act",
+            "type": "HR",
+            "number": "425",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 609.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/425?format=json",
+            "keywords": [
+              "mrs",
+              "texas",
+              "florida",
+              "bill",
+              "beneficial",
+              "union",
+              "moore",
+              "miller",
+              "carolina",
+              "inserting",
+              "foreign",
+              "reported",
+              "repeal",
+              "corporate",
+              "transparency",
+              "georgia",
+              "south",
+              "pennsylvania",
+              "van",
+              "introduced"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.03,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001306",
+              "B001301",
+              "B001302",
+              "B001260",
+              "B001316",
+              "C001039",
+              "C001133",
+              "C001115",
+              "C001116",
+              "C001132"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Insurance": [
+                  "liability"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR386-119",
+            "title": "Chinese Currency Accountability Act of 2025",
+            "type": "HR",
+            "number": "386",
+            "congress": 119,
+            "introduced_date": "2025-01-14",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Foreign Relations.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/386?format=json",
+            "keywords": [
+              "fund",
+              "chinese",
+              "committee",
+              "international",
+              "monetary",
+              "increase",
+              "weight",
+              "renminbi",
+              "special",
+              "drawing",
+              "rights",
+              "basket",
+              "people",
+              "republic",
+              "china",
+              "trade",
+              "referred",
+              "february",
+              "governor",
+              "executive"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.062,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001204"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10491-119",
+            "title": "To direct the National Institutes of Health to conduct a study on the effects of 750-kilovolt or greater transmission lines, and for other purposes.",
+            "type": "HR",
+            "number": "10491",
+            "congress": 119,
+            "introduced_date": "2026-09-17",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10491?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wms",
+              "rva",
+              "viw",
+              "pjk",
+              "yukh",
+              "yti",
+              "vrs",
+              "fwi",
+              "pby",
+              "ywx",
+              "oxy",
+              "mkf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10793-119",
+                "sponsor_id": "S001228",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR9117-119",
+                "sponsor_id": "L000600",
+                "similarity_score": 0.992
+              },
+              {
+                "bill_id": "HR10957-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.992
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10309-119",
+            "title": "To amend title 28, United States Code, to limit the recognition and enforcement of foreign censorship laws in the United States, and for other purposes.",
+            "type": "HR",
+            "number": "10309",
+            "congress": 119,
+            "introduced_date": "2026-09-08",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10309?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wms",
+              "pdf",
+              "lew",
+              "xks",
+              "font",
+              "type",
+              "ykja",
+              "dtx",
+              "xbw",
+              "tlno",
+              "ygo",
+              "cau",
+              "ehi",
+              "zxl",
+              "pzp",
+              "dnx"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10801-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.933
+              },
+              {
+                "bill_id": "HR9921-119",
+                "sponsor_id": "M001224",
+                "similarity_score": 0.925
+              },
+              {
+                "bill_id": "HR9911-119",
+                "sponsor_id": "K000376",
+                "similarity_score": 0.925
+              }
+            ],
+            "cosponsors": [
+              "B001309",
+              "V000133",
+              "C001115",
+              "T000490",
+              "G000565"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9900-119",
+            "title": "Privately Insured Credit Unions Conversion Modernization Act",
+            "type": "HR",
+            "number": "9900",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9900?format=json",
+            "keywords": [
+              "credit",
+              "union",
+              "conversion",
+              "modernization",
+              "privately",
+              "insured",
+              "unions",
+              "federal",
+              "introduced",
+              "respect",
+              "bill",
+              "sentence",
+              "striking",
+              "less",
+              "days",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.075,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000468"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4645-119",
+            "title": "NARCO Act of 2025",
+            "type": "HR",
+            "number": "4645",
+            "congress": 119,
+            "introduced_date": "2025-07-23",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4645?format=json",
+            "keywords": [
+              "secretary",
+              "international",
+              "narcotics",
+              "enforcement",
+              "foreign",
+              "department",
+              "affairs",
+              "rewards",
+              "security",
+              "organizations",
+              "transnational",
+              "criminal",
+              "government",
+              "authorities",
+              "crime",
+              "agencies",
+              "program",
+              "assistant",
+              "trafficking",
+              "activities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001325"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest",
+                  "securities"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8962-119",
+            "title": "PERFECT Act of 2026",
+            "type": "HR",
+            "number": "8962",
+            "congress": 119,
+            "introduced_date": "2026-05-21",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8962?format=json",
+            "keywords": [
+              "supplement",
+              "dietary",
+              "armed",
+              "secretary",
+              "list",
+              "ingredient",
+              "forces",
+              "member",
+              "code",
+              "prohibited",
+              "defense",
+              "use",
+              "members",
+              "added",
+              "ingredients",
+              "substances",
+              "internet",
+              "website",
+              "later",
+              "enactment"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.123,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001101",
+              "K000389",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:05:02.856607+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HR7901-119",
+            "title": "Government Surveillance Reform Act of 2026",
+            "type": "HR",
+            "number": "7901",
+            "congress": 119,
+            "introduced_date": "2026-03-12",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Intelligence (Permanent Select), for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7901?format=json",
+            "keywords": [
+              "intelligence",
+              "surveillance",
+              "foreign",
+              "court",
+              "information",
+              "covered",
+              "persons",
+              "striking",
+              "inserting",
+              "person",
+              "query",
+              "subparagraph",
+              "acquisition",
+              "established",
+              "communication",
+              "located",
+              "review",
+              "communications",
+              "data",
+              "general"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000397",
+              "J000298",
+              "J000305",
+              "N000002",
+              "R000619"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7866-119",
+            "title": "American Lending Fairness Act of 2026",
+            "type": "HR",
+            "number": "7866",
+            "congress": 119,
+            "introduced_date": "2026-03-09",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7866?format=json",
+            "keywords": [
+              "state",
+              "made",
+              "institutions",
+              "chartered",
+              "loans",
+              "respect",
+              "apply",
+              "federal",
+              "interest",
+              "rate",
+              "depository",
+              "adopted",
+              "certification",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "restore",
+              "clarify",
+              "intent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.073,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3889-119",
+                "sponsor_id": "M001242",
+                "similarity_score": 0.901
+              }
+            ],
+            "cosponsors": [
+              "B001282",
+              "H001066",
+              "M001238",
+              "G000581",
+              "K000397",
+              "G000583",
+              "F000471"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit",
+                  "loan",
+                  "interest",
+                  "lending"
+                ],
+                "Insurance": [
+                  "insurance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7688-119",
+            "title": "DPA Modernization Act of 2026",
+            "type": "HR",
+            "number": "7688",
+            "congress": 119,
+            "introduced_date": "2026-02-25",
+            "latest_action": "Ordered to be Reported by the Yeas and Nays: 41 - 0.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7688?format=json",
+            "keywords": [
+              "striking",
+              "inserting",
+              "defense",
+              "production",
+              "president",
+              "fund",
+              "committee",
+              "redesignated",
+              "iii",
+              "end",
+              "described",
+              "critical",
+              "subparagraph",
+              "manager",
+              "entity",
+              "agency",
+              "director",
+              "sections",
+              "period",
+              "adding"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.045,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001281",
+              "H001058",
+              "V000130",
+              "N000193"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Insurance": [
+                  "liability"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR425-119",
+            "title": "Repealing Big Brother Overreach Act",
+            "type": "HR",
+            "number": "425",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 609.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/425?format=json",
+            "keywords": [
+              "mrs",
+              "texas",
+              "florida",
+              "bill",
+              "beneficial",
+              "union",
+              "moore",
+              "miller",
+              "carolina",
+              "inserting",
+              "foreign",
+              "reported",
+              "repeal",
+              "corporate",
+              "transparency",
+              "georgia",
+              "south",
+              "pennsylvania",
+              "van",
+              "introduced"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.03,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001306",
+              "B001301",
+              "B001302",
+              "B001260",
+              "B001316",
+              "C001039",
+              "C001133",
+              "C001115",
+              "C001116",
+              "C001132"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Insurance"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Insurance": [
+                  "liability"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR386-119",
+            "title": "Chinese Currency Accountability Act of 2025",
+            "type": "HR",
+            "number": "386",
+            "congress": 119,
+            "introduced_date": "2025-01-14",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Foreign Relations.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/386?format=json",
+            "keywords": [
+              "fund",
+              "chinese",
+              "committee",
+              "international",
+              "monetary",
+              "increase",
+              "weight",
+              "renminbi",
+              "special",
+              "drawing",
+              "rights",
+              "basket",
+              "people",
+              "republic",
+              "china",
+              "trade",
+              "referred",
+              "february",
+              "governor",
+              "executive"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.062,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001204"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10491-119",
+            "title": "To direct the National Institutes of Health to conduct a study on the effects of 750-kilovolt or greater transmission lines, and for other purposes.",
+            "type": "HR",
+            "number": "10491",
+            "congress": 119,
+            "introduced_date": "2026-09-17",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10491?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wms",
+              "rva",
+              "viw",
+              "pjk",
+              "yukh",
+              "yti",
+              "vrs",
+              "fwi",
+              "pby",
+              "ywx",
+              "oxy",
+              "mkf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10793-119",
+                "sponsor_id": "S001228",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR9117-119",
+                "sponsor_id": "L000600",
+                "similarity_score": 0.992
+              },
+              {
+                "bill_id": "HR10957-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.992
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10309-119",
+            "title": "To amend title 28, United States Code, to limit the recognition and enforcement of foreign censorship laws in the United States, and for other purposes.",
+            "type": "HR",
+            "number": "10309",
+            "congress": 119,
+            "introduced_date": "2026-09-08",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10309?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wms",
+              "pdf",
+              "lew",
+              "xks",
+              "font",
+              "type",
+              "ykja",
+              "dtx",
+              "xbw",
+              "tlno",
+              "ygo",
+              "cau",
+              "ehi",
+              "zxl",
+              "pzp",
+              "dnx"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10801-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.933
+              },
+              {
+                "bill_id": "HR9921-119",
+                "sponsor_id": "M001224",
+                "similarity_score": 0.925
+              },
+              {
+                "bill_id": "HR9911-119",
+                "sponsor_id": "K000376",
+                "similarity_score": 0.925
+              }
+            ],
+            "cosponsors": [
+              "B001309",
+              "V000133",
+              "C001115",
+              "T000490",
+              "G000565"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9900-119",
+            "title": "Privately Insured Credit Unions Conversion Modernization Act",
+            "type": "HR",
+            "number": "9900",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9900?format=json",
+            "keywords": [
+              "credit",
+              "union",
+              "conversion",
+              "modernization",
+              "privately",
+              "insured",
+              "unions",
+              "federal",
+              "introduced",
+              "respect",
+              "bill",
+              "sentence",
+              "striking",
+              "less",
+              "days",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.075,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000468"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "credit"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4645-119",
+            "title": "NARCO Act of 2025",
+            "type": "HR",
+            "number": "4645",
+            "congress": 119,
+            "introduced_date": "2025-07-23",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4645?format=json",
+            "keywords": [
+              "secretary",
+              "international",
+              "narcotics",
+              "enforcement",
+              "foreign",
+              "department",
+              "affairs",
+              "rewards",
+              "security",
+              "organizations",
+              "transnational",
+              "criminal",
+              "government",
+              "authorities",
+              "crime",
+              "agencies",
+              "program",
+              "assistant",
+              "trafficking",
+              "activities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001325"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest",
+                  "securities"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8962-119",
+            "title": "PERFECT Act of 2026",
+            "type": "HR",
+            "number": "8962",
+            "congress": 119,
+            "introduced_date": "2026-05-21",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8962?format=json",
+            "keywords": [
+              "supplement",
+              "dietary",
+              "armed",
+              "secretary",
+              "list",
+              "ingredient",
+              "forces",
+              "member",
+              "code",
+              "prohibited",
+              "defense",
+              "use",
+              "members",
+              "added",
+              "ingredients",
+              "substances",
+              "internet",
+              "website",
+              "later",
+              "enactment"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.123,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001101",
+              "K000389",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T20:05:02.856607+00:00",
+        "data_updated": "2026-11-23T15:54:50.926672",
+        "donors_updated": "2026-11-23T22:25:32.756649+00:00",
+        "last_updated": "2026-11-23T15:54:50.926672",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.639901+00:00",
+        "votes_fail_count": 50,
+        "votes_updated": "2026-11-23T10:01:53.710300"
+      }
+    }
+  ]
 }

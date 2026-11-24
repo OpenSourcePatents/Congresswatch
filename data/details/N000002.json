@@ -2229,7 +2229,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
+  "edgar_status": "unverified_auto",
   "fec_cycle": 2026,
   "top_donors_list": [
     {
@@ -2381,7 +2381,7 @@
   "top_donor_industries": [
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-21T17:56:11.914026+00:00",
+  "donors_updated": "2026-11-23T22:26:48.612932+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
@@ -2390,8 +2390,8 @@
     "foreign_travel": 0,
     "attendance": 3
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
-  "votes_fail_count": 52,
+  "score_updated": "2026-11-23T19:24:41.371198",
+  "votes_fail_count": 54,
   "missed_votes_pct": 14.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2422,7 +2422,7 @@
     },
     "request_failed": true
   },
-  "edgar_checked": "2026-11-18T13:55:28.8709928Z",
+  "edgar_checked": "2026-11-23T15:56:53.142819",
   "edgar_data_status": "unavailable",
   "votes_refresh_provenance": {
     "prior_review": {
@@ -2439,14 +2439,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:19.612598",
+  "votes_checked": "2026-11-23T10:02:19.578614",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:30:39.136551",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:56:53.142819",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4010,11 +4010,620 @@
         "donor_alignment_score": 10.0,
         "donor_match_count": 2
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8522-119",
+            "title": "PROTECT Act",
+            "type": "HR",
+            "number": "8522",
+            "congress": 119,
+            "introduced_date": "2026-04-27",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committees on Natural Resources, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8522?format=json",
+            "keywords": [
+              "federal",
+              "building",
+              "land",
+              "asset",
+              "name",
+              "donald",
+              "trump",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "introduced",
+              "prohibit",
+              "naming",
+              "renaming",
+              "designating",
+              "redesignating",
+              "bill",
+              "committee",
+              "prohibiting"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.035,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000822"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10372-119",
+            "title": "To amend the Fair Labor Standards Act of 1938 to prohibit employers from paying employees in the garment industry by piece rate, to require manufacturers and contractors in the garment industry to register with the Department of Labor, and for other purposes.",
+            "type": "HR",
+            "number": "10372",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10372?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "endstream",
+              "font",
+              "procset",
+              "text",
+              "wms",
+              "wks",
+              "vmo",
+              "uxy",
+              "lmkx",
+              "fdpt",
+              "tafi",
+              "imc",
+              "fvb",
+              "qex",
+              "vks",
+              "hdm"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10071-119",
+                "sponsor_id": "C001123",
+                "similarity_score": 0.961
+              },
+              {
+                "bill_id": "HR9635-119",
+                "sponsor_id": "M001225",
+                "similarity_score": 0.959
+              },
+              {
+                "bill_id": "HR9649-119",
+                "sponsor_id": "B001309",
+                "similarity_score": 0.958
+              }
+            ],
+            "cosponsors": [
+              "R000305",
+              "B001292",
+              "F000476",
+              "G000598",
+              "G000599",
+              "N000147",
+              "L000562",
+              "T000481"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9996-119",
+            "title": "To amend the Public Health Service Act, the Employee Retirement Income Security Act of 1974, and the Internal Revenue Code of 1986 to provide for certain health coverage of newborns.",
+            "type": "HR",
+            "number": "9996",
+            "congress": 119,
+            "introduced_date": "2026-07-30",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Education and Workforce, and Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9996?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "endstream",
+              "font",
+              "procset",
+              "text",
+              "wms",
+              "vmo",
+              "vms",
+              "aoc",
+              "ouk",
+              "vhl",
+              "grfxw",
+              "two",
+              "mzd",
+              "kcj",
+              "wev",
+              "dyvveze"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.012,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9707-119",
+                "sponsor_id": "H001101",
+                "similarity_score": 0.966
+              },
+              {
+                "bill_id": "HR10783-119",
+                "sponsor_id": "M000194",
+                "similarity_score": 0.964
+              },
+              {
+                "bill_id": "HR11013-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.964
+              }
+            ],
+            "cosponsors": [
+              "H001091",
+              "B001300",
+              "F000466",
+              "H001081"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9995-119",
+            "title": "To prohibit forced arbitration in work disputes, and for other purposes.",
+            "type": "HR",
+            "number": "9995",
+            "congress": 119,
+            "introduced_date": "2026-07-30",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9995?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "com",
+              "lze",
+              "iwb",
+              "tgy",
+              "ylq",
+              "uzb",
+              "xyi",
+              "eaw",
+              "jmn",
+              "kzz",
+              "mnr",
+              "sdm"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9723-119",
+                "sponsor_id": "M001230",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR9949-119",
+                "sponsor_id": "B001321",
+                "similarity_score": 0.993
+              },
+              {
+                "bill_id": "HR10741-119",
+                "sponsor_id": "K000389",
+                "similarity_score": 0.992
+              }
+            ],
+            "cosponsors": [
+              "S000185",
+              "B001278",
+              "N000147",
+              "J000288",
+              "B001285",
+              "S001145",
+              "D000623"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR4605-119",
+            "title": "End Prescription Drug Ads Now Act",
+            "type": "HR",
+            "number": "4605",
+            "congress": 119,
+            "introduced_date": "2025-07-22",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4605?format=json",
+            "keywords": [
+              "drug",
+              "direct",
+              "consumer",
+              "advertising",
+              "media",
+              "approved",
+              "social",
+              "licensed",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "ban",
+              "manufacturers",
+              "using",
+              "promote",
+              "products",
+              "bill",
+              "end",
+              "federal"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.052,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000635",
+              "O000173",
+              "T000481"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8226-119",
+            "title": "Helicopter Safety Parity Act of 2026",
+            "type": "HR",
+            "number": "8226",
+            "congress": 119,
+            "introduced_date": "2026-04-09",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8226?format=json",
+            "keywords": [
+              "operations",
+              "operators",
+              "federal",
+              "safety",
+              "equipment",
+              "code",
+              "regulations",
+              "maintenance",
+              "requirements",
+              "aviation",
+              "administrator",
+              "training",
+              "helicopter",
+              "standards",
+              "administration",
+              "rotorcraft",
+              "equivalent",
+              "hire",
+              "rulemaking",
+              "compliance"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.048,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M000317",
+              "M001226",
+              "G000599",
+              "E000297",
+              "S001201"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES985-119",
+            "title": "Expressing opposition to the use of onychectomy, also known as declawing, for elective surgery in cats.",
+            "type": "HRES",
+            "number": "985",
+            "congress": 119,
+            "introduced_date": "2026-01-09",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/985?format=json",
+            "keywords": [
+              "declawing",
+              "cat",
+              "onychectomy",
+              "cats",
+              "health",
+              "elective",
+              "claws",
+              "tendonectomy",
+              "practice",
+              "use",
+              "resolution",
+              "normal",
+              "procedure",
+              "animal",
+              "known",
+              "surgery",
+              "function",
+              "physical",
+              "behavioral",
+              "reasons"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.058,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001072",
+              "C001061",
+              "D000631",
+              "D000635",
+              "J000298",
+              "J000288",
+              "K000391",
+              "L000582",
+              "L000397",
+              "N000147"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR6806-119",
+            "title": "Antisemitism Response and Prevention Act of 2025",
+            "type": "HR",
+            "number": "6806",
+            "congress": 119,
+            "introduced_date": "2025-12-17",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committees on Education and Workforce, Homeland Security, and Transportation and Infrastructure, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6806?format=json",
+            "keywords": [
+              "antisemitism",
+              "department",
+              "federal",
+              "office",
+              "coordinator",
+              "report",
+              "political",
+              "civil",
+              "national",
+              "education",
+              "hate",
+              "security",
+              "rights",
+              "position",
+              "committee",
+              "jewish",
+              "investigation",
+              "communities",
+              "enforcement",
+              "hcrc"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000216",
+              "B001318",
+              "F000476",
+              "Q000023",
+              "C001068",
+              "D000399",
+              "P000034",
+              "N000147",
+              "S001145",
+              "J000309"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5068-119",
+            "title": "MORE Act",
+            "type": "HR",
+            "number": "5068",
+            "congress": 119,
+            "introduced_date": "2025-08-29",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committees on Energy and Commerce, Agriculture, Education and Workforce, Ways and Means, Small Business, Natural Resources, Oversight and Government Reform, and Transportation and Infrastructure, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5068?format=json",
+            "keywords": [
+              "cannabis",
+              "tax",
+              "product",
+              "products",
+              "secretary",
+              "striking",
+              "substance",
+              "payment",
+              "subparagraph",
+              "controlled",
+              "price",
+              "case",
+              "general",
+              "calendar",
+              "purposes",
+              "marijuana",
+              "applicable",
+              "producer",
+              "year",
+              "percent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.1,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000468",
+              "O000173",
+              "V000081",
+              "L000582",
+              "N000147",
+              "C001068",
+              "M001220",
+              "C001110",
+              "T000488",
+              "B001318"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "credit",
+                  "mortgage",
+                  "federal_reserve"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4108-119",
+            "title": "Refuge From Cruel Trapping Act",
+            "type": "HR",
+            "number": "4108",
+            "congress": 119,
+            "introduced_date": "2025-06-24",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4108?format=json",
+            "keywords": [
+              "trap",
+              "body",
+              "gripping",
+              "use",
+              "wildlife",
+              "system",
+              "refuge",
+              "possession",
+              "species",
+              "national",
+              "general",
+              "federal",
+              "apply",
+              "secretary",
+              "described",
+              "administration",
+              "traps",
+              "purposes",
+              "person",
+              "agency"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.047,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001300",
+              "C001068",
+              "D000617",
+              "K000391",
+              "M001188",
+              "N000147",
+              "B001292",
+              "H001068",
+              "C001117",
+              "J000288"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:09:55.378965+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:09:55.378965+00:00",
+        "data_updated": "2026-11-23T15:56:53.142819",
+        "donors_updated": "2026-11-23T22:26:48.612932+00:00",
+        "last_updated": "2026-11-23T15:56:53.142819",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 54,
+        "votes_updated": "2026-11-23T10:02:19.578614"
+      }
+    }
+  ]
 }

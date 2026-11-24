@@ -2428,8 +2428,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 50,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 52,
   "trades": [
     {
       "transaction_date": "2026-04-15",
@@ -2595,7 +2595,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.761721+00:00",
+  "travel_updated": "2026-11-23T20:43:20.692302+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -2747,7 +2747,7 @@
     "Healthcare",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-21T18:01:28.515493+00:00",
+  "donors_updated": "2026-11-23T22:31:37.927957+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 10,
@@ -2757,7 +2757,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2788,7 +2788,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:06:15.941066",
+  "edgar_checked": "2026-11-23T16:09:30.222390",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:06:15.941066",
@@ -2807,14 +2807,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:04:07.908935",
+  "votes_checked": "2026-11-23T10:05:08.266320",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:44:58.067819",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:09:30.222390",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4430,11 +4430,610 @@
         "donor_alignment_score": 30.0,
         "donor_match_count": 6
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR5895-119",
+            "title": "Protect Patients from Healthcare Abuse Act",
+            "type": "HR",
+            "number": "5895",
+            "congress": 119,
+            "introduced_date": "2025-10-31",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5895?format=json",
+            "keywords": [
+              "respect",
+              "individual",
+              "provider",
+              "informed",
+              "consent",
+              "services",
+              "procedure",
+              "chaperone",
+              "care",
+              "described",
+              "furnished",
+              "sensitive",
+              "requirements",
+              "requirement",
+              "education",
+              "right",
+              "training",
+              "subparagraph",
+              "written",
+              "medical"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.081,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M000312",
+              "D000624"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "healthcare",
+                  "medicare",
+                  "provider"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10295-119",
+            "title": "9-8-8 Call Center Improvement Act",
+            "type": "HR",
+            "number": "10295",
+            "congress": 119,
+            "introduced_date": "2026-09-03",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10295?format=json",
+            "keywords": [
+              "call",
+              "center",
+              "health",
+              "regional",
+              "local",
+              "service",
+              "secretary",
+              "award",
+              "grants",
+              "new",
+              "existing",
+              "crisis",
+              "centers",
+              "serving",
+              "areas",
+              "introduced",
+              "authorize",
+              "human",
+              "services",
+              "purposes"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001298",
+              "M001163",
+              "S000510",
+              "M001227",
+              "B001300",
+              "V000138",
+              "G000581"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1503-119",
+            "title": "Supporting the goals of Overdose Awareness Day and strengthening efforts to combat the opioid crisis in the United States.",
+            "type": "HRES",
+            "number": "1503",
+            "congress": 119,
+            "introduced_date": "2026-08-31",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1503?format=json",
+            "keywords": [
+              "overdose",
+              "use",
+              "substance",
+              "awareness",
+              "day",
+              "opioid",
+              "health",
+              "drug",
+              "disorder",
+              "res",
+              "supporting",
+              "goals",
+              "strengthening",
+              "efforts",
+              "combat",
+              "crisis",
+              "resolution",
+              "deaths",
+              "groups",
+              "stigma"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.084,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000466",
+              "P000620"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9941-119",
+            "title": "To protect and expand nationwide access to assisted reproductive technology, including in vitro fertilization.",
+            "type": "HR",
+            "number": "9941",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Veterans' Affairs, Armed Services, Education and Workforce, Ways and Means, and Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9941?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "taf",
+              "xks",
+              "gvy",
+              "wiw",
+              "pdf",
+              "iti",
+              "mbt",
+              "bwov",
+              "iqaibt",
+              "zwa",
+              "bmi",
+              "trm",
+              "psw",
+              "wmw",
+              "rhe",
+              "dkrg"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.007,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9674-119",
+                "sponsor_id": "E000235",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR9794-119",
+                "sponsor_id": "S001228",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR9777-119",
+                "sponsor_id": "D000032",
+                "similarity_score": 1.0
+              }
+            ],
+            "cosponsors": [
+              "D000216",
+              "G000602",
+              "L000560",
+              "W000831",
+              "A000380",
+              "A000381",
+              "A000148",
+              "B001300",
+              "B001281",
+              "B001324"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9690-119",
+            "title": "Water Emergency and Technical Assistance Act",
+            "type": "HR",
+            "number": "9690",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9690?format=json",
+            "keywords": [
+              "emergency",
+              "water",
+              "assistance",
+              "technical",
+              "grants",
+              "drinking",
+              "administrator",
+              "treatment",
+              "works",
+              "safe",
+              "federal",
+              "pollution",
+              "control",
+              "committee",
+              "short",
+              "fiscal",
+              "years",
+              "situation",
+              "carry",
+              "introduced"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.028,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4980-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.942
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7145-119",
+            "title": "To amend title XIX of the Social Security Act to establish a definition of essential health system in statute and for other related purposes.",
+            "type": "HR",
+            "number": "7145",
+            "congress": 119,
+            "introduced_date": "2026-01-16",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7145?format=json",
+            "keywords": [
+              "essential",
+              "hospital",
+              "health",
+              "system",
+              "criteria",
+              "index",
+              "social",
+              "security",
+              "end",
+              "defined",
+              "subparagraph",
+              "fiscal",
+              "years",
+              "care",
+              "medicare",
+              "year",
+              "establish",
+              "definition",
+              "statute",
+              "one"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "V000129",
+              "C001133",
+              "C001125",
+              "V000131",
+              "S001200",
+              "K000399",
+              "P000620",
+              "B001257",
+              "T000486",
+              "W000812"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "hospital",
+                  "medicaid",
+                  "medicare"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6823-119",
+            "title": "To direct the Secretary of Defense to establish a pilot program to facilitate the development of certain traumatic brain injury diagnostics for members of the Armed Forces.",
+            "type": "HR",
+            "number": "6823",
+            "congress": 119,
+            "introduced_date": "2025-12-17",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6823?format=json",
+            "keywords": [
+              "secretary",
+              "defense",
+              "brain",
+              "technologies",
+              "traumatic",
+              "covered",
+              "diagnostic",
+              "program",
+              "injury",
+              "pilot",
+              "technology",
+              "armed",
+              "entity",
+              "forces",
+              "development",
+              "members",
+              "eligible",
+              "diagnostics",
+              "department",
+              "research"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001298",
+              "K000375",
+              "M001238",
+              "F000466",
+              "P000048"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6350-119",
+            "title": "College Athletics Reform Act",
+            "type": "HR",
+            "number": "6350",
+            "congress": 119,
+            "introduced_date": "2025-12-02",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on the Judiciary, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6350?format=json",
+            "keywords": [
+              "college",
+              "athlete",
+              "commission",
+              "intercollegiate",
+              "institution",
+              "athletics",
+              "athletic",
+              "education",
+              "members",
+              "agreement",
+              "committee",
+              "name",
+              "sports",
+              "athletes",
+              "federal",
+              "image",
+              "likeness",
+              "compensation",
+              "conference",
+              "state"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.065,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001227",
+              "M001223",
+              "C001125",
+              "S001211",
+              "M001225",
+              "M000312",
+              "S001205",
+              "T000469",
+              "L000273",
+              "L000590"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest"
+                ],
+                "Real Estate": [
+                  "property"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6043-119",
+            "title": "MY DATA Act of 2025",
+            "type": "HR",
+            "number": "6043",
+            "congress": 119,
+            "introduced_date": "2025-11-12",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6043?format=json",
+            "keywords": [
+              "covered",
+              "data",
+              "entity",
+              "individual",
+              "federal",
+              "commission",
+              "linked",
+              "reasonably",
+              "linkable",
+              "trade",
+              "government",
+              "information",
+              "identifies",
+              "identifier",
+              "body",
+              "prohibition",
+              "general",
+              "identified",
+              "cloaked",
+              "unique"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.075,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "provider"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5537-119",
+            "title": "Pipeline Accountability Act of 2025",
+            "type": "HR",
+            "number": "5537",
+            "congress": 119,
+            "introduced_date": "2025-09-19",
+            "latest_action": "Referred to the Subcommittee on Railroads, Pipelines, and Hazardous Materials.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5537?format=json",
+            "keywords": [
+              "pipeline",
+              "secretary",
+              "gas",
+              "safety",
+              "natural",
+              "code",
+              "pipelines",
+              "office",
+              "carbon",
+              "dioxide",
+              "area",
+              "subparagraph",
+              "covered",
+              "administration",
+              "committee",
+              "high",
+              "existing",
+              "operator",
+              "regulations",
+              "rupture"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.129,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000481"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest",
+                  "investment"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "development",
+                  "property"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:41:48.438219+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:41:48.438219+00:00",
+        "data_updated": "2026-11-23T16:09:30.222390",
+        "donors_updated": "2026-11-23T22:31:37.927957+00:00",
+        "last_updated": "2026-11-23T16:09:30.222390",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.692302+00:00",
+        "votes_fail_count": 52,
+        "votes_updated": "2026-11-23T10:05:08.266320"
+      }
+    }
+  ]
 }

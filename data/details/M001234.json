@@ -2128,7 +2128,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "trades": [
     {
       "transaction_date": "2026-05-04",
@@ -2756,7 +2756,7 @@
     "Finance & Banking",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-21T17:56:34.165697+00:00",
+  "donors_updated": "2026-11-23T22:27:10.701483+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 15,
@@ -2766,8 +2766,8 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
-  "votes_fail_count": 51,
+  "score_updated": "2026-11-23T19:24:41.371198",
+  "votes_fail_count": 53,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2798,7 +2798,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:55:22.599479",
+  "edgar_checked": "2026-11-23T15:58:18.732377",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:55:22.599479",
@@ -2817,14 +2817,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:39.949181",
+  "votes_checked": "2026-11-23T10:02:39.278933",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:32:40.389016",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:58:18.732377",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4408,11 +4408,600 @@
         "donor_match_count": 6,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HRES1282-119",
+            "title": "Recognizing the 75th anniversary of the American College of Obstetricians and Gynecologists and its critical role in advancing the practice of obstetrics and gynecology and the health and well-being of patients through excellence in clinical practice, education, advocacy, and research.",
+            "type": "HRES",
+            "number": "1282",
+            "congress": 119,
+            "introduced_date": "2026-05-13",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1282?format=json",
+            "keywords": [
+              "health",
+              "care",
+              "patients",
+              "acog",
+              "gynecologists",
+              "mrs",
+              "obstetric",
+              "anniversary",
+              "practice",
+              "american",
+              "college",
+              "obstetricians",
+              "gynecologic",
+              "members",
+              "critical",
+              "advancing",
+              "obstetrics",
+              "gynecology",
+              "well",
+              "research"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.082,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000617",
+              "M001143",
+              "C001136",
+              "S001231",
+              "A000381",
+              "M001196",
+              "D000624",
+              "E000301",
+              "J000310",
+              "K000402"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "physician"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4709-119",
+            "title": "Newborn Screening Saves Lives Reauthorization Act of 2025",
+            "type": "HR",
+            "number": "4709",
+            "congress": 119,
+            "introduced_date": "2025-07-23",
+            "latest_action": "Forwarded by Subcommittee to Full Committee by Voice Vote.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4709?format=json",
+            "keywords": [
+              "health",
+              "screening",
+              "inserting",
+              "newborn",
+              "service",
+              "striking",
+              "data",
+              "programs",
+              "use",
+              "services",
+              "end",
+              "research",
+              "program",
+              "genetic",
+              "purposes",
+              "committee",
+              "follow",
+              "enhance",
+              "read",
+              "follows"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.092,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001148",
+              "S001216",
+              "L000600",
+              "S001211",
+              "L000599",
+              "A000148",
+              "B001315",
+              "G000597"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9634-119",
+            "title": "To amend the Help America Vote Act of 2002 to support State and local governments making a transition to ranked choice voting.",
+            "type": "HR",
+            "number": "9634",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9634?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wms",
+              "wks",
+              "wmw",
+              "wkw",
+              "xkw",
+              "xks",
+              "pdf",
+              "qww",
+              "yame",
+              "csa",
+              "sja",
+              "ovw",
+              "kuf",
+              "uav",
+              "vsl",
+              "xxq"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10556-119",
+                "sponsor_id": "G000565",
+                "similarity_score": 0.983
+              },
+              {
+                "bill_id": "HR11014-119",
+                "sponsor_id": "E000299",
+                "similarity_score": 0.969
+              },
+              {
+                "bill_id": "HR10444-119",
+                "sponsor_id": "H001094",
+                "similarity_score": 0.967
+              }
+            ],
+            "cosponsors": [
+              "C001119",
+              "R000606",
+              "B001292",
+              "M001196",
+              "P000617",
+              "T000488",
+              "T000481",
+              "O000176"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9441-119",
+            "title": "SAFE Training for OB-GYNs Act",
+            "type": "HR",
+            "number": "9441",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9441?format=json",
+            "keywords": [
+              "care",
+              "health",
+              "training",
+              "abortion",
+              "state",
+              "reproductive",
+              "program",
+              "approved",
+              "graduate",
+              "medical",
+              "residency",
+              "provide",
+              "provision",
+              "covered",
+              "service",
+              "expenses",
+              "professionals",
+              "html",
+              "body",
+              "pre"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.069,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001287",
+              "S001216",
+              "F000468",
+              "B001285",
+              "N000147",
+              "S001218",
+              "C001066",
+              "D000635",
+              "T000469",
+              "G000583"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "provider",
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9251-119",
+            "title": "School Access to Naloxone Act of 2026",
+            "type": "HR",
+            "number": "9251",
+            "congress": 119,
+            "introduced_date": "2026-06-10",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9251?format=json",
+            "keywords": [
+              "school",
+              "drugs",
+              "devices",
+              "trained",
+              "opioid",
+              "overdose",
+              "personnel",
+              "emergency",
+              "health",
+              "treatment",
+              "known",
+              "suspected",
+              "elementary",
+              "secondary",
+              "service",
+              "administer",
+              "eligible",
+              "inserting",
+              "administration",
+              "entity"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.076,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "J000295",
+              "C001119",
+              "P000620"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "nurse"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8985-119",
+            "title": "Housing for All Veterans Act of 2026",
+            "type": "HR",
+            "number": "8985",
+            "congress": 119,
+            "introduced_date": "2026-05-21",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8985?format=json",
+            "keywords": [
+              "veteran",
+              "assistance",
+              "housing",
+              "family",
+              "income",
+              "rental",
+              "families",
+              "secretary",
+              "program",
+              "low",
+              "veterans",
+              "fiscal",
+              "year",
+              "qualified",
+              "agencies",
+              "general",
+              "agency",
+              "subparagraph",
+              "service",
+              "affairs"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.057,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000599",
+              "K000398",
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7841-119",
+            "title": "Warrior Infertility Act",
+            "type": "HR",
+            "number": "7841",
+            "congress": 119,
+            "introduced_date": "2026-03-05",
+            "latest_action": "Referred to the House Committee on Veterans' Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7841?format=json",
+            "keywords": [
+              "infertility",
+              "code",
+              "condition",
+              "presumed",
+              "incurred",
+              "aggravated",
+              "toxic",
+              "exposure",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "include",
+              "course",
+              "active",
+              "military",
+              "naval",
+              "air",
+              "space",
+              "service"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.041,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "O000019",
+              "B001285",
+              "C001136",
+              "M001220"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1054-119",
+            "title": "Honoring the lives of Minnesota State House Speaker Emerita Melissa Hortman and Mark Hortman.",
+            "type": "HRES",
+            "number": "1054",
+            "congress": 119,
+            "introduced_date": "2026-02-10",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1054?format=json",
+            "keywords": [
+              "hortman",
+              "minnesota",
+              "melissa",
+              "speaker",
+              "mark",
+              "life",
+              "emerita",
+              "school",
+              "service",
+              "honors",
+              "state",
+              "community",
+              "one",
+              "devotion",
+              "others",
+              "family",
+              "history",
+              "university",
+              "together",
+              "serving"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR6215-119",
+            "title": "Small Business RELIEF Act",
+            "type": "HR",
+            "number": "6215",
+            "congress": 119,
+            "introduced_date": "2025-11-20",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6215?format=json",
+            "keywords": [
+              "small",
+              "business",
+              "duties",
+              "concerns",
+              "imposed",
+              "concern",
+              "national",
+              "emergency",
+              "president",
+              "refund",
+              "amount",
+              "paid",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "exempt",
+              "declared",
+              "april",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000614",
+              "V000081",
+              "M001143",
+              "F000110",
+              "S001231",
+              "W000797",
+              "C001072",
+              "L000601",
+              "G000599",
+              "D000096"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR5203-119",
+            "title": "To direct the Secretary of Veterans Affairs to update directives of the Department of Veterans Affairs regarding the management of acute sexual assault, and for other purposes.",
+            "type": "HR",
+            "number": "5203",
+            "congress": 119,
+            "introduced_date": "2025-09-08",
+            "latest_action": "Committee Hearings Held",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5203?format=json",
+            "keywords": [
+              "department",
+              "veterans",
+              "sexual",
+              "assault",
+              "affairs",
+              "covered",
+              "veteran",
+              "secretary",
+              "directives",
+              "facility",
+              "regarding",
+              "acute",
+              "provider",
+              "health",
+              "care",
+              "police",
+              "clinical",
+              "local",
+              "update",
+              "management"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.065,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001218"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "provider",
+                  "nurse",
+                  "mental_health"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:13:45.165102+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:13:45.165102+00:00",
+        "data_updated": "2026-11-23T15:58:18.732377",
+        "donors_updated": "2026-11-23T22:27:10.701483+00:00",
+        "last_updated": "2026-11-23T15:58:18.732377",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 53,
+        "votes_updated": "2026-11-23T10:02:39.278933"
+      }
+    }
+  ]
 }

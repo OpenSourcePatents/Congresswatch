@@ -3416,7 +3416,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "trades": [
     {
       "transaction_date": "2021-02-11",
@@ -8128,7 +8128,7 @@
     "Real Estate",
     "Oil & Gas"
   ],
-  "donors_updated": "2026-11-21T18:18:19.111424+00:00",
+  "donors_updated": "2026-11-23T22:48:56.709503+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -8138,7 +8138,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "travel": [
     {
@@ -8201,7 +8201,7 @@
   "travel_updated": "2026-08-03T13:51:28.483869+00:00",
   "travel_count": 4,
   "non_voting_delegate": false,
-  "votes_fail_count": 48,
+  "votes_fail_count": 50,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -8230,7 +8230,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:28:27.989259",
+  "edgar_checked": "2026-11-23T16:30:01.707076",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:28:27.989259",
@@ -8249,14 +8249,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:08:50.161670",
+  "votes_checked": "2026-11-23T10:09:49.946868",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T14:06:24.110224",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:30:01.707076",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -9478,11 +9478,465 @@
         "donor_alignment_score": 20.0,
         "donor_match_count": 4
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "SRES950-119",
+            "title": "A resolution designating the week of September 14 through September 18, 2026, as \"National Clean Energy Week\".",
+            "type": "SRES",
+            "number": "950",
+            "congress": 119,
+            "introduced_date": "2026-10-15",
+            "latest_action": "Under authority of the order of the Senate of September 30, 2026, ordered referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/sres/950?format=json",
+            "keywords": [
+              "energy",
+              "clean",
+              "september",
+              "week",
+              "national",
+              "low",
+              "individuals",
+              "affordable",
+              "government",
+              "res",
+              "designating",
+              "mrs",
+              "resolution",
+              "across",
+              "readily",
+              "businesses",
+              "emissions",
+              "sources",
+              "economic",
+              "growth"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.107,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C000127",
+              "W000790",
+              "H000273",
+              "S001181",
+              "C001114",
+              "W000802",
+              "C001047",
+              "K000383",
+              "S001198"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy",
+                  "emissions"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Amendment SA 6750, under the order of 8/8/2026, agreed to in Senate by Unanimous Consent.",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6750?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-08-04",
+            "latest_action": "Amendment SA 6732, under the order of 8/8/2026, agreed to in Senate by Unanimous Consent.",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6732?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S3267-119",
+            "title": "ASAP Act",
+            "type": "S",
+            "number": "3267",
+            "congress": 119,
+            "introduced_date": "2025-11-20",
+            "latest_action": "Read twice and referred to the Committee on Finance. (Sponsor introductory remarks on measure: CR S8278-8279)",
+            "url": "https://api.congress.gov/v3/bill/119/s/3267?format=json",
+            "keywords": [
+              "screening",
+              "test",
+              "blood",
+              "alzheimer",
+              "tests",
+              "disease",
+              "related",
+              "dementias",
+              "early",
+              "detection",
+              "social",
+              "security",
+              "coverage",
+              "pre",
+              "medicare",
+              "based",
+              "subparagraph",
+              "end",
+              "nnn",
+              "whole"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.114,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR6130-119",
+                "sponsor_id": "B001260",
+                "similarity_score": 0.892
+              }
+            ],
+            "cosponsors": [
+              "C001113",
+              "C001047",
+              "W000805",
+              "B001299",
+              "L000575",
+              "K000393",
+              "D000622",
+              "B001288",
+              "M000934",
+              "T000476"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "medicare"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S2398-119",
+            "title": "Kay Hagan Tick Reauthorization Act",
+            "type": "S",
+            "number": "2398",
+            "congress": 119,
+            "introduced_date": "2025-07-23",
+            "latest_action": "Passed Senate with an amendment by Voice Vote. (consideration: CR S4494-4495; text: CR S4494-4495)",
+            "url": "https://api.congress.gov/v3/bill/119/s/2398?format=json",
+            "keywords": [
+              "tick",
+              "striking",
+              "inserting",
+              "kay",
+              "hagan",
+              "borne",
+              "health",
+              "session",
+              "reauthorize",
+              "purposes",
+              "reauthorization",
+              "vector",
+              "diseases",
+              "service",
+              "individuals",
+              "appropriate",
+              "congressional",
+              "bills",
+              "government",
+              "publishing"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.016,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001203",
+              "K000383",
+              "G000555",
+              "K000367",
+              "H001089",
+              "S000148",
+              "S001181",
+              "M001198",
+              "H001076",
+              "M001243"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S3296-119",
+            "title": "Improving Access to Workers\u2019 Compensation for Injured Federal Workers Act of 2025",
+            "type": "S",
+            "number": "3296",
+            "congress": 119,
+            "introduced_date": "2025-12-02",
+            "latest_action": "Committee on Homeland Security and Governmental Affairs. Ordered to be reported without amendment favorably.",
+            "url": "https://api.congress.gov/v3/bill/119/s/3296?format=json",
+            "keywords": [
+              "physician",
+              "inserting",
+              "eligible",
+              "workers",
+              "provider",
+              "code",
+              "purposes",
+              "compensation",
+              "nurse",
+              "practitioners",
+              "federal",
+              "assistants",
+              "injured",
+              "end",
+              "introduced",
+              "cover",
+              "services",
+              "bill",
+              "inclusion",
+              "providers"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.133,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001277",
+              "F000479",
+              "B001303",
+              "C001088",
+              "S001181",
+              "M001242",
+              "B001236",
+              "H000273",
+              "W000805",
+              "M001176"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "provider",
+                  "physician",
+                  "nurse"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S5250-119",
+            "title": "Medicare Home Health Payment Integrity and Protection Act of 2026",
+            "type": "S",
+            "number": "5250",
+            "congress": 119,
+            "introduced_date": "2026-08-05",
+            "latest_action": "Read twice and referred to the Committee on Finance. (Sponsor introductory remarks on measure: CR S4477-4478)",
+            "url": "https://api.congress.gov/v3/bill/119/s/5250?format=json",
+            "keywords": [
+              "health",
+              "home",
+              "secretary",
+              "agencies",
+              "agency",
+              "survey",
+              "data",
+              "year",
+              "payment",
+              "accreditation",
+              "fraud",
+              "subparagraph",
+              "end",
+              "social",
+              "security",
+              "services",
+              "years",
+              "subsequent",
+              "integrity",
+              "adding"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.102,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10806-119",
+                "sponsor_id": "T000478",
+                "similarity_score": 0.965
+              }
+            ],
+            "cosponsors": [
+              "B001243"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "insurance",
+                  "medicaid",
+                  "medicare",
+                  "provider"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6624?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6299?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6300?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T21:31:24.635540+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T21:31:24.635540+00:00",
+        "data_updated": "2026-11-23T16:30:01.707076",
+        "donors_updated": "2026-11-23T22:48:56.709503+00:00",
+        "last_updated": "2026-11-23T16:30:01.707076",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 50,
+        "votes_updated": "2026-11-23T10:09:49.946868"
+      }
+    }
+  ]
 }

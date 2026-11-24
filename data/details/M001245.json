@@ -1275,8 +1275,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 55,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 57,
   "trades": [
     {
       "transaction_date": "2026-02-10",
@@ -1509,7 +1509,7 @@
     "Healthcare",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-21T17:50:01.532723+00:00",
+  "donors_updated": "2026-11-23T22:18:54.645664+00:00",
   "score_components": {
     "trade_timing": 5,
     "wealth_gap": 0,
@@ -1518,7 +1518,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -1549,7 +1549,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:39:43.621016",
+  "edgar_checked": "2026-11-23T15:42:17.012946",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:39:43.621016",
@@ -1568,14 +1568,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T08:58:07.746227",
+  "votes_checked": "2026-11-23T09:59:04.604162",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:16:04.362678",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:42:17.012946",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -2416,11 +2416,623 @@
         "donor_match_count": 3,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10991-119",
+            "title": "SPARKS Act",
+            "type": "HR",
+            "number": "10991",
+            "congress": 119,
+            "introduced_date": "2026-11-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10991?format=json",
+            "keywords": [
+              "suicide",
+              "prevention",
+              "secretary",
+              "program",
+              "local",
+              "educational",
+              "agency",
+              "grant",
+              "programs",
+              "eligible",
+              "culturally",
+              "implementation",
+              "responsive",
+              "health",
+              "award",
+              "grants",
+              "youth",
+              "information",
+              "risk",
+              "later"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.091,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000808",
+              "A000381",
+              "B001326",
+              "C001080",
+              "M001229",
+              "N000147",
+              "J000288",
+              "T000486",
+              "W000822"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "mental_health"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8619-119",
+            "title": "Kimberly Vaughan Firearm Safe Storage Act",
+            "type": "HR",
+            "number": "8619",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8619?format=json",
+            "keywords": [
+              "firearm",
+              "storage",
+              "safe",
+              "general",
+              "device",
+              "attorney",
+              "credit",
+              "best",
+              "practices",
+              "devices",
+              "code",
+              "information",
+              "licensed",
+              "program",
+              "grant",
+              "funds",
+              "end",
+              "made",
+              "lock",
+              "received"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.146,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR4487-119",
+                "sponsor_id": "C001072",
+                "similarity_score": 0.989
+              }
+            ],
+            "cosponsors": [
+              "D000631",
+              "L000607",
+              "N000147"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit"
+                ],
+                "Real Estate": [
+                  "development",
+                  "property"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8618-119",
+            "title": "College Affordability and Accessibility Act",
+            "type": "HR",
+            "number": "8618",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8618?format=json",
+            "keywords": [
+              "award",
+              "student",
+              "federal",
+              "pell",
+              "year",
+              "grant",
+              "period",
+              "maximum",
+              "education",
+              "amount",
+              "higher",
+              "equal",
+              "course",
+              "study",
+              "total",
+              "years",
+              "percentage",
+              "grants",
+              "completion",
+              "increase"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5675-119",
+                "sponsor_id": "C001112",
+                "similarity_score": 0.889
+              }
+            ],
+            "cosponsors": [
+              "N000147"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8581-119",
+            "title": "SET Act",
+            "type": "HR",
+            "number": "8581",
+            "congress": 119,
+            "introduced_date": "2026-04-29",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8581?format=json",
+            "keywords": [
+              "vacancy",
+              "special",
+              "election",
+              "fill",
+              "purposes",
+              "general",
+              "elections",
+              "occurs",
+              "vacancies",
+              "later",
+              "days",
+              "time",
+              "state",
+              "district",
+              "civil",
+              "action",
+              "html",
+              "body",
+              "pre",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.032,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "R000606",
+              "C001067",
+              "N000147",
+              "B001281",
+              "J000288",
+              "M001229",
+              "F000481",
+              "C001131"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9320-119",
+            "title": "All in For Attendance Act",
+            "type": "HR",
+            "number": "9320",
+            "congress": 119,
+            "introduced_date": "2026-06-15",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9320?format=json",
+            "keywords": [
+              "students",
+              "school",
+              "chronic",
+              "absenteeism",
+              "student",
+              "education",
+              "attendance",
+              "local",
+              "parents",
+              "schools",
+              "absences",
+              "educational",
+              "agencies",
+              "research",
+              "community",
+              "teachers",
+              "data",
+              "programs",
+              "absent",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.134,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001326",
+              "B001281",
+              "C001125",
+              "F000481",
+              "N000147",
+              "M001229",
+              "R000305",
+              "W000808",
+              "T000193",
+              "C001130"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 5,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T19:28:14.723050+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10991-119",
+            "title": "SPARKS Act",
+            "type": "HR",
+            "number": "10991",
+            "congress": 119,
+            "introduced_date": "2026-11-11",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10991?format=json",
+            "keywords": [
+              "suicide",
+              "prevention",
+              "secretary",
+              "program",
+              "local",
+              "educational",
+              "agency",
+              "grant",
+              "programs",
+              "eligible",
+              "culturally",
+              "implementation",
+              "responsive",
+              "health",
+              "award",
+              "grants",
+              "youth",
+              "information",
+              "risk",
+              "later"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.091,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000808",
+              "A000381",
+              "B001326",
+              "C001080",
+              "M001229",
+              "N000147",
+              "J000288",
+              "T000486",
+              "W000822"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "mental_health"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8619-119",
+            "title": "Kimberly Vaughan Firearm Safe Storage Act",
+            "type": "HR",
+            "number": "8619",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Ways and Means, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8619?format=json",
+            "keywords": [
+              "firearm",
+              "storage",
+              "safe",
+              "general",
+              "device",
+              "attorney",
+              "credit",
+              "best",
+              "practices",
+              "devices",
+              "code",
+              "information",
+              "licensed",
+              "program",
+              "grant",
+              "funds",
+              "end",
+              "made",
+              "lock",
+              "received"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.146,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR4487-119",
+                "sponsor_id": "C001072",
+                "similarity_score": 0.989
+              }
+            ],
+            "cosponsors": [
+              "D000631",
+              "L000607",
+              "N000147"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit"
+                ],
+                "Real Estate": [
+                  "development",
+                  "property"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8618-119",
+            "title": "College Affordability and Accessibility Act",
+            "type": "HR",
+            "number": "8618",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8618?format=json",
+            "keywords": [
+              "award",
+              "student",
+              "federal",
+              "pell",
+              "year",
+              "grant",
+              "period",
+              "maximum",
+              "education",
+              "amount",
+              "higher",
+              "equal",
+              "course",
+              "study",
+              "total",
+              "years",
+              "percentage",
+              "grants",
+              "completion",
+              "increase"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR5675-119",
+                "sponsor_id": "C001112",
+                "similarity_score": 0.889
+              }
+            ],
+            "cosponsors": [
+              "N000147"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8581-119",
+            "title": "SET Act",
+            "type": "HR",
+            "number": "8581",
+            "congress": 119,
+            "introduced_date": "2026-04-29",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8581?format=json",
+            "keywords": [
+              "vacancy",
+              "special",
+              "election",
+              "fill",
+              "purposes",
+              "general",
+              "elections",
+              "occurs",
+              "vacancies",
+              "later",
+              "days",
+              "time",
+              "state",
+              "district",
+              "civil",
+              "action",
+              "html",
+              "body",
+              "pre",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.032,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "R000606",
+              "C001067",
+              "N000147",
+              "B001281",
+              "J000288",
+              "M001229",
+              "F000481",
+              "C001131"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9320-119",
+            "title": "All in For Attendance Act",
+            "type": "HR",
+            "number": "9320",
+            "congress": 119,
+            "introduced_date": "2026-06-15",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9320?format=json",
+            "keywords": [
+              "students",
+              "school",
+              "chronic",
+              "absenteeism",
+              "student",
+              "education",
+              "attendance",
+              "local",
+              "parents",
+              "schools",
+              "absences",
+              "educational",
+              "agencies",
+              "research",
+              "community",
+              "teachers",
+              "data",
+              "programs",
+              "absent",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.134,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001326",
+              "B001281",
+              "C001125",
+              "F000481",
+              "N000147",
+              "M001229",
+              "R000305",
+              "W000808",
+              "T000193",
+              "C001130"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T19:28:14.723050+00:00",
+        "data_updated": "2026-11-23T15:42:17.012946",
+        "donors_updated": "2026-11-23T22:18:54.645664+00:00",
+        "last_updated": "2026-11-23T15:42:17.012946",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 57,
+        "votes_updated": "2026-11-23T09:59:04.604162"
+      }
+    }
+  ]
 }

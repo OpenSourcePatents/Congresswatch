@@ -1759,7 +1759,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "Austria",
@@ -1785,7 +1785,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.722624+00:00",
+  "travel_updated": "2026-11-23T20:43:21.026892+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -1938,7 +1938,7 @@
     "Technology",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-21T17:59:17.344577+00:00",
+  "donors_updated": "2026-11-23T22:30:06.013022+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -1948,13 +1948,13 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
-  "votes_fail_count": 47,
+  "score_updated": "2026-11-23T19:24:41.371198",
+  "votes_fail_count": 49,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "edgar_cik": "0002023540",
   "edgar_data_status": "stale",
-  "edgar_checked": "2026-11-18T14:02:02.7534906Z",
+  "edgar_checked": "2026-11-23T16:04:48.688832",
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -1998,15 +1998,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:03:04.011026",
+  "votes_checked": "2026-11-23T10:04:05.250557",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 5,
-      "data_updated": "2026-11-21T13:39:40.558385",
+      "data_updated": "2026-11-23T16:04:48.688832",
       "edgar_cik": "0002023540",
-      "edgar_signal_type": "corporate_insider",
       "edgar_status": "verified_auto"
     }
   },
@@ -3728,11 +3727,635 @@
         "donor_match_count": 8,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10357-119",
+            "title": "Digital Asset Tax Certainty Act",
+            "type": "HR",
+            "number": "10357",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10357?format=json",
+            "keywords": [
+              "digital",
+              "asset",
+              "assets",
+              "traded",
+              "type",
+              "taxpayer",
+              "taxable",
+              "year",
+              "respect",
+              "widely",
+              "designated",
+              "election",
+              "fee",
+              "value",
+              "loss",
+              "purposes",
+              "rules",
+              "gain",
+              "case",
+              "dollar"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.071,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000375",
+              "B001314",
+              "C001126",
+              "H001066",
+              "K000376",
+              "K000392",
+              "M001222",
+              "Y000067"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9645-119",
+            "title": "Health Care Price Certainty for All Americans Act",
+            "type": "HR",
+            "number": "9645",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9645?format=json",
+            "keywords": [
+              "secretary",
+              "specified",
+              "hospital",
+              "laboratory",
+              "information",
+              "price",
+              "services",
+              "service",
+              "subparagraph",
+              "applicable",
+              "penalty",
+              "described",
+              "respect",
+              "amount",
+              "made",
+              "compliance",
+              "case",
+              "available",
+              "individual",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Agriculture",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Agriculture": [
+                  "rural"
+                ],
+                "Technology": [
+                  "technology",
+                  "internet",
+                  "data"
+                ],
+                "Healthcare": [
+                  "healthcare",
+                  "hospital",
+                  "insurance",
+                  "medicaid",
+                  "medicare"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6599-119",
+            "title": "Leasing and Infrastructure Act of 2025",
+            "type": "HR",
+            "number": "6599",
+            "congress": 119,
+            "introduced_date": "2025-12-10",
+            "latest_action": "Committee Hearings Held",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6599?format=json",
+            "keywords": [
+              "secretary",
+              "lease",
+              "cost",
+              "veterans",
+              "medical",
+              "costs",
+              "fund",
+              "authority",
+              "leases",
+              "leasing",
+              "year",
+              "later",
+              "major",
+              "facility",
+              "affairs",
+              "request",
+              "days",
+              "one",
+              "period",
+              "market"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ],
+                "Technology": [
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6500-119",
+            "title": "AGOA Extension Act",
+            "type": "HR",
+            "number": "6500",
+            "congress": 119,
+            "introduced_date": "2025-12-09",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6500?format=json",
+            "keywords": [
+              "september",
+              "african",
+              "striking",
+              "inserting",
+              "december",
+              "entry",
+              "growth",
+              "opportunity",
+              "calendar",
+              "treatment",
+              "extend",
+              "free",
+              "customs",
+              "fees",
+              "extension",
+              "trade",
+              "subparagraph",
+              "covered",
+              "enactment",
+              "placed"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.041,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001172"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES212-119",
+            "title": "Returning Senate Joint Resolution 3 to the Senate.",
+            "type": "HRES",
+            "number": "212",
+            "congress": 119,
+            "introduced_date": "2025-03-11",
+            "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/212?format=json",
+            "keywords": [
+              "resolution",
+              "joint",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "first",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "engrossed",
+              "doc",
+              "march",
+              "resolved",
+              "entitled",
+              "providing",
+              "disapproval",
+              "code"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR1156-119",
+            "title": "Pandemic Unemployment Fraud Enforcement Act",
+            "type": "HR",
+            "number": "1156",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 29.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1156?format=json",
+            "keywords": [
+              "unemployment",
+              "enforcement",
+              "pandemic",
+              "statute",
+              "limitations",
+              "criminal",
+              "prosecution",
+              "civil",
+              "action",
+              "compensation",
+              "fraud",
+              "violation",
+              "conspiracy",
+              "code",
+              "respect",
+              "calendar",
+              "cares",
+              "march",
+              "enactment",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000585",
+              "Y000067",
+              "B001314",
+              "M001224",
+              "V000134",
+              "F000446",
+              "C001126",
+              "M001222",
+              "S001214",
+              "B001260"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES109-119",
+            "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
+            "type": "HRES",
+            "number": "109",
+            "congress": 119,
+            "introduced_date": "2025-02-05",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/109?format=json",
+            "keywords": [
+              "committee",
+              "expenses",
+              "resolution",
+              "amounts",
+              "noon",
+              "january",
+              "ways",
+              "one",
+              "hundred",
+              "nineteenth",
+              "administration",
+              "available",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "session",
+              "providing",
+              "referred",
+              "salaries"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.092,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES131-119",
+                "sponsor_id": "G000591",
+                "similarity_score": 0.937
+              },
+              {
+                "bill_id": "HRES159-118",
+                "sponsor_id": "J000289",
+                "similarity_score": 0.936
+              },
+              {
+                "bill_id": "HRES86-119",
+                "sponsor_id": "J000289",
+                "similarity_score": 0.934
+              }
+            ],
+            "cosponsors": [
+              "N000015"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR591-119",
+            "title": "Defending American Jobs and Investment Act",
+            "type": "HR",
+            "number": "591",
+            "congress": 119,
+            "introduced_date": "2025-01-21",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/591?format=json",
+            "keywords": [
+              "tax",
+              "foreign",
+              "country",
+              "taxes",
+              "applicable",
+              "discriminatory",
+              "extraterritorial",
+              "secretary",
+              "respect",
+              "case",
+              "person",
+              "rate",
+              "report",
+              "purposes",
+              "income",
+              "percentage",
+              "points",
+              "trade",
+              "specified",
+              "period"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.098,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001260",
+              "S001172",
+              "K000376",
+              "S001183",
+              "L000585",
+              "A000375",
+              "E000298",
+              "S001199",
+              "H001082",
+              "M001205"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR33-119",
+            "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
+            "type": "HR",
+            "number": "33",
+            "congress": 119,
+            "introduced_date": "2025-01-03",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/33?format=json",
+            "keywords": [
+              "taiwan",
+              "qualified",
+              "agreement",
+              "income",
+              "resident",
+              "business",
+              "permanent",
+              "person",
+              "subparagraph",
+              "respect",
+              "establishment",
+              "entity",
+              "general",
+              "trade",
+              "requirements",
+              "tax",
+              "purposes",
+              "individual",
+              "residents",
+              "percent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.071,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000015",
+              "B001260",
+              "D000399",
+              "S001172",
+              "T000460",
+              "K000376",
+              "S001156",
+              "L000585",
+              "S001185",
+              "E000298"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8813-118",
+            "title": "Preventing Child Welfare Entry Caused by Poverty Act",
+            "type": "HR",
+            "number": "8813",
+            "congress": 118,
+            "introduced_date": "2024-06-25",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8813?format=json",
+            "keywords": [
+              "child",
+              "services",
+              "state",
+              "session",
+              "subpart",
+              "social",
+              "security",
+              "address",
+              "welfare",
+              "poverty",
+              "purposes",
+              "family",
+              "caused",
+              "striking",
+              "needs",
+              "meet",
+              "plan",
+              "requirements",
+              "made",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.064,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001160"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "food"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:29:40.065969+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:29:40.065969+00:00",
+        "data_updated": "2026-11-23T16:04:48.688832",
+        "donors_updated": "2026-11-23T22:30:06.013022+00:00",
+        "last_updated": "2026-11-23T16:04:48.688832",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:21.026892+00:00",
+        "votes_fail_count": 49,
+        "votes_updated": "2026-11-23T10:04:05.250557"
+      }
+    }
+  ]
 }

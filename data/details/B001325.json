@@ -2261,8 +2261,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 52,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 54,
   "trades": [
     {
       "transaction_date": "2026-04-28",
@@ -2760,7 +2760,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.635313+00:00",
+  "travel_updated": "2026-11-23T20:43:21.003625+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -2912,7 +2912,7 @@
     "Education",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T17:53:01.736980+00:00",
+  "donors_updated": "2026-11-23T22:23:07.957349+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 15,
@@ -2922,7 +2922,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2953,7 +2953,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:46:46.626245",
+  "edgar_checked": "2026-11-23T15:49:27.285883",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:46:46.626245",
@@ -2972,14 +2972,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T08:59:41.580123",
+  "votes_checked": "2026-11-23T10:00:38.654525",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:23:13.719262",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:49:27.285883",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4493,11 +4493,569 @@
         "donor_alignment_score": 20.0,
         "donor_match_count": 4
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10954-119",
+            "title": "Don\u2019t Flush Babies Act",
+            "type": "HR",
+            "number": "10954",
+            "congress": 119,
+            "introduced_date": "2026-11-05",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10954?format=json",
+            "keywords": [
+              "abortion",
+              "drug",
+              "human",
+              "medical",
+              "waste",
+              "fetal",
+              "remains",
+              "solid",
+              "patient",
+              "catch",
+              "kit",
+              "use",
+              "provider",
+              "fetus",
+              "label",
+              "symbol",
+              "federal",
+              "disposal",
+              "packaging",
+              "requirements"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.114,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001115"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10860-119",
+            "title": "Stop Beijing\u2019s Bots Act",
+            "type": "HR",
+            "number": "10860",
+            "congress": 119,
+            "introduced_date": "2026-10-22",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10860?format=json",
+            "keywords": [
+              "robotic",
+              "covered",
+              "system",
+              "defense",
+              "secretary",
+              "systems",
+              "operation",
+              "people",
+              "republic",
+              "china",
+              "entity",
+              "entities",
+              "prohibition",
+              "national",
+              "foreign",
+              "person",
+              "department",
+              "later",
+              "enactment",
+              "waiver"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.048,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10859-119",
+            "title": "Biotech Defense Act",
+            "type": "HR",
+            "number": "10859",
+            "congress": 119,
+            "introduced_date": "2026-10-22",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Intelligence (Permanent Select), for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10859?format=json",
+            "keywords": [
+              "biotechnology",
+              "committee",
+              "secretary",
+              "defense",
+              "foreign",
+              "military",
+              "china",
+              "strategy",
+              "threats",
+              "services",
+              "assessment",
+              "national",
+              "appropriate",
+              "congressional",
+              "risk",
+              "commerce",
+              "develop",
+              "capabilities",
+              "intelligence",
+              "use"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.027,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "investment"
+                ],
+                "Technology": [
+                  "technology",
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10861-119",
+            "title": "Blocking Foreign Cellular Modules in Defense Systems Act of 2026",
+            "type": "HR",
+            "number": "10861",
+            "congress": 119,
+            "introduced_date": "2026-10-22",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10861?format=json",
+            "keywords": [
+              "defense",
+              "covered",
+              "cellular",
+              "mitigation",
+              "department",
+              "audit",
+              "systems",
+              "module",
+              "report",
+              "congressional",
+              "modules",
+              "infrastructure",
+              "required",
+              "committees",
+              "general",
+              "later",
+              "secretary",
+              "activities",
+              "include",
+              "owned"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.072,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5598-119",
+                "sponsor_id": "B001299",
+                "similarity_score": 0.987
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "internet",
+                  "data",
+                  "software"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9592-119",
+            "title": "To authorize the Secretary of State to take certain actions to counter and reduce threats to the space security of the United States, to require the Secretary of State to provide certain consultations to Congress on the space security of the United States, and for other purposes.",
+            "type": "HR",
+            "number": "9592",
+            "congress": 119,
+            "introduced_date": "2026-07-06",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9592?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "osn",
+              "pdf",
+              "szdx",
+              "mrzd",
+              "vzcl",
+              "qds",
+              "lik",
+              "ods",
+              "wsg",
+              "bki",
+              "pgn",
+              "tdx",
+              "ovr",
+              "snl",
+              "tgp",
+              "dhav"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10507-119",
+                "sponsor_id": "T000490",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10195-119",
+                "sponsor_id": "P000613",
+                "similarity_score": 0.984
+              },
+              {
+                "bill_id": "HR11037-119",
+                "sponsor_id": "A000370",
+                "similarity_score": 0.979
+              }
+            ],
+            "cosponsors": [
+              "B001287"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9421-119",
+            "title": "Ban Abortion by Mail Act",
+            "type": "HR",
+            "number": "9421",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9421?format=json",
+            "keywords": [
+              "rems",
+              "certified",
+              "drug",
+              "provider",
+              "mifepristone",
+              "abortion",
+              "status",
+              "patient",
+              "secretary",
+              "prescribing",
+              "person",
+              "visit",
+              "medical",
+              "license",
+              "state",
+              "health",
+              "risk",
+              "evaluation",
+              "mitigation",
+              "care"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.217,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000478",
+              "N000190",
+              "H001096",
+              "T000478",
+              "S001214",
+              "B001295",
+              "T000480",
+              "W000816",
+              "F000470",
+              "H001052"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9328-119",
+            "title": "Improving Travel for Military Members Act",
+            "type": "HR",
+            "number": "9328",
+            "congress": 119,
+            "introduced_date": "2026-06-18",
+            "latest_action": "Ordered to be Reported by the Yeas and Nays: 30 - 0.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9328?format=json",
+            "keywords": [
+              "administrator",
+              "security",
+              "program",
+              "military",
+              "personnel",
+              "pilot",
+              "active",
+              "duty",
+              "family",
+              "travel",
+              "accompanying",
+              "screening",
+              "passenger",
+              "committee",
+              "members",
+              "airports",
+              "homeland",
+              "transportation",
+              "administration",
+              "carry"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.018,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000599",
+              "V000138"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8213-119",
+            "title": "Defending Women in the Workplace Act",
+            "type": "HR",
+            "number": "8213",
+            "congress": 119,
+            "introduced_date": "2026-04-09",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8213?format=json",
+            "keywords": [
+              "sex",
+              "discrimination",
+              "basis",
+              "vii",
+              "civil",
+              "rights",
+              "include",
+              "gender",
+              "identity",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "clarify",
+              "mrs",
+              "bill",
+              "congressional",
+              "bills",
+              "government",
+              "publishing"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.028,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001101",
+              "O000175",
+              "P000605",
+              "M000194",
+              "G000565",
+              "L000595",
+              "B000825",
+              "L000596",
+              "N000190",
+              "M001211"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8040-119",
+            "title": "No Mercy for Terrorists Act of 2026",
+            "type": "HR",
+            "number": "8040",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8040?format=json",
+            "keywords": [
+              "years",
+              "terrorists",
+              "code",
+              "striking",
+              "imprisoned",
+              "inserting",
+              "life",
+              "penalties",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "increase",
+              "bill",
+              "providing",
+              "material",
+              "support",
+              "less",
+              "punished",
+              "death"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7898-119",
+            "title": "National Guard Protective Zone Act",
+            "type": "HR",
+            "number": "7898",
+            "congress": 119,
+            "introduced_date": "2026-03-12",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7898?format=json",
+            "keywords": [
+              "protective",
+              "national",
+              "guard",
+              "zone",
+              "code",
+              "posted",
+              "member",
+              "penalties",
+              "interference",
+              "person",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "establish",
+              "criminal",
+              "interfering",
+              "zones",
+              "bill",
+              "general"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.043,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000616",
+              "H001077",
+              "M001212",
+              "A000372"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T19:48:49.454639+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T19:48:49.454639+00:00",
+        "data_updated": "2026-11-23T15:49:27.285883",
+        "donors_updated": "2026-11-23T22:23:07.957349+00:00",
+        "last_updated": "2026-11-23T15:49:27.285883",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:21.003625+00:00",
+        "votes_fail_count": 54,
+        "votes_updated": "2026-11-23T10:00:38.654525"
+      }
+    }
+  ]
 }

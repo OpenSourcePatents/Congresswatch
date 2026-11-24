@@ -2295,7 +2295,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "New York, NY",
@@ -2322,7 +2322,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.728182+00:00",
+  "travel_updated": "2026-11-23T20:43:21.029657+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -2473,9 +2473,9 @@
     "Finance & Banking",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T17:56:51.009890+00:00",
+  "donors_updated": "2026-11-23T22:27:27.347461+00:00",
   "fec_cycle": 2026,
-  "votes_fail_count": 53,
+  "votes_fail_count": 55,
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
@@ -2484,7 +2484,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2515,7 +2515,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:56:26.809833",
+  "edgar_checked": "2026-11-23T15:59:27.777162",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:56:26.809833",
@@ -2534,14 +2534,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:55.779229",
+  "votes_checked": "2026-11-23T10:02:55.842283",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:34:35.683857",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:59:27.777162",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4199,11 +4199,652 @@
         "donor_match_count": 6,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8754-119",
+            "title": "No Delay for Immigration Oversight Act",
+            "type": "HR",
+            "number": "8754",
+            "congress": 119,
+            "introduced_date": "2026-05-12",
+            "latest_action": "Referred to the Subcommittee on Oversight, Investigations, and Accountability.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8754?format=json",
+            "keywords": [
+              "homeland",
+              "security",
+              "department",
+              "covered",
+              "members",
+              "oversight",
+              "facility",
+              "entity",
+              "facilities",
+              "secretary",
+              "immigration",
+              "access",
+              "delay",
+              "member",
+              "congressional",
+              "contracts",
+              "carry",
+              "federal",
+              "detention",
+              "requirements"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.039,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001226",
+              "W000822"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8488-119",
+            "title": "AI Data Center Site Selection Transparency Act of 2026",
+            "type": "HR",
+            "number": "8488",
+            "congress": 119,
+            "introduced_date": "2026-04-23",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8488?format=json",
+            "keywords": [
+              "data",
+              "focused",
+              "center",
+              "entity",
+              "establish",
+              "environmental",
+              "commission",
+              "agreement",
+              "developer",
+              "federal",
+              "terms",
+              "covered",
+              "disclosure",
+              "person",
+              "centers",
+              "information",
+              "site",
+              "local",
+              "impact",
+              "non"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.058,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000477",
+              "C001072",
+              "N000147",
+              "G000606",
+              "T000481",
+              "E000299",
+              "C001068",
+              "M000312",
+              "Q000023",
+              "S001231"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest"
+                ],
+                "Technology": [
+                  "data",
+                  "social_media",
+                  "artificial_intelligence",
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10371-119",
+            "title": "To direct the Associate Administrator for Veterans Business Development of the Small Business Administration to ensure compliance with certain reporting requirements, and for other purposes.",
+            "type": "HR",
+            "number": "10371",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10371?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "pdf",
+              "stream",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wks",
+              "wms",
+              "vys",
+              "xnm",
+              "hzfy",
+              "bty",
+              "qwl",
+              "kwx",
+              "wxr",
+              "spw",
+              "tqm",
+              "pnz"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10101-119",
+                "sponsor_id": "O000176",
+                "similarity_score": 0.983
+              },
+              {
+                "bill_id": "HR10551-119",
+                "sponsor_id": "F000481",
+                "similarity_score": 0.976
+              },
+              {
+                "bill_id": "HR10153-119",
+                "sponsor_id": "F000466",
+                "similarity_score": 0.974
+              }
+            ],
+            "cosponsors": [
+              "V000081",
+              "C001123"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9810-119",
+            "title": "To amend the Small Business Act to make improvements to the Small Business Development Center Program, and for other purposes.",
+            "type": "HR",
+            "number": "9810",
+            "congress": 119,
+            "introduced_date": "2026-07-21",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9810?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wks",
+              "wms",
+              "qgef",
+              "byn",
+              "pkl",
+              "diut",
+              "yvb",
+              "jik",
+              "vpv",
+              "gaq",
+              "ded",
+              "fnt"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR11072-119",
+                "sponsor_id": "S001216",
+                "similarity_score": 0.996
+              },
+              {
+                "bill_id": "HR10604-119",
+                "sponsor_id": "S001216",
+                "similarity_score": 0.991
+              },
+              {
+                "bill_id": "HR10333-119",
+                "sponsor_id": "D000624",
+                "similarity_score": 0.983
+              }
+            ],
+            "cosponsors": [
+              "V000081",
+              "C001123",
+              "B001324"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9587-119",
+            "title": "To amend the Richard B. Russell National School Lunch Act to eliminate certain requirements under the summer food service program for children, and for other purposes.",
+            "type": "HR",
+            "number": "9587",
+            "congress": 119,
+            "introduced_date": "2026-07-02",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9587?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wks",
+              "lje",
+              "tzb",
+              "vtja",
+              "son",
+              "ati",
+              "jmd",
+              "nobvf",
+              "lmv",
+              "bzh",
+              "byhbm",
+              "byn"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9699-119",
+                "sponsor_id": "C001080",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR9666-119",
+                "sponsor_id": "C001133",
+                "similarity_score": 0.999
+              },
+              {
+                "bill_id": "HR10581-119",
+                "sponsor_id": "M001235",
+                "similarity_score": 0.999
+              }
+            ],
+            "cosponsors": [
+              "H001081"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9032-119",
+            "title": "RESTORE Third Spaces Act of 2026",
+            "type": "HR",
+            "number": "9032",
+            "congress": 119,
+            "introduced_date": "2026-05-26",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Financial Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9032?format=json",
+            "keywords": [
+              "third",
+              "spaces",
+              "community",
+              "pilot",
+              "social",
+              "space",
+              "eligible",
+              "secretary",
+              "program",
+              "entity",
+              "local",
+              "economic",
+              "grant",
+              "grants",
+              "cultural",
+              "shared",
+              "use",
+              "development",
+              "establish",
+              "renovate"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001072",
+              "M001196",
+              "T000481",
+              "N000147",
+              "G000586",
+              "T000193",
+              "F000110",
+              "F000481",
+              "G000553",
+              "Q000023"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8939-119",
+            "title": "Closing the HPV Testing Gap Act",
+            "type": "HR",
+            "number": "8939",
+            "congress": 119,
+            "introduced_date": "2026-05-20",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8939?format=json",
+            "keywords": [
+              "hpv",
+              "director",
+              "study",
+              "men",
+              "health",
+              "national",
+              "testing",
+              "nih",
+              "cancer",
+              "standardized",
+              "noninvasive",
+              "test",
+              "prevention",
+              "report",
+              "administration",
+              "conduct",
+              "development",
+              "institutes",
+              "related",
+              "food"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.108,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001125",
+              "M001226",
+              "V000131",
+              "W000788",
+              "F000481",
+              "W000822",
+              "N000147",
+              "B001281",
+              "V000081",
+              "J000288"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HCONRES80-119",
+            "title": "Recognizing the duty of Congress to meet the needs of working women.",
+            "type": "HCONRES",
+            "number": "80",
+            "congress": 119,
+            "introduced_date": "2026-03-25",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/80?format=json",
+            "keywords": [
+              "women",
+              "working",
+              "federal",
+              "workplace",
+              "equal",
+              "health",
+              "care",
+              "labor",
+              "work",
+              "workforce",
+              "gender",
+              "rights",
+              "economic",
+              "department",
+              "opportunity",
+              "education",
+              "recognizes",
+              "administration",
+              "pay",
+              "discrimination"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SCONRES31-119",
+                "sponsor_id": "H001042",
+                "similarity_score": 0.967
+              }
+            ],
+            "cosponsors": [
+              "D000216",
+              "L000273",
+              "N000147",
+              "G000599",
+              "W000808",
+              "T000469",
+              "S001145",
+              "M001238",
+              "K000391",
+              "S001231"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7982-119",
+            "title": "Protect World Cup Attendees Act",
+            "type": "HR",
+            "number": "7982",
+            "congress": 119,
+            "introduced_date": "2026-03-18",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7982?format=json",
+            "keywords": [
+              "immigration",
+              "funds",
+              "security",
+              "time",
+              "period",
+              "imminent",
+              "risk",
+              "provide",
+              "federal",
+              "homeland",
+              "program",
+              "carry",
+              "civil",
+              "enforcement",
+              "activity",
+              "exigent",
+              "circumstances",
+              "defined",
+              "covered",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.065,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000621",
+              "S001193",
+              "T000193"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7751-119",
+            "title": "Parks to People Active Transportation Act",
+            "type": "HR",
+            "number": "7751",
+            "congress": 119,
+            "introduced_date": "2026-03-02",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7751?format=json",
+            "keywords": [
+              "secretary",
+              "greenway",
+              "project",
+              "eligible",
+              "cost",
+              "transportation",
+              "organization",
+              "paths",
+              "grants",
+              "communities",
+              "planning",
+              "federal",
+              "path",
+              "carry",
+              "grant",
+              "local",
+              "community",
+              "projects",
+              "total",
+              "program"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.073,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001208",
+              "T000481",
+              "N000147",
+              "C001125",
+              "B001300",
+              "S001231",
+              "T000468",
+              "M001226",
+              "J000288",
+              "C001117"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:16:37.547219+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:16:37.547219+00:00",
+        "data_updated": "2026-11-23T15:59:27.777162",
+        "donors_updated": "2026-11-23T22:27:27.347461+00:00",
+        "last_updated": "2026-11-23T15:59:27.777162",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:21.029657+00:00",
+        "votes_fail_count": 55,
+        "votes_updated": "2026-11-23T10:02:55.842283"
+      }
+    }
+  ]
 }

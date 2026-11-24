@@ -2205,8 +2205,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 48,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 50,
   "top_donors_list": [
     {
       "name": "FINDLAY, JAMES",
@@ -2359,7 +2359,7 @@
     "Education",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T17:56:26.766929+00:00",
+  "donors_updated": "2026-11-23T22:27:03.035982+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2369,7 +2369,7 @@
     "foreign_travel": 0,
     "attendance": 3
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 13.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2400,7 +2400,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:54:38.803236",
+  "edgar_checked": "2026-11-23T15:57:38.822768",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:54:38.803236",
@@ -2419,14 +2419,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:29.580089",
+  "votes_checked": "2026-11-23T10:02:29.514407",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:31:27.682002",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:57:38.822768",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -3817,11 +3817,529 @@
         "donor_alignment_score": 10.0,
         "donor_match_count": 2
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10911-119",
+            "title": "U.S. Swine Health Improvement Plan Act of 2026",
+            "type": "HR",
+            "number": "10911",
+            "congress": 119,
+            "introduced_date": "2026-10-26",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10911?format=json",
+            "keywords": [
+              "swine",
+              "health",
+              "facility",
+              "improvement",
+              "plan",
+              "secretary",
+              "program",
+              "agriculture",
+              "industry",
+              "animal",
+              "diseases",
+              "referred",
+              "committee",
+              "advisory",
+              "protection",
+              "general",
+              "federal",
+              "specific",
+              "covered",
+              "rule"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.052,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000475",
+              "D000230",
+              "M001215"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1624-119",
+            "title": "Recognizing the 110th anniversary of the Nation's First Presidential library, the Rutherford B. Hayes Presidential Library & Museums.",
+            "type": "HRES",
+            "number": "1624",
+            "congress": 119,
+            "introduced_date": "2026-10-13",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1624?format=json",
+            "keywords": [
+              "hayes",
+              "presidential",
+              "library",
+              "rutherford",
+              "ohio",
+              "president",
+              "museums",
+              "anniversary",
+              "nation",
+              "first",
+              "museum",
+              "state",
+              "america",
+              "americans",
+              "building",
+              "centennial",
+              "government",
+              "year",
+              "marks",
+              "opening"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.045,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000566"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10566-119",
+            "title": "Sunlight on SuperPACs Act of 2026",
+            "type": "HR",
+            "number": "10566",
+            "congress": 119,
+            "introduced_date": "2026-09-24",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10566?format=json",
+            "keywords": [
+              "voters",
+              "communication",
+              "federal",
+              "campaign",
+              "superpacs",
+              "election",
+              "committee",
+              "political",
+              "covered",
+              "disclosure",
+              "independent",
+              "list",
+              "payments",
+              "requirements",
+              "communications",
+              "top",
+              "funders",
+              "expenditure",
+              "three",
+              "persons"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.097,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001225",
+              "N000147",
+              "B000490",
+              "T000487",
+              "C001055",
+              "G000606",
+              "N000191",
+              "H001068"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES1240-119",
+            "title": "Expressing support for the designation of the week of May 8 through May 17, 2026, as \"National American Birding Week\".",
+            "type": "HRES",
+            "number": "1240",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1240?format=json",
+            "keywords": [
+              "birding",
+              "week",
+              "american",
+              "bird",
+              "migratory",
+              "national",
+              "populations",
+              "conservation",
+              "support",
+              "designation",
+              "state",
+              "economic",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "res",
+              "expressing",
+              "resolution",
+              "natural"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.08,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000566",
+              "M001214",
+              "T000481",
+              "W000829",
+              "S001145",
+              "D000624"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10385-119",
+            "title": "To amend the Water Resources Development Act of 1992 to increase the amount of funds authorized for the Secretary of the Army to carry out wastewater infrastructure projects in Village of Kelleys Island, Ohio, and for other purposes.",
+            "type": "HR",
+            "number": "10385",
+            "congress": 119,
+            "introduced_date": "2026-09-15",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10385?format=json",
+            "keywords": [
+              "water",
+              "infrastructure",
+              "resources",
+              "development",
+              "wastewater",
+              "ohio",
+              "introduced",
+              "increase",
+              "amount",
+              "funds",
+              "authorized",
+              "secretary",
+              "army",
+              "carry",
+              "projects",
+              "village",
+              "kelleys",
+              "island",
+              "purposes",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.023,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10382-119",
+            "title": "To correct a pay disparity adversely affecting employees of the United States Army Corps of Engineers operating the Soo Locks at Sault Sainte Marie, Michigan, to support safe navigation in the Great Lakes, and for other purposes.",
+            "type": "HR",
+            "number": "10382",
+            "congress": 119,
+            "introduced_date": "2026-09-15",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10382?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wms",
+              "wks",
+              "xmw",
+              "vms",
+              "hdc",
+              "pdf",
+              "lhs",
+              "tku",
+              "zwa",
+              "vwq",
+              "dwt",
+              "tab",
+              "lkr",
+              "jfw",
+              "wjx",
+              "ujv"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10559-119",
+                "sponsor_id": "H001091",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10829-119",
+                "sponsor_id": "G000600",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10945-119",
+                "sponsor_id": "S001223",
+                "similarity_score": 1.0
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10386-119",
+            "title": "To amend the Water Resources Development Act of 1992 to increase the amount and purposes of funds authorized for the Secretary of the Army to carry out water and wastewater infrastructure projects in Toledo and Oregon, Ohio, and for other purposes.",
+            "type": "HR",
+            "number": "10386",
+            "congress": 119,
+            "introduced_date": "2026-09-15",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10386?format=json",
+            "keywords": [
+              "water",
+              "infrastructure",
+              "purposes",
+              "wastewater",
+              "resources",
+              "development",
+              "toledo",
+              "oregon",
+              "ohio",
+              "introduced",
+              "increase",
+              "amount",
+              "funds",
+              "authorized",
+              "secretary",
+              "army",
+              "carry",
+              "projects",
+              "bill",
+              "congressional"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.026,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10383-119",
+            "title": "To require the Secretary of the Army to expedite the completion of agreements with non-Federal interests for beneficial use of dredged material from federally authorized harbors in the State of Ohio, and for other purposes.",
+            "type": "HR",
+            "number": "10383",
+            "congress": 119,
+            "introduced_date": "2026-09-15",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10383?format=json",
+            "keywords": [
+              "federal",
+              "secretary",
+              "non",
+              "dredged",
+              "material",
+              "agreement",
+              "interest",
+              "completion",
+              "beneficial",
+              "federally",
+              "authorized",
+              "state",
+              "ohio",
+              "expedite",
+              "use",
+              "harbors",
+              "harbor",
+              "described",
+              "management",
+              "plan"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10388-119",
+            "title": "To clarify and update Federal policy governing operation and maintenance of the Toussaint River Federal navigation project in Carroll Township, Ohio, as authorized under section 107 of the River and Harbor Act of 1960, and for other purposes.",
+            "type": "HR",
+            "number": "10388",
+            "congress": 119,
+            "introduced_date": "2026-09-15",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10388?format=json",
+            "keywords": [
+              "federal",
+              "river",
+              "toussaint",
+              "navigation",
+              "project",
+              "carroll",
+              "township",
+              "ohio",
+              "operation",
+              "maintenance",
+              "authorized",
+              "harbor",
+              "cost",
+              "share",
+              "fiscal",
+              "year",
+              "introduced",
+              "clarify",
+              "update",
+              "policy"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10387-119",
+            "title": "To amend the Water Resources Development Act of 2000 to authorize the Secretary of the Army to carry out additional Great Lakes fishery and ecosystem restoration projects not eligible under current policy of the Department of the Army, and for other purposes.",
+            "type": "HR",
+            "number": "10387",
+            "congress": 119,
+            "introduced_date": "2026-09-15",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Natural Resources, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10387?format=json",
+            "keywords": [
+              "resources",
+              "army",
+              "water",
+              "development",
+              "great",
+              "lakes",
+              "fishery",
+              "ecosystem",
+              "restoration",
+              "committee",
+              "introduced",
+              "authorize",
+              "secretary",
+              "carry",
+              "additional",
+              "projects",
+              "eligible",
+              "current",
+              "policy",
+              "department"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.018,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:11:59.755883+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:11:59.755883+00:00",
+        "data_updated": "2026-11-23T15:57:38.822768",
+        "donors_updated": "2026-11-23T22:27:03.035982+00:00",
+        "last_updated": "2026-11-23T15:57:38.822768",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 50,
+        "votes_updated": "2026-11-23T10:02:29.514407"
+      }
+    }
+  ]
 }

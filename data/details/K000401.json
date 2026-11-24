@@ -2422,7 +2422,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "Israel",
@@ -2477,7 +2477,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.498543+00:00",
+  "travel_updated": "2026-11-23T20:43:20.944222+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -2631,9 +2631,9 @@
     "Healthcare",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T18:04:57.066762+00:00",
+  "donors_updated": "2026-11-23T22:34:48.467555+00:00",
   "fec_cycle": 2026,
-  "votes_fail_count": 51,
+  "votes_fail_count": 53,
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
@@ -2642,7 +2642,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2673,7 +2673,7 @@
     },
     "request_failed": true
   },
-  "edgar_checked": "2026-11-18T14:18:52.0880203Z",
+  "edgar_checked": "2026-11-23T16:15:53.782291",
   "edgar_data_status": "unavailable",
   "votes_refresh_provenance": {
     "prior_review": {
@@ -2690,14 +2690,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:05:32.230491",
+  "votes_checked": "2026-11-23T10:06:34.144983",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:51:31.973819",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:15:53.782291",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4283,11 +4283,602 @@
         "donor_alignment_score": 30.0,
         "donor_match_count": 6
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8692-119",
+            "title": "SAM Act of 2026",
+            "type": "HR",
+            "number": "8692",
+            "congress": 119,
+            "introduced_date": "2026-05-07",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8692?format=json",
+            "keywords": [
+              "software",
+              "bus",
+              "vehicles",
+              "secretary",
+              "driving",
+              "mobility",
+              "program",
+              "new",
+              "autonomous",
+              "automated",
+              "inserting",
+              "grant",
+              "shared",
+              "striking",
+              "systems",
+              "covered",
+              "model",
+              "acquisition",
+              "code",
+              "project"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "investment"
+                ],
+                "Real Estate": [
+                  "development"
+                ],
+                "Technology": [
+                  "technology",
+                  "software",
+                  "hardware"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9746-119",
+            "title": "Biomass Facility Construction Act",
+            "type": "HR",
+            "number": "9746",
+            "congress": 119,
+            "introduced_date": "2026-07-16",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9746?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "endstream",
+              "font",
+              "procset",
+              "text",
+              "vks",
+              "cfq",
+              "fxzd",
+              "wks",
+              "sdq",
+              "iuw",
+              "las",
+              "svjq",
+              "puk",
+              "sif",
+              "hdvm",
+              "uek"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR10511-119",
+                "sponsor_id": "G000602",
+                "similarity_score": 0.997
+              },
+              {
+                "bill_id": "HR9580-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.996
+              },
+              {
+                "bill_id": "HR9728-119",
+                "sponsor_id": "B001287",
+                "similarity_score": 0.993
+              }
+            ],
+            "cosponsors": [
+              "G000607"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8252-119",
+            "title": "To amend title 23, United States Code, to provide for withholding of funds for noncompliance with State gas tax restriction, and for other purposes.",
+            "type": "HR",
+            "number": "8252",
+            "congress": 119,
+            "introduced_date": "2026-04-13",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8252?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "type",
+              "font",
+              "filter",
+              "flatedecode",
+              "length",
+              "stream",
+              "parent",
+              "pdf",
+              "endstream",
+              "extgstate",
+              "contents",
+              "resources",
+              "page",
+              "procset",
+              "text",
+              "fontdescriptor",
+              "subtype",
+              "basefont"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.002,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4211-119",
+                "sponsor_id": "M000934",
+                "similarity_score": 0.997
+              },
+              {
+                "bill_id": "HR9296-119",
+                "sponsor_id": "S001156",
+                "similarity_score": 0.997
+              },
+              {
+                "bill_id": "HR9506-119",
+                "sponsor_id": "B001323",
+                "similarity_score": 0.997
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7619-119",
+            "title": "Keep Jobs in California Act of 2026",
+            "type": "HR",
+            "number": "7619",
+            "congress": 119,
+            "introduced_date": "2026-02-20",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7619?format=json",
+            "keywords": [
+              "tax",
+              "individuals",
+              "state",
+              "assets",
+              "retroactive",
+              "nonresident",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "prohibit",
+              "imposing",
+              "california",
+              "bill",
+              "value",
+              "enactment",
+              "congressional",
+              "bills",
+              "government",
+              "publishing"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.139,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7255-119",
+            "title": "Santini-Burton Modernization Act of 2026",
+            "type": "HR",
+            "number": "7255",
+            "congress": 119,
+            "introduced_date": "2026-01-27",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7255?format=json",
+            "keywords": [
+              "land",
+              "management",
+              "tahoe",
+              "lake",
+              "tribe",
+              "forest",
+              "basin",
+              "california",
+              "nevada",
+              "washoe",
+              "activities",
+              "secretary",
+              "inserting",
+              "subparagraph",
+              "funds",
+              "government",
+              "agriculture",
+              "service",
+              "local",
+              "available"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.053,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000468",
+              "L000590"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7139-119",
+            "title": "Housing Choice Voucher Fairness Act of 2025",
+            "type": "HR",
+            "number": "7139",
+            "congress": 119,
+            "introduced_date": "2026-01-16",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7139?format=json",
+            "keywords": [
+              "assistance",
+              "family",
+              "housing",
+              "tenant",
+              "based",
+              "agency",
+              "moves",
+              "area",
+              "providing",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "address",
+              "payment",
+              "cases",
+              "purposes",
+              "january",
+              "bill",
+              "choice"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "tenant"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6402-119",
+            "title": "Ensuring Safe and Ethical AI Development Through SAFE AI Research Grants",
+            "type": "HR",
+            "number": "6402",
+            "congress": 119,
+            "introduced_date": "2025-12-03",
+            "latest_action": "Referred to the House Committee on Science, Space, and Technology.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6402?format=json",
+            "keywords": [
+              "safe",
+              "grant",
+              "program",
+              "research",
+              "models",
+              "national",
+              "academy",
+              "sciences",
+              "development",
+              "develop",
+              "proposal",
+              "require",
+              "establish",
+              "committee",
+              "science",
+              "encourage",
+              "director",
+              "iii",
+              "html",
+              "body"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.032,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ],
+                "Technology": [
+                  "technology",
+                  "artificial_intelligence"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5820-119",
+            "title": "Mono Lake Kootzaduka\u2019a Tribe Recognition Act",
+            "type": "HR",
+            "number": "5820",
+            "congress": 119,
+            "introduced_date": "2025-10-24",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5820?format=json",
+            "keywords": [
+              "tribe",
+              "federal",
+              "land",
+              "secretary",
+              "recognition",
+              "mono",
+              "member",
+              "purposes",
+              "general",
+              "indian",
+              "services",
+              "membership",
+              "roll",
+              "lake",
+              "kootzaduka",
+              "benefits",
+              "area",
+              "rights",
+              "within",
+              "trust"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.069,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "housing",
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5194-119",
+            "title": "Beautifying Federal Civic Architecture Act of 2025",
+            "type": "HR",
+            "number": "5194",
+            "congress": 119,
+            "introduced_date": "2025-09-08",
+            "latest_action": "Referred to the Subcommittee on Economic Development, Public Buildings, and Emergency Management.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5194?format=json",
+            "keywords": [
+              "architecture",
+              "federal",
+              "design",
+              "applicable",
+              "building",
+              "buildings",
+              "general",
+              "administrator",
+              "classical",
+              "architectural",
+              "described",
+              "principles",
+              "guiding",
+              "traditional",
+              "preferred",
+              "administration",
+              "requirements",
+              "policy",
+              "designs",
+              "architects"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001235",
+              "G000603"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ],
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4889-119",
+            "title": "To prohibit States from carrying out more than one Congressional redistricting after a decennial census and apportionment.",
+            "type": "HR",
+            "number": "4889",
+            "congress": 119,
+            "introduced_date": "2025-08-05",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4889?format=json",
+            "keywords": [
+              "congressional",
+              "redistricting",
+              "apportionment",
+              "state",
+              "authority",
+              "elections",
+              "office",
+              "carrying",
+              "decennial",
+              "constitution",
+              "manner",
+              "provide",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "prohibit",
+              "one",
+              "census",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.05,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR4358-119",
+                "sponsor_id": "V000131",
+                "similarity_score": 0.961
+              },
+              {
+                "bill_id": "HR5837-119",
+                "sponsor_id": "D000230",
+                "similarity_score": 0.895
+              },
+              {
+                "bill_id": "HR5879-119",
+                "sponsor_id": "G000581",
+                "similarity_score": 0.805
+              }
+            ],
+            "cosponsors": [
+              "K000399",
+              "B001307"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:58:11.796463+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:58:11.796463+00:00",
+        "data_updated": "2026-11-23T16:15:53.782291",
+        "donors_updated": "2026-11-23T22:34:48.467555+00:00",
+        "last_updated": "2026-11-23T16:15:53.782291",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.944222+00:00",
+        "votes_fail_count": 53,
+        "votes_updated": "2026-11-23T10:06:34.144983"
+      }
+    }
+  ]
 }

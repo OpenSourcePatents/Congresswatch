@@ -3384,7 +3384,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "trades": [
     {
       "transaction_date": "2026-05-06",
@@ -3524,7 +3524,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.454167+00:00",
+  "travel_updated": "2026-11-23T20:43:20.709904+00:00",
   "travel_count": 5,
   "top_donors_list": [
     {
@@ -3677,7 +3677,7 @@
     "Education",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T18:06:05.474762+00:00",
+  "donors_updated": "2026-11-23T22:34:58.792566+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -3687,8 +3687,8 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
-  "votes_fail_count": 49,
+  "score_updated": "2026-11-23T19:24:41.371198",
+  "votes_fail_count": 51,
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -3719,7 +3719,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:13:21.435904",
+  "edgar_checked": "2026-11-23T16:16:23.978046",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:13:21.435904",
@@ -3738,14 +3738,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:05:40.214746",
+  "votes_checked": "2026-11-23T10:06:41.717675",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:52:15.942855",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:16:23.978046",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -5295,11 +5295,607 @@
         "donor_alignment_score": 25.0,
         "donor_match_count": 5
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HCONRES101-119",
+            "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
+            "type": "HCONRES",
+            "number": "101",
+            "congress": 119,
+            "introduced_date": "2026-05-14",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/101?format=json",
+            "keywords": [
+              "resolution",
+              "forces",
+              "armed",
+              "iran",
+              "war",
+              "use",
+              "force",
+              "intelligence",
+              "president",
+              "powers",
+              "hostilities",
+              "military",
+              "government",
+              "remove",
+              "concurrent",
+              "rule",
+              "construction",
+              "nothing",
+              "construed",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HCONRES102-119",
+                "sponsor_id": "R000621",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HCONRES91-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.999
+              },
+              {
+                "bill_id": "HCONRES92-119",
+                "sponsor_id": "G000559",
+                "similarity_score": 0.999
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8412-119",
+            "title": "To direct the Secretary of Health and Human Services, acting through the Commissioner of Food and Drugs, to revise certain regulations related to infant and toddler beverages, and for other purposes.",
+            "type": "HR",
+            "number": "8412",
+            "congress": 119,
+            "introduced_date": "2026-04-21",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8412?format=json",
+            "keywords": [
+              "regulations",
+              "beverage",
+              "secretary",
+              "beverages",
+              "months",
+              "infant",
+              "children",
+              "food",
+              "use",
+              "based",
+              "consumption",
+              "age",
+              "common",
+              "usual",
+              "name",
+              "added",
+              "sugars",
+              "proposed",
+              "final",
+              "health"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.079,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10189-119",
+            "title": "Defense AI Reliability and Reporting Act",
+            "type": "HR",
+            "number": "10189",
+            "congress": 119,
+            "introduced_date": "2026-08-31",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10189?format=json",
+            "keywords": [
+              "incident",
+              "secretary",
+              "vulnerability",
+              "reporting",
+              "program",
+              "covered",
+              "artificial",
+              "intelligence",
+              "official",
+              "defense",
+              "report",
+              "department",
+              "safety",
+              "operational",
+              "system",
+              "establish",
+              "vulnerabilities",
+              "systems",
+              "risks",
+              "response"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.044,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001224",
+              "W000830"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "data",
+                  "artificial_intelligence"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10188-119",
+            "title": "Protecting Pentagon Press Access Act",
+            "type": "HR",
+            "number": "10188",
+            "congress": 119,
+            "introduced_date": "2026-08-31",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10188?format=json",
+            "keywords": [
+              "pentagon",
+              "press",
+              "access",
+              "defense",
+              "department",
+              "secretary",
+              "journalists",
+              "credentialed",
+              "reporters",
+              "reporting",
+              "policy",
+              "armed",
+              "security",
+              "information",
+              "government",
+              "first",
+              "work",
+              "restore",
+              "services",
+              "national"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.052,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S5288-119",
+                "sponsor_id": "S001194",
+                "similarity_score": 0.981
+              }
+            ],
+            "cosponsors": [
+              "B001298"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9782-119",
+            "title": "To require the development of metrics and indicators to assess the quality of governance of the security sectors of security partner countries, and for other purposes.",
+            "type": "HR",
+            "number": "9782",
+            "congress": 119,
+            "introduced_date": "2026-07-20",
+            "latest_action": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on Armed Services, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9782?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wms",
+              "wks",
+              "vms",
+              "wko",
+              "pdf",
+              "mzb",
+              "sph",
+              "vigw",
+              "dsd",
+              "jle",
+              "bcfux",
+              "rno",
+              "iqh",
+              "ixa",
+              "aeys",
+              "nji"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9714-119",
+                "sponsor_id": "S001221",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HR10748-119",
+                "sponsor_id": "T000486",
+                "similarity_score": 0.971
+              },
+              {
+                "bill_id": "HR11040-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.97
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9470-119",
+            "title": "To ensure the privacy of pregnancy termination or loss information under the HIPAA privacy regulations and the HITECH Act.",
+            "type": "HR",
+            "number": "9470",
+            "congress": 119,
+            "introduced_date": "2026-06-25",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9470?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "filter",
+              "flatedecode",
+              "length",
+              "stream",
+              "endstream",
+              "contents",
+              "parent",
+              "resources",
+              "type",
+              "page",
+              "wms",
+              "wks",
+              "rwr",
+              "tsv",
+              "wkw",
+              "vms",
+              "pdf",
+              "wtf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4209-119",
+                "sponsor_id": "S001198",
+                "similarity_score": 0.997
+              },
+              {
+                "bill_id": "S4277-119",
+                "sponsor_id": "S001227",
+                "similarity_score": 0.995
+              },
+              {
+                "bill_id": "HR9249-119",
+                "sponsor_id": "M001194",
+                "similarity_score": 0.993
+              }
+            ],
+            "cosponsors": [
+              "M001227"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "privacy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9220-119",
+            "title": "To amend title 10, United States Code, to modify the treatment of nondisclosure agreements with respect to privatized military housing and to expand protection from retaliation against tenants of such housing, and for other purposes.",
+            "type": "HR",
+            "number": "9220",
+            "congress": 119,
+            "introduced_date": "2026-06-09",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9220?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "type",
+              "rdf",
+              "pdf",
+              "length",
+              "stream",
+              "endstream",
+              "filter",
+              "flatedecode",
+              "font",
+              "parent",
+              "xmp",
+              "contents",
+              "cropbox",
+              "mediabox",
+              "resources",
+              "rotate",
+              "page",
+              "extgstate"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.01,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9210-119",
+                "sponsor_id": "R000606",
+                "similarity_score": 0.997
+              },
+              {
+                "bill_id": "HR9240-119",
+                "sponsor_id": "D000032",
+                "similarity_score": 0.992
+              },
+              {
+                "bill_id": "HR9549-119",
+                "sponsor_id": "J000298",
+                "similarity_score": 0.987
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9125-119",
+            "title": "Sectoral AI Governance Act of 2026",
+            "type": "HR",
+            "number": "9125",
+            "congress": 119,
+            "introduced_date": "2026-06-03",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9125?format=json",
+            "keywords": [
+              "agency",
+              "rulemaking",
+              "making",
+              "decision",
+              "algorithmic",
+              "federal",
+              "rule",
+              "head",
+              "system",
+              "violations",
+              "enforce",
+              "authority",
+              "authorized",
+              "use",
+              "proposed",
+              "office",
+              "systems",
+              "materially",
+              "contribute",
+              "agencies"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.127,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000477",
+              "L000582",
+              "W000831",
+              "W000830"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data",
+                  "artificial_intelligence",
+                  "software",
+                  "hardware"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1312-119",
+            "title": "Honoring the victims of the Islamic Center of San Diego shooting in San Diego, California, on May 18, 2026.",
+            "type": "HRES",
+            "number": "1312",
+            "congress": 119,
+            "introduced_date": "2026-05-21",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1312?format=json",
+            "keywords": [
+              "san",
+              "diego",
+              "islamic",
+              "center",
+              "shooting",
+              "victims",
+              "muslim",
+              "california",
+              "gunmen",
+              "html",
+              "body",
+              "pre",
+              "government",
+              "res",
+              "honoring",
+              "resolution",
+              "took",
+              "place",
+              "violence",
+              "hatred"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001072",
+              "L000593",
+              "O000173",
+              "P000608",
+              "S001231",
+              "T000481",
+              "V000130"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8161-119",
+            "title": "Expeditionary Diplomacy Act",
+            "type": "HR",
+            "number": "8161",
+            "congress": 119,
+            "introduced_date": "2026-03-30",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8161?format=json",
+            "keywords": [
+              "diplomacy",
+              "team",
+              "tiger",
+              "expeditionary",
+              "department",
+              "state",
+              "report",
+              "foreign",
+              "secretary",
+              "appropriate",
+              "security",
+              "recommendations",
+              "required",
+              "service",
+              "challenges",
+              "include",
+              "plan",
+              "implementation",
+              "congressional",
+              "practice"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.045,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001322"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:59:28.843634+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:59:28.843634+00:00",
+        "data_updated": "2026-11-23T16:16:23.978046",
+        "donors_updated": "2026-11-23T22:34:58.792566+00:00",
+        "last_updated": "2026-11-23T16:16:23.978046",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.709904+00:00",
+        "votes_fail_count": 51,
+        "votes_updated": "2026-11-23T10:06:41.717675"
+      }
+    }
+  ]
 }

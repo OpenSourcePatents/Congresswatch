@@ -3221,7 +3221,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "United Kingdom",
@@ -3357,7 +3357,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600009604.pdf"
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.700124+00:00",
+  "travel_updated": "2026-11-23T20:43:20.678958+00:00",
   "travel_count": 9,
   "top_donors_list": [
     {
@@ -3510,7 +3510,7 @@
     "Healthcare",
     "Education"
   ],
-  "donors_updated": "2026-11-21T17:59:00.023544+00:00",
+  "donors_updated": "2026-11-23T22:29:47.496133+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -3520,10 +3520,10 @@
     "foreign_travel": 7,
     "attendance": 1
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 3.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 46,
+  "votes_fail_count": 48,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -3552,7 +3552,7 @@
     },
     "request_failed": true
   },
-  "edgar_checked": "2026-11-18T14:02:02.7530529Z",
+  "edgar_checked": "2026-11-23T16:04:16.651569",
   "edgar_data_status": "unavailable",
   "votes_refresh_provenance": {
     "prior_review": {
@@ -3569,14 +3569,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:02:57.489774",
+  "votes_checked": "2026-11-23T10:03:58.574724",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:39:09.234972",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:04:16.651569",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -5331,11 +5331,1290 @@
         "donor_alignment_score": 45.0,
         "donor_match_count": 9
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10689-119",
+            "title": "To amend the Higher Education Act of 1965 to establish a grant program for the improvement of remedial education programs at institutions of higher education, and for other purposes.",
+            "type": "HR",
+            "number": "10689",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10689?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wms",
+              "wks",
+              "vms",
+              "eie",
+              "jiv",
+              "avdy",
+              "ltztpt",
+              "zgo",
+              "yil",
+              "reuvu",
+              "dywk",
+              "yee"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9937-119",
+                "sponsor_id": "S001188",
+                "similarity_score": 0.989
+              },
+              {
+                "bill_id": "HR9737-119",
+                "sponsor_id": "D000623",
+                "similarity_score": 0.988
+              },
+              {
+                "bill_id": "HR10684-119",
+                "sponsor_id": "M001232",
+                "similarity_score": 0.986
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "grant"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10452-119",
+            "title": "Credit for Prior Learning Act",
+            "type": "HR",
+            "number": "10452",
+            "congress": 119,
+            "introduced_date": "2026-09-16",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10452?format=json",
+            "keywords": [
+              "learning",
+              "prior",
+              "credit",
+              "education",
+              "higher",
+              "assessment",
+              "allowance",
+              "costs",
+              "assessments",
+              "adding",
+              "end",
+              "eligible",
+              "institution",
+              "include",
+              "cost",
+              "attendance",
+              "striking",
+              "introduced",
+              "calculation",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.13,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4897-119",
+                "sponsor_id": "K000367",
+                "similarity_score": 0.974
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "student",
+                  "college",
+                  "grant",
+                  "pell"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10301-119",
+            "title": "Peter McGuire Congressional Gold Medal Act",
+            "type": "HR",
+            "number": "10301",
+            "congress": 119,
+            "introduced_date": "2026-09-04",
+            "latest_action": "Referred to the Committee on Financial Services, and in addition to the Committee on House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10301?format=json",
+            "keywords": [
+              "mcguire",
+              "american",
+              "labor",
+              "medal",
+              "gold",
+              "peter",
+              "movement",
+              "carpenters",
+              "national",
+              "medals",
+              "hour",
+              "workday",
+              "secretary",
+              "congressional",
+              "contributions",
+              "america",
+              "gains",
+              "workers",
+              "appropriate",
+              "struck"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9790-119",
+            "title": "Modernizing Opioid Treatment Access Act 2.0 of 2026",
+            "type": "HR",
+            "number": "9790",
+            "congress": 119,
+            "introduced_date": "2026-07-20",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9790?format=json",
+            "keywords": [
+              "methadone",
+              "subparagraph",
+              "opioid",
+              "use",
+              "disorder",
+              "addiction",
+              "board",
+              "treatment",
+              "practitioners",
+              "medicine",
+              "state",
+              "registered",
+              "individual",
+              "access",
+              "pharmacies",
+              "prescribing",
+              "certification",
+              "american",
+              "registration",
+              "care"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.088,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4941-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.946
+              }
+            ],
+            "cosponsors": [
+              "L000599",
+              "T000469",
+              "C001068",
+              "L000602",
+              "T000482"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "telemedicine"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9684-119",
+            "title": "PATH Act",
+            "type": "HR",
+            "number": "9684",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9684?format=json",
+            "keywords": [
+              "apprenticeship",
+              "program",
+              "pre",
+              "registered",
+              "entity",
+              "secretary",
+              "education",
+              "eligible",
+              "programs",
+              "state",
+              "workforce",
+              "training",
+              "grant",
+              "development",
+              "educational",
+              "described",
+              "activities",
+              "individuals",
+              "career",
+              "local"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.108,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4961-119",
+                "sponsor_id": "H001046",
+                "similarity_score": 0.993
+              }
+            ],
+            "cosponsors": [
+              "F000466",
+              "V000138"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Healthcare",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ],
+                "Healthcare": [
+                  "provider"
+                ],
+                "Education": [
+                  "education",
+                  "school",
+                  "grant",
+                  "curriculum"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1392-119",
+            "title": "Supporting the designation of a \"National Learn to Swim Week\" beginning on the 4th Sunday in June.",
+            "type": "HRES",
+            "number": "1392",
+            "congress": 119,
+            "introduced_date": "2026-06-25",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1392?format=json",
+            "keywords": [
+              "swim",
+              "drowning",
+              "national",
+              "children",
+              "swimming",
+              "water",
+              "learn",
+              "percent",
+              "safety",
+              "among",
+              "lessons",
+              "reduce",
+              "access",
+              "supporting",
+              "designation",
+              "week",
+              "june",
+              "leading",
+              "death",
+              "ages"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.05,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001298",
+              "N000147",
+              "W000797",
+              "K000402",
+              "C001125",
+              "K000375"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ],
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1140-119",
+            "title": "Providing for consideration of the bill (H.R. 5408) to accelerate workplace time-to-contract under the National Labor Relations Act.",
+            "type": "HRES",
+            "number": "1140",
+            "congress": 119,
+            "introduced_date": "2026-03-26",
+            "latest_action": "Referred to the House Committee on Rules.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1140?format=json",
+            "keywords": [
+              "bill",
+              "consideration",
+              "accelerate",
+              "workplace",
+              "time",
+              "contract",
+              "national",
+              "labor",
+              "relations",
+              "resolution",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "providing",
+              "committee",
+              "points",
+              "order",
+              "waived",
+              "considered"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.024,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES1055-119",
+                "sponsor_id": "S001214",
+                "similarity_score": 0.867
+              },
+              {
+                "bill_id": "HRES1363-119",
+                "sponsor_id": "R000606",
+                "similarity_score": 0.862
+              },
+              {
+                "bill_id": "HRES1386-119",
+                "sponsor_id": "L000596",
+                "similarity_score": 0.855
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7471-119",
+            "title": "Give America a Raise Act",
+            "type": "HR",
+            "number": "7471",
+            "congress": 119,
+            "introduced_date": "2026-02-10",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7471?format=json",
+            "keywords": [
+              "wage",
+              "beginning",
+              "labor",
+              "effect",
+              "fair",
+              "hour",
+              "standards",
+              "year",
+              "minimum",
+              "years",
+              "amount",
+              "determined",
+              "special",
+              "america",
+              "increase",
+              "period",
+              "employees",
+              "rate",
+              "give",
+              "raise"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.083,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000381",
+              "C001131",
+              "W000808",
+              "P000607",
+              "C001080",
+              "G000606",
+              "W000788"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7116-119",
+            "title": "SEPSIS Act",
+            "type": "HR",
+            "number": "7116",
+            "congress": 119,
+            "introduced_date": "2026-01-15",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7116?format=json",
+            "keywords": [
+              "sepsis",
+              "health",
+              "director",
+              "programs",
+              "hospitals",
+              "hospital",
+              "program",
+              "pediatric",
+              "data",
+              "committee",
+              "research",
+              "national",
+              "human",
+              "disease",
+              "prevention",
+              "centers",
+              "core",
+              "elements",
+              "services",
+              "establish"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000398",
+              "F000466",
+              "G000583",
+              "N000147",
+              "L000599",
+              "L000598",
+              "R000603"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Healthcare",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ],
+                "Healthcare": [
+                  "healthcare",
+                  "hospital",
+                  "medicaid",
+                  "medicare"
+                ],
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5970-119",
+            "title": "Save Our Ships Act",
+            "type": "HR",
+            "number": "5970",
+            "congress": 119,
+            "introduced_date": "2025-11-07",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5970?format=json",
+            "keywords": [
+              "program",
+              "historic",
+              "secretary",
+              "military",
+              "vessel",
+              "grant",
+              "department",
+              "preservation",
+              "vessels",
+              "covered",
+              "site",
+              "support",
+              "ships",
+              "naval",
+              "ship",
+              "maritime",
+              "eligible",
+              "service",
+              "guard",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.032,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001298",
+              "C001125",
+              "P000613",
+              "K000402",
+              "B001300",
+              "B001296",
+              "T000193",
+              "F000466",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ],
+                "Education": [
+                  "education",
+                  "grant"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:28:26.183576+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10689-119",
+            "title": "To amend the Higher Education Act of 1965 to establish a grant program for the improvement of remedial education programs at institutions of higher education, and for other purposes.",
+            "type": "HR",
+            "number": "10689",
+            "congress": 119,
+            "introduced_date": "2026-10-01",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10689?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "pdf",
+              "font",
+              "procset",
+              "text",
+              "endstream",
+              "wms",
+              "wks",
+              "vms",
+              "eie",
+              "jiv",
+              "avdy",
+              "ltztpt",
+              "zgo",
+              "yil",
+              "reuvu",
+              "dywk",
+              "yee"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9937-119",
+                "sponsor_id": "S001188",
+                "similarity_score": 0.989
+              },
+              {
+                "bill_id": "HR9737-119",
+                "sponsor_id": "D000623",
+                "similarity_score": 0.988
+              },
+              {
+                "bill_id": "HR10684-119",
+                "sponsor_id": "M001232",
+                "similarity_score": 0.986
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "grant"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10452-119",
+            "title": "Credit for Prior Learning Act",
+            "type": "HR",
+            "number": "10452",
+            "congress": 119,
+            "introduced_date": "2026-09-16",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10452?format=json",
+            "keywords": [
+              "learning",
+              "prior",
+              "credit",
+              "education",
+              "higher",
+              "assessment",
+              "allowance",
+              "costs",
+              "assessments",
+              "adding",
+              "end",
+              "eligible",
+              "institution",
+              "include",
+              "cost",
+              "attendance",
+              "striking",
+              "introduced",
+              "calculation",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.13,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4897-119",
+                "sponsor_id": "K000367",
+                "similarity_score": 0.974
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education",
+                  "student",
+                  "college",
+                  "grant",
+                  "pell"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10301-119",
+            "title": "Peter McGuire Congressional Gold Medal Act",
+            "type": "HR",
+            "number": "10301",
+            "congress": 119,
+            "introduced_date": "2026-09-04",
+            "latest_action": "Referred to the Committee on Financial Services, and in addition to the Committee on House Administration, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10301?format=json",
+            "keywords": [
+              "mcguire",
+              "american",
+              "labor",
+              "medal",
+              "gold",
+              "peter",
+              "movement",
+              "carpenters",
+              "national",
+              "medals",
+              "hour",
+              "workday",
+              "secretary",
+              "congressional",
+              "contributions",
+              "america",
+              "gains",
+              "workers",
+              "appropriate",
+              "struck"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9790-119",
+            "title": "Modernizing Opioid Treatment Access Act 2.0 of 2026",
+            "type": "HR",
+            "number": "9790",
+            "congress": 119,
+            "introduced_date": "2026-07-20",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9790?format=json",
+            "keywords": [
+              "methadone",
+              "subparagraph",
+              "opioid",
+              "use",
+              "disorder",
+              "addiction",
+              "board",
+              "treatment",
+              "practitioners",
+              "medicine",
+              "state",
+              "registered",
+              "individual",
+              "access",
+              "pharmacies",
+              "prescribing",
+              "certification",
+              "american",
+              "registration",
+              "care"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.088,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4941-119",
+                "sponsor_id": "M000133",
+                "similarity_score": 0.946
+              }
+            ],
+            "cosponsors": [
+              "L000599",
+              "T000469",
+              "C001068",
+              "L000602",
+              "T000482"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "telemedicine"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9684-119",
+            "title": "PATH Act",
+            "type": "HR",
+            "number": "9684",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9684?format=json",
+            "keywords": [
+              "apprenticeship",
+              "program",
+              "pre",
+              "registered",
+              "entity",
+              "secretary",
+              "education",
+              "eligible",
+              "programs",
+              "state",
+              "workforce",
+              "training",
+              "grant",
+              "development",
+              "educational",
+              "described",
+              "activities",
+              "individuals",
+              "career",
+              "local"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.108,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4961-119",
+                "sponsor_id": "H001046",
+                "similarity_score": 0.993
+              }
+            ],
+            "cosponsors": [
+              "F000466",
+              "V000138"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Healthcare",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ],
+                "Healthcare": [
+                  "provider"
+                ],
+                "Education": [
+                  "education",
+                  "school",
+                  "grant",
+                  "curriculum"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1392-119",
+            "title": "Supporting the designation of a \"National Learn to Swim Week\" beginning on the 4th Sunday in June.",
+            "type": "HRES",
+            "number": "1392",
+            "congress": 119,
+            "introduced_date": "2026-06-25",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1392?format=json",
+            "keywords": [
+              "swim",
+              "drowning",
+              "national",
+              "children",
+              "swimming",
+              "water",
+              "learn",
+              "percent",
+              "safety",
+              "among",
+              "lessons",
+              "reduce",
+              "access",
+              "supporting",
+              "designation",
+              "week",
+              "june",
+              "leading",
+              "death",
+              "ages"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.05,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001298",
+              "N000147",
+              "W000797",
+              "K000402",
+              "C001125",
+              "K000375"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Insurance",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Insurance": [
+                  "risk"
+                ],
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1140-119",
+            "title": "Providing for consideration of the bill (H.R. 5408) to accelerate workplace time-to-contract under the National Labor Relations Act.",
+            "type": "HRES",
+            "number": "1140",
+            "congress": 119,
+            "introduced_date": "2026-03-26",
+            "latest_action": "Referred to the House Committee on Rules.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1140?format=json",
+            "keywords": [
+              "bill",
+              "consideration",
+              "accelerate",
+              "workplace",
+              "time",
+              "contract",
+              "national",
+              "labor",
+              "relations",
+              "resolution",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "providing",
+              "committee",
+              "points",
+              "order",
+              "waived",
+              "considered"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.024,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES1055-119",
+                "sponsor_id": "S001214",
+                "similarity_score": 0.867
+              },
+              {
+                "bill_id": "HRES1363-119",
+                "sponsor_id": "R000606",
+                "similarity_score": 0.862
+              },
+              {
+                "bill_id": "HRES1386-119",
+                "sponsor_id": "L000596",
+                "similarity_score": 0.855
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7471-119",
+            "title": "Give America a Raise Act",
+            "type": "HR",
+            "number": "7471",
+            "congress": 119,
+            "introduced_date": "2026-02-10",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7471?format=json",
+            "keywords": [
+              "wage",
+              "beginning",
+              "labor",
+              "effect",
+              "fair",
+              "hour",
+              "standards",
+              "year",
+              "minimum",
+              "years",
+              "amount",
+              "determined",
+              "special",
+              "america",
+              "increase",
+              "period",
+              "employees",
+              "rate",
+              "give",
+              "raise"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.083,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000381",
+              "C001131",
+              "W000808",
+              "P000607",
+              "C001080",
+              "G000606",
+              "W000788"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7116-119",
+            "title": "SEPSIS Act",
+            "type": "HR",
+            "number": "7116",
+            "congress": 119,
+            "introduced_date": "2026-01-15",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7116?format=json",
+            "keywords": [
+              "sepsis",
+              "health",
+              "director",
+              "programs",
+              "hospitals",
+              "hospital",
+              "program",
+              "pediatric",
+              "data",
+              "committee",
+              "research",
+              "national",
+              "human",
+              "disease",
+              "prevention",
+              "centers",
+              "core",
+              "elements",
+              "services",
+              "establish"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000398",
+              "F000466",
+              "G000583",
+              "N000147",
+              "L000599",
+              "L000598",
+              "R000603"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Healthcare",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ],
+                "Healthcare": [
+                  "healthcare",
+                  "hospital",
+                  "medicaid",
+                  "medicare"
+                ],
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5970-119",
+            "title": "Save Our Ships Act",
+            "type": "HR",
+            "number": "5970",
+            "congress": 119,
+            "introduced_date": "2025-11-07",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5970?format=json",
+            "keywords": [
+              "program",
+              "historic",
+              "secretary",
+              "military",
+              "vessel",
+              "grant",
+              "department",
+              "preservation",
+              "vessels",
+              "covered",
+              "site",
+              "support",
+              "ships",
+              "naval",
+              "ship",
+              "maritime",
+              "eligible",
+              "service",
+              "guard",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.032,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001298",
+              "C001125",
+              "P000613",
+              "K000402",
+              "B001300",
+              "B001296",
+              "T000193",
+              "F000466",
+              "L000599"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ],
+                "Education": [
+                  "education",
+                  "grant"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T20:28:26.183576+00:00",
+        "data_updated": "2026-11-23T16:04:16.651569",
+        "donors_updated": "2026-11-23T22:29:47.496133+00:00",
+        "last_updated": "2026-11-23T16:04:16.651569",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.678958+00:00",
+        "votes_fail_count": 48,
+        "votes_updated": "2026-11-23T10:03:58.574724"
+      }
+    }
+  ]
 }

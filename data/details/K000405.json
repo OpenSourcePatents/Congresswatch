@@ -1385,8 +1385,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 51,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 53,
   "top_donors_list": [
     {
       "name": "JOHNSON, C DAVID",
@@ -1537,7 +1537,7 @@
     "Finance & Banking",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T17:56:36.333948+00:00",
+  "donors_updated": "2026-11-23T22:27:12.488217+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -1547,7 +1547,7 @@
     "foreign_travel": 3,
     "attendance": 1
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 4.0,
   "non_voting_delegate": false,
   "travel": [
@@ -1564,7 +1564,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600009636.pdf"
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.837293+00:00",
+  "travel_updated": "2026-11-23T20:43:21.053790+00:00",
   "travel_count": 1,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
@@ -1594,7 +1594,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:55:33.524864",
+  "edgar_checked": "2026-11-23T15:58:31.177570",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:55:33.524864",
@@ -1613,14 +1613,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:42.182772",
+  "votes_checked": "2026-11-23T10:02:41.962995",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:33:35.690055",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:58:31.177570",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -2611,11 +2611,393 @@
         "donor_match_count": 3,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8267-119",
+            "title": "SAFER Transport Act",
+            "type": "HR",
+            "number": "8267",
+            "congress": 119,
+            "introduced_date": "2026-04-14",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committees on the Judiciary, and Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8267?format=json",
+            "keywords": [
+              "motor",
+              "registration",
+              "secretary",
+              "code",
+              "person",
+              "carrier",
+              "inserting",
+              "administration",
+              "striking",
+              "freight",
+              "commercial",
+              "administrator",
+              "provider",
+              "number",
+              "system",
+              "transportation",
+              "broker",
+              "fraud",
+              "general",
+              "end"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.085,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3950-119",
+                "sponsor_id": "Y000064",
+                "similarity_score": 0.991
+              }
+            ],
+            "cosponsors": [
+              "B001321",
+              "C001063",
+              "M000871"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "property"
+                ],
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Technology": [
+                  "technology"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR10052-119",
+            "title": "To protect the right to the free exercise of religion.",
+            "type": "HR",
+            "number": "10052",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10052?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "pdf",
+              "font",
+              "stream",
+              "procset",
+              "text",
+              "endstream",
+              "wms",
+              "wks",
+              "wis",
+              "type",
+              "nuuj",
+              "ynm",
+              "mxhw",
+              "wdj",
+              "kfd",
+              "nnf",
+              "lwy",
+              "fhg"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9970-119",
+                "sponsor_id": "P000048",
+                "similarity_score": 0.963
+              },
+              {
+                "bill_id": "HR10368-119",
+                "sponsor_id": "L000590",
+                "similarity_score": 0.963
+              },
+              {
+                "bill_id": "HR10747-119",
+                "sponsor_id": "R000599",
+                "similarity_score": 0.963
+              }
+            ],
+            "cosponsors": [
+              "S001201",
+              "L000599",
+              "G000583",
+              "F000466",
+              "T000478",
+              "B001307",
+              "G000589",
+              "W000797",
+              "G000602",
+              "V000135"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9653-119",
+            "title": "Limiting Excessive Government Obstruction Act",
+            "type": "HR",
+            "number": "9653",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9653?format=json",
+            "keywords": [
+              "agency",
+              "adjudications",
+              "action",
+              "adjudication",
+              "party",
+              "benefit",
+              "special",
+              "rules",
+              "certain",
+              "code",
+              "order",
+              "described",
+              "alleged",
+              "federal",
+              "government",
+              "introduced",
+              "establish",
+              "purposes",
+              "bill",
+              "inserting"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.068,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "housing"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6267-119",
+            "title": "Aviation Supply Chain Safety and Security Digitization Act of 2025",
+            "type": "HR",
+            "number": "6267",
+            "congress": 119,
+            "introduced_date": "2025-11-21",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6267?format=json",
+            "keywords": [
+              "digital",
+              "aviation",
+              "general",
+              "documentation",
+              "transportation",
+              "comptroller",
+              "study",
+              "report",
+              "supply",
+              "chain",
+              "recommendations",
+              "committee",
+              "verification",
+              "parts",
+              "use",
+              "industry",
+              "html",
+              "body",
+              "pre",
+              "office"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.018,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001221",
+              "S001229",
+              "S001228"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4070-119",
+            "title": "Tren de Aragua Border Security Threat Assessment Act",
+            "type": "HR",
+            "number": "4070",
+            "congress": 119,
+            "introduced_date": "2025-06-23",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Homeland Security and Governmental Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4070?format=json",
+            "keywords": [
+              "security",
+              "threat",
+              "assessment",
+              "border",
+              "homeland",
+              "tren",
+              "aragua",
+              "appropriate",
+              "strategic",
+              "plan",
+              "congressional",
+              "secretary",
+              "criminal",
+              "referred",
+              "agencies",
+              "committees",
+              "threats",
+              "southwest",
+              "northern",
+              "maritime"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.023,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000591",
+              "M001157",
+              "O000175",
+              "C001132",
+              "G000594",
+              "G000597",
+              "M001230",
+              "S001220",
+              "G000590",
+              "B001317"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3242-119",
+            "title": "Punishing Illegal Immigrant Felons Act of 2025",
+            "type": "HR",
+            "number": "3242",
+            "congress": 119,
+            "introduced_date": "2025-05-07",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3242?format=json",
+            "keywords": [
+              "years",
+              "aliens",
+              "crimes",
+              "immigration",
+              "nationality",
+              "commission",
+              "felony",
+              "unlawfully",
+              "present",
+              "convicted",
+              "striking",
+              "crime",
+              "conviction",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "provide",
+              "additional",
+              "criminal"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.036,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "F000478",
+              "S001228",
+              "H001101",
+              "E000246",
+              "H001102",
+              "M001240",
+              "M001236",
+              "M001233",
+              "O000177",
+              "N000026"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 6,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:14:09.741519+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:14:09.741519+00:00",
+        "data_updated": "2026-11-23T15:58:31.177570",
+        "donors_updated": "2026-11-23T22:27:12.488217+00:00",
+        "last_updated": "2026-11-23T15:58:31.177570",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:21.053790+00:00",
+        "votes_fail_count": 53,
+        "votes_updated": "2026-11-23T10:02:41.962995"
+      }
+    }
+  ]
 }

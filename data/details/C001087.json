@@ -2250,7 +2250,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "top_donors_list": [
     {
       "name": "WALTON, ROB MR.",
@@ -2402,7 +2402,7 @@
     "Agriculture",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T18:08:54.808458+00:00",
+  "donors_updated": "2026-11-23T22:37:35.750229+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2412,10 +2412,10 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 46,
+  "votes_fail_count": 48,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -2444,7 +2444,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:20:46.737322",
+  "edgar_checked": "2026-11-23T16:23:06.682249",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:20:46.737322",
@@ -2463,14 +2463,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:07:15.260636",
+  "votes_checked": "2026-11-23T10:08:15.383455",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:58:47.803517",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:23:06.682249",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -3958,11 +3958,1087 @@
         "donor_match_count": 6,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8403-119",
+            "title": "To amend the Food and Nutrition Act of 2008 to modify the definition of food.",
+            "type": "HR",
+            "number": "8403",
+            "congress": 119,
+            "introduced_date": "2026-04-21",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8403?format=json",
+            "keywords": [
+              "food",
+              "nutrition",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "modify",
+              "definition",
+              "moore",
+              "harris",
+              "bill",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc",
+              "session",
+              "april",
+              "crawford"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.008,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001237",
+              "W000821",
+              "F000481",
+              "M001212",
+              "W000829",
+              "M001220",
+              "S001225",
+              "W000809",
+              "V000135",
+              "C001059"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "agriculture",
+                  "food"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9776-119",
+            "title": "FLOWS Act of 2026",
+            "type": "HR",
+            "number": "9776",
+            "congress": 119,
+            "introduced_date": "2026-07-20",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9776?format=json",
+            "keywords": [
+              "water",
+              "infrastructure",
+              "rural",
+              "digital",
+              "technology",
+              "program",
+              "areas",
+              "works",
+              "grant",
+              "treatment",
+              "systems",
+              "administrator",
+              "system",
+              "area",
+              "wastewater",
+              "committee",
+              "software",
+              "eligible",
+              "drinking",
+              "projects"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.058,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3967-119",
+                "sponsor_id": "B001236",
+                "similarity_score": 0.852
+              }
+            ],
+            "cosponsors": [
+              "S001211"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Agriculture",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ],
+                "Agriculture": [
+                  "rural"
+                ],
+                "Technology": [
+                  "technology",
+                  "data",
+                  "digital",
+                  "software"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9624-119",
+            "title": "Intelligence Authorization Act for Fiscal Year 2027",
+            "type": "HR",
+            "number": "9624",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Permanent Select Committee on Intelligence.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9624?format=json",
+            "keywords": [
+              "intelligence",
+              "community",
+              "authorized",
+              "appropriations",
+              "schedule",
+              "classified",
+              "activities",
+              "authorization",
+              "authorizations",
+              "management",
+              "account",
+              "government",
+              "retirement",
+              "central",
+              "agency",
+              "disability",
+              "conduct",
+              "amounts",
+              "appropriated",
+              "system"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.069,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9238-119",
+            "title": "To amend the FISA Amendments Act of 2008 to extend the authorities of title VII of the Foreign Intelligence Surveillance Act of 1978, and for other purposes.",
+            "type": "HR",
+            "number": "9238",
+            "congress": 119,
+            "introduced_date": "2026-06-10",
+            "latest_action": "On motion to suspend the rules and pass the bill Failed by the Yeas and Nays: (2/3 required): 198 - 218 (Roll no. 221).",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9238?format=json",
+            "keywords": [
+              "intelligence",
+              "june",
+              "committee",
+              "amendments",
+              "vii",
+              "fisa",
+              "authorities",
+              "foreign",
+              "surveillance",
+              "html",
+              "body",
+              "pre",
+              "discharged",
+              "extend",
+              "purposes",
+              "bill",
+              "judiciary",
+              "permanent",
+              "select",
+              "extension"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4764-119",
+                "sponsor_id": "C001095",
+                "similarity_score": 0.85
+              },
+              {
+                "bill_id": "S4760-119",
+                "sponsor_id": "C001095",
+                "similarity_score": 0.845
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9209-119",
+            "title": "Intelligence Community Inspector General Parity Act of 2026",
+            "type": "HR",
+            "number": "9209",
+            "congress": 119,
+            "introduced_date": "2026-06-09",
+            "latest_action": "Referred to the Permanent Select Committee on Intelligence, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9209?format=json",
+            "keywords": [
+              "type",
+              "obj",
+              "endobj",
+              "fontdescriptor",
+              "subtype",
+              "font",
+              "basefont",
+              "encoding",
+              "firstchar",
+              "lastchar",
+              "widths",
+              "filter",
+              "flatedecode",
+              "length",
+              "stream",
+              "endstream",
+              "devinne",
+              "tounicode",
+              "winansiencoding",
+              "pdf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.003,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4413-119",
+                "sponsor_id": "S000033",
+                "similarity_score": 0.996
+              },
+              {
+                "bill_id": "S4296-119",
+                "sponsor_id": "S001217",
+                "similarity_score": 0.994
+              },
+              {
+                "bill_id": "S4453-119",
+                "sponsor_id": "S001150",
+                "similarity_score": 0.994
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "On agreeing to the Crawford amendment (A008) Agreed to by recorded vote: 384 - 35 (Roll no. 145). (consideration: CR H3304-3305)",
+            "url": "https://api.congress.gov/v3/amendment/119/hamdt/186?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "On agreeing to the Crawford amendment (A007) Agreed to by voice vote.",
+            "url": "https://api.congress.gov/v3/amendment/119/hamdt/185?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8035-119",
+            "title": "To amend the FISA Amendments Act of 2008 to extend the authorities of title VII of the Foreign Intelligence Surveillance Act of 1978 through October 20, 2027, and for other purposes.",
+            "type": "HR",
+            "number": "8035",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Intelligence (Permanent Select), for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8035?format=json",
+            "keywords": [
+              "intelligence",
+              "amendments",
+              "fisa",
+              "vii",
+              "america",
+              "striking",
+              "inserting",
+              "foreign",
+              "surveillance",
+              "october",
+              "reforming",
+              "securing",
+              "authorities",
+              "committee",
+              "extension",
+              "two",
+              "years",
+              "seq",
+              "enactment",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR8322-119",
+                "sponsor_id": "S001189",
+                "similarity_score": 0.861
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7571-119",
+            "title": "GusNIP Expansion Act of 2026",
+            "type": "HR",
+            "number": "7571",
+            "congress": 119,
+            "introduced_date": "2026-02-13",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7571?format=json",
+            "keywords": [
+              "program",
+              "secretary",
+              "end",
+              "food",
+              "subparagraph",
+              "grants",
+              "iii",
+              "percent",
+              "year",
+              "establish",
+              "incentive",
+              "adding",
+              "grant",
+              "conservation",
+              "energy",
+              "nutrition",
+              "expansion",
+              "criteria",
+              "years",
+              "striking"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.065,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000193"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "agriculture",
+                  "food",
+                  "conservation"
+                ],
+                "Technology": [
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES987-119",
+            "title": "Denouncing Nicol\u00e1s Maduro's authoritarian, despotic, and murderous regime and commending President Trump for taking decisive action long called for by Members of Congress.",
+            "type": "HRES",
+            "number": "987",
+            "congress": 119,
+            "introduced_date": "2026-01-12",
+            "latest_action": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/987?format=json",
+            "keywords": [
+              "maduro",
+              "regime",
+              "nicolas",
+              "venezuela",
+              "representative",
+              "introduced",
+              "legislation",
+              "democratic",
+              "election",
+              "president",
+              "venezuelan",
+              "political",
+              "trump",
+              "long",
+              "rights",
+              "opposition",
+              "senator",
+              "security",
+              "res",
+              "people"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S000168",
+              "S001214",
+              "S001189",
+              "L000585",
+              "K000388",
+              "T000478",
+              "J000304",
+              "M001236",
+              "P000048"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "investment"
+                ],
+                "Technology": [
+                  "platform",
+                  "surveillance",
+                  "digital"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T21:21:06.738847+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8403-119",
+            "title": "To amend the Food and Nutrition Act of 2008 to modify the definition of food.",
+            "type": "HR",
+            "number": "8403",
+            "congress": 119,
+            "introduced_date": "2026-04-21",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8403?format=json",
+            "keywords": [
+              "food",
+              "nutrition",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "modify",
+              "definition",
+              "moore",
+              "harris",
+              "bill",
+              "congressional",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "doc",
+              "session",
+              "april",
+              "crawford"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.008,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001237",
+              "W000821",
+              "F000481",
+              "M001212",
+              "W000829",
+              "M001220",
+              "S001225",
+              "W000809",
+              "V000135",
+              "C001059"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "agriculture",
+                  "food"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9776-119",
+            "title": "FLOWS Act of 2026",
+            "type": "HR",
+            "number": "9776",
+            "congress": 119,
+            "introduced_date": "2026-07-20",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9776?format=json",
+            "keywords": [
+              "water",
+              "infrastructure",
+              "rural",
+              "digital",
+              "technology",
+              "program",
+              "areas",
+              "works",
+              "grant",
+              "treatment",
+              "systems",
+              "administrator",
+              "system",
+              "area",
+              "wastewater",
+              "committee",
+              "software",
+              "eligible",
+              "drinking",
+              "projects"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.058,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S3967-119",
+                "sponsor_id": "B001236",
+                "similarity_score": 0.852
+              }
+            ],
+            "cosponsors": [
+              "S001211"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Agriculture",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "development"
+                ],
+                "Agriculture": [
+                  "rural"
+                ],
+                "Technology": [
+                  "technology",
+                  "data",
+                  "digital",
+                  "software"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9624-119",
+            "title": "Intelligence Authorization Act for Fiscal Year 2027",
+            "type": "HR",
+            "number": "9624",
+            "congress": 119,
+            "introduced_date": "2026-07-09",
+            "latest_action": "Referred to the House Permanent Select Committee on Intelligence.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9624?format=json",
+            "keywords": [
+              "intelligence",
+              "community",
+              "authorized",
+              "appropriations",
+              "schedule",
+              "classified",
+              "activities",
+              "authorization",
+              "authorizations",
+              "management",
+              "account",
+              "government",
+              "retirement",
+              "central",
+              "agency",
+              "disability",
+              "conduct",
+              "amounts",
+              "appropriated",
+              "system"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.069,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9238-119",
+            "title": "To amend the FISA Amendments Act of 2008 to extend the authorities of title VII of the Foreign Intelligence Surveillance Act of 1978, and for other purposes.",
+            "type": "HR",
+            "number": "9238",
+            "congress": 119,
+            "introduced_date": "2026-06-10",
+            "latest_action": "On motion to suspend the rules and pass the bill Failed by the Yeas and Nays: (2/3 required): 198 - 218 (Roll no. 221).",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9238?format=json",
+            "keywords": [
+              "intelligence",
+              "june",
+              "committee",
+              "amendments",
+              "vii",
+              "fisa",
+              "authorities",
+              "foreign",
+              "surveillance",
+              "html",
+              "body",
+              "pre",
+              "discharged",
+              "extend",
+              "purposes",
+              "bill",
+              "judiciary",
+              "permanent",
+              "select",
+              "extension"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4764-119",
+                "sponsor_id": "C001095",
+                "similarity_score": 0.85
+              },
+              {
+                "bill_id": "S4760-119",
+                "sponsor_id": "C001095",
+                "similarity_score": 0.845
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9209-119",
+            "title": "Intelligence Community Inspector General Parity Act of 2026",
+            "type": "HR",
+            "number": "9209",
+            "congress": 119,
+            "introduced_date": "2026-06-09",
+            "latest_action": "Referred to the Permanent Select Committee on Intelligence, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9209?format=json",
+            "keywords": [
+              "type",
+              "obj",
+              "endobj",
+              "fontdescriptor",
+              "subtype",
+              "font",
+              "basefont",
+              "encoding",
+              "firstchar",
+              "lastchar",
+              "widths",
+              "filter",
+              "flatedecode",
+              "length",
+              "stream",
+              "endstream",
+              "devinne",
+              "tounicode",
+              "winansiencoding",
+              "pdf"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.003,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4413-119",
+                "sponsor_id": "S000033",
+                "similarity_score": 0.996
+              },
+              {
+                "bill_id": "S4296-119",
+                "sponsor_id": "S001217",
+                "similarity_score": 0.994
+              },
+              {
+                "bill_id": "S4453-119",
+                "sponsor_id": "S001150",
+                "similarity_score": 0.994
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "On agreeing to the Crawford amendment (A008) Agreed to by recorded vote: 384 - 35 (Roll no. 145). (consideration: CR H3304-3305)",
+            "url": "https://api.congress.gov/v3/amendment/119/hamdt/186?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "On agreeing to the Crawford amendment (A007) Agreed to by voice vote.",
+            "url": "https://api.congress.gov/v3/amendment/119/hamdt/185?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8035-119",
+            "title": "To amend the FISA Amendments Act of 2008 to extend the authorities of title VII of the Foreign Intelligence Surveillance Act of 1978 through October 20, 2027, and for other purposes.",
+            "type": "HR",
+            "number": "8035",
+            "congress": 119,
+            "introduced_date": "2026-03-24",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Intelligence (Permanent Select), for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8035?format=json",
+            "keywords": [
+              "intelligence",
+              "amendments",
+              "fisa",
+              "vii",
+              "america",
+              "striking",
+              "inserting",
+              "foreign",
+              "surveillance",
+              "october",
+              "reforming",
+              "securing",
+              "authorities",
+              "committee",
+              "extension",
+              "two",
+              "years",
+              "seq",
+              "enactment",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR8322-119",
+                "sponsor_id": "S001189",
+                "similarity_score": 0.861
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "surveillance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7571-119",
+            "title": "GusNIP Expansion Act of 2026",
+            "type": "HR",
+            "number": "7571",
+            "congress": 119,
+            "introduced_date": "2026-02-13",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7571?format=json",
+            "keywords": [
+              "program",
+              "secretary",
+              "end",
+              "food",
+              "subparagraph",
+              "grants",
+              "iii",
+              "percent",
+              "year",
+              "establish",
+              "incentive",
+              "adding",
+              "grant",
+              "conservation",
+              "energy",
+              "nutrition",
+              "expansion",
+              "criteria",
+              "years",
+              "striking"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.065,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000193"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "agriculture",
+                  "food",
+                  "conservation"
+                ],
+                "Technology": [
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES987-119",
+            "title": "Denouncing Nicol\u00e1s Maduro's authoritarian, despotic, and murderous regime and commending President Trump for taking decisive action long called for by Members of Congress.",
+            "type": "HRES",
+            "number": "987",
+            "congress": 119,
+            "introduced_date": "2026-01-12",
+            "latest_action": "Referred to the Committee on Foreign Affairs, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/987?format=json",
+            "keywords": [
+              "maduro",
+              "regime",
+              "nicolas",
+              "venezuela",
+              "representative",
+              "introduced",
+              "legislation",
+              "democratic",
+              "election",
+              "president",
+              "venezuelan",
+              "political",
+              "trump",
+              "long",
+              "rights",
+              "opposition",
+              "senator",
+              "security",
+              "res",
+              "people"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S000168",
+              "S001214",
+              "S001189",
+              "L000585",
+              "K000388",
+              "T000478",
+              "J000304",
+              "M001236",
+              "P000048"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "investment"
+                ],
+                "Technology": [
+                  "platform",
+                  "surveillance",
+                  "digital"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T21:21:06.738847+00:00",
+        "data_updated": "2026-11-23T16:23:06.682249",
+        "donors_updated": "2026-11-23T22:37:35.750229+00:00",
+        "last_updated": "2026-11-23T16:23:06.682249",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 48,
+        "votes_updated": "2026-11-23T10:08:15.383455"
+      }
+    }
+  ]
 }

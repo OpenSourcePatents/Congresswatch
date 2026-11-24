@@ -4062,7 +4062,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "score_components": {
     "trade_timing": 10,
     "wealth_gap": 0,
@@ -4071,7 +4071,7 @@
     "foreign_travel": 0,
     "attendance": 2
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "trades": [
     {
       "transaction_date": "2026-06-09",
@@ -5967,7 +5967,7 @@
   "travel_updated": "2026-08-03T13:51:28.583490+00:00",
   "travel_count": 1,
   "non_voting_delegate": false,
-  "votes_fail_count": 46,
+  "votes_fail_count": 48,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -5996,7 +5996,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:21:49.069327",
+  "edgar_checked": "2026-11-23T16:24:12.060292",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:21:49.069327",
@@ -6015,14 +6015,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:07:29.522776",
+  "votes_checked": "2026-11-23T10:08:29.572176",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T14:00:04.926893",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:24:12.060292",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -7103,11 +7103,804 @@
         "donor_alignment_score": 0.0,
         "donor_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "S5741-119",
+            "title": "Less Bureaucracy, Better Higher Education Act",
+            "type": "S",
+            "number": "5741",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5741?format=json",
+            "keywords": [
+              "education",
+              "authorized",
+              "functions",
+              "secretary",
+              "labor",
+              "higher",
+              "department",
+              "transferred",
+              "seq",
+              "program",
+              "function",
+              "subpart",
+              "programs",
+              "office",
+              "transfer",
+              "vii",
+              "director",
+              "effect",
+              "postsecondary",
+              "made"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.072,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9611-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.983
+              },
+              {
+                "bill_id": "HR9610-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.81
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5754-119",
+            "title": "A bill to amend title XIX of the Social Security Act to clarify the intent of Congress with regards to Medicaid financing policies.",
+            "type": "S",
+            "number": "5754",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5754?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5742-119",
+            "title": "Less Bureaucracy, Better K\u201312 Education Act",
+            "type": "S",
+            "number": "5742",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5742?format=json",
+            "keywords": [
+              "education",
+              "authorized",
+              "elementary",
+              "secondary",
+              "functions",
+              "program",
+              "department",
+              "labor",
+              "secretary",
+              "seq",
+              "transferred",
+              "function",
+              "office",
+              "grants",
+              "transfer",
+              "relating",
+              "except",
+              "director",
+              "effect",
+              "official"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.076,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9610-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.977
+              },
+              {
+                "bill_id": "S5745-119",
+                "sponsor_id": "B001299",
+                "similarity_score": 0.838
+              },
+              {
+                "bill_id": "HR9608-119",
+                "sponsor_id": "M001211",
+                "similarity_score": 0.828
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5485-119",
+            "title": "Americans First Immigration Act",
+            "type": "S",
+            "number": "5485",
+            "congress": 119,
+            "introduced_date": "2026-09-23",
+            "latest_action": "Read twice and referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5485?format=json",
+            "keywords": [
+              "employer",
+              "secretary",
+              "alien",
+              "immigration",
+              "described",
+              "nationality",
+              "based",
+              "attestation",
+              "striking",
+              "worker",
+              "immigrant",
+              "immigrants",
+              "year",
+              "inserting",
+              "employment",
+              "fiscal",
+              "enactment",
+              "american",
+              "job",
+              "workers"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.102,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR8586-119",
+                "sponsor_id": "M001212",
+                "similarity_score": 0.866
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-09-22",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6809?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-09-22",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6810?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6770?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4978-119",
+            "title": "Stop Settlement Slush Funds Act of 2026",
+            "type": "S",
+            "number": "4978",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Read twice and referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/s/4978?format=json",
+            "keywords": [
+              "settlement",
+              "committee",
+              "agreement",
+              "payment",
+              "party",
+              "funds",
+              "donations",
+              "agreements",
+              "directly",
+              "case",
+              "enactment",
+              "agency",
+              "additional",
+              "government",
+              "made",
+              "judiciary",
+              "entered",
+              "general",
+              "fiscal",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.044,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR7387-119",
+                "sponsor_id": "G000589",
+                "similarity_score": 0.823
+              }
+            ],
+            "cosponsors": [
+              "J000293",
+              "B001305",
+              "L000577",
+              "S001217"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4974-119",
+            "title": "Making America's Food Safer Act",
+            "type": "S",
+            "number": "4974",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+            "url": "https://api.congress.gov/v3/bill/119/s/4974?format=json",
+            "keywords": [
+              "food",
+              "secretary",
+              "certification",
+              "facility",
+              "striking",
+              "information",
+              "drug",
+              "health",
+              "federal",
+              "cosmetic",
+              "inserting",
+              "order",
+              "third",
+              "party",
+              "eligible",
+              "end",
+              "destruction",
+              "accredited",
+              "entity",
+              "described"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001075",
+              "K000384"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6586?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T21:22:58.686974+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "S5741-119",
+            "title": "Less Bureaucracy, Better Higher Education Act",
+            "type": "S",
+            "number": "5741",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5741?format=json",
+            "keywords": [
+              "education",
+              "authorized",
+              "functions",
+              "secretary",
+              "labor",
+              "higher",
+              "department",
+              "transferred",
+              "seq",
+              "program",
+              "function",
+              "subpart",
+              "programs",
+              "office",
+              "transfer",
+              "vii",
+              "director",
+              "effect",
+              "postsecondary",
+              "made"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.072,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9611-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.983
+              },
+              {
+                "bill_id": "HR9610-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.81
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5754-119",
+            "title": "A bill to amend title XIX of the Social Security Act to clarify the intent of Congress with regards to Medicaid financing policies.",
+            "type": "S",
+            "number": "5754",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5754?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5742-119",
+            "title": "Less Bureaucracy, Better K\u201312 Education Act",
+            "type": "S",
+            "number": "5742",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5742?format=json",
+            "keywords": [
+              "education",
+              "authorized",
+              "elementary",
+              "secondary",
+              "functions",
+              "program",
+              "department",
+              "labor",
+              "secretary",
+              "seq",
+              "transferred",
+              "function",
+              "office",
+              "grants",
+              "transfer",
+              "relating",
+              "except",
+              "director",
+              "effect",
+              "official"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.076,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9610-119",
+                "sponsor_id": "H001102",
+                "similarity_score": 0.977
+              },
+              {
+                "bill_id": "S5745-119",
+                "sponsor_id": "B001299",
+                "similarity_score": 0.838
+              },
+              {
+                "bill_id": "HR9608-119",
+                "sponsor_id": "M001211",
+                "similarity_score": 0.828
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5485-119",
+            "title": "Americans First Immigration Act",
+            "type": "S",
+            "number": "5485",
+            "congress": 119,
+            "introduced_date": "2026-09-23",
+            "latest_action": "Read twice and referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5485?format=json",
+            "keywords": [
+              "employer",
+              "secretary",
+              "alien",
+              "immigration",
+              "described",
+              "nationality",
+              "based",
+              "attestation",
+              "striking",
+              "worker",
+              "immigrant",
+              "immigrants",
+              "year",
+              "inserting",
+              "employment",
+              "fiscal",
+              "enactment",
+              "american",
+              "job",
+              "workers"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.102,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR8586-119",
+                "sponsor_id": "M001212",
+                "similarity_score": 0.866
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-09-22",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6809?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-09-22",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6810?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6770?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4978-119",
+            "title": "Stop Settlement Slush Funds Act of 2026",
+            "type": "S",
+            "number": "4978",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Read twice and referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/s/4978?format=json",
+            "keywords": [
+              "settlement",
+              "committee",
+              "agreement",
+              "payment",
+              "party",
+              "funds",
+              "donations",
+              "agreements",
+              "directly",
+              "case",
+              "enactment",
+              "agency",
+              "additional",
+              "government",
+              "made",
+              "judiciary",
+              "entered",
+              "general",
+              "fiscal",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.044,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR7387-119",
+                "sponsor_id": "G000589",
+                "similarity_score": 0.823
+              }
+            ],
+            "cosponsors": [
+              "J000293",
+              "B001305",
+              "L000577",
+              "S001217"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4974-119",
+            "title": "Making America's Food Safer Act",
+            "type": "S",
+            "number": "4974",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Read twice and referred to the Committee on Health, Education, Labor, and Pensions.",
+            "url": "https://api.congress.gov/v3/bill/119/s/4974?format=json",
+            "keywords": [
+              "food",
+              "secretary",
+              "certification",
+              "facility",
+              "striking",
+              "information",
+              "drug",
+              "health",
+              "federal",
+              "cosmetic",
+              "inserting",
+              "order",
+              "third",
+              "party",
+              "eligible",
+              "end",
+              "destruction",
+              "accredited",
+              "entity",
+              "described"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001075",
+              "K000384"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6586?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T21:22:58.686974+00:00",
+        "data_updated": "2026-11-23T16:24:12.060292",
+        "last_updated": "2026-11-23T16:24:12.060292",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 48,
+        "votes_updated": "2026-11-23T10:08:29.572176"
+      }
+    }
+  ]
 }

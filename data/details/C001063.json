@@ -1098,8 +1098,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
-  "votes_fail_count": 47,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 49,
   "travel": [
     {
       "destination_country": "Isle of Palms, SC",
@@ -1132,7 +1132,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.292814+00:00",
+  "travel_updated": "2026-11-23T20:43:20.872451+00:00",
   "travel_count": 1,
   "top_donors_list": [
     {
@@ -1286,7 +1286,7 @@
     "Finance & Banking",
     "Technology"
   ],
-  "donors_updated": "2026-11-21T17:52:25.484090+00:00",
+  "donors_updated": "2026-11-23T22:22:31.483083+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -1296,7 +1296,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -1327,7 +1327,7 @@
     },
     "request_failed": true
   },
-  "edgar_checked": "2026-11-18T13:47:23.6757814Z",
+  "edgar_checked": "2026-11-23T15:47:52.738200",
   "edgar_data_status": "unavailable",
   "votes_refresh_provenance": {
     "prior_review": {
@@ -1344,14 +1344,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T08:59:20.403115",
+  "votes_checked": "2026-11-23T10:00:17.901202",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:21:42.029832",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:47:52.738200",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -3038,11 +3038,619 @@
         "donor_alignment_score": 40.0,
         "donor_match_count": 8
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10139-119",
+            "title": "Ratepayer Bill of Rights Act of 2026",
+            "type": "HR",
+            "number": "10139",
+            "congress": 119,
+            "introduced_date": "2026-08-24",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10139?format=json",
+            "keywords": [
+              "water",
+              "data",
+              "right",
+              "center",
+              "costs",
+              "electricity",
+              "use",
+              "centers",
+              "covered",
+              "cost",
+              "project",
+              "infrastructure",
+              "know",
+              "existing",
+              "reliability",
+              "disclosure",
+              "financial",
+              "assistance",
+              "related",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.081,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000581",
+              "E000299",
+              "V000138",
+              "S001230",
+              "C001130"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Oil & Gas",
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "emissions"
+                ],
+                "Finance & Banking": [
+                  "financial",
+                  "interest"
+                ],
+                "Technology": [
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES1413-119",
+            "title": "Recognizing the 271st anniversary of Laredo, Texas.",
+            "type": "HRES",
+            "number": "1413",
+            "congress": 119,
+            "introduced_date": "2026-07-02",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1413?format=json",
+            "keywords": [
+              "laredo",
+              "texas",
+              "anniversary",
+              "history",
+              "american",
+              "city",
+              "flags",
+              "nation",
+              "seven",
+              "july",
+              "founding",
+              "mexico",
+              "rio",
+              "grande",
+              "gateway",
+              "government",
+              "res",
+              "recognizing",
+              "resolution",
+              "oldest"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.04,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001157"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7865-119",
+            "title": "American Consumer Tariff Rebate Act of 2026",
+            "type": "HR",
+            "number": "7865",
+            "congress": 119,
+            "introduced_date": "2026-03-09",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7865?format=json",
+            "keywords": [
+              "amount",
+              "secretary",
+              "return",
+              "eligible",
+              "filed",
+              "child",
+              "payments",
+              "filing",
+              "returns",
+              "payment",
+              "base",
+              "number",
+              "total",
+              "equal",
+              "bonus",
+              "congressional",
+              "tariffs",
+              "income",
+              "married",
+              "direct"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR1297-119",
+            "title": "LPOE Modernization Trust Fund Act",
+            "type": "HR",
+            "number": "1297",
+            "congress": 119,
+            "introduced_date": "2025-02-13",
+            "latest_action": "Referred to the Subcommittee on Border Security and Enforcement.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1297?format=json",
+            "keywords": [
+              "trust",
+              "fund",
+              "secretary",
+              "board",
+              "entry",
+              "land",
+              "amounts",
+              "security",
+              "purposes",
+              "committee",
+              "appointed",
+              "modernization",
+              "homeland",
+              "established",
+              "general",
+              "port",
+              "fees",
+              "fee",
+              "border",
+              "described"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.053,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000594",
+              "E000299",
+              "V000136",
+              "G000581"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction"
+                ],
+                "Finance & Banking": [
+                  "interest",
+                  "investment"
+                ],
+                "Technology": [
+                  "technology"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9006-118",
+            "title": "Hazardous Workplace Accountability Act of 2024",
+            "type": "HR",
+            "number": "9006",
+            "congress": 118,
+            "introduced_date": "2024-07-11",
+            "latest_action": "Referred to the House Committee on Education and the Workforce.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/9006?format=json",
+            "keywords": [
+              "safety",
+              "occupational",
+              "health",
+              "data",
+              "sheets",
+              "english",
+              "spanish",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "require",
+              "bill",
+              "label",
+              "warning",
+              "made",
+              "enactment",
+              "congressional",
+              "bills",
+              "government"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.098,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000797",
+              "N000188",
+              "D000230"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6377-118",
+            "title": "ARCC Act",
+            "type": "HR",
+            "number": "6377",
+            "congress": 118,
+            "introduced_date": "2023-11-13",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/6377?format=json",
+            "keywords": [
+              "program",
+              "apprenticeship",
+              "state",
+              "individuals",
+              "pre",
+              "grant",
+              "child",
+              "stipends",
+              "individual",
+              "stipend",
+              "care",
+              "secretary",
+              "programs",
+              "eligible",
+              "report",
+              "monthly",
+              "information",
+              "period",
+              "amounts",
+              "awarded"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001278",
+              "N000188",
+              "D000624",
+              "S001159",
+              "S001145",
+              "N000147",
+              "C001112",
+              "T000483",
+              "C001091",
+              "B001315"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ],
+                "Healthcare": [
+                  "provider"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6240-118",
+            "title": "To modify a certain commercial zone in Texas to include Zapata County, and for other purposes.",
+            "type": "HR",
+            "number": "6240",
+            "congress": 118,
+            "introduced_date": "2023-11-06",
+            "latest_action": "Referred to the Subcommittee on Highways and Transit.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/6240?format=json",
+            "keywords": [
+              "commercial",
+              "texas",
+              "zone",
+              "zapata",
+              "transportation",
+              "county",
+              "purposes",
+              "cameron",
+              "hidalgo",
+              "starr",
+              "willacy",
+              "counties",
+              "secretary",
+              "enactment",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "modify",
+              "certain"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000376"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "property"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6183-118",
+            "title": "Office of Colonias and Farmworker Initiatives Establishment Act of 2023",
+            "type": "HR",
+            "number": "6183",
+            "congress": 118,
+            "introduced_date": "2023-11-02",
+            "latest_action": "Referred to the Subcommittee on Commodity Markets, Digital Assets, and Rural Development.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/6183?format=json",
+            "keywords": [
+              "department",
+              "colonias",
+              "farmworker",
+              "office",
+              "committee",
+              "federal",
+              "communities",
+              "secretary",
+              "initiatives",
+              "programs",
+              "agriculture",
+              "organizations",
+              "nonprofit",
+              "service",
+              "farmworkers",
+              "individuals",
+              "coordinator",
+              "establish",
+              "within",
+              "reorganization"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000299",
+              "C001130",
+              "N000147",
+              "J000032",
+              "S001150",
+              "G000587",
+              "C001110"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Healthcare",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "housing",
+                  "development"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ],
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4540-118",
+            "title": "Water Infrastructure Enhancement Act of 2023",
+            "type": "HR",
+            "number": "4540",
+            "congress": 118,
+            "introduced_date": "2023-07-11",
+            "latest_action": "Referred to the Subcommittee on Environment, Manufacturing, and Critical Materials.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/4540?format=json",
+            "keywords": [
+              "water",
+              "infrastructure",
+              "area",
+              "poverty",
+              "eligible",
+              "installing",
+              "program",
+              "percent",
+              "census",
+              "drinking",
+              "systems",
+              "enhancement",
+              "activity",
+              "activities",
+              "upgrading",
+              "safe",
+              "establish",
+              "provide",
+              "grants",
+              "suppliers"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.047,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S000522",
+              "S001218",
+              "D000594",
+              "L000599",
+              "C001072",
+              "V000136",
+              "F000466",
+              "N000193"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ],
+                "Technology": [
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3569-118",
+            "title": "Starr\u2013Camargo Bridge Expansion Act",
+            "type": "HR",
+            "number": "3569",
+            "congress": 118,
+            "introduced_date": "2023-05-22",
+            "latest_action": "Ordered to be Reported by the Yeas and Nays: 46 - 0.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/3569?format=json",
+            "keywords": [
+              "bridge",
+              "expansion",
+              "starr",
+              "camargo",
+              "inserting",
+              "international",
+              "enactment",
+              "stat",
+              "company",
+              "near",
+              "rio",
+              "grande",
+              "city",
+              "texas",
+              "rights",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "provide"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.04,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001157",
+              "L000599",
+              "C001091"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T19:44:44.847439+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T19:44:44.847439+00:00",
+        "data_updated": "2026-11-23T15:47:52.738200",
+        "donors_updated": "2026-11-23T22:22:31.483083+00:00",
+        "last_updated": "2026-11-23T15:47:52.738200",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.872451+00:00",
+        "votes_fail_count": 49,
+        "votes_updated": "2026-11-23T10:00:17.901202"
+      }
+    }
+  ]
 }

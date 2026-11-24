@@ -1965,8 +1965,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
-  "votes_fail_count": 46,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 48,
   "travel": [
     {
       "destination_country": "Juneau, AK",
@@ -2043,7 +2043,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.592675+00:00",
+  "travel_updated": "2026-11-23T20:43:20.987049+00:00",
   "travel_count": 3,
   "top_donors_list": [
     {
@@ -2191,7 +2191,7 @@
     "C00857094"
   ],
   "top_donor_industries": [],
-  "donors_updated": "2026-11-21T17:50:05.910175+00:00",
+  "donors_updated": "2026-11-23T22:19:17.247717+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2201,7 +2201,7 @@
     "foreign_travel": 7,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2232,7 +2232,7 @@
     },
     "request_failed": true
   },
-  "edgar_checked": "2026-11-18T13:47:23.6732258Z",
+  "edgar_checked": "2026-11-23T15:42:39.314938",
   "edgar_data_status": "unavailable",
   "votes_refresh_provenance": {
     "prior_review": {
@@ -2249,14 +2249,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T08:58:12.776250",
+  "votes_checked": "2026-11-23T09:59:09.498287",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:16:25.690532",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:42:39.314938",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -3785,11 +3785,584 @@
         "donor_alignment_score": 0.0,
         "donor_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HRES1572-119",
+            "title": "Encouraging the recognition of a \"National LGBTQ+ Servicemembers and Veterans Day\".",
+            "type": "HRES",
+            "number": "1572",
+            "congress": 119,
+            "introduced_date": "2026-09-21",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committee on Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/1572?format=json",
+            "keywords": [
+              "servicemembers",
+              "veterans",
+              "lgbtq",
+              "transgender",
+              "armed",
+              "forces",
+              "defense",
+              "don",
+              "military",
+              "people",
+              "department",
+              "gender",
+              "president",
+              "sexual",
+              "service",
+              "policy",
+              "orientation",
+              "national",
+              "order",
+              "discharged"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.061,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SRES868-119",
+                "sponsor_id": "M001176",
+                "similarity_score": 0.957
+              }
+            ],
+            "cosponsors": [
+              "D000216",
+              "E000299",
+              "C001055",
+              "L000582",
+              "G000587",
+              "F000477",
+              "S001218",
+              "Q000023",
+              "T000472",
+              "K000391"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HCONRES102-119",
+            "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
+            "type": "HCONRES",
+            "number": "102",
+            "congress": 119,
+            "introduced_date": "2026-05-15",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/102?format=json",
+            "keywords": [
+              "resolution",
+              "forces",
+              "armed",
+              "iran",
+              "war",
+              "use",
+              "force",
+              "intelligence",
+              "president",
+              "powers",
+              "hostilities",
+              "military",
+              "government",
+              "remove",
+              "concurrent",
+              "rule",
+              "construction",
+              "nothing",
+              "construed",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HCONRES101-119",
+                "sponsor_id": "J000305",
+                "similarity_score": 1.0
+              },
+              {
+                "bill_id": "HCONRES91-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.999
+              },
+              {
+                "bill_id": "HCONRES92-119",
+                "sponsor_id": "G000559",
+                "similarity_score": 0.999
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9134-119",
+            "title": "Protecting Student Privacy Act",
+            "type": "HR",
+            "number": "9134",
+            "congress": 119,
+            "introduced_date": "2026-06-03",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9134?format=json",
+            "keywords": [
+              "information",
+              "student",
+              "federal",
+              "immigration",
+              "aid",
+              "disclosure",
+              "enforcement",
+              "individual",
+              "contributor",
+              "education",
+              "personally",
+              "identifiable",
+              "used",
+              "purposes",
+              "agency",
+              "higher",
+              "application",
+              "prohibition",
+              "state",
+              "laws"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001131",
+              "N000147",
+              "L000607",
+              "L000557",
+              "G000606",
+              "K000391",
+              "D000617",
+              "A000370",
+              "C001112",
+              "E000296"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7774-119",
+            "title": "FERRIES Act",
+            "type": "HR",
+            "number": "7774",
+            "congress": 119,
+            "introduced_date": "2026-03-03",
+            "latest_action": "Referred to the Committee on Appropriations, and in addition to the Committee on Transportation and Infrastructure, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7774?format=json",
+            "keywords": [
+              "available",
+              "made",
+              "fiscal",
+              "year",
+              "remain",
+              "expended",
+              "ferry",
+              "program",
+              "code",
+              "inserting",
+              "striking",
+              "amounts",
+              "heading",
+              "grant",
+              "appropriations",
+              "grants",
+              "infrastructure",
+              "programs",
+              "addition",
+              "federal"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.042,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001323",
+              "G000559",
+              "M000317",
+              "S000510",
+              "S001231",
+              "M001225",
+              "J000298",
+              "D000617",
+              "M001238",
+              "K000375"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7710-119",
+            "title": "Defense Community Infrastructure Program Tribal Eligibility Act of 2026",
+            "type": "HR",
+            "number": "7710",
+            "congress": 119,
+            "introduced_date": "2026-02-25",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7710?format=json",
+            "keywords": [
+              "government",
+              "indian",
+              "local",
+              "defense",
+              "community",
+              "infrastructure",
+              "program",
+              "code",
+              "tribes",
+              "inserting",
+              "tribe",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "include",
+              "purposes",
+              "bill",
+              "tribal",
+              "governments"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000804",
+              "E000299",
+              "D000230",
+              "G000606",
+              "K000375"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7269-119",
+            "title": "Helping Our People Act of 2026",
+            "type": "HR",
+            "number": "7269",
+            "congress": 119,
+            "introduced_date": "2026-01-27",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7269?format=json",
+            "keywords": [
+              "tribe",
+              "puyallup",
+              "indians",
+              "settlement",
+              "trust",
+              "fund",
+              "amounts",
+              "withdrawn",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "clarify",
+              "purposes",
+              "bill",
+              "adding",
+              "end",
+              "indian",
+              "management",
+              "savings"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001159"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR5603-119",
+            "title": "Emergency Responder Protection Act",
+            "type": "HR",
+            "number": "5603",
+            "congress": 119,
+            "introduced_date": "2025-09-26",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5603?format=json",
+            "keywords": [
+              "enforcement",
+              "action",
+              "emergency",
+              "response",
+              "protected",
+              "security",
+              "immigration",
+              "customs",
+              "location",
+              "individual",
+              "homeland",
+              "committee",
+              "exigent",
+              "circumstances",
+              "iii",
+              "arrest",
+              "protection",
+              "border",
+              "appropriate",
+              "officers"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000587",
+              "N000147",
+              "K000385",
+              "D000617",
+              "C001123",
+              "T000481",
+              "H001068",
+              "L000397",
+              "G000598",
+              "S001226"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR4937-119",
+            "title": "EQUAL Parks Act",
+            "type": "HR",
+            "number": "4937",
+            "congress": 119,
+            "introduced_date": "2025-08-08",
+            "latest_action": "Referred to the Committee on Natural Resources, and in addition to the Committees on Agriculture, Transportation and Infrastructure, and Science, Space, and Technology, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4937?format=json",
+            "keywords": [
+              "national",
+              "parks",
+              "lands",
+              "presidential",
+              "memorandum",
+              "promoting",
+              "diversity",
+              "inclusion",
+              "waters",
+              "january",
+              "forests",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "codify",
+              "relating",
+              "bill",
+              "committee",
+              "congressional"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.023,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001068",
+              "C001117",
+              "Q000023",
+              "T000469",
+              "C001080",
+              "T000487",
+              "S001218"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3654-119",
+            "title": "TERRA Act",
+            "type": "HR",
+            "number": "3654",
+            "congress": 119,
+            "introduced_date": "2025-05-29",
+            "latest_action": "Subcommittee Hearings Held",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3654?format=json",
+            "keywords": [
+              "plan",
+              "indian",
+              "tribe",
+              "federal",
+              "agency",
+              "secretary",
+              "review",
+              "participating",
+              "environmental",
+              "applicable",
+              "request",
+              "requirements",
+              "waiver",
+              "required",
+              "proposed",
+              "funding",
+              "approval",
+              "affected",
+              "services",
+              "programs"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.112,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000600",
+              "S001148",
+              "D000629",
+              "H001068",
+              "M001225",
+              "F000466",
+              "S001159",
+              "M001194",
+              "N000191",
+              "D000624"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3566-119",
+            "title": "ANCHOR for Military Families Act",
+            "type": "HR",
+            "number": "3566",
+            "congress": 119,
+            "introduced_date": "2025-05-21",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3566?format=json",
+            "keywords": [
+              "information",
+              "assistance",
+              "armed",
+              "change",
+              "permanent",
+              "station",
+              "programs",
+              "forces",
+              "members",
+              "secretary",
+              "relocation",
+              "services",
+              "families",
+              "member",
+              "available",
+              "defense",
+              "community",
+              "resources",
+              "support",
+              "code"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.064,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000804",
+              "T000463",
+              "D000230",
+              "K000399",
+              "G000598",
+              "M001199",
+              "B001322",
+              "F000110",
+              "M001241",
+              "H001085"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T19:29:08.183807+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T19:29:08.183807+00:00",
+        "data_updated": "2026-11-23T15:42:39.314938",
+        "donors_updated": "2026-11-23T22:19:17.247717+00:00",
+        "last_updated": "2026-11-23T15:42:39.314938",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.987049+00:00",
+        "votes_fail_count": 48,
+        "votes_updated": "2026-11-23T09:59:09.498287"
+      }
+    }
+  ]
 }

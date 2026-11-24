@@ -1605,7 +1605,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
@@ -1614,8 +1614,8 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
-  "votes_fail_count": 51,
+  "score_updated": "2026-11-23T19:24:41.371198",
+  "votes_fail_count": 53,
   "travel": [
     {
       "destination_country": "Mexico",
@@ -1708,7 +1708,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:06:43.130852",
+  "edgar_checked": "2026-11-23T16:09:59.272737",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:06:43.130852",
@@ -1727,14 +1727,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:04:14.295223",
+  "votes_checked": "2026-11-23T10:05:14.686466",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:45:25.721500",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:09:59.272737",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -3237,11 +3237,571 @@
         "donor_alignment_score": 0.0,
         "donor_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR11098-119",
+            "title": "To award funds to States and local areas for subsidized employment programs for youth.",
+            "type": "HR",
+            "number": "11098",
+            "congress": 119,
+            "introduced_date": "2026-11-19",
+            "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/11098?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10518-119",
+            "title": "Diversify Act",
+            "type": "HR",
+            "number": "10518",
+            "congress": 119,
+            "introduced_date": "2026-09-21",
+            "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committee on the Budget, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10518?format=json",
+            "keywords": [
+              "inserting",
+              "striking",
+              "redesignated",
+              "education",
+              "teach",
+              "budget",
+              "program",
+              "iii",
+              "cost",
+              "workforce",
+              "mrs",
+              "committee",
+              "higher",
+              "subpart",
+              "described",
+              "paragraphs",
+              "applicant",
+              "redesignating",
+              "subparagraphs",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.06,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001081",
+              "M001208",
+              "P000607",
+              "E000297",
+              "G000606",
+              "D000617",
+              "N000147",
+              "C001080",
+              "B001278",
+              "L000602"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8612-119",
+            "title": "Reward Work Act",
+            "type": "HR",
+            "number": "8612",
+            "congress": 119,
+            "introduced_date": "2026-04-30",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8612?format=json",
+            "keywords": [
+              "exchange",
+              "securities",
+              "issuer",
+              "national",
+              "regulations",
+              "open",
+              "market",
+              "given",
+              "board",
+              "directors",
+              "employee",
+              "labor",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "prohibit",
+              "companies",
+              "repurchasing",
+              "shares"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.048,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000389",
+              "H001094",
+              "P000607",
+              "C001131",
+              "N000147",
+              "J000288",
+              "O000173",
+              "G000606",
+              "W000822",
+              "T000481"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HCONRES94-119",
+            "title": "Directing the President, pursuant to section 5(c) of the War Powers Resolution, to remove United States Armed Forces from hostilities with Iran.",
+            "type": "HCONRES",
+            "number": "94",
+            "congress": 119,
+            "introduced_date": "2026-04-29",
+            "latest_action": "Referred to the House Committee on Foreign Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/94?format=json",
+            "keywords": [
+              "resolution",
+              "forces",
+              "armed",
+              "iran",
+              "war",
+              "use",
+              "force",
+              "intelligence",
+              "president",
+              "powers",
+              "hostilities",
+              "military",
+              "government",
+              "remove",
+              "concurrent",
+              "rule",
+              "construction",
+              "nothing",
+              "construed",
+              "relating"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HCONRES91-119",
+                "sponsor_id": "D000635",
+                "similarity_score": 0.994
+              },
+              {
+                "bill_id": "HCONRES92-119",
+                "sponsor_id": "G000559",
+                "similarity_score": 0.994
+              },
+              {
+                "bill_id": "HCONRES95-119",
+                "sponsor_id": "B001318",
+                "similarity_score": 0.994
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9853-119",
+            "title": "To establish a grant program to support students, families, and school personnel impacted by immigration enforcement actions to ensure that schools remain safe, trauma-informed learning environments, and for other purposes.",
+            "type": "HR",
+            "number": "9853",
+            "congress": 119,
+            "introduced_date": "2026-07-22",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9853?format=json",
+            "keywords": [
+              "immigration",
+              "school",
+              "enforcement",
+              "education",
+              "services",
+              "legal",
+              "students",
+              "program",
+              "trauma",
+              "community",
+              "eligible",
+              "grant",
+              "personnel",
+              "entity",
+              "educational",
+              "rights",
+              "support",
+              "actions",
+              "informed",
+              "based"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.122,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001110",
+              "B001278",
+              "O000173",
+              "N000147",
+              "G000598",
+              "W000808",
+              "K000391",
+              "C001130",
+              "R000617",
+              "C001119"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9678-119",
+            "title": "To amend title 49, United States Code, require employers of airport service workers at small, medium, and large hub airports to ensure that airport service workers are paid the prevailing wage and provided fringe benefits, and for other purposes.",
+            "type": "HR",
+            "number": "9678",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "Referred to the Committee on Transportation and Infrastructure, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9678?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "stream",
+              "endstream",
+              "wms",
+              "wks",
+              "pdf",
+              "rnsx",
+              "tjb",
+              "jzz",
+              "nvp",
+              "pvm",
+              "vfi",
+              "ihp",
+              "qjzdj",
+              "znm",
+              "xtt",
+              "iby",
+              "vdp",
+              "eul"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9756-119",
+                "sponsor_id": "M001239",
+                "similarity_score": 0.97
+              },
+              {
+                "bill_id": "HR9688-119",
+                "sponsor_id": "R000606",
+                "similarity_score": 0.966
+              },
+              {
+                "bill_id": "HR10773-119",
+                "sponsor_id": "C001137",
+                "similarity_score": 0.963
+              }
+            ],
+            "cosponsors": [
+              "F000466"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR9513-119",
+            "title": "To direct the Secretary of Education to carry out a grant program to support the integration of school-based health services into community schools, and for other purposes.",
+            "type": "HR",
+            "number": "9513",
+            "congress": 119,
+            "introduced_date": "2026-06-29",
+            "latest_action": "Referred to the Committee on Education and Workforce, and in addition to the Committee on Energy and Commerce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9513?format=json",
+            "keywords": [
+              "obj",
+              "endobj",
+              "filter",
+              "flatedecode",
+              "length",
+              "stream",
+              "endstream",
+              "contents",
+              "parent",
+              "resources",
+              "type",
+              "page",
+              "wms",
+              "wks",
+              "wmo",
+              "cfh",
+              "pdf",
+              "chnx",
+              "cky",
+              "hhw"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9306-119",
+                "sponsor_id": "T000487",
+                "similarity_score": 0.995
+              },
+              {
+                "bill_id": "HR9280-119",
+                "sponsor_id": "H001091",
+                "similarity_score": 0.994
+              },
+              {
+                "bill_id": "HR9157-119",
+                "sponsor_id": "R000614",
+                "similarity_score": 0.994
+              }
+            ],
+            "cosponsors": [
+              "N000147",
+              "F000481"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8218-119",
+            "title": "Fair Compensation for Truck Crash Victims Act",
+            "type": "HR",
+            "number": "8218",
+            "congress": 119,
+            "introduced_date": "2026-04-09",
+            "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8218?format=json",
+            "keywords": [
+              "minimum",
+              "financial",
+              "responsibility",
+              "insurance",
+              "inflation",
+              "medical",
+              "amount",
+              "property",
+              "levels",
+              "transporting",
+              "relating",
+              "care",
+              "transportation",
+              "motor",
+              "report",
+              "carriers",
+              "members",
+              "year",
+              "html",
+              "body"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000491",
+              "H001068",
+              "G000559",
+              "C001068",
+              "J000288"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7032-119",
+            "title": "Pay Paraprofessionals and Support Staff Act",
+            "type": "HR",
+            "number": "7032",
+            "congress": 119,
+            "introduced_date": "2026-01-13",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7032?format=json",
+            "keywords": [
+              "state",
+              "staff",
+              "education",
+              "support",
+              "fiscal",
+              "local",
+              "year",
+              "educational",
+              "salary",
+              "agency",
+              "minimum",
+              "amount",
+              "paraprofessional",
+              "wage",
+              "paraprofessionals",
+              "annual",
+              "described",
+              "subparagraph",
+              "secretary",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.088,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001081",
+              "G000606",
+              "C001131",
+              "C001119",
+              "K000391",
+              "T000481",
+              "L000601",
+              "J000288",
+              "B001315",
+              "C001127"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES838-119",
+            "title": "Commemorating the annual celebration of D\u00eda de los Muertos in the United States and around the world.",
+            "type": "HRES",
+            "number": "838",
+            "congress": 119,
+            "introduced_date": "2025-10-28",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/838?format=json",
+            "keywords": [
+              "dia",
+              "los",
+              "muertos",
+              "immigration",
+              "celebration",
+              "remembrance",
+              "pre",
+              "day",
+              "family",
+              "loved",
+              "ones",
+              "honoring",
+              "unity",
+              "human",
+              "enforcement",
+              "dignity",
+              "body",
+              "annual",
+              "around",
+              "world"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000297",
+              "A000381",
+              "V000081",
+              "G000587",
+              "C001072",
+              "B001300",
+              "C001131",
+              "S001231",
+              "T000474",
+              "S001200"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:42:49.622487+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:42:49.622487+00:00",
+        "data_updated": "2026-11-23T16:09:59.272737",
+        "last_updated": "2026-11-23T16:09:59.272737",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 53,
+        "votes_updated": "2026-11-23T10:05:14.686466"
+      }
+    }
+  ]
 }

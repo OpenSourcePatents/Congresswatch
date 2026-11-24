@@ -4163,7 +4163,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "trades": [
     {
       "transaction_date": "2019-05-17",
@@ -4409,7 +4409,7 @@
     "Oil & Gas",
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-21T18:09:24.083344+00:00",
+  "donors_updated": "2026-11-23T22:38:06.198040+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
@@ -4418,7 +4418,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 1.0,
   "travel": [
     {
@@ -4509,7 +4509,7 @@
   "travel_updated": "2026-08-03T13:51:28.606082+00:00",
   "travel_count": 6,
   "non_voting_delegate": false,
-  "votes_fail_count": 48,
+  "votes_fail_count": 50,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -4538,7 +4538,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:21:39.254344",
+  "edgar_checked": "2026-11-23T16:24:02.114954",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:21:39.254344",
@@ -4557,14 +4557,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:07:27.251380",
+  "votes_checked": "2026-11-23T10:08:27.023980",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:59:56.115141",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:24:02.114954",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -5877,11 +5877,511 @@
         "donor_match_count": 6,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "S5766-119",
+            "title": "A bill to prohibit stealth bots, and for other purposes.",
+            "type": "S",
+            "number": "5766",
+            "congress": 119,
+            "introduced_date": "2026-11-18",
+            "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5766?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5719-119",
+            "title": "Genomic Answers for Children\u2019s Health Act of 2026",
+            "type": "S",
+            "number": "5719",
+            "congress": 119,
+            "introduced_date": "2026-11-16",
+            "latest_action": "Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5719?format=json",
+            "keywords": [
+              "sequencing",
+              "whole",
+              "genome",
+              "exome",
+              "health",
+              "organizations",
+              "state",
+              "services",
+              "children",
+              "medicaid",
+              "xix",
+              "social",
+              "security",
+              "medical",
+              "first",
+              "made",
+              "national",
+              "representing",
+              "amendments",
+              "session"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.078,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR7118-119",
+                "sponsor_id": "P000608",
+                "similarity_score": 0.823
+              }
+            ],
+            "cosponsors": [
+              "K000367",
+              "S001227",
+              "C001088"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S5463-119",
+            "title": "National American History and Founders Month Act",
+            "type": "S",
+            "number": "5463",
+            "congress": 119,
+            "introduced_date": "2026-09-23",
+            "latest_action": "Read twice and referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5463?format=json",
+            "keywords": [
+              "history",
+              "month",
+              "national",
+              "american",
+              "founders",
+              "people",
+              "civics",
+              "code",
+              "president",
+              "designate",
+              "year",
+              "bill",
+              "declaration",
+              "independence",
+              "education",
+              "thanksgiving",
+              "preservation",
+              "understanding",
+              "citizenry",
+              "educational"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.063,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000384",
+              "M001243",
+              "S001232"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S3266-119",
+            "title": "USMMA Athletics Act of 2026",
+            "type": "S",
+            "number": "3266",
+            "congress": 119,
+            "introduced_date": "2025-11-20",
+            "latest_action": "Passed Senate with an amendment by Unanimous Consent. (consideration: CR S4492-4493; text: CR S4492-4493)",
+            "url": "https://api.congress.gov/v3/bill/119/s/3266?format=json",
+            "keywords": [
+              "secretary",
+              "support",
+              "merchant",
+              "marine",
+              "academy",
+              "corporation",
+              "athletic",
+              "programs",
+              "department",
+              "licensing",
+              "transportation",
+              "services",
+              "code",
+              "board",
+              "fees",
+              "property",
+              "use",
+              "funds",
+              "service",
+              "general"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR6961-119",
+                "sponsor_id": "G000597",
+                "similarity_score": 0.892
+              }
+            ],
+            "cosponsors": [
+              "K000377"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Mining & Natural Resources",
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "rent",
+                  "property"
+                ],
+                "Mining & Natural Resources": [
+                  "lease"
+                ],
+                "Finance & Banking": [
+                  "bank",
+                  "financial",
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S5279-119",
+            "title": "National American History and Founders Month Act",
+            "type": "S",
+            "number": "5279",
+            "congress": 119,
+            "introduced_date": "2026-08-06",
+            "latest_action": "Read twice and referred to the Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5279?format=json",
+            "keywords": [
+              "history",
+              "national",
+              "month",
+              "american",
+              "founders",
+              "november",
+              "people",
+              "civics",
+              "code",
+              "bill",
+              "declaration",
+              "independence",
+              "education",
+              "thanksgiving",
+              "designation",
+              "designate",
+              "preservation",
+              "understanding",
+              "citizenry",
+              "educational"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.063,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000384",
+              "M001243"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Education"
+              ],
+              "keyword_hits": {
+                "Education": [
+                  "education"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "SRES831-119",
+            "title": "A resolution recognizing the 100th anniversary of Northwest Mississippi Community College and celebrating a century of educational excellence, workforce development, student success, and service to the people of Mississippi and the United States.",
+            "type": "SRES",
+            "number": "831",
+            "congress": 119,
+            "introduced_date": "2026-08-05",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4480; text: CR S4478-4479)",
+            "url": "https://api.congress.gov/v3/bill/119/sres/831?format=json",
+            "keywords": [
+              "mississippi",
+              "community",
+              "college",
+              "northwest",
+              "workforce",
+              "institution",
+              "educational",
+              "academic",
+              "student",
+              "service",
+              "established",
+              "excellence",
+              "education",
+              "development",
+              "success",
+              "national",
+              "century",
+              "north",
+              "students",
+              "programs"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.096,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001079"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate",
+                "Education"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ],
+                "Education": [
+                  "education",
+                  "school",
+                  "student",
+                  "college",
+                  "university"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "SRES824-119",
+            "title": "A resolution designating August 1, 2026, as \"Gold Star Children's Day\".",
+            "type": "SRES",
+            "number": "824",
+            "congress": 119,
+            "introduced_date": "2026-07-30",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4365; text: CR S4392)",
+            "url": "https://api.congress.gov/v3/bill/119/sres/824?format=json",
+            "keywords": [
+              "gold",
+              "star",
+              "children",
+              "armed",
+              "forces",
+              "members",
+              "day",
+              "fallen",
+              "august",
+              "resolution",
+              "families",
+              "annually",
+              "people",
+              "res",
+              "agreed",
+              "designating",
+              "scott",
+              "recognition",
+              "mother",
+              "now"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.02,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "K000377",
+              "C001098",
+              "M001198",
+              "G000574",
+              "T000278",
+              "S001217",
+              "L000575",
+              "C001088",
+              "W000790",
+              "H001061"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S5095-119",
+            "title": "Tire Safety Modernization Act of 2026",
+            "type": "S",
+            "number": "5095",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/s/5095?format=json",
+            "keywords": [
+              "tire",
+              "tires",
+              "secretary",
+              "performance",
+              "testing",
+              "light",
+              "truck",
+              "federal",
+              "safety",
+              "requirements",
+              "passenger",
+              "car",
+              "transportation",
+              "revise",
+              "standards",
+              "later",
+              "enactment",
+              "chunking",
+              "committee",
+              "commerce"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.074,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000790"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Oil & Gas": [
+                  "energy"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-14",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6691?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6395?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T21:22:48.765281+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T21:22:48.765281+00:00",
+        "data_updated": "2026-11-23T16:24:02.114954",
+        "donors_updated": "2026-11-23T22:38:06.198040+00:00",
+        "last_updated": "2026-11-23T16:24:02.114954",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 50,
+        "votes_updated": "2026-11-23T10:08:27.023980"
+      }
+    }
+  ]
 }

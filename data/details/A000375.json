@@ -5627,8 +5627,8 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
-  "votes_fail_count": 51,
+  "edgar_status": "unverified_auto",
+  "votes_fail_count": 53,
   "top_donors_list": [
     {
       "name": "KIMBER, SHELDON",
@@ -5779,7 +5779,7 @@
     "Real Estate",
     "Agriculture"
   ],
-  "donors_updated": "2026-11-21T17:51:51.968319+00:00",
+  "donors_updated": "2026-11-23T22:21:36.301288+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
@@ -5788,7 +5788,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,
   "trades": [
@@ -5809,7 +5809,7 @@
   "latest_trade_date": "2025-07-10",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
-  "edgar_checked": "2026-11-18T13:43:24.058989",
+  "edgar_checked": "2026-11-23T15:45:57.446818",
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -5854,14 +5854,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T08:58:57.076801",
+  "votes_checked": "2026-11-23T09:59:54.253262",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:19:53.846610",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:45:57.446818",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -7544,11 +7544,625 @@
         "donor_alignment_score": 30.0,
         "donor_match_count": 6
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10918-119",
+            "title": "Natural Gas Dominance Act",
+            "type": "HR",
+            "number": "10918",
+            "congress": 119,
+            "introduced_date": "2026-10-29",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10918?format=json",
+            "keywords": [
+              "net",
+              "heating",
+              "value",
+              "inf",
+              "control",
+              "gas",
+              "nhv",
+              "administrator",
+              "combustion",
+              "device",
+              "regulations",
+              "air",
+              "requiring",
+              "continuous",
+              "monitoring",
+              "operator",
+              "clean",
+              "environmental",
+              "protection",
+              "agency"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.13,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "R000619",
+              "G000601"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10856-119",
+            "title": "LIHTC Security Act",
+            "type": "HR",
+            "number": "10856",
+            "congress": 119,
+            "introduced_date": "2026-10-22",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10856?format=json",
+            "keywords": [
+              "year",
+              "low",
+              "income",
+              "building",
+              "calendar",
+              "housing",
+              "election",
+              "occupancy",
+              "respect",
+              "state",
+              "qualified",
+              "requirement",
+              "dollar",
+              "credit",
+              "subparagraph",
+              "unit",
+              "amount",
+              "certain",
+              "units",
+              "taxable"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.041,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "V000134",
+              "S001214"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8781-119",
+            "title": "Title IX Clarification Act of 2026",
+            "type": "HR",
+            "number": "8781",
+            "congress": 119,
+            "introduced_date": "2026-05-13",
+            "latest_action": "Referred to the House Committee on Education and Workforce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8781?format=json",
+            "keywords": [
+              "amendments",
+              "education",
+              "federal",
+              "sex",
+              "programs",
+              "activities",
+              "financial",
+              "assistance",
+              "mrs",
+              "individual",
+              "respect",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "clarify",
+              "purposes",
+              "nondiscrimination",
+              "requirements",
+              "applicable"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.059,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "D000634",
+              "M001218",
+              "F000469",
+              "S000522",
+              "B001295",
+              "T000478",
+              "B001325",
+              "M001212",
+              "R000619",
+              "S001214"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8536-119",
+            "title": "Fuel STAR Act of 2026",
+            "type": "HR",
+            "number": "8536",
+            "congress": 119,
+            "introduced_date": "2026-04-28",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8536?format=json",
+            "keywords": [
+              "small",
+              "refinery",
+              "year",
+              "administrator",
+              "calendar",
+              "exemption",
+              "fuel",
+              "subparagraph",
+              "percent",
+              "described",
+              "adding",
+              "end",
+              "iii",
+              "inserting",
+              "energy",
+              "applicable",
+              "striking",
+              "renewable",
+              "refineries",
+              "economic"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.07,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001224",
+              "T000165",
+              "F000459"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit"
+                ],
+                "Agriculture": [
+                  "farm",
+                  "food",
+                  "ethanol"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR408-119",
+            "title": "To nullify the Presidential memoranda on the withdrawal of certain areas of the outer Continental Shelf from oil or natural gas leasing.",
+            "type": "HR",
+            "number": "408",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the House Committee on Natural Resources.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/408?format=json",
+            "keywords": [
+              "presidential",
+              "areas",
+              "withdrawal",
+              "certain",
+              "outer",
+              "continental",
+              "shelf",
+              "natural",
+              "memoranda",
+              "oil",
+              "gas",
+              "leasing",
+              "memorandum",
+              "january",
+              "introduced",
+              "nullify",
+              "bill",
+              "titled",
+              "relating",
+              "congressional"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.138,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HCONRES113-119",
+            "title": "Establishing the congressional budget for the United States Government for fiscal year 2027 and setting forth the appropriate budgetary levels for fiscal years 2028 through 2036.",
+            "type": "HCONRES",
+            "number": "113",
+            "congress": 119,
+            "introduced_date": "2026-07-18",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 657.",
+            "url": "https://api.congress.gov/v3/bill/119/hconres/113?format=json",
+            "keywords": [
+              "fiscal",
+              "year",
+              "budget",
+              "new",
+              "authority",
+              "outlays",
+              "committee",
+              "resolution",
+              "levels",
+              "concurrent",
+              "congressional",
+              "appropriate",
+              "years",
+              "amounts",
+              "budgetary",
+              "follows",
+              "reconciliation",
+              "changes",
+              "enforcement",
+              "allocations"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.036,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "SCONRES40-119",
+                "sponsor_id": "P000603",
+                "similarity_score": 0.911
+              },
+              {
+                "bill_id": "SCONRES38-119",
+                "sponsor_id": "J000293",
+                "similarity_score": 0.903
+              },
+              {
+                "bill_id": "SCONRES39-119",
+                "sponsor_id": "P000603",
+                "similarity_score": 0.901
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate",
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "credit",
+                  "interest"
+                ],
+                "Real Estate": [
+                  "housing",
+                  "development"
+                ],
+                "Agriculture": [
+                  "agriculture"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9172-119",
+            "title": "Applying Existing Tax Anti-Abuse Rules to Digital Assets Act",
+            "type": "HR",
+            "number": "9172",
+            "congress": 119,
+            "introduced_date": "2026-06-08",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9172?format=json",
+            "keywords": [
+              "asset",
+              "digital",
+              "assets",
+              "specified",
+              "dollar",
+              "wrapped",
+              "stablecoin",
+              "qualified",
+              "respect",
+              "rules",
+              "stock",
+              "validation",
+              "secretary",
+              "sale",
+              "otherwise",
+              "traded",
+              "except",
+              "year",
+              "purposes",
+              "reference"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.05,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HR9173-119",
+                "sponsor_id": "K000376",
+                "similarity_score": 0.849
+              },
+              {
+                "bill_id": "HR9176-119",
+                "sponsor_id": "K000392",
+                "similarity_score": 0.803
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate",
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "interest",
+                  "securities",
+                  "derivative"
+                ],
+                "Real Estate": [
+                  "construction",
+                  "property"
+                ],
+                "Agriculture": [
+                  "commodity"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8917-119",
+            "title": "No Tax on Border Patrol Agent Overtime Act",
+            "type": "HR",
+            "number": "8917",
+            "congress": 119,
+            "introduced_date": "2026-05-20",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8917?format=json",
+            "keywords": [
+              "overtime",
+              "pay",
+              "border",
+              "patrol",
+              "compensation",
+              "code",
+              "qualified",
+              "agent",
+              "internal",
+              "revenue",
+              "agents",
+              "rate",
+              "payable",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "provide",
+              "certain",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.08,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4580-119",
+                "sponsor_id": "C001056",
+                "similarity_score": 0.955
+              }
+            ],
+            "cosponsors": [
+              "B001260",
+              "M001224",
+              "S001214",
+              "G000565"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7812-119",
+            "title": "Securing Accountability in Foreign Entries Act",
+            "type": "HR",
+            "number": "7812",
+            "congress": 119,
+            "introduced_date": "2026-03-05",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7812?format=json",
+            "keywords": [
+              "record",
+              "importer",
+              "customs",
+              "entity",
+              "respect",
+              "requirements",
+              "border",
+              "protection",
+              "importers",
+              "regulations",
+              "entry",
+              "account",
+              "broker",
+              "commissioner",
+              "merchandise",
+              "bond",
+              "described",
+              "express",
+              "consignment",
+              "operator"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.052,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4003-119",
+                "sponsor_id": "C001075",
+                "similarity_score": 0.992
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "securities"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7745-119",
+            "title": "To establish certain requirements relating to wellness checks for the health and welfare of certain members of the Armed Forces, and for other purposes.",
+            "type": "HR",
+            "number": "7745",
+            "congress": 119,
+            "introduced_date": "2026-03-02",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7745?format=json",
+            "keywords": [
+              "wellness",
+              "armed",
+              "unit",
+              "forces",
+              "member",
+              "secretary",
+              "requirements",
+              "checks",
+              "defense",
+              "check",
+              "commander",
+              "certain",
+              "health",
+              "welfare",
+              "members",
+              "relating",
+              "significant",
+              "commanders",
+              "procedures",
+              "conducted"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.049,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001240",
+              "L000596",
+              "R000612",
+              "V000139",
+              "L000599",
+              "G000601",
+              "E000299",
+              "C001123",
+              "S001159",
+              "T000487"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T19:38:26.172636+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T19:38:26.172636+00:00",
+        "data_updated": "2026-11-23T15:45:57.446818",
+        "donors_updated": "2026-11-23T22:21:36.301288+00:00",
+        "last_updated": "2026-11-23T15:45:57.446818",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 53,
+        "votes_updated": "2026-11-23T09:59:54.253262"
+      }
+    }
+  ]
 }

@@ -2084,7 +2084,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "Switzerland",
@@ -2122,7 +2122,7 @@
       "source_doc": "https://disclosures-clerk.house.gov/gtimages/MT/2026/600010060.pdf"
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.490917+00:00",
+  "travel_updated": "2026-11-23T20:43:20.941314+00:00",
   "travel_count": 2,
   "top_donors_list": [
     {
@@ -2275,7 +2275,7 @@
     "Oil & Gas",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-21T17:56:12.897941+00:00",
+  "donors_updated": "2026-11-23T22:26:49.490898+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2285,10 +2285,10 @@
     "foreign_travel": 3,
     "attendance": 1
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 6.0,
   "non_voting_delegate": false,
-  "votes_fail_count": 46,
+  "votes_fail_count": 48,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -2317,7 +2317,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T13:54:00.835105",
+  "edgar_checked": "2026-11-23T15:56:59.429366",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:54:00.835105",
@@ -2336,14 +2336,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:01:20.816170",
+  "votes_checked": "2026-11-23T10:02:21.063258",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:30:46.962200",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:56:59.429366",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -3978,11 +3978,599 @@
         "donor_match_count": 8,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR9153-119",
+            "title": "To amend the National Defense Authorization Act for Fiscal Year 2025 to exempt certain military installations from guidance regarding the maintenance of the aggregate square footage of facilities of the Department of Defense.",
+            "type": "HR",
+            "number": "9153",
+            "congress": 119,
+            "introduced_date": "2026-06-04",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9153?format=json",
+            "keywords": [
+              "defense",
+              "military",
+              "installations",
+              "national",
+              "authorization",
+              "fiscal",
+              "year",
+              "certain",
+              "guidance",
+              "aggregate",
+              "square",
+              "footage",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "exempt",
+              "regarding",
+              "maintenance",
+              "facilities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.022,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR8087-119",
+            "title": "Main Street Depositor Protection Act",
+            "type": "HR",
+            "number": "8087",
+            "congress": 119,
+            "introduced_date": "2026-03-25",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8087?format=json",
+            "keywords": [
+              "insurance",
+              "insured",
+              "amount",
+              "deposit",
+              "federal",
+              "transaction",
+              "noninterest",
+              "bearing",
+              "account",
+              "credit",
+              "accounts",
+              "depository",
+              "described",
+              "union",
+              "net",
+              "corporation",
+              "deposits",
+              "institution",
+              "end",
+              "period"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "S4198-119",
+                "sponsor_id": "H000601",
+                "similarity_score": 0.983
+              }
+            ],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "financial",
+                  "credit",
+                  "interest"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6967-119",
+            "title": "Public Company Advisory Committee Act of 2026",
+            "type": "HR",
+            "number": "6967",
+            "congress": 119,
+            "introduced_date": "2026-01-07",
+            "latest_action": "Placed on the Union Calendar, Calendar No. 479.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6967?format=json",
+            "keywords": [
+              "committee",
+              "commission",
+              "advisory",
+              "members",
+              "securities",
+              "company",
+              "companies",
+              "chair",
+              "exchange",
+              "bill",
+              "membership",
+              "union",
+              "within",
+              "issues",
+              "relating",
+              "meetings",
+              "recommendations",
+              "serve",
+              "years",
+              "secretary"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.051,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000620"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "securities",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR5089-119",
+            "title": "Weather Act Reauthorization Act of 2025",
+            "type": "HR",
+            "number": "5089",
+            "congress": 119,
+            "introduced_date": "2025-09-02",
+            "latest_action": "Ordered to be Reported (Amended) by Voice Vote.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5089?format=json",
+            "keywords": [
+              "weather",
+              "research",
+              "national",
+              "tsunami",
+              "inserting",
+              "program",
+              "striking",
+              "subparagraph",
+              "data",
+              "warning",
+              "forecasting",
+              "authorized",
+              "system",
+              "innovation",
+              "computing",
+              "secretary",
+              "forecast",
+              "new",
+              "support",
+              "technology"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.074,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000397",
+              "B001291",
+              "B001278",
+              "W000814",
+              "S001215",
+              "F000459",
+              "R000305",
+              "F000472",
+              "F000477",
+              "H001099"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "derivative"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "offshore",
+                  "climate"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4459-119",
+            "title": "MINT Act of 2025",
+            "type": "HR",
+            "number": "4459",
+            "congress": 119,
+            "introduced_date": "2025-07-16",
+            "latest_action": "Referred to the House Committee on Financial Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4459?format=json",
+            "keywords": [
+              "cent",
+              "coin",
+              "one",
+              "composition",
+              "coins",
+              "inserting",
+              "nickel",
+              "striking",
+              "grams",
+              "zinc",
+              "tender",
+              "weighs",
+              "respect",
+              "alloy",
+              "copper",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "permit"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.042,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3816-119",
+            "title": "Weather Act Reauthorization Act of 2025",
+            "type": "HR",
+            "number": "3816",
+            "congress": 119,
+            "introduced_date": "2025-06-06",
+            "latest_action": "Referred to the Committee on Science, Space, and Technology, and in addition to the Committees on Natural Resources, Energy and Commerce, and Foreign Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3816?format=json",
+            "keywords": [
+              "weather",
+              "research",
+              "tsunami",
+              "national",
+              "program",
+              "inserting",
+              "subparagraph",
+              "warning",
+              "forecasting",
+              "secretary",
+              "striking",
+              "data",
+              "authorized",
+              "warnings",
+              "information",
+              "system",
+              "support",
+              "technology",
+              "innovation",
+              "hurricane"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000397",
+              "F000472",
+              "B001278",
+              "W000814",
+              "S001215",
+              "M001222",
+              "R000305",
+              "B000740",
+              "L000602",
+              "F000459"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Oil & Gas"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "derivative"
+                ],
+                "Oil & Gas": [
+                  "energy",
+                  "offshore",
+                  "climate"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3690-119",
+            "title": "Securing Innovation in Financial Regulation Act",
+            "type": "HR",
+            "number": "3690",
+            "congress": 119,
+            "introduced_date": "2025-06-03",
+            "latest_action": "Referred to the Committee on Financial Services, and in addition to the Committee on Agriculture, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3690?format=json",
+            "keywords": [
+              "commission",
+              "financial",
+              "technology",
+              "labcftc",
+              "innovation",
+              "report",
+              "information",
+              "exchange",
+              "committee",
+              "emerging",
+              "strategic",
+              "hub",
+              "commodity",
+              "engagement",
+              "securities",
+              "futures",
+              "trading",
+              "finhub",
+              "working",
+              "regulations"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.043,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "securities",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3244-119",
+            "title": "CASH Act",
+            "type": "HR",
+            "number": "3244",
+            "congress": 119,
+            "introduced_date": "2025-05-07",
+            "latest_action": "Referred to the House Committee on Small Business.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3244?format=json",
+            "keywords": [
+              "factoring",
+              "small",
+              "agreement",
+              "business",
+              "facility",
+              "transaction",
+              "concern",
+              "provider",
+              "amount",
+              "transactions",
+              "payment",
+              "concerns",
+              "agreements",
+              "respect",
+              "disclosure",
+              "terms",
+              "fees",
+              "claim",
+              "reserve",
+              "receivable"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.074,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "loan"
+                ],
+                "Healthcare": [
+                  "provider"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR2563-119",
+            "title": "Aviation Education Remaining Operational Act",
+            "type": "HR",
+            "number": "2563",
+            "congress": 119,
+            "introduced_date": "2025-04-01",
+            "latest_action": "Referred to the Subcommittee on Aviation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/2563?format=json",
+            "keywords": [
+              "administration",
+              "aviation",
+              "federal",
+              "lapse",
+              "academy",
+              "training",
+              "activities",
+              "government",
+              "ensure",
+              "air",
+              "traffic",
+              "controller",
+              "appropriations",
+              "furlough",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "continuity",
+              "event"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.026,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000604"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR1713-119",
+            "title": "Agricultural Risk Review Act of 2025",
+            "type": "HR",
+            "number": "1713",
+            "congress": 119,
+            "introduced_date": "2025-02-27",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Banking, Housing, and Urban Affairs.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1713?format=json",
+            "keywords": [
+              "agricultural",
+              "transaction",
+              "agriculture",
+              "land",
+              "committee",
+              "secretary",
+              "foreign",
+              "republic",
+              "respect",
+              "covered",
+              "reportable",
+              "people",
+              "defense",
+              "production",
+              "investment",
+              "subparagraph",
+              "person",
+              "html",
+              "body",
+              "pre"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "T000487",
+              "B001282",
+              "N000193",
+              "R000603",
+              "D000594",
+              "R000612",
+              "C001061",
+              "L000562",
+              "D000629",
+              "P000620"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:10:09.414484+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:10:09.414484+00:00",
+        "data_updated": "2026-11-23T15:56:59.429366",
+        "donors_updated": "2026-11-23T22:26:49.490898+00:00",
+        "last_updated": "2026-11-23T15:56:59.429366",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.941314+00:00",
+        "votes_fail_count": 48,
+        "votes_updated": "2026-11-23T10:02:21.063258"
+      }
+    }
+  ]
 }

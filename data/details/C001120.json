@@ -2497,7 +2497,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "query_failed",
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "Australia",
@@ -2559,7 +2559,7 @@
       }
     }
   ],
-  "travel_updated": "2026-11-21T16:30:16.444721+00:00",
+  "travel_updated": "2026-11-23T20:43:20.923313+00:00",
   "travel_count": 4,
   "top_donors_list": [
     {
@@ -2710,7 +2710,7 @@
     "Finance & Banking",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-21T17:54:40.709722+00:00",
+  "donors_updated": "2026-11-23T22:24:54.965847+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 5,
@@ -2720,7 +2720,7 @@
     "foreign_travel": 3,
     "attendance": 2
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "trades": [
     {
       "transaction_date": "2026-06-01",
@@ -2814,7 +2814,7 @@
   "trades_updated": "2026-07-18T10:54:56.072878+00:00",
   "trade_count": 8,
   "latest_trade_date": "2026-06-01",
-  "votes_fail_count": 50,
+  "votes_fail_count": 52,
   "missed_votes_pct": 8.0,
   "non_voting_delegate": false,
   "score_methodology": "activity-v4-bill-integrity",
@@ -2845,7 +2845,7 @@
     },
     "request_failed": true
   },
-  "edgar_checked": "2026-11-18T13:55:28.8692623Z",
+  "edgar_checked": "2026-11-23T15:52:47.407128",
   "edgar_data_status": "unavailable",
   "votes_refresh_provenance": {
     "prior_review": {
@@ -2862,14 +2862,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:00:26.453573",
+  "votes_checked": "2026-11-23T10:01:24.473927",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T13:26:37.745152",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T15:52:47.407128",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -4424,11 +4424,576 @@
         "donor_match_count": 6,
         "alec_match_count": 0
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR8297-119",
+            "title": "District of Columbia Firearm Freedom Act",
+            "type": "HR",
+            "number": "8297",
+            "congress": 119,
+            "introduced_date": "2026-04-15",
+            "latest_action": "Referred to the Committee on Oversight and Government Reform, and in addition to the Committee on the Judiciary, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/8297?format=json",
+            "keywords": [
+              "district",
+              "firearm",
+              "registration",
+              "federal",
+              "person",
+              "possession",
+              "firearms",
+              "columbia",
+              "carry",
+              "prohibited",
+              "concealed",
+              "lawful",
+              "licensee",
+              "residents",
+              "prior",
+              "rule",
+              "acquisition",
+              "feature",
+              "based",
+              "carrying"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.23,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "property"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HJRES19-119",
+            "title": "To acknowledge the courage and sacrifice of veterans of the Vietnam war and formally apologize for the treatment they received upon returning home.",
+            "type": "HJRES",
+            "number": "19",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the Committee on Veterans' Affairs, and in addition to the Committee on Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hjres/19?format=json",
+            "keywords": [
+              "vietnam",
+              "war",
+              "veterans",
+              "forces",
+              "armed",
+              "sacrifice",
+              "home",
+              "members",
+              "south",
+              "combat",
+              "acknowledge",
+              "courage",
+              "formally",
+              "committee",
+              "units",
+              "withdrawal",
+              "support",
+              "government",
+              "res",
+              "apologize"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "Z000018",
+              "F000466",
+              "V000129",
+              "C001039",
+              "N000189",
+              "M001194",
+              "C001133",
+              "D000594",
+              "C001126",
+              "B001291"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR424-119",
+            "title": "State Border Security Reimbursement Act of 2025",
+            "type": "HR",
+            "number": "424",
+            "congress": 119,
+            "introduced_date": "2025-01-15",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/424?format=json",
+            "keywords": [
+              "border",
+              "security",
+              "texas",
+              "allocated",
+              "state",
+              "expenses",
+              "federal",
+              "government",
+              "reimburse",
+              "reimbursement",
+              "budget",
+              "introduced",
+              "purposes",
+              "bill",
+              "biennium",
+              "enactment",
+              "application",
+              "later",
+              "congressional",
+              "bills"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.093,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "R000614",
+              "G000603",
+              "C001051",
+              "V000134",
+              "E000071",
+              "B001291",
+              "D000594",
+              "S000250",
+              "W000816",
+              "W000814"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR7572-119",
+            "title": "No Vigilante Checkpoints and Civil Rights Protection Act of 2026",
+            "type": "HR",
+            "number": "7572",
+            "congress": 119,
+            "introduced_date": "2026-02-13",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7572?format=json",
+            "keywords": [
+              "civil",
+              "conduct",
+              "demands",
+              "action",
+              "rights",
+              "individuals",
+              "authority",
+              "federal",
+              "unlawful",
+              "checkpoints",
+              "identity",
+              "vehicle",
+              "years",
+              "enforcement",
+              "offense",
+              "damages",
+              "government",
+              "protect",
+              "vigilante",
+              "stops"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.105,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "construction",
+                  "property"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7420-119",
+            "title": "Stop Gender Trafficking of Minors Act",
+            "type": "HR",
+            "number": "7420",
+            "congress": 119,
+            "introduced_date": "2026-02-09",
+            "latest_action": "Referred to the Committee on the Judiciary, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7420?format=json",
+            "keywords": [
+              "gender",
+              "procedure",
+              "minor",
+              "transition",
+              "federal",
+              "transportation",
+              "code",
+              "offense",
+              "minors",
+              "government",
+              "interstate",
+              "commerce",
+              "sex",
+              "body",
+              "committee",
+              "medical",
+              "procedures",
+              "state",
+              "foreign",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.049,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001132",
+              "F000478",
+              "L000596"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR7208-119",
+            "title": "PROTECT the Grid Act",
+            "type": "HR",
+            "number": "7208",
+            "congress": 119,
+            "introduced_date": "2026-01-22",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Foreign Affairs, Oversight and Government Reform, Ways and Means, Intelligence (Permanent Select), and Homeland Security, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/7208?format=json",
+            "keywords": [
+              "foreign",
+              "grid",
+              "devices",
+              "iot",
+              "adversary",
+              "applications",
+              "electric",
+              "high",
+              "wattage",
+              "controlled",
+              "commerce",
+              "federal",
+              "critical",
+              "secretary",
+              "report",
+              "security",
+              "technology",
+              "consumer",
+              "risks",
+              "relevant"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.052,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001196",
+              "D000628"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR6566-119",
+            "title": "Recycling Technology Innovation Act",
+            "type": "HR",
+            "number": "6566",
+            "congress": 119,
+            "introduced_date": "2025-12-10",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6566?format=json",
+            "keywords": [
+              "unit",
+              "petition",
+              "air",
+              "definition",
+              "solid",
+              "waste",
+              "incineration",
+              "administrator",
+              "clean",
+              "purposes",
+              "product",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "exclude",
+              "certain",
+              "units",
+              "facilities",
+              "bill"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.039,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000609",
+              "B001257",
+              "W000814",
+              "C001103",
+              "F000469",
+              "B001306",
+              "M001240",
+              "P000048"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR4880-119",
+            "title": "Primacy Certainty Act of 2025",
+            "type": "HR",
+            "number": "4880",
+            "congress": 119,
+            "introduced_date": "2025-08-05",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4880?format=json",
+            "keywords": [
+              "state",
+              "class",
+              "notice",
+              "wells",
+              "application",
+              "administrator",
+              "underground",
+              "injection",
+              "control",
+              "submitted",
+              "drinking",
+              "water",
+              "program",
+              "primary",
+              "enforcement",
+              "safe",
+              "responsibility",
+              "made",
+              "regulate",
+              "applications"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.078,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "P000048",
+              "W000814"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "investment"
+                ],
+                "Real Estate": [
+                  "construction"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR4165-119",
+            "title": "To amend the Public Health Service Act to provide for the inclusion of a biological attribution strategy, and an early warning strategy and implementation plan, in the National Health Security Strategy, and for other purposes.",
+            "type": "HR",
+            "number": "4165",
+            "congress": 119,
+            "introduced_date": "2025-06-26",
+            "latest_action": "Referred to the House Committee on Energy and Commerce.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/4165?format=json",
+            "keywords": [
+              "strategy",
+              "biological",
+              "attribution",
+              "plan",
+              "health",
+              "early",
+              "warning",
+              "implementation",
+              "federal",
+              "service",
+              "national",
+              "developing",
+              "threats",
+              "purposes",
+              "preparedness",
+              "adding",
+              "end",
+              "activities",
+              "appropriate",
+              "capabilities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.035,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001193"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "development"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3859-119",
+            "title": "Returning Illegals over Turmoil Act",
+            "type": "HR",
+            "number": "3859",
+            "congress": 119,
+            "introduced_date": "2025-06-10",
+            "latest_action": "Referred to the House Committee on the Judiciary.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3859?format=json",
+            "keywords": [
+              "enforcement",
+              "removal",
+              "aliens",
+              "alien",
+              "described",
+              "immigration",
+              "nationality",
+              "government",
+              "permanent",
+              "convicted",
+              "civil",
+              "state",
+              "emergency",
+              "inadmissibility",
+              "officers",
+              "texas",
+              "incite",
+              "participate",
+              "assaults",
+              "unrest"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.046,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "W000814",
+              "C001129",
+              "B001260",
+              "E000246",
+              "S000250",
+              "M001239",
+              "J000304",
+              "V000135",
+              "L000596",
+              "D000032"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Real Estate"
+              ],
+              "keyword_hits": {
+                "Real Estate": [
+                  "property"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T19:57:45.689239+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T19:57:45.689239+00:00",
+        "data_updated": "2026-11-23T15:52:47.407128",
+        "donors_updated": "2026-11-23T22:24:54.965847+00:00",
+        "last_updated": "2026-11-23T15:52:47.407128",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:20.923313+00:00",
+        "votes_fail_count": 52,
+        "votes_updated": "2026-11-23T10:01:24.473927"
+      }
+    }
+  ]
 }

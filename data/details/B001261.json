@@ -5240,7 +5240,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unresolved",
+  "edgar_status": "unverified_auto",
   "trades": [
     {
       "transaction_date": "2018-05-01",
@@ -5405,7 +5405,7 @@
   "top_donor_industries": [
     "Healthcare"
   ],
-  "donors_updated": "2026-11-21T18:19:02.628113+00:00",
+  "donors_updated": "2026-11-23T22:50:09.505045+00:00",
   "total_raised": 1844877.79,
   "pac_contributions": 427749.33,
   "individual_contributions": 474976.06,
@@ -5418,7 +5418,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-21T14:10:07.011731",
+  "score_updated": "2026-11-23T19:24:41.371198",
   "missed_votes_pct": 0.0,
   "travel": [
     {
@@ -5441,7 +5441,7 @@
   "total_spent": 1005467.98,
   "cash_on_hand": 8567838.4,
   "non_voting_delegate": false,
-  "votes_fail_count": 47,
+  "votes_fail_count": 49,
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -5470,7 +5470,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-18T14:29:46.576597",
+  "edgar_checked": "2026-11-23T16:30:52.672407",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T14:29:46.576597",
@@ -5489,14 +5489,14 @@
       "status": "fetch_failed"
     }
   },
-  "votes_checked": "2026-11-21T09:09:02.029318",
+  "votes_checked": "2026-11-23T10:10:01.542687",
   "upstream_sec_observation": {
-    "source_snapshot": "18d5170f024f6f93dd9ee9a86cee85169ef8282b",
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
     "fields": {
       "corporate_insider_signals": 0,
-      "data_updated": "2026-11-21T14:07:09.474946",
-      "edgar_signal_type": "corporate_insider",
+      "data_updated": "2026-11-23T16:30:52.672407",
+      "edgar_cik": null,
       "edgar_status": "unresolved"
     }
   },
@@ -6657,11 +6657,845 @@
         "donor_alignment_score": 5.0,
         "donor_match_count": 1
       }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "SRES966-119",
+            "title": "A resolution designating November 19, 2026, as \"National Rural Health Day\".",
+            "type": "SRES",
+            "number": "966",
+            "congress": 119,
+            "introduced_date": "2026-11-19",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+            "url": "https://api.congress.gov/v3/bill/119/sres/966?format=json",
+            "keywords": [
+              "rural",
+              "health",
+              "care",
+              "national",
+              "day",
+              "november",
+              "providers",
+              "mrs",
+              "individuals",
+              "communities",
+              "patients",
+              "face",
+              "facilities",
+              "challenges",
+              "areas",
+              "systemic",
+              "res",
+              "agreed",
+              "designating",
+              "resolution"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.048,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES1673-119",
+                "sponsor_id": "T000487",
+                "similarity_score": 0.856
+              }
+            ],
+            "cosponsors": [
+              "B001267",
+              "J000312",
+              "W000790",
+              "H000601",
+              "R000584",
+              "C001047",
+              "H001061",
+              "B001243",
+              "H001079",
+              "W000779"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "hospital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S5204-119",
+            "title": "SMART Savings Act of 2026",
+            "type": "S",
+            "number": "5204",
+            "congress": 119,
+            "introduced_date": "2026-07-30",
+            "latest_action": "Read twice and referred to the Committee on Finance. (text: CR S4390)",
+            "url": "https://api.congress.gov/v3/bill/119/s/5204?format=json",
+            "keywords": [
+              "individual",
+              "account",
+              "plan",
+              "retirement",
+              "code",
+              "internal",
+              "revenue",
+              "transaction",
+              "purposes",
+              "benefits",
+              "exempt",
+              "prohibited",
+              "rules",
+              "read",
+              "dealing",
+              "benefit",
+              "relationship",
+              "treated",
+              "separate",
+              "services"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.149,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001243",
+              "D000618"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "SRES813-119",
+            "title": "A resolution designating July 25, 2026, as \"National Day of the American Cowboy\".",
+            "type": "SRES",
+            "number": "813",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4274; text: CR S4269-4270)",
+            "url": "https://api.congress.gov/v3/bill/119/sres/813?format=json",
+            "keywords": [
+              "cowboy",
+              "july",
+              "day",
+              "american",
+              "national",
+              "cowboys",
+              "rodeo",
+              "res",
+              "agreed",
+              "designating",
+              "mrs",
+              "resolution",
+              "recognized",
+              "work",
+              "gender",
+              "land",
+              "every",
+              "central",
+              "congressional",
+              "bills"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.038,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H000273",
+              "C001113",
+              "C001096",
+              "C000880",
+              "C001098",
+              "C001114",
+              "D000618",
+              "F000463",
+              "H001061",
+              "H001079"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-15",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6695?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6639?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-23",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/5935?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-23",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/5904?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4903-119",
+            "title": "A bill to improve the point-in-time count conducted by the Department of Housing and Urban Development, and for other purposes.",
+            "type": "S",
+            "number": "4903",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs. (text: CR S3206)",
+            "url": "https://api.congress.gov/v3/bill/119/s/4903?format=json",
+            "keywords": [
+              "point",
+              "time",
+              "count",
+              "annual",
+              "hmis",
+              "data",
+              "homeless",
+              "secretary",
+              "assistance",
+              "subparagraph",
+              "recipient",
+              "department",
+              "collection",
+              "care",
+              "requirements",
+              "housing",
+              "purposes",
+              "recipients",
+              "reporting",
+              "midpoint"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.04,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000571",
+              "P000595",
+              "S001198"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4765-119",
+            "title": "Let America Build Act of 2026",
+            "type": "S",
+            "number": "4765",
+            "congress": 119,
+            "introduced_date": "2026-06-11",
+            "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S2759-2766)",
+            "url": "https://api.congress.gov/v3/bill/119/s/4765?format=json",
+            "keywords": [
+              "secretary",
+              "state",
+              "federal",
+              "land",
+              "lease",
+              "gas",
+              "application",
+              "action",
+              "oil",
+              "environmental",
+              "authority",
+              "mineral",
+              "permit",
+              "drilling",
+              "plan",
+              "interior",
+              "seq",
+              "policy",
+              "management",
+              "subject"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.089,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000571"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4561-119",
+            "title": "CLOSE THE GAP Act",
+            "type": "S",
+            "number": "4561",
+            "congress": 119,
+            "introduced_date": "2026-05-19",
+            "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S2375-2377)",
+            "url": "https://api.congress.gov/v3/bill/119/s/4561?format=json",
+            "keywords": [
+              "land",
+              "federal",
+              "communications",
+              "use",
+              "management",
+              "agency",
+              "applications",
+              "secretary",
+              "applicable",
+              "concerned",
+              "facility",
+              "organizational",
+              "deadline",
+              "cost",
+              "recovery",
+              "application",
+              "service",
+              "respect",
+              "broadband",
+              "authorization"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.125,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000571",
+              "C001114"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T21:32:29.378159+00:00"
+      }
     }
   ],
   "bills_analysis_version": "official-prose-overlap-v2",
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af"
+  "bill_source_manifest_sha256": "95986e75049c817c1d654f51f52cf2de9364c31db640d9b934cb04ae52c040af",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills": [
+          {
+            "bill_id": "SRES966-119",
+            "title": "A resolution designating November 19, 2026, as \"National Rural Health Day\".",
+            "type": "SRES",
+            "number": "966",
+            "congress": 119,
+            "introduced_date": "2026-11-19",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent.",
+            "url": "https://api.congress.gov/v3/bill/119/sres/966?format=json",
+            "keywords": [
+              "rural",
+              "health",
+              "care",
+              "national",
+              "day",
+              "november",
+              "providers",
+              "mrs",
+              "individuals",
+              "communities",
+              "patients",
+              "face",
+              "facilities",
+              "challenges",
+              "areas",
+              "systemic",
+              "res",
+              "agreed",
+              "designating",
+              "resolution"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.048,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES1673-119",
+                "sponsor_id": "T000487",
+                "similarity_score": 0.856
+              }
+            ],
+            "cosponsors": [
+              "B001267",
+              "J000312",
+              "W000790",
+              "H000601",
+              "R000584",
+              "C001047",
+              "H001061",
+              "B001243",
+              "H001079",
+              "W000779"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "hospital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "S5204-119",
+            "title": "SMART Savings Act of 2026",
+            "type": "S",
+            "number": "5204",
+            "congress": 119,
+            "introduced_date": "2026-07-30",
+            "latest_action": "Read twice and referred to the Committee on Finance. (text: CR S4390)",
+            "url": "https://api.congress.gov/v3/bill/119/s/5204?format=json",
+            "keywords": [
+              "individual",
+              "account",
+              "plan",
+              "retirement",
+              "code",
+              "internal",
+              "revenue",
+              "transaction",
+              "purposes",
+              "benefits",
+              "exempt",
+              "prohibited",
+              "rules",
+              "read",
+              "dealing",
+              "benefit",
+              "relationship",
+              "treated",
+              "separate",
+              "services"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.149,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001243",
+              "D000618"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "SRES813-119",
+            "title": "A resolution designating July 25, 2026, as \"National Day of the American Cowboy\".",
+            "type": "SRES",
+            "number": "813",
+            "congress": 119,
+            "introduced_date": "2026-07-23",
+            "latest_action": "Submitted in the Senate, considered, and agreed to without amendment and with a preamble by Unanimous Consent. (consideration: CR S4274; text: CR S4269-4270)",
+            "url": "https://api.congress.gov/v3/bill/119/sres/813?format=json",
+            "keywords": [
+              "cowboy",
+              "july",
+              "day",
+              "american",
+              "national",
+              "cowboys",
+              "rodeo",
+              "res",
+              "agreed",
+              "designating",
+              "mrs",
+              "resolution",
+              "recognized",
+              "work",
+              "gender",
+              "land",
+              "every",
+              "central",
+              "congressional",
+              "bills"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.038,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H000273",
+              "C001113",
+              "C001096",
+              "C000880",
+              "C001098",
+              "C001114",
+              "D000618",
+              "F000463",
+              "H001061",
+              "H001079"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-15",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6695?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/6639?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-23",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/5935?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "-119",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2026-06-23",
+            "latest_action": "",
+            "url": "https://api.congress.gov/v3/amendment/119/samdt/5904?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4903-119",
+            "title": "A bill to improve the point-in-time count conducted by the Department of Housing and Urban Development, and for other purposes.",
+            "type": "S",
+            "number": "4903",
+            "congress": 119,
+            "introduced_date": "2026-06-24",
+            "latest_action": "Read twice and referred to the Committee on Banking, Housing, and Urban Affairs. (text: CR S3206)",
+            "url": "https://api.congress.gov/v3/bill/119/s/4903?format=json",
+            "keywords": [
+              "point",
+              "time",
+              "count",
+              "annual",
+              "hmis",
+              "data",
+              "homeless",
+              "secretary",
+              "assistance",
+              "subparagraph",
+              "recipient",
+              "department",
+              "collection",
+              "care",
+              "requirements",
+              "housing",
+              "purposes",
+              "recipients",
+              "reporting",
+              "midpoint"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.04,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000571",
+              "P000595",
+              "S001198"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4765-119",
+            "title": "Let America Build Act of 2026",
+            "type": "S",
+            "number": "4765",
+            "congress": 119,
+            "introduced_date": "2026-06-11",
+            "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S2759-2766)",
+            "url": "https://api.congress.gov/v3/bill/119/s/4765?format=json",
+            "keywords": [
+              "secretary",
+              "state",
+              "federal",
+              "land",
+              "lease",
+              "gas",
+              "application",
+              "action",
+              "oil",
+              "environmental",
+              "authority",
+              "mineral",
+              "permit",
+              "drilling",
+              "plan",
+              "interior",
+              "seq",
+              "policy",
+              "management",
+              "subject"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.089,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000571"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "S4561-119",
+            "title": "CLOSE THE GAP Act",
+            "type": "S",
+            "number": "4561",
+            "congress": 119,
+            "introduced_date": "2026-05-19",
+            "latest_action": "Read twice and referred to the Committee on Energy and Natural Resources. (text: CR S2375-2377)",
+            "url": "https://api.congress.gov/v3/bill/119/s/4561?format=json",
+            "keywords": [
+              "land",
+              "federal",
+              "communications",
+              "use",
+              "management",
+              "agency",
+              "applications",
+              "secretary",
+              "applicable",
+              "concerned",
+              "facility",
+              "organizational",
+              "deadline",
+              "cost",
+              "recovery",
+              "application",
+              "service",
+              "respect",
+              "broadband",
+              "authorization"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.125,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000571",
+              "C001114"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          }
+        ],
+        "bills_updated": "2026-11-23T21:32:29.378159+00:00",
+        "data_updated": "2026-11-23T16:30:52.672407",
+        "donors_updated": "2026-11-23T22:50:09.505045+00:00",
+        "last_updated": "2026-11-23T16:30:52.672407",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 49,
+        "votes_updated": "2026-11-23T10:10:01.542687"
+      }
+    }
+  ]
 }
