@@ -96,6 +96,8 @@ Coverage is reported explicitly in `audit_data.py`, the member panels and the so
 
 OSP-API remains a separate, unmodified repository. Its immutable draft `bc828aefa681b043c63a05fb1c7530ed2332d303` is tested against these files through actual route/scoring code in an isolated harness, with auth/HTTP transport stubbed and no database access. Routes, envelopes, field types and missing/unavailable input behavior are checked. The observed API differences remain release blockers: staff travel is still scored there, and its SEC guard does not require evidence retrieval receipts. API alignment and Charlie's manual review must precede coordinated rollout.
 
+The review branch is excluded from automatic Vercel builds using its [documented ignored-build command](https://vercel.com/docs/project-configuration/vercel-json#ignorecommand). CI-only npm tooling does not change the static hosting build.
+
 Local verification
 Use Python 3.12 and Node 24. Install `requirements-official-prose.txt`, the legacy collector test dependencies (`beautifulsoup4 pdfplumber pypdf`), `ruff==0.14.6`, and Playwright; run `npm ci`. Then run `npm run lint`, `npm run build`, the offline unittest modules listed in `review-validation.yml`, `python test_delegates.py`, `python audit_data.py`, `python validation/verify_generation.py`, and `python validation/browser_review.py`. API checks fetch exact Git blobs using `validation/fetch_api_reference.py`, then execute `node validation/check_api_reference.mjs`; the report explicitly lists parity blockers.
 
