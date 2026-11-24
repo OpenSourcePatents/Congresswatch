@@ -46,6 +46,7 @@ jobs:
           python audit_data.py > audit.json
           python validation/verify_generation.py > generation.json
           python validation/fetch_api_reference.py
+          python validation/fetch_api_reference.py legacy
           node validation/check_api_reference.mjs
       - name: Real desktop and mobile browser checks
         run: python validation/browser_review.py
