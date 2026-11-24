@@ -936,18 +936,58 @@
       "sponsor_id": "V000128",
       "sponsor_verification": "official_bioguide_match",
       "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/s/BILLSTATUS-119s5759.xml",
-      "metadata_source_sha256": "e8a4d146d8c46f475a6df138d55755a33915326cbbe4d96137da45b68616bc86",
+      "metadata_source_sha256": "44e84cc2b426d5701b3e062da2f94ba379fbbd9f7f3aa660fa5bd71f989a107a",
       "analysis_version": "official-prose-overlap-v2",
       "model_analysis_status": "primary_model_corpus_unavailable",
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR11059-119",
+          "bill_title": "To amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to update the local coordinating entity for the Southern Maryland National Heritage Area.",
+          "member_id": "H000874",
+          "same_sponsor": false,
+          "similarity_score": 1.0,
+          "evidence": {
+            "longest_passage_words": 54,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 54,
+            "target_passage": "Local coordinating entity for the Southern Maryland National Heritage Area Section 6001(a)(13)(B) of the John D. Dingell, Jr. Conservation, Management, and Recreation Act ( Public Law 116\u20139 ; 133 Stat. 768; 136 Stat. 6165) is amended by striking Tri-County Council for Southern Maryland and inserting Southern Maryland National Heritage Area, Inc",
+            "matched_passage": "Local coordinating entity for the Southern Maryland National Heritage Area Section 6001(a)(13)(B) of the John D. Dingell, Jr. Conservation, Management, and Recreation Act ( Public Law 116\u20139 ; 133 Stat. 768; 136 Stat. 6165) is amended by striking Tri-County Council for Southern Maryland and inserting Southern Maryland National Heritage Area, Inc",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5759is/xml/BILLS-119s5759is.xml",
+            "target_source_sha256": "e32be35ef938aabac7c1ff55daee2a487d56e2c51a2a9de60481b706e892ae09",
+            "target_text_sha256": "c19edf27f16938ec5ae5e8b0dce0b54229487425667032cc5d835de922936dde",
+            "target_version_code": "is",
+            "target_version_date": "2026-11-18T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr11059ih/xml/BILLS-119hr11059ih.xml",
+            "matched_source_sha256": "08d04cdd8051aa488cab2caa92c8736151a30c498448a18bddf09cac5681a540",
+            "matched_text_sha256": "c19edf27f16938ec5ae5e8b0dce0b54229487425667032cc5d835de922936dde",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-11-18T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
       "keywords": [],
       "similarity_score": null,
       "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
       "donor_interest": null,
-      "has_text": false,
-      "analysis_status": "text_not_yet_published"
+      "text_source": {
+        "bill_id": "S5759-119",
+        "version_code": "is",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5759is/xml/BILLS-119s5759is.xml",
+        "source_sha256": "e32be35ef938aabac7c1ff55daee2a487d56e2c51a2a9de60481b706e892ae09",
+        "text_sha256": "c19edf27f16938ec5ae5e8b0dce0b54229487425667032cc5d835de922936dde",
+        "version_date": "2026-11-18T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119s5759is"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "S5626-119",
@@ -979,7 +1019,7 @@
           "bill_title": "Pell Grant Flexibility Act",
           "member_id": "M001206",
           "same_sponsor": false,
-          "similarity_score": 0.6651495099067688,
+          "similarity_score": 0.665147602558136,
           "evidence": {
             "longest_passage_words": 87,
             "target_word_offset": 19,
@@ -1133,7 +1173,7 @@
           "bill_title": "Sickle Cell Disease Treatment Centers Act of 2026",
           "member_id": "A000370",
           "same_sponsor": false,
-          "similarity_score": 0.9999082684516907,
+          "similarity_score": 0.9999023675918579,
           "evidence": {
             "longest_passage_words": 2325,
             "target_word_offset": 375,
@@ -1202,7 +1242,7 @@
           "bill_title": "Family Stability and Opportunity Vouchers Act of 2026",
           "member_id": "N000191",
           "same_sponsor": false,
-          "similarity_score": 0.9999996423721313,
+          "similarity_score": 0.9999997615814209,
           "evidence": {
             "longest_passage_words": 1203,
             "target_word_offset": 0,
@@ -1309,7 +1349,7 @@
           "bill_title": "No Fencing at the United States Capitol Complex Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.9771731495857239,
+          "similarity_score": 0.9771726131439209,
           "evidence": {
             "longest_passage_words": 71,
             "target_word_offset": 0,
@@ -1337,7 +1377,7 @@
           "bill_title": "No Fencing at the United States Supreme Court Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.6382464170455933,
+          "similarity_score": 0.6382487416267395,
           "evidence": {
             "longest_passage_words": 34,
             "target_word_offset": 89,
@@ -1475,7 +1515,7 @@
           "bill_title": "A resolution designating the week of September 14 through September 20, 2025, as \"Community School Coordinators Appreciation Week\".",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.9286357164382935,
+          "similarity_score": 0.9286454319953918,
           "evidence": {
             "longest_passage_words": 43,
             "target_word_offset": 13,
@@ -1503,7 +1543,7 @@
           "bill_title": "Expressing support for the designation of the week of September 13 through September 19, 2026, as \"Community School Coordinators Appreciation Week\".",
           "member_id": "C001080",
           "same_sponsor": false,
-          "similarity_score": 0.817203164100647,
+          "similarity_score": 0.8172370195388794,
           "evidence": {
             "longest_passage_words": 34,
             "target_word_offset": 22,
@@ -1531,7 +1571,7 @@
           "bill_title": "Expressing support for the designation of \"Community School Coordinators Appreciation Week \".",
           "member_id": "C001080",
           "same_sponsor": false,
-          "similarity_score": 0.8118417263031006,
+          "similarity_score": 0.811872661113739,
           "evidence": {
             "longest_passage_words": 34,
             "target_word_offset": 22,
@@ -1648,7 +1688,7 @@
           "bill_title": "Disclosure of Tax Havens and Offshoring Act",
           "member_id": "P000620",
           "same_sponsor": false,
-          "similarity_score": 0.999999463558197,
+          "similarity_score": 0.9999996423721313,
           "evidence": {
             "longest_passage_words": 835,
             "target_word_offset": 0,
@@ -1717,7 +1757,7 @@
           "bill_title": "Saving Lives and Reducing Health Care Waste by Improving Diagnosis in Medicine Act",
           "member_id": "B001292",
           "same_sponsor": false,
-          "similarity_score": 0.999336302280426,
+          "similarity_score": 0.9993304014205933,
           "evidence": {
             "longest_passage_words": 2108,
             "target_word_offset": 171,
@@ -1787,7 +1827,7 @@
           "bill_title": "Next Generation Shipping Act",
           "member_id": "B001300",
           "same_sponsor": false,
-          "similarity_score": 0.9999985694885254,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 1900,
             "target_word_offset": 0,
@@ -1856,7 +1896,7 @@
           "bill_title": "National Fab Lab Network Act of 2026",
           "member_id": "F000454",
           "same_sponsor": false,
-          "similarity_score": 0.9922204613685608,
+          "similarity_score": 0.9922202229499817,
           "evidence": {
             "longest_passage_words": 679,
             "target_word_offset": 0,
@@ -1928,7 +1968,7 @@
           "bill_title": "District of Columbia Courts Judicial Vacancy Reduction Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.9870472550392151,
+          "similarity_score": 0.987041711807251,
           "evidence": {
             "longest_passage_words": 744,
             "target_word_offset": 383,
@@ -1998,7 +2038,7 @@
           "bill_title": "Federal Flood Risk Management Act of 2026",
           "member_id": "M001225",
           "same_sponsor": false,
-          "similarity_score": 0.9999984502792358,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 2635,
             "target_word_offset": 0,
@@ -2150,7 +2190,7 @@
           "bill_title": "Full-Service Community School Expansion Act of 2026",
           "member_id": "L000590",
           "same_sponsor": false,
-          "similarity_score": 0.999752402305603,
+          "similarity_score": 0.9997522830963135,
           "evidence": {
             "longest_passage_words": 9696,
             "target_word_offset": 1430,
@@ -2178,7 +2218,7 @@
           "bill_title": "Transforming Education for the Future Act",
           "member_id": "B001278",
           "same_sponsor": false,
-          "similarity_score": 0.5267083644866943,
+          "similarity_score": 0.5266346335411072,
           "evidence": {
             "longest_passage_words": 424,
             "target_word_offset": 7041,
@@ -2299,7 +2339,7 @@
           "bill_title": "ABLE MATCH (Making Able a Tool to Combat Hardship) Act",
           "member_id": "D000624",
           "same_sponsor": false,
-          "similarity_score": 0.8854722380638123,
+          "similarity_score": 0.8854658007621765,
           "evidence": {
             "longest_passage_words": 406,
             "target_word_offset": 1003,
@@ -2327,7 +2367,7 @@
           "bill_title": "To amend the Internal Revenue Code of 1986 to establish the individual tariff refund credit.",
           "member_id": "T000460",
           "same_sponsor": false,
-          "similarity_score": 0.3928072452545166,
+          "similarity_score": 0.3927486538887024,
           "evidence": {
             "longest_passage_words": 185,
             "target_word_offset": 1071,
@@ -2355,7 +2395,7 @@
           "bill_title": "American Tariff Rebate Act",
           "member_id": "F000477",
           "same_sponsor": false,
-          "similarity_score": 0.3724854290485382,
+          "similarity_score": 0.37241387367248535,
           "evidence": {
             "longest_passage_words": 185,
             "target_word_offset": 1071,
@@ -2426,7 +2466,7 @@
           "bill_title": "Millionaires Surtax Act",
           "member_id": "B001292",
           "same_sponsor": false,
-          "similarity_score": 0.9999998807907104,
+          "similarity_score": 0.9999999403953552,
           "evidence": {
             "longest_passage_words": 465,
             "target_word_offset": 0,
@@ -2454,7 +2494,7 @@
           "bill_title": "Working Americans\u2019 Tax Cut Act",
           "member_id": "B001292",
           "same_sponsor": false,
-          "similarity_score": 0.6128608584403992,
+          "similarity_score": 0.6128482222557068,
           "evidence": {
             "longest_passage_words": 200,
             "target_word_offset": 264,
@@ -2482,7 +2522,7 @@
           "bill_title": "Working Americans\u2019 Tax Cut Act",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.6128608584403992,
+          "similarity_score": 0.6128482222557068,
           "evidence": {
             "longest_passage_words": 200,
             "target_word_offset": 264,
@@ -2559,7 +2599,7 @@
           "bill_title": "A joint resolution to direct the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran that have not been authorized by Congress.",
           "member_id": "M001169",
           "same_sponsor": false,
-          "similarity_score": 0.7989776134490967,
+          "similarity_score": 0.7990073561668396,
           "evidence": {
             "longest_passage_words": 266,
             "target_word_offset": 265,
@@ -2587,7 +2627,7 @@
           "bill_title": "A joint resolution to direct the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran that have not been authorized by Congress.",
           "member_id": "M001176",
           "same_sponsor": false,
-          "similarity_score": 0.7903170585632324,
+          "similarity_score": 0.7903438210487366,
           "evidence": {
             "longest_passage_words": 170,
             "target_word_offset": 265,
@@ -2615,7 +2655,7 @@
           "bill_title": "A joint resolution to direct the removal of United States Armed Forces from hostilities within or against the Islamic Republic of Iran that have not been authorized by Congress.",
           "member_id": "K000384",
           "same_sponsor": false,
-          "similarity_score": 0.7781819701194763,
+          "similarity_score": 0.7782086730003357,
           "evidence": {
             "longest_passage_words": 115,
             "target_word_offset": 274,
@@ -2723,7 +2763,7 @@
           "bill_title": "Social Security Expansion Act",
           "member_id": "H001094",
           "same_sponsor": false,
-          "similarity_score": 0.6291066408157349,
+          "similarity_score": 0.6291731595993042,
           "evidence": {
             "longest_passage_words": 1447,
             "target_word_offset": 905,
@@ -2751,7 +2791,7 @@
           "bill_title": "Social Security Expansion Act",
           "member_id": "S000033",
           "same_sponsor": false,
-          "similarity_score": 0.6290764808654785,
+          "similarity_score": 0.629146158695221,
           "evidence": {
             "longest_passage_words": 1610,
             "target_word_offset": 905,
@@ -2779,7 +2819,7 @@
           "bill_title": "Social Security 2100 Act",
           "member_id": "L000557",
           "same_sponsor": false,
-          "similarity_score": 0.42401766777038574,
+          "similarity_score": 0.42405396699905396,
           "evidence": {
             "longest_passage_words": 1540,
             "target_word_offset": 941,
@@ -2848,7 +2888,7 @@
           "bill_title": "National Transit Frontline Workforce Training Act",
           "member_id": "W000808",
           "same_sponsor": false,
-          "similarity_score": 0.9984792470932007,
+          "similarity_score": 0.9984789490699768,
           "evidence": {
             "longest_passage_words": 578,
             "target_word_offset": 35,
@@ -2915,7 +2955,7 @@
           "bill_title": "Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Bureau of Consumer Financial Protection relating to the withdrawal of the rule relating to \"Consumer Financial Protection Circular 2024-05: Improper Overdraft Opt-In Practices\".",
           "member_id": "V000081",
           "same_sponsor": false,
-          "similarity_score": 0.9999999403953552,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 56,
             "target_word_offset": 0,
@@ -2943,7 +2983,7 @@
           "bill_title": "GUIDANCE Act of 2026",
           "member_id": "W000187",
           "same_sponsor": false,
-          "similarity_score": 0.48456788063049316,
+          "similarity_score": 0.4845522940158844,
           "evidence": {
             "longest_passage_words": 44,
             "target_word_offset": 3,
@@ -3031,7 +3071,7 @@
           "bill_title": "Working Americans\u2019 Tax Cut Act",
           "member_id": "B001292",
           "same_sponsor": false,
-          "similarity_score": 0.9999993443489075,
+          "similarity_score": 0.9999992847442627,
           "evidence": {
             "longest_passage_words": 1096,
             "target_word_offset": 0,
@@ -3059,7 +3099,7 @@
           "bill_title": "Millionaires Surtax Act",
           "member_id": "B001292",
           "same_sponsor": false,
-          "similarity_score": 0.6128608584403992,
+          "similarity_score": 0.6128482222557068,
           "evidence": {
             "longest_passage_words": 200,
             "target_word_offset": 895,
@@ -3087,7 +3127,7 @@
           "bill_title": "Millionaires Surtax Act",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.6128608584403992,
+          "similarity_score": 0.6128482222557068,
           "evidence": {
             "longest_passage_words": 200,
             "target_word_offset": 895,
@@ -3167,7 +3207,7 @@
           "bill_title": "BRAVE Burma Act",
           "member_id": "H001058",
           "same_sponsor": false,
-          "similarity_score": 0.5982517004013062,
+          "similarity_score": 0.5982090830802917,
           "evidence": {
             "longest_passage_words": 100,
             "target_word_offset": 191,
@@ -3286,7 +3326,7 @@
           "bill_title": "Power for the People Act of 2026",
           "member_id": "T000469",
           "same_sponsor": false,
-          "similarity_score": 0.9983609318733215,
+          "similarity_score": 0.9983599185943604,
           "evidence": {
             "longest_passage_words": 2759,
             "target_word_offset": 1042,
@@ -3355,7 +3395,7 @@
           "bill_title": "Protect Greenbury Point Conservation Area Act",
           "member_id": "E000301",
           "same_sponsor": false,
-          "similarity_score": 0.9593071937561035,
+          "similarity_score": 0.9592965245246887,
           "evidence": {
             "longest_passage_words": 101,
             "target_word_offset": 57,
@@ -3476,7 +3516,7 @@
           "bill_title": "To establish a Special Envoy for Humanitarian Aid Workers, and for other purposes.",
           "member_id": "P000597",
           "same_sponsor": false,
-          "similarity_score": 0.9303733110427856,
+          "similarity_score": 0.9303696751594543,
           "evidence": {
             "longest_passage_words": 205,
             "target_word_offset": 1186,
@@ -3575,7 +3615,7 @@
           "bill_title": "A resolution celebrating the 50th anniversary of the Individuals with Disabilities Education Act on November 29, 2025, and recognizing its transformative impact on the education of children with learning disabilities.",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.9999999403953552,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 91,
             "target_word_offset": 0,
@@ -3603,7 +3643,7 @@
           "bill_title": "Celebrating the 50th anniversary of the Individuals with Disabilities Education Act on November 29, 2025, and recognizing its transformative impact on the education of children with disabilities.",
           "member_id": "T000467",
           "same_sponsor": false,
-          "similarity_score": 0.9587208032608032,
+          "similarity_score": 0.9587187767028809,
           "evidence": {
             "longest_passage_words": 65,
             "target_word_offset": 3,
@@ -3710,7 +3750,7 @@
           "bill_title": "A resolution celebrating the 50th anniversary of the Individuals with Disabilities Education Act on November 29, 2025, and recognizing its transformative impact on the education of children with disabilities.",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.9999999403953552,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 91,
             "target_word_offset": 0,
@@ -3738,7 +3778,7 @@
           "bill_title": "Celebrating the 50th anniversary of the Individuals with Disabilities Education Act on November 29, 2025, and recognizing its transformative impact on the education of children with disabilities.",
           "member_id": "T000467",
           "same_sponsor": false,
-          "similarity_score": 0.9587208032608032,
+          "similarity_score": 0.9587187767028809,
           "evidence": {
             "longest_passage_words": 65,
             "target_word_offset": 3,
@@ -3807,7 +3847,7 @@
           "bill_title": "To designate the facility of the United States Postal Service located at 3570 Olney Laytonsville Road in Olney, Maryland, as the \"Edward L. Ramsey Olney Post Office Building\".",
           "member_id": "R000606",
           "same_sponsor": false,
-          "similarity_score": 0.9999998807907104,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 75,
             "target_word_offset": 0,
@@ -3835,7 +3875,7 @@
           "bill_title": "To designate the facility of the United States Postal Service located at 1225 Kempsville Road in Virginia Beach, Virginia, as the \"Colonel Edward Shames Post Office Building\".",
           "member_id": "K000399",
           "same_sponsor": false,
-          "similarity_score": 0.4538670480251312,
+          "similarity_score": 0.45388758182525635,
           "evidence": {
             "longest_passage_words": 37,
             "target_word_offset": 31,
@@ -3863,7 +3903,7 @@
           "bill_title": "To designate the facility of the United States Postal Service located at 47 Echo Avenue in Miller Place, New York, as the \"Christopher Pendergast Post Office Building\".",
           "member_id": "L000598",
           "same_sponsor": false,
-          "similarity_score": 0.4366177022457123,
+          "similarity_score": 0.4366273283958435,
           "evidence": {
             "longest_passage_words": 37,
             "target_word_offset": 31,
@@ -3930,7 +3970,7 @@
           "bill_title": "AIM Act",
           "member_id": "B001292",
           "same_sponsor": false,
-          "similarity_score": 0.9999991655349731,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 2545,
             "target_word_offset": 0,
@@ -3958,7 +3998,7 @@
           "bill_title": "Gun Records Restoration and Preservation Act",
           "member_id": "K000394",
           "same_sponsor": false,
-          "similarity_score": 0.569064736366272,
+          "similarity_score": 0.5691062808036804,
           "evidence": {
             "longest_passage_words": 387,
             "target_word_offset": 30,
@@ -3986,7 +4026,7 @@
           "bill_title": "Gun Records Restoration and Preservation Act",
           "member_id": "D000631",
           "same_sponsor": false,
-          "similarity_score": 0.5095677971839905,
+          "similarity_score": 0.5095927119255066,
           "evidence": {
             "longest_passage_words": 45,
             "target_word_offset": 1318,
@@ -4096,7 +4136,7 @@
           "bill_title": "True Shutdown Fairness Act",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.7280784249305725,
+          "similarity_score": 0.7281131148338318,
           "evidence": {
             "longest_passage_words": 210,
             "target_word_offset": 296,
@@ -4124,7 +4164,7 @@
           "bill_title": "True Shutdown Fairness Act",
           "member_id": "W000831",
           "same_sponsor": false,
-          "similarity_score": 0.662796139717102,
+          "similarity_score": 0.6627759337425232,
           "evidence": {
             "longest_passage_words": 94,
             "target_word_offset": 116,
@@ -4222,7 +4262,7 @@
           "bill_title": "True Shutdown Fairness Act",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.7280784249305725,
+          "similarity_score": 0.7281131148338318,
           "evidence": {
             "longest_passage_words": 210,
             "target_word_offset": 126,
@@ -4250,7 +4290,7 @@
           "bill_title": "Pay the People Act",
           "member_id": "K000393",
           "same_sponsor": false,
-          "similarity_score": 0.4736119210720062,
+          "similarity_score": 0.4735459089279175,
           "evidence": {
             "longest_passage_words": 47,
             "target_word_offset": 311,
@@ -4278,7 +4318,7 @@
           "bill_title": "True Shutdown Fairness Act",
           "member_id": "W000831",
           "same_sponsor": false,
-          "similarity_score": 0.45802247524261475,
+          "similarity_score": 0.45801225304603577,
           "evidence": {
             "longest_passage_words": 88,
             "target_word_offset": 444,
@@ -4352,7 +4392,7 @@
           "bill_title": "Shutdown Guidance for Financial Institutions Act",
           "member_id": "S001230",
           "same_sponsor": false,
-          "similarity_score": 0.8967360854148865,
+          "similarity_score": 0.8966958522796631,
           "evidence": {
             "longest_passage_words": 132,
             "target_word_offset": 281,
@@ -4423,7 +4463,7 @@
           "bill_title": "Democracy in Design Act",
           "member_id": "T000468",
           "same_sponsor": false,
-          "similarity_score": 0.9784824252128601,
+          "similarity_score": 0.9784742593765259,
           "evidence": {
             "longest_passage_words": 162,
             "target_word_offset": 0,
@@ -4496,7 +4536,7 @@
           "bill_title": "A resolution designating the week of September 13 through September 19, 2026, as \"Community School Coordinators Appreciation Week\".",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.9286357164382935,
+          "similarity_score": 0.9286454319953918,
           "evidence": {
             "longest_passage_words": 43,
             "target_word_offset": 13,
@@ -4524,7 +4564,7 @@
           "bill_title": "Expressing support for the designation of the week of September 13 through September 19, 2026, as \"Community School Coordinators Appreciation Week\".",
           "member_id": "C001080",
           "same_sponsor": false,
-          "similarity_score": 0.8224361538887024,
+          "similarity_score": 0.8224383592605591,
           "evidence": {
             "longest_passage_words": 34,
             "target_word_offset": 22,
@@ -4552,7 +4592,7 @@
           "bill_title": "Expressing support for the designation of \"Community School Coordinators Appreciation Week \".",
           "member_id": "C001080",
           "same_sponsor": false,
-          "similarity_score": 0.817040205001831,
+          "similarity_score": 0.8170400261878967,
           "evidence": {
             "longest_passage_words": 34,
             "target_word_offset": 22,
@@ -4713,7 +4753,7 @@
           "bill_title": "District of Columbia Police Home Rule Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.9999999403953552,
+          "similarity_score": 0.9999998807907104,
           "evidence": {
             "longest_passage_words": 74,
             "target_word_offset": 0,
@@ -4793,7 +4833,7 @@
           "bill_title": "District of Columbia National Guard Home Rule Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.9940063953399658,
+          "similarity_score": 0.9940083622932434,
           "evidence": {
             "longest_passage_words": 893,
             "target_word_offset": 0,
@@ -4863,7 +4903,7 @@
           "bill_title": "Fresh Start Act of 2025",
           "member_id": "L000597",
           "same_sponsor": false,
-          "similarity_score": 0.6533950567245483,
+          "similarity_score": 0.653410017490387,
           "evidence": {
             "longest_passage_words": 40,
             "target_word_offset": 433,
@@ -4938,7 +4978,7 @@
           "bill_title": "Transformation to Competitive Integrated Employment Act",
           "member_id": "S000185",
           "same_sponsor": false,
-          "similarity_score": 0.9417276978492737,
+          "similarity_score": 0.9416994452476501,
           "evidence": {
             "longest_passage_words": 275,
             "target_word_offset": 5607,
@@ -5005,7 +5045,7 @@
           "bill_title": "Francis G. Newlands Memorial Removal Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 1.0,
+          "similarity_score": 0.999998927116394,
           "evidence": {
             "longest_passage_words": 189,
             "target_word_offset": 0,
@@ -5084,7 +5124,7 @@
           "bill_title": "Consumer Online Payment Transparency and Integrity Act",
           "member_id": "C001067",
           "same_sponsor": false,
-          "similarity_score": 1.0,
+          "similarity_score": 0.9999996423721313,
           "evidence": {
             "longest_passage_words": 1175,
             "target_word_offset": 0,
@@ -5153,7 +5193,7 @@
           "bill_title": "YALI Act of 2025",
           "member_id": "K000400",
           "same_sponsor": false,
-          "similarity_score": 0.8888906836509705,
+          "similarity_score": 0.8888904452323914,
           "evidence": {
             "longest_passage_words": 203,
             "target_word_offset": 282,
@@ -5222,7 +5262,7 @@
           "bill_title": "Taiwan International Solidarity Act",
           "member_id": "C001078",
           "same_sponsor": false,
-          "similarity_score": 0.9229087233543396,
+          "similarity_score": 0.9229069948196411,
           "evidence": {
             "longest_passage_words": 96,
             "target_word_offset": 62,
@@ -5366,7 +5406,7 @@
           "bill_title": "El Salvador Accountability Act of 2025",
           "member_id": "M000312",
           "same_sponsor": false,
-          "similarity_score": 0.998064398765564,
+          "similarity_score": 0.9980608820915222,
           "evidence": {
             "longest_passage_words": 1490,
             "target_word_offset": 499,
@@ -5394,7 +5434,7 @@
           "bill_title": "Protecting Global Fisheries Act of 2026",
           "member_id": "K000384",
           "same_sponsor": false,
-          "similarity_score": 0.35460275411605835,
+          "similarity_score": 0.35460761189460754,
           "evidence": {
             "longest_passage_words": 111,
             "target_word_offset": 1332,
@@ -5422,7 +5462,7 @@
           "bill_title": "Venezuela Democratic Transition Act",
           "member_id": "K000384",
           "same_sponsor": false,
-          "similarity_score": 0.3306693434715271,
+          "similarity_score": 0.33066049218177795,
           "evidence": {
             "longest_passage_words": 111,
             "target_word_offset": 1332,
@@ -5572,7 +5612,7 @@
           "bill_title": "VALID Act of 2025",
           "member_id": "P000620",
           "same_sponsor": false,
-          "similarity_score": 0.9324265122413635,
+          "similarity_score": 0.9323725700378418,
           "evidence": {
             "longest_passage_words": 141,
             "target_word_offset": 17,
@@ -5600,7 +5640,7 @@
           "bill_title": "VA Home Loan Awareness Act of 2025",
           "member_id": "D000594",
           "same_sponsor": false,
-          "similarity_score": 0.45807552337646484,
+          "similarity_score": 0.45790907740592957,
           "evidence": {
             "longest_passage_words": 48,
             "target_word_offset": 157,
@@ -5628,7 +5668,7 @@
           "bill_title": "VA Home Loan Awareness Act of 2025",
           "member_id": "S001232",
           "same_sponsor": false,
-          "similarity_score": 0.456807404756546,
+          "similarity_score": 0.4566398561000824,
           "evidence": {
             "longest_passage_words": 48,
             "target_word_offset": 157,
@@ -5697,7 +5737,7 @@
           "bill_title": "Henrietta Lacks Congressional Gold Medal Act",
           "member_id": "M000687",
           "same_sponsor": false,
-          "similarity_score": 0.9904370307922363,
+          "similarity_score": 0.9904361367225647,
           "evidence": {
             "longest_passage_words": 494,
             "target_word_offset": 0,
@@ -5725,7 +5765,7 @@
           "bill_title": "Arturo Alfonso Schomburg Congressional Gold Medal Act",
           "member_id": "V000081",
           "same_sponsor": false,
-          "similarity_score": 0.3219921588897705,
+          "similarity_score": 0.32201486825942993,
           "evidence": {
             "longest_passage_words": 91,
             "target_word_offset": 679,
@@ -5753,7 +5793,7 @@
           "bill_title": "Golden Thirteen Congressional Gold Medal Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.3085969090461731,
+          "similarity_score": 0.30861222743988037,
           "evidence": {
             "longest_passage_words": 110,
             "target_word_offset": 494,
@@ -5829,7 +5869,7 @@
           "bill_title": "American Ownership and Resilience Act",
           "member_id": "M001213",
           "same_sponsor": false,
-          "similarity_score": 0.9998632669448853,
+          "similarity_score": 0.9998719692230225,
           "evidence": {
             "longest_passage_words": 9434,
             "target_word_offset": 4067,
@@ -5939,7 +5979,7 @@
           "bill_title": "USRC Funding Eligibility Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.9999998211860657,
+          "similarity_score": 0.9999998807907104,
           "evidence": {
             "longest_passage_words": 383,
             "target_word_offset": 0,
@@ -6047,7 +6087,7 @@
           "bill_title": "IDEA Full Funding Act",
           "member_id": "H001068",
           "same_sponsor": false,
-          "similarity_score": 0.9805073142051697,
+          "similarity_score": 0.9805046319961548,
           "evidence": {
             "longest_passage_words": 675,
             "target_word_offset": 0,
@@ -6075,7 +6115,7 @@
           "bill_title": "Keep Our PACT Act",
           "member_id": "L000590",
           "same_sponsor": false,
-          "similarity_score": 0.7574312090873718,
+          "similarity_score": 0.7574465274810791,
           "evidence": {
             "longest_passage_words": 866,
             "target_word_offset": 13,
@@ -6103,7 +6143,7 @@
           "bill_title": "Keep Our PACT Act",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.7574312090873718,
+          "similarity_score": 0.7574465274810791,
           "evidence": {
             "longest_passage_words": 866,
             "target_word_offset": 13,
@@ -6174,7 +6214,7 @@
           "bill_title": "Taiwan Allies Fund Act",
           "member_id": "K000391",
           "same_sponsor": false,
-          "similarity_score": 0.8812749981880188,
+          "similarity_score": 0.8812873363494873,
           "evidence": {
             "longest_passage_words": 217,
             "target_word_offset": 73,
@@ -6245,7 +6285,7 @@
           "bill_title": "COST of Relocations Act",
           "member_id": "S001230",
           "same_sponsor": false,
-          "similarity_score": 1.0,
+          "similarity_score": 0.9999992251396179,
           "evidence": {
             "longest_passage_words": 986,
             "target_word_offset": 0,
@@ -6312,7 +6352,7 @@
           "bill_title": "NEWBORN Act",
           "member_id": "C001068",
           "same_sponsor": false,
-          "similarity_score": 0.993008017539978,
+          "similarity_score": 0.9930128455162048,
           "evidence": {
             "longest_passage_words": 605,
             "target_word_offset": 0,
@@ -6385,7 +6425,7 @@
           "bill_title": "Chesapeake Bay Conservation Acceleration Act of 2025",
           "member_id": "W000804",
           "same_sponsor": false,
-          "similarity_score": 0.9999995827674866,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 3257,
             "target_word_offset": 0,
@@ -6464,7 +6504,7 @@
           "bill_title": "Sarah Debbink Langenkamp Active Transportation Safety Act",
           "member_id": "R000606",
           "same_sponsor": false,
-          "similarity_score": 0.9897112250328064,
+          "similarity_score": 0.9897083640098572,
           "evidence": {
             "longest_passage_words": 379,
             "target_word_offset": 0,
@@ -6492,7 +6532,7 @@
           "bill_title": "America Bikes Act",
           "member_id": "T000460",
           "same_sponsor": false,
-          "similarity_score": 0.39486637711524963,
+          "similarity_score": 0.39481809735298157,
           "evidence": {
             "longest_passage_words": 364,
             "target_word_offset": 15,
@@ -6566,7 +6606,7 @@
           "bill_title": "To prohibit the issuance of licenses for the exportation of certain defense articles to the United Arab Emirates, and for other purposes.",
           "member_id": "J000305",
           "same_sponsor": false,
-          "similarity_score": 0.9465105533599854,
+          "similarity_score": 0.9465662837028503,
           "evidence": {
             "longest_passage_words": 63,
             "target_word_offset": 94,
@@ -6639,7 +6679,7 @@
           "bill_title": "Protect Our Probationary Employees Act",
           "member_id": "E000301",
           "same_sponsor": false,
-          "similarity_score": 0.8983940482139587,
+          "similarity_score": 0.8983845114707947,
           "evidence": {
             "longest_passage_words": 36,
             "target_word_offset": 230,
@@ -6719,7 +6759,7 @@
           "bill_title": "Farewell to Foam Act of 2025",
           "member_id": "D000399",
           "same_sponsor": false,
-          "similarity_score": 1.0,
+          "similarity_score": 0.9999988675117493,
           "evidence": {
             "longest_passage_words": 931,
             "target_word_offset": 0,
@@ -6827,7 +6867,7 @@
           "bill_title": "Justice Thurgood Marshall National Historic Site Establishment Act of 2025",
           "member_id": "M000687",
           "same_sponsor": false,
-          "similarity_score": 0.9455280900001526,
+          "similarity_score": 0.945527195930481,
           "evidence": {
             "longest_passage_words": 80,
             "target_word_offset": 585,
@@ -6919,7 +6959,7 @@
           "bill_title": "Keep Our PACT Act",
           "member_id": "L000590",
           "same_sponsor": false,
-          "similarity_score": 0.9999967813491821,
+          "similarity_score": 1.0,
           "evidence": {
             "longest_passage_words": 1637,
             "target_word_offset": 0,
@@ -6947,7 +6987,7 @@
           "bill_title": "IDEA Full Funding Act",
           "member_id": "V000128",
           "same_sponsor": true,
-          "similarity_score": 0.7574312090873718,
+          "similarity_score": 0.7574465274810791,
           "evidence": {
             "longest_passage_words": 866,
             "target_word_offset": 672,
@@ -6975,7 +7015,7 @@
           "bill_title": "IDEA Full Funding Act",
           "member_id": "H001068",
           "same_sponsor": false,
-          "similarity_score": 0.7474884390830994,
+          "similarity_score": 0.7475030422210693,
           "evidence": {
             "longest_passage_words": 662,
             "target_word_offset": 672,
@@ -7045,7 +7085,7 @@
           "bill_title": "Handgun Permit to Purchase Act",
           "member_id": "R000606",
           "same_sponsor": false,
-          "similarity_score": 1.0,
+          "similarity_score": 0.9999982118606567,
           "evidence": {
             "longest_passage_words": 1003,
             "target_word_offset": 0,
@@ -7156,7 +7196,7 @@
           "bill_title": "Washington, D.C. Admission Act",
           "member_id": "N000147",
           "same_sponsor": false,
-          "similarity_score": 0.9998961091041565,
+          "similarity_score": 0.9998820424079895,
           "evidence": {
             "longest_passage_words": 15275,
             "matched_word_offset": 0,
@@ -7184,7 +7224,7 @@
           "bill_title": "Washington, D.C. Residents Voting Act",
           "member_id": "G000568",
           "same_sponsor": false,
-          "similarity_score": 0.7609889507293701,
+          "similarity_score": 0.7609854936599731,
           "evidence": {
             "longest_passage_words": 356,
             "matched_word_offset": 942,
@@ -7303,7 +7343,7 @@
       "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-24T00:21:39.136155+00:00",
+  "bills_updated": "2026-11-24T12:32:03.722671+00:00",
   "bills_count": 77,
   "donor_alignment_score": null,
   "alec_match_count": 0,
@@ -7472,7 +7512,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-23T19:34:30.660979",
+  "score_updated": "2026-11-24T12:38:10.731922",
   "missed_votes_pct": 1.0,
   "travel": [
     {
@@ -9125,7 +9165,7 @@
   "bills_status": "available",
   "model_analysis_status": "primary_model_corpus_unavailable",
   "donor_alignment_status": "unavailable",
-  "bill_source_manifest_sha256": "b355d5401680fd0a183b731b4e64e9acf6d8bdf23059895eb6a8d0a5bf8e2d67",
+  "bill_source_manifest_sha256": "44ead7aa45640ddd25bb0ae26b9f5e10eeb1afef2392885d3395bf42903d4dee",
   "source_reconciliation_history": [
     {
       "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
@@ -9142,5 +9182,5 @@
       }
     }
   ],
-  "bills_checked": "2026-11-24T00:21:39.136155+00:00"
+  "bills_checked": "2026-11-24T12:32:03.722671+00:00"
 }
