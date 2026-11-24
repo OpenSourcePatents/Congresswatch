@@ -1445,7 +1445,7 @@
   "alec_match_count": 0,
   "donor_match_count": 0,
   "edgar_status": "unverified_auto",
-  "votes_fail_count": 50,
+  "votes_fail_count": 51,
   "top_donors_list": [
     {
       "name": "BETTIS, HARRY",
@@ -1649,13 +1649,25 @@
       "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
     },
     "latest_attempt": {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
-      "checked": "2026-11-21T09:04:50.711848",
-      "failed_attempt_count": 48,
-      "status": "fetch_failed"
-    }
+      "source_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+      "prior_upstream_snapshot": "3d3ee672e4e1fd7669ed6850f36e3c7e94f3bba0",
+      "run": 45387356496,
+      "checked": "2026-11-24T11:54:30.316500",
+      "legacy_votes_updated": "2026-11-24T11:54:30.316500",
+      "failed_attempt_count": 51,
+      "status": "fetch_failed",
+      "note": "Publisher failures; zero successful fetches. Preserve cached votes and last-good collection time."
+    },
+    "prior_attempts": [
+      {
+        "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+        "checked": "2026-11-21T09:04:50.711848",
+        "failed_attempt_count": 48,
+        "status": "fetch_failed"
+      }
+    ]
   },
-  "votes_checked": "2026-11-23T10:05:51.680659",
+  "votes_checked": "2026-11-24T11:54:30.316500",
   "upstream_sec_observation": {
     "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,

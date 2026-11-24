@@ -2173,7 +2173,7 @@
   "trades_updated": "2026-09-22T12:52:10.112332+00:00",
   "trade_count": 19,
   "latest_trade_date": "2026-09-01",
-  "votes_fail_count": 49,
+  "votes_fail_count": 50,
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -2379,13 +2379,25 @@
       "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
     },
     "latest_attempt": {
-      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
-      "checked": "2026-11-21T09:08:08.609588",
-      "failed_attempt_count": 47,
-      "status": "fetch_failed"
-    }
+      "source_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+      "prior_upstream_snapshot": "3d3ee672e4e1fd7669ed6850f36e3c7e94f3bba0",
+      "run": 45387356496,
+      "checked": "2026-11-24T11:57:49.373905",
+      "legacy_votes_updated": "2026-11-24T11:57:49.373905",
+      "failed_attempt_count": 50,
+      "status": "fetch_failed",
+      "note": "Publisher failures; zero successful fetches. Preserve cached votes and last-good collection time."
+    },
+    "prior_attempts": [
+      {
+        "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+        "checked": "2026-11-21T09:08:08.609588",
+        "failed_attempt_count": 47,
+        "status": "fetch_failed"
+      }
+    ]
   },
-  "votes_checked": "2026-11-23T10:09:08.916562",
+  "votes_checked": "2026-11-24T11:57:49.373905",
   "upstream_sec_observation": {
     "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
     "candidate_only": true,
