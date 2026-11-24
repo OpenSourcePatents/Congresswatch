@@ -51,6 +51,17 @@ assert size == manifest["size"] and total.hexdigest() == manifest["sha256"]
 subprocess.run(["git", "fetch", "origin", *manifest["prerequisites"]], check=True)
 subprocess.run(["git", "bundle", "verify", str(bundle)], check=True)
 subprocess.run(["git", "fetch", str(bundle), "HEAD"], check=True)
+assert git("rev-parse", "FETCH_HEAD") == manifest["original_commit"]
+part = manifest["supplement"]
+request = Request(f"https://api.github.com/repos/{repo}/git/blobs/{part['sha']}", headers={"Authorization": "Bearer " + os.environ["GH_TOKEN"], "Accept": "application/vnd.github+json"})
+with urlopen(request, timeout=60) as response:
+    payload = json.load(response)
+data = base64.b64decode(payload["content"])
+assert len(data) == part["size"] and hashlib.sha256(data).hexdigest() == part["sha256"]
+supplement = bundle.with_name("supplement.bundle")
+supplement.write_bytes(data)
+subprocess.run(["git", "bundle", "verify", str(supplement)], check=True)
+subprocess.run(["git", "fetch", str(supplement), "HEAD"], check=True)
 assert git("rev-parse", "FETCH_HEAD") == manifest["commit"]
 assert git("rev-parse", manifest["commit"] + "^{tree}") == manifest["tree"]
 for ancestor in (manifest["old_review"], manifest["main"]):
