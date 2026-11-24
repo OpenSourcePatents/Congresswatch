@@ -74,5 +74,44 @@ class PipelineRecoveryTests(unittest.TestCase):
         self.assertEqual(self.run_travel(503), 'download_error')
 
 
+class FinanceReconciliationTests(unittest.TestCase):
+    def setUp(self):
+        from validation.reconcile_nov24_finance import reconciled_sec
+        self.reconcile = reconciled_sec
+        self.prior = {'edgar_cik': '0001382475', 'corporate_insider_signals': 19,
+                      'edgar_identity_status': 'unverified', 'edgar_updated': 'last-good'}
+
+    def test_failed_new_cik_cannot_inherit_old_count(self):
+        obs = {'alias_errors': [], 'query_errors': ['HTTP 500'], 'hit': None}
+        result = self.reconcile(self.prior, obs, 'attempt')
+        self.assertEqual((result['edgar_cik'], result['corporate_insider_signals']),
+                         ('0001382475', 19))
+        self.assertEqual(result['edgar_updated'], 'last-good')
+        self.assertEqual(result['edgar_data_status'], 'stale')
+
+    def test_partial_alias_success_is_raw_only(self):
+        obs = {'alias_errors': ['HTTP 500'], 'query_errors': [],
+               'hit': {'cik': '0002021757', 'count': 11}}
+        result = self.reconcile(self.prior, obs, 'attempt')
+        self.assertEqual(result['edgar_cik'], self.prior['edgar_cik'])
+        self.assertEqual(result['corporate_insider_signals'], 19)
+        self.assertEqual(result['edgar_status'], 'query_failed')
+
+    def test_complete_raw_retrieval_never_verifies_identity(self):
+        obs = {'alias_errors': [], 'query_errors': [],
+               'hit': {'cik': '0001852313', 'count': 12}}
+        result = self.reconcile(self.prior, obs, 'attempt')
+        self.assertEqual((result['edgar_cik'], result['corporate_insider_signals']),
+                         ('0001852313', 12))
+        self.assertEqual(result['edgar_status'], 'unverified_auto')
+        from fetch_finance import eligible_sec_signals
+        self.assertEqual(eligible_sec_signals({**self.prior, **result}), 0)
+
+    def test_verified_input_requires_separate_review(self):
+        prior = {**self.prior, 'edgar_identity_status': 'verified'}
+        with self.assertRaisesRegex(ValueError, 'Verified identity'):
+            self.reconcile(prior, {'alias_errors': ['HTTP 500']}, 'attempt')
+
+
 if __name__ == '__main__':
     unittest.main()
