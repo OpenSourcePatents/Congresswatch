@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412673,
-  "votes_updated": "2026-11-24T11:52:26.713253",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "K000388",
   "name": "Trent Kelly",
@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000388.jpg",
   "term_start": "2015-01-01",
-  "score": 4,
+  "score": 0,
   "flags": [
     "donor"
   ],
@@ -926,94 +926,90 @@
   "individual_contributions": 613538.36,
   "cash_on_hand": 834172.64,
   "total_raised_display": "$664K",
-  "data_updated": "2026-11-24T15:53:30.284223",
-  "last_updated": "2026-11-24T15:53:30.284223",
+  "data_updated": "2026-11-18T13:59:55.036464",
+  "last_updated": "2026-11-17T14:29:25.965280",
   "bills": [
     {
       "bill_id": "HR5468-119",
-      "title": "Community College Agriculture Advancement Act of 2025",
       "type": "HR",
       "number": "5468",
       "congress": 119,
+      "title": "Community College Agriculture Advancement Act of 2025",
       "introduced_date": "2025-09-18",
-      "latest_action": "Referred to the House Committee on Agriculture.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/5468?format=json",
-      "keywords": [
-        "agriculture",
-        "eligible",
-        "grants",
-        "community",
-        "college",
-        "capacity",
-        "research",
-        "advancement",
-        "entity",
-        "national",
-        "building",
-        "committee",
-        "priority",
-        "funds",
-        "agricultural",
-        "natural",
-        "resources",
-        "programs",
-        "secretary",
-        "activities"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.073,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/5468",
+      "latest_action": "Referred to the Subcommittee on Conservation, Research, and Biotechnology.",
+      "latest_action_date": "2025-12-02",
       "cosponsors": [
         "C001112",
         "F000474",
         "D000230"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr5468.xml",
+      "metadata_source_sha256": "642306d2c09b59dde0af3064c422781019d6ecd19a33fb13691321740c7d76aa",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S4730-119",
+          "bill_title": "Community College Agriculture Advancement Act of 2026",
+          "member_id": "H000273",
+          "same_sponsor": false,
+          "similarity_score": 0.9976313710212708,
+          "evidence": {
+            "longest_passage_words": 537,
+            "target_word_offset": 16,
+            "matched_word_offset": 16,
+            "displayed_passage_words": 120,
+            "target_passage": "Capacity building grants for community college agriculture and natural resources programs Subtitle K of the National Agricultural Research, Extension, and Teaching Policy Act of 1977 ( 7 U.S.C. 3310 et seq. ) is amended by adding at the end the following: Capacity building grants for community college agriculture and natural resources programs Definitions In this section: Eligible entity The term eligible entity means\u2014 a junior or community college supporting agriculture advancement; and a consortium or alliance of 2-year public colleges supporting agriculture advancement. Junior or community college The term junior or community college has the meaning given the term in section 312 of the Higher Education Act of 1965 ( 20 U.S.C. 1058 ). Competitive grants The Secretary shall",
+            "matched_passage": "Capacity building grants for community college agriculture and natural resources programs Subtitle K of the National Agricultural Research, Extension, and Teaching Policy Act of 1977 ( 7 U.S.C. 3310 et seq. ) is amended by adding at the end the following: Capacity building grants for community college agriculture and natural resources programs Definitions In this section: Eligible entity The term eligible entity means\u2014 a junior or community college supporting agriculture advancement; and a consortium or alliance of 2-year public colleges supporting agriculture advancement. Junior or community college The term junior or community college has the meaning given the term in section 312 of the Higher Education Act of 1965 ( 20 U.S.C. 1058 ). Competitive grants The Secretary shall",
+            "target_shingle_coverage": 0.9724770642201835,
+            "matched_shingle_coverage": 0.9724770642201835,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5468ih/xml/BILLS-119hr5468ih.xml",
+            "target_source_sha256": "174cfee001ff2ed5f5c62fce8d9739e8f5cde43296ae462a1ab5583910d300d7",
+            "target_text_sha256": "49e14ece28ec99a64537571f9e7a02bf744bd5eeee5591d0bbf3a2a402f3a62a",
+            "target_version_code": "ih",
+            "target_version_date": "2025-09-18T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s4730is/xml/BILLS-119s4730is.xml",
+            "matched_source_sha256": "bf077818006135637a8d1d02790054f226a3421256548aa27439b13a32f7e205",
+            "matched_text_sha256": "4a4c536473c595d362258db3b88111bc690a2630d6bcacd42f76af7641e6dfe4",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-06-10T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR5468-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5468ih/xml/BILLS-119hr5468ih.xml",
+        "source_sha256": "174cfee001ff2ed5f5c62fce8d9739e8f5cde43296ae462a1ab5583910d300d7",
+        "text_sha256": "49e14ece28ec99a64537571f9e7a02bf744bd5eeee5591d0bbf3a2a402f3a62a",
+        "version_date": "2025-09-18T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr5468ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR3476-119",
-      "title": "Forest Conservation Easement Program Act of 2025",
       "type": "HR",
       "number": "3476",
       "congress": 119,
+      "title": "Forest Conservation Easement Program Act of 2025",
       "introduced_date": "2025-05-17",
+      "url": null,
       "latest_action": "Referred to the House Committee on Agriculture.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/3476?format=json",
-      "keywords": [
-        "forest",
-        "land",
-        "eligible",
-        "secretary",
-        "easement",
-        "program",
-        "easements",
-        "plan",
-        "conservation",
-        "reserve",
-        "entity",
-        "iii",
-        "subparagraph",
-        "described",
-        "landowner",
-        "assistance",
-        "state",
-        "species",
-        "purposes",
-        "determined"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.084,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-05-17",
       "cosponsors": [
         "G000604",
         "M001212",
@@ -1024,57 +1020,81 @@
         "H001090",
         "L000599",
         "C001103",
-        "S001216"
+        "S001216",
+        "P000597",
+        "K000391",
+        "M001232",
+        "V000138",
+        "B001326",
+        "E000235",
+        "P000614"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "reimbursement"
-          ]
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3476.xml",
+      "metadata_source_sha256": "8df49473330c240b2fa1968673e7d5fee821bc412d24411a675c8195ec2e828e",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1050-119",
+          "bill_title": "Forest Conservation Easement Program Act of 2025",
+          "member_id": "G000555",
+          "same_sponsor": false,
+          "similarity_score": 0.7863022089004517,
+          "evidence": {
+            "longest_passage_words": 118,
+            "target_word_offset": 320,
+            "matched_word_offset": 250,
+            "displayed_passage_words": 118,
+            "target_passage": "an organization that is\u2014 organized for, and at all times since the formation of the organization has been operated principally for, 1 or more of the conservation purposes specified in clause (i), (ii), (iii), or (iv) of section 170(h)(4)(A) of the Internal Revenue Code of 1986; an organization described in section 501(c)(3) of that Code that is exempt from taxation under section 501(a) of that Code; or described in\u2014 paragraph (1) or (2) of section 509(a) of that Code; or section 509(a)(3) of that Code and is controlled by an organization described in section 509(a)(2) of that Code. Eligible land The term eligible land means private land",
+            "matched_passage": "an organization that is\u2014 organized for, and at all times since the formation of the organization has been operated principally for, 1 or more of the conservation purposes specified in clause (i), (ii), (iii), or (iv) of section 170(h)(4)(A) of the Internal Revenue Code of 1986; an organization described in section 501(c)(3) of that Code that is exempt from taxation under section 501(a) of that Code; or described in\u2014 paragraph (1) or (2) of section 509(a) of that Code; or section 509(a)(3) of that Code, and is controlled by an organization described in section 509(a)(2) of that Code. Eligible land The term eligible land means private land",
+            "target_shingle_coverage": 0.3172231985940246,
+            "matched_shingle_coverage": 0.34691524120699596,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3476ih/xml/BILLS-119hr3476ih.xml",
+            "target_source_sha256": "a1c959042a6b2eb3259a5e3122016cba061d9955c8ee22168d7c509750579cae",
+            "target_text_sha256": "d10a18b77e58d145d851a9aaab0db2072bf97448c0dd5e79a993748cb7c5ba2e",
+            "target_version_code": "ih",
+            "target_version_date": "2025-05-17T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1050is/xml/BILLS-119s1050is.xml",
+            "matched_source_sha256": "9a0175b00520424bd4e4ee66c6bfde648430947f5b940f80b9c9c9fcd0061313",
+            "matched_text_sha256": "8da7e482db5efa2c056796e8476168847f80b686b67a1f3363980a5d6f34f031",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-03-13T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3476-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3476ih/xml/BILLS-119hr3476ih.xml",
+        "source_sha256": "a1c959042a6b2eb3259a5e3122016cba061d9955c8ee22168d7c509750579cae",
+        "text_sha256": "d10a18b77e58d145d851a9aaab0db2072bf97448c0dd5e79a993748cb7c5ba2e",
+        "version_date": "2025-05-17T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3476ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR3397-119",
-      "title": "Pacific Ready Coast Guard Act",
       "type": "HR",
       "number": "3397",
       "congress": 119,
+      "title": "Pacific Ready Coast Guard Act",
       "introduced_date": "2025-05-14",
+      "url": null,
       "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/3397?format=json",
-      "keywords": [
-        "pacific",
-        "coast",
-        "guard",
-        "commandant",
-        "center",
-        "indo",
-        "plan",
-        "congressional",
-        "appropriate",
-        "budget",
-        "committee",
-        "committees",
-        "region",
-        "year",
-        "maritime",
-        "department",
-        "display",
-        "report",
-        "services",
-        "operations"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.03,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-05-17",
       "cosponsors": [
         "C001055",
         "R000600",
@@ -1084,56 +1104,72 @@
         "K000391",
         "K000404"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data"
-          ]
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3397.xml",
+      "metadata_source_sha256": "44543917534e8d91fca699c04687f2d5c07e38b80f0f74e701f8410c5957b632",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S2652-119",
+          "bill_title": "Pacific Ready Coast Guard Act",
+          "member_id": "S001194",
+          "same_sponsor": false,
+          "similarity_score": 0.7451322078704834,
+          "evidence": {
+            "longest_passage_words": 221,
+            "target_word_offset": 737,
+            "matched_word_offset": 534,
+            "displayed_passage_words": 120,
+            "target_passage": "a detailed budget display for Coast Guard operations in the Pacific region for the fiscal year after the fiscal year during which the budget display is submitted. The Commandant shall base such budget display on the projected demand for Coast Guard engagement in the Pacific region as identified in the most recent annual plan developed under section 5116 of this title. Such budget display shall include, for the year covered by the budget display, the following information: With respect to procurement accounts, amounts displayed by account, budget activity, line number, line item, and line item title. With respect to research, development, test, and evaluation accounts, amounts displayed by account, budget activity, line number, program element, and program element title. With",
+            "matched_passage": "a detailed budget display for Coast Guard operations in the Pacific region for the fiscal year after the fiscal year during which the budget display is submitted. The Commandant shall base such budget display on the projected demand for Coast Guard engagement in the Pacific region as identified in the most recent annual plan developed under section 5116 of this title. Such budget display shall include, for the year covered by the budget display, the following information: With respect to procurement accounts, amounts displayed by account, budget activity, line number, line item, and line item title. With respect to research, development, test, and evaluation accounts, amounts displayed by account, budget activity, line number, program element, and program element title. With",
+            "target_shingle_coverage": 0.4198529411764706,
+            "matched_shingle_coverage": 0.3693402328589909,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3397ih/xml/BILLS-119hr3397ih.xml",
+            "target_source_sha256": "42e1d8b1d066906ff358eb5650893d2abd5240b169f4c3dca91192e9f2bee7b9",
+            "target_text_sha256": "14a71f4d267f17679581de49656f6431781b2ec1a544cba38826e2fa2a7f0c76",
+            "target_version_code": "ih",
+            "target_version_date": "2025-05-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s2652is/xml/BILLS-119s2652is.xml",
+            "matched_source_sha256": "1113e3a0d46db94d4589b592d1738109fdea2fe3c7b4438db1ddc97dbc7cc080",
+            "matched_text_sha256": "d0831a9525d6ae61c562329cac7c7041a7d70e25cad2e7a3a2f4c5e5382fa92b",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-08-01T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3397-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3397ih/xml/BILLS-119hr3397ih.xml",
+        "source_sha256": "42e1d8b1d066906ff358eb5650893d2abd5240b169f4c3dca91192e9f2bee7b9",
+        "text_sha256": "14a71f4d267f17679581de49656f6431781b2ec1a544cba38826e2fa2a7f0c76",
+        "version_date": "2025-05-14T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3397ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR3151-119",
-      "title": "SHIPS for America Act of 2025",
       "type": "HR",
       "number": "3151",
       "congress": 119,
+      "title": "SHIPS for America Act of 2025",
       "introduced_date": "2025-05-01",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/3151",
       "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/3151?format=json",
-      "keywords": [
-        "maritime",
-        "security",
-        "vessels",
-        "national",
-        "foreign",
-        "shipbuilding",
-        "board",
-        "advisor",
-        "transportation",
-        "international",
-        "secretary",
-        "industry",
-        "commerce",
-        "strategy",
-        "merchant",
-        "workforce",
-        "marine",
-        "defense",
-        "federal",
-        "strategic"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.054,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-05-01",
       "cosponsors": [
         "G000559",
         "W000804",
@@ -1144,298 +1180,508 @@
         "D000616",
         "M001218",
         "K000391",
-        "R000609"
+        "R000609",
+        "G000589",
+        "L000598",
+        "P000597",
+        "H001094",
+        "M001233",
+        "H001099",
+        "K000399",
+        "F000110",
+        "C001125",
+        "D000530",
+        "M001217",
+        "B001287",
+        "S001205",
+        "H001101",
+        "G000592",
+        "B001301",
+        "F000246",
+        "V000135",
+        "W000829",
+        "T000487",
+        "M001212",
+        "F000466",
+        "S001221",
+        "M001236",
+        "S001220",
+        "L000603",
+        "Z000018",
+        "H001098",
+        "H001081",
+        "D000230",
+        "S001201",
+        "B001324",
+        "N000147",
+        "C001121",
+        "M001194",
+        "B001298",
+        "M001216",
+        "S000522",
+        "K000392",
+        "R000622",
+        "F000475",
+        "S001159",
+        "B001315",
+        "S001212",
+        "T000460",
+        "H001091",
+        "S001231",
+        "G000583",
+        "L000599",
+        "C001126",
+        "A000369",
+        "M000317",
+        "L000606",
+        "M001214",
+        "L000562",
+        "T000193",
+        "B001314",
+        "B001317",
+        "C001069",
+        "B001296",
+        "J000309",
+        "R000619",
+        "M001213",
+        "L000582",
+        "G000597",
+        "C001068",
+        "M001211",
+        "B001313",
+        "D000624",
+        "G000591",
+        "S001225",
+        "N000191",
+        "M001226",
+        "C001120",
+        "R000603",
+        "M001239",
+        "K000009",
+        "S001226",
+        "P000608",
+        "F000483",
+        "W000187",
+        "B001278",
+        "V000138",
+        "L000601",
+        "T000491",
+        "E000296",
+        "B001295",
+        "C001103",
+        "K000402",
+        "M001235",
+        "S001215",
+        "M001220",
+        "M001196",
+        "G000600",
+        "M001232",
+        "R000621",
+        "T000463",
+        "B001327",
+        "P000620",
+        "M001237",
+        "V000130",
+        "C001123",
+        "R000579",
+        "J000304",
+        "N000193",
+        "C001080",
+        "B001326",
+        "H001085",
+        "L000560",
+        "T000488",
+        "S001228",
+        "B001322",
+        "L000600",
+        "C001112",
+        "K000397",
+        "P000614",
+        "M001222",
+        "G000593",
+        "G000587",
+        "S001196",
+        "J000295",
+        "E000235",
+        "M001219",
+        "J000307",
+        "B001285",
+        "E000246",
+        "H001058",
+        "R000575",
+        "C001072",
+        "G000604",
+        "S000344",
+        "M001240",
+        "S001223",
+        "F000484",
+        "B001307",
+        "D000635"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology",
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data"
-          ],
-          "Healthcare": [
-            "insurance",
-            "reimbursement"
-          ]
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr3151.xml",
+      "metadata_source_sha256": "5341526d253657f05486e066240d7c6332009e9021042df5a85d450abab98bde",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S1541-119",
+          "bill_title": "SHIPS for America Act of 2025",
+          "member_id": "K000377",
+          "same_sponsor": false,
+          "similarity_score": 0.9740331172943115,
+          "evidence": {
+            "longest_passage_words": 11930,
+            "matched_word_offset": 4972,
+            "target_word_offset": 4974,
+            "displayed_passage_words": 120,
+            "matched_passage": "Secretary is seeking; and the assessment and selection policies the Secretary plans to utilize. Definition of critical hiring need In this subsection, the term critical hiring need means personnel necessary for the implementation of this Act and associated work. Competitive service In this section the term competitive service has the meaning given the term in section 2102 of title 5, United States Code. Authorization of appropriations for administrative expenses There is authorized to be appropriated from the Maritime Security Trust Fund established under section 50301(b) of title 46, United States Code\u2014 $30,000,000 to the Secretary of Transportation for administrative expenses of the Maritime Administration to administer subtitle V of title 46, United States Code, for each of",
+            "target_passage": "Secretary is seeking; and the assessment and selection policies the Secretary plans to utilize. Definition of critical hiring need In this subsection, the term critical hiring need means personnel necessary for the implementation of this Act and associated work. Competitive service In this section the term competitive service has the meaning given the term in section 2102 of title 5, United States Code. Authorization of appropriations for administrative expenses There is authorized to be appropriated from the Maritime Security Trust Fund established under section 50301(b) of title 46, United States Code\u2014 $30,000,000 to the Secretary of Transportation for administrative expenses of the Maritime Administration to administer subtitle V of title 46, United States Code, for each of",
+            "matched_shingle_coverage": 0.998137352137207,
+            "target_shingle_coverage": 0.9063392347230155,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3151ih/xml/BILLS-119hr3151ih.xml",
+            "target_source_sha256": "25e0650cca958023ae98b78106a9948cc2dbffb97f0f52a32764c590180a2d66",
+            "target_text_sha256": "15f74178346e542f1daa460796d34a1507de7b29747e821a48db8d8c1cadc8b3",
+            "target_version_code": "ih",
+            "target_version_date": "2025-05-01T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1541is/xml/BILLS-119s1541is.xml",
+            "matched_source_sha256": "beec3f0e8830f7e91b4b751224102d4780d62610d61f9f378bd258d9ebf4f425",
+            "matched_text_sha256": "20197943fb779d90653793f18d704b3da9c0633e1653c5b8e04cc91f71b8de26",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-04-30T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "S1536-119",
+          "bill_title": "Building Ships in America Act of 2025",
+          "member_id": "K000377",
+          "same_sponsor": false,
+          "similarity_score": 0.4232408404350281,
+          "evidence": {
+            "longest_passage_words": 1060,
+            "matched_word_offset": 1340,
+            "target_word_offset": 45118,
+            "displayed_passage_words": 120,
+            "matched_passage": "Certain progress expenditure rules made applicable Rules similar to the rules of subsections (c)(4) and (d) of section 46 (as in effect on the day before the date of the enactment of the Revenue Reconciliation Act of 1990) shall apply for purposes of subsection (a). Regulations The Secretary, in consultation with the Maritime Administrator, shall issue such regulations or other guidance as may be necessary or appropriate to carry out the purposes of this section, including any regulations or guidance which may be necessary or appropriate to recapture the benefit of any credit determined under this section with respect to any qualified vessel, or any increase in the applicable percentage under subsection (b) with respect to any qualified vessel",
+            "target_passage": "Certain progress expenditure rules made applicable Rules similar to the rules of subsections (c)(4) and (d) of section 46 (as in effect on the day before the date of the enactment of the Revenue Reconciliation Act of 1990) shall apply for purposes of subsection (a). Regulations The Secretary, in consultation with the Maritime Administrator, shall issue such regulations or other guidance as may be necessary or appropriate to carry out the purposes of this section, including any regulations or guidance which may be necessary or appropriate to recapture the benefit of any credit determined under this section with respect to any qualified vessel, or any increase in the applicable percentage under subsection (b) with respect to any qualified vessel",
+            "matched_shingle_coverage": 0.9569635385534967,
+            "target_shingle_coverage": 0.10550015375829197,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3151ih/xml/BILLS-119hr3151ih.xml",
+            "target_source_sha256": "25e0650cca958023ae98b78106a9948cc2dbffb97f0f52a32764c590180a2d66",
+            "target_text_sha256": "15f74178346e542f1daa460796d34a1507de7b29747e821a48db8d8c1cadc8b3",
+            "target_version_code": "ih",
+            "target_version_date": "2025-05-01T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s1536is/xml/BILLS-119s1536is.xml",
+            "matched_source_sha256": "a9f049f88bf291bdf401687c53398887e1927fa4dd22b4cf0325577a73e1e14b",
+            "matched_text_sha256": "c6f3266e38dda85f74715829b563ec2e5d76069e3837a837df15cd553c34452f",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-04-30T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR8800-119",
+          "bill_title": "National Defense Authorization Act for Fiscal Year 2027",
+          "member_id": "R000575",
+          "same_sponsor": false,
+          "similarity_score": 0.35400035977363586,
+          "evidence": {
+            "longest_passage_words": 2069,
+            "target_word_offset": 21583,
+            "matched_word_offset": 353451,
+            "displayed_passage_words": 120,
+            "target_passage": "the Secretary, in consultation with the Maritime Administrator, shall establish alternate standards to allow self-propelled vessels providing oceangoing transportation that are not documented under chapter 121 of this title to receive a certificate of inspection if the vessel will become a documented vessel. Requirements Under the program established under subsection (a), a self-propelled vessel used to provide oceangoing transportation that is not documented under chapter 121 of this title shall be eligible for a certificate of inspection if the Secretary determines that\u2014 the owner of the vessel has agreed to apply to have the vessel documented under chapter 121 upon receiving the certificate; at the time of the receipt of such certificate, the vessel is eligible for documentation",
+            "matched_passage": "the Secretary, in consultation with the Maritime Administrator, shall establish alternate standards to allow self-propelled vessels providing oceangoing transportation that are not documented under chapter 121 of this title to receive a certificate of inspection if the vessel will become a documented vessel. Requirements Under the program established under subsection (a), a self-propelled vessel used to provide oceangoing transportation that is not documented under chapter 121 of this title shall be eligible for a certificate of inspection if the Secretary determines that\u2014 the owner of the vessel has agreed to apply to have the vessel documented under chapter 121 upon receiving the certificate; at the time of the receipt of such certificate, the vessel is eligible for documentation",
+            "target_shingle_coverage": 0.5096208759829548,
+            "matched_shingle_coverage": 0.061599609177946164,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3151ih/xml/BILLS-119hr3151ih.xml",
+            "target_source_sha256": "25e0650cca958023ae98b78106a9948cc2dbffb97f0f52a32764c590180a2d66",
+            "target_text_sha256": "15f74178346e542f1daa460796d34a1507de7b29747e821a48db8d8c1cadc8b3",
+            "target_version_code": "ih",
+            "target_version_date": "2025-05-01T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8800eh/xml/BILLS-119hr8800eh.xml",
+            "matched_source_sha256": "f0d864285be33e12984debe892e722d3ce563a14cc751f9e6ec3efaabeede304",
+            "matched_text_sha256": "0823d0a4ee7625dcc8552a0440b961c47145855c3ee1291439635a8be63a26a1",
+            "matched_version_code": "eh",
+            "matched_version_date": "2026-07-22T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      }
-    },
-    {
-      "bill_id": "-118",
-      "title": "",
-      "type": "",
-      "number": "",
-      "congress": 119,
-      "introduced_date": "2023-09-28",
-      "latest_action": "On agreeing to the Kelly (MS) amendment (A012) Failed by recorded vote: 199 - 231 (Roll no. 471).",
-      "url": "https://api.congress.gov/v3/amendment/118/hamdt/447?format=json",
+      ],
       "keywords": [],
-      "has_text": false,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR3151-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr3151ih/xml/BILLS-119hr3151ih.xml",
+        "source_sha256": "25e0650cca958023ae98b78106a9948cc2dbffb97f0f52a32764c590180a2d66",
+        "text_sha256": "15f74178346e542f1daa460796d34a1507de7b29747e821a48db8d8c1cadc8b3",
+        "version_date": "2025-05-01T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr3151ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR2329-119",
-      "title": "Uzbekistan Normalized Trade Act",
       "type": "HR",
       "number": "2329",
       "congress": 119,
+      "title": "Uzbekistan Normalized Trade Act",
       "introduced_date": "2025-03-25",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/2329",
       "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/2329?format=json",
-      "keywords": [
-        "uzbekistan",
-        "trade",
-        "treatment",
-        "nondiscriminatory",
-        "products",
-        "extension",
-        "normal",
-        "relations",
-        "president",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "authorize",
-        "bill",
-        "termination",
-        "seq",
-        "apply",
-        "world",
-        "organization"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.037,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-03-25",
       "cosponsors": [
         "G000581",
         "M001219",
         "W000795"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr2329.xml",
+      "metadata_source_sha256": "0ba8ddc325e4de962b2d0519cf8d7f8faaea914408a1b1be93b2cfad0d7cb2bd",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR5917-119",
+          "bill_title": "To authorize the extension of nondiscriminatory treatment (normal trade relations treatment) to products of certain countries.",
+          "member_id": "M001205",
+          "same_sponsor": false,
+          "similarity_score": 0.6530383825302124,
+          "evidence": {
+            "longest_passage_words": 38,
+            "target_word_offset": 29,
+            "matched_word_offset": 17,
+            "displayed_passage_words": 38,
+            "target_passage": "Presidential determinations and extension of nondiscriminatory treatment Notwithstanding any provision of title IV of the Trade Act of 1974 ( 19 U.S.C. 2431 et seq. ), the President may\u2014 determine that such title should no longer apply to",
+            "matched_passage": "Presidential determinations and extension of nondiscriminatory treatment Notwithstanding any provision of title IV of the Trade Act of 1974 ( 19 U.S.C. 2431 et seq. ), the President may\u2014 determine that such title should no longer apply to",
+            "target_shingle_coverage": 0.23353293413173654,
+            "matched_shingle_coverage": 0.2689655172413793,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2329ih/xml/BILLS-119hr2329ih.xml",
+            "target_source_sha256": "a5a9eccb5559259344d58ed5cd912484b604413718bd72f9a7d224d8c0f19c44",
+            "target_text_sha256": "1c29c63ab54557d6ba573534f9721dd9695019d80e97a47206ca32a7aae6be05",
+            "target_version_code": "ih",
+            "target_version_date": "2025-03-25T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5917ih/xml/BILLS-119hr5917ih.xml",
+            "matched_source_sha256": "3de62e63b8316df02416e3cadf855d8185347df2925c496e6e22cb471fa6c2d3",
+            "matched_text_sha256": "0dc1ccf252c96ace70f52f9377bb7fc225bac34dfe1610f4443201087c6a0ac4",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-11-04T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "S3103-119",
+          "bill_title": "A bill to authorize the extension of nondiscriminatory treatment (normal trade relations treatment) to products of certain countries.",
+          "member_id": "D000618",
+          "same_sponsor": false,
+          "similarity_score": 0.6530383825302124,
+          "evidence": {
+            "longest_passage_words": 38,
+            "target_word_offset": 29,
+            "matched_word_offset": 17,
+            "displayed_passage_words": 38,
+            "target_passage": "Presidential determinations and extension of nondiscriminatory treatment Notwithstanding any provision of title IV of the Trade Act of 1974 ( 19 U.S.C. 2431 et seq. ), the President may\u2014 determine that such title should no longer apply to",
+            "matched_passage": "Presidential determinations and extension of nondiscriminatory treatment Notwithstanding any provision of title IV of the Trade Act of 1974 ( 19 U.S.C. 2431 et seq. ), the President may\u2014 determine that such title should no longer apply to",
+            "target_shingle_coverage": 0.23353293413173654,
+            "matched_shingle_coverage": 0.2689655172413793,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2329ih/xml/BILLS-119hr2329ih.xml",
+            "target_source_sha256": "a5a9eccb5559259344d58ed5cd912484b604413718bd72f9a7d224d8c0f19c44",
+            "target_text_sha256": "1c29c63ab54557d6ba573534f9721dd9695019d80e97a47206ca32a7aae6be05",
+            "target_version_code": "ih",
+            "target_version_date": "2025-03-25T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s3103is/xml/BILLS-119s3103is.xml",
+            "matched_source_sha256": "447967dd3504b45c2e6f47c80000e4add11378ec698150d2ed75a7647d7a0ad1",
+            "matched_text_sha256": "a6a3ddf18798df8b59df3ca9a5a7781a82ead69e745fbfe98997d7509b71b381",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-11-04T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR1024-119",
+          "bill_title": "US-Kazakhstan Trade Modernization Act",
+          "member_id": "P000613",
+          "same_sponsor": false,
+          "similarity_score": 0.6042473316192627,
+          "evidence": {
+            "longest_passage_words": 38,
+            "target_word_offset": 29,
+            "matched_word_offset": 165,
+            "displayed_passage_words": 38,
+            "target_passage": "Presidential determinations and extension of nondiscriminatory treatment Notwithstanding any provision of title IV of the Trade Act of 1974 ( 19 U.S.C. 2431 et seq. ), the President may\u2014 determine that such title should no longer apply to",
+            "matched_passage": "Presidential Determinations and Extension of Nondiscriminatory Treatment Notwithstanding any provision of title IV of the Trade Act of 1974 ( 19 U.S.C. 2431 et seq. ), the President may\u2014 determine that such title should no longer apply to",
+            "target_shingle_coverage": 0.31137724550898205,
+            "matched_shingle_coverage": 0.2,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2329ih/xml/BILLS-119hr2329ih.xml",
+            "target_source_sha256": "a5a9eccb5559259344d58ed5cd912484b604413718bd72f9a7d224d8c0f19c44",
+            "target_text_sha256": "1c29c63ab54557d6ba573534f9721dd9695019d80e97a47206ca32a7aae6be05",
+            "target_version_code": "ih",
+            "target_version_date": "2025-03-25T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1024ih/xml/BILLS-119hr1024ih.xml",
+            "matched_source_sha256": "c1a47b113ac601770b8bdc0fc1ad2065d20c841ef954c9d6fb7f5e7999ff3f2e",
+            "matched_text_sha256": "70c01e0778aa72d5bbb0931e7fda44906390a6daa9e24c47e328b407b8f99ca5",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-02-05T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR2329-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr2329ih/xml/BILLS-119hr2329ih.xml",
+        "source_sha256": "a5a9eccb5559259344d58ed5cd912484b604413718bd72f9a7d224d8c0f19c44",
+        "text_sha256": "1c29c63ab54557d6ba573534f9721dd9695019d80e97a47206ca32a7aae6be05",
+        "version_date": "2025-03-25T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr2329ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR1571-119",
-      "title": "Bureaucratic Labor Adjustment and Downsizing Effort Act",
       "type": "HR",
       "number": "1571",
       "congress": 119,
+      "title": "Bureaucratic Labor Adjustment and Downsizing Effort Act",
       "introduced_date": "2025-02-25",
+      "url": null,
       "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/1571?format=json",
-      "keywords": [
-        "positions",
-        "federal",
-        "position",
-        "government",
-        "nonessential",
-        "enactment",
-        "civil",
-        "service",
-        "executive",
-        "branch",
-        "designated",
-        "excepted",
-        "furlough",
-        "abolished",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "eliminate",
-        "purposes"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.042,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-02-25",
       "cosponsors": [
         "E000235"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr1571.xml",
+      "metadata_source_sha256": "396ca4fe6fcf555dd299d82f68a7cedbbb7e5ec00e51f9baaed11b042c392307",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR1571-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1571ih/xml/BILLS-119hr1571ih.xml",
+        "source_sha256": "c6945f98f4bc37720ee77ab913a7663bc4fa5e1eb8cd6beabad693717fe829ba",
+        "text_sha256": "511b656e7dc175fef8f571013a051594d9100d265fdc659cc84b6daade10652e",
+        "version_date": "2025-02-25T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr1571ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR1170-119",
-      "title": "Congressional Access to Military Posts Act of 2025",
       "type": "HR",
       "number": "1170",
       "congress": 119,
+      "title": "Congressional Access to Military Posts Act of 2025",
       "introduced_date": "2025-02-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1170",
       "latest_action": "Referred to the House Committee on Armed Services.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/1170?format=json",
-      "keywords": [
-        "access",
-        "congressional",
-        "member",
-        "certain",
-        "military",
-        "employees",
-        "covered",
-        "installation",
-        "expedited",
-        "installations",
-        "department",
-        "defense",
-        "members",
-        "granted",
-        "identification",
-        "code",
-        "procedures",
-        "card",
-        "issued",
-        "html"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.121,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-02-10",
       "cosponsors": [
         "H001098"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr1170.xml",
+      "metadata_source_sha256": "9a0517ed4e7e2b0a60f1edf4507ebc5326dfd549654ae26cccb0fcd19ad59ab3",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR1170-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1170ih/xml/BILLS-119hr1170ih.xml",
+        "source_sha256": "1e787b1fd7b7313ebafb37c45ec6730dc6e231b9960c775665215a5310d6ac66",
+        "text_sha256": "8ccbe14c15e2c0ce62d55e076775758d8874940393fa4d0ff41763e41e28eec6",
+        "version_date": "2025-02-10T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr1170ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR622-119",
-      "title": "To amend the Food Security Act of 1985 to increase funding for the conservation stewardship program, and for other purposes.",
       "type": "HR",
       "number": "622",
       "congress": 119,
+      "title": "To amend the Food Security Act of 1985 to increase funding for the conservation stewardship program, and for other purposes.",
       "introduced_date": "2025-01-22",
+      "url": null,
       "latest_action": "Referred to the Subcommittee on Conservation, Research, and Biotechnology.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/622?format=json",
-      "keywords": [
-        "food",
-        "security",
-        "conservation",
-        "stewardship",
-        "program",
-        "funding",
-        "html",
-        "body",
-        "pre",
-        "introduced",
-        "increase",
-        "purposes",
-        "bill",
-        "referred",
-        "agriculture",
-        "subchapter",
-        "congressional",
-        "bills",
-        "government",
-        "publishing"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.034,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-02-28",
       "cosponsors": [],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
-    },
-    {
-      "bill_id": "HR10493-118",
-      "title": "SHIPS for America Act of 2024",
-      "type": "HR",
-      "number": "10493",
-      "congress": 118,
-      "introduced_date": "2024-12-18",
-      "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committees on Transportation and Infrastructure, Ways and Means, Energy and Commerce, Foreign Affairs, Oversight and Accountability, Education and the Workforce, Financial Services, the Judiciary, Natural Resources, Science, Space, and Technology, and Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/10493?format=json",
-      "keywords": [
-        "maritime",
-        "security",
-        "vessels",
-        "national",
-        "shipbuilding",
-        "foreign",
-        "board",
-        "advisor",
-        "transportation",
-        "secretary",
-        "international",
-        "industry",
-        "strategy",
-        "commerce",
-        "marine",
-        "merchant",
-        "committee",
-        "defense",
-        "federal",
-        "fleet"
-      ],
-      "has_text": true,
+      "sponsor_id": "K000388",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr622.xml",
+      "metadata_source_sha256": "0c74ed5aebb3f49fe1414d26232ae4c3ba18e865fc8092370bee41a9a74f2be3",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.055,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "G000559"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology",
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data"
-          ],
-          "Healthcare": [
-            "insurance",
-            "reimbursement"
-          ]
-        }
-      }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR622-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr622ih/xml/BILLS-119hr622ih.xml",
+        "source_sha256": "58ecc35d4174966f92d2102271da43e42e9ddab1d7a5b76c77295dbf12e4ca28",
+        "text_sha256": "b6d336475ceb607ab1b84694058ed75108a947b872cd3e050440151d4983e9d7",
+        "version_date": "2025-01-22T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr622ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-23T20:26:24.367172+00:00",
-  "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "bills_updated": "2026-11-24T12:32:03.722671+00:00",
+  "bills_count": 8,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
-  "donor_match_count": 4,
-  "edgar_status": "unresolved",
+  "donor_match_count": 0,
+  "edgar_status": "query_failed",
   "votes_fail_count": 52,
   "top_donors_list": [
     {
@@ -1591,12 +1837,2124 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 4,
+    "donor_alignment": 0,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-23T22:58:09.303813",
+  "score_updated": "2026-11-24T17:13:07.730030",
   "missed_votes_pct": 0.0,
-  "non_voting_delegate": false
+  "non_voting_delegate": false,
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "analyzed",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved"
+    },
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:59:55.036464"
+    },
+    "observed_detail": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-18T13:59:55.036464"
+    },
+    "request_failed": false
+  },
+  "edgar_checked": "2026-11-24T15:53:30.284223",
+  "edgar_cik": null,
+  "edgar_data_status": "unavailable",
+  "edgar_updated": "2026-11-18T13:59:55.036464",
+  "votes_refresh_provenance": {
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T09:57:51.514278",
+      "legacy_source_votes_updated": "2026-11-18T09:32:11.617746",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+      "prior_upstream_snapshot": "3d3ee672e4e1fd7669ed6850f36e3c7e94f3bba0",
+      "run": 45387356496,
+      "checked": "2026-11-24T11:52:26.713253",
+      "legacy_votes_updated": "2026-11-24T11:52:26.713253",
+      "failed_attempt_count": 52,
+      "status": "fetch_failed",
+      "note": "Publisher failures; zero successful fetches. Preserve cached votes and last-good collection time."
+    },
+    "prior_attempts": [
+      {
+        "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+        "checked": "2026-11-21T09:02:47.347622",
+        "failed_attempt_count": 49,
+        "status": "fetch_failed"
+      }
+    ]
+  },
+  "votes_checked": "2026-11-24T11:52:26.713253",
+  "upstream_sec_observation": {
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+    "candidate_only": true,
+    "fields": {
+      "corporate_insider_signals": 0,
+      "data_updated": "2026-11-23T16:03:32.451175",
+      "edgar_cik": null,
+      "edgar_status": "unresolved"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR5468-119",
+            "title": "Community College Agriculture Advancement Act of 2025",
+            "type": "HR",
+            "number": "5468",
+            "congress": 119,
+            "introduced_date": "2025-09-18",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5468?format=json",
+            "keywords": [
+              "agriculture",
+              "eligible",
+              "grants",
+              "community",
+              "college",
+              "capacity",
+              "research",
+              "advancement",
+              "entity",
+              "national",
+              "building",
+              "committee",
+              "priority",
+              "funds",
+              "agricultural",
+              "natural",
+              "resources",
+              "programs",
+              "secretary",
+              "activities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001112",
+              "F000474",
+              "D000230"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "agriculture",
+                  "eligible",
+                  "grants",
+                  "community",
+                  "college",
+                  "capacity",
+                  "research",
+                  "advancement",
+                  "entity",
+                  "national",
+                  "building",
+                  "committee",
+                  "priority",
+                  "funds",
+                  "agricultural",
+                  "natural",
+                  "resources",
+                  "programs",
+                  "secretary",
+                  "activities"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.073,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR3476-119",
+            "title": "Forest Conservation Easement Program Act of 2025",
+            "type": "HR",
+            "number": "3476",
+            "congress": 119,
+            "introduced_date": "2025-05-17",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3476?format=json",
+            "keywords": [
+              "forest",
+              "land",
+              "eligible",
+              "secretary",
+              "easement",
+              "program",
+              "easements",
+              "plan",
+              "conservation",
+              "reserve",
+              "entity",
+              "iii",
+              "subparagraph",
+              "described",
+              "landowner",
+              "assistance",
+              "state",
+              "species",
+              "purposes",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000604",
+              "M001212",
+              "G000591",
+              "T000193",
+              "D000631",
+              "T000469",
+              "H001090",
+              "L000599",
+              "C001103",
+              "S001216"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "reimbursement"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "forest",
+                  "land",
+                  "eligible",
+                  "secretary",
+                  "easement",
+                  "program",
+                  "easements",
+                  "plan",
+                  "conservation",
+                  "reserve",
+                  "entity",
+                  "iii",
+                  "subparagraph",
+                  "described",
+                  "landowner",
+                  "assistance",
+                  "state",
+                  "species",
+                  "purposes",
+                  "determined"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.084,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Healthcare": [
+                      "reimbursement"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR3397-119",
+            "title": "Pacific Ready Coast Guard Act",
+            "type": "HR",
+            "number": "3397",
+            "congress": 119,
+            "introduced_date": "2025-05-14",
+            "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3397?format=json",
+            "keywords": [
+              "pacific",
+              "coast",
+              "guard",
+              "commandant",
+              "center",
+              "indo",
+              "plan",
+              "congressional",
+              "appropriate",
+              "budget",
+              "committee",
+              "committees",
+              "region",
+              "year",
+              "maritime",
+              "department",
+              "display",
+              "report",
+              "services",
+              "operations"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001055",
+              "R000600",
+              "M001219",
+              "G000559",
+              "D000628",
+              "K000391",
+              "K000404"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "pacific",
+                  "coast",
+                  "guard",
+                  "commandant",
+                  "center",
+                  "indo",
+                  "plan",
+                  "congressional",
+                  "appropriate",
+                  "budget",
+                  "committee",
+                  "committees",
+                  "region",
+                  "year",
+                  "maritime",
+                  "department",
+                  "display",
+                  "report",
+                  "services",
+                  "operations"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.03,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Technology"
+                  ],
+                  "keyword_hits": {
+                    "Technology": [
+                      "technology",
+                      "data"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR3151-119",
+            "title": "SHIPS for America Act of 2025",
+            "type": "HR",
+            "number": "3151",
+            "congress": 119,
+            "introduced_date": "2025-05-01",
+            "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3151?format=json",
+            "keywords": [
+              "maritime",
+              "security",
+              "vessels",
+              "national",
+              "foreign",
+              "shipbuilding",
+              "board",
+              "advisor",
+              "transportation",
+              "international",
+              "secretary",
+              "industry",
+              "commerce",
+              "strategy",
+              "merchant",
+              "workforce",
+              "marine",
+              "defense",
+              "federal",
+              "strategic"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000559",
+              "W000804",
+              "N000188",
+              "H001077",
+              "K000389",
+              "E000301",
+              "D000616",
+              "M001218",
+              "K000391",
+              "R000609"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "maritime",
+                  "security",
+                  "vessels",
+                  "national",
+                  "foreign",
+                  "shipbuilding",
+                  "board",
+                  "advisor",
+                  "transportation",
+                  "international",
+                  "secretary",
+                  "industry",
+                  "commerce",
+                  "strategy",
+                  "merchant",
+                  "workforce",
+                  "marine",
+                  "defense",
+                  "federal",
+                  "strategic"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.054,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Technology",
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Technology": [
+                      "technology",
+                      "data"
+                    ],
+                    "Healthcare": [
+                      "insurance",
+                      "reimbursement"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "-118",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2023-09-28",
+            "latest_action": "On agreeing to the Kelly (MS) amendment (A012) Failed by recorded vote: 199 - 231 (Roll no. 471).",
+            "url": "https://api.congress.gov/v3/amendment/118/hamdt/447?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [],
+                "has_text": false,
+                "similarity_score": null,
+                "alec_best_similarity": 0.0,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR2329-119",
+            "title": "Uzbekistan Normalized Trade Act",
+            "type": "HR",
+            "number": "2329",
+            "congress": 119,
+            "introduced_date": "2025-03-25",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/2329?format=json",
+            "keywords": [
+              "uzbekistan",
+              "trade",
+              "treatment",
+              "nondiscriminatory",
+              "products",
+              "extension",
+              "normal",
+              "relations",
+              "president",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "authorize",
+              "bill",
+              "termination",
+              "seq",
+              "apply",
+              "world",
+              "organization"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000581",
+              "M001219",
+              "W000795"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "uzbekistan",
+                  "trade",
+                  "treatment",
+                  "nondiscriminatory",
+                  "products",
+                  "extension",
+                  "normal",
+                  "relations",
+                  "president",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "authorize",
+                  "bill",
+                  "termination",
+                  "seq",
+                  "apply",
+                  "world",
+                  "organization"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.037,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR1571-119",
+            "title": "Bureaucratic Labor Adjustment and Downsizing Effort Act",
+            "type": "HR",
+            "number": "1571",
+            "congress": 119,
+            "introduced_date": "2025-02-25",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1571?format=json",
+            "keywords": [
+              "positions",
+              "federal",
+              "position",
+              "government",
+              "nonessential",
+              "enactment",
+              "civil",
+              "service",
+              "executive",
+              "branch",
+              "designated",
+              "excepted",
+              "furlough",
+              "abolished",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "eliminate",
+              "purposes"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000235"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "positions",
+                  "federal",
+                  "position",
+                  "government",
+                  "nonessential",
+                  "enactment",
+                  "civil",
+                  "service",
+                  "executive",
+                  "branch",
+                  "designated",
+                  "excepted",
+                  "furlough",
+                  "abolished",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "eliminate",
+                  "purposes"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.042,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR1170-119",
+            "title": "Congressional Access to Military Posts Act of 2025",
+            "type": "HR",
+            "number": "1170",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1170?format=json",
+            "keywords": [
+              "access",
+              "congressional",
+              "member",
+              "certain",
+              "military",
+              "employees",
+              "covered",
+              "installation",
+              "expedited",
+              "installations",
+              "department",
+              "defense",
+              "members",
+              "granted",
+              "identification",
+              "code",
+              "procedures",
+              "card",
+              "issued",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "access",
+                  "congressional",
+                  "member",
+                  "certain",
+                  "military",
+                  "employees",
+                  "covered",
+                  "installation",
+                  "expedited",
+                  "installations",
+                  "department",
+                  "defense",
+                  "members",
+                  "granted",
+                  "identification",
+                  "code",
+                  "procedures",
+                  "card",
+                  "issued",
+                  "html"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.121,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR622-119",
+            "title": "To amend the Food Security Act of 1985 to increase funding for the conservation stewardship program, and for other purposes.",
+            "type": "HR",
+            "number": "622",
+            "congress": 119,
+            "introduced_date": "2025-01-22",
+            "latest_action": "Referred to the Subcommittee on Conservation, Research, and Biotechnology.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/622?format=json",
+            "keywords": [
+              "food",
+              "security",
+              "conservation",
+              "stewardship",
+              "program",
+              "funding",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "increase",
+              "purposes",
+              "bill",
+              "referred",
+              "agriculture",
+              "subchapter",
+              "congressional",
+              "bills",
+              "government",
+              "publishing"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "food",
+                  "security",
+                  "conservation",
+                  "stewardship",
+                  "program",
+                  "funding",
+                  "html",
+                  "body",
+                  "pre",
+                  "introduced",
+                  "increase",
+                  "purposes",
+                  "bill",
+                  "referred",
+                  "agriculture",
+                  "subchapter",
+                  "congressional",
+                  "bills",
+                  "government",
+                  "publishing"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.034,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR10493-118",
+            "title": "SHIPS for America Act of 2024",
+            "type": "HR",
+            "number": "10493",
+            "congress": 118,
+            "introduced_date": "2024-12-18",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committees on Transportation and Infrastructure, Ways and Means, Energy and Commerce, Foreign Affairs, Oversight and Accountability, Education and the Workforce, Financial Services, the Judiciary, Natural Resources, Science, Space, and Technology, and Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/10493?format=json",
+            "keywords": [
+              "maritime",
+              "security",
+              "vessels",
+              "national",
+              "shipbuilding",
+              "foreign",
+              "board",
+              "advisor",
+              "transportation",
+              "secretary",
+              "international",
+              "industry",
+              "strategy",
+              "commerce",
+              "marine",
+              "merchant",
+              "committee",
+              "defense",
+              "federal",
+              "fleet"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000559"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "maritime",
+                  "security",
+                  "vessels",
+                  "national",
+                  "shipbuilding",
+                  "foreign",
+                  "board",
+                  "advisor",
+                  "transportation",
+                  "secretary",
+                  "international",
+                  "industry",
+                  "strategy",
+                  "commerce",
+                  "marine",
+                  "merchant",
+                  "committee",
+                  "defense",
+                  "federal",
+                  "fleet"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.055,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Technology",
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Technology": [
+                      "technology",
+                      "data"
+                    ],
+                    "Healthcare": [
+                      "insurance",
+                      "reimbursement"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          }
+        ],
+        "bills_updated": "2026-11-18T17:24:07.677125+00:00",
+        "bills_count": 10,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 20.0,
+        "donor_match_count": 4,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR5468-119",
+            "title": "Community College Agriculture Advancement Act of 2025",
+            "type": "HR",
+            "number": "5468",
+            "congress": 119,
+            "introduced_date": "2025-09-18",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5468?format=json",
+            "keywords": [
+              "agriculture",
+              "eligible",
+              "grants",
+              "community",
+              "college",
+              "capacity",
+              "research",
+              "advancement",
+              "entity",
+              "national",
+              "building",
+              "committee",
+              "priority",
+              "funds",
+              "agricultural",
+              "natural",
+              "resources",
+              "programs",
+              "secretary",
+              "activities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.073,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001112",
+              "F000474",
+              "D000230"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3476-119",
+            "title": "Forest Conservation Easement Program Act of 2025",
+            "type": "HR",
+            "number": "3476",
+            "congress": 119,
+            "introduced_date": "2025-05-17",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3476?format=json",
+            "keywords": [
+              "forest",
+              "land",
+              "eligible",
+              "secretary",
+              "easement",
+              "program",
+              "easements",
+              "plan",
+              "conservation",
+              "reserve",
+              "entity",
+              "iii",
+              "subparagraph",
+              "described",
+              "landowner",
+              "assistance",
+              "state",
+              "species",
+              "purposes",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.084,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000604",
+              "M001212",
+              "G000591",
+              "T000193",
+              "D000631",
+              "T000469",
+              "H001090",
+              "L000599",
+              "C001103",
+              "S001216"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3397-119",
+            "title": "Pacific Ready Coast Guard Act",
+            "type": "HR",
+            "number": "3397",
+            "congress": 119,
+            "introduced_date": "2025-05-14",
+            "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3397?format=json",
+            "keywords": [
+              "pacific",
+              "coast",
+              "guard",
+              "commandant",
+              "center",
+              "indo",
+              "plan",
+              "congressional",
+              "appropriate",
+              "budget",
+              "committee",
+              "committees",
+              "region",
+              "year",
+              "maritime",
+              "department",
+              "display",
+              "report",
+              "services",
+              "operations"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.03,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001055",
+              "R000600",
+              "M001219",
+              "G000559",
+              "D000628",
+              "K000391",
+              "K000404"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3151-119",
+            "title": "SHIPS for America Act of 2025",
+            "type": "HR",
+            "number": "3151",
+            "congress": 119,
+            "introduced_date": "2025-05-01",
+            "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3151?format=json",
+            "keywords": [
+              "maritime",
+              "security",
+              "vessels",
+              "national",
+              "foreign",
+              "shipbuilding",
+              "board",
+              "advisor",
+              "transportation",
+              "international",
+              "secretary",
+              "industry",
+              "commerce",
+              "strategy",
+              "merchant",
+              "workforce",
+              "marine",
+              "defense",
+              "federal",
+              "strategic"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000559",
+              "W000804",
+              "N000188",
+              "H001077",
+              "K000389",
+              "E000301",
+              "D000616",
+              "M001218",
+              "K000391",
+              "R000609"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "-118",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2023-09-28",
+            "latest_action": "On agreeing to the Kelly (MS) amendment (A012) Failed by recorded vote: 199 - 231 (Roll no. 471).",
+            "url": "https://api.congress.gov/v3/amendment/118/hamdt/447?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR2329-119",
+            "title": "Uzbekistan Normalized Trade Act",
+            "type": "HR",
+            "number": "2329",
+            "congress": 119,
+            "introduced_date": "2025-03-25",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/2329?format=json",
+            "keywords": [
+              "uzbekistan",
+              "trade",
+              "treatment",
+              "nondiscriminatory",
+              "products",
+              "extension",
+              "normal",
+              "relations",
+              "president",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "authorize",
+              "bill",
+              "termination",
+              "seq",
+              "apply",
+              "world",
+              "organization"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000581",
+              "M001219",
+              "W000795"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR1571-119",
+            "title": "Bureaucratic Labor Adjustment and Downsizing Effort Act",
+            "type": "HR",
+            "number": "1571",
+            "congress": 119,
+            "introduced_date": "2025-02-25",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1571?format=json",
+            "keywords": [
+              "positions",
+              "federal",
+              "position",
+              "government",
+              "nonessential",
+              "enactment",
+              "civil",
+              "service",
+              "executive",
+              "branch",
+              "designated",
+              "excepted",
+              "furlough",
+              "abolished",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "eliminate",
+              "purposes"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.042,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000235"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR1170-119",
+            "title": "Congressional Access to Military Posts Act of 2025",
+            "type": "HR",
+            "number": "1170",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1170?format=json",
+            "keywords": [
+              "access",
+              "congressional",
+              "member",
+              "certain",
+              "military",
+              "employees",
+              "covered",
+              "installation",
+              "expedited",
+              "installations",
+              "department",
+              "defense",
+              "members",
+              "granted",
+              "identification",
+              "code",
+              "procedures",
+              "card",
+              "issued",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.121,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR622-119",
+            "title": "To amend the Food Security Act of 1985 to increase funding for the conservation stewardship program, and for other purposes.",
+            "type": "HR",
+            "number": "622",
+            "congress": 119,
+            "introduced_date": "2025-01-22",
+            "latest_action": "Referred to the Subcommittee on Conservation, Research, and Biotechnology.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/622?format=json",
+            "keywords": [
+              "food",
+              "security",
+              "conservation",
+              "stewardship",
+              "program",
+              "funding",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "increase",
+              "purposes",
+              "bill",
+              "referred",
+              "agriculture",
+              "subchapter",
+              "congressional",
+              "bills",
+              "government",
+              "publishing"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.034,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10493-118",
+            "title": "SHIPS for America Act of 2024",
+            "type": "HR",
+            "number": "10493",
+            "congress": 118,
+            "introduced_date": "2024-12-18",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committees on Transportation and Infrastructure, Ways and Means, Energy and Commerce, Foreign Affairs, Oversight and Accountability, Education and the Workforce, Financial Services, the Judiciary, Natural Resources, Science, Space, and Technology, and Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/10493?format=json",
+            "keywords": [
+              "maritime",
+              "security",
+              "vessels",
+              "national",
+              "shipbuilding",
+              "foreign",
+              "board",
+              "advisor",
+              "transportation",
+              "secretary",
+              "international",
+              "industry",
+              "strategy",
+              "commerce",
+              "marine",
+              "merchant",
+              "committee",
+              "defense",
+              "federal",
+              "fleet"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.055,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000559"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-20T17:26:28.383249+00:00",
+        "bills_count": 10,
+        "donor_alignment_score": 20.0,
+        "donor_match_count": 4,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR5468-119",
+            "title": "Community College Agriculture Advancement Act of 2025",
+            "type": "HR",
+            "number": "5468",
+            "congress": 119,
+            "introduced_date": "2025-09-18",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/5468?format=json",
+            "keywords": [
+              "agriculture",
+              "eligible",
+              "grants",
+              "community",
+              "college",
+              "capacity",
+              "research",
+              "advancement",
+              "entity",
+              "national",
+              "building",
+              "committee",
+              "priority",
+              "funds",
+              "agricultural",
+              "natural",
+              "resources",
+              "programs",
+              "secretary",
+              "activities"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.073,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001112",
+              "F000474",
+              "D000230"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR3476-119",
+            "title": "Forest Conservation Easement Program Act of 2025",
+            "type": "HR",
+            "number": "3476",
+            "congress": 119,
+            "introduced_date": "2025-05-17",
+            "latest_action": "Referred to the House Committee on Agriculture.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3476?format=json",
+            "keywords": [
+              "forest",
+              "land",
+              "eligible",
+              "secretary",
+              "easement",
+              "program",
+              "easements",
+              "plan",
+              "conservation",
+              "reserve",
+              "entity",
+              "iii",
+              "subparagraph",
+              "described",
+              "landowner",
+              "assistance",
+              "state",
+              "species",
+              "purposes",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.084,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000604",
+              "M001212",
+              "G000591",
+              "T000193",
+              "D000631",
+              "T000469",
+              "H001090",
+              "L000599",
+              "C001103",
+              "S001216"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Healthcare": [
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3397-119",
+            "title": "Pacific Ready Coast Guard Act",
+            "type": "HR",
+            "number": "3397",
+            "congress": 119,
+            "introduced_date": "2025-05-14",
+            "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3397?format=json",
+            "keywords": [
+              "pacific",
+              "coast",
+              "guard",
+              "commandant",
+              "center",
+              "indo",
+              "plan",
+              "congressional",
+              "appropriate",
+              "budget",
+              "committee",
+              "committees",
+              "region",
+              "year",
+              "maritime",
+              "department",
+              "display",
+              "report",
+              "services",
+              "operations"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.03,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "C001055",
+              "R000600",
+              "M001219",
+              "G000559",
+              "D000628",
+              "K000391",
+              "K000404"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR3151-119",
+            "title": "SHIPS for America Act of 2025",
+            "type": "HR",
+            "number": "3151",
+            "congress": 119,
+            "introduced_date": "2025-05-01",
+            "latest_action": "Referred to the Subcommittee on Coast Guard and Maritime Transportation.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/3151?format=json",
+            "keywords": [
+              "maritime",
+              "security",
+              "vessels",
+              "national",
+              "foreign",
+              "shipbuilding",
+              "board",
+              "advisor",
+              "transportation",
+              "international",
+              "secretary",
+              "industry",
+              "commerce",
+              "strategy",
+              "merchant",
+              "workforce",
+              "marine",
+              "defense",
+              "federal",
+              "strategic"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.054,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000559",
+              "W000804",
+              "N000188",
+              "H001077",
+              "K000389",
+              "E000301",
+              "D000616",
+              "M001218",
+              "K000391",
+              "R000609"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "-118",
+            "title": "",
+            "type": "",
+            "number": "",
+            "congress": 119,
+            "introduced_date": "2023-09-28",
+            "latest_action": "On agreeing to the Kelly (MS) amendment (A012) Failed by recorded vote: 199 - 231 (Roll no. 471).",
+            "url": "https://api.congress.gov/v3/amendment/118/hamdt/447?format=json",
+            "keywords": [],
+            "has_text": false,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR2329-119",
+            "title": "Uzbekistan Normalized Trade Act",
+            "type": "HR",
+            "number": "2329",
+            "congress": 119,
+            "introduced_date": "2025-03-25",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/2329?format=json",
+            "keywords": [
+              "uzbekistan",
+              "trade",
+              "treatment",
+              "nondiscriminatory",
+              "products",
+              "extension",
+              "normal",
+              "relations",
+              "president",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "authorize",
+              "bill",
+              "termination",
+              "seq",
+              "apply",
+              "world",
+              "organization"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.037,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000581",
+              "M001219",
+              "W000795"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR1571-119",
+            "title": "Bureaucratic Labor Adjustment and Downsizing Effort Act",
+            "type": "HR",
+            "number": "1571",
+            "congress": 119,
+            "introduced_date": "2025-02-25",
+            "latest_action": "Referred to the House Committee on Oversight and Government Reform.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1571?format=json",
+            "keywords": [
+              "positions",
+              "federal",
+              "position",
+              "government",
+              "nonessential",
+              "enactment",
+              "civil",
+              "service",
+              "executive",
+              "branch",
+              "designated",
+              "excepted",
+              "furlough",
+              "abolished",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "eliminate",
+              "purposes"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.042,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "E000235"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR1170-119",
+            "title": "Congressional Access to Military Posts Act of 2025",
+            "type": "HR",
+            "number": "1170",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Referred to the House Committee on Armed Services.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1170?format=json",
+            "keywords": [
+              "access",
+              "congressional",
+              "member",
+              "certain",
+              "military",
+              "employees",
+              "covered",
+              "installation",
+              "expedited",
+              "installations",
+              "department",
+              "defense",
+              "members",
+              "granted",
+              "identification",
+              "code",
+              "procedures",
+              "card",
+              "issued",
+              "html"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.121,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "H001098"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR622-119",
+            "title": "To amend the Food Security Act of 1985 to increase funding for the conservation stewardship program, and for other purposes.",
+            "type": "HR",
+            "number": "622",
+            "congress": 119,
+            "introduced_date": "2025-01-22",
+            "latest_action": "Referred to the Subcommittee on Conservation, Research, and Biotechnology.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/622?format=json",
+            "keywords": [
+              "food",
+              "security",
+              "conservation",
+              "stewardship",
+              "program",
+              "funding",
+              "html",
+              "body",
+              "pre",
+              "introduced",
+              "increase",
+              "purposes",
+              "bill",
+              "referred",
+              "agriculture",
+              "subchapter",
+              "congressional",
+              "bills",
+              "government",
+              "publishing"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.034,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR10493-118",
+            "title": "SHIPS for America Act of 2024",
+            "type": "HR",
+            "number": "10493",
+            "congress": 118,
+            "introduced_date": "2024-12-18",
+            "latest_action": "Referred to the Committee on Armed Services, and in addition to the Committees on Transportation and Infrastructure, Ways and Means, Energy and Commerce, Foreign Affairs, Oversight and Accountability, Education and the Workforce, Financial Services, the Judiciary, Natural Resources, Science, Space, and Technology, and Veterans' Affairs, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/10493?format=json",
+            "keywords": [
+              "maritime",
+              "security",
+              "vessels",
+              "national",
+              "shipbuilding",
+              "foreign",
+              "board",
+              "advisor",
+              "transportation",
+              "secretary",
+              "international",
+              "industry",
+              "strategy",
+              "commerce",
+              "marine",
+              "merchant",
+              "committee",
+              "defense",
+              "federal",
+              "fleet"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.055,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "G000559"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "technology",
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:26:24.367172+00:00"
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "available",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "44ead7aa45640ddd25bb0ae26b9f5e10eeb1afef2392885d3395bf42903d4dee",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:26:24.367172+00:00",
+        "data_updated": "2026-11-23T16:03:32.451175",
+        "donors_updated": "2026-11-23T22:29:33.035266+00:00",
+        "last_updated": "2026-11-23T16:03:32.451175",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "votes_fail_count": 51,
+        "votes_updated": "2026-11-23T10:03:48.198254"
+      }
+    }
+  ],
+  "bills_checked": "2026-11-24T12:32:03.722671+00:00",
+  "finance_refresh_reconciliation": {
+    "source_snapshot": "1f757a012d0831f97f5e56dbea68b5f76999ffd3",
+    "prior_upstream_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+    "review_snapshot": "b0faa5a150e97733ddce4dc3201ce115717521d2",
+    "run": 45426256499,
+    "job": 138558970627,
+    "evidence_file": "benchmarks/nov24-finance-run-evidence.json",
+    "evidence_sha256": "21b70e71a8655769c9e2ecade47ea02998d4ecc332889d229a8aa0bd7c68700c",
+    "checked": "2026-11-24T15:53:30.284223",
+    "checked_semantics": "Legacy member processing timestamp, not proof of fresh FEC or successful SEC evidence.",
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-24T15:53:30.284223",
+      "score": 4,
+      "flags": [
+        "donor"
+      ]
+    },
+    "observed_detail": {
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-24T15:53:30.284223",
+      "last_updated": "2026-11-24T15:53:30.284223",
+      "score": 4,
+      "score_components": {
+        "trade_timing": 0,
+        "wealth_gap": 0,
+        "donor_alignment": 4,
+        "alec_similarity": 0,
+        "foreign_travel": 0,
+        "attendance": 0
+      },
+      "flags": [
+        "donor"
+      ]
+    },
+    "previous_reviewed_sec": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unverified_auto",
+      "edgar_data_status": "unresolved",
+      "edgar_checked": "2026-11-23T16:03:32.451175",
+      "edgar_updated": "2026-11-18T13:59:55.036464"
+    },
+    "candidate_only": true,
+    "alias_error_count": 2,
+    "filing_query_error_count": 0,
+    "successful_candidate_count_response": null,
+    "incomplete_attempt": true,
+    "derived_upstream_values_applied": false
+  }
 }

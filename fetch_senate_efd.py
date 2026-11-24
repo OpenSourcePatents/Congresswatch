@@ -57,7 +57,7 @@ def load_json(path, default):
     silently becoming `default` and then getting overwritten."""
     if os.path.exists(path):
         if os.path.getsize(path) == 0:
-            return default
+            raise SystemExit(f"ABORT: existing JSON file is empty: {path}")
         with open(path, "r") as f:
             try:
                 return json.load(f)
@@ -141,18 +141,20 @@ def first_name_match(efd_first_parts, member_name):
     for part in efd_first_parts:
         if part == m_first:
             return True
-        # 'mitch' matches 'mitchell' — check 3-char prefix overlap
+        # Allow actual shortened names, not merely any shared 3-letter prefix.
         if len(part) >= 3 and len(m_first) >= 3:
-            if part.startswith(m_first[:3]) or m_first.startswith(part[:3]):
+            if part.startswith(m_first) or m_first.startswith(part):
                 return True
     return False
 
 
 def trade_key(t):
-    """Dedup key for a trade record."""
+    """Keep different assets and owners distinct, even without a ticker."""
     return (
         t.get("ptr_link", ""),
-        t.get("transaction_date", ""),
+        to_iso_date(t.get("transaction_date", "")) or t.get("transaction_date", ""),
+        BeautifulSoup(t.get("asset_description", ""), "html.parser").get_text(" ", strip=True).casefold(),
+        t.get("owner", ""),
         t.get("ticker", ""),
         t.get("type", ""),
         t.get("amount", ""),
@@ -471,7 +473,7 @@ def parse_ptr_page(html, ptr_url=""):
             field = col_map[i]
             # Store plain text only — HTML fragments in data are an XSS
             # hazard and render inconsistently (legacy rows kept anchors)
-            trade[field] = cell.get_text(strip=True) or ("--" if field != "asset_description" else "")
+            trade[field] = cell.get_text(" ", strip=True) or ("--" if field != "asset_description" else "")
 
         # Normalize dates to ISO so date comparisons work everywhere
         iso = to_iso_date(trade["transaction_date"])
@@ -504,15 +506,6 @@ def main():
     senators = [m for m in members
                 if (m.get("chamber", "") or "").lower() == "senate"]
     print(f"Loaded {len(senators)} senators from {len(members)} total members")
-
-    # Build name lookup: normalized last name -> [member dicts]
-    by_last = {}
-    for m in senators:
-        parts = m.get("name", "").split()
-        if not parts:
-            continue
-        last = normalize_name(parts[-1])
-        by_last.setdefault(last, []).append(m)
 
     # ── Connect to eFD ──────────────────────────────────────────
     client = SenateEFDClient()
@@ -568,18 +561,13 @@ def main():
 
     for filing in all_filings:
         last, first_parts = parse_efd_name(filing["name"])
-        candidates = by_last.get(last, [])
-
-        match = None
-        if len(candidates) == 1:
-            match = candidates[0]
-        elif len(candidates) > 1:
-            # Disambiguate by first name; never blind-attribute — a former
-            # senator's filing must not land on a same-surname sitting one
-            for c in candidates:
-                if first_name_match(first_parts, c["name"]):
-                    match = c
-                    break
+        # Confirm both surname and given name, even for a unique surname.
+        # Former senators can file in the same window; compound surnames
+        # such as Van Hollen must not be reduced to their final token.
+        candidates = [m for m in senators
+                      if normalize_name(m.get("name", "")).endswith(" " + last)
+                      and first_name_match(first_parts, m.get("name", ""))]
+        match = candidates[0] if len(candidates) == 1 else None
 
         if match:
             bid = match["id"]
@@ -604,6 +592,7 @@ def main():
         "trades_found": 0,
         "skipped_existing": 0,
         "errors": 0,
+        "parse_empty": 0,
     }
 
     senator_trades = {}  # bioguide_id -> [trade dicts]
@@ -653,8 +642,9 @@ def main():
                           f"{len(trades)} trades")
                     stats["trades_found"] += len(trades)
                 else:
+                    stats["parse_empty"] += 1
                     print(f"    {filing['date_filed']}: "
-                          f"no trades parsed (may be empty or paper)")
+                          f"no trades parsed from electronic PTR; needs review")
             except Exception as e:
                 print(f"    Error parsing {filing['url']}: {e}")
                 stats["errors"] += 1
@@ -686,7 +676,7 @@ def main():
 
         detail["trades"] = all_trades
         detail["trades_updated"] = datetime.now(timezone.utc).isoformat()
-        detail["trade_count"] = len(all_trades)
+        detail["trade_count"] = sum(not t.get("scanned_pdf") for t in all_trades)
 
         # Find latest trade date — parse first: legacy rows store
         # MM/DD/YYYY, where string max() sorts by month, not year
@@ -699,7 +689,7 @@ def main():
 
         # Update members.json entry
         if bid in members_by_id:
-            members_by_id[bid]["trade_count"] = len(all_trades)
+            members_by_id[bid]["trade_count"] = detail["trade_count"]
             members_by_id[bid]["latest_trade_date"] = detail["latest_trade_date"]
 
         stats["senators_updated"] += 1
@@ -708,7 +698,8 @@ def main():
               f"({len(all_trades)} total)")
 
     # Save members.json
-    save_json(MEMBERS_PATH, members)
+    if senator_trades:
+        save_json(MEMBERS_PATH, members)
 
     # ── Summary ─────────────────────────────────────────────────
     print("\n" + "=" * 60)
@@ -718,9 +709,13 @@ def main():
     print(f"Filings parsed:        {stats['filings_parsed']}")
     print(f"Filings skipped:       {stats['skipped_existing']} (already have)")
     print(f"Trades found:          {stats['trades_found']}")
+    print(f"Empty electronic PTRs: {stats['parse_empty']}")
     print(f"Errors:                {stats['errors']}")
     print(f"Finished: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
+
+    if stats["errors"] or stats["parse_empty"]:
+        raise SystemExit("Incomplete Senate trade fetch; retained available records, retry required")
 
 
 if __name__ == "__main__":

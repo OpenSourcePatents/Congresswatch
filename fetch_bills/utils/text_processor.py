@@ -14,6 +14,45 @@ SCRIPT_STYLE_RE = re.compile(r"<(script|style)[^>]*>.*?</\1>",
 TAG_RE = re.compile(r"<[^>]+>")
 
 
+# Multiple PDF structural tokens survive the old punctuation-stripping cleaner.
+# Reject the document, not individual tokens: the remaining bytes are not prose.
+PDF_STRUCTURE_TOKENS = frozenset({
+    "endobj", "endstream", "startxref", "xref", "procset", "flatedecode",
+    "mediabox", "fontdescriptor", "basefont", "lengthobj", "objstm",
+})
+
+
+def text_contamination_reason(text: str, *, cleaned=False):
+    """Conservative structural signatures for raw bytes or legacy cleaned text."""
+    if not isinstance(text, str) or not text:
+        return None
+    if text.lstrip().startswith("%PDF-"):
+        return "pdf_binary"
+    tokens = set(re.findall(r"[a-z]+", text.lower()))
+    if len(tokens & PDF_STRUCTURE_TOKENS) >= 2 or {"obj", "endobj"} <= tokens:
+        return "pdf_structure"
+    if cleaned and ("doctype" in tokens or {"xhtml", "html"} <= tokens):
+        return "html_structure"
+    return None
+
+
+def cached_text(entry: dict) -> str:
+    """Only return usable text; quarantined evidence remains untouched on disk."""
+    text = entry.get("cleaned_text", "")
+    if entry.get("text_integrity") == "quarantined" or text_contamination_reason(text, cleaned=True):
+        return ""
+    return text
+
+
+def quarantine_cache_entry(entry: dict) -> bool:
+    reason = (text_contamination_reason(entry.get("cleaned_text", ""), cleaned=True)
+              or text_contamination_reason(entry.get("raw_text", "")))
+    if reason:
+        entry["text_integrity"] = "quarantined"
+        entry["text_integrity_reason"] = reason
+    return entry.get("text_integrity") == "quarantined"
+
+
 def strip_html(text: str) -> str:
     """Remove script/style blocks, tags, and entities from HTML-ish text."""
     if "<" not in text:
@@ -87,7 +126,7 @@ def clean_bill_text(raw_text: str) -> str:
     5. Remove stop words
     6. Return cleaned string
     """
-    if not raw_text:
+    if not raw_text or text_contamination_reason(raw_text):
         return ""
 
     # Strip HTML markup first (Congress.gov serves HTML documents)
@@ -108,7 +147,8 @@ def clean_bill_text(raw_text: str) -> str:
     # bigrams and wasted half the 8000-feature budget.
     tokens = [w for w in text.split() if w not in STOP_WORDS and len(w) > 2]
 
-    return " ".join(tokens)
+    cleaned = " ".join(tokens)
+    return "" if text_contamination_reason(cleaned, cleaned=True) else cleaned
 
 
 def text_hash(raw_text: str) -> str:
@@ -121,7 +161,7 @@ def extract_keywords(cleaned_text: str, top_n: int = 20) -> list:
     Simple keyword extraction by term frequency (no IDF needed here).
     Returns top_n most frequent meaningful terms.
     """
-    if not cleaned_text:
+    if not cleaned_text or text_contamination_reason(cleaned_text, cleaned=True):
         return []
     freq = {}
     for token in cleaned_text.split():

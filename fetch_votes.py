@@ -111,7 +111,11 @@ def fetch_member_votes(gt_id):
             time.sleep(1.0 + random.uniform(0, 0.5))
             r = requests.get(url, timeout=15)
             if r.status_code == 200:
-                objects = r.json().get('objects', [])
+                payload = r.json()
+                if not isinstance(payload, dict) or not isinstance(payload.get('objects'), list):
+                    print('    Invalid vote response schema; preserving cached records')
+                    return None
+                objects = payload['objects']
                 if not objects:
                     print(f'    [!] 200 OK but 0 objects for GT ID {gt_id} - response: {r.text[:300]}')
                 return objects
@@ -190,11 +194,14 @@ if __name__ == '__main__':
             detail_data = load_detail(bid)
             detail_data['votes_status'] = status
             detail_data['govtrack_id'] = gt_id
-            detail_data['votes_updated'] = datetime.now().isoformat()
+            detail_data['votes_checked'] = datetime.now().isoformat()
             if raw_votes is None:
                 detail_data['votes_fail_count'] = detail_data.get('votes_fail_count', 0) + 1
+            else:
+                detail_data['votes'] = []
+                detail_data['votes_updated'] = datetime.now().isoformat()
             save_detail(bid, detail_data)
-            failed += 1
+            failed += int(raw_votes is None)
             continue
 
         votes = []
@@ -206,6 +213,12 @@ if __name__ == '__main__':
                 continue
 
         detail_data = load_detail(bid)
+        if len(votes) != len(raw_votes):
+            detail_data['votes_status'] = 'parse_failed'
+            detail_data['votes_checked'] = datetime.now().isoformat()
+            save_detail(bid, detail_data)
+            failed += 1
+            continue
         detail_data['votes'] = votes
         detail_data['votes_status'] = 'ok'
         detail_data['govtrack_id'] = gt_id
@@ -221,3 +234,5 @@ if __name__ == '__main__':
     print(f'  Success: {success}  |  Skipped: {skipped}  |  Failed: {failed}')
     print(f'  Success rate: {rate:.1f}%')
     print(f'  Data stored in {DETAILS_DIR}/')
+    if failed and not success:
+        raise SystemExit('All attempted vote refreshes failed; cached votes preserved.')

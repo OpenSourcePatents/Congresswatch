@@ -186,10 +186,13 @@ def fetch_top_donors(committee_ids):
                 if attempt < MAX_RETRIES - 1:
                     time.sleep(BACKOFF)
                     continue
-                return []
+                return None
 
             data = resp.json()
-            results = data.get("results", [])
+            if not isinstance(data, dict) or not isinstance(data.get("results"), list):
+                print("    Invalid donor response schema; preserving cached records")
+                return None
+            results = data["results"]
 
             donors = []
             for r in results:
@@ -208,9 +211,9 @@ def fetch_top_donors(committee_ids):
                 time.sleep(BACKOFF * (2 ** attempt))
             else:
                 print(f"    Request failed: {e}")
-                return []
+                return None
 
-    return []
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -272,7 +275,10 @@ def main():
             donors = fetch_top_donors(committee_ids)
             stats["members_fetched"] += 1
 
-            if not donors:
+            if donors is None:
+                detail["donors_status"] = "fetch_failed"
+                save_json(os.path.join(DETAILS_DIR, f"{bid}.json"), detail)
+                stats["errors"] += 1
                 continue
 
             stats["donors_found"] += len(donors)
@@ -280,6 +286,7 @@ def main():
             # Safe merge into detail file
             detail_path = os.path.join(DETAILS_DIR, f"{bid}.json")
             detail = load_json(detail_path, {})
+            detail["donors_status"] = "available" if donors else "empty"
             detail["top_donors_list"] = donors
             detail["fec_committee_ids"] = committee_ids
             # Feeds the bills pipeline's donor-vote alignment signal
@@ -289,8 +296,10 @@ def main():
 
             stats["members_updated"] += 1
 
-            print(f"    {len(donors)} donors (top: "
-                  f"${donors[0]['amount']:,.0f} — {donors[0]['name'][:30]})")
+            if donors:
+                print(f"    {len(donors)} donor contributions saved")
+            else:
+                print("    No itemized individual contributions returned")
 
         except Exception as e:
             print(f"    Error: {e}")

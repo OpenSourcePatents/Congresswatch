@@ -902,7 +902,7 @@
     }
   ],
   "govtrack_id": 412596,
-  "votes_updated": "2026-11-24T11:52:42.543456",
+  "votes_updated": null,
   "votes_status": "fetch_failed",
   "id": "S001195",
   "name": "Jason Smith",
@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001195.jpg",
   "term_start": "2013-01-01",
-  "score": 43,
+  "score": 0,
   "flags": [
     "donor"
   ],
@@ -926,46 +926,19 @@
   "individual_contributions": 1557828.35,
   "cash_on_hand": 5415076.95,
   "total_raised_display": "$3.8M",
-  "data_updated": "2026-11-24T15:54:48.383690",
-  "last_updated": "2026-11-24T15:54:48.383690",
+  "data_updated": "2026-11-18T14:01:10.291075",
+  "last_updated": "2026-11-17T14:30:46.374567",
   "bills": [
     {
       "bill_id": "HR10357-119",
-      "title": "Digital Asset Tax Certainty Act",
       "type": "HR",
       "number": "10357",
       "congress": 119,
+      "title": "Digital Asset Tax Certainty Act",
       "introduced_date": "2026-09-14",
-      "latest_action": "Referred to the House Committee on Ways and Means.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/10357?format=json",
-      "keywords": [
-        "digital",
-        "asset",
-        "assets",
-        "traded",
-        "type",
-        "taxpayer",
-        "taxable",
-        "year",
-        "respect",
-        "widely",
-        "designated",
-        "election",
-        "fee",
-        "value",
-        "loss",
-        "purposes",
-        "rules",
-        "gain",
-        "case",
-        "dollar"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.071,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/10357",
+      "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 38 - 5.",
+      "latest_action_date": "2026-09-16",
       "cosponsors": [
         "A000375",
         "B001314",
@@ -976,292 +949,396 @@
         "M001222",
         "Y000067"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Technology"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "loan",
-            "interest",
-            "securities",
-            "investment"
-          ],
-          "Technology": [
-            "digital"
-          ]
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr10357.xml",
+      "metadata_source_sha256": "a5dc2e61a0191fdb4359ffd3711729b221b741ac760c6eed11265b0c1c3c6d92",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9178-119",
+          "bill_title": "Less Tax Paperwork for Digital Asset Owners Act",
+          "member_id": "Y000067",
+          "same_sponsor": false,
+          "similarity_score": 0.6816697120666504,
+          "evidence": {
+            "longest_passage_words": 580,
+            "matched_word_offset": 2408,
+            "target_word_offset": 3627,
+            "displayed_passage_words": 120,
+            "matched_passage": "of subchapter O of chapter 1 of subtitle A is amended by inserting before the item relating to section 1052 the following new item: . Effective date The amendments made by this section shall apply to taxable years beginning after December 31, 2027. Treatment of U.S. dollar stablecoin transactions In general Part IV of subchapter O of chapter 1 of subtitle A is amended by redesignating section 1063 as section 1064 and by inserting after section 1062 the following new section: Certain U.S. dollar stablecoin transactions Treatment of acquisitions of U.S. dollar stablecoins Determination of basis The basis of any qualified U.S. dollar stablecoin acquired by a taxpayer in any sale or exchange shall be the redemption",
+            "target_passage": "of subchapter O of chapter 1 of subtitle A is amended by inserting before the item relating to section 1052 the following new item: . Effective date The amendments made by this section shall apply to taxable years beginning after December 31, 2027. Treatment of U.S. dollar stablecoin transactions In general Part IV of subchapter O of chapter 1 of subtitle A is amended by redesignating section 1063 as section 1064 and by inserting after section 1062 the following new section: Certain U.S. dollar stablecoin transactions Treatment of acquisitions of U.S. dollar stablecoins Determination of basis The basis of any qualified U.S. dollar stablecoin acquired by a taxpayer in any sale or exchange shall be the redemption",
+            "matched_shingle_coverage": 0.8176434551766387,
+            "target_shingle_coverage": 0.24090006618133686,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10357ih/xml/BILLS-119hr10357ih.xml",
+            "target_source_sha256": "8132452548e2d29f9a884e5fb0a6ef2f2e059d6bb92e705c7aa4a4500ec3dfea",
+            "target_text_sha256": "14f805bb6dc5bf0ba6e4028f5635cd42cf144287da673fd37d868534c01230d4",
+            "target_version_code": "ih",
+            "target_version_date": "2026-09-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9178ih/xml/BILLS-119hr9178ih.xml",
+            "matched_source_sha256": "83cc94f5767e63b7d79025834cfd3a5f5dac1c3e3a55bb37dfdfdb5ea24e8000",
+            "matched_text_sha256": "4927c1389178aa6f49173cf806a57da0e5678d447fad8fa8a793d021549a9262",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-06-08T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "S5616-119",
+          "bill_title": "ADAPT Act",
+          "member_id": "D000618",
+          "same_sponsor": false,
+          "similarity_score": 0.5755171179771423,
+          "evidence": {
+            "longest_passage_words": 158,
+            "matched_word_offset": 6234,
+            "target_word_offset": 10393,
+            "displayed_passage_words": 120,
+            "matched_passage": "is amended by adding at the end the following new subsection: Digital assets Location of disclosure statement In the case of any digital asset, the requirement of clause (iii) of subsection (b)(1)(B) shall be treated as satisfied if the statement described therein is included in all written terms or marketing materials with respect to such digital asset and in such other locations or documents as the Secretary may prescribe in regulations. Treatment of digital assets without a fixed maturity date In the case of any digital asset that does not have a fixed maturity date at issue, the date of maturity of such asset for purposes of subsection (a)(2) shall be treated as the date that is",
+            "target_passage": "is amended by adding at the end the following new subsection: Digital assets Location of disclosure statement In the case of any digital asset, the requirement of clause (iii) of subsection (b)(1)(B) shall be treated as satisfied if the statement described therein is included in all written terms or marketing materials with respect to such digital asset and in such other locations or documents as the Secretary may prescribe in regulations. Treatment of digital assets without a fixed maturity date In the case of any digital asset that does not have a fixed maturity date at issue, the date of maturity of such asset for purposes of subsection (a)(2) shall be treated as the date that is",
+            "matched_shingle_coverage": 0.2140468227424749,
+            "target_shingle_coverage": 0.10396486372661091,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10357ih/xml/BILLS-119hr10357ih.xml",
+            "target_source_sha256": "8132452548e2d29f9a884e5fb0a6ef2f2e059d6bb92e705c7aa4a4500ec3dfea",
+            "target_text_sha256": "14f805bb6dc5bf0ba6e4028f5635cd42cf144287da673fd37d868534c01230d4",
+            "target_version_code": "ih",
+            "target_version_date": "2026-09-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5616is/xml/BILLS-119s5616is.xml",
+            "matched_source_sha256": "22db692034511f285345df48fc4d991826b9ff6594542c720c40fb5f5dea86eb",
+            "matched_text_sha256": "db297f6616b631dd536345d8ed80233527506de94a8ac4445f32e8d78f81163d",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-09-30T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR9176-119",
+          "bill_title": "PAR Act",
+          "member_id": "K000392",
+          "same_sponsor": false,
+          "similarity_score": 0.5544084310531616,
+          "evidence": {
+            "longest_passage_words": 314,
+            "matched_word_offset": 582,
+            "target_word_offset": 5494,
+            "displayed_passage_words": 120,
+            "matched_passage": "Election An election under this subsection may be made without the consent of the Secretary. Such an election, once made, shall apply to the taxable year for which made and all subsequent taxable years unless revoked with the consent of the Secretary. . Application of mark to market rules to covered digital assets Section 475(f) is amended\u2014 in the heading, by striking or commodities and inserting , commodities, or covered digital assets , by redesignating paragraph (3) as paragraph (4) and by inserting after paragraph (2) the following new paragraph: Traders in covered digital assets In the case of a person who is engaged in a trade or business as a trader in covered digital assets and who elects to have this",
+            "target_passage": "Election An election under this subsection may be made without the consent of the Secretary. Such an election, once made, shall apply to the taxable year for which made and all subsequent taxable years unless revoked with the consent of the Secretary. . Application of mark to market rules to covered digital assets Section 475(f) is amended\u2014 in the heading, by striking or commodities and inserting , commodities, or covered digital assets , by redesignating paragraph (3) as paragraph (4) and by inserting after paragraph (2) the following new paragraph: Traders in covered digital assets In the case of a person who is engaged in a trade or business as a trader in covered digital assets and who elects to have this",
+            "matched_shingle_coverage": 0.817966903073286,
+            "target_shingle_coverage": 0.12490223211599784,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10357ih/xml/BILLS-119hr10357ih.xml",
+            "target_source_sha256": "8132452548e2d29f9a884e5fb0a6ef2f2e059d6bb92e705c7aa4a4500ec3dfea",
+            "target_text_sha256": "14f805bb6dc5bf0ba6e4028f5635cd42cf144287da673fd37d868534c01230d4",
+            "target_version_code": "ih",
+            "target_version_date": "2026-09-14T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9176ih/xml/BILLS-119hr9176ih.xml",
+            "matched_source_sha256": "2a6b2ed81af5d055ea5139cf71efdeb4715f1996d4a61e72e351faeb9f6a1b49",
+            "matched_text_sha256": "ec725c344d4a80f614e2be5e4a52b6b4507eedda2fc80b31461f7f7d8c1d503b",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-06-08T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR10357-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr10357ih/xml/BILLS-119hr10357ih.xml",
+        "source_sha256": "8132452548e2d29f9a884e5fb0a6ef2f2e059d6bb92e705c7aa4a4500ec3dfea",
+        "text_sha256": "14f805bb6dc5bf0ba6e4028f5635cd42cf144287da673fd37d868534c01230d4",
+        "version_date": "2026-09-14T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr10357ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR9645-119",
-      "title": "Health Care Price Certainty for All Americans Act",
       "type": "HR",
       "number": "9645",
       "congress": 119,
+      "title": "Health Care Price Certainty for All Americans Act",
       "introduced_date": "2026-07-13",
-      "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9645?format=json",
-      "keywords": [
-        "secretary",
-        "specified",
-        "hospital",
-        "laboratory",
-        "information",
-        "price",
-        "services",
-        "service",
-        "subparagraph",
-        "applicable",
-        "penalty",
-        "described",
-        "respect",
-        "amount",
-        "made",
-        "compliance",
-        "case",
-        "available",
-        "individual",
-        "determined"
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/9645",
+      "latest_action": "Ordered to be Reported in the Nature of a Substitute by the Yeas and Nays: 25 - 15.",
+      "latest_action_date": "2026-07-15",
+      "cosponsors": [],
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr9645.xml",
+      "metadata_source_sha256": "34e87e9f8f911ff05fcd255ef25d8ca0d0b19746a9ae7814439e390361670067",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9393-119",
+          "bill_title": "Lower Costs, More Transparency Act of 2026",
+          "member_id": "G000558",
+          "same_sponsor": false,
+          "similarity_score": 0.8249237537384033,
+          "evidence": {
+            "longest_passage_words": 1313,
+            "matched_word_offset": 18025,
+            "target_word_offset": 16772,
+            "displayed_passage_words": 120,
+            "matched_passage": "and annually thereafter, the Secretary of Health and Human Services shall, in consultation with the Office of the National Coordinator for Health Information Technology, Department of Labor, the Department of the Treasury, and stakeholders, submit to the House Committees on Education and the Workforce, Energy and Commerce, and Ways and Means, and the Senate Committees on Finance and Health, Education, Labor, and Pensions a report on the use of standards-based application programming interfaces (in this subsection referred to as APIs ) to facilitate access to health care price transparency information and the interoperability of other medical information. Such report shall include an evaluation of the capacity of the Department of Health and Human Services, the Department of Labor, and the",
+            "target_passage": "and annually thereafter, the Secretary of Health and Human Services shall, in consultation with the Office of the National Coordinator for Health Information Technology, Department of Labor, the Department of the Treasury, and stakeholders, submit to the House Committees on Education and the Workforce, Energy and Commerce, and Ways and Means, and the Senate Committees on Finance and Health, Education, Labor, and Pensions a report on the use of standards-based application programming interfaces (in this subsection referred to as APIs ) to facilitate access to health care price transparency information and the interoperability of other medical information. Such report shall include an evaluation of the capacity of the Department of Health and Human Services, the Department of Labor, and the",
+            "matched_shingle_coverage": 0.6737058493739488,
+            "target_shingle_coverage": 0.5381801895946854,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9645ih/xml/BILLS-119hr9645ih.xml",
+            "target_source_sha256": "7bb4da0dc8611729bbbae9f95576fe7a3c68cc7641367db628b37acb12904051",
+            "target_text_sha256": "e327064765a056be3391bc99fa20f5d871087538b04eea5cc7a1f3bb5b60b295",
+            "target_version_code": "ih",
+            "target_version_date": "2026-07-13T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9393ih/xml/BILLS-119hr9393ih.xml",
+            "matched_source_sha256": "fb8bbecb580a455f282f654b21c9d822635ebb95d2c88202d228105b8e5a9972",
+            "matched_text_sha256": "e146a9828e09cd8e0429cb7fd2a13fbe4646f07f2deff2c0c28559ae15a37cd8",
+            "matched_version_code": "ih",
+            "matched_version_date": "2026-06-23T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.056,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Agriculture",
-          "Technology",
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
-          ],
-          "Agriculture": [
-            "rural"
-          ],
-          "Technology": [
-            "technology",
-            "internet",
-            "data"
-          ],
-          "Healthcare": [
-            "healthcare",
-            "hospital",
-            "insurance",
-            "medicaid",
-            "medicare"
-          ]
-        }
-      }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR9645-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9645ih/xml/BILLS-119hr9645ih.xml",
+        "source_sha256": "7bb4da0dc8611729bbbae9f95576fe7a3c68cc7641367db628b37acb12904051",
+        "text_sha256": "e327064765a056be3391bc99fa20f5d871087538b04eea5cc7a1f3bb5b60b295",
+        "version_date": "2026-07-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr9645ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR6599-119",
-      "title": "Leasing and Infrastructure Act of 2025",
       "type": "HR",
       "number": "6599",
       "congress": 119,
+      "title": "Leasing and Infrastructure Act of 2025",
       "introduced_date": "2025-12-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6599",
       "latest_action": "Committee Hearings Held",
-      "url": "https://api.congress.gov/v3/bill/119/hr/6599?format=json",
-      "keywords": [
-        "secretary",
-        "lease",
-        "cost",
-        "veterans",
-        "medical",
-        "costs",
-        "fund",
-        "authority",
-        "leases",
-        "leasing",
-        "year",
-        "later",
-        "major",
-        "facility",
-        "affairs",
-        "request",
-        "days",
-        "one",
-        "period",
-        "market"
-      ],
-      "has_text": true,
+      "latest_action_date": "2026-05-20",
+      "cosponsors": [],
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr6599.xml",
+      "metadata_source_sha256": "967c9ca7646b3f6a6b241cd051fb94ff213a71f163a38ddb5d925078809265cd",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.067,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Technology",
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "interest"
-          ],
-          "Technology": [
-            "data"
-          ],
-          "Healthcare": [
-            "insurance",
-            "reimbursement"
-          ]
-        }
-      }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR6599-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6599ih/xml/BILLS-119hr6599ih.xml",
+        "source_sha256": "ef9f98b316ef2bdaff78d6ebc9966a36a4e34a8234851eb30d59beaa802c53bb",
+        "text_sha256": "ab8a10de8d39282d9477b7936495550a4a1341bd0d2e904c9784a829c0fb3b64",
+        "version_date": "2025-12-10T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr6599ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR6500-119",
-      "title": "AGOA Extension Act",
       "type": "HR",
       "number": "6500",
       "congress": 119,
+      "title": "Continuing Appropriations and Extensions Act, 2027",
       "introduced_date": "2025-12-09",
-      "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/6500?format=json",
-      "keywords": [
-        "september",
-        "african",
-        "striking",
-        "inserting",
-        "december",
-        "entry",
-        "growth",
-        "opportunity",
-        "calendar",
-        "treatment",
-        "extend",
-        "free",
-        "customs",
-        "fees",
-        "extension",
-        "trade",
-        "subparagraph",
-        "covered",
-        "enactment",
-        "placed"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.041,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/6500",
+      "latest_action": "Became Public Law No: 119-103.",
+      "latest_action_date": "2026-09-02",
       "cosponsors": [
         "S001172"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "interest"
-          ]
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr6500.xml",
+      "metadata_source_sha256": "e49f8d1a6f3750dab1a0b8e40e796cfdf3651e18b3d423de3e71ffdc088fc801",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR9770-119",
+          "bill_title": "Continuing Appropriations Act, 2027",
+          "member_id": "C001053",
+          "same_sponsor": false,
+          "similarity_score": 0.6078011393547058,
+          "evidence": {
+            "longest_passage_words": 609,
+            "target_word_offset": 825,
+            "matched_word_offset": 698,
+            "displayed_passage_words": 120,
+            "target_passage": "2026. Expenditures made pursuant to this Act shall be charged to the applicable appropriation, fund, or authorization whenever a bill in which such applicable appropriation, fund, or authorization is contained is enacted into law. Appropriations made and funds made available by or authority granted pursuant to this Act may be used without regard to the time limitations for submission and approval of apportionments set forth in section 1513 of title 31, United States Code, but nothing in this Act may be construed to waive any other provision of law governing the apportionment of funds. Notwithstanding any other provision of this Act, except section 106, for those programs that would otherwise have high initial rates of operation or complete distribution of",
+            "matched_passage": "2026. Expenditures made pursuant to this Act shall be charged to the applicable appropriation, fund, or authorization whenever a bill in which such applicable appropriation, fund, or authorization is contained is enacted into law. Appropriations made and funds made available by or authority granted pursuant to this Act may be used without regard to the time limitations for submission and approval of apportionments set forth in section 1513 of title 31, United States Code, but nothing in this Act may be construed to waive any other provision of law governing the apportionment of funds. Notwithstanding any other provision of this Act, except section 106, for those programs that would otherwise have high initial rates of operation or complete distribution of",
+            "target_shingle_coverage": 0.24088093599449414,
+            "matched_shingle_coverage": 0.8209538702111024,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6500enr/xml/BILLS-119hr6500enr.xml",
+            "target_source_sha256": "8d2bdf65ae5b8b7c7e118c53ba8653e1b75d3ba73c370f58ab489687f3c5d582",
+            "target_text_sha256": "daebbc53c4b72c722d59a1a3cef963f8601821ecd2b2fa3d67c783b4f947a42f",
+            "target_version_code": "enr",
+            "target_version_date": "",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr9770eh/xml/BILLS-119hr9770eh.xml",
+            "matched_source_sha256": "f99cb9a456404dc0d7113a70e7f06794ebd759528d83edc800573ea0c0870526",
+            "matched_text_sha256": "b08b872e9a931d27901bbd0153a0671d4b39ac0caed7ee8fee38fd0f424b90b2",
+            "matched_version_code": "eh",
+            "matched_version_date": "2026-07-21T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HR5450-119",
+          "bill_title": "Continuing Appropriations and Extensions and Other Matters Act, 2026",
+          "member_id": "D000216",
+          "same_sponsor": false,
+          "similarity_score": 0.5353894233703613,
+          "evidence": {
+            "longest_passage_words": 203,
+            "target_word_offset": 1193,
+            "matched_word_offset": 1020,
+            "displayed_passage_words": 120,
+            "target_passage": "except that such authority provided under this section shall not be used until after the department or agency has taken all necessary actions to reduce or defer non-personnel-related administrative expenses. Funds appropriated by this Act may be obligated and expended notwithstanding section 10 of Public Law 91\u2013672 ( 22 U.S.C. 2412 ), section 15 of the State Department Basic Authorities Act of 1956 ( 22 U.S.C. 2680 ), section 313 of the Foreign Relations Authorization Act, Fiscal Years 1994 and 1995 ( 22 U.S.C. 6212 ), and section 504(a)(1) of the National Security Act of 1947 ( 50 U.S.C. 3094(a)(1) ). For each amount incorporated by reference in this Act that was previously",
+            "matched_passage": "except that such authority provided under this section shall not be used until after the department or agency has taken all necessary actions to reduce or defer non-personnel-related administrative expenses. Funds appropriated by this Act may be obligated and expended notwithstanding section 10 of Public Law 91\u2013672 ( 22 U.S.C. 2412 ), section 15 of the State Department Basic Authorities Act of 1956 ( 22 U.S.C. 2680 ), section 313 of the Foreign Relations Authorization Act, Fiscal Years 1994 and 1995 ( 22 U.S.C. 6212 ), and section 504(a)(1) of the National Security Act of 1947 ( 50 U.S.C. 3094(a)(1) ). For each amount incorporated by reference in this Act that was previously",
+            "target_shingle_coverage": 0.2446662078458362,
+            "matched_shingle_coverage": 0.20170212765957446,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6500enr/xml/BILLS-119hr6500enr.xml",
+            "target_source_sha256": "8d2bdf65ae5b8b7c7e118c53ba8653e1b75d3ba73c370f58ab489687f3c5d582",
+            "target_text_sha256": "daebbc53c4b72c722d59a1a3cef963f8601821ecd2b2fa3d67c783b4f947a42f",
+            "target_version_code": "enr",
+            "target_version_date": "",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr5450ih/xml/BILLS-119hr5450ih.xml",
+            "matched_source_sha256": "55c1afbcfe335b5e05d4fdf10b61bede8251077b3cd72d163b40dc1c63f75f7b",
+            "matched_text_sha256": "4534d57079b8a879da9e2e5639bbc69d635720ffe7dad7b27897e56ba6a2eee4",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-09-18T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "S2882-119",
+          "bill_title": "Continuing Appropriations and Extensions and Other Matters Act, 2026",
+          "member_id": "M001111",
+          "same_sponsor": false,
+          "similarity_score": 0.5353894233703613,
+          "evidence": {
+            "longest_passage_words": 203,
+            "target_word_offset": 1193,
+            "matched_word_offset": 1020,
+            "displayed_passage_words": 120,
+            "target_passage": "except that such authority provided under this section shall not be used until after the department or agency has taken all necessary actions to reduce or defer non-personnel-related administrative expenses. Funds appropriated by this Act may be obligated and expended notwithstanding section 10 of Public Law 91\u2013672 ( 22 U.S.C. 2412 ), section 15 of the State Department Basic Authorities Act of 1956 ( 22 U.S.C. 2680 ), section 313 of the Foreign Relations Authorization Act, Fiscal Years 1994 and 1995 ( 22 U.S.C. 6212 ), and section 504(a)(1) of the National Security Act of 1947 ( 50 U.S.C. 3094(a)(1) ). For each amount incorporated by reference in this Act that was previously",
+            "matched_passage": "except that such authority provided under this section shall not be used until after the department or agency has taken all necessary actions to reduce or defer non-personnel-related administrative expenses. Funds appropriated by this Act may be obligated and expended notwithstanding section 10 of Public Law 91\u2013672 ( 22 U.S.C. 2412 ), section 15 of the State Department Basic Authorities Act of 1956 ( 22 U.S.C. 2680 ), section 313 of the Foreign Relations Authorization Act, Fiscal Years 1994 and 1995 ( 22 U.S.C. 6212 ), and section 504(a)(1) of the National Security Act of 1947 ( 50 U.S.C. 3094(a)(1) ). For each amount incorporated by reference in this Act that was previously",
+            "target_shingle_coverage": 0.2446662078458362,
+            "matched_shingle_coverage": 0.20170212765957446,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6500enr/xml/BILLS-119hr6500enr.xml",
+            "target_source_sha256": "8d2bdf65ae5b8b7c7e118c53ba8653e1b75d3ba73c370f58ab489687f3c5d582",
+            "target_text_sha256": "daebbc53c4b72c722d59a1a3cef963f8601821ecd2b2fa3d67c783b4f947a42f",
+            "target_version_code": "enr",
+            "target_version_date": "",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s2882pcs/xml/BILLS-119s2882pcs.xml",
+            "matched_source_sha256": "bcd583267f0d83252390204078e36b5f237c7471619bfd4a4b29100f23590b75",
+            "matched_text_sha256": "2001b65d304b30ae1bdb093091f5849f3ca615db2ac8cdfe730e32b165a6893e",
+            "matched_version_code": "pcs",
+            "matched_version_date": "2025-09-19T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR6500-119",
+        "version_code": "enr",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr6500enr/xml/BILLS-119hr6500enr.xml",
+        "source_sha256": "8d2bdf65ae5b8b7c7e118c53ba8653e1b75d3ba73c370f58ab489687f3c5d582",
+        "text_sha256": "daebbc53c4b72c722d59a1a3cef963f8601821ecd2b2fa3d67c783b4f947a42f",
+        "version_date": "",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr6500enr"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HRES212-119",
-      "title": "Returning Senate Joint Resolution 3 to the Senate.",
       "type": "HRES",
       "number": "212",
       "congress": 119,
+      "title": "Returning Senate Joint Resolution 3 to the Senate.",
       "introduced_date": "2025-03-11",
+      "url": "https://www.congress.gov/bill/119th-congress/house-resolution/212",
       "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/212?format=json",
-      "keywords": [
-        "resolution",
-        "joint",
-        "html",
-        "body",
-        "pre",
-        "congressional",
-        "res",
-        "first",
-        "bills",
-        "government",
-        "publishing",
-        "office",
-        "engrossed",
-        "doc",
-        "march",
-        "resolved",
-        "entitled",
-        "providing",
-        "disapproval",
-        "code"
-      ],
-      "has_text": true,
+      "latest_action_date": "2025-03-11",
+      "cosponsors": [],
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres212.xml",
+      "metadata_source_sha256": "4288f6ac439e05ee91b0831dee470ad96a74b0e1b52a8c520c943481910678da",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.021,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "digital"
-          ]
-        }
-      }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES212-119",
+        "version_code": "eh",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres212eh/xml/BILLS-119hres212eh.xml",
+        "source_sha256": "7998dc96e98f439653eac1f405f6f7abe64cc880ab952768a79e868b31801bac",
+        "text_sha256": "2a7d526468b551038543c4a39439ed00cc2e563dcdc8e1e3638cf5a31cfce0b7",
+        "version_date": "2025-03-11T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres212eh"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR1156-119",
-      "title": "Pandemic Unemployment Fraud Enforcement Act",
       "type": "HR",
       "number": "1156",
       "congress": 119,
+      "title": "Pandemic Unemployment Fraud Enforcement Act",
       "introduced_date": "2025-02-10",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/1156",
       "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 29.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/1156?format=json",
-      "keywords": [
-        "unemployment",
-        "enforcement",
-        "pandemic",
-        "statute",
-        "limitations",
-        "criminal",
-        "prosecution",
-        "civil",
-        "action",
-        "compensation",
-        "fraud",
-        "violation",
-        "conspiracy",
-        "code",
-        "respect",
-        "calendar",
-        "cares",
-        "march",
-        "enactment",
-        "subparagraph"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.033,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-03-13",
       "cosponsors": [
         "L000585",
         "Y000067",
@@ -1272,113 +1349,242 @@
         "C001126",
         "M001222",
         "S001214",
-        "B001260"
+        "B001260",
+        "T000478",
+        "S001172",
+        "M001205",
+        "S001199",
+        "K000392",
+        "M000317",
+        "M001210",
+        "M001213",
+        "E000298",
+        "K000376",
+        "H001082",
+        "A000375",
+        "F000466",
+        "F000470",
+        "S001183"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr1156.xml",
+      "metadata_source_sha256": "e9af3c76cb89d06318b44f9a1d4e4d478b356931f5eeeccd0a3918e8db486909",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HR8873-119",
+          "bill_title": "Recover COVID Unemployment Fraud in Banks Act",
+          "member_id": "V000134",
+          "same_sponsor": false,
+          "similarity_score": 0.6394578814506531,
+          "evidence": {
+            "longest_passage_words": 93,
+            "target_word_offset": 21,
+            "matched_word_offset": 877,
+            "displayed_passage_words": 93,
+            "target_passage": "fraud by individuals under certain unemployment programs Pandemic unemployment assistance Section 2102 of the CARES Act ( 15 U.S.C. 9021 ) is amended\u2014 by redesignating subsection (h) as subsection (i); and by inserting after subsection (g) the following new subsection: Statute of Limitations In general Notwithstanding any other provision of law and subject to paragraph (2), any criminal prosecution or civil enforcement action for a violation of, or conspiracy to violate, section 371, 641, 1028A, 1029, 1341, 1343, 1344, 1349, 1956, or 1957 of title 18, United States Code, or section 3729 or",
+            "matched_passage": "fraud by individuals under certain unemployment programs Pandemic unemployment assistance Section 2102 of the CARES Act ( 15 U.S.C. 9021 ) is amended\u2014 by redesignating subsection (h) as subsection (i); and by inserting after subsection (g) the following new subsection: Statute of Limitations In general Notwithstanding any other provision of law and subject to paragraph (2), any criminal prosecution or civil enforcement action for a violation of, or conspiracy to violate, section 371, 641, 1028A, 1029, 1341, 1343, 1344, 1349, 1956, or 1957 of title 18, United States Code, or section 3729 or",
+            "target_shingle_coverage": 0.6902887139107612,
+            "matched_shingle_coverage": 0.2197159565580618,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1156pcs/xml/BILLS-119hr1156pcs.xml",
+            "target_source_sha256": "da8c94a46f8c9b9e35262f6453fa976e27e87772031cb9192d1e900e8ea85bb4",
+            "target_text_sha256": "7483edbd09aa342c94c55b96bd596bd20b8692ca4d46c5e2e06c0b4be5c4ca75",
+            "target_version_code": "pcs",
+            "target_version_date": "2025-03-13T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr8873rfs/xml/BILLS-119hr8873rfs.xml",
+            "matched_source_sha256": "41ea73efbfca9009658f8204163013f59f12133ddd9b49b1d398a29a48274ab9",
+            "matched_text_sha256": "b67cb609a10e222a2f8a05ebc15a4c61a365270b1c95518ff2a14647fb540e50",
+            "matched_version_code": "rfs",
+            "matched_version_date": "2026-07-13T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "S5272-119",
+          "bill_title": "Recover COVID Unemployment Fraud in Banks Act",
+          "member_id": "L000575",
+          "same_sponsor": false,
+          "similarity_score": 0.6393678188323975,
+          "evidence": {
+            "longest_passage_words": 93,
+            "target_word_offset": 21,
+            "matched_word_offset": 880,
+            "displayed_passage_words": 93,
+            "target_passage": "fraud by individuals under certain unemployment programs Pandemic unemployment assistance Section 2102 of the CARES Act ( 15 U.S.C. 9021 ) is amended\u2014 by redesignating subsection (h) as subsection (i); and by inserting after subsection (g) the following new subsection: Statute of Limitations In general Notwithstanding any other provision of law and subject to paragraph (2), any criminal prosecution or civil enforcement action for a violation of, or conspiracy to violate, section 371, 641, 1028A, 1029, 1341, 1343, 1344, 1349, 1956, or 1957 of title 18, United States Code, or section 3729 or",
+            "matched_passage": "fraud by individuals under certain unemployment programs Pandemic unemployment assistance Section 2102 of the CARES Act ( 15 U.S.C. 9021 ) is amended\u2014 by redesignating subsection (h) as subsection (i); and by inserting after subsection (g) the following new subsection: Statute of Limitations In general Notwithstanding any other provision of law and subject to paragraph (2), any criminal prosecution or civil enforcement action for a violation of, or conspiracy to violate, section 371, 641, 1028A, 1029, 1341, 1343, 1344, 1349, 1956, or 1957 of title 18, United States Code, or section 3729 or",
+            "target_shingle_coverage": 0.6876640419947506,
+            "matched_shingle_coverage": 0.21833333333333332,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1156pcs/xml/BILLS-119hr1156pcs.xml",
+            "target_source_sha256": "da8c94a46f8c9b9e35262f6453fa976e27e87772031cb9192d1e900e8ea85bb4",
+            "target_text_sha256": "7483edbd09aa342c94c55b96bd596bd20b8692ca4d46c5e2e06c0b4be5c4ca75",
+            "target_version_code": "pcs",
+            "target_version_date": "2025-03-13T04:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s5272is/xml/BILLS-119s5272is.xml",
+            "matched_source_sha256": "b2d5b0735da4575cb4f093182e895f56c8a8d04abee1263cad7fcfa5e6c83675",
+            "matched_text_sha256": "ec90ee7167a91f43481d105177f824e2e8053ec10c945bf575dcda2d1f685e83",
+            "matched_version_code": "is",
+            "matched_version_date": "2026-08-05T04:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR1156-119",
+        "version_code": "pcs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr1156pcs/xml/BILLS-119hr1156pcs.xml",
+        "source_sha256": "da8c94a46f8c9b9e35262f6453fa976e27e87772031cb9192d1e900e8ea85bb4",
+        "text_sha256": "7483edbd09aa342c94c55b96bd596bd20b8692ca4d46c5e2e06c0b4be5c4ca75",
+        "version_date": "2025-03-13T04:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr1156pcs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HRES109-119",
-      "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
       "type": "HRES",
       "number": "109",
       "congress": 119,
+      "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
       "introduced_date": "2025-02-05",
+      "url": "https://www.congress.gov/bill/119th-congress/house-resolution/109",
       "latest_action": "Referred to the House Committee on House Administration.",
-      "url": "https://api.congress.gov/v3/bill/119/hres/109?format=json",
-      "keywords": [
-        "committee",
-        "expenses",
-        "resolution",
-        "amounts",
-        "noon",
-        "january",
-        "ways",
-        "one",
-        "hundred",
-        "nineteenth",
-        "administration",
-        "available",
-        "html",
-        "body",
-        "pre",
-        "res",
-        "session",
-        "providing",
-        "referred",
-        "salaries"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.092,
-      "match_type": "member_bill",
-      "alec_match": null,
-      "similar_member_bills": [
-        {
-          "bill_id": "HRES131-119",
-          "sponsor_id": "G000591",
-          "similarity_score": 0.937
-        },
-        {
-          "bill_id": "HRES159-118",
-          "sponsor_id": "J000289",
-          "similarity_score": 0.936
-        },
-        {
-          "bill_id": "HRES86-119",
-          "sponsor_id": "J000289",
-          "similarity_score": 0.934
-        }
-      ],
+      "latest_action_date": "2025-02-05",
       "cosponsors": [
         "N000015"
       ],
-      "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
-      }
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hres/BILLSTATUS-119hres109.xml",
+      "metadata_source_sha256": "d9bfc40dbaff2ad6fbd789a88a3507410d90e98378e48b70a20f43d84f987280",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "HRES84-119",
+          "bill_title": "Providing amounts for the expenses of the Committee on Transportation and Infrastructure in the One Hundred Nineteenth Congress.",
+          "member_id": "G000546",
+          "same_sponsor": false,
+          "similarity_score": 0.93277907371521,
+          "evidence": {
+            "longest_passage_words": 79,
+            "target_word_offset": 108,
+            "matched_word_offset": 108,
+            "displayed_passage_words": 79,
+            "target_passage": "shall be available for expenses incurred during the period beginning at noon on January 3, 2026, and ending immediately before noon on January 3, 2027. Vouchers Payments under this resolution shall be made on vouchers authorized by the Committee, signed by the Chairman of the Committee, and approved in the manner directed by the Committee on House Administration. Regulations Amounts made available under this resolution shall be expended in accordance with regulations prescribed by the Committee on House Administration",
+            "matched_passage": "shall be available for expenses incurred during the period beginning at noon on January 3, 2026, and ending immediately before noon on January 3, 2027. Vouchers Payments under this resolution shall be made on vouchers authorized by the Committee, signed by the Chairman of the Committee, and approved in the manner directed by the Committee on House Administration. Regulations Amounts made available under this resolution shall be expended in accordance with regulations prescribed by the Committee on House Administration",
+            "target_shingle_coverage": 0.6744186046511628,
+            "matched_shingle_coverage": 0.6744186046511628,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres109ih/xml/BILLS-119hres109ih.xml",
+            "target_source_sha256": "02d1dce0ffeab0ac529f768cf3d917cc5b252e59d9b56770dca2247e98febc79",
+            "target_text_sha256": "15db632f49bc76a6cc0d3bf51394e4581d608fe676ae9d10c796c8bf3ba04815",
+            "target_version_code": "ih",
+            "target_version_date": "2025-02-05T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres84ih/xml/BILLS-119hres84ih.xml",
+            "matched_source_sha256": "c000158735d9febdf667e35e8fc2dce8e0389930e1fec47f1d98bc641c06e590",
+            "matched_text_sha256": "976e83022ed669a2e3fd7d77ec03429f324324ac6982eab64b0b8f798cb6dc9e",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-01-31T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HRES141-119",
+          "bill_title": "Providing amounts for the expenses of the Committee on Small Business in the One Hundred Nineteenth Congress.",
+          "member_id": "W000816",
+          "same_sponsor": false,
+          "similarity_score": 0.9302292466163635,
+          "evidence": {
+            "longest_passage_words": 79,
+            "target_word_offset": 108,
+            "matched_word_offset": 107,
+            "displayed_passage_words": 79,
+            "target_passage": "shall be available for expenses incurred during the period beginning at noon on January 3, 2026, and ending immediately before noon on January 3, 2027. Vouchers Payments under this resolution shall be made on vouchers authorized by the Committee, signed by the Chairman of the Committee, and approved in the manner directed by the Committee on House Administration. Regulations Amounts made available under this resolution shall be expended in accordance with regulations prescribed by the Committee on House Administration",
+            "matched_passage": "shall be available for expenses incurred during the period beginning at noon on January 3, 2026, and ending immediately before noon on January 3, 2027. Vouchers Payments under this resolution shall be made on vouchers authorized by the Committee, signed by the Chairman of the Committee, and approved in the manner directed by the Committee on House Administration. Regulations Amounts made available under this resolution shall be expended in accordance with regulations prescribed by the Committee on House Administration",
+            "target_shingle_coverage": 0.6744186046511628,
+            "matched_shingle_coverage": 0.6783625730994152,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres109ih/xml/BILLS-119hres109ih.xml",
+            "target_source_sha256": "02d1dce0ffeab0ac529f768cf3d917cc5b252e59d9b56770dca2247e98febc79",
+            "target_text_sha256": "15db632f49bc76a6cc0d3bf51394e4581d608fe676ae9d10c796c8bf3ba04815",
+            "target_version_code": "ih",
+            "target_version_date": "2025-02-05T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres141ih/xml/BILLS-119hres141ih.xml",
+            "matched_source_sha256": "b8ab3e549e86a5fa5eb0fb8539de14cda81ecc999e31534f7213f9852e4df8d8",
+            "matched_text_sha256": "ecba9b7b909b188674a9461b91ed04994091154c1bf3f2a417532910e32688b3",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-02-14T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        },
+        {
+          "bill_id": "HRES85-119",
+          "bill_title": "Providing amounts for the expenses of the Committee on Energy and Commerce in the One Hundred Nineteenth Congress.",
+          "member_id": "G000558",
+          "same_sponsor": false,
+          "similarity_score": 0.9280330538749695,
+          "evidence": {
+            "longest_passage_words": 79,
+            "target_word_offset": 108,
+            "matched_word_offset": 108,
+            "displayed_passage_words": 79,
+            "target_passage": "shall be available for expenses incurred during the period beginning at noon on January 3, 2026, and ending immediately before noon on January 3, 2027. Vouchers Payments under this resolution shall be made on vouchers authorized by the Committee, signed by the Chairman of the Committee, and approved in the manner directed by the Committee on House Administration. Regulations Amounts made available under this resolution shall be expended in accordance with regulations prescribed by the Committee on House Administration",
+            "matched_passage": "shall be available for expenses incurred during the period beginning at noon on January 3, 2026, and ending immediately before noon on January 3, 2027. Vouchers Payments under this resolution shall be made on vouchers authorized by the Committee, signed by the Chairman of the Committee, and approved in the manner directed by the Committee on House Administration. Regulations Amounts made available under this resolution shall be expended in accordance with regulations prescribed by the Committee on House Administration",
+            "target_shingle_coverage": 0.6744186046511628,
+            "matched_shingle_coverage": 0.6744186046511628,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres109ih/xml/BILLS-119hres109ih.xml",
+            "target_source_sha256": "02d1dce0ffeab0ac529f768cf3d917cc5b252e59d9b56770dca2247e98febc79",
+            "target_text_sha256": "15db632f49bc76a6cc0d3bf51394e4581d608fe676ae9d10c796c8bf3ba04815",
+            "target_version_code": "ih",
+            "target_version_date": "2025-02-05T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres85ih/xml/BILLS-119hres85ih.xml",
+            "matched_source_sha256": "bc05545bac54968805493341457ddb93a93e27a7a6870cb27cde2b45eb141fe2",
+            "matched_text_sha256": "469fb3a6b6b66f77642676a1f7e636ed5fe589dc8d97015dfe28abea6e79e8b3",
+            "matched_version_code": "ih",
+            "matched_version_date": "2025-01-31T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
+        }
+      ],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HRES109-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hres109ih/xml/BILLS-119hres109ih.xml",
+        "source_sha256": "02d1dce0ffeab0ac529f768cf3d917cc5b252e59d9b56770dca2247e98febc79",
+        "text_sha256": "15db632f49bc76a6cc0d3bf51394e4581d608fe676ae9d10c796c8bf3ba04815",
+        "version_date": "2025-02-05T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hres109ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR591-119",
-      "title": "Defending American Jobs and Investment Act",
       "type": "HR",
       "number": "591",
       "congress": 119,
+      "title": "Defending American Jobs and Investment Act",
       "introduced_date": "2025-01-21",
+      "url": null,
       "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/591?format=json",
-      "keywords": [
-        "tax",
-        "foreign",
-        "country",
-        "taxes",
-        "applicable",
-        "discriminatory",
-        "extraterritorial",
-        "secretary",
-        "respect",
-        "case",
-        "person",
-        "rate",
-        "report",
-        "purposes",
-        "income",
-        "percentage",
-        "points",
-        "trade",
-        "specified",
-        "period"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.098,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-01-21",
       "cosponsors": [
         "B001260",
         "S001172",
@@ -1389,58 +1595,60 @@
         "E000298",
         "S001199",
         "H001082",
-        "M001205"
+        "M001205",
+        "M001210",
+        "K000392",
+        "F000466",
+        "S001214",
+        "T000478",
+        "F000470",
+        "M001213",
+        "V000134",
+        "F000446",
+        "M000317",
+        "C001126",
+        "Y000067",
+        "M001222",
+        "B001314",
+        "M001224"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "interest",
-            "investment"
-          ]
-        }
-      }
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr591.xml",
+      "metadata_source_sha256": "f55c0b076e0fc99bf60ebf8485564478fdc75801a6713badbc5234d144242335",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [],
+      "keywords": [],
+      "similarity_score": null,
+      "alec_best_similarity": null,
+      "match_type": null,
+      "alec_match": null,
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR591-119",
+        "version_code": "ih",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr591ih/xml/BILLS-119hr591ih.xml",
+        "source_sha256": "fbba20138a3a28e8729a3e6923148fc7b4693a81b533638fc9a87444f83c98a9",
+        "text_sha256": "300b00504b85f0e6aedf94c2e0cd52a150f880b8bc991e87784e8a1eb3cfc56b",
+        "version_date": "2025-01-21T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr591ih"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     },
     {
       "bill_id": "HR33-119",
-      "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
       "type": "HR",
       "number": "33",
       "congress": 119,
+      "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
       "introduced_date": "2025-01-03",
+      "url": "https://www.congress.gov/bill/119th-congress/house-bill/33",
       "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/33?format=json",
-      "keywords": [
-        "taiwan",
-        "qualified",
-        "agreement",
-        "income",
-        "resident",
-        "business",
-        "permanent",
-        "person",
-        "subparagraph",
-        "respect",
-        "establishment",
-        "entity",
-        "general",
-        "trade",
-        "requirements",
-        "tax",
-        "purposes",
-        "individual",
-        "residents",
-        "percent"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.071,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
+      "latest_action_date": "2025-01-16",
       "cosponsors": [
         "N000015",
         "B001260",
@@ -1451,86 +1659,107 @@
         "S001156",
         "L000585",
         "S001185",
-        "E000298"
+        "E000298",
+        "D000617",
+        "S001199",
+        "C001080",
+        "H001082",
+        "M001160",
+        "M001205",
+        "B001292",
+        "M001210",
+        "P000613",
+        "F000466",
+        "H001066",
+        "T000478",
+        "S001201",
+        "F000470",
+        "M001213",
+        "V000134",
+        "F000446",
+        "M000317",
+        "C001126",
+        "Y000067",
+        "M001222",
+        "G000585",
+        "B001314",
+        "M001224",
+        "F000475",
+        "H001093",
+        "L000599",
+        "G000601",
+        "G000583",
+        "C001103",
+        "S001211",
+        "N000193",
+        "J000301",
+        "B001282",
+        "G000589",
+        "P000610"
       ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking",
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "bank",
-            "interest",
-            "securities",
-            "investment"
-          ],
-          "Healthcare": [
-            "insurance"
-          ]
+      "sponsor_id": "S001195",
+      "sponsor_verification": "official_bioguide_match",
+      "metadata_source_url": "https://www.govinfo.gov/bulkdata/BILLSTATUS/119/hr/BILLSTATUS-119hr33.xml",
+      "metadata_source_sha256": "2ac3adf3139db243727a368ad7d27c03ce814b0b07bd26f73f1b3edbde540f81",
+      "analysis_version": "official-prose-overlap-v2",
+      "model_analysis_status": "primary_model_corpus_unavailable",
+      "similar_member_bills": [
+        {
+          "bill_id": "S199-119",
+          "bill_title": "A bill to amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
+          "member_id": "C000880",
+          "same_sponsor": false,
+          "similarity_score": 0.9999977350234985,
+          "evidence": {
+            "longest_passage_words": 5547,
+            "target_word_offset": 0,
+            "matched_word_offset": 0,
+            "displayed_passage_words": 120,
+            "target_passage": "United States-Taiwan Expedited Double-Tax Relief Act Short title This title may be cited as the United States-Taiwan Expedited Double-Tax Relief Act . Special rules for taxation of certain residents of Taiwan In general Subpart D of part II of subchapter N of chapter 1 of the Internal Revenue Code of 1986 is amended by inserting after section 894 the following new section: Special rules for qualified residents of Taiwan Certain income from United States sources Interest, dividends, and royalties, etc In general In the case of interest (other than original issue discount), dividends, royalties, amounts described in section 871(a)(1)(C), and gains described in section 871(a)(1)(D) received by or paid to a",
+            "matched_passage": "United States-Taiwan expedited double-tax relief act Short title This title may be cited as the United States-Taiwan Expedited Double-Tax Relief Act . Special rules for taxation of certain residents of Taiwan In general Subpart D of part II of subchapter N of chapter 1 of the Internal Revenue Code of 1986 is amended by inserting after section 894 the following new section: Special rules for qualified residents of Taiwan Certain income from united states sources Interest, dividends, and royalties, etc In general In the case of interest (other than original issue discount), dividends, royalties, amounts described in section 871(a)(1)(C), and gains described in section 871(a)(1)(D) received by or paid to a",
+            "target_shingle_coverage": 1.0,
+            "matched_shingle_coverage": 1.0,
+            "target_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr33rfs/xml/BILLS-119hr33rfs.xml",
+            "target_source_sha256": "e1a45016c5ac37c0127a331cd59ca80d8ce9e2a6f3a30f0f16d1d5b1d2a30765",
+            "target_text_sha256": "21c8668edd35f1d1a3a4e04ed3c678d51db7664800c6bd4f56c2aa504892b0fc",
+            "target_version_code": "rfs",
+            "target_version_date": "2025-01-16T05:00:00Z",
+            "matched_source_url": "https://www.govinfo.gov/content/pkg/BILLS-119s199is/xml/BILLS-119s199is.xml",
+            "matched_source_sha256": "7d2150897cd5765fa4df62a4f45bdcf60c1b219516b6d600cc897c5171f85958",
+            "matched_text_sha256": "59e7364a85c92a6dced52a443ef14de42861c1b8334923f2efd4672ccc07cdb2",
+            "matched_version_code": "is",
+            "matched_version_date": "2025-01-23T05:00:00Z"
+          },
+          "analysis_version": "official-prose-overlap-v2"
         }
-      }
-    },
-    {
-      "bill_id": "HR8813-118",
-      "title": "Preventing Child Welfare Entry Caused by Poverty Act",
-      "type": "HR",
-      "number": "8813",
-      "congress": 118,
-      "introduced_date": "2024-06-25",
-      "latest_action": "Referred to the Subcommittee on Work and Welfare.",
-      "url": "https://api.congress.gov/v3/bill/118/hr/8813?format=json",
-      "keywords": [
-        "child",
-        "services",
-        "state",
-        "session",
-        "subpart",
-        "social",
-        "security",
-        "address",
-        "welfare",
-        "poverty",
-        "purposes",
-        "family",
-        "caused",
-        "striking",
-        "needs",
-        "meet",
-        "plan",
-        "requirements",
-        "made",
-        "year"
       ],
-      "has_text": true,
+      "keywords": [],
       "similarity_score": null,
-      "alec_best_similarity": 0.064,
+      "alec_best_similarity": null,
       "match_type": null,
       "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "M001160"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Agriculture"
-        ],
-        "keyword_hits": {
-          "Agriculture": [
-            "food"
-          ]
-        }
-      }
+      "donor_interest": null,
+      "text_source": {
+        "bill_id": "HR33-119",
+        "version_code": "rfs",
+        "source_url": "https://www.govinfo.gov/content/pkg/BILLS-119hr33rfs/xml/BILLS-119hr33rfs.xml",
+        "source_sha256": "e1a45016c5ac37c0127a331cd59ca80d8ce9e2a6f3a30f0f16d1d5b1d2a30765",
+        "text_sha256": "21c8668edd35f1d1a3a4e04ed3c678d51db7664800c6bd4f56c2aa504892b0fc",
+        "version_date": "2025-01-16T05:00:00Z",
+        "extraction_version": "govinfo-legislative-body-v2",
+        "source_format": "govinfo_official_bill_xml",
+        "package_id": "BILLS-119hr33rfs"
+      },
+      "has_text": true,
+      "analysis_status": "analyzed"
     }
   ],
-  "bills_updated": "2026-11-23T20:29:40.065969+00:00",
-  "bills_count": 10,
-  "donor_alignment_score": 40.0,
+  "bills_updated": "2026-11-24T12:32:03.722671+00:00",
+  "bills_count": 9,
+  "donor_alignment_score": null,
   "alec_match_count": 0,
-  "donor_match_count": 8,
-  "edgar_status": "verified_auto",
+  "donor_match_count": 0,
+  "edgar_status": "unverified_auto",
   "travel": [
     {
       "destination_country": "Austria",
@@ -1712,16 +1941,2491 @@
   "donors_updated": "2026-11-23T22:30:06.013022+00:00",
   "fec_cycle": 2026,
   "score_components": {
-    "trade_timing": 25,
-    "wealth_gap": 10,
-    "donor_alignment": 8,
+    "trade_timing": 0,
+    "wealth_gap": 0,
+    "donor_alignment": 0,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-23T22:58:09.303813",
+  "score_updated": "2026-11-24T17:13:07.730030",
   "votes_fail_count": 50,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
-  "edgar_cik": "0002023540"
+  "edgar_cik": "0002023540",
+  "edgar_data_status": "available",
+  "edgar_checked": "2026-11-24T15:54:48.383690",
+  "score_methodology": "activity-v4-bill-integrity",
+  "edgar_identity_status": "unverified",
+  "edgar_identity_evidence": [],
+  "edgar_identity_note": "Name-search candidates are not verified member identities; excluded from scoring and activity flags.",
+  "bills_analysis_status": "analyzed",
+  "edgar_reconciliation": {
+    "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+    "review_snapshot": "04a1cb005e68f5a5e9ffeb493d8f97ebc1c1db04",
+    "run": 44315900065,
+    "prior_roster": {
+      "edgar_cik": "0002023540",
+      "corporate_insider_signals": 5,
+      "edgar_status": "query_failed"
+    },
+    "observed_roster": {
+      "edgar_cik": "0002023540",
+      "corporate_insider_signals": 5,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T14:01:10.291075"
+    },
+    "observed_detail": {
+      "edgar_cik": "0002023540",
+      "corporate_insider_signals": 5,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-18T14:01:10.291075"
+    },
+    "request_failed": true
+  },
+  "votes_refresh_provenance": {
+    "prior_review": {
+      "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+      "run": 44276045061,
+      "legacy_review_votes_updated": "2026-11-17T09:58:09.754473",
+      "legacy_source_votes_updated": "2026-11-18T09:32:28.290084",
+      "note": "Both legacy timestamps came from failed attempts; successful collection time unknown."
+    },
+    "latest_attempt": {
+      "source_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+      "prior_upstream_snapshot": "3d3ee672e4e1fd7669ed6850f36e3c7e94f3bba0",
+      "run": 45387356496,
+      "checked": "2026-11-24T11:52:42.543456",
+      "legacy_votes_updated": "2026-11-24T11:52:42.543456",
+      "failed_attempt_count": 50,
+      "status": "fetch_failed",
+      "note": "Publisher failures; zero successful fetches. Preserve cached votes and last-good collection time."
+    },
+    "prior_attempts": [
+      {
+        "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+        "checked": "2026-11-21T09:03:04.011026",
+        "failed_attempt_count": 47,
+        "status": "fetch_failed"
+      }
+    ]
+  },
+  "votes_checked": "2026-11-24T11:52:42.543456",
+  "upstream_sec_observation": {
+    "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+    "candidate_only": true,
+    "fields": {
+      "corporate_insider_signals": 5,
+      "data_updated": "2026-11-23T16:04:48.688832",
+      "edgar_cik": "0002023540",
+      "edgar_status": "verified_auto"
+    }
+  },
+  "bill_history": [
+    {
+      "source_snapshot": "cd73a42e0d8982869fce11d25b0eed46ae77e6e0",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10357-119",
+            "title": "Digital Asset Tax Certainty Act",
+            "type": "HR",
+            "number": "10357",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10357?format=json",
+            "keywords": [
+              "digital",
+              "asset",
+              "assets",
+              "traded",
+              "type",
+              "taxpayer",
+              "taxable",
+              "year",
+              "respect",
+              "widely",
+              "designated",
+              "election",
+              "fee",
+              "value",
+              "loss",
+              "purposes",
+              "rules",
+              "gain",
+              "case",
+              "dollar"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000375",
+              "B001314",
+              "C001126",
+              "H001066",
+              "K000376",
+              "K000392",
+              "M001222",
+              "Y000067"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Technology": [
+                  "digital"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "digital",
+                  "asset",
+                  "assets",
+                  "traded",
+                  "type",
+                  "taxpayer",
+                  "taxable",
+                  "year",
+                  "respect",
+                  "widely",
+                  "designated",
+                  "election",
+                  "fee",
+                  "value",
+                  "loss",
+                  "purposes",
+                  "rules",
+                  "gain",
+                  "case",
+                  "dollar"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.071,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Technology"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "financial",
+                      "loan",
+                      "interest",
+                      "securities",
+                      "investment"
+                    ],
+                    "Technology": [
+                      "digital"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR9645-119",
+            "title": "Health Care Price Certainty for All Americans Act",
+            "type": "HR",
+            "number": "9645",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9645?format=json",
+            "keywords": [
+              "secretary",
+              "specified",
+              "hospital",
+              "laboratory",
+              "information",
+              "price",
+              "services",
+              "service",
+              "subparagraph",
+              "applicable",
+              "penalty",
+              "described",
+              "respect",
+              "amount",
+              "made",
+              "compliance",
+              "case",
+              "available",
+              "individual",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Agriculture",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Agriculture": [
+                  "rural"
+                ],
+                "Technology": [
+                  "technology",
+                  "internet",
+                  "data"
+                ],
+                "Healthcare": [
+                  "healthcare",
+                  "hospital",
+                  "insurance",
+                  "medicaid",
+                  "medicare"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "secretary",
+                  "specified",
+                  "hospital",
+                  "laboratory",
+                  "information",
+                  "price",
+                  "services",
+                  "service",
+                  "subparagraph",
+                  "applicable",
+                  "penalty",
+                  "described",
+                  "respect",
+                  "amount",
+                  "made",
+                  "compliance",
+                  "case",
+                  "available",
+                  "individual",
+                  "determined"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.056,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Agriculture",
+                    "Technology",
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "financial"
+                    ],
+                    "Agriculture": [
+                      "rural"
+                    ],
+                    "Technology": [
+                      "technology",
+                      "internet",
+                      "data"
+                    ],
+                    "Healthcare": [
+                      "healthcare",
+                      "hospital",
+                      "insurance",
+                      "medicaid",
+                      "medicare"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR6599-119",
+            "title": "Leasing and Infrastructure Act of 2025",
+            "type": "HR",
+            "number": "6599",
+            "congress": 119,
+            "introduced_date": "2025-12-10",
+            "latest_action": "Committee Hearings Held",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6599?format=json",
+            "keywords": [
+              "secretary",
+              "lease",
+              "cost",
+              "veterans",
+              "medical",
+              "costs",
+              "fund",
+              "authority",
+              "leases",
+              "leasing",
+              "year",
+              "later",
+              "major",
+              "facility",
+              "affairs",
+              "request",
+              "days",
+              "one",
+              "period",
+              "market"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ],
+                "Technology": [
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "secretary",
+                  "lease",
+                  "cost",
+                  "veterans",
+                  "medical",
+                  "costs",
+                  "fund",
+                  "authority",
+                  "leases",
+                  "leasing",
+                  "year",
+                  "later",
+                  "major",
+                  "facility",
+                  "affairs",
+                  "request",
+                  "days",
+                  "one",
+                  "period",
+                  "market"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.067,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Technology",
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "interest"
+                    ],
+                    "Technology": [
+                      "data"
+                    ],
+                    "Healthcare": [
+                      "insurance",
+                      "reimbursement"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR6500-119",
+            "title": "AGOA Extension Act",
+            "type": "HR",
+            "number": "6500",
+            "congress": 119,
+            "introduced_date": "2025-12-09",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6500?format=json",
+            "keywords": [
+              "september",
+              "african",
+              "striking",
+              "inserting",
+              "december",
+              "entry",
+              "growth",
+              "opportunity",
+              "calendar",
+              "treatment",
+              "extend",
+              "free",
+              "customs",
+              "fees",
+              "extension",
+              "trade",
+              "subparagraph",
+              "covered",
+              "enactment",
+              "placed"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001172"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "september",
+                  "african",
+                  "striking",
+                  "inserting",
+                  "december",
+                  "entry",
+                  "growth",
+                  "opportunity",
+                  "calendar",
+                  "treatment",
+                  "extend",
+                  "free",
+                  "customs",
+                  "fees",
+                  "extension",
+                  "trade",
+                  "subparagraph",
+                  "covered",
+                  "enactment",
+                  "placed"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.041,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "interest"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HRES212-119",
+            "title": "Returning Senate Joint Resolution 3 to the Senate.",
+            "type": "HRES",
+            "number": "212",
+            "congress": 119,
+            "introduced_date": "2025-03-11",
+            "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/212?format=json",
+            "keywords": [
+              "resolution",
+              "joint",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "first",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "engrossed",
+              "doc",
+              "march",
+              "resolved",
+              "entitled",
+              "providing",
+              "disapproval",
+              "code"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "digital"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "resolution",
+                  "joint",
+                  "html",
+                  "body",
+                  "pre",
+                  "congressional",
+                  "res",
+                  "first",
+                  "bills",
+                  "government",
+                  "publishing",
+                  "office",
+                  "engrossed",
+                  "doc",
+                  "march",
+                  "resolved",
+                  "entitled",
+                  "providing",
+                  "disapproval",
+                  "code"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.021,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Technology"
+                  ],
+                  "keyword_hits": {
+                    "Technology": [
+                      "digital"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR1156-119",
+            "title": "Pandemic Unemployment Fraud Enforcement Act",
+            "type": "HR",
+            "number": "1156",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 29.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1156?format=json",
+            "keywords": [
+              "unemployment",
+              "enforcement",
+              "pandemic",
+              "statute",
+              "limitations",
+              "criminal",
+              "prosecution",
+              "civil",
+              "action",
+              "compensation",
+              "fraud",
+              "violation",
+              "conspiracy",
+              "code",
+              "respect",
+              "calendar",
+              "cares",
+              "march",
+              "enactment",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000585",
+              "Y000067",
+              "B001314",
+              "M001224",
+              "V000134",
+              "F000446",
+              "C001126",
+              "M001222",
+              "S001214",
+              "B001260"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "unemployment",
+                  "enforcement",
+                  "pandemic",
+                  "statute",
+                  "limitations",
+                  "criminal",
+                  "prosecution",
+                  "civil",
+                  "action",
+                  "compensation",
+                  "fraud",
+                  "violation",
+                  "conspiracy",
+                  "code",
+                  "respect",
+                  "calendar",
+                  "cares",
+                  "march",
+                  "enactment",
+                  "subparagraph"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.033,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HRES109-119",
+            "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
+            "type": "HRES",
+            "number": "109",
+            "congress": 119,
+            "introduced_date": "2025-02-05",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/109?format=json",
+            "keywords": [
+              "committee",
+              "expenses",
+              "resolution",
+              "amounts",
+              "noon",
+              "january",
+              "ways",
+              "one",
+              "hundred",
+              "nineteenth",
+              "administration",
+              "available",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "session",
+              "providing",
+              "referred",
+              "salaries"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000015"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "committee",
+                  "expenses",
+                  "resolution",
+                  "amounts",
+                  "noon",
+                  "january",
+                  "ways",
+                  "one",
+                  "hundred",
+                  "nineteenth",
+                  "administration",
+                  "available",
+                  "html",
+                  "body",
+                  "pre",
+                  "res",
+                  "session",
+                  "providing",
+                  "referred",
+                  "salaries"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.092,
+                "match_type": "member_bill",
+                "alec_match": null,
+                "similar_member_bills": [
+                  {
+                    "bill_id": "HRES131-119",
+                    "sponsor_id": "G000591",
+                    "similarity_score": 0.937
+                  },
+                  {
+                    "bill_id": "HRES159-118",
+                    "sponsor_id": "J000289",
+                    "similarity_score": 0.936
+                  },
+                  {
+                    "bill_id": "HRES86-119",
+                    "sponsor_id": "J000289",
+                    "similarity_score": 0.934
+                  }
+                ],
+                "donor_interest": {
+                  "match": false,
+                  "matched_industries": [],
+                  "keyword_hits": {}
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR591-119",
+            "title": "Defending American Jobs and Investment Act",
+            "type": "HR",
+            "number": "591",
+            "congress": 119,
+            "introduced_date": "2025-01-21",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/591?format=json",
+            "keywords": [
+              "tax",
+              "foreign",
+              "country",
+              "taxes",
+              "applicable",
+              "discriminatory",
+              "extraterritorial",
+              "secretary",
+              "respect",
+              "case",
+              "person",
+              "rate",
+              "report",
+              "purposes",
+              "income",
+              "percentage",
+              "points",
+              "trade",
+              "specified",
+              "period"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001260",
+              "S001172",
+              "K000376",
+              "S001183",
+              "L000585",
+              "A000375",
+              "E000298",
+              "S001199",
+              "H001082",
+              "M001205"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest",
+                  "investment"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "tax",
+                  "foreign",
+                  "country",
+                  "taxes",
+                  "applicable",
+                  "discriminatory",
+                  "extraterritorial",
+                  "secretary",
+                  "respect",
+                  "case",
+                  "person",
+                  "rate",
+                  "report",
+                  "purposes",
+                  "income",
+                  "percentage",
+                  "points",
+                  "trade",
+                  "specified",
+                  "period"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.098,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "interest",
+                      "investment"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR33-119",
+            "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
+            "type": "HR",
+            "number": "33",
+            "congress": 119,
+            "introduced_date": "2025-01-03",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/33?format=json",
+            "keywords": [
+              "taiwan",
+              "qualified",
+              "agreement",
+              "income",
+              "resident",
+              "business",
+              "permanent",
+              "person",
+              "subparagraph",
+              "respect",
+              "establishment",
+              "entity",
+              "general",
+              "trade",
+              "requirements",
+              "tax",
+              "purposes",
+              "individual",
+              "residents",
+              "percent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000015",
+              "B001260",
+              "D000399",
+              "S001172",
+              "T000460",
+              "K000376",
+              "S001156",
+              "L000585",
+              "S001185",
+              "E000298"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "taiwan",
+                  "qualified",
+                  "agreement",
+                  "income",
+                  "resident",
+                  "business",
+                  "permanent",
+                  "person",
+                  "subparagraph",
+                  "respect",
+                  "establishment",
+                  "entity",
+                  "general",
+                  "trade",
+                  "requirements",
+                  "tax",
+                  "purposes",
+                  "individual",
+                  "residents",
+                  "percent"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.071,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Finance & Banking",
+                    "Healthcare"
+                  ],
+                  "keyword_hits": {
+                    "Finance & Banking": [
+                      "bank",
+                      "interest",
+                      "securities",
+                      "investment"
+                    ],
+                    "Healthcare": [
+                      "insurance"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          },
+          {
+            "bill_id": "HR8813-118",
+            "title": "Preventing Child Welfare Entry Caused by Poverty Act",
+            "type": "HR",
+            "number": "8813",
+            "congress": 118,
+            "introduced_date": "2024-06-25",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8813?format=json",
+            "keywords": [
+              "child",
+              "services",
+              "state",
+              "session",
+              "subpart",
+              "social",
+              "security",
+              "address",
+              "welfare",
+              "poverty",
+              "purposes",
+              "family",
+              "caused",
+              "striking",
+              "needs",
+              "meet",
+              "plan",
+              "requirements",
+              "made",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.0,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001160"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "food"
+                ]
+              }
+            },
+            "analysis_provenance": {
+              "source_snapshot": "506ac59adf260d987646832cdcff7d8a9b762225",
+              "review_base": "f05f766fe3cfdb0526690e6daf26b41a1c440378",
+              "reason": "Legacy similarity corpus contains PDF syntax; clean-corpus refit required",
+              "original_fields": {
+                "keywords": [
+                  "child",
+                  "services",
+                  "state",
+                  "session",
+                  "subpart",
+                  "social",
+                  "security",
+                  "address",
+                  "welfare",
+                  "poverty",
+                  "purposes",
+                  "family",
+                  "caused",
+                  "striking",
+                  "needs",
+                  "meet",
+                  "plan",
+                  "requirements",
+                  "made",
+                  "year"
+                ],
+                "has_text": true,
+                "similarity_score": null,
+                "alec_best_similarity": 0.064,
+                "match_type": null,
+                "alec_match": null,
+                "similar_member_bills": [],
+                "donor_interest": {
+                  "match": true,
+                  "matched_industries": [
+                    "Agriculture"
+                  ],
+                  "keyword_hits": {
+                    "Agriculture": [
+                      "food"
+                    ]
+                  }
+                }
+              }
+            },
+            "analysis_status": "quarantined_legacy_corpus"
+          }
+        ],
+        "bills_updated": "2026-11-18T17:26:44.141390+00:00",
+        "bills_count": 10,
+        "bills_analysis_status": "quarantined_legacy_corpus",
+        "donor_alignment_score": 40.0,
+        "donor_match_count": 8,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "598849e5e7e845eaa6359fe7c74c4b4af335d989",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10357-119",
+            "title": "Digital Asset Tax Certainty Act",
+            "type": "HR",
+            "number": "10357",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10357?format=json",
+            "keywords": [
+              "digital",
+              "asset",
+              "assets",
+              "traded",
+              "type",
+              "taxpayer",
+              "taxable",
+              "year",
+              "respect",
+              "widely",
+              "designated",
+              "election",
+              "fee",
+              "value",
+              "loss",
+              "purposes",
+              "rules",
+              "gain",
+              "case",
+              "dollar"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.071,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000375",
+              "B001314",
+              "C001126",
+              "H001066",
+              "K000376",
+              "K000392",
+              "M001222",
+              "Y000067"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9645-119",
+            "title": "Health Care Price Certainty for All Americans Act",
+            "type": "HR",
+            "number": "9645",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9645?format=json",
+            "keywords": [
+              "secretary",
+              "specified",
+              "hospital",
+              "laboratory",
+              "information",
+              "price",
+              "services",
+              "service",
+              "subparagraph",
+              "applicable",
+              "penalty",
+              "described",
+              "respect",
+              "amount",
+              "made",
+              "compliance",
+              "case",
+              "available",
+              "individual",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Agriculture",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Agriculture": [
+                  "rural"
+                ],
+                "Technology": [
+                  "technology",
+                  "internet",
+                  "data"
+                ],
+                "Healthcare": [
+                  "healthcare",
+                  "hospital",
+                  "insurance",
+                  "medicaid",
+                  "medicare"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6599-119",
+            "title": "Leasing and Infrastructure Act of 2025",
+            "type": "HR",
+            "number": "6599",
+            "congress": 119,
+            "introduced_date": "2025-12-10",
+            "latest_action": "Committee Hearings Held",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6599?format=json",
+            "keywords": [
+              "secretary",
+              "lease",
+              "cost",
+              "veterans",
+              "medical",
+              "costs",
+              "fund",
+              "authority",
+              "leases",
+              "leasing",
+              "year",
+              "later",
+              "major",
+              "facility",
+              "affairs",
+              "request",
+              "days",
+              "one",
+              "period",
+              "market"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ],
+                "Technology": [
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6500-119",
+            "title": "AGOA Extension Act",
+            "type": "HR",
+            "number": "6500",
+            "congress": 119,
+            "introduced_date": "2025-12-09",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6500?format=json",
+            "keywords": [
+              "september",
+              "african",
+              "striking",
+              "inserting",
+              "december",
+              "entry",
+              "growth",
+              "opportunity",
+              "calendar",
+              "treatment",
+              "extend",
+              "free",
+              "customs",
+              "fees",
+              "extension",
+              "trade",
+              "subparagraph",
+              "covered",
+              "enactment",
+              "placed"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.041,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001172"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES212-119",
+            "title": "Returning Senate Joint Resolution 3 to the Senate.",
+            "type": "HRES",
+            "number": "212",
+            "congress": 119,
+            "introduced_date": "2025-03-11",
+            "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/212?format=json",
+            "keywords": [
+              "resolution",
+              "joint",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "first",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "engrossed",
+              "doc",
+              "march",
+              "resolved",
+              "entitled",
+              "providing",
+              "disapproval",
+              "code"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR1156-119",
+            "title": "Pandemic Unemployment Fraud Enforcement Act",
+            "type": "HR",
+            "number": "1156",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 29.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1156?format=json",
+            "keywords": [
+              "unemployment",
+              "enforcement",
+              "pandemic",
+              "statute",
+              "limitations",
+              "criminal",
+              "prosecution",
+              "civil",
+              "action",
+              "compensation",
+              "fraud",
+              "violation",
+              "conspiracy",
+              "code",
+              "respect",
+              "calendar",
+              "cares",
+              "march",
+              "enactment",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000585",
+              "Y000067",
+              "B001314",
+              "M001224",
+              "V000134",
+              "F000446",
+              "C001126",
+              "M001222",
+              "S001214",
+              "B001260"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES109-119",
+            "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
+            "type": "HRES",
+            "number": "109",
+            "congress": 119,
+            "introduced_date": "2025-02-05",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/109?format=json",
+            "keywords": [
+              "committee",
+              "expenses",
+              "resolution",
+              "amounts",
+              "noon",
+              "january",
+              "ways",
+              "one",
+              "hundred",
+              "nineteenth",
+              "administration",
+              "available",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "session",
+              "providing",
+              "referred",
+              "salaries"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.092,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES131-119",
+                "sponsor_id": "G000591",
+                "similarity_score": 0.937
+              },
+              {
+                "bill_id": "HRES159-118",
+                "sponsor_id": "J000289",
+                "similarity_score": 0.936
+              },
+              {
+                "bill_id": "HRES86-119",
+                "sponsor_id": "J000289",
+                "similarity_score": 0.934
+              }
+            ],
+            "cosponsors": [
+              "N000015"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR591-119",
+            "title": "Defending American Jobs and Investment Act",
+            "type": "HR",
+            "number": "591",
+            "congress": 119,
+            "introduced_date": "2025-01-21",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/591?format=json",
+            "keywords": [
+              "tax",
+              "foreign",
+              "country",
+              "taxes",
+              "applicable",
+              "discriminatory",
+              "extraterritorial",
+              "secretary",
+              "respect",
+              "case",
+              "person",
+              "rate",
+              "report",
+              "purposes",
+              "income",
+              "percentage",
+              "points",
+              "trade",
+              "specified",
+              "period"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.098,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001260",
+              "S001172",
+              "K000376",
+              "S001183",
+              "L000585",
+              "A000375",
+              "E000298",
+              "S001199",
+              "H001082",
+              "M001205"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR33-119",
+            "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
+            "type": "HR",
+            "number": "33",
+            "congress": 119,
+            "introduced_date": "2025-01-03",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/33?format=json",
+            "keywords": [
+              "taiwan",
+              "qualified",
+              "agreement",
+              "income",
+              "resident",
+              "business",
+              "permanent",
+              "person",
+              "subparagraph",
+              "respect",
+              "establishment",
+              "entity",
+              "general",
+              "trade",
+              "requirements",
+              "tax",
+              "purposes",
+              "individual",
+              "residents",
+              "percent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.071,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000015",
+              "B001260",
+              "D000399",
+              "S001172",
+              "T000460",
+              "K000376",
+              "S001156",
+              "L000585",
+              "S001185",
+              "E000298"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8813-118",
+            "title": "Preventing Child Welfare Entry Caused by Poverty Act",
+            "type": "HR",
+            "number": "8813",
+            "congress": 118,
+            "introduced_date": "2024-06-25",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8813?format=json",
+            "keywords": [
+              "child",
+              "services",
+              "state",
+              "session",
+              "subpart",
+              "social",
+              "security",
+              "address",
+              "welfare",
+              "poverty",
+              "purposes",
+              "family",
+              "caused",
+              "striking",
+              "needs",
+              "meet",
+              "plan",
+              "requirements",
+              "made",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.064,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001160"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "food"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_updated": "2026-11-20T17:29:55.802969+00:00",
+        "bills_count": 10,
+        "donor_alignment_score": 40.0,
+        "donor_match_count": 8,
+        "alec_match_count": 0
+      }
+    },
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "publication_status": "legacy_archive_only",
+      "original_fields": {
+        "bills": [
+          {
+            "bill_id": "HR10357-119",
+            "title": "Digital Asset Tax Certainty Act",
+            "type": "HR",
+            "number": "10357",
+            "congress": 119,
+            "introduced_date": "2026-09-14",
+            "latest_action": "Referred to the House Committee on Ways and Means.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/10357?format=json",
+            "keywords": [
+              "digital",
+              "asset",
+              "assets",
+              "traded",
+              "type",
+              "taxpayer",
+              "taxable",
+              "year",
+              "respect",
+              "widely",
+              "designated",
+              "election",
+              "fee",
+              "value",
+              "loss",
+              "purposes",
+              "rules",
+              "gain",
+              "case",
+              "dollar"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.071,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "A000375",
+              "B001314",
+              "C001126",
+              "H001066",
+              "K000376",
+              "K000392",
+              "M001222",
+              "Y000067"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial",
+                  "loan",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR9645-119",
+            "title": "Health Care Price Certainty for All Americans Act",
+            "type": "HR",
+            "number": "9645",
+            "congress": 119,
+            "introduced_date": "2026-07-13",
+            "latest_action": "Referred to the Committee on Energy and Commerce, and in addition to the Committees on Ways and Means, and Education and Workforce, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/9645?format=json",
+            "keywords": [
+              "secretary",
+              "specified",
+              "hospital",
+              "laboratory",
+              "information",
+              "price",
+              "services",
+              "service",
+              "subparagraph",
+              "applicable",
+              "penalty",
+              "described",
+              "respect",
+              "amount",
+              "made",
+              "compliance",
+              "case",
+              "available",
+              "individual",
+              "determined"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.056,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Agriculture",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "financial"
+                ],
+                "Agriculture": [
+                  "rural"
+                ],
+                "Technology": [
+                  "technology",
+                  "internet",
+                  "data"
+                ],
+                "Healthcare": [
+                  "healthcare",
+                  "hospital",
+                  "insurance",
+                  "medicaid",
+                  "medicare"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6599-119",
+            "title": "Leasing and Infrastructure Act of 2025",
+            "type": "HR",
+            "number": "6599",
+            "congress": 119,
+            "introduced_date": "2025-12-10",
+            "latest_action": "Committee Hearings Held",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6599?format=json",
+            "keywords": [
+              "secretary",
+              "lease",
+              "cost",
+              "veterans",
+              "medical",
+              "costs",
+              "fund",
+              "authority",
+              "leases",
+              "leasing",
+              "year",
+              "later",
+              "major",
+              "facility",
+              "affairs",
+              "request",
+              "days",
+              "one",
+              "period",
+              "market"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.067,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Technology",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ],
+                "Technology": [
+                  "data"
+                ],
+                "Healthcare": [
+                  "insurance",
+                  "reimbursement"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR6500-119",
+            "title": "AGOA Extension Act",
+            "type": "HR",
+            "number": "6500",
+            "congress": 119,
+            "introduced_date": "2025-12-09",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 320.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/6500?format=json",
+            "keywords": [
+              "september",
+              "african",
+              "striking",
+              "inserting",
+              "december",
+              "entry",
+              "growth",
+              "opportunity",
+              "calendar",
+              "treatment",
+              "extend",
+              "free",
+              "customs",
+              "fees",
+              "extension",
+              "trade",
+              "subparagraph",
+              "covered",
+              "enactment",
+              "placed"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.041,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "S001172"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HRES212-119",
+            "title": "Returning Senate Joint Resolution 3 to the Senate.",
+            "type": "HRES",
+            "number": "212",
+            "congress": 119,
+            "introduced_date": "2025-03-11",
+            "latest_action": "Motion to reconsider laid on the table Agreed to without objection.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/212?format=json",
+            "keywords": [
+              "resolution",
+              "joint",
+              "html",
+              "body",
+              "pre",
+              "congressional",
+              "res",
+              "first",
+              "bills",
+              "government",
+              "publishing",
+              "office",
+              "engrossed",
+              "doc",
+              "march",
+              "resolved",
+              "entitled",
+              "providing",
+              "disapproval",
+              "code"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.021,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Technology"
+              ],
+              "keyword_hits": {
+                "Technology": [
+                  "digital"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR1156-119",
+            "title": "Pandemic Unemployment Fraud Enforcement Act",
+            "type": "HR",
+            "number": "1156",
+            "congress": 119,
+            "introduced_date": "2025-02-10",
+            "latest_action": "Read the second time. Placed on Senate Legislative Calendar under General Orders. Calendar No. 29.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/1156?format=json",
+            "keywords": [
+              "unemployment",
+              "enforcement",
+              "pandemic",
+              "statute",
+              "limitations",
+              "criminal",
+              "prosecution",
+              "civil",
+              "action",
+              "compensation",
+              "fraud",
+              "violation",
+              "conspiracy",
+              "code",
+              "respect",
+              "calendar",
+              "cares",
+              "march",
+              "enactment",
+              "subparagraph"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.033,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "L000585",
+              "Y000067",
+              "B001314",
+              "M001224",
+              "V000134",
+              "F000446",
+              "C001126",
+              "M001222",
+              "S001214",
+              "B001260"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HRES109-119",
+            "title": "Providing amounts for the expenses of the Committee on Ways and Means in the One Hundred Nineteenth Congress.",
+            "type": "HRES",
+            "number": "109",
+            "congress": 119,
+            "introduced_date": "2025-02-05",
+            "latest_action": "Referred to the House Committee on House Administration.",
+            "url": "https://api.congress.gov/v3/bill/119/hres/109?format=json",
+            "keywords": [
+              "committee",
+              "expenses",
+              "resolution",
+              "amounts",
+              "noon",
+              "january",
+              "ways",
+              "one",
+              "hundred",
+              "nineteenth",
+              "administration",
+              "available",
+              "html",
+              "body",
+              "pre",
+              "res",
+              "session",
+              "providing",
+              "referred",
+              "salaries"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.092,
+            "match_type": "member_bill",
+            "alec_match": null,
+            "similar_member_bills": [
+              {
+                "bill_id": "HRES131-119",
+                "sponsor_id": "G000591",
+                "similarity_score": 0.937
+              },
+              {
+                "bill_id": "HRES159-118",
+                "sponsor_id": "J000289",
+                "similarity_score": 0.936
+              },
+              {
+                "bill_id": "HRES86-119",
+                "sponsor_id": "J000289",
+                "similarity_score": 0.934
+              }
+            ],
+            "cosponsors": [
+              "N000015"
+            ],
+            "donor_interest": {
+              "match": false,
+              "matched_industries": [],
+              "keyword_hits": {}
+            }
+          },
+          {
+            "bill_id": "HR591-119",
+            "title": "Defending American Jobs and Investment Act",
+            "type": "HR",
+            "number": "591",
+            "congress": 119,
+            "introduced_date": "2025-01-21",
+            "latest_action": "Referred to the Committee on Ways and Means, and in addition to the Committee on Oversight and Government Reform, for a period to be subsequently determined by the Speaker, in each case for consideration of such provisions as fall within the jurisdiction of the committee concerned.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/591?format=json",
+            "keywords": [
+              "tax",
+              "foreign",
+              "country",
+              "taxes",
+              "applicable",
+              "discriminatory",
+              "extraterritorial",
+              "secretary",
+              "respect",
+              "case",
+              "person",
+              "rate",
+              "report",
+              "purposes",
+              "income",
+              "percentage",
+              "points",
+              "trade",
+              "specified",
+              "period"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.098,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "B001260",
+              "S001172",
+              "K000376",
+              "S001183",
+              "L000585",
+              "A000375",
+              "E000298",
+              "S001199",
+              "H001082",
+              "M001205"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "interest",
+                  "investment"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR33-119",
+            "title": "To amend the Internal Revenue Code of 1986 to provide special rules for the taxation of certain residents of Taiwan with income from sources within the United States.",
+            "type": "HR",
+            "number": "33",
+            "congress": 119,
+            "introduced_date": "2025-01-03",
+            "latest_action": "Received in the Senate and Read twice and referred to the Committee on Finance.",
+            "url": "https://api.congress.gov/v3/bill/119/hr/33?format=json",
+            "keywords": [
+              "taiwan",
+              "qualified",
+              "agreement",
+              "income",
+              "resident",
+              "business",
+              "permanent",
+              "person",
+              "subparagraph",
+              "respect",
+              "establishment",
+              "entity",
+              "general",
+              "trade",
+              "requirements",
+              "tax",
+              "purposes",
+              "individual",
+              "residents",
+              "percent"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.071,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "N000015",
+              "B001260",
+              "D000399",
+              "S001172",
+              "T000460",
+              "K000376",
+              "S001156",
+              "L000585",
+              "S001185",
+              "E000298"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Finance & Banking",
+                "Healthcare"
+              ],
+              "keyword_hits": {
+                "Finance & Banking": [
+                  "bank",
+                  "interest",
+                  "securities",
+                  "investment"
+                ],
+                "Healthcare": [
+                  "insurance"
+                ]
+              }
+            }
+          },
+          {
+            "bill_id": "HR8813-118",
+            "title": "Preventing Child Welfare Entry Caused by Poverty Act",
+            "type": "HR",
+            "number": "8813",
+            "congress": 118,
+            "introduced_date": "2024-06-25",
+            "latest_action": "Referred to the Subcommittee on Work and Welfare.",
+            "url": "https://api.congress.gov/v3/bill/118/hr/8813?format=json",
+            "keywords": [
+              "child",
+              "services",
+              "state",
+              "session",
+              "subpart",
+              "social",
+              "security",
+              "address",
+              "welfare",
+              "poverty",
+              "purposes",
+              "family",
+              "caused",
+              "striking",
+              "needs",
+              "meet",
+              "plan",
+              "requirements",
+              "made",
+              "year"
+            ],
+            "has_text": true,
+            "similarity_score": null,
+            "alec_best_similarity": 0.064,
+            "match_type": null,
+            "alec_match": null,
+            "similar_member_bills": [],
+            "cosponsors": [
+              "M001160"
+            ],
+            "donor_interest": {
+              "match": true,
+              "matched_industries": [
+                "Agriculture"
+              ],
+              "keyword_hits": {
+                "Agriculture": [
+                  "food"
+                ]
+              }
+            }
+          }
+        ],
+        "bills_analysis_status": null,
+        "bills_count": 10,
+        "bills_status": null,
+        "bills_updated": "2026-11-23T20:29:40.065969+00:00"
+      }
+    }
+  ],
+  "bills_analysis_version": "official-prose-overlap-v2",
+  "bills_status": "available",
+  "model_analysis_status": "primary_model_corpus_unavailable",
+  "donor_alignment_status": "unavailable",
+  "bill_source_manifest_sha256": "44ead7aa45640ddd25bb0ae26b9f5e10eeb1afef2392885d3395bf42903d4dee",
+  "source_reconciliation_history": [
+    {
+      "source_snapshot": "a3a41f05624ba3b2571289ad653c1f204f3295ce",
+      "prior_upstream_snapshot": "fc9ae162c75c03ea7f73dc1a0c29e41aa6bc7a30",
+      "publication_status": "source_observation_only",
+      "changed_fields": {
+        "bills_updated": "2026-11-23T20:29:40.065969+00:00",
+        "data_updated": "2026-11-23T16:04:48.688832",
+        "donors_updated": "2026-11-23T22:30:06.013022+00:00",
+        "last_updated": "2026-11-23T16:04:48.688832",
+        "score_updated": "2026-11-23T22:58:09.303813",
+        "travel_updated": "2026-11-23T20:43:21.026892+00:00",
+        "votes_fail_count": 49,
+        "votes_updated": "2026-11-23T10:04:05.250557"
+      }
+    }
+  ],
+  "bills_checked": "2026-11-24T12:32:03.722671+00:00",
+  "edgar_updated": "2026-11-24T15:54:48.383690",
+  "finance_refresh_reconciliation": {
+    "source_snapshot": "1f757a012d0831f97f5e56dbea68b5f76999ffd3",
+    "prior_upstream_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+    "review_snapshot": "b0faa5a150e97733ddce4dc3201ce115717521d2",
+    "run": 45426256499,
+    "job": 138558970627,
+    "evidence_file": "benchmarks/nov24-finance-run-evidence.json",
+    "evidence_sha256": "21b70e71a8655769c9e2ecade47ea02998d4ecc332889d229a8aa0bd7c68700c",
+    "checked": "2026-11-24T15:54:48.383690",
+    "checked_semantics": "Legacy member processing timestamp, not proof of fresh FEC or successful SEC evidence.",
+    "observed_roster": {
+      "edgar_cik": "0002023540",
+      "corporate_insider_signals": 5,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-24T15:54:48.383690",
+      "score": 43,
+      "flags": [
+        "donor"
+      ]
+    },
+    "observed_detail": {
+      "edgar_cik": "0002023540",
+      "corporate_insider_signals": 5,
+      "edgar_status": "verified_auto",
+      "data_updated": "2026-11-24T15:54:48.383690",
+      "last_updated": "2026-11-24T15:54:48.383690",
+      "score": 43,
+      "score_components": {
+        "trade_timing": 25,
+        "wealth_gap": 10,
+        "donor_alignment": 8,
+        "alec_similarity": 0,
+        "foreign_travel": 0,
+        "attendance": 0
+      },
+      "flags": [
+        "donor"
+      ]
+    },
+    "previous_reviewed_sec": {
+      "edgar_cik": "0002023540",
+      "corporate_insider_signals": 5,
+      "edgar_status": "unverified_auto",
+      "edgar_data_status": "stale",
+      "edgar_checked": "2026-11-23T16:04:48.688832"
+    },
+    "candidate_only": true,
+    "alias_error_count": 0,
+    "filing_query_error_count": 0,
+    "successful_candidate_count_response": {
+      "cik": "0002023540",
+      "count": 5
+    },
+    "incomplete_attempt": false,
+    "derived_upstream_values_applied": false
+  }
 }

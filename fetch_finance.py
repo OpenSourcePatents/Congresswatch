@@ -18,9 +18,13 @@ import os
 import json
 import time
 import re
+import math
 from collections import defaultdict
 import requests
 from datetime import datetime
+
+from travel_attribution import is_member_travel
+from sec_identity import evidence_available, retrieve_identity_evidence
 
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
 
@@ -45,11 +49,12 @@ os.makedirs(DETAILS_DIR, exist_ok=True)
 LIGHT_FIELDS = {
     "id","bioguide_id","name","party","state","district","chamber",
     "photo_url","term_start","score","flags",
+    "score_updated","score_components","score_methodology",
     "corporate_insider_signals",
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik"
+    "edgar_status","edgar_cik","edgar_data_status","edgar_checked","edgar_updated","finance_status","finance_updated","finance_checked","roster_updated","fec_cycle","edgar_identity_status","edgar_identity_cik","edgar_identity_evidence","edgar_identity_note","edgar_legacy_status","edgar_identity_evidence_checks","edgar_identity_assertion"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -129,6 +134,38 @@ def save_detail(bid,data):
 # CIK RESOLUTION
 # ─────────────────────────────────────────────────────────────
 
+def eligible_sec_signals(member):
+    """Only independently evidenced identity plus successful data may affect scoring.
+
+    Raw candidate counts remain stored for investigation, never identity proof.
+    Keep this contract aligned with OSP-API and index.html.
+    """
+    cik = member.get("edgar_identity_cik")
+    evidence = member.get("edgar_identity_evidence")
+    count = member.get("corporate_insider_signals")
+    if (member.get("edgar_identity_status") == "verified"
+            and isinstance(cik, str) and cik.strip() and cik == member.get("edgar_cik")
+            and isinstance(evidence, list) and evidence
+            and all(isinstance(url, str) and url.startswith("https://") for url in evidence)
+            and evidence_available(member)
+            and member.get("edgar_data_status") == "available"
+            and member.get("edgar_status") != "query_failed"
+            and type(count) in (int, float) and math.isfinite(count) and count >= 0):
+        return count
+    return 0
+
+
+def annotate_sec_identity(member):
+    """Quarantine legacy automatic verification without deleting source evidence."""
+    if member.get("edgar_status") == "verified_auto":
+        member.setdefault("edgar_legacy_status", "verified_auto")
+        member["edgar_status"] = "unverified_auto"
+    member.setdefault("edgar_identity_status", "unverified")
+    member.setdefault("edgar_identity_evidence", [])
+    if member["edgar_identity_status"] != "verified":
+        member["edgar_identity_note"] = "Name-search candidates are not verified member identities; excluded from scoring and activity flags."
+
+
 def normalize_name(name):
     name = name.lower().strip()
     name = re.sub(r"\b(jr|sr|ii|iii|iv|v)\b","",name)
@@ -168,27 +205,49 @@ def sec_search(query, ciks=None):
     sleep(1.2)
     r = requests.get(url,headers=HEADERS,timeout=20)
     r.raise_for_status()
+    payload = r.json()
+    if (not isinstance(payload, dict) or not isinstance(payload.get("hits"), dict)
+            or not isinstance(payload["hits"].get("hits"), list)):
+        raise ValueError("Invalid SEC search response; not a verified empty result")
     SEC_STATS["ok"] += 1
-    return r.json()
+    return payload
 
 def resolve_member_cik(member):
 
     manual = load_json(CIK_MAP_FILE,{})
     bid = member.get("id") or member.get("bioguide_id")
 
-    if bid in manual:
-        return {
-            "status":"verified_manual",
-            "cik":manual[bid]["cik"]
-        }
+    entry = manual.get(bid, {})
+    evidence = entry.get("evidence", [])
+    cik = entry.get("cik")
+    if (entry.get("identity_status") == "verified" and isinstance(cik, str)
+            and cik.strip() and isinstance(evidence, list) and evidence
+            and all(isinstance(url, str) and url.startswith("https://") for url in evidence)):
+        member["edgar_identity_status"] = "verified"
+        member["edgar_identity_cik"] = cik
+        member["edgar_identity_evidence"] = evidence
+        member["edgar_identity_assertion"] = dict(entry)
+        member["edgar_identity_evidence_checks"] = retrieve_identity_evidence(cik, evidence, HEADERS)
+        if not evidence_available(member):
+            member["edgar_identity_status"] = "verification_unavailable"
+            member["edgar_identity_note"] = "Declared identity evidence could not be retrieved; excluded from scoring and flags."
+            return {"status": "identity_evidence_unavailable", "cik": cik}
+        member.pop("edgar_identity_note", None)
+        return {"status": "verified_manual", "cik": cik}
+
+    # A legacy manual CIK with no reviewed evidence is not sufficient either.
+    member["edgar_identity_status"] = "unverified"
+    annotate_sec_identity(member)
 
     candidates = defaultdict(int)
+    alias_failed = False
 
     for alias in name_aliases(member["name"]):
         try:
             data = sec_search(f'"{alias}"')
         except Exception as e:
             SEC_STATS["fail"] += 1
+            alias_failed = True
             print(f"    SEC search failed for {alias!r}: {e}")
             continue
 
@@ -204,20 +263,27 @@ def resolve_member_cik(member):
                 if cik.isdigit():
                     candidates[cik]+=1
 
+    # A partial alias search cannot establish absence or a reliable identity.
+    # Do not replace a previous CIK/count using incomplete candidate evidence.
+    if alias_failed:
+        return {"status": "query_failed", "cik": None}
+
     if not candidates:
         return {"status":"unresolved","cik":None}
 
     best = sorted(candidates.items(),key=lambda x:-x[1])[0]
 
-    if best[1] >= 3:
-        return {"status":"verified_auto","cik":best[0]}
-
     review = load_json(CIK_REVIEW_FILE,{})
     review[bid] = {
         "name":member["name"],
-        "candidates":dict(candidates)
+        "candidates":dict(candidates),
+        "method": "Name-search frequency, not independently verified identity",
+        "checked": datetime.now().isoformat()
     }
     save_json(CIK_REVIEW_FILE,review)
+
+    if best[1] >= 3:
+        return {"status":"unverified_auto","cik":best[0]}
 
     return {"status":"needs_review","cik":None}
 
@@ -229,10 +295,16 @@ def fetch_edgar_signals(member):
 
     res = resolve_member_cik(member)
 
+    prior_cik = member.get("edgar_cik")
+    member["edgar_checked"] = datetime.now().isoformat()
     member["edgar_status"] = res["status"]
+    if res["status"] == "query_failed":
+        member["edgar_data_status"] = "stale" if prior_cik and member.get("corporate_insider_signals") is not None else "unavailable"
+        return None
     member["edgar_cik"] = res["cik"]
 
     if not res["cik"]:
+        member["edgar_data_status"] = "unresolved"
         print("    EDGAR:",res["status"])
         return 0
 
@@ -244,6 +316,10 @@ def fetch_edgar_signals(member):
             total = len(payload.get("hits",{}).get("hits",[]))
         count = int(total)
 
+        if count < 0:
+            raise ValueError("Negative SEC filing count")
+        member["edgar_data_status"] = "available"
+        member["edgar_updated"] = member["edgar_checked"]
         print(f"    EDGAR Hit: {count} filings via CIK {res['cik']}")
         return count
 
@@ -252,6 +328,9 @@ def fetch_edgar_signals(member):
         SEC_STATS["fail"] += 1
         print(f"    EDGAR query failed: {e}")
         member["edgar_status"]="query_failed"
+        # Retained counts must remain paired with the identity they came from.
+        member["edgar_cik"] = prior_cik
+        member["edgar_data_status"] = "stale" if prior_cik and member.get("corporate_insider_signals") is not None else "unavailable"
         return None
 
 # ─────────────────────────────────────────────────────────────
@@ -276,7 +355,7 @@ def fetch_fec_candidate(name,state,office):
 
     try:
         sleep(0.5)
-        r=requests.get(f"{FEC_BASE}/candidates/search/",params=params,headers=HEADERS)
+        r=requests.get(f"{FEC_BASE}/candidates/search/",params=params,headers=HEADERS, timeout=30)
         r.raise_for_status()
         res=r.json().get("results",[])
         # Prefer an exact state match over blind results[0]
@@ -300,7 +379,7 @@ def fetch_fec_totals(cid):
 
     try:
         sleep(0.5)
-        r=requests.get(f"{FEC_BASE}/candidates/totals/",params=params,headers=HEADERS)
+        r=requests.get(f"{FEC_BASE}/candidates/totals/",params=params,headers=HEADERS, timeout=30)
         r.raise_for_status()
 
         res=r.json().get("results",[])
@@ -396,7 +475,7 @@ def compute_score_components(m, detail=None):
 
     # 1. Stock trade timing (25 max) — SEC EDGAR signals + PTR trade frequency
     trade_score = 0
-    signals = m.get("corporate_insider_signals", 0) or 0
+    signals = eligible_sec_signals(m)
     if signals >= 3:
         trade_score += 25
     elif signals == 2:
@@ -411,7 +490,7 @@ def compute_score_components(m, detail=None):
         # Scanned-PDF placeholder records have no transaction_date at all;
         # parse_date_any('') -> '' which never clears the cutoff.
         recent = sum(1 for t in trades
-                     if parse_date_any(t.get("transaction_date")) >= cutoff)
+                     if cutoff <= parse_date_any(t.get("transaction_date")) <= datetime.now().strftime("%Y-%m-%d"))
         if recent >= 20:
             trade_score += 15
         elif recent >= 10:
@@ -420,51 +499,16 @@ def compute_score_components(m, detail=None):
             trade_score += 5
     trade_timing = min(trade_score, 25)
 
-    # 2. Wealth gap (25 max) — estimated wealth vs cumulative salary
+    # 2. Personal wealth cannot be inferred from campaign receipts. Keep the
+    # public key for compatibility, but suspend this component until sourced
+    # personal asset/liability disclosures support an explicit methodology.
     wealth_gap = 0
-    total = m.get("total_raised", 0) or 0
-    if total > 0:
-        est_wealth = total * 0.45
-        start_year = m.get("term_start", "2010")[:4]
-        try:
-            start = int(start_year)
-        except (ValueError, TypeError):
-            start = datetime.now().year - 10
-        gap = est_wealth - cumulative_salary(start, datetime.now().year)
-        if gap > 5000000:
-            wealth_gap = 25
-        elif gap > 2000000:
-            wealth_gap = 20
-        elif gap > 500000:
-            wealth_gap = 15
-        elif gap > 100000:
-            wealth_gap = 10
-        elif gap > 0:
-            wealth_gap = 5
 
-    # 3. Donor-vote alignment (20 max) — from bills pipeline
-    donor_alignment = min(20, round((detail.get("donor_alignment_score", 0) or 0) * 0.2))
-
-    # 4. Bill authorship / ALEC similarity (15 max) — from bills pipeline
-    max_alec_sim = 0
-    for bill in (detail.get("bills", []) or []):
-        alec = bill.get("alec_match")
-        if alec and alec.get("similarity_score", 0) > max_alec_sim:
-            max_alec_sim = alec["similarity_score"]
-        # raw best similarity (also stored below the 0.80 match threshold)
-        raw_sim = bill.get("alec_best_similarity", 0) or 0
-        if raw_sim > max_alec_sim:
-            max_alec_sim = raw_sim
-    if max_alec_sim >= 0.8:
-        alec_similarity = 15
-    elif max_alec_sim >= 0.65:
-        alec_similarity = 11
-    elif max_alec_sim >= 0.5:
-        alec_similarity = 8
-    elif max_alec_sim >= 0.35:
-        alec_similarity = 4
-    else:
-        alec_similarity = 0
+    # The official federal-prose corpus publishes neither a validated
+    # donor-alignment method nor a primary model corpus. Legacy fields may
+    # contain contaminated PDF features; never score them as findings.
+    donor_alignment = 0
+    alec_similarity = 0
 
     # 5. Foreign travel (10 max) — from travel pipeline
     foreign_travel = 0
@@ -472,7 +516,8 @@ def compute_score_components(m, detail=None):
     if travel:
         cutoff_2y = (datetime.now() - timedelta(days=730)).strftime("%Y-%m-%d")
         recent_trips = sum(1 for t in travel
-                           if parse_date_any(t.get("departure_date")) >= cutoff_2y)
+                           if is_member_travel(t)
+                           and cutoff_2y <= parse_date_any(t.get("departure_date")) <= datetime.now().strftime("%Y-%m-%d"))
         if recent_trips >= 5:
             foreign_travel = 10
         elif recent_trips >= 3:
@@ -494,7 +539,7 @@ def compute_score_components(m, detail=None):
     votes = detail.get("votes", []) or []
     if (not is_non_voting_delegate(m)
             and len(votes) >= MIN_VOTES_FOR_ATTENDANCE):
-        missed = sum(1 for v in votes if (v.get("position", "").lower() in
+        missed = sum(1 for v in votes if ((v.get("position") or "").lower() in
                      ("not voting", "absent", "")))
         missed_pct = missed * 100.0 / len(votes)
         attendance = min(5, round(missed_pct * 5.0 / ATTENDANCE_SATURATION_PCT))
@@ -517,7 +562,7 @@ def update_flags(m):
 
     flags=[]
 
-    if (m.get("corporate_insider_signals",0) or 0)>5:
+    if eligible_sec_signals(m)>5:
         flags.append("trade")
 
     total=m.get("total_raised",0)
@@ -557,26 +602,41 @@ if __name__=="__main__":
         # pipelines, plus last-known finance values for failure fallback)
         detail_data=load_detail(bid)
 
-        # EDGAR — None means "query failed": keep the last-known value
+        # Hydrate historical identity/count as one pair. Never carry a detail
+        # count with an unrelated or missing roster CIK on refresh failure.
+        if (m.get("edgar_cik") is None or m.get("corporate_insider_signals") is None):
+            if detail_data.get("edgar_cik") and detail_data.get("corporate_insider_signals") is not None:
+                for field in ("edgar_cik", "corporate_insider_signals", "edgar_status",
+                              "edgar_data_status", "edgar_updated"):
+                    if field in detail_data:
+                        m[field] = detail_data[field]
+
+        # EDGAR — None means "query failed": keep the last-known paired value
         signals=fetch_edgar_signals(m)
         if signals is None:
-            signals=detail_data.get("corporate_insider_signals", 0) or 0
+            signals=m.get("corporate_insider_signals")
         m["corporate_insider_signals"]=signals
 
         # FEC — on any failure, fall back to last-known totals so the
         # wealth-gap signal doesn't silently collapse to 0
+        m["finance_checked"] = datetime.now().isoformat()
+        m["finance_status"] = "fetch_failed"
         cand=fetch_fec_candidate(name,state,office)
 
         if cand.get("candidate_id"):
             m["fec_candidate_id"]=cand["candidate_id"]
-            m.update(fetch_fec_totals(cand["candidate_id"]))
+            totals = fetch_fec_totals(cand["candidate_id"])
+            m.update(totals)
+            m["finance_status"] = "available" if totals else "fetch_failed"
+            if totals:
+                m["finance_updated"] = datetime.now().isoformat()
         elif detail_data.get("fec_candidate_id"):
             m["fec_candidate_id"]=detail_data["fec_candidate_id"]
         for field in ("total_raised","pac_contributions","individual_contributions"):
-            if not m.get(field) and detail_data.get(field):
+            if field not in m and field in detail_data:
                 m[field]=detail_data[field]
 
-        m["data_updated"]=datetime.now().isoformat()
+        record_updated = datetime.now().isoformat()
 
         # SAFE MERGE (prevents wiping existing pipeline data)
         for k,v in m.items():
@@ -593,11 +653,16 @@ if __name__=="__main__":
         m["score"]=min(sum(components.values()), 100)
         detail_data["score"]=m["score"]
         detail_data["score_components"]=components
+        m["score_components"] = components
+        m["score_updated"] = record_updated
+        m["score_methodology"] = "activity-v4-bill-integrity"
+        detail_data["score_updated"] = m["score_updated"]
+        detail_data["score_methodology"] = m["score_methodology"]
 
         update_flags(m)
         detail_data["flags"]=m["flags"]
 
-        detail_data["last_updated"]=m["data_updated"]
+        detail_data["last_updated"] = record_updated
 
         save_detail(bid,detail_data)
 
@@ -629,15 +694,18 @@ if __name__=="__main__":
 
     scored=sum(1 for m in final_members if (m.get("score") or 0)>0)
     high_anomaly=sum(1 for m in final_members if (m.get("score") or 0)>=60)
-    total_insider=sum(m.get("corporate_insider_signals",0) or 0 for m in final_members)
+    total_insider=sum(eligible_sec_signals(m) for m in final_members)
 
     stats = {
         "total_members": len(final_members),
         "members_with_scores": scored,
         "high_anomaly": high_anomaly,
         "total_insider_signals": total_insider,
+        "raw_sec_candidate_filings": sum(m.get("corporate_insider_signals") or 0 for m in final_members),
         "last_updated": datetime.now().isoformat()
     }
     save_json("data/stats.json", stats)
 
     print(f"✓ Production v3.5 Complete — {scored}/{len(final_members)} members scored")
+    if SEC_STATS["fail"]:
+        raise SystemExit(f"Incomplete SEC refresh: {SEC_STATS['fail']} failed requests; affected members retain stale values.")

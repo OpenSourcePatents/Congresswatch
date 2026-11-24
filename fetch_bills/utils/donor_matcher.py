@@ -6,6 +6,7 @@ FEC vault data written by fetch_donors.py (top_donor_industries).
 """
 
 import re
+from fetch_bills.utils.text_processor import text_contamination_reason
 
 # ---------------------------------------------------------------------------
 # Industry keyword map
@@ -145,7 +146,7 @@ def match_donor_interests(
             "keyword_hits": {"Oil & Gas": ["pipeline", "emissions"], ...}
         }
     """
-    if not donor_industries or not cleaned_text:
+    if not donor_industries or not cleaned_text or text_contamination_reason(cleaned_text, cleaned=True):
         return {"match": False, "matched_industries": [], "keyword_hits": {}}
 
     combined = (cleaned_text + " " + bill_title.lower()).lower()

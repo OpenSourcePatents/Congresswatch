@@ -540,15 +540,15 @@ canvas#netCanvas { position:absolute; top:0; left:0; width:100%; height:100%; }
         <div class="stat-panel-num" id="stat-total">&mdash;</div>
       </div>
       <div class="stat-panel glass">
-        <div class="stat-panel-label">Corporate Insider Signals</div>
-        <div class="stat-panel-num" id="stat-trades" style="color:var(--accent-amber)">&mdash;</div>
+        <div class="stat-panel-label">Identity-verified SEC filings</div>
+        <div class="stat-panel-num" id="stat-trades" title="Only identity-verified, available SEC records; unverified candidates are excluded" style="color:var(--accent-amber)">&mdash;</div>
       </div>
       <div class="stat-panel glass">
         <div class="stat-panel-label">Data Coverage</div>
         <div class="stat-panel-num" id="stat-coverage" style="color:var(--accent-blue)">&mdash;</div>
       </div>
       <div class="stat-panel glass">
-        <div class="stat-panel-label">Last Updated</div>
+        <div class="stat-panel-label">Scores Updated</div>
         <div class="stat-panel-num mono" id="stat-fresh">&mdash;</div>
       </div>
     </div>
@@ -848,10 +848,111 @@ function fmtMoney(v) {
   if (v >= 1e3) return `$${(v/1e3).toFixed(0)}K`;
   return `$${v}`;
 }
+// Only explicit, CIK-bound identity evidence and an available lookup make SEC
+// counts attributable to this member. Resolver labels alone never prove identity.
+function eligibleSecSignals(m) {
+  const evidence = m.edgar_identity_evidence;
+  const count = m.corporate_insider_signals;
+  const checks = m.edgar_identity_evidence_checks;
+  const httpsUrl = value => { try { const u = new URL(value); return typeof value === 'string' && u.protocol === 'https:' && !!u.hostname && !u.username && !u.password; } catch { return false; } };
+  return m.edgar_identity_status === 'verified' &&
+    typeof m.edgar_identity_cik === 'string' && m.edgar_identity_cik.trim() !== '' &&
+    m.edgar_identity_cik === m.edgar_cik &&
+    Array.isArray(evidence) && evidence.length > 0 &&
+    evidence.every(httpsUrl) &&
+    Array.isArray(checks) && checks.length === evidence.length &&
+    checks.every((check, i) => check && check.url === evidence[i] &&
+      check.cik === m.edgar_identity_cik && check.status === 'available' &&
+      httpsUrl(check.resolved_url) && typeof check.checked_at === 'string' && !!check.checked_at &&
+      typeof check.sha256 === 'string' && /^[a-f0-9]{64}$/.test(check.sha256)) &&
+    m.edgar_data_status === 'available' && m.edgar_status !== 'query_failed' &&
+    typeof count === 'number' && Number.isFinite(count) && count >= 0;
+}
+function attributedSecCount(m) {
+  return eligibleSecSignals(m) ? m.corporate_insider_signals : 0;
+}
+function hasLegacyUnverifiedSecScore(m) {
+  return m.corporate_insider_signals > 0 && !eligibleSecSignals(m) &&
+    !['activity-v3-verified-sec-only', 'activity-v4-bill-integrity'].includes(m.score_methodology);
+}
+// Legacy similarity may have been fitted on binary PDF tokens. A clean-corpus
+// validation marker is required, including when a CDN serves an old snapshot.
+const OFFICIAL_BILL_ANALYSIS = 'official-prose-overlap-v2';
+function isOfficialBillAnalysis(b) { return b?.analysis_version === OFFICIAL_BILL_ANALYSIS; }
+function officialBillSource(id, code, url, rawHash, textHash) {
+  const bill = /^([A-Z]+)(\d+)-(\d+)$/.exec(id || '');
+  if (!bill || !/^[a-z0-9]{2,8}$/.test(code || '') ||
+      ![rawHash, textHash].every(h => typeof h === 'string' && /^[a-f0-9]{64}$/.test(h)) ||
+      typeof url !== 'string') return false;
+  const pkg = `BILLS-${bill[3]}${bill[1].toLowerCase()}${bill[2]}${code}`;
+  return url === `https://www.govinfo.gov/content/pkg/${pkg}/xml/${pkg}.xml` || [1, 2].some(session =>
+    url === `https://www.govinfo.gov/bulkdata/BILLS/${bill[3]}/${session}/${bill[1].toLowerCase()}/${pkg}.xml`);
+}
+function officialBillMatch(bill, match) {
+  const s = bill.text_source, e = match?.evidence;
+  if (!e || !s || match.bill_id === bill.bill_id || match.analysis_version !== OFFICIAL_BILL_ANALYSIS ||
+      !Number.isFinite(match.similarity_score) || match.similarity_score < .3 || match.similarity_score > 1 ||
+      !officialBillSource(match.bill_id, e.matched_version_code, e.matched_source_url, e.matched_source_sha256, e.matched_text_sha256)) return false;
+  if (!['source_url','source_sha256','text_sha256','version_code','version_date'].every(k => e['target_' + k] === s[k])) return false;
+  if (!['target','matched'].every(p => typeof e[p + '_passage'] === 'string' && e[p + '_passage'].trim() &&
+      Number.isInteger(e[p + '_word_offset']) && e[p + '_word_offset'] >= 0 &&
+      Number.isFinite(e[p + '_shingle_coverage']) && e[p + '_shingle_coverage'] >= 0 && e[p + '_shingle_coverage'] <= 1)) return false;
+  return Number.isInteger(e.longest_passage_words) && e.longest_passage_words >= 32 &&
+    Number.isInteger(e.displayed_passage_words) && e.displayed_passage_words >= 32 &&
+    e.displayed_passage_words <= Math.min(120, e.longest_passage_words) &&
+    Math.max(e.target_shingle_coverage, e.matched_shingle_coverage) >= .2;
+}
+function officialBillEvidenceHtml(bill) {
+  const state = {
+    text_not_yet_published: 'Official text not yet published',
+    text_source_unavailable: 'Official text unavailable',
+    insufficient_text_for_overlap: 'Not enough text to compare',
+  };
+  const label = msg => `<span class="td-sub">${esc(msg)}</span>`;
+  if (bill.analysis_status !== 'analyzed') return label(state[bill.analysis_status] || 'Analysis unavailable');
+  const s = bill.text_source;
+  if (bill.has_text !== true || s?.bill_id !== bill.bill_id ||
+      s?.source_format !== 'govinfo_official_bill_xml' || s?.extraction_version !== 'govinfo-legislative-body-v2' ||
+      !officialBillSource(bill.bill_id, s.version_code, s.source_url, s.source_sha256, s.text_sha256) ||
+      !Array.isArray(bill.similar_member_bills)) return label('Verified comparison unavailable');
+  const matches = bill.similar_member_bills.filter(m => officialBillMatch(bill, m));
+  if (!matches.length) return label(bill.similar_member_bills.length ? 'Verified comparison unavailable' : 'No verified overlap found');
+  return matches.slice(0, 3).map(m => {
+    const e = m.evidence;
+    const passage = (p, id) => `<div class="td-sub" style="white-space:normal;overflow-wrap:anywhere;margin:.5em 0">
+      <a href="${esc(e[p+'_source_url'])}" target="_blank" rel="noopener noreferrer">${esc(id)} · ${esc(e[p+'_version_code'].toUpperCase())}${/^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z)?$/.test(e[p+'_version_date'] || '') ? ' · ' + esc(e[p+'_version_date'].slice(0,10)) : ''} · GovInfo XML</a>
+      <div>${esc(e[p+'_passage'])}${e.displayed_passage_words < e.longest_passage_words ? '…' : ''}</div></div>`;
+    return `<details class="td-sub" style="white-space:normal;overflow-wrap:anywhere">
+      <summary>${esc(m.bill_id)} · Shared wording</summary>
+      <div>${esc(typeof m.bill_title === 'string' ? m.bill_title : '')}</div>
+      <div>${e.longest_passage_words} consecutive words overlap after normalization. Showing ${e.displayed_passage_words} from each selected version. This is passage overlap, not a whole-bill equivalence finding. A shared passage does not mean the bills are identical or have the same effect.</div>
+      ${passage('target', bill.bill_id)}${passage('matched', m.bill_id)}
+    </details>`;
+  }).join('');
+}
+function billSimilarityAvailable(bill) {
+  return bill.analysis_version === 'bill-text-integrity-v1' &&
+    ['analyzed', 'model_matching_unavailable'].includes(bill.analysis_status) && !billTextQuarantined(bill);
+}
+function billTextQuarantined(bill) {
+  return bill.text_integrity === 'quarantined' || ['quarantined_pdf_text', 'text_quarantined'].includes(bill.analysis_status);
+}
+function billAnalysisWarning(m) {
+  return (m.bills || []).some(b => (!isOfficialBillAnalysis(b) && b.analysis_version !== 'bill-text-integrity-v1') || billTextQuarantined(b)) ||
+    m.bills_analysis_status === 'quarantined_legacy_corpus';
+}
+function hasUnsupportedBillScore(m) {
+  const comps = m.score_components;
+  return !!comps && ['donor_alignment','alec_similarity'].some(key => Number(comps[key] || 0) !== 0);
+}
 function computeScore(m) {
+  // Old totals can contain points from an unrelated SEC candidate. Do not
+  // display them while waiting for the identity-gated offline rescore.
+  if (hasLegacyUnverifiedSecScore(m)) return null;
+  if (m.score_methodology !== 'activity-v4-bill-integrity' || hasUnsupportedBillScore(m)) return null;
   // Show a numeric score (including 0) when the member shows any evidence of measurement;
   // otherwise null -> DATA PENDING.
-  const measured = (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
+  const measured = !!m.score_updated || !!m.score_components || (m.score||0) > 0;
   return measured ? (m.score || 0) : null;
 }
 function getNetWorth(m) {
@@ -869,7 +970,7 @@ function computeCareerEarnings(m) {
   return total;
 }
 function hasRealData(m) {
-  return (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
+  return (computeScore(m)||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || attributedSecCount(m) > 0;
 }
 
 function mapMember(m) {
@@ -909,7 +1010,7 @@ function updateCoverage() {
   if (!el) return;
   const total = allMembers.length;
   const denom = total || 1;
-  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0).length;
+  const scored = allMembers.filter(m=>m.displayScore!==null).length;
   const withTrades = allMembers.filter(m=>(m.trade_count||0)>0).length;
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   const row = (label, n, c) => `
@@ -920,7 +1021,7 @@ function updateCoverage() {
   el.innerHTML =
     row('Members with scores', scored, '#3b82f6') +
     row('Members with trade signals', withTrades, '#f3c25a') +
-    row('Complete data profiles', withData, '#9fe7c8');
+    row('Members with recorded signals', withData, '#9fe7c8');
 }
 
 function loadDemo() {
@@ -931,16 +1032,16 @@ function loadDemo() {
 }
 
 function updateStats() {
-  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
+  const scored = allMembers.filter(m=>m.displayScore!==null);
   const high = scored.filter(m=>m.displayScore>=60).length;
-  const signals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
+  const signals = allMembers.reduce((a,m)=>a+attributedSecCount(m),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   const coveragePct = allMembers.length > 0 ? Math.round((withData/allMembers.length)*100) : 0;
   document.getElementById('stat-high').textContent = scored.length > 0 ? high : '—';
   document.getElementById('stat-total').textContent = allMembers.length > 0 ? allMembers.length : '—';
-  document.getElementById('stat-trades').textContent = signals > 0 ? signals.toLocaleString() : '—';
+  document.getElementById('stat-trades').textContent = allMembers.length ? signals.toLocaleString() : '—';
   document.getElementById('stat-coverage').textContent = coveragePct + '%';
-  const dates = allMembers.map(m=>m.data_updated).filter(Boolean).sort();
+  const dates = allMembers.map(m=>m.score_updated).filter(Boolean).sort();
   const freshEl = document.getElementById('stat-fresh');
   if (freshEl && dates.length > 0) {
     const latest = dates[dates.length-1].slice(0,10);
@@ -1002,11 +1103,11 @@ function renderGrid() {
     const dist = m.district ? `${m.state}-${m.district}` : m.state;
     const scoreLabel = s !== null ? s : '--';
     const glow = (s !== null && s >= 60) ? `box-shadow:0 0 14px color-mix(in srgb, ${sc} 30%, transparent);` : '';
-    const showInsider = (m.corporate_insider_signals||0) > 0;
+    const showInsider = attributedSecCount(m) > 0;
+    const staleSec = m.edgar_status === 'query_failed' || m.edgar_data_status === 'stale';
     const showDonor = (m.total_raised||0) > 0;
-    const showBill = (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
-    const pending = !hasRealData(m);
+    const pending = m.displayScore === null;
     const tag = (label, c) => `<span class="m-tag" style="background:color-mix(in srgb, ${c} 10%, transparent);border:1px solid color-mix(in srgb, ${c} 32%, transparent);color:${c}">${label}</span>`;
     card.innerHTML = `
       <div class="m-card-stripe" style="background:${m.partyC}"></div>
@@ -1021,9 +1122,9 @@ function renderGrid() {
       </div>
       <div class="m-card-tags">
         ${showTrades?tag('TRADES','#9fe7c8'):''}
-        ${showInsider?tag('INSIDER','#ff3b4e'):''}
+        ${showInsider?tag('SEC VERIFIED','#ff3b4e'):''}
+        ${staleSec?tag('SEC STALE','#f3c25a'):''}
         ${showDonor?tag('DONOR','#f3c25a'):''}
-        ${showBill?tag('BILL','#3b82f6'):''}
         ${pending?tag('DATA PENDING','#5d7180'):''}
       </div>
     `;
@@ -1111,17 +1212,17 @@ function linkBtnHtml(url, label, caption) {
 /* ── Anomaly score breakdown — the six weighted signals from detail.score_components.
      Track width encodes the signal's weight (max/25 of the row); fill encodes value/max. ── */
 const SCORE_COMPONENTS = [
-  { key:'trade_timing',    label:'Stock trade timing',     max:25 },
-  { key:'wealth_gap',      label:'Wealth gap (fundraising-based proxy)', max:25 },
-  { key:'donor_alignment', label:'Donor-vote alignment',   max:20 },
-  { key:'alec_similarity', label:'Bill authorship / ALEC', max:15 },
-  { key:'foreign_travel',  label:'Foreign travel',         max:10 },
+  { key:'trade_timing',    label:'Disclosed trade activity',     max:25 },
+  { key:'wealth_gap',      label:'Personal wealth (unavailable)', max:25 },
+  { key:'donor_alignment', label:'Bill / donor-industry overlap',   max:20 },
+  { key:'alec_similarity', label:'Model-bill text similarity', max:15 },
+  { key:'foreign_travel',  label:'Disclosed travel',         max:10 },
   { key:'attendance',      label:'Attendance',             max:5 },
 ];
 function scoreBreakdownHtml(m) {
   const comps = m.score_components || null;
   const rows = SCORE_COMPONENTS.map(c => {
-    const has = comps && comps[c.key] !== undefined && comps[c.key] !== null;
+    const has = m.score_methodology === 'activity-v4-bill-integrity' && !['wealth_gap', 'alec_similarity', 'donor_alignment'].includes(c.key) && !(c.key === 'trade_timing' && hasLegacyUnverifiedSecScore(m)) && comps && comps[c.key] !== undefined && comps[c.key] !== null;
     const v = has ? comps[c.key] : 0;
     const pct = has ? Math.max(0, Math.min(100, (v / c.max) * 100)) : 0;
     let color = '#5d7180';
@@ -1134,11 +1235,27 @@ function scoreBreakdownHtml(m) {
   }).join('');
   return `<div class="glass panel-block">
     <div class="panel-head">ANOMALY SCORE BREAKDOWN<span class="panel-head-right">SIX WEIGHTED SIGNALS</span></div>
-    <div class="panel-body">${rows}</div>
+    <div class="panel-body">${rows}<p class="td-sub">Available signals only. Missing data is not evidence of no activity. Campaign receipts are not personal wealth; text overlap does not establish authorship, influence, or wrongdoing.</p></div>
   </div>`;
 }
 
 // ── ASYNC openProfile — renders light data immediately, fetches vault in background ──
+function renderProfileScore(m, s) {
+  const band = scoreBand(s);
+  const pill = (label, c) => `<span class="pill" style="background:color-mix(in srgb, ${c} 12%, transparent);border:1px solid color-mix(in srgb, ${c} 40%, transparent);color:${c}">${esc(label)}</span>`;
+  document.getElementById('pf-pills').innerHTML =
+    pill(m.party || '—', m.partyC) + pill(m.chamber || '—', '#eef4f8') + pill(band.label, band.color);
+  const scoreBig = document.getElementById('pf-score-big');
+  scoreBig.textContent = s !== null ? s : '--';
+  scoreBig.style.color = band.color;
+  scoreBig.style.textShadow = `0 0 24px color-mix(in srgb, ${band.color} 35%, transparent)`;
+  const bar = document.getElementById('pf-score-bar');
+  bar.style.width = (s !== null ? s : 0) + '%';
+  bar.style.background = band.color;
+  bar.style.boxShadow = `0 0 8px ${band.color}`;
+  document.getElementById('pf-score-sub').textContent = `${band.label} · 0–100`;
+}
+
 async function openProfile(m) {
   const token = ++profileToken;
   const bid = m.id || m.bioguide_id;
@@ -1178,17 +1295,12 @@ async function openProfile(m) {
   document.getElementById('pf-photo-ini').textContent = initials(m.name);
   setPhoto(document.getElementById('pf-photo'), m.photo, m.photoFb || '');
 
-  const band = scoreBand(s);
-  const pill = (label, c) => `<span class="pill" style="background:color-mix(in srgb, ${c} 12%, transparent);border:1px solid color-mix(in srgb, ${c} 40%, transparent);color:${c}">${esc(label)}</span>`;
-  document.getElementById('pf-pills').innerHTML =
-    pill(m.party || '—', m.partyC) + pill(m.chamber || '—', '#eef4f8') + pill(band.label, band.color);
-
   const pair = (label, value) => `<div><div class="kv-pair-label">${label}</div><div class="kv-pair-value">${value}</div></div>`;
   document.getElementById('pf-details').innerHTML =
     pair('STATE', esc(dist || '—')) +
     pair('SERVING SINCE', m.term_start ? esc(m.term_start.slice(0,4)) : '—') +
     pair('BIOGUIDE ID', esc(bid || '—')) +
-    pair('LAST UPDATED', m.data_updated ? esc(String(m.data_updated).slice(0,10)) : '—') +
+    pair('SCORE UPDATED', m.score_updated ? esc(String(m.score_updated).slice(0,10)) : '—') +
     // missed_votes_pct is already a percentage (0-100) from recompute_scores.py.
     // Null-check, not truthiness, so a legitimate 0.0% still renders.
     // Delegates short-circuit first: their upstream vote data is inconsistent
@@ -1199,17 +1311,9 @@ async function openProfile(m) {
         ? pair('MISSED VOTES', Number(m.missed_votes_pct).toFixed(1)+'%')
         : '');
 
-  const scoreBig = document.getElementById('pf-score-big');
-  scoreBig.textContent = s !== null ? s : '--';
-  scoreBig.style.color = band.color;
-  scoreBig.style.textShadow = `0 0 24px color-mix(in srgb, ${band.color} 35%, transparent)`;
-  const bar = document.getElementById('pf-score-bar');
-  bar.style.width = (s !== null ? s : 0) + '%';
-  bar.style.background = band.color;
-  bar.style.boxShadow = `0 0 8px ${band.color}`;
-  document.getElementById('pf-score-sub').textContent = `${band.label} · 0–100`;
+  renderProfileScore(m, s);
 
-  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : 2010;
+  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : null;
   const cumSalary = computeCareerEarnings(m) || 0;
 
   renderOverview(currentMember, s, cumSalary);
@@ -1219,7 +1323,7 @@ async function openProfile(m) {
   fillPatterns(currentMember, s);
   fillDonors(currentMember);
 
-  setTimeout(() => drawSalaryChart('nw-canvas', startYear), 200);
+  setTimeout(() => { if (token === profileToken) drawSalaryChart('nw-canvas', startYear); }, 200);
   window.scrollTo(0, 0);
 
   // ── Fetch vault data: same-origin JSON ──
@@ -1240,6 +1344,7 @@ async function openProfile(m) {
       } catch(e) {
         console.warn('JSON vault fetch failed:', e);
       }
+      if (token !== profileToken) return;
     }
 
     if (deep) {
@@ -1250,16 +1355,19 @@ async function openProfile(m) {
         displayScore: s, photo: m.photo, photoFb: m.photoFb, partyC: m.partyC, partyS: m.partyS,
         careerEarnings: m.careerEarnings, netWorth: deepNW !== null ? deepNW : m.netWorth,
       };
-      renderOverview(currentMember, s, cumSalary);
-      fillVotes(currentMember, s);
-      fillFinance(currentMember, s, cumSalary);
-      fillStocks(currentMember, s);
+      const detailScore = hasUnsupportedBillScore(currentMember) ? null : s;
+      currentMember.displayScore = detailScore;
+      if (detailScore !== s) renderProfileScore(currentMember, detailScore);
+      renderOverview(currentMember, detailScore, cumSalary);
+      fillVotes(currentMember, detailScore);
+      fillFinance(currentMember, detailScore, cumSalary);
+      fillStocks(currentMember, detailScore);
       fillTravel(currentMember);
-      fillPatterns(currentMember, s);
+      fillPatterns(currentMember, detailScore);
       fillDonors(currentMember);
-      setTimeout(() => drawSalaryChart('nw-canvas', startYear), 100);
+      setTimeout(() => { if (token === profileToken) drawSalaryChart('nw-canvas', startYear); }, 100);
     } else {
-      fillVotes(currentMember, s);
+      document.getElementById('pf-votes-content').innerHTML = alertHtml('warn', 'MEMBER DETAILS UNAVAILABLE', 'The detailed record could not be loaded. Return to the member list and reopen this profile to retry. Missing sections do not mean no activity.');
     }
   } else {
     fillVotes(currentMember, s);
@@ -1270,7 +1378,7 @@ function renderOverview(m, s, cumSalary) {
   const container = document.getElementById('ppanel-overview');
   const nw = m.netWorth;
   const hasNW = nw !== null && nw !== undefined;
-  const insiderSignals = m.corporate_insider_signals != null ? m.corporate_insider_signals : '—';
+  const insiderSignals = eligibleSecSignals(m) ? m.corporate_insider_signals : '—';
   const careerEarnings = computeCareerEarnings(m);
 
   const cells = statCellsHtml([
@@ -1278,10 +1386,10 @@ function renderOverview(m, s, cumSalary) {
       note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
     { label:'Est. Career Earnings', value: careerEarnings ? fmtMoney(careerEarnings) : '—',
       note: careerEarnings ? 'congressional salary only' : 'pending' },
-    { label:'Total Raised (FEC)', value: m.total_raised ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—'), color:'#f3c25a',
+    { label:'Total Raised (FEC)', value: m.total_raised != null ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—'), color:'#f3c25a',
       note: m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending' },
-    { label:'Insider Signals', value: esc(insiderSignals), color: (m.corporate_insider_signals||0) > 10 ? '#ff3b4e' : undefined,
-      note: 'SEC EDGAR Form 4' },
+    { label:'Identity-verified SEC filings', value: esc(insiderSignals), color: attributedSecCount(m) > 10 ? '#ff3b4e' : undefined,
+      note: eligibleSecSignals(m) ? 'SEC Form 4; identity evidence recorded' : 'Unverified or unavailable records excluded' },
   ]);
 
   const chart = chartPanelHtml('nw-canvas', 'CONGRESSIONAL SALARY OVER TIME', [
@@ -1294,6 +1402,7 @@ function renderOverview(m, s, cumSalary) {
     : '';
 
   const flags = buildFlags(m, s);
+  if (billAnalysisWarning(m)) flags.push({type:'info', title:'BILL ANALYSIS UNDER REVIEW', body:'Legacy similarity findings are suspended pending clean-text reanalysis. See Bills & Votes for coverage details.'});
   const flagsHtml = `
     <div class="sec-header"><div class="sec-title">ANOMALY FLAGS</div><div class="sec-badge">${flags.length} ACTIVE</div></div>
     ${flags.map(f => alertHtml(f.type === 'info' ? 'info' : 'warn', f.title, f.body)).join('')}`;
@@ -1321,18 +1430,10 @@ function showMembersList() {
 
 function buildFlags(m, s) {
   const flags = [];
-  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.70
-  const bills = m.bills || [];
-  const alecBills = bills.filter(b => {
-    const am = b.alec_match;
-    if (!am) return false;
-    return (am.similarity_score || 0) >= 0.70;
-  });
-  if (alecBills.length > 0) flags.push({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
-    body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match known ALEC model legislation above 70% similarity. Source: LegiScan + Congress.gov.`});
   // INSIDER_TRADING: only if corporate_insider_signals > 0
-  const insiderCount = m.corporate_insider_signals || 0;
-  if (insiderCount > 0) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
+  const insiderCount = attributedSecCount(m);
+  if (m.edgar_status === 'query_failed' || m.edgar_data_status === 'stale') flags.push({type:'info',title:'SEC DATA NOT REFRESHED',body:'The latest SEC lookup failed. Retained counts are historical and identity matching still requires verification.'});
+  if (insiderCount > 0) flags.push({type:'warn',title:'IDENTITY-VERIFIED SEC FILINGS',
     body:`${insiderCount} Form 4 filing${insiderCount>1?'s':''} found in SEC EDGAR. Source: SEC EDGAR Form 4.`});
   // ATTENDANCE: only if real vote data shows missed > 15%.
   // Delegates are exempt — they cannot cast the votes they'd be flagged for
@@ -1345,7 +1446,7 @@ function buildFlags(m, s) {
     }).length;
     const missRatio = missed / votes.length;
     if (missRatio > 0.15) flags.push({type:'warn',title:`HIGH MISSED VOTE RATE — ${(missRatio*100).toFixed(1)}%`,
-      body:`Missed ${missed} of ${votes.length} recorded votes (>${(missRatio*100).toFixed(0)}%). Source: GovTrack.us.`});
+      body:`Missed ${missed} of ${votes.length} recorded votes (${(missRatio*100).toFixed(1)}%). Source: GovTrack.us.`});
   }
   // HIGH_RAISE: only if total_raised > 5000000 (real FEC data)
   if ((m.total_raised||0) > 5000000) flags.push({type:'warn',title:'HIGH FUNDRAISING',
@@ -1364,82 +1465,45 @@ function fillVotes(m, s) {
 
   if (bills.length === 0 && votes.length === 0) {
     container.innerHTML = alertHtml('info', 'VOTING RECORD PENDING',
-      'Voting data loads from the member vault. Run the fetch_votes workflow if this persists.');
+      'No voting records are available in this snapshot. This does not establish attendance or absence.');
     return;
   }
 
-  // Optional donor alignment score stat cell
-  if (m.donor_alignment_score > 0) {
-    html += statCellsHtml([{
-      label:'Donor Alignment Score',
-      value:`${m.donor_alignment_score}/100`,
-      color: m.donor_alignment_score > 50 ? '#ff3b4e' : m.donor_alignment_score > 25 ? '#f3c25a' : undefined,
-      note:'bill language vs donor industries',
-    }]);
-  }
+  if (billAnalysisWarning(m)) html += alertHtml('warn', 'BILL SIMILARITY SUSPENDED',
+    'Earlier analysis included corrupted PDF text. Legacy similarity results are withheld until the corpus is rebuilt from validated text. Suspended analysis is not a finding of no match. Original calculations are retained for audit, not presented as findings.');
+
+  if (m.votes_status === 'fetch_failed') html += alertHtml('warn', 'VOTE REFRESH UNAVAILABLE', 'Showing previously collected votes. The latest refresh failed; these records may be out of date.');
 
   // ── Sponsored Bills section ──
   if (bills.length > 0) {
-    const alecCount = bills.filter(b => b.alec_match).length;
-    const donorCount = bills.filter(b => b.donor_interest && b.donor_interest.match).length;
-
-    if (alecCount > 0) {
-      html += alertHtml('warn', 'ALEC MODEL LEGISLATION MATCH',
-        `${alecCount} sponsored bill${alecCount>1?'s':''} share significant language (80%+ cosine similarity) with known ALEC model legislation templates.`);
-    }
-    if (donorCount > 0) {
-      html += alertHtml('warn', 'DONOR INTEREST ALIGNMENT',
-        `${donorCount} sponsored bill${donorCount>1?'s':''} contain language aligned with this member's top donor industries.`);
-    }
-
     let tbl = `
       <table class="data-table">
         <thead><tr>
-          <th>Bill</th><th>Title</th><th>Introduced</th><th>ALEC Match</th><th>Donor Interest</th><th>Co-Author Links</th>
+          <th>Bill</th><th>Title</th><th>Introduced</th><th>ALEC Match</th><th>Donor Interest</th><th>Similar Bills</th>
         </tr></thead>
         <tbody>`;
 
     bills.forEach(bill => {
-      const alec = bill.alec_match;
-      const donor = bill.donor_interest || {};
-      const coAuthors = bill.similar_member_bills || [];
+      const isOfficial = isOfficialBillAnalysis(bill);
+      const similarityAvailable = billSimilarityAvailable(bill);
+      const textQuarantined = billTextQuarantined(bill);
+
       const billLabel = (bill.bill_id || '').replace(/-\d+$/, '');
       const intro = bill.introduced_date ? bill.introduced_date.slice(0,10) : '—';
       const titleShort = (bill.title||'').slice(0,80) + ((bill.title||'').length>80?'…':'');
 
-      // No alec_match (>=80% similarity) is the norm — surface the always-stored
-      // closest-model similarity instead of a permanently blank column.
-      let alecCell = '<span style="color:var(--fg-faint)">—</span>';
-      if (!alec && (bill.alec_best_similarity||0) > 0) {
-        const bpct = Math.round(bill.alec_best_similarity*100);
-        alecCell = `<span class="td-mono" style="color:var(--fg-dim)">${bpct}% closest model</span>
-          <div class="td-sub">below 80% match threshold</div>`;
-      }
-      if (alec && (alec.similarity_score||0) > 0) {
-        const pct = Math.round((alec.similarity_score||0)*100);
-        const isHighMatch = pct >= 70;
-        const matchColor = isHighMatch ? '#ff3b4e' : '#f3c25a';
-        alecCell = `${isHighMatch?'<span style="display:inline-block;background:color-mix(in srgb, #ff3b4e 14%, transparent);border:1px solid color-mix(in srgb, #ff3b4e 45%, transparent);color:#ff3b4e;font-family:\'Oxanium\',sans-serif;font-size:8px;font-weight:700;padding:2px 6px;letter-spacing:1px;border-radius:3px;margin-bottom:3px">ALEC MATCH</span><br>':''}
-          <span class="td-mono" style="color:${matchColor};font-weight:600">${pct}% match to ALEC model legislation</span>
-          <div class="td-sub">${esc(alec.matched_model||'')}</div>
-          <div class="td-sub"><a href="${esc(safeUrl(alec.source_url))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-dim);text-decoration:none;border-bottom:1px dotted var(--fg-dim)">ALEC ${esc(alec.category||'')}</a></div>`;
-      }
+      const alecCell = '<span class="td-sub">Model analysis unavailable</span>';
 
-      let donorCell = '<span style="color:var(--fg-faint)">—</span>';
-      if (donor.match && donor.matched_industries && donor.matched_industries.length > 0) {
-        donorCell = donor.matched_industries.map(ind => `<span class="donor-tag">${esc(ind)}</span>`).join('');
-      }
+      // Neither legacy keywords nor verified federal prose establish donor alignment.
+      const donorCell = '<span class="td-sub">Donor analysis unavailable</span>';
 
-      let coCell = '<span style="color:var(--fg-faint)">—</span>';
-      if (coAuthors.length > 0) {
-        const pct = Math.round((coAuthors[0].similarity_score||0)*100);
-        coCell = `<span class="td-mono" style="color:var(--accent-blue)">${pct}% match</span>
-          <div class="td-sub">${coAuthors.length} member bill${coAuthors.length>1?'s':''}</div>`;
-      }
+      let coCell = '<span class="td-sub">Verified comparison unavailable</span>';
+      if (isOfficial) coCell = officialBillEvidenceHtml(bill);
+
 
       tbl += `<tr>
         <td class="td-mono">${bill.url?`<a href="${esc(safeUrl(bill.url))}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-blue);text-decoration:none">${esc(billLabel)}</a>`:esc(billLabel)}</td>
-        <td style="max-width:220px;line-height:1.4">${esc(titleShort)}</td>
+        <td style="max-width:220px;line-height:1.4">${esc(titleShort)}${!similarityAvailable && !isOfficial ? `<div class="td-sub">${textQuarantined ? 'Corrupted PDF text withheld; re-extraction required.' : (bill.analysis_version === 'bill-text-integrity-v1' ? 'Full-text analysis unavailable in this snapshot.' : 'Similarity awaiting clean-corpus validation; text integrity not verified.')}</div>` : ''}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(intro)}</td>
         <td>${alecCell}</td>
         <td>${donorCell}</td>
@@ -1449,7 +1513,7 @@ function fillVotes(m, s) {
     tbl += `</tbody></table>`;
 
     html += tableSectionHtml('SPONSORED BILLS — SIMILARITY ANALYSIS', `${bills.length} BILLS`, tbl,
-      'Source: LegiScan + Congress.gov · TF-IDF cosine similarity');
+      'Verified federal comparisons use selected official GovInfo full bill versions. The excerpts show shared wording, not identical policy, authorship or influence. Results are limited to available text and the comparisons evaluated.');
   }
 
   // ── Voting Record section ──
@@ -1484,15 +1548,15 @@ function fillVotes(m, s) {
       `Source: GovTrack.us · ${votes.length} most recent votes`);
   } else {
     html += alertHtml('info', 'VOTING RECORD PENDING',
-      'Voting data loads from the member vault. Run the fetch_votes workflow if this persists.');
+      'No voting records are available in this snapshot. This does not establish attendance or absence.');
   }
 
   container.innerHTML = html;
 }
 
 function fillFinance(m, s, cumSalary) {
-  const pac = m.pac_contributions || 0, total = m.total_raised || 0;
-  const pacRatio = total > 0 ? ((pac/total)*100).toFixed(1) : '—';
+  const pac = m.pac_contributions, total = m.total_raised;
+  const pacRatio = total > 0 && pac != null ? ((pac/total)*100).toFixed(1) : '—';
   const careerEarnings = computeCareerEarnings(m);
   const nw = m.netWorth;
   const hasNW = nw !== null && nw !== undefined;
@@ -1501,7 +1565,7 @@ function fillFinance(m, s, cumSalary) {
     { label:'Est. Career Earnings', value: careerEarnings ? fmtMoney(careerEarnings) : '—', note:'congressional salary only' },
     { label:'Net Worth', value: hasNW ? fmtMoney(nw) : '—', color: hasNW ? '#f3c25a' : '#5d7180',
       note: hasNW ? 'from financial disclosures' : 'Financial disclosure data not available' },
-    { label:'PAC Money', value: fmtMoney(pac), color: pac > total*0.3 ? '#ff3b4e' : undefined, note:`${pacRatio}% of total` },
+    { label:'PAC Money', value: fmtMoney(pac), color: pac > total*0.3 ? '#ff3b4e' : undefined, note:total > 0 && pac != null ? `${pacRatio}% of total` : 'FEC coverage unavailable' },
     { label:'Individual Donors', value: fmtMoney(m.individual_contributions), color:'#f3c25a', note:'itemized' },
     { label:'Total Spent', value: fmtMoney(m.total_spent), note:'FEC disbursements' },
     { label:'Cash on Hand', value: fmtMoney(m.cash_on_hand), note:'end of last FEC period' },
@@ -1518,16 +1582,19 @@ function fillFinance(m, s, cumSalary) {
   document.getElementById('pf-finance-content').innerHTML =
     cells + chart + linkBtnHtml(fecLink, 'View full FEC filing at FEC.gov →');
 
-  const startYear = parseInt((m.term_start||'2010').slice(0,4));
-  setTimeout(() => drawSalaryChart('fin-canvas', startYear), 80);
+  const startYear = m.term_start ? parseInt(m.term_start.slice(0,4)) : null;
+  const token = profileToken;
+  setTimeout(() => { if (token === profileToken) drawSalaryChart('fin-canvas', startYear); }, 80);
 }
 
 function fillStocks(m, s) {
-  const tc = m.corporate_insider_signals || 0;
+  const tc = attributedSecCount(m);
   const edgarStatus = m.edgar_status || 'unresolved';
   const cik = m.edgar_cik;
   const chamber = (m.chamber||'').toLowerCase();
-  const trades = m.trades || [];
+  const tradeRecords = m.trades || [];
+  const scannedFilings = tradeRecords.filter(t => t.scanned_pdf);
+  const trades = tradeRecords.filter(t => !t.scanned_pdf);
   let html = '';
 
   // ── Trade table (from PTR pipeline) ──
@@ -1560,34 +1627,49 @@ function fillStocks(m, s) {
       </tr>`;
     });
     tbl += `</tbody></table>`;
-    const note = (trades.length > 50 ? `Showing 50 of ${trades.length} trades · ` : '') + 'Source: Senate eFD / PTR Disclosures';
+    const note = (trades.length > 50 ? `Showing 50 of ${trades.length} trades · ` : '') + (chamber.includes('house') ? 'Source: House Clerk PTR disclosures' : 'Source: Senate eFD PTR disclosures');
     html += tableSectionHtml('STOCK TRADES (PTR DISCLOSURES)', `${trades.length} TRADES`, tbl, note);
   }
 
+  if (scannedFilings.length) {
+    html += alertHtml('info', 'SCANNED FILINGS REQUIRE REVIEW', `${scannedFilings.length} scanned filing${scannedFilings.length > 1 ? 's' : ''} are available but transactions have not been extracted. These are not included in the trade count.`);
+    html += scannedFilings.map(t => linkBtnHtml(t.ptr_link, 'View scanned PTR filing →', t.date_received || t.date_recieved || '')).join('');
+  }
+
   // ── EDGAR signals ──
-  if (tc > 0) {
-    html += alertHtml('warn', 'CORPORATE INSIDER SIGNALS DETECTED',
+  const edgarStale = edgarStatus === 'query_failed' || m.edgar_data_status === 'stale';
+  if (edgarStale) {
+    html += alertHtml('info', 'SEC REFRESH FAILED',
+      'The latest SEC lookup failed. Any displayed count and CIK are retained historical data, not a fresh finding or independently verified identity.');
+  }
+  if (tc > 0 && !edgarStale) {
+    html += alertHtml('warn', 'IDENTITY-VERIFIED SEC FILINGS',
       `<code>${tc}</code> Form 4 filing${tc>1?'s':''} detected via SEC EDGAR.`);
   }
 
-  if (edgarStatus === 'verified_manual' || edgarStatus === 'verified_auto' || (edgarStatus === 'resolved' && cik)) {
+  if (cik) {
     const edgarUrl = `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(cik)}&type=4&dateb=&owner=include&count=40`;
-    html += alertHtml('info', 'SEC EDGAR FILINGS',
-      `SEC EDGAR CIK: <code>${esc(cik)}</code> &mdash; Status: ${esc(edgarStatus)}`,
+    html += alertHtml('info', eligibleSecSignals(m) ? 'IDENTITY-VERIFIED SEC RECORD' : 'UNVERIFIED SEC CANDIDATE',
+      `Candidate CIK: <code>${esc(cik)}</code>. ${eligibleSecSignals(m) ? 'Identity evidence is recorded for this CIK.' : 'This CIK may belong to an unrelated person or company. It is not attributed to this member or included in SEC totals or signals.'}`,
       `<a class="alert-link" href="${esc(edgarUrl)}" target="_blank" rel="noopener noreferrer">View on SEC EDGAR →</a>`);
+  }
+
+  if (!eligibleSecSignals(m) && m.corporate_insider_signals != null) {
+    html += alertHtml('info', 'UNVERIFIED RAW SEC COUNT',
+      `Retained lookup count: <code>${esc(m.corporate_insider_signals)}</code>. Investigatory data only, not evidence of this member's activity. Excluded unless identity and data availability requirements are met.`);
   }
 
   // PTR source links
   const ptrUrl = chamber.includes('house')
-    ? 'https://disclosures.house.gov/public_disc/ptr-pdfs/'
-    : 'https://efts.sec.gov/LATEST/search-index?q=%22periodic+transaction%22&dateRange=custom';
-  const ptrSource = chamber.includes('house') ? 'House Financial Disclosures' : 'Senate eFD / SEC';
+    ? 'https://disclosures-clerk.house.gov/FinancialDisclosure'
+    : 'https://efdsearch.senate.gov/search/';
+  const ptrSource = chamber.includes('house') ? 'House Financial Disclosures' : 'Senate eFD';
   html += alertHtml('info', 'PERIODIC TRANSACTION REPORTS (PTR)',
-    trades.length > 0 ? 'Trade data sourced from Senate PTR disclosures.' : 'Detailed trade history via House/Senate PTR disclosures.',
+    trades.length > 0 ? 'Trade data sourced from House or Senate PTR disclosures. This is not a complete holdings record.' : 'Detailed trade history via House/Senate PTR disclosures.',
     `<a class="alert-link" href="${ptrUrl}" target="_blank" rel="noopener noreferrer">View raw ${ptrSource} disclosures →</a>`);
 
   if (trades.length === 0 && tc === 0) {
-    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals found in current data.</div>`;
+    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals are available in this snapshot. Missing records do not establish that no trades occurred.</div>`;
   }
 
   document.getElementById('pf-stocks-content').innerHTML = html;
@@ -1618,24 +1700,27 @@ function fillTravel(m) {
       // Senate gift-rule records have no machine-readable sponsor — the linked
       // scanned filing is the substance, so label the link accordingly.
       const sponsorLabel = t.sponsor || (t.source_doc ? 'View filing (PDF)' : '—');
+      const role = t.filer_type === 'staff' ? 'Staff travel' :
+        t.filer_type === 'unverified' ? 'Traveler not verified' : '';
+      const traveler = t.traveler || 'Traveler not listed';
       const sponsor = t.source_doc
         ? `<a href="${esc(safeUrl(t.source_doc))}" target="_blank" rel="noopener noreferrer" style="color:var(--fg-muted);text-decoration:none;border-bottom:1px dotted var(--accent-blue)">${esc(sponsorLabel)}</a>`
         : esc(sponsorLabel);
       tbl += `<tr>
-        <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}</td>
+        <td style="font-weight:600;color:var(--fg-primary)">${esc(t.destination_country||'—')}<div class="td-sub">${esc(traveler)}${role ? ' · ' + esc(role) : ''}</div></td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.departure_date||'—')}</td>
         <td class="td-mono" style="white-space:nowrap">${esc(t.return_date||'—')}</td>
         <td>${sponsor}</td>${hasCost ? `
-        <td class="td-mono">${t.total_cost ? '$'+Number(t.total_cost).toLocaleString(undefined,{maximumFractionDigits:0}) : '—'}</td>` : ''}
+        <td class="td-mono">${t.total_cost ? '$'+Number(t.total_cost).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}) : '—'}${t.cost_extraction?.method === 'source_review' ? '<div class="td-sub">Source-reviewed traveler row</div>' : ''}</td>` : ''}
       </tr>`;
     });
     tbl += `</tbody></table>`;
-    html += tableSectionHtml('FOREIGN TRAVEL DISCLOSURES', `${trips.length} TRIPS`, tbl,
-      `Source: ${chamberLabel} Clerk Foreign Travel Disclosures`);
+    html += tableSectionHtml('DISCLOSED GIFT TRAVEL', `${trips.length} RECORDS`, tbl,
+      `Source: ${isHouse ? 'House Clerk' : 'Secretary of the Senate'} gift-travel disclosures · Includes domestic trips. Staff and unverified travel do not count toward the member’s score. Missing costs or destinations are unknown. Costs are sponsor-reported expenses; automatic transcriptions are unverified unless marked source-reviewed`);
   } else {
-    html += `<div class="sec-header"><div class="sec-title">FOREIGN TRAVEL DISCLOSURES</div><div class="sec-badge">${chamberLabel.toUpperCase()}</div></div>`;
-    html += alertHtml('info', 'CONGRESSIONAL FOREIGN TRAVEL (CODEL) DISCLOSURES',
-      `Funded trips by foreign-connected entities, privately funded travel, and gifts reported under ${chamberLabel} ethics rules.<br><br>Automated parsing of travel disclosures coming in a future update.`);
+    html += `<div class="sec-header"><div class="sec-title">DISCLOSED GIFT TRAVEL</div><div class="sec-badge">${chamberLabel.toUpperCase()}</div></div>`;
+    html += alertHtml('info', 'GIFT TRAVEL RECORDS UNAVAILABLE',
+      `No gift-travel records are available for this member in the current snapshot. This does not establish that no travel occurred. Source coverage varies by chamber and reporting period.`);
   }
 
   html += linkBtnHtml(travelUrl, `View ${chamberLabel} travel disclosures →`, `${chamberLabel} Travel Disclosure Database`);
@@ -1645,19 +1730,8 @@ function fillTravel(m) {
 
 function fillPatterns(m, s) {
   const patterns = [];
-  // ALEC_MATCH: only if vault has bills with alec_similarity >= 0.70
-  const bills = m.bills || [];
-  const alecBills = bills.filter(b => {
-    const am = b.alec_match;
-    if (!am) return false;
-    return (am.similarity_score || 0) >= 0.70;
-  });
-  if (alecBills.length > 0) {
-    const topSim = Math.max(...alecBills.map(b => b.alec_match.similarity_score || 0));
-    patterns.push({title:'ALEC MODEL LEGISLATION MATCH',body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match ALEC model legislation. Top similarity: <code>${Math.round(topSim*100)}%</code>. Source: LegiScan + Congress.gov.`});
-  }
   // INSIDER_TRADING: only if corporate_insider_signals > 0
-  if ((m.corporate_insider_signals||0) > 0) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
+  if (attributedSecCount(m) > 0) patterns.push({title:'IDENTITY-VERIFIED SEC FILINGS',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
   // ATTENDANCE: real vote data. Delegates exempt (cannot vote on final passage).
   const votes = m.votes || [];
   if (votes.length > 0 && !isNonVotingDelegate(m)) {
@@ -1665,7 +1739,7 @@ function fillPatterns(m, s) {
       const pos = (v.position||'').toLowerCase();
       return pos === 'not voting' || pos === 'absent' || pos === '';
     }).length;
-    if (missed / votes.length > 0.15) patterns.push({title:'HIGH MISSED VOTE RATE',body:`Missed ${missed} of ${votes.length} votes (${(missed/votes.length*100).toFixed(1)}%) while collecting full $174,000 salary. Source: GovTrack.us.`});
+    if (missed / votes.length > 0.15) patterns.push({title:'HIGH MISSED VOTE RATE',body:`Missed ${missed} of ${votes.length} votes (${(missed/votes.length*100).toFixed(1)}%) in the available vote sample. Source: GovTrack.us.`});
   }
   // HIGH_RAISE: only if total_raised > 5000000
   if ((m.total_raised||0) > 5000000) patterns.push({title:'HIGH FUNDRAISING TOTAL',body:`Total raised: ${fmtMoney(m.total_raised)}. Source: FEC.gov.`});
@@ -1684,6 +1758,7 @@ function fillPatterns(m, s) {
 }
 
 function drawSalaryChart(canvasId, startYear, tries) {
+  if (!Number.isInteger(startYear)) return;
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   // A canvas measured while its panel is hidden renders at the 300px default — wait for layout
@@ -1787,7 +1862,8 @@ function fillDonors(m) {
 
   // Draw network only if real donor data exists
   if (topDonors.length > 0) {
-    setTimeout(() => drawNetwork(m), 50);
+    const token = profileToken;
+    setTimeout(() => { if (token === profileToken) drawNetwork(m); }, 50);
   }
 }
 
@@ -1835,15 +1911,15 @@ document.getElementById('profile-tabs').addEventListener('click', e => {
 
 function fillCompare() {
   if (!allMembers.length) return;
-  const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
+  const scored = allMembers.filter(m=>m.displayScore!==null);
   const high = scored.filter(m=>m.displayScore>=60).length;
-  const totalSignals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
+  const totalSignals = allMembers.reduce((a,m)=>a+attributedSecCount(m),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   document.getElementById('compare-stats').innerHTML = [
     { label:'Members Scored', value:String(scored.length), note:`of ${allMembers.length} total` },
-    { label:'Data Coverage', value:String(withData), color:'#3b82f6', note:`${allMembers.length>0?Math.round((withData/allMembers.length)*100)+'%':'—'} complete` },
-    { label:'High Anomaly Members', value:String(high>0?high:'—'), color:'#ff3b4e', note: scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending' },
-    { label:'Corporate Insider Signals', value: totalSignals>0?totalSignals.toLocaleString():'—', color:'#f3c25a', note:'SEC EDGAR Form 4' },
+    { label:'Data Coverage', value:String(withData), color:'#3b82f6', note:`${allMembers.length>0?Math.round((withData/allMembers.length)*100)+'%':'—'} with recorded signals` },
+    { label:'High Anomaly Members', value:scored.length ? String(high) : '—', color:'#ff3b4e', note: scored.length>0?((high/scored.length)*100).toFixed(0)+'% of scored':'pending' },
+    { label:'Identity-verified SEC filings', value: allMembers.length?totalSignals.toLocaleString():'—', color:'#f3c25a', note:'Unverified or unavailable records excluded' },
   ].map(c => `
     <div class="stat-cell glass">
       <div class="stat-cell-label">${c.label}</div>
@@ -1975,8 +2051,8 @@ function exportMemberCSV() {
   if (!currentMember) return;
   const m = currentMember;
   const rows = [
-    ['Name','Party','State','Chamber','Score','Career Earnings','Total Raised','PAC','Corporate Insider Signals'],
-    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised||0, m.pac_contributions||0, m.corporate_insider_signals||0]
+    ['Name','Party','State','Chamber','Score','Career Earnings','Total Raised','PAC','Eligible SEC filings','Raw SEC lookup count (unverified unless eligible)','SEC eligibility'],
+    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised??'', m.pac_contributions??'', eligibleSecSignals(m) ? m.corporate_insider_signals : '', m.corporate_insider_signals??'', eligibleSecSignals(m) ? 'eligible' : 'unverified or unavailable']
   ];
   const csv = rows.map(r => r.map(csvField).join(',')).join('\n');
   const a = document.createElement('a');
@@ -1994,7 +2070,7 @@ function exportMemberJSON() {
 function shareMember() {
   if (!currentMember) return;
   const m = currentMember;
-  const text = `${m.name} has an anomaly score of ${m.displayScore}/100 on CongressWatch. See the data: https://congresswatch.vercel.app`;
+  const text = `${m.name}: ${m.displayScore == null ? 'score unavailable' : `anomaly score ${m.displayScore}/100`} on CongressWatch. See the data: https://congresswatch.vercel.app`;
   if (navigator.share) { navigator.share({title:'CongressWatch',text,url:'https://congresswatch.vercel.app'}); }
   else { navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard!')); }
 }

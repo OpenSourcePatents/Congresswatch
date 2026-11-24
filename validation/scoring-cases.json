@@ -1,0 +1,3621 @@
+{
+  "site_predicates": [
+    "fetch_finance.compute_score_components",
+    "fetch_finance.eligible_sec_signals",
+    "recompute_scores flag rule"
+  ],
+  "cases": [
+    {
+      "name": "verified ordered receipts positive",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 25,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 25,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "eligible_count": 6
+      }
+    },
+    {
+      "name": "eligible count 0",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 0
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "eligible count 1",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 1
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 10,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 10,
+        "flags": [],
+        "eligible_count": 1
+      }
+    },
+    {
+      "name": "eligible count 2",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 2
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 18,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 18,
+        "flags": [],
+        "eligible_count": 2
+      }
+    },
+    {
+      "name": "eligible count 3",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 3
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 25,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 25,
+        "flags": [],
+        "eligible_count": 3
+      }
+    },
+    {
+      "name": "eligible count 5",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 5
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 25,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 25,
+        "flags": [],
+        "eligible_count": 5
+      }
+    },
+    {
+      "name": "eligible count 6",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 25,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 25,
+        "flags": [
+          "trade"
+        ],
+        "eligible_count": 6
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_status=unverified",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_status=verified_auto",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified_auto",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_cik=None",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": null,
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_cik=None",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": null,
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_cik=0000000002",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000002",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_evidence=[]",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_evidence=['https://']",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_evidence=['http://example.com']",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "http://example.com"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_evidence=['https://user:password@example.com']",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://user:password@example.com"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_evidence_checks=[]",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_identity_evidence_checks=None",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": null,
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_data_status=stale",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "stale",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_data_status=unavailable",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "unavailable",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible edgar_status=query_failed",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "query_failed",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible corporate_insider_signals=-1",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": -1
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible corporate_insider_signals=True",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": true
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible corporate_insider_signals=6",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": "6"
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt url=https://www.sec.gov/identity/two",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt cik=0000000002",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000002",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt status=unavailable",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "unavailable",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt resolved_url=http://example.com",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "http://example.com",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt resolved_url=https://",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt checked_at=",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt checked_at=None",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": null,
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt sha256=",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": ""
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipt sha256=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipts reordered",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipts missing",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipts extra",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "ineligible receipts duplicate",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "verified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {},
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel member x1",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 3,
+          "attendance": 0
+        },
+        "total": 3,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel member x3",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 7,
+          "attendance": 0
+        },
+        "total": 7,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel member x5",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 10,
+          "attendance": 0
+        },
+        "total": 10,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel staff x1",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel staff x3",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel staff x5",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel unverified x1",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel unverified x3",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel unverified x5",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel None x1",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 3,
+          "attendance": 0
+        },
+        "total": 3,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel None x3",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13"
+          },
+          {
+            "departure_date": "2026-11-13"
+          },
+          {
+            "departure_date": "2026-11-13"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 7,
+          "attendance": 0
+        },
+        "total": 7,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel None x5",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13"
+          },
+          {
+            "departure_date": "2026-11-13"
+          },
+          {
+            "departure_date": "2026-11-13"
+          },
+          {
+            "departure_date": "2026-11-13"
+          },
+          {
+            "departure_date": "2026-11-13"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 10,
+          "attendance": 0
+        },
+        "total": 10,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "unlabeled historical serialization",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "11/13/2026",
+            "total_cost": "$1,234.50",
+            "raw": {
+              "keep": true
+            }
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 3,
+          "attendance": 0
+        },
+        "total": 3,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "mixed travel",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "staff"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "unverified"
+          },
+          {
+            "departure_date": "2026-11-13",
+            "filer_type": "member"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 3,
+          "attendance": 0
+        },
+        "total": 3,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel old",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2001-01-01"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel future",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": "2099-01-01"
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "travel missing",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "travel": [
+          {
+            "departure_date": ""
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "dormant donor and model remain suspended",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6
+      },
+      "detail": {
+        "bills_analysis_version": "official-prose-overlap-v2",
+        "donor_alignment_analysis_version": "official-prose-overlap-v2",
+        "donor_alignment_status": "available",
+        "donor_alignment_score": 100,
+        "bills": [
+          {
+            "analysis_version": "official-prose-overlap-v2",
+            "analysis_status": "analyzed",
+            "model_analysis_status": "analyzed",
+            "text_source": {
+              "source_format": "govinfo_official_bill_xml",
+              "extraction_version": "govinfo-legislative-body-v2",
+              "source_url": "https://www.govinfo.gov/example",
+              "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "alec_match": {
+              "similarity_score": 1,
+              "evidence": {
+                "target_text_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                "matched_source_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+                "matched_text_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+                "longest_passage_words": 100,
+                "target_shingle_coverage": 1,
+                "matched_shingle_coverage": 1
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    },
+    {
+      "name": "campaign and PAC never wealth",
+      "member": {
+        "id": "A000001",
+        "name": "Fixture Member",
+        "chamber": "House",
+        "state": "Florida",
+        "score": 0,
+        "flags": [
+          "donor",
+          "custom",
+          "trade"
+        ],
+        "total_raised": 1000000000000.0,
+        "edgar_identity_status": "unverified",
+        "edgar_cik": "0000000001",
+        "edgar_identity_cik": "0000000001",
+        "edgar_identity_evidence": [
+          "https://www.sec.gov/identity/one",
+          "https://www.sec.gov/identity/two"
+        ],
+        "edgar_identity_evidence_checks": [
+          {
+            "url": "https://www.sec.gov/identity/one",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/one",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          {
+            "url": "https://www.sec.gov/identity/two",
+            "cik": "0000000001",
+            "status": "available",
+            "resolved_url": "https://www.sec.gov/identity/two",
+            "checked_at": "2026-11-24T00:00:00Z",
+            "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          }
+        ],
+        "edgar_data_status": "available",
+        "edgar_status": "verified_manual",
+        "corporate_insider_signals": 6,
+        "pac_contributions": 1000000000000.0
+      },
+      "detail": {
+        "bills_analysis_version": "official-prose-overlap-v2",
+        "donor_alignment_analysis_version": "official-prose-overlap-v2",
+        "donor_alignment_status": "available",
+        "donor_alignment_score": 100,
+        "bills": [
+          {
+            "analysis_version": "official-prose-overlap-v2",
+            "analysis_status": "analyzed",
+            "model_analysis_status": "analyzed",
+            "text_source": {
+              "source_format": "govinfo_official_bill_xml",
+              "extraction_version": "govinfo-legislative-body-v2",
+              "source_url": "https://www.govinfo.gov/example",
+              "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "text_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            },
+            "alec_match": {
+              "similarity_score": 1,
+              "evidence": {
+                "target_text_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+                "matched_source_sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+                "matched_text_sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+                "longest_passage_words": 100,
+                "target_shingle_coverage": 1,
+                "matched_shingle_coverage": 1
+              }
+            }
+          }
+        ]
+      },
+      "expected": {
+        "components": {
+          "trade_timing": 0,
+          "wealth_gap": 0,
+          "donor_alignment": 0,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 0
+        },
+        "total": 0,
+        "flags": [
+          "donor",
+          "custom"
+        ],
+        "eligible_count": 0
+      }
+    }
+  ]
+}

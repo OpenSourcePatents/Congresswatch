@@ -34,11 +34,14 @@ Run:
 import glob
 import json
 import os
+from datetime import datetime
 
 MEMBERS_FILE = "data/members.json"
 DETAILS_DIR = "data/details"
 TRADES_FILE = "data/trades.json"
 BILLS_FILE = "data/bills.json"
+MAX_BILLS_BYTES = 100_000_000
+OFFICIAL_BILL_ANALYSIS = "official-prose-overlap-v2"
 
 # Stamped onto every record so a flat consumer never needs a second lookup.
 IDENTITY_FIELDS = ("bioguide_id", "member_name", "party", "state", "chamber")
@@ -57,12 +60,20 @@ def load_json(path, default):
                          "Refusing to continue — fix or remove the file.")
 
 
-def save_json(path, data):
+def save_json(path, data, *, max_bytes=None, compact=False):
     """Atomic write: temp file + os.replace so a crash never truncates data."""
     tmp = path + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-    os.replace(tmp, path)
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            options = ({"separators": (",", ":"), "ensure_ascii": False} if compact else {"indent": 2})
+            json.dump(data, f, **options)
+            f.write("\n")
+        if max_bytes is not None and os.path.getsize(tmp) >= max_bytes:
+            raise SystemExit(f"ABORT: {path} would exceed its {max_bytes:,}-byte publication limit.")
+        os.replace(tmp, path)
+    finally:
+        if os.path.exists(tmp):
+            os.unlink(tmp)
 
 
 def identity_for(member):
@@ -86,6 +97,30 @@ def stamp(record, identity):
             "the detail schema changed and stamping would overwrite real data."
         )
     return {**record, **identity}
+
+
+def date_sort_key(value):
+    """Sort ISO and historical US-format dates without altering source records."""
+    value = str(value or "").strip()[:10]
+    for fmt in ("%Y-%m-%d", "%m/%d/%Y"):
+        try:
+            return datetime.strptime(value, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            pass
+    return ""
+
+
+def aggregate_bill(bill, detail_path):
+    """Keep result identities/hashes, not duplicate passage text in the flat file."""
+    if bill.get("analysis_version") != OFFICIAL_BILL_ANALYSIS:
+        return bill
+    matches = []
+    for match in bill.get("similar_member_bills") or []:
+        evidence = {k:v for k,v in match["evidence"].items()
+                    if k not in ("target_passage","matched_passage")}
+        matches.append({**match, "evidence": evidence})
+    return {**bill, "similar_member_bills": matches, "detail_path": detail_path,
+            "evidence_scope": "source_fingerprints_only_see_detail_for_passages"}
 
 
 def main():
@@ -125,15 +160,16 @@ def main():
             trades.append(stamp(t, identity))
 
         for b in (detail.get("bills") or []):
-            bills.append(stamp(b, identity))
+            bills.append(stamp(aggregate_bill(b, f"data/details/{bid}.json"), identity))
 
     # Newest-first so consumers can page without re-sorting. Records with no
     # date (the scanned-PDF placeholders) sort last, not first: "" < any date.
-    trades.sort(key=lambda t: t.get("transaction_date") or "", reverse=True)
-    bills.sort(key=lambda b: b.get("introduced_date") or "", reverse=True)
+    trades.sort(key=lambda t: date_sort_key(t.get("transaction_date")), reverse=True)
+    bills.sort(key=lambda b: date_sort_key(b.get("introduced_date")), reverse=True)
 
     save_json(TRADES_FILE, trades)
-    save_json(BILLS_FILE, bills)
+    save_json(BILLS_FILE, bills, max_bytes=MAX_BILLS_BYTES,
+              compact=any(b.get("analysis_version") == OFFICIAL_BILL_ANALYSIS for b in bills))
 
     print("=" * 60)
     print("BUILD AGGREGATES — COMPLETE")

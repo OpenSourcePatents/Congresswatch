@@ -8,6 +8,8 @@ Design:
 - Threshold: 0.80 cosine similarity flags a match.
 """
 
+from fetch_bills.utils.text_processor import cached_text, text_contamination_reason
+
 import json
 import os
 import numpy as np
@@ -136,6 +138,10 @@ class SimilarityEngine:
         Build vectorizer from existing cached bills + ALEC corpus.
         bills_cache: {bill_id: {"cleaned_text": "...", ...}}
         """
+        self._fitted = False
+        self.bill_vectors = None
+        self.alec_vectors = None
+        self.alec_enabled = False
         self.alec_corpus = load_alec_corpus()
 
         from fetch_bills.utils.text_processor import clean_bill_text
@@ -147,7 +153,7 @@ class SimilarityEngine:
         bill_texts = []
         self.bill_ids = []
         for bid, data in bills_cache.items():
-            cleaned = data.get("cleaned_text", "")
+            cleaned = cached_text(data)
             if cleaned:
                 self.bill_ids.append(bid)
                 bill_texts.append(cleaned)
@@ -184,7 +190,7 @@ class SimilarityEngine:
         Add a new bill to the corpus matrix (transform only, no refit).
         Call this after analyzing a new bill to keep the matrix current.
         """
-        if not self._fitted or not cleaned_text:
+        if not self._fitted or not cleaned_text or text_contamination_reason(cleaned_text, cleaned=True):
             return
         vec = vectorize(self.vectorizer, [cleaned_text])[0]
         self.bill_ids.append(bill_id)
@@ -203,13 +209,22 @@ class SimilarityEngine:
         result = {
             "alec_match": None,
             "alec_best_similarity": 0.0,
+            "analysis_status": "text_unavailable" if not cleaned_text else "corpus_unavailable",
             "similar_bills": [],
         }
+
+        if text_contamination_reason(cleaned_text, cleaned=True):
+            result["analysis_status"] = "text_quarantined"
+            return result
 
         if not self._fitted or not cleaned_text:
             return result
 
         vec = vectorize(self.vectorizer, [cleaned_text])[0]
+        if not np.any(vec):
+            result["analysis_status"] = "no_vocabulary_overlap"
+            return result
+        result["analysis_status"] = "analyzed" if self.alec_enabled else "model_matching_unavailable"
 
         # ALEC match (skipped when the corpus is too small to be meaningful)
         if self.alec_enabled:
