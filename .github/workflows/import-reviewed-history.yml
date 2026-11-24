@@ -1,0 +1,24 @@
+name: Import reviewed history (review branch only)
+on:
+  push:
+    branches: [overhaul/source-review-2026-11-16]
+    paths: [.github/workflows/import-reviewed-history.yml]
+permissions:
+  contents: write
+jobs:
+  import:
+    if: github.repository == 'OpenSourcePatents/Congresswatch' && github.ref == 'refs/heads/overhaul/source-review-2026-11-16'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Verify and import exact Git bundle to review branch only
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/import_review_bundle.py
