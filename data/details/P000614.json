@@ -5457,7 +5457,7 @@
   "donor_alignment_score": null,
   "alec_match_count": 0,
   "donor_match_count": 0,
-  "edgar_status": "unverified_auto",
+  "edgar_status": "unresolved",
   "top_donors_list": [
     {
       "name": "HEFFRON, JAMES",
@@ -5618,7 +5618,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-24T12:38:10.731922",
+  "score_updated": "2026-11-24T17:13:07.730030",
   "votes_fail_count": 52,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,
@@ -5650,7 +5650,7 @@
     },
     "request_failed": false
   },
-  "edgar_checked": "2026-11-23T16:02:26.251402",
+  "edgar_checked": "2026-11-24T15:52:25.409558",
   "edgar_cik": null,
   "edgar_data_status": "unresolved",
   "edgar_updated": "2026-11-18T13:58:50.013276",
@@ -8353,5 +8353,54 @@
       }
     }
   ],
-  "bills_checked": "2026-11-24T12:32:03.722671+00:00"
+  "bills_checked": "2026-11-24T12:32:03.722671+00:00",
+  "finance_refresh_reconciliation": {
+    "source_snapshot": "1f757a012d0831f97f5e56dbea68b5f76999ffd3",
+    "prior_upstream_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+    "review_snapshot": "b0faa5a150e97733ddce4dc3201ce115717521d2",
+    "run": 45426256499,
+    "job": 138558970627,
+    "evidence_file": "benchmarks/nov24-finance-run-evidence.json",
+    "evidence_sha256": "21b70e71a8655769c9e2ecade47ea02998d4ecc332889d229a8aa0bd7c68700c",
+    "checked": "2026-11-24T15:52:25.409558",
+    "checked_semantics": "Legacy member processing timestamp, not proof of fresh FEC or successful SEC evidence.",
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-24T15:52:25.409558",
+      "score": 14,
+      "flags": []
+    },
+    "observed_detail": {
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-24T15:52:25.409558",
+      "last_updated": "2026-11-24T15:52:25.409558",
+      "score": 14,
+      "score_components": {
+        "trade_timing": 0,
+        "wealth_gap": 10,
+        "donor_alignment": 4,
+        "alec_similarity": 0,
+        "foreign_travel": 0,
+        "attendance": 0
+      },
+      "flags": []
+    },
+    "previous_reviewed_sec": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unverified_auto",
+      "edgar_data_status": "unresolved",
+      "edgar_checked": "2026-11-23T16:02:26.251402",
+      "edgar_updated": "2026-11-18T13:58:50.013276"
+    },
+    "candidate_only": true,
+    "alias_error_count": 0,
+    "filing_query_error_count": 0,
+    "successful_candidate_count_response": null,
+    "incomplete_attempt": false,
+    "derived_upstream_values_applied": false
+  }
 }

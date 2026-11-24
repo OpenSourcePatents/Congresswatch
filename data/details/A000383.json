@@ -10,7 +10,7 @@
   "score": 15,
   "flags": [],
   "updated": "2026-04-04T03:30:28.576495",
-  "edgar_status": "unverified_auto",
+  "edgar_status": "query_failed",
   "corporate_insider_signals": 9,
   "data_updated": "2026-11-18T14:29:31.210248",
   "last_updated": "2026-11-17T15:01:22.048157",
@@ -1179,7 +1179,7 @@
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-24T12:38:10.731922",
+  "score_updated": "2026-11-24T17:13:07.730030",
   "trades": [
     {
       "transaction_date": "2026-03-27",
@@ -5555,8 +5555,8 @@
   "missed_votes_pct": 0.0,
   "edgar_cik": "0001208475",
   "non_voting_delegate": false,
-  "edgar_data_status": "available",
-  "edgar_checked": "2026-11-23T15:41:43.669999",
+  "edgar_data_status": "stale",
+  "edgar_checked": "2026-11-24T15:31:49.482490",
   "score_methodology": "activity-v4-bill-integrity",
   "edgar_identity_status": "unverified",
   "edgar_identity_evidence": [],
@@ -6288,5 +6288,55 @@
       }
     }
   ],
-  "bills_checked": "2026-11-24T12:32:03.722671+00:00"
+  "bills_checked": "2026-11-24T12:32:03.722671+00:00",
+  "finance_refresh_reconciliation": {
+    "source_snapshot": "1f757a012d0831f97f5e56dbea68b5f76999ffd3",
+    "prior_upstream_snapshot": "d1e83aa7bf0a90aa135a5a8d8020e26a5606c0a4",
+    "review_snapshot": "b0faa5a150e97733ddce4dc3201ce115717521d2",
+    "run": 45426256499,
+    "job": 138558970627,
+    "evidence_file": "benchmarks/nov24-finance-run-evidence.json",
+    "evidence_sha256": "21b70e71a8655769c9e2ecade47ea02998d4ecc332889d229a8aa0bd7c68700c",
+    "checked": "2026-11-24T15:31:49.482490",
+    "checked_semantics": "Legacy member processing timestamp, not proof of fresh FEC or successful SEC evidence.",
+    "observed_roster": {
+      "edgar_cik": null,
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-24T15:31:49.482490",
+      "score": 15,
+      "flags": []
+    },
+    "observed_detail": {
+      "edgar_cik": "0001208475",
+      "corporate_insider_signals": 0,
+      "edgar_status": "unresolved",
+      "data_updated": "2026-11-24T15:31:49.482490",
+      "last_updated": "2026-11-24T15:31:49.482490",
+      "score": 15,
+      "score_components": {
+        "trade_timing": 15,
+        "wealth_gap": 0,
+        "donor_alignment": 0,
+        "alec_similarity": 0,
+        "foreign_travel": 0,
+        "attendance": 0
+      },
+      "flags": []
+    },
+    "previous_reviewed_sec": {
+      "edgar_cik": "0001208475",
+      "corporate_insider_signals": 9,
+      "edgar_status": "unverified_auto",
+      "edgar_data_status": "available",
+      "edgar_checked": "2026-11-23T15:41:43.669999",
+      "edgar_updated": "2026-11-18T14:29:31.210248"
+    },
+    "candidate_only": true,
+    "alias_error_count": 2,
+    "filing_query_error_count": 0,
+    "successful_candidate_count_response": null,
+    "incomplete_attempt": true,
+    "derived_upstream_values_applied": false
+  }
 }
