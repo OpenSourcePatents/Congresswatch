@@ -114,3 +114,50 @@ This is open source. Pull requests welcome. If you’re a journalist, researcher
 Legal
 All data sourced from public government records under open government principles. Bill text data licensed under CC BY 4.0 via LegiScan. This tool is for public interest research and journalism.
 CongressWatch is not a lawyer and this is not legal advice. Anomaly scores are statistical indicators only.
+
+## SEC identity and wrong-owner protection
+
+SEC name searches produce **candidate observations**, not verified congressional
+identities. Raw `corporate_insider_signals`, CIKs and retrieval provenance remain
+available in the JSON. They affect the SEC portion of scores, the `trade` flag,
+card badges, totals, and Overview/Stocks/Patterns warnings only when all of these
+requirements hold:
+
+- An explicitly reviewed `data/manual_cik_map.json` entry has
+  `identity_status: "verified"`, the member's exact `bioguide_id`, a ten-digit
+  zero-padded `cik`, and nonempty HTTPS `evidence` URLs. The map key and declared
+  member must agree. Name frequency and legacy `verified_auto`/bare manual CIKs
+  are insufficient.
+- The stored verified member ID and identity CIK match the member and SEC CIK
+  exactly. Every declared URL has exactly one ordered, available retrieval
+  receipt bound to that original URL and CIK, with its HTTPS resolved URL,
+  retrieval timestamp and SHA-256. Duplicate URLs, missing/reordered receipts,
+  unavailable evidence, HTTP redirects and empty evidence fail closed. Successful
+  retrieval alone does not establish identity: the explicit review is separate.
+- The SEC count fetch succeeded for that CIK (`edgar_data_status: "available"`
+  and `edgar_status: "verified_manual"`). Counts must be nonnegative integers.
+  Failed/partial searches retain the old raw CIK/count pair and last-good time,
+  advance the attempt timestamp, and contribute no SEC points or activity flags.
+
+`python validation/scrub_sec_outputs.py` applies the focused offline correction
+across member details, roster and stats. It preserves every raw congressional
+trade row, finance/vote/travel/bill input, and every non-SEC score component and
+flag. Genuine recent PTR trades still contribute their existing frequency points.
+It marks regenerated records with `sec_attribution_version: 1`; the UI treats
+older cached wrong-owner scores as pending until corrected data arrive. The
+normal finance fetcher and finalizer apply the same SEC gate on subsequent runs.
+No routes or existing raw field types are changed; verification metadata and
+roster score components are additive. OSP-API is not changed by this focused fix.
+
+This correction deliberately does not change the existing wealth, donor, bill,
+travel or attendance methodologies. Those broader concerns remain separate work
+(including #21 and draft #20); campaign receipts must not be interpreted as a
+personal financial disclosure. A positive SEC fixture tests the gate, not an
+assertion that any current member has verified SEC ownership.
+
+Offline review: `npm ci`, `pip install requests ruff playwright`, `npm run lint`,
+`npm run build`, `python -m unittest test_sec_identity -v`,
+`python validation/audit_sec_scope.py`, and `python validation/browser_sec.py`
+(after installing Playwright Chromium). The review workflow is read-only and
+publishes no site or data. The focused review branch skips Vercel builds. No
+production source workflow is required to validate this change.

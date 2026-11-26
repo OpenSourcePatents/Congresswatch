@@ -1,0 +1,38 @@
+name: Prepare focused SEC review branch
+on:
+  push:
+    branches: [fix/sec-owner-attribution-2026-11-26]
+    paths: [.github/workflows/prepare-sec-review.yml]
+permissions:
+  contents: write
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/fix/sec-owner-attribution-2026-11-26'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.5
+      - name: Reproduce audited local data and push only the review branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD^)" = 336b20293c30db2dce98fe9ba5c9261ed8beb16f
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = 336b20293c30db2dce98fe9ba5c9261ed8beb16f
+          test "$(git ls-remote origin refs/heads/fix/sec-owner-attribution-2026-11-26 | cut -f1)" = "$(git rev-parse HEAD)"
+          python validation/scrub_sec_outputs.py
+          python validation/audit_sec_scope.py
+          git add data
+          tree=$(git write-tree)
+          test "$(git rev-parse "$tree:data")" = 646a60c541a850b1c8709fbc2a7fe7122d6c0213
+          python validation/scrub_sec_outputs.py > /tmp/second-sec-replay.json
+          git diff --exit-code -- data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Regenerate audited SEC-only review data"
+          git push origin HEAD:refs/heads/fix/sec-owner-attribution-2026-11-26

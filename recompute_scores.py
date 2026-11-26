@@ -31,6 +31,7 @@ from fetch_finance import (
     load_json,
     save_json,
     compute_score_components,
+    eligible_sec_signals,
     is_non_voting_delegate,
     OUTPUT_FILE,
     DETAILS_DIR,
@@ -67,6 +68,19 @@ def main():
         # Guarded load — a corrupt detail file aborts rather than being
         # silently rescored to 0 and written back over good data.
         detail = load_json(detail_path, {})
+
+        # Use one complete SEC record, never splice a roster CIK into a detail count.
+        sec_fields = {k for k in m if k.startswith("edgar_")} | {"corporate_insider_signals"}
+        for field in sec_fields:
+            m.pop(field, None)
+        for field, value in detail.items():
+            if field.startswith("edgar_") or field == "corporate_insider_signals":
+                m[field] = value
+        for record in (m, detail):
+            flags = [flag for flag in record.get("flags", []) if flag != "trade"]
+            if eligible_sec_signals(m) > 5:
+                flags.insert(0, "trade")
+            record["flags"] = flags
 
         old = detail.get("score")
         components = compute_score_components(m, detail)
@@ -105,9 +119,12 @@ def main():
         detail["score"] = score
         detail["score_components"] = components
         detail["score_updated"] = now
+        detail["sec_attribution_version"] = 1
         save_json(detail_path, detail)
 
         m["score"] = score
+        m["score_components"] = components
+        m["sec_attribution_version"] = 1
 
     save_json(OUTPUT_FILE, members)
 
@@ -117,6 +134,7 @@ def main():
     stats["total_members"] = len(members)
     stats["members_with_scores"] = sum(1 for m in members if (m.get("score") or 0) > 0)
     stats["high_anomaly"] = sum(1 for m in members if (m.get("score") or 0) >= 60)
+    stats["total_insider_signals"] = sum(eligible_sec_signals(m) for m in members)
     stats["last_updated"] = now
     save_json(STATS_FILE, stats)
 
