@@ -24,6 +24,8 @@ def main():
     cases=json.loads((ROOT/'validation/sec_wrong_owners.json').read_text())['cases']
     members=json.loads((ROOT/'data/members.json').read_text())
     by_id={m['id']:m for m in members}
+    # Independently changed donor/PTR scores must survive the review reconciliation.
+    profile_cases=cases+[{'id':'B001278'},{'id':'O000177'}]
     server=ThreadingHTTPServer(('127.0.0.1',0),functools.partial(QuietHandler,directory=str(ROOT)))
     threading.Thread(target=server.serve_forever,daemon=True).start()
     origin=f'http://127.0.0.1:{server.server_port}'
@@ -41,7 +43,7 @@ def main():
                 page.route('**/*',lambda route:route.continue_() if route.request.url.startswith(origin) else route.abort())
                 page.goto(origin,wait_until='domcontentloaded')
                 page.wait_for_function('allMembers.length === 539')
-                for case in cases:
+                for case in profile_cases:
                     bid=case['id'];m=by_id[bid]
                     if page.locator('#profile-view.active').count():
                         page.locator('.back-btn').click()
