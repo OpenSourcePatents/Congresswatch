@@ -12,7 +12,8 @@ from validation.scrub_sec_outputs import scrub_record
 
 
 def main():
-    base=json.loads((ROOT/'validation/sec_wrong_owners.json').read_text())['base_sha']
+    pins=json.loads((ROOT/'validation/sec_wrong_owners.json').read_text())
+    base=pins['base_sha']
     def original(path):
         return json.loads(subprocess.check_output(['git','show',f'{base}:{path}'],cwd=ROOT))
     current=json.loads((ROOT/'data/members.json').read_text())
@@ -53,6 +54,23 @@ def main():
             'non_sec_components':'unchanged','non_sec_flags':'unchanged','replay':'identical',
             'raw_sec_count_preserved':raw_total,'eligible_sec_count':0,'score_changes':score_changes,
             'data_manifest_sha256':hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()}
+    if pins.get('previous_base_sha'):
+        prior = {m['id']: m for m in json.loads(subprocess.check_output(
+            ['git','show',pins['previous_base_sha']+':data/members.json'],cwd=ROOT))}
+        upstream_changes = {bid for bid in old if old[bid]['score'] != prior[bid]['score']}
+        sec_changes = {row['id'] for row in score_changes}
+        overlap = sorted(upstream_changes & sec_changes)
+        for m in current:
+            if m['id'] in upstream_changes - sec_changes:
+                assert m['score'] == old[m['id']]['score'], m['id']
+        result['reconciliation'] = {
+            'previous_base_sha': pins['previous_base_sha'],
+            'previous_review_sha': pins['previous_review_sha'],
+            'incoming_score_changes': len(upstream_changes),
+            'overlap_with_sec_corrections': overlap,
+            'unrelated_incoming_scores_preserved': len(upstream_changes - sec_changes),
+            'onder_score': next(m['score'] for m in current if m['id']=='O000177'),
+        }
     print(json.dumps(result,indent=2))
 
 

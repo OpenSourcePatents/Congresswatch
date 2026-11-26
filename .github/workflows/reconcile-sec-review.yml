@@ -1,0 +1,43 @@
+name: Reconcile focused SEC review only
+on:
+  push:
+    branches: [fix/sec-owner-attribution-2026-11-26]
+    paths: [.github/workflows/reconcile-sec-review.yml]
+permissions:
+  contents: write
+jobs:
+  reconcile:
+    if: github.ref == 'refs/heads/fix/sec-owner-attribution-2026-11-26'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.5
+      - name: Preserve current main and regenerate the audited SEC correction
+        shell: bash
+        run: |
+          set -euo pipefail
+          prior=$(git rev-parse HEAD)
+          main=22298ed4752610f785ed7122c23cef1d19db830b
+          test "$(git rev-parse HEAD^)" = 8f6673e50beb64f33e60d2140cf6316b53d9915c
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$main"
+          test "$(git ls-remote origin refs/heads/fix/sec-owner-attribution-2026-11-26 | cut -f1)" = "$prior"
+          git restore --source="$main" --staged --worktree -- data
+          python validation/scrub_sec_outputs.py
+          python validation/audit_sec_scope.py
+          git add data
+          tree=$(git write-tree)
+          test "$(git rev-parse "$tree:data")" = 58d7b3777549eef86c8935a7c03fb097de295aaf
+          python validation/scrub_sec_outputs.py > /tmp/second-sec-replay.json
+          git diff --exit-code -- data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          merged=$(git commit-tree "$tree" -p "$prior" -p "$main" -m "Merge current main and preserve unrelated updates in focused SEC review")
+          test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$main"
+          test "$(git ls-remote origin refs/heads/fix/sec-owner-attribution-2026-11-26 | cut -f1)" = "$prior"
+          git push origin "$merged":refs/heads/fix/sec-owner-attribution-2026-11-26
