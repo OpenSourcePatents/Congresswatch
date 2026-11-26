@@ -1100,9 +1100,15 @@
         "H001098"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "software"
+          ]
+        }
       }
     },
     {
@@ -1246,7 +1252,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.058,
+      "alec_best_similarity": 0.059,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
@@ -1271,8 +1277,9 @@
         "match": true,
         "matched_industries": [
           "Real Estate",
+          "Finance & Banking",
           "Insurance",
-          "Finance & Banking"
+          "Technology"
         ],
         "keyword_hits": {
           "Real Estate": [
@@ -1280,13 +1287,19 @@
             "development",
             "property"
           ],
+          "Finance & Banking": [
+            "financial",
+            "investment"
+          ],
           "Insurance": [
             "liability",
             "premium"
           ],
-          "Finance & Banking": [
-            "financial",
-            "investment"
+          "Technology": [
+            "technology",
+            "data",
+            "privacy",
+            "surveillance"
           ]
         }
       }
@@ -1498,8 +1511,9 @@
         "match": true,
         "matched_industries": [
           "Real Estate",
+          "Finance & Banking",
           "Insurance",
-          "Finance & Banking"
+          "Technology"
         ],
         "keyword_hits": {
           "Real Estate": [
@@ -1507,22 +1521,25 @@
             "mortgage",
             "real_estate"
           ],
-          "Insurance": [
-            "claim"
-          ],
           "Finance & Banking": [
             "loan",
             "mortgage"
+          ],
+          "Insurance": [
+            "claim"
+          ],
+          "Technology": [
+            "technology"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-11-24T20:39:54.207182+00:00",
+  "bills_updated": "2026-11-26T20:12:01.998187+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {

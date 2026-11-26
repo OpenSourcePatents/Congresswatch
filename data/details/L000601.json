@@ -968,15 +968,19 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Real Estate"
+          "Real Estate",
+          "Technology",
+          "Finance & Banking"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "credit"
-          ],
           "Real Estate": [
             "property"
+          ],
+          "Technology": [
+            "data"
+          ],
+          "Finance & Banking": [
+            "credit"
           ]
         }
       }
@@ -1026,15 +1030,20 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Real Estate"
+          "Real Estate",
+          "Technology",
+          "Finance & Banking"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "loan"
-          ],
           "Real Estate": [
             "construction"
+          ],
+          "Technology": [
+            "data",
+            "digital"
+          ],
+          "Finance & Banking": [
+            "loan"
           ]
         }
       }
@@ -1079,7 +1088,7 @@
         {
           "bill_id": "SJRES198-119",
           "sponsor_id": "W000779",
-          "similarity_score": 0.877
+          "similarity_score": 0.876
         }
       ],
       "cosponsors": [
@@ -1132,7 +1141,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.038,
+      "alec_best_similarity": 0.037,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1304,18 +1313,18 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Real Estate"
+          "Real Estate",
+          "Finance & Banking"
         ],
         "keyword_hits": {
+          "Real Estate": [
+            "property",
+            "real_estate"
+          ],
           "Finance & Banking": [
             "credit",
             "interest",
             "investment"
-          ],
-          "Real Estate": [
-            "property",
-            "real_estate"
           ]
         }
       }
@@ -1383,9 +1392,15 @@
         "D000624"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "artificial_intelligence"
+          ]
+        }
       }
     },
     {
@@ -1445,9 +1460,15 @@
         "G000581"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "data"
+          ]
+        }
       }
     },
     {
@@ -1519,11 +1540,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-24T19:26:13.400276+00:00",
+  "bills_updated": "2026-11-26T18:33:15.994474+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 15.0,
+  "donor_alignment_score": 25.0,
   "alec_match_count": 0,
-  "donor_match_count": 3,
+  "donor_match_count": 5,
   "edgar_status": "unresolved",
   "travel": [
     {

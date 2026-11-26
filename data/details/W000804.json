@@ -983,16 +983,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Technology"
         ],
         "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
           "Technology": [
             "data",
             "digital"
-          ],
-          "Finance & Banking": [
-            "investment"
           ]
         }
       }
@@ -1038,15 +1038,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Technology"
         ],
         "keyword_hits": {
-          "Technology": [
-            "technology"
-          ],
           "Finance & Banking": [
             "investment"
+          ],
+          "Technology": [
+            "technology"
           ]
         }
       }
@@ -1084,7 +1084,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
+      "alec_best_similarity": 0.035,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1146,7 +1146,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.052,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1163,9 +1163,15 @@
         "S001190"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -1216,20 +1222,26 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Finance & Banking",
           "Technology",
-          "Finance & Banking"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data"
-          ],
           "Finance & Banking": [
             "bank",
             "financial",
             "credit",
             "interest",
             "investment"
+          ],
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Real Estate": [
+            "housing",
+            "development",
+            "property"
           ]
         }
       }
@@ -1274,17 +1286,17 @@
         {
           "bill_id": "HR6995-119",
           "sponsor_id": "E000235",
-          "similarity_score": 0.921
+          "similarity_score": 0.926
         },
         {
           "bill_id": "HR4836-119",
           "sponsor_id": "B000740",
-          "similarity_score": 0.918
+          "similarity_score": 0.923
         },
         {
           "bill_id": "HR7313-119",
           "sponsor_id": "L000596",
-          "similarity_score": 0.914
+          "similarity_score": 0.919
         }
       ],
       "cosponsors": [
@@ -1345,7 +1357,7 @@
         {
           "bill_id": "HCONRES72-119",
           "sponsor_id": "K000392",
-          "similarity_score": 0.875
+          "similarity_score": 0.837
         }
       ],
       "cosponsors": [],
@@ -1487,28 +1499,32 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Finance & Banking",
           "Technology",
-          "Finance & Banking"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "data"
-          ],
           "Finance & Banking": [
             "bank",
             "interest",
             "investment",
             "derivative"
+          ],
+          "Technology": [
+            "data"
+          ],
+          "Real Estate": [
+            "development"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-11-24T19:17:50.397227+00:00",
+  "bills_updated": "2026-11-26T18:21:42.376651+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
