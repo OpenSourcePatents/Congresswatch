@@ -1627,7 +1627,7 @@ function fillStocks(m, s) {
     `<a class="alert-link" href="${ptrUrl}" target="_blank" rel="noopener noreferrer">View raw ${ptrSource} disclosures →</a>`);
 
   if (trades.length === 0 && tc === 0) {
-    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals found in current data.</div>`;
+    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or verified SEC signals are available in this snapshot. Unverified or missing records do not establish that no activity occurred.</div>`;
   }
 
   document.getElementById('pf-stocks-content').innerHTML = html;
