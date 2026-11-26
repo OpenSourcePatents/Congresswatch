@@ -930,6 +930,60 @@
   "last_updated": "2026-11-26T15:09:16.100090",
   "bills": [
     {
+      "bill_id": "HR11159-119",
+      "title": "RECEIPTS Act",
+      "type": "HR",
+      "number": "11159",
+      "congress": 119,
+      "introduced_date": "2026-11-24",
+      "latest_action": "Referred to the House Committee on Armed Services.",
+      "url": "https://api.congress.gov/v3/bill/119/hr/11159?format=json",
+      "keywords": [
+        "defense",
+        "department",
+        "financial",
+        "secretary",
+        "audit",
+        "statements",
+        "year",
+        "fiscal",
+        "military",
+        "management",
+        "service",
+        "committee",
+        "accounting",
+        "services",
+        "authority",
+        "individual",
+        "finance",
+        "unqualified",
+        "opinion",
+        "respect"
+      ],
+      "has_text": true,
+      "similarity_score": null,
+      "alec_best_similarity": 0.042,
+      "match_type": null,
+      "alec_match": null,
+      "similar_member_bills": [],
+      "cosponsors": [],
+      "donor_interest": {
+        "match": true,
+        "matched_industries": [
+          "Finance & Banking",
+          "Technology"
+        ],
+        "keyword_hits": {
+          "Finance & Banking": [
+            "financial"
+          ],
+          "Technology": [
+            "artificial_intelligence"
+          ]
+        }
+      }
+    },
+    {
       "bill_id": "HR11058-119",
       "title": "FOCUS Act",
       "type": "HR",
@@ -963,9 +1017,15 @@
       "has_text": true,
       "similarity_score": null,
       "alec_best_similarity": 0.117,
-      "match_type": null,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "S5756-119",
+          "sponsor_id": "C001047",
+          "similarity_score": 0.99
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
         "match": true,
@@ -1301,7 +1361,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.069,
+      "alec_best_similarity": 0.068,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1444,62 +1504,9 @@
           ]
         }
       }
-    },
-    {
-      "bill_id": "HR9247-119",
-      "title": "ON TIME Act",
-      "type": "HR",
-      "number": "9247",
-      "congress": 119,
-      "introduced_date": "2026-06-10",
-      "latest_action": "Referred to the House Committee on Veterans' Affairs.",
-      "url": "https://api.congress.gov/v3/bill/119/hr/9247?format=json",
-      "keywords": [
-        "suicide",
-        "prevention",
-        "veterans",
-        "affairs",
-        "medical",
-        "center",
-        "coordinator",
-        "secretary",
-        "department",
-        "code",
-        "ensure",
-        "available",
-        "outside",
-        "operating",
-        "hours",
-        "needed",
-        "accommodate",
-        "request",
-        "planning",
-        "services"
-      ],
-      "has_text": true,
-      "similarity_score": null,
-      "alec_best_similarity": 0.037,
-      "match_type": null,
-      "alec_match": null,
-      "similar_member_bills": [],
-      "cosponsors": [
-        "M001214",
-        "L000599"
-      ],
-      "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Healthcare"
-        ],
-        "keyword_hits": {
-          "Healthcare": [
-            "mental_health"
-          ]
-        }
-      }
     }
   ],
-  "bills_updated": "2026-11-24T20:06:31.566204+00:00",
+  "bills_updated": "2026-11-26T19:23:18.228741+00:00",
   "bills_count": 10,
   "donor_alignment_score": 35.0,
   "alec_match_count": 0,
@@ -1746,7 +1753,7 @@
     "Technology",
     "Healthcare"
   ],
-  "donors_updated": "2026-11-25T20:29:16.104337+00:00",
+  "donors_updated": "2026-11-26T20:05:01.943264+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -1756,7 +1763,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-25T20:45:09.883712",
+  "score_updated": "2026-11-26T20:37:28.517026",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "sec_attribution_version": 1

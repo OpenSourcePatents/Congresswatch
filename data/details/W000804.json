@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000804.jpg",
   "term_start": "2007-01-01",
-  "score": 6,
+  "score": 7,
   "flags": [],
   "updated": "2026-04-04T03:30:28.578559",
   "corporate_insider_signals": 0,
@@ -983,16 +983,16 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Technology"
         ],
         "keyword_hits": {
+          "Finance & Banking": [
+            "investment"
+          ],
           "Technology": [
             "data",
             "digital"
-          ],
-          "Finance & Banking": [
-            "investment"
           ]
         }
       }
@@ -1038,15 +1038,15 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Technology",
-          "Finance & Banking"
+          "Finance & Banking",
+          "Technology"
         ],
         "keyword_hits": {
-          "Technology": [
-            "technology"
-          ],
           "Finance & Banking": [
             "investment"
+          ],
+          "Technology": [
+            "technology"
           ]
         }
       }
@@ -1084,7 +1084,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.034,
+      "alec_best_similarity": 0.035,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1146,7 +1146,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.053,
+      "alec_best_similarity": 0.052,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1163,9 +1163,15 @@
         "S001190"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction"
+          ]
+        }
       }
     },
     {
@@ -1216,20 +1222,26 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Finance & Banking",
           "Technology",
-          "Finance & Banking"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "technology",
-            "data"
-          ],
           "Finance & Banking": [
             "bank",
             "financial",
             "credit",
             "interest",
             "investment"
+          ],
+          "Technology": [
+            "technology",
+            "data"
+          ],
+          "Real Estate": [
+            "housing",
+            "development",
+            "property"
           ]
         }
       }
@@ -1274,17 +1286,17 @@
         {
           "bill_id": "HR6995-119",
           "sponsor_id": "E000235",
-          "similarity_score": 0.921
+          "similarity_score": 0.926
         },
         {
           "bill_id": "HR4836-119",
           "sponsor_id": "B000740",
-          "similarity_score": 0.918
+          "similarity_score": 0.923
         },
         {
           "bill_id": "HR7313-119",
           "sponsor_id": "L000596",
-          "similarity_score": 0.914
+          "similarity_score": 0.919
         }
       ],
       "cosponsors": [
@@ -1345,7 +1357,7 @@
         {
           "bill_id": "HCONRES72-119",
           "sponsor_id": "K000392",
-          "similarity_score": 0.875
+          "similarity_score": 0.837
         }
       ],
       "cosponsors": [],
@@ -1487,28 +1499,32 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
+          "Finance & Banking",
           "Technology",
-          "Finance & Banking"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Technology": [
-            "data"
-          ],
           "Finance & Banking": [
             "bank",
             "interest",
             "investment",
             "derivative"
+          ],
+          "Technology": [
+            "data"
+          ],
+          "Real Estate": [
+            "development"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-11-24T19:17:50.397227+00:00",
+  "bills_updated": "2026-11-26T18:21:42.376651+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "top_donors_list": [
     {
@@ -1660,7 +1676,7 @@
     "Technology",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-25T20:20:38.596200+00:00",
+  "donors_updated": "2026-11-26T19:57:25.558798+00:00",
   "fec_cycle": 2026,
   "trades": [
     {
@@ -1681,12 +1697,12 @@
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 6,
+    "donor_alignment": 7,
     "alec_similarity": 0,
     "foreign_travel": 0,
     "attendance": 0
   },
-  "score_updated": "2026-11-25T20:45:09.883712",
+  "score_updated": "2026-11-26T20:37:28.517026",
   "missed_votes_pct": 1.0,
   "non_voting_delegate": false,
   "votes_fail_count": 51,

@@ -970,17 +970,22 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
           "Healthcare",
+          "Agriculture",
+          "Finance & Banking",
           "Real Estate"
         ],
         "keyword_hits": {
+          "Healthcare": [
+            "mental_health"
+          ],
+          "Agriculture": [
+            "commodity",
+            "rural"
+          ],
           "Finance & Banking": [
             "financial",
             "interest"
-          ],
-          "Healthcare": [
-            "mental_health"
           ],
           "Real Estate": [
             "development",
@@ -1039,12 +1044,17 @@
         "match": true,
         "matched_industries": [
           "Healthcare",
+          "Agriculture",
           "Real Estate"
         ],
         "keyword_hits": {
           "Healthcare": [
             "provider",
             "mental_health"
+          ],
+          "Agriculture": [
+            "food",
+            "rural"
           ],
           "Real Estate": [
             "housing",
@@ -1086,7 +1096,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.036,
+      "alec_best_similarity": 0.037,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1197,18 +1207,18 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
           "Healthcare",
+          "Finance & Banking",
           "Real Estate"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
-          ],
           "Healthcare": [
             "medicaid",
             "medicare",
             "mental_health"
+          ],
+          "Finance & Banking": [
+            "financial"
           ],
           "Real Estate": [
             "development"
@@ -1274,18 +1284,22 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
           "Healthcare",
+          "Agriculture",
+          "Finance & Banking",
           "Real Estate"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "interest"
-          ],
           "Healthcare": [
             "mental_health",
             "reimbursement"
+          ],
+          "Agriculture": [
+            "rural"
+          ],
+          "Finance & Banking": [
+            "financial",
+            "interest"
           ],
           "Real Estate": [
             "development",
@@ -1540,21 +1554,21 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Healthcare"
+          "Healthcare",
+          "Finance & Banking"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
-          ],
           "Healthcare": [
             "reimbursement"
+          ],
+          "Finance & Banking": [
+            "financial"
           ]
         }
       }
     }
   ],
-  "bills_updated": "2026-11-24T20:06:09.140610+00:00",
+  "bills_updated": "2026-11-26T19:22:48.245200+00:00",
   "bills_count": 10,
   "donor_alignment_score": 40.0,
   "alec_match_count": 0,
@@ -1739,7 +1753,7 @@
     "Finance & Banking",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-25T20:29:14.312336+00:00",
+  "donors_updated": "2026-11-26T20:04:59.957216+00:00",
   "fec_cycle": 2026,
   "score_components": {
     "trade_timing": 0,
@@ -1749,7 +1763,7 @@
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-25T20:45:09.883712",
+  "score_updated": "2026-11-26T20:37:28.517026",
   "votes_fail_count": 59,
   "missed_votes_pct": 0.0,
   "non_voting_delegate": false,

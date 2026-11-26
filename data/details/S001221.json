@@ -912,7 +912,7 @@
   "chamber": "House",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001221.jpg",
   "term_start": "2023-01-01",
-  "score": 8,
+  "score": 9,
   "flags": [],
   "updated": "2026-04-04T03:30:28.577595",
   "corporate_insider_signals": 0,
@@ -929,25 +929,58 @@
   "bills": [
     {
       "bill_id": "HR11118-119",
-      "title": "To accommodate certain facilities under part 645 of title 23, United States Code, and for other purposes.",
+      "title": "Right-of-Way Infrastructure Development Act",
       "type": "HR",
       "number": "11118",
       "congress": 119,
       "introduced_date": "2026-11-19",
       "latest_action": "Referred to the House Committee on Transportation and Infrastructure.",
       "url": "https://api.congress.gov/v3/bill/119/hr/11118?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "code",
+        "facilities",
+        "infrastructure",
+        "certain",
+        "purposes",
+        "right",
+        "way",
+        "introduced",
+        "accommodate",
+        "bill",
+        "transportation",
+        "accommodation",
+        "federal",
+        "regulations",
+        "state",
+        "congressional",
+        "bills",
+        "government",
+        "publishing",
+        "office"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
-      "match_type": null,
+      "alec_best_similarity": 0.233,
+      "match_type": "member_bill",
       "alec_match": null,
-      "similar_member_bills": [],
+      "similar_member_bills": [
+        {
+          "bill_id": "HR10769-119",
+          "sponsor_id": "B001328",
+          "similarity_score": 0.876
+        }
+      ],
       "cosponsors": [],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "development"
+          ]
+        }
       }
     },
     {
@@ -1420,11 +1453,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-24T19:46:29.362892+00:00",
+  "bills_updated": "2026-11-26T18:58:21.527524+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "travel": [
     {
@@ -1633,16 +1666,16 @@
     "Finance & Banking",
     "Real Estate"
   ],
-  "donors_updated": "2026-11-25T20:25:54.866283+00:00",
+  "donors_updated": "2026-11-26T20:02:21.424699+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 5,
+    "donor_alignment": 6,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-25T20:45:09.883712",
+  "score_updated": "2026-11-26T20:37:28.517026",
   "votes_fail_count": 57,
   "missed_votes_pct": 2.0,
   "non_voting_delegate": false,

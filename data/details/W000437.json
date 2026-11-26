@@ -912,7 +912,7 @@
   "chamber": "Senate",
   "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000437.jpg",
   "term_start": "1995-01-01",
-  "score": 9,
+  "score": 10,
   "flags": [],
   "updated": "2026-04-04T03:30:28.576537",
   "corporate_insider_signals": 0,
@@ -924,25 +924,63 @@
   "bills": [
     {
       "bill_id": "S5766-119",
-      "title": "A bill to prohibit stealth bots, and for other purposes.",
+      "title": "Stealth Bot Prohibition Act",
       "type": "S",
       "number": "5766",
       "congress": 119,
       "introduced_date": "2026-11-18",
       "latest_action": "Read twice and referred to the Committee on Commerce, Science, and Transportation.",
       "url": "https://api.congress.gov/v3/bill/119/s/5766?format=json",
-      "keywords": [],
-      "has_text": false,
+      "keywords": [
+        "commission",
+        "action",
+        "bot",
+        "state",
+        "general",
+        "civil",
+        "stealth",
+        "attorney",
+        "intelligence",
+        "service",
+        "federal",
+        "website",
+        "violation",
+        "iii",
+        "artificial",
+        "person",
+        "subparagraph",
+        "purposes",
+        "access",
+        "online"
+      ],
+      "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.0,
+      "alec_best_similarity": 0.092,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
-      "cosponsors": [],
+      "cosponsors": [
+        "L000570"
+      ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate",
+          "Mining & Natural Resources",
+          "Finance & Banking"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "construction",
+            "development"
+          ],
+          "Mining & Natural Resources": [
+            "mining"
+          ],
+          "Finance & Banking": [
+            "interest"
+          ]
+        }
       }
     },
     {
@@ -978,14 +1016,14 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.078,
+      "alec_best_similarity": 0.077,
       "match_type": "member_bill",
       "alec_match": null,
       "similar_member_bills": [
         {
           "bill_id": "HR7118-119",
           "sponsor_id": "P000608",
-          "similarity_score": 0.823
+          "similarity_score": 0.821
         }
       ],
       "cosponsors": [
@@ -1395,11 +1433,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-24T20:43:33.580884+00:00",
+  "bills_updated": "2026-11-26T20:16:53.124453+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 30.0,
+  "donor_alignment_score": 35.0,
   "alec_match_count": 0,
-  "donor_match_count": 6,
+  "donor_match_count": 7,
   "edgar_status": "unresolved",
   "trades": [
     {
@@ -1646,16 +1684,16 @@
     "Oil & Gas",
     "Finance & Banking"
   ],
-  "donors_updated": "2026-11-25T20:37:13.786540+00:00",
+  "donors_updated": "2026-11-26T20:11:41.765540+00:00",
   "score_components": {
     "trade_timing": 0,
     "wealth_gap": 0,
-    "donor_alignment": 6,
+    "donor_alignment": 7,
     "alec_similarity": 0,
     "foreign_travel": 3,
     "attendance": 0
   },
-  "score_updated": "2026-11-25T20:45:09.883712",
+  "score_updated": "2026-11-26T20:37:28.517026",
   "missed_votes_pct": 1.0,
   "travel": [
     {
