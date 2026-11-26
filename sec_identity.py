@@ -1,6 +1,5 @@
 """CIK-bound retrieval receipts for explicitly reviewed SEC identities."""
 import hashlib
-import math
 import re
 from datetime import datetime, timezone
 from urllib.parse import urljoin, urlparse
@@ -96,7 +95,7 @@ def eligible_sec_signals(member):
             and evidence_available(member)
             and member.get("edgar_data_status") == "available"
             and member.get("edgar_status") == "verified_manual"
-            and type(count) in (int, float) and math.isfinite(count)
+            and type(count) in (int, float)
             and 0 <= count <= 9007199254740991 and count == int(count)):
         return count
     return 0

@@ -77,6 +77,11 @@ class SecIdentityTests(unittest.TestCase):
                 self.assertEqual(finance.compute_score_components(m)['trade_timing'],0)
                 finance.update_flags(m);self.assertNotIn('trade',m['flags'])
 
+    def test_nonfinite_and_oversized_counts_fail_closed(self):
+        for count in [float('nan'),float('inf'),10**1000]:
+            m=verified();m['corporate_insider_signals']=count
+            self.assertEqual(eligible_sec_signals(m),0)
+
     def test_current_wrong_owners_and_historical_regressions(self):
         cases=json.loads(Path('validation/sec_wrong_owners.json').read_text())['cases']
         self.assertEqual(len(cases),9)
