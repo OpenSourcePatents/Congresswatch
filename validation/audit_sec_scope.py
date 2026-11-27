@@ -71,6 +71,38 @@ def main():
             'unrelated_incoming_scores_preserved': len(upstream_changes - sec_changes),
             'onder_score': next(m['score'] for m in current if m['id']=='O000177'),
         }
+    if pins.get('attempt_metadata_base_sha'):
+        attempt_base = pins['attempt_metadata_base_sha']
+        prior_roster = {m['id']: m for m in json.loads(subprocess.check_output(
+            ['git','show',attempt_base+':data/members.json'],cwd=ROOT))}
+        attempt_paths = subprocess.check_output(
+            ['git','diff','--name-only',attempt_base,base],cwd=ROOT,text=True).splitlines()
+        assert set(attempt_paths) == {'data/members.json'} | {
+            f'data/details/{bid}.json' for bid in old}
+        for m in current:
+            bid = m['id']
+            assert {k for k in prior_roster[bid].keys() | old[bid].keys()
+                    if prior_roster[bid].get(k) != old[bid].get(k)} == {'data_updated'}
+            path = f'data/details/{bid}.json'
+            prior = json.loads(subprocess.check_output(
+                ['git','show',attempt_base+':'+path],cwd=ROOT))
+            upstream = original(path)
+            after = json.loads((ROOT/path).read_text())
+            assert {k for k in prior.keys() | upstream.keys()
+                    if prior.get(k) != upstream.get(k)} == {'votes_updated','votes_fail_count'}
+            assert upstream['votes_fail_count'] == prior['votes_fail_count'] + 1
+            assert after['votes_fail_count'] == upstream['votes_fail_count']
+            assert after['votes_updated'] == upstream['votes_updated']
+            assert after['votes_status'] == upstream['votes_status'] == prior['votes_status'] == 'fetch_failed'
+        result['attempt_metadata'] = {
+            'base_sha': attempt_base,
+            'previous_review_sha': pins['attempt_metadata_review_sha'],
+            'roster_timestamp_rows_preserved': len(current),
+            'failed_vote_attempts_preserved': len(current),
+            'counter_increment_per_member': 1,
+            'vote_arrays_and_other_fields': 'unchanged',
+            'fresh_vote_evidence': False,
+        }
     print(json.dumps(result,indent=2))
 
 
