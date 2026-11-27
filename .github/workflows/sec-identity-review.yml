@@ -1,0 +1,54 @@
+name: SEC identity review (no publication)
+on:
+  push:
+    branches: [fix/sec-owner-attribution-2026-11-26]
+  pull_request:
+    paths:
+      - 'sec_identity.py'
+      - 'fetch_finance.py'
+      - 'recompute_scores.py'
+      - 'index.html'
+      - 'test_sec_identity.py'
+      - 'validation/**'
+      - '.github/workflows/sec-identity-review.yml'
+      - 'data/**'
+permissions:
+  contents: read
+concurrency:
+  group: sec-review-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    if: github.event_name == 'push' || github.head_ref == 'fix/sec-owner-attribution-2026-11-26'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: pip install requests==2.32.5 ruff==0.14.6 playwright==1.56.0
+      - run: npm ci --no-audit --no-fund
+      - run: npm run lint && npm run build
+      - run: python -m unittest test_sec_identity test_finance_reconciliation -v && python test_delegates.py
+      - name: Prove all-member scope and exact regeneration
+        run: |
+          mkdir -p validation/artifacts
+          git rev-parse HEAD > validation/artifacts/verified-head.txt
+          python validation/audit_sec_scope.py > validation/artifacts/sec-scope.json
+          python validation/scrub_sec_outputs.py > validation/artifacts/regeneration.json
+          git diff --exit-code -- data
+      - run: python -m playwright install --with-deps chromium
+      - run: python validation/browser_sec.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sec-identity-review-${{ github.event.pull_request.head.sha || github.sha }}
+          path: validation/artifacts/

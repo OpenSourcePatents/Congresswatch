@@ -22,6 +22,8 @@ from collections import defaultdict
 import requests
 from datetime import datetime
 
+from sec_identity import eligible_sec_signals, evidence_available, retrieve_identity_evidence
+
 FEC_KEY = os.environ.get('FEC_API_KEY', 'DEMO_KEY')
 
 HEADERS = {
@@ -44,12 +46,16 @@ os.makedirs(DETAILS_DIR, exist_ok=True)
 # (finalize) owns promoting those from detail files.
 LIGHT_FIELDS = {
     "id","bioguide_id","name","party","state","district","chamber",
+    "sec_attribution_version","score_components",
     "photo_url","term_start","score","flags",
     "corporate_insider_signals",
     "total_raised",
     "pac_contributions","individual_contributions",
     "govtrack_id","data_updated",
-    "edgar_status","edgar_cik"
+    "edgar_status","edgar_cik",
+    "edgar_data_status","edgar_checked","edgar_updated",
+    "edgar_identity_status","edgar_identity_cik","edgar_identity_member_id",
+    "edgar_identity_evidence","edgar_identity_evidence_checks","edgar_identity_assertion"
 }
 
 # FEC expects 2-letter postal codes; members.json stores full state names
@@ -176,19 +182,36 @@ def resolve_member_cik(member):
     manual = load_json(CIK_MAP_FILE,{})
     bid = member.get("id") or member.get("bioguide_id")
 
-    if bid in manual:
-        return {
-            "status":"verified_manual",
-            "cik":manual[bid]["cik"]
-        }
+    entry = manual.get(bid, {})
+    evidence = entry.get("evidence", [])
+    cik = entry.get("cik")
+    # The map key declares the member; the assertion must independently name it.
+    # A legacy bare CIK or automatic name match grants no identity verification.
+    member["edgar_identity_status"] = "unverified"
+    if (entry.get("identity_status") == "verified"
+            and entry.get("bioguide_id") == bid
+            and isinstance(cik, str) and re.fullmatch(r"[0-9]{10}", cik)
+            and isinstance(evidence, list) and evidence):
+        member["edgar_identity_cik"] = cik
+        member["edgar_identity_member_id"] = bid
+        member["edgar_identity_evidence"] = evidence
+        member["edgar_identity_assertion"] = dict(entry)
+        member["edgar_identity_evidence_checks"] = retrieve_identity_evidence(cik, evidence, HEADERS)
+        if not evidence_available(member):
+            member["edgar_identity_status"] = "verification_unavailable"
+            return {"status": "identity_evidence_unavailable", "cik": cik}
+        member["edgar_identity_status"] = "verified"
+        return {"status": "verified_manual", "cik": cik}
 
     candidates = defaultdict(int)
+    alias_failed = False
 
     for alias in name_aliases(member["name"]):
         try:
             data = sec_search(f'"{alias}"')
         except Exception as e:
             SEC_STATS["fail"] += 1
+            alias_failed = True
             print(f"    SEC search failed for {alias!r}: {e}")
             continue
 
@@ -204,13 +227,16 @@ def resolve_member_cik(member):
                 if cik.isdigit():
                     candidates[cik]+=1
 
+    if alias_failed:
+        return {"status": "query_failed", "cik": None}
+
     if not candidates:
         return {"status":"unresolved","cik":None}
 
     best = sorted(candidates.items(),key=lambda x:-x[1])[0]
 
     if best[1] >= 3:
-        return {"status":"verified_auto","cik":best[0]}
+        return {"status":"unverified_auto","cik":best[0]}
 
     review = load_json(CIK_REVIEW_FILE,{})
     review[bid] = {
@@ -229,10 +255,16 @@ def fetch_edgar_signals(member):
 
     res = resolve_member_cik(member)
 
+    prior_cik = member.get("edgar_cik")
+    member["edgar_checked"] = datetime.now().isoformat()
     member["edgar_status"] = res["status"]
+    if res["status"] == "query_failed":
+        member["edgar_data_status"] = "stale" if prior_cik and member.get("corporate_insider_signals") is not None else "unavailable"
+        return None
     member["edgar_cik"] = res["cik"]
 
     if not res["cik"]:
+        member["edgar_data_status"] = "unresolved"
         print("    EDGAR:",res["status"])
         return 0
 
@@ -240,10 +272,14 @@ def fetch_edgar_signals(member):
         payload = sec_search(res["cik"], ciks=res["cik"])
         # hits.hits is capped (~100/page); hits.total.value is the real count
         total = (payload.get("hits",{}).get("total",{}) or {}).get("value")
-        if total is None:
-            total = len(payload.get("hits",{}).get("hits",[]))
-        count = int(total)
+        if type(total) is not int:
+            raise ValueError("SEC response lacks an exact integer filing count")
+        count = total
 
+        if count < 0:
+            raise ValueError("Negative SEC filing count")
+        member["edgar_data_status"] = "available"
+        member["edgar_updated"] = member["edgar_checked"]
         print(f"    EDGAR Hit: {count} filings via CIK {res['cik']}")
         return count
 
@@ -252,6 +288,9 @@ def fetch_edgar_signals(member):
         SEC_STATS["fail"] += 1
         print(f"    EDGAR query failed: {e}")
         member["edgar_status"]="query_failed"
+        # Retained counts must remain paired with the identity they came from.
+        member["edgar_cik"] = prior_cik
+        member["edgar_data_status"] = "stale" if prior_cik and member.get("corporate_insider_signals") is not None else "unavailable"
         return None
 
 # ─────────────────────────────────────────────────────────────
@@ -396,7 +435,7 @@ def compute_score_components(m, detail=None):
 
     # 1. Stock trade timing (25 max) — SEC EDGAR signals + PTR trade frequency
     trade_score = 0
-    signals = m.get("corporate_insider_signals", 0) or 0
+    signals = eligible_sec_signals(m)
     if signals >= 3:
         trade_score += 25
     elif signals == 2:
@@ -517,7 +556,7 @@ def update_flags(m):
 
     flags=[]
 
-    if (m.get("corporate_insider_signals",0) or 0)>5:
+    if eligible_sec_signals(m)>5:
         flags.append("trade")
 
     total=m.get("total_raised",0)
@@ -557,6 +596,11 @@ if __name__=="__main__":
         # pipelines, plus last-known finance values for failure fallback)
         detail_data=load_detail(bid)
 
+        # Keep the prior CIK/count together; roster and detail can disagree.
+        for field in ("corporate_insider_signals", "edgar_cik", "edgar_updated"):
+            if field in detail_data:
+                m[field] = detail_data[field]
+
         # EDGAR — None means "query failed": keep the last-known value
         signals=fetch_edgar_signals(m)
         if signals is None:
@@ -590,6 +634,9 @@ if __name__=="__main__":
         # authoritative one. Components are written alongside the score so the
         # two can never disagree with each other in between.
         components=compute_score_components(m, detail_data)
+        m["score_components"] = components
+        m["sec_attribution_version"] = 1
+        detail_data["sec_attribution_version"] = 1
         m["score"]=min(sum(components.values()), 100)
         detail_data["score"]=m["score"]
         detail_data["score_components"]=components
@@ -629,7 +676,7 @@ if __name__=="__main__":
 
     scored=sum(1 for m in final_members if (m.get("score") or 0)>0)
     high_anomaly=sum(1 for m in final_members if (m.get("score") or 0)>=60)
-    total_insider=sum(m.get("corporate_insider_signals",0) or 0 for m in final_members)
+    total_insider=sum(eligible_sec_signals(m) for m in final_members)
 
     stats = {
         "total_members": len(final_members),

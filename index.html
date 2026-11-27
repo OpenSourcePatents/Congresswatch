@@ -848,12 +848,37 @@ function fmtMoney(v) {
   if (v >= 1e3) return `$${(v/1e3).toFixed(0)}K`;
   return `$${v}`;
 }
+function eligibleSecSignals(m) {
+  const evidence = m.edgar_identity_evidence;
+  const count = m.corporate_insider_signals;
+  const checks = m.edgar_identity_evidence_checks;
+  const httpsUrl = value => { try { const u = new URL(value); return typeof value === 'string' && u.protocol === 'https:' && !!u.hostname && !u.username && !u.password; } catch { return false; } };
+  return m.edgar_identity_status === 'verified' &&
+    m.edgar_identity_member_id === (m.id || m.bioguide_id) &&
+    typeof m.edgar_identity_member_id === 'string' && !!m.edgar_identity_member_id &&
+    typeof m.edgar_identity_cik === 'string' && /^[0-9]{10}$/.test(m.edgar_identity_cik) &&
+    m.edgar_identity_cik === m.edgar_cik &&
+    Array.isArray(evidence) && evidence.length > 0 &&
+    evidence.every(httpsUrl) && new Set(evidence).size === evidence.length &&
+    Array.isArray(checks) && checks.length === evidence.length &&
+    checks.every((check, i) => check && check.url === evidence[i] &&
+      check.cik === m.edgar_identity_cik && check.status === 'available' &&
+      httpsUrl(check.resolved_url) && typeof check.checked_at === 'string' && !!check.checked_at &&
+      typeof check.sha256 === 'string' && /^[a-f0-9]{64}$/.test(check.sha256)) &&
+    m.edgar_data_status === 'available' && m.edgar_status === 'verified_manual' &&
+    typeof count === 'number' && Number.isSafeInteger(count) && count >= 0;
+}
+function secSignals(m) { return eligibleSecSignals(m) ? m.corporate_insider_signals : 0; }
+
 function computeScore(m) {
-  // Show a numeric score (including 0) when the member shows any evidence of measurement;
-  // otherwise null -> DATA PENDING.
-  const measured = (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
+  // Old cached production scores can include a wrong-owner SEC component.
+  // Until the corrected roster arrives, show pending rather than trust that score.
+  if (m.sec_attribution_version !== 1 && !eligibleSecSignals(m) &&
+      ((m.corporate_insider_signals || 0) > 0 || (m.flags || []).includes('trade'))) return null;
+  const measured = (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || secSignals(m) > 0;
   return measured ? (m.score || 0) : null;
 }
+
 function getNetWorth(m) {
   if (m.net_worth !== undefined && m.net_worth !== null) return m.net_worth;
   return null;
@@ -869,7 +894,7 @@ function computeCareerEarnings(m) {
   return total;
 }
 function hasRealData(m) {
-  return (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || (m.corporate_insider_signals||0) > 0;
+  return (m.score||0) > 0 || (m.trade_count||0) > 0 || (m.total_raised||0) > 0 || secSignals(m) > 0;
 }
 
 function mapMember(m) {
@@ -933,7 +958,7 @@ function loadDemo() {
 function updateStats() {
   const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
   const high = scored.filter(m=>m.displayScore>=60).length;
-  const signals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
+  const signals = allMembers.reduce((a,m)=>a+secSignals(m),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   const coveragePct = allMembers.length > 0 ? Math.round((withData/allMembers.length)*100) : 0;
   document.getElementById('stat-high').textContent = scored.length > 0 ? high : '—';
@@ -1002,7 +1027,7 @@ function renderGrid() {
     const dist = m.district ? `${m.state}-${m.district}` : m.state;
     const scoreLabel = s !== null ? s : '--';
     const glow = (s !== null && s >= 60) ? `box-shadow:0 0 14px color-mix(in srgb, ${sc} 30%, transparent);` : '';
-    const showInsider = (m.corporate_insider_signals||0) > 0;
+    const showInsider = secSignals(m) > 0;
     const showDonor = (m.total_raised||0) > 0;
     const showBill = (m.alec_match_count||0) > 0;
     const showTrades = (m.trade_count||0) > 0;
@@ -1119,7 +1144,9 @@ const SCORE_COMPONENTS = [
   { key:'attendance',      label:'Attendance',             max:5 },
 ];
 function scoreBreakdownHtml(m) {
-  const comps = m.score_components || null;
+  const staleSec = m.sec_attribution_version !== 1 && !eligibleSecSignals(m) &&
+    ((m.corporate_insider_signals || 0) > 0 || (m.flags || []).includes('trade'));
+  const comps = staleSec ? { ...m.score_components, trade_timing: null } : (m.score_components || null);
   const rows = SCORE_COMPONENTS.map(c => {
     const has = comps && comps[c.key] !== undefined && comps[c.key] !== null;
     const v = has ? comps[c.key] : 0;
@@ -1136,6 +1163,14 @@ function scoreBreakdownHtml(m) {
     <div class="panel-head">ANOMALY SCORE BREAKDOWN<span class="panel-head-right">SIX WEIGHTED SIGNALS</span></div>
     <div class="panel-body">${rows}</div>
   </div>`;
+}
+
+function mergeMemberDetail(light, deep) {
+  // SEC verification is indivisible: never inherit missing proof from a different snapshot.
+  const clean = { ...light };
+  Object.keys(clean).filter(k => k.startsWith('edgar_') ||
+    k === 'corporate_insider_signals' || k === 'sec_attribution_version').forEach(k => delete clean[k]);
+  return { ...clean, ...deep };
 }
 
 // ── ASYNC openProfile — renders light data immediately, fetches vault in background ──
@@ -1246,7 +1281,7 @@ async function openProfile(m) {
       detailCache.set(bid, deep);
       const deepNW = getNetWorth(deep);
       currentMember = {
-        ...currentMember, ...deep,
+        ...mergeMemberDetail(currentMember, deep),
         displayScore: s, photo: m.photo, photoFb: m.photoFb, partyC: m.partyC, partyS: m.partyS,
         careerEarnings: m.careerEarnings, netWorth: deepNW !== null ? deepNW : m.netWorth,
       };
@@ -1270,7 +1305,7 @@ function renderOverview(m, s, cumSalary) {
   const container = document.getElementById('ppanel-overview');
   const nw = m.netWorth;
   const hasNW = nw !== null && nw !== undefined;
-  const insiderSignals = m.corporate_insider_signals != null ? m.corporate_insider_signals : '—';
+  const insiderSignals = eligibleSecSignals(m) ? secSignals(m) : '—';
   const careerEarnings = computeCareerEarnings(m);
 
   const cells = statCellsHtml([
@@ -1280,7 +1315,7 @@ function renderOverview(m, s, cumSalary) {
       note: careerEarnings ? 'congressional salary only' : 'pending' },
     { label:'Total Raised (FEC)', value: m.total_raised ? fmtMoney(m.total_raised) : esc(m.total_raised_display || '—'), color:'#f3c25a',
       note: m.pac_contributions ? fmtMoney(m.pac_contributions) + ' PAC' : 'FEC data pending' },
-    { label:'Insider Signals', value: esc(insiderSignals), color: (m.corporate_insider_signals||0) > 10 ? '#ff3b4e' : undefined,
+    { label:'Insider Signals', value: esc(insiderSignals), color: secSignals(m) > 10 ? '#ff3b4e' : undefined,
       note: 'SEC EDGAR Form 4' },
   ]);
 
@@ -1331,7 +1366,7 @@ function buildFlags(m, s) {
   if (alecBills.length > 0) flags.push({type:'warn',title:'ALEC MODEL LEGISLATION MATCH',
     body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match known ALEC model legislation above 70% similarity. Source: LegiScan + Congress.gov.`});
   // INSIDER_TRADING: only if corporate_insider_signals > 0
-  const insiderCount = m.corporate_insider_signals || 0;
+  const insiderCount = secSignals(m);
   if (insiderCount > 0) flags.push({type:'warn',title:'CORPORATE INSIDER ACTIVITY DETECTED',
     body:`${insiderCount} Form 4 filing${insiderCount>1?'s':''} found in SEC EDGAR. Source: SEC EDGAR Form 4.`});
   // ATTENDANCE: only if real vote data shows missed > 15%.
@@ -1523,7 +1558,7 @@ function fillFinance(m, s, cumSalary) {
 }
 
 function fillStocks(m, s) {
-  const tc = m.corporate_insider_signals || 0;
+  const tc = secSignals(m);
   const edgarStatus = m.edgar_status || 'unresolved';
   const cik = m.edgar_cik;
   const chamber = (m.chamber||'').toLowerCase();
@@ -1570,11 +1605,16 @@ function fillStocks(m, s) {
       `<code>${tc}</code> Form 4 filing${tc>1?'s':''} detected via SEC EDGAR.`);
   }
 
-  if (edgarStatus === 'verified_manual' || edgarStatus === 'verified_auto' || (edgarStatus === 'resolved' && cik)) {
+  if (eligibleSecSignals(m)) {
     const edgarUrl = `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${encodeURIComponent(cik)}&type=4&dateb=&owner=include&count=40`;
     html += alertHtml('info', 'SEC EDGAR FILINGS',
       `SEC EDGAR CIK: <code>${esc(cik)}</code> &mdash; Status: ${esc(edgarStatus)}`,
       `<a class="alert-link" href="${esc(edgarUrl)}" target="_blank" rel="noopener noreferrer">View on SEC EDGAR →</a>`);
+  }
+
+  if ((m.corporate_insider_signals || m.edgar_cik) && !eligibleSecSignals(m)) {
+    html += alertHtml('info', 'UNVERIFIED SEC CANDIDATE',
+      'Raw name-search observations are retained, but do not establish this member owns the filings. Excluded from SEC scores, totals and warnings.');
   }
 
   // PTR source links
@@ -1587,7 +1627,7 @@ function fillStocks(m, s) {
     `<a class="alert-link" href="${ptrUrl}" target="_blank" rel="noopener noreferrer">View raw ${ptrSource} disclosures →</a>`);
 
   if (trades.length === 0 && tc === 0) {
-    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or corporate insider signals found in current data.</div>`;
+    html += `<div class="empty-msg" style="padding:20px 10px;text-align:left">No stock trades or verified SEC signals are available in this snapshot. Unverified or missing records do not establish that no activity occurred.</div>`;
   }
 
   document.getElementById('pf-stocks-content').innerHTML = html;
@@ -1657,7 +1697,7 @@ function fillPatterns(m, s) {
     patterns.push({title:'ALEC MODEL LEGISLATION MATCH',body:`${alecBills.length} sponsored bill${alecBills.length>1?'s':''} match ALEC model legislation. Top similarity: <code>${Math.round(topSim*100)}%</code>. Source: LegiScan + Congress.gov.`});
   }
   // INSIDER_TRADING: only if corporate_insider_signals > 0
-  if ((m.corporate_insider_signals||0) > 0) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${m.corporate_insider_signals} SEC Form 4 filing${m.corporate_insider_signals>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
+  if (secSignals(m) > 0) patterns.push({title:'CORPORATE INSIDER ACTIVITY',body:`${secSignals(m)} SEC Form 4 filing${secSignals(m)>1?'s':''} detected. Verify at SEC EDGAR for full context.`});
   // ATTENDANCE: real vote data. Delegates exempt (cannot vote on final passage).
   const votes = m.votes || [];
   if (votes.length > 0 && !isNonVotingDelegate(m)) {
@@ -1837,7 +1877,7 @@ function fillCompare() {
   if (!allMembers.length) return;
   const scored = allMembers.filter(m=>m.displayScore!==null&&m.displayScore>0);
   const high = scored.filter(m=>m.displayScore>=60).length;
-  const totalSignals = allMembers.reduce((a,m)=>a+(m.corporate_insider_signals||0),0);
+  const totalSignals = allMembers.reduce((a,m)=>a+secSignals(m),0);
   const withData = allMembers.filter(m=>hasRealData(m)).length;
   document.getElementById('compare-stats').innerHTML = [
     { label:'Members Scored', value:String(scored.length), note:`of ${allMembers.length} total` },
@@ -1976,7 +2016,7 @@ function exportMemberCSV() {
   const m = currentMember;
   const rows = [
     ['Name','Party','State','Chamber','Score','Career Earnings','Total Raised','PAC','Corporate Insider Signals'],
-    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised||0, m.pac_contributions||0, m.corporate_insider_signals||0]
+    [m.name, m.party, m.state, m.chamber, m.displayScore, m.careerEarnings||'', m.total_raised||0, m.pac_contributions||0, secSignals(m)]
   ];
   const csv = rows.map(r => r.map(csvField).join(',')).join('\n');
   const a = document.createElement('a');
