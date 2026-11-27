@@ -59,7 +59,7 @@ def main():
                         assert 'CORPORATE INSIDER ACTIVITY' not in text,(bid,panel,text)
                         assert 'CORPORATE INSIDER SIGNALS DETECTED' not in text,(bid,panel,text)
                         assert 'No stock trades or corporate insider signals found' not in text
-                    if bid in ['L000566','M001169']:
+                    if bid in ['L000566','M001169','R000579']:
                         page.locator('.ptab[data-panel="stocks"]').click()
                         page.screenshot(path=str(artifacts/f'{bid}-{width}.png'),full_page=True)
                     results.append({'id':bid,'width':width,'score':m['score'],'panels':3})

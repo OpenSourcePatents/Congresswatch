@@ -9,6 +9,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from sec_identity import eligible_sec_signals
 from validation.scrub_sec_outputs import scrub_record
+from validation.reconcile_finance import verified_manifest, reconcile_record, original as git_original
 
 
 def main():
@@ -18,18 +19,27 @@ def main():
         return json.loads(subprocess.check_output(['git','show',f'{base}:{path}'],cwd=ROOT))
     current=json.loads((ROOT/'data/members.json').read_text())
     old={m['id']:m for m in original('data/members.json')}
+    finance=verified_manifest()
+    prior_review=finance['prior_review_sha']
     allowed={'score','score_components','flags','sec_attribution_version'}
     score_changes=[];raw_total=0
     for m in current:
         bid=m['id'];path=f'data/details/{bid}.json'
         before=original(path);after=json.loads((ROOT/path).read_text())
-        for label,a,b in [('roster',old[bid],m),('detail',before,after)]:
+        previous=git_original(prior_review,path)
+        trace=finance['members'][bid]
+        expected_detail=reconcile_record(before,previous,trace)
+        expected_roster=reconcile_record(old[bid],previous,trace)
+        for label,a,b in [('roster',expected_roster,m),('detail',expected_detail,after)]:
             changed={k for k in a.keys()|b.keys() if a.get(k)!=b.get(k)}
             assert changed<=allowed,(bid,label,changed-allowed)
             assert [x for x in a.get('flags',[]) if x!='trade']==[x for x in b['flags'] if x!='trade']
         for key,value in before['score_components'].items():
             if key!='trade_timing':assert after['score_components'][key]==value,(bid,key)
-        assert m['score']==after['score']==min(sum(after['score_components'].values()),100)
+        assert m['score']==after['score']==previous['score']==min(sum(after['score_components'].values()),100)
+        assert after['flags']==previous['flags']
+        for key in ('trades','votes','bills','travel','score_components'):
+            assert after.get(key)==previous.get(key),(bid,key)
         assert m['score_components']==after['score_components']
         assert scrub_record(after,after)==after,bid
         assert scrub_record(m,after)==m,bid
@@ -50,19 +60,20 @@ def main():
     paths=subprocess.check_output(['git','diff',base,'--name-only','--','data'],cwd=ROOT,text=True).splitlines()
     assert set(paths)<={f'data/details/{bid}.json' for bid in old}|{'data/members.json','data/stats.json'}
     hashes={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'data').rglob('*.json')}
-    result={'base_sha':base,'members':len(current),'raw_arrays_and_provenance':'unchanged',
+    result={'base_sha':base,'members':len(current),'raw_arrays':'unchanged','raw_sec_provenance':'complete incoming/prior pairs retained in pinned manifest',
             'non_sec_components':'unchanged','non_sec_flags':'unchanged','replay':'identical',
             'raw_sec_count_preserved':raw_total,'eligible_sec_count':0,'score_changes':score_changes,
             'data_manifest_sha256':hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()}
     if pins.get('previous_base_sha'):
         prior = {m['id']: m for m in json.loads(subprocess.check_output(
             ['git','show',pins['previous_base_sha']+':data/members.json'],cwd=ROOT))}
-        upstream_changes = {bid for bid in old if old[bid]['score'] != prior[bid]['score']}
+        historical = {m['id']:m for m in git_original(pins['score_reconciliation_target_sha'],'data/members.json')}
+        upstream_changes = {bid for bid in historical if historical[bid]['score'] != prior[bid]['score']}
         sec_changes = {row['id'] for row in score_changes}
         overlap = sorted(upstream_changes & sec_changes)
         for m in current:
             if m['id'] in upstream_changes - sec_changes:
-                assert m['score'] == old[m['id']]['score'], m['id']
+                assert m['score'] == historical[m['id']]['score'], m['id']
         result['reconciliation'] = {
             'previous_base_sha': pins['previous_base_sha'],
             'previous_review_sha': pins['previous_review_sha'],
@@ -75,18 +86,20 @@ def main():
         attempt_base = pins['attempt_metadata_base_sha']
         prior_roster = {m['id']: m for m in json.loads(subprocess.check_output(
             ['git','show',attempt_base+':data/members.json'],cwd=ROOT))}
+        target = pins['attempt_metadata_target_sha']
+        target_roster = {m['id']:m for m in git_original(target,'data/members.json')}
         attempt_paths = subprocess.check_output(
-            ['git','diff','--name-only',attempt_base,base],cwd=ROOT,text=True).splitlines()
+            ['git','diff','--name-only',attempt_base,target],cwd=ROOT,text=True).splitlines()
         assert set(attempt_paths) == {'data/members.json'} | {
             f'data/details/{bid}.json' for bid in old}
         for m in current:
             bid = m['id']
-            assert {k for k in prior_roster[bid].keys() | old[bid].keys()
-                    if prior_roster[bid].get(k) != old[bid].get(k)} == {'data_updated'}
+            assert {k for k in prior_roster[bid].keys() | target_roster[bid].keys()
+                    if prior_roster[bid].get(k) != target_roster[bid].get(k)} == {'data_updated'}
             path = f'data/details/{bid}.json'
             prior = json.loads(subprocess.check_output(
                 ['git','show',attempt_base+':'+path],cwd=ROOT))
-            upstream = original(path)
+            upstream = git_original(target,path)
             after = json.loads((ROOT/path).read_text())
             assert {k for k in prior.keys() | upstream.keys()
                     if prior.get(k) != upstream.get(k)} == {'votes_updated','votes_fail_count'}
@@ -103,6 +116,7 @@ def main():
             'vote_arrays_and_other_fields': 'unchanged',
             'fresh_vote_evidence': False,
         }
+    result['finance_reconciliation']={'members':539,'failed_attempts':114,'alias_500_lines':124,'effective_scores_and_flags_vs_prior_review':'identical','raw_observations_manifest':'validation/finance_run_46018133463.json'}
     print(json.dumps(result,indent=2))
 
 

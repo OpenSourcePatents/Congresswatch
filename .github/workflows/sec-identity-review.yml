@@ -37,7 +37,7 @@ jobs:
       - run: pip install requests==2.32.5 ruff==0.14.6 playwright==1.56.0
       - run: npm ci --no-audit --no-fund
       - run: npm run lint && npm run build
-      - run: python -m unittest test_sec_identity -v && python test_delegates.py
+      - run: python -m unittest test_sec_identity test_finance_reconciliation -v && python test_delegates.py
       - name: Prove all-member scope and exact regeneration
         run: |
           mkdir -p validation/artifacts

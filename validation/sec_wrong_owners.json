@@ -1,5 +1,5 @@
 {
-  "base_sha": "87b452d47cf8f1c70a20abf80e79529b9e427a75",
+  "base_sha": "d8c9c8b480c54437fae4ac53406349c544752b56",
   "retrieved_at_utc": "2026-11-26",
   "source": "Official SEC submissions responses, raw response SHA-256 recorded; no identity assertion granted.",
   "cases": [
@@ -253,10 +253,41 @@
         },
         "edgar_cik": "0001936128"
       }
+    },
+    {
+      "id": "R000579",
+      "cik": "0001897386",
+      "url": "https://data.sec.gov/submissions/CIK0001897386.json",
+      "status": 200,
+      "name": "Thompson Patrick Ryan",
+      "sha256": "d65c92853988e914ec1bf89095ac5055527c536b925ab4b083510d57a2c10b13",
+      "member_name": "Patrick Ryan",
+      "retrieved_at_utc": "2026-11-27",
+      "original": {
+        "id": "R000579",
+        "score": 45,
+        "flags": [
+          "trade"
+        ],
+        "corporate_insider_signals": 9,
+        "edgar_signal_type": "corporate_insider",
+        "edgar_status": "verified_auto",
+        "score_components": {
+          "trade_timing": 25,
+          "wealth_gap": 15,
+          "donor_alignment": 4,
+          "alec_similarity": 0,
+          "foreign_travel": 0,
+          "attendance": 1
+        },
+        "edgar_cik": "0001897386"
+      }
     }
   ],
   "previous_base_sha": "336b20293c30db2dce98fe9ba5c9261ed8beb16f",
   "previous_review_sha": "8f6673e50beb64f33e60d2140cf6316b53d9915c",
   "attempt_metadata_base_sha": "22298ed4752610f785ed7122c23cef1d19db830b",
-  "attempt_metadata_review_sha": "79093aea4dbbac34de0acc10eeda104282edbfbd"
+  "attempt_metadata_review_sha": "79093aea4dbbac34de0acc10eeda104282edbfbd",
+  "attempt_metadata_target_sha": "87b452d47cf8f1c70a20abf80e79529b9e427a75",
+  "score_reconciliation_target_sha": "22298ed4752610f785ed7122c23cef1d19db830b"
 }

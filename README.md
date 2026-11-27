@@ -161,3 +161,24 @@ Offline review: `npm ci`, `pip install requests ruff playwright`, `npm run lint`
 (after installing Playwright Chromium). The review workflow is read-only and
 publishes no site or data. The focused review branch skips Vercel builds. No
 production source workflow is required to validate this change.
+
+
+### Reviewed finance snapshot reconciliation (27 November 2026)
+
+The focused SEC review retains the complete incoming and prior raw CIK/count/status
+observations in `validation/finance_run_46018133463.json`, with member-bound job
+log excerpts and the original job-log hash. `validation/reconcile_finance.py`
+replays the reviewed failure rules offline: any failed alias or count query keeps
+the prior detail CIK/count together and marks the attempt stale or unavailable.
+A partial search's zero is not a clean result. Successful automatic candidates
+remain unverified and cannot contribute SEC scores, flags or warnings.
+
+The incoming nine-filing CIK for Rep. Patrick Ryan was returned after a failed
+alias query. The official submissions response identifies `0001897386` as
+`Thompson Patrick Ryan`, a different filer; its URL and response hash are retained.
+The rejected observation remains inspectable, while the prior raw pair is kept.
+Neither pair establishes congressional identity. No last-good timestamp is
+invented from buffered job logs or upstream processing timestamps. All 539
+effective scores and flags match the previous reviewed snapshot; genuine trade
+rows and other components are unchanged. Production ingestion logic is unchanged
+by this reconciliation; it already contains the reviewed fail-closed rules.

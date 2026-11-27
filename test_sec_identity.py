@@ -84,7 +84,7 @@ class SecIdentityTests(unittest.TestCase):
 
     def test_current_wrong_owners_and_historical_regressions(self):
         cases=json.loads(Path('validation/sec_wrong_owners.json').read_text())['cases']
-        self.assertEqual(len(cases),9)
+        self.assertEqual({case['id'] for case in cases}, {'L000566','T000463','W000806','H001072','J000307','M001169','W000805','S001184','S000185','R000579'})
         for case in cases:
             with self.subTest(member=case['member_name']):
                 m=case['original']
