@@ -970,11 +970,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial"
+          "Real Estate": [
+            "property"
           ]
         }
       }
@@ -1012,7 +1012,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.051,
+      "alec_best_similarity": 0.05,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1020,15 +1020,9 @@
         "F000478"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Finance & Banking"
-        ],
-        "keyword_hits": {
-          "Finance & Banking": [
-            "interest"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1069,19 +1063,19 @@
       "alec_match": null,
       "similar_member_bills": [
         {
-          "bill_id": "HR7299-119",
-          "sponsor_id": "S001200",
-          "similarity_score": 0.96
-        },
-        {
           "bill_id": "HR6849-119",
           "sponsor_id": "D000623",
           "similarity_score": 0.941
         },
         {
+          "bill_id": "HR7299-119",
+          "sponsor_id": "S001200",
+          "similarity_score": 0.94
+        },
+        {
           "bill_id": "HR7365-119",
           "sponsor_id": "K000399",
-          "similarity_score": 0.931
+          "similarity_score": 0.93
         }
       ],
       "cosponsors": [
@@ -1148,18 +1142,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking",
-          "Technology"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "interest"
-          ],
-          "Technology": [
-            "technology",
-            "internet",
-            "platform"
+          "Real Estate": [
+            "development"
           ]
         }
       }
@@ -1301,16 +1288,9 @@
         "S001205"
       ],
       "donor_interest": {
-        "match": true,
-        "matched_industries": [
-          "Technology"
-        ],
-        "keyword_hits": {
-          "Technology": [
-            "internet",
-            "data"
-          ]
-        }
+        "match": false,
+        "matched_industries": [],
+        "keyword_hits": {}
       }
     },
     {
@@ -1346,7 +1326,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.067,
+      "alec_best_similarity": 0.066,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1354,15 +1334,13 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Finance & Banking"
+          "Real Estate"
         ],
         "keyword_hits": {
-          "Finance & Banking": [
-            "financial",
-            "credit",
+          "Real Estate": [
             "mortgage",
-            "interest",
-            "securities"
+            "construction",
+            "property"
           ]
         }
       }
@@ -1412,9 +1390,15 @@
         "H001103"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Real Estate"
+        ],
+        "keyword_hits": {
+          "Real Estate": [
+            "property"
+          ]
+        }
       }
     },
     {
@@ -1473,11 +1457,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-26T19:22:31.371216+00:00",
+  "bills_updated": "2026-11-27T18:47:23.577610+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 25.0,
+  "donor_alignment_score": 20.0,
   "alec_match_count": 0,
-  "donor_match_count": 5,
+  "donor_match_count": 4,
   "edgar_status": "unresolved",
   "trades": [
     {

@@ -1025,9 +1025,15 @@
         "B001281"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Education"
+        ],
+        "keyword_hits": {
+          "Education": [
+            "education"
+          ]
+        }
       }
     },
     {
@@ -1073,11 +1079,19 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Technology",
+          "Education"
         ],
         "keyword_hits": {
-          "Real Estate": [
-            "construction"
+          "Technology": [
+            "technology"
+          ],
+          "Education": [
+            "education",
+            "school",
+            "college",
+            "university",
+            "grant"
           ]
         }
       }
@@ -1125,11 +1139,14 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Technology"
         ],
         "keyword_hits": {
-          "Real Estate": [
-            "development"
+          "Technology": [
+            "data",
+            "privacy",
+            "artificial_intelligence",
+            "software"
           ]
         }
       }
@@ -1235,7 +1252,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.075,
+      "alec_best_similarity": 0.073,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1246,11 +1263,11 @@
       "donor_interest": {
         "match": true,
         "matched_industries": [
-          "Real Estate"
+          "Technology"
         ],
         "keyword_hits": {
-          "Real Estate": [
-            "development"
+          "Technology": [
+            "data"
           ]
         }
       }
@@ -1335,7 +1352,7 @@
       ],
       "has_text": true,
       "similarity_score": null,
-      "alec_best_similarity": 0.049,
+      "alec_best_similarity": 0.048,
       "match_type": null,
       "alec_match": null,
       "similar_member_bills": [],
@@ -1395,9 +1412,19 @@
         "F000468"
       ],
       "donor_interest": {
-        "match": false,
-        "matched_industries": [],
-        "keyword_hits": {}
+        "match": true,
+        "matched_industries": [
+          "Technology",
+          "Education"
+        ],
+        "keyword_hits": {
+          "Technology": [
+            "technology"
+          ],
+          "Education": [
+            "grant"
+          ]
+        }
       }
     },
     {
@@ -1447,11 +1474,11 @@
       }
     }
   ],
-  "bills_updated": "2026-11-26T19:24:21.489740+00:00",
+  "bills_updated": "2026-11-27T18:48:59.091008+00:00",
   "bills_count": 10,
-  "donor_alignment_score": 20.0,
+  "donor_alignment_score": 30.0,
   "alec_match_count": 0,
-  "donor_match_count": 4,
+  "donor_match_count": 6,
   "edgar_status": "unresolved",
   "travel": [
     {
