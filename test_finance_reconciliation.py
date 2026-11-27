@@ -49,6 +49,15 @@ class FinanceReconciliation(unittest.TestCase):
         with self.assertRaises(AssertionError):
             reconcile_record({}, {'edgar_identity_status':'verified'}, {'log_lines':['EDGAR: unresolved']})
 
+    def test_failed_unknown_preserves_explicit_null_field(self):
+        result=reconcile_record({'edgar_cik':None,'corporate_insider_signals':0},
+                                {'corporate_insider_signals':0},
+                                {'log_lines':['SEC search failed: 500']})
+        self.assertIn('edgar_cik',result)
+        self.assertIsNone(result['edgar_cik'])
+        self.assertEqual(result['corporate_insider_signals'],0)
+        self.assertEqual(result['edgar_data_status'],'unavailable')
+
     def test_actual_manifest_preserves_rejected_observations(self):
         data=verified_manifest()
         r=data['members']['R000579']

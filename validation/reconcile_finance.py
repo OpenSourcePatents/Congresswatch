@@ -44,8 +44,9 @@ def reconcile_record(record, prior, trace):
         for key in ('edgar_cik', 'corporate_insider_signals', 'edgar_updated'):
             if key in prior:
                 result[key] = copy.deepcopy(prior[key])
-            else:
-                result.pop(key, None)
+            elif key in result:
+                # Preserve an explicit nullable field in legacy serialization.
+                result[key] = None
         result['edgar_data_status'] = 'stale' if prior.get('edgar_cik') and prior.get('corporate_insider_signals') is not None else 'unavailable'
     elif status == 'unverified_auto':
         hits = [re.search(r'EDGAR Hit: (\d+) filings via CIK (\d+)', line)
